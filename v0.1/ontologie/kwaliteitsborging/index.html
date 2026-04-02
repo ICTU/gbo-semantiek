@@ -12,9 +12,13 @@
         <meta name="author" content="GBO Semantiek Werkgroep">
       
       
-        <link rel="canonical" href="https://brienen.github.io/gbo-semantiek/v0.1/definities/definitie_Relatieklasse/">
+        <link rel="canonical" href="https://brienen.github.io/gbo-semantiek/v0.1/ontologie/kwaliteitsborging/">
       
       
+        <link rel="prev" href="../koppeling-skos/">
+      
+      
+        <link rel="next" href="../../json-ld/context/">
       
       
       <link rel="icon" href="../../assets/favicon.png">
@@ -22,7 +26,7 @@
     
     
       
-        <title>Relatieklasse - GBO Semantiek</title>
+        <title>6.4 Kwaliteitsborging - GBO Semantiek</title>
       
     
     
@@ -74,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#relatieklasse" class="md-skip">
+        <a href="#kwaliteitsborging" class="md-skip">
           Ga naar inhoud
         </a>
       
@@ -113,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Relatieklasse
+              6.4 Kwaliteitsborging
             
           </span>
         </div>
@@ -859,8 +863,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -870,13 +876,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
@@ -890,7 +894,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             6. Ontologie-publicatie
@@ -904,7 +908,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ontologie/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -925,7 +929,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ontologie/publicatie/" class="md-nav__link">
+      <a href="../publicatie/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -946,7 +950,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ontologie/koppeling-skos/" class="md-nav__link">
+      <a href="../koppeling-skos/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -964,10 +968,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../ontologie/kwaliteitsborging/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    6.4 Kwaliteitsborging
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -976,6 +1000,88 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Op deze pagina">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Op deze pagina
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#validatie-aanpak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validatie-aanpak
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#owl-validator" class="md-nav__link">
+    <span class="md-ellipsis">
+      OWL validator
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OWL validator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tooling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tooling
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ontology-pitfall-scanner-oops" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ontology Pitfall Scanner (OOPS!)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shacl-validatie" class="md-nav__link">
+    <span class="md-ellipsis">
+      SHACL-validatie
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kwaliteitscriteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kwaliteitscriteria
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1262,28 +1368,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#inleiding" class="md-nav__link">
+  <a href="#validatie-aanpak" class="md-nav__link">
     <span class="md-ellipsis">
-      Inleiding
+      Validatie-aanpak
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#objecttypen-relatieklasse" class="md-nav__link">
+  <a href="#owl-validator" class="md-nav__link">
     <span class="md-ellipsis">
-      Objecttypen Relatieklasse
+      OWL validator
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Objecttypen Relatieklasse">
+    <nav class="md-nav" aria-label="OWL validator">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#locatieaanduidingadreswozobject" class="md-nav__link">
+  <a href="#tooling" class="md-nav__link">
     <span class="md-ellipsis">
-      LocatieaanduidingAdresWOZObject
+      Tooling
     </span>
   </a>
   
@@ -1291,6 +1397,33 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ontology-pitfall-scanner-oops" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ontology Pitfall Scanner (OOPS!)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shacl-validatie" class="md-nav__link">
+    <span class="md-ellipsis">
+      SHACL-validatie
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kwaliteitscriteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kwaliteitscriteria
+    </span>
+  </a>
   
 </li>
       
@@ -1309,7 +1442,7 @@
                   
 
   
-    <a href="https://github.com/brienen/gbo-semantiek/edit/main/docs/definities/definitie_Relatieklasse.md" title="Wijzig deze pagina" class="md-content__button md-icon">
+    <a href="https://github.com/brienen/gbo-semantiek/edit/main/docs/ontologie/kwaliteitsborging.md" title="Wijzig deze pagina" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -1317,145 +1450,89 @@
   
 
 
-<h1 id="relatieklasse">Relatieklasse<a class="headerlink" href="#relatieklasse" title="Permanent link">&para;</a></h1>
-<h2 id="inleiding">Inleiding<a class="headerlink" href="#inleiding" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p><strong>Definitie Relatieklasse:</strong></p>
-<p>Geen definitie</p>
-</blockquote>
-<details class="info">
-<summary>Kenmerken Model Relatieklasse</summary>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Kenmerk</th>
-<th style="text-align: left;">Waarde</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">name</td>
-<td style="text-align: left;">Relatieklasse</td>
-</tr>
-<tr>
-<td style="text-align: left;">toelichting</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">synoniemen</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">uri</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">bron</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">author</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">version</td>
-<td style="text-align: left;">1.3</td>
-</tr>
-<tr>
-<td style="text-align: left;">created</td>
-<td style="text-align: left;">2018-03-21 15:46:54</td>
-</tr>
-<tr>
-<td style="text-align: left;">modified</td>
-<td style="text-align: left;">2025-12-22 15:27:03</td>
-</tr>
-<tr>
-<td style="text-align: left;">id</td>
-<td style="text-align: left;">EAPK_B654E255_2E53_4ed6_BF3D_F8C88EE4F63A</td>
-</tr>
-</tbody>
-</table>
-</details>
-<p>Het model 'Relatieklasse' kent de volgende objecttypen:</p>
+<h1 id="kwaliteitsborging">Kwaliteitsborging<a class="headerlink" href="#kwaliteitsborging" title="Permanent link">&para;</a></h1>
+<h2 id="validatie-aanpak">Validatie-aanpak<a class="headerlink" href="#validatie-aanpak" title="Permanent link">&para;</a></h2>
+<p>De kwaliteit van de gepubliceerde ontologie wordt geborgd via geautomatiseerde en handmatige controles.</p>
+<h2 id="owl-validator">OWL validator<a class="headerlink" href="#owl-validator" title="Permanent link">&para;</a></h2>
+<p>De ontologie wordt gevalideerd op syntactische en logische correctheid:</p>
 <ul>
-<li><strong>LocatieaanduidingAdresWOZObject</strong>: Nadere aanduiding van het WOZ-object middels een locatieomschrijving van ADRESSEERBAAR OBJECT AANDUIDING.</li>
+<li><strong>Syntaxcontrole</strong> — is het Turtle-bestand correct geformatteerd?</li>
+<li><strong>Logische consistentie</strong> — bevat de ontologie geen tegenstrijdigheden?</li>
+<li><strong>Completeness</strong> — heeft elke klasse en eigenschap een label en definitie?</li>
 </ul>
-<h2 id="objecttypen-relatieklasse">Objecttypen Relatieklasse<a class="headerlink" href="#objecttypen-relatieklasse" title="Permanent link">&para;</a></h2>
-<h3 id="locatieaanduidingadreswozobject">LocatieaanduidingAdresWOZObject<a class="headerlink" href="#locatieaanduidingadreswozobject" title="Permanent link">&para;</a></h3>
-<blockquote>
-<p><strong>Definitie LocatieaanduidingAdresWOZObject:</strong></p>
-<p>Nadere aanduiding van het WOZ-object middels een locatieomschrijving van ADRESSEERBAAR OBJECT AANDUIDING.</p>
-</blockquote>
-<details class="info">
-<summary>Kenmerken Model LocatieaanduidingAdresWOZObject</summary>
+<h3 id="tooling">Tooling<a class="headerlink" href="#tooling" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Eigenschap</th>
-<th style="text-align: left;">Waarde</th>
+<th>Tool</th>
+<th>Doel</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">name</td>
-<td style="text-align: left;">LocatieaanduidingAdresWOZObject</td>
+<td><a href="https://jena.apache.org/">Apache Jena <code>riot</code></a></td>
+<td>RDF/Turtle syntaxvalidatie</td>
 </tr>
 <tr>
-<td style="text-align: left;">toelichting</td>
-<td style="text-align: left;"></td>
+<td><a href="https://protege.stanford.edu/">Protege</a></td>
+<td>OWL-redenering en consistentiecontrole</td>
 </tr>
 <tr>
-<td style="text-align: left;">synoniemen</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">uri</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">bron</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">author</td>
-<td style="text-align: left;">debat_e</td>
-</tr>
-<tr>
-<td style="text-align: left;">version</td>
-<td style="text-align: left;">1.12.0</td>
-</tr>
-<tr>
-<td style="text-align: left;">created</td>
-<td style="text-align: left;">2011-11-28 14:45:08</td>
-</tr>
-<tr>
-<td style="text-align: left;">modified</td>
-<td style="text-align: left;">2025-12-22 15:27:03</td>
-</tr>
-<tr>
-<td style="text-align: left;">id</td>
-<td style="text-align: left;">EAID_DF81069D_CBE4_433e_AB7C_CB06170275C9</td>
+<td><a href="https://oops.linkeddata.es/">OOPS! Ontology Pitfall Scanner</a></td>
+<td>Detectie van veelvoorkomende ontwerpfouten</td>
 </tr>
 </tbody>
 </table>
-</details>
-<p>Attributen van objecttype LocatieaanduidingAdresWOZObject</p>
+<h2 id="ontology-pitfall-scanner-oops">Ontology Pitfall Scanner (OOPS!)<a class="headerlink" href="#ontology-pitfall-scanner-oops" title="Permanent link">&para;</a></h2>
+<p><a href="https://oops.linkeddata.es/">OOPS!</a> is een online tool die ontologieën scant op veelvoorkomende fouten, waaronder:</p>
+<ul>
+<li>Ontbrekende labels of definities</li>
+<li>Onjuiste domein- of bereikdefinities</li>
+<li>Cyclische hiërarchieën</li>
+<li>Verwarrende naamgeving</li>
+</ul>
+<h2 id="shacl-validatie">SHACL-validatie<a class="headerlink" href="#shacl-validatie" title="Permanent link">&para;</a></h2>
+<p>Naast de ontologie zelf worden SHACL shapes opgesteld om instantiedata te valideren:</p>
+<ul>
+<li>Cardinaliteitseisen (verplichte velden)</li>
+<li>Datatype-constraints</li>
+<li>Waardelijst-restricties</li>
+</ul>
+<h2 id="kwaliteitscriteria">Kwaliteitscriteria<a class="headerlink" href="#kwaliteitscriteria" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Attribuut</th>
-<th style="text-align: left;">Datatype</th>
-<th style="text-align: left;">Beschrijving</th>
+<th>Criterium</th>
+<th>Eis</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">locatieOmschrijving</td>
-<td style="text-align: left;">AN40</td>
-<td style="text-align: left;">De aanvullende omschrijving van de ligging van een WOZ-OBJECT ten opzichte van een betrokken of het dichtstbijzijnde VERBLIJFSOBJECT, STANDPLAATS, LIGPLAATS, OVERIG GEBOUWD OBJECT of OVERIG BENOEMD TERREIN.</td>
+<td>Elke klasse heeft een <code>rdfs:label</code></td>
+<td>Verplicht</td>
+</tr>
+<tr>
+<td>Elke klasse heeft een <code>rdfs:comment</code> of <code>skos:definition</code></td>
+<td>Verplicht</td>
+</tr>
+<tr>
+<td>Elke eigenschap heeft een domein en bereik</td>
+<td>Aanbevolen</td>
+</tr>
+<tr>
+<td>Geen <code>OOPS!</code> critical pitfalls</td>
+<td>Verplicht</td>
+</tr>
+<tr>
+<td>Syntaxvalidatie met <code>riot</code> slaagt</td>
+<td>Verplicht</td>
 </tr>
 </tbody>
 </table>
+<div class="admonition note">
+<p class="admonition-title">Placeholder</p>
+<p>Het kwaliteitsproces wordt verder uitgewerkt bij de oplevering van de ontologie.</p>
+</div>
 
 
 
@@ -1486,6 +1563,44 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../koppeling-skos/" class="md-footer__link md-footer__link--prev" aria-label="Vorige: 6.3 Koppeling met SKOS">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Vorige
+              </span>
+              <div class="md-ellipsis">
+                6.3 Koppeling met SKOS
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../json-ld/context/" class="md-footer__link md-footer__link--next" aria-label="Volgende: 7.1 &#34;@context&#34;-definitie">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Volgende
+              </span>
+              <div class="md-ellipsis">
+                7.1 "@context"-definitie
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">

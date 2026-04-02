@@ -12,9 +12,13 @@
         <meta name="author" content="GBO Semantiek Werkgroep">
       
       
-        <link rel="canonical" href="https://brienen.github.io/gbo-semantiek/v0.1/definities/definitie_Relatieklasse/">
+        <link rel="canonical" href="https://brienen.github.io/gbo-semantiek/v0.1/architectuur/ontwerpprincipes/">
       
       
+        <link rel="prev" href="../../inleiding/leeswijzer/">
+      
+      
+        <link rel="next" href="../standaarden/">
       
       
       <link rel="icon" href="../../assets/favicon.png">
@@ -22,7 +26,7 @@
     
     
       
-        <title>Relatieklasse - GBO Semantiek</title>
+        <title>2.1 Ontwerpprincipes - GBO Semantiek</title>
       
     
     
@@ -74,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#relatieklasse" class="md-skip">
+        <a href="#ontwerpprincipes" class="md-skip">
           Ga naar inhoud
         </a>
       
@@ -113,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Relatieklasse
+              2.1 Ontwerpprincipes
             
           </span>
         </div>
@@ -369,8 +373,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -380,13 +386,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -400,7 +404,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             2. Architectuurprincipes en kaders
@@ -411,10 +415,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../architectuur/ontwerpprincipes/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    2.1 Ontwerpprincipes
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -423,6 +447,73 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Op deze pagina">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Op deze pagina
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fair" class="md-nav__link">
+    <span class="md-ellipsis">
+      FAIR
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linked-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linked Data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-ground" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Ground
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-bij-de-bron" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data bij de bron
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overige-principes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overige principes
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -435,7 +526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectuur/standaarden/" class="md-nav__link">
+      <a href="../standaarden/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -456,7 +547,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectuur/relatie-standaarden/" class="md-nav__link">
+      <a href="../relatie-standaarden/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -477,7 +568,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectuur/uri-strategie/" class="md-nav__link">
+      <a href="../uri-strategie/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1262,35 +1353,47 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#inleiding" class="md-nav__link">
+  <a href="#fair" class="md-nav__link">
     <span class="md-ellipsis">
-      Inleiding
+      FAIR
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#objecttypen-relatieklasse" class="md-nav__link">
+  <a href="#linked-data" class="md-nav__link">
     <span class="md-ellipsis">
-      Objecttypen Relatieklasse
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Objecttypen Relatieklasse">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#locatieaanduidingadreswozobject" class="md-nav__link">
-    <span class="md-ellipsis">
-      LocatieaanduidingAdresWOZObject
+      Linked Data
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#common-ground" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Ground
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-bij-de-bron" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data bij de bron
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overige-principes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overige principes
+    </span>
+  </a>
   
 </li>
       
@@ -1309,7 +1412,7 @@
                   
 
   
-    <a href="https://github.com/brienen/gbo-semantiek/edit/main/docs/definities/definitie_Relatieklasse.md" title="Wijzig deze pagina" class="md-content__button md-icon">
+    <a href="https://github.com/brienen/gbo-semantiek/edit/main/docs/architectuur/ontwerpprincipes.md" title="Wijzig deze pagina" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -1317,145 +1420,45 @@
   
 
 
-<h1 id="relatieklasse">Relatieklasse<a class="headerlink" href="#relatieklasse" title="Permanent link">&para;</a></h1>
-<h2 id="inleiding">Inleiding<a class="headerlink" href="#inleiding" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p><strong>Definitie Relatieklasse:</strong></p>
-<p>Geen definitie</p>
-</blockquote>
-<details class="info">
-<summary>Kenmerken Model Relatieklasse</summary>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Kenmerk</th>
-<th style="text-align: left;">Waarde</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">name</td>
-<td style="text-align: left;">Relatieklasse</td>
-</tr>
-<tr>
-<td style="text-align: left;">toelichting</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">synoniemen</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">uri</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">bron</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">author</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">version</td>
-<td style="text-align: left;">1.3</td>
-</tr>
-<tr>
-<td style="text-align: left;">created</td>
-<td style="text-align: left;">2018-03-21 15:46:54</td>
-</tr>
-<tr>
-<td style="text-align: left;">modified</td>
-<td style="text-align: left;">2025-12-22 15:27:03</td>
-</tr>
-<tr>
-<td style="text-align: left;">id</td>
-<td style="text-align: left;">EAPK_B654E255_2E53_4ed6_BF3D_F8C88EE4F63A</td>
-</tr>
-</tbody>
-</table>
-</details>
-<p>Het model 'Relatieklasse' kent de volgende objecttypen:</p>
+<h1 id="ontwerpprincipes">Ontwerpprincipes<a class="headerlink" href="#ontwerpprincipes" title="Permanent link">&para;</a></h1>
+<p>GBO Semantiek is ontworpen vanuit de volgende principes:</p>
+<h2 id="fair">FAIR<a class="headerlink" href="#fair" title="Permanent link">&para;</a></h2>
+<p>De standaard volgt de <a href="https://www.go-fair.org/fair-principles/">FAIR-principes</a> voor data:</p>
 <ul>
-<li><strong>LocatieaanduidingAdresWOZObject</strong>: Nadere aanduiding van het WOZ-object middels een locatieomschrijving van ADRESSEERBAAR OBJECT AANDUIDING.</li>
+<li><strong>Findable</strong> — begrippen en objecten zijn vindbaar via unieke URI's</li>
+<li><strong>Accessible</strong> — alle artefacten zijn vrij toegankelijk via het web</li>
+<li><strong>Interoperable</strong> — gebruik van open standaarden (RDF, OWL, SKOS, JSON-LD)</li>
+<li><strong>Reusable</strong> — duidelijke licentie (EUPL-1.2) en documentatie voor hergebruik</li>
 </ul>
-<h2 id="objecttypen-relatieklasse">Objecttypen Relatieklasse<a class="headerlink" href="#objecttypen-relatieklasse" title="Permanent link">&para;</a></h2>
-<h3 id="locatieaanduidingadreswozobject">LocatieaanduidingAdresWOZObject<a class="headerlink" href="#locatieaanduidingadreswozobject" title="Permanent link">&para;</a></h3>
-<blockquote>
-<p><strong>Definitie LocatieaanduidingAdresWOZObject:</strong></p>
-<p>Nadere aanduiding van het WOZ-object middels een locatieomschrijving van ADRESSEERBAAR OBJECT AANDUIDING.</p>
-</blockquote>
-<details class="info">
-<summary>Kenmerken Model LocatieaanduidingAdresWOZObject</summary>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Eigenschap</th>
-<th style="text-align: left;">Waarde</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">name</td>
-<td style="text-align: left;">LocatieaanduidingAdresWOZObject</td>
-</tr>
-<tr>
-<td style="text-align: left;">toelichting</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">synoniemen</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">uri</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">bron</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">author</td>
-<td style="text-align: left;">debat_e</td>
-</tr>
-<tr>
-<td style="text-align: left;">version</td>
-<td style="text-align: left;">1.12.0</td>
-</tr>
-<tr>
-<td style="text-align: left;">created</td>
-<td style="text-align: left;">2011-11-28 14:45:08</td>
-</tr>
-<tr>
-<td style="text-align: left;">modified</td>
-<td style="text-align: left;">2025-12-22 15:27:03</td>
-</tr>
-<tr>
-<td style="text-align: left;">id</td>
-<td style="text-align: left;">EAID_DF81069D_CBE4_433e_AB7C_CB06170275C9</td>
-</tr>
-</tbody>
-</table>
-</details>
-<p>Attributen van objecttype LocatieaanduidingAdresWOZObject</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Attribuut</th>
-<th style="text-align: left;">Datatype</th>
-<th style="text-align: left;">Beschrijving</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">locatieOmschrijving</td>
-<td style="text-align: left;">AN40</td>
-<td style="text-align: left;">De aanvullende omschrijving van de ligging van een WOZ-OBJECT ten opzichte van een betrokken of het dichtstbijzijnde VERBLIJFSOBJECT, STANDPLAATS, LIGPLAATS, OVERIG GEBOUWD OBJECT of OVERIG BENOEMD TERREIN.</td>
-</tr>
-</tbody>
-</table>
+<h2 id="linked-data">Linked Data<a class="headerlink" href="#linked-data" title="Permanent link">&para;</a></h2>
+<p>GBO Semantiek publiceert gegevens conform de <a href="https://www.w3.org/DesignIssues/LinkedData.html">Linked Data principes</a>:</p>
+<ol>
+<li>Gebruik URI's om dingen te identificeren</li>
+<li>Gebruik HTTP-URI's zodat mensen ze kunnen opzoeken</li>
+<li>Lever nuttige informatie bij het opzoeken van een URI (RDF, SPARQL)</li>
+<li>Verwijs naar andere URI's om meer dingen te ontdekken</li>
+</ol>
+<h2 id="common-ground">Common Ground<a class="headerlink" href="#common-ground" title="Permanent link">&para;</a></h2>
+<p>De standaard sluit aan bij de <a href="https://commonground.nl/">Common Ground</a> visie van VNG:</p>
+<ul>
+<li><strong>Data bij de bron</strong> — gegevens worden niet gekopieerd maar bij de bron bevraagd</li>
+<li><strong>Open standaarden</strong> — gebruik van open en breed gedragen standaarden</li>
+<li><strong>Componentgebaseerd</strong> — losse, herbruikbare componenten in plaats van monolithische systemen</li>
+</ul>
+<h2 id="data-bij-de-bron">Data bij de bron<a class="headerlink" href="#data-bij-de-bron" title="Permanent link">&para;</a></h2>
+<p>Gegevens worden eenmalig geregistreerd en bij de bron ontsloten. Het semantisch model faciliteert dit door:</p>
+<ul>
+<li>Eenduidige identificatie via URI's</li>
+<li>Gestandaardiseerde vocabulaires die bronnen verbinden</li>
+<li>Machine-leesbare beschrijvingen die automatische koppeling mogelijk maken</li>
+</ul>
+<h2 id="overige-principes">Overige principes<a class="headerlink" href="#overige-principes" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Separation of concerns</strong> — begrippen, model en artefacten zijn afzonderlijk beheerbaar</li>
+<li><strong>Open by design</strong> — alle artefacten zijn vrij beschikbaar en herbruikbaar</li>
+<li><strong>Standaard-first</strong> — aansluiting op bestaande standaarden heeft prioriteit boven maatwerk</li>
+<li><strong>Uitbreidbaar</strong> — de architectuur ondersteunt toekomstige domeinen zonder grondige herstructurering</li>
+</ul>
 
 
 
@@ -1486,6 +1489,44 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../inleiding/leeswijzer/" class="md-footer__link md-footer__link--prev" aria-label="Vorige: 1.2 Leeswijzer en doelgroepen">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Vorige
+              </span>
+              <div class="md-ellipsis">
+                1.2 Leeswijzer en doelgroepen
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../standaarden/" class="md-footer__link md-footer__link--next" aria-label="Volgende: 2.2 Gehanteerde standaarden">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Volgende
+              </span>
+              <div class="md-ellipsis">
+                2.2 Gehanteerde standaarden
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">

@@ -6,32 +6,57 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brienen.github.io/gbo-semantiek/v0.1/architectuur/</loc>
+         <loc>https://brienen.github.io/gbo-semantiek/v0.1/architectuur/ontwerpprincipes/</loc>
          <lastmod>2026-04-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brienen.github.io/gbo-semantiek/v0.1/begrippen/</loc>
+         <loc>https://brienen.github.io/gbo-semantiek/v0.1/architectuur/relatie-standaarden/</loc>
          <lastmod>2026-04-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brienen.github.io/gbo-semantiek/v0.1/doel-en-scope/</loc>
+         <loc>https://brienen.github.io/gbo-semantiek/v0.1/architectuur/standaarden/</loc>
          <lastmod>2026-04-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brienen.github.io/gbo-semantiek/v0.1/governance/</loc>
+         <loc>https://brienen.github.io/gbo-semantiek/v0.1/architectuur/uri-strategie/</loc>
          <lastmod>2026-04-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brienen.github.io/gbo-semantiek/v0.1/roadmap/</loc>
+         <loc>https://brienen.github.io/gbo-semantiek/v0.1/begrippenkader/</loc>
          <lastmod>2026-04-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brienen.github.io/gbo-semantiek/v0.1/versiebeheer/</loc>
+         <loc>https://brienen.github.io/gbo-semantiek/v0.1/begrippenkader/governance/</loc>
+         <lastmod>2026-04-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brienen.github.io/gbo-semantiek/v0.1/begrippenkader/relatie-informatiemodel/</loc>
+         <lastmod>2026-04-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brienen.github.io/gbo-semantiek/v0.1/begrippenkader/structuur/</loc>
+         <lastmod>2026-04-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brienen.github.io/gbo-semantiek/v0.1/bijlagen/tooling/</loc>
+         <lastmod>2026-04-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brienen.github.io/gbo-semantiek/v0.1/bijlagen/uri-namespace/</loc>
+         <lastmod>2026-04-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brienen.github.io/gbo-semantiek/v0.1/bijlagen/woordenlijst/</loc>
          <lastmod>2026-04-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -92,6 +117,86 @@
     </url>
     <url>
          <loc>https://brienen.github.io/gbo-semantiek/v0.1/definities/definitie_Union/</loc>
+         <lastmod>2026-04-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brienen.github.io/gbo-semantiek/v0.1/informatiemodel/</loc>
+         <lastmod>2026-04-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brienen.github.io/gbo-semantiek/v0.1/informatiemodel/applicatieprofielen/</loc>
+         <lastmod>2026-04-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brienen.github.io/gbo-semantiek/v0.1/informatiemodel/modelleerconventies/</loc>
+         <lastmod>2026-04-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brienen.github.io/gbo-semantiek/v0.1/inleiding/doel-en-scope/</loc>
+         <lastmod>2026-04-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brienen.github.io/gbo-semantiek/v0.1/inleiding/leeswijzer/</loc>
+         <lastmod>2026-04-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brienen.github.io/gbo-semantiek/v0.1/json-ld/api-patronen/</loc>
+         <lastmod>2026-04-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brienen.github.io/gbo-semantiek/v0.1/json-ld/context/</loc>
+         <lastmod>2026-04-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brienen.github.io/gbo-semantiek/v0.1/json-ld/framing/</loc>
+         <lastmod>2026-04-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brienen.github.io/gbo-semantiek/v0.1/json-ld/meerdere-contexts/</loc>
+         <lastmod>2026-04-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brienen.github.io/gbo-semantiek/v0.1/ontologie/</loc>
+         <lastmod>2026-04-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brienen.github.io/gbo-semantiek/v0.1/ontologie/koppeling-skos/</loc>
+         <lastmod>2026-04-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brienen.github.io/gbo-semantiek/v0.1/ontologie/kwaliteitsborging/</loc>
+         <lastmod>2026-04-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brienen.github.io/gbo-semantiek/v0.1/ontologie/publicatie/</loc>
+         <lastmod>2026-04-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brienen.github.io/gbo-semantiek/v0.1/raamwerk/</loc>
+         <lastmod>2026-04-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brienen.github.io/gbo-semantiek/v0.1/raamwerk/componenten/</loc>
+         <lastmod>2026-04-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brienen.github.io/gbo-semantiek/v0.1/raamwerk/publicatiestrategie/</loc>
          <lastmod>2026-04-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
