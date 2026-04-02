@@ -1,0 +1,24 @@
+/* === Linker sidebar: secties altijd open, niet inklapbaar === */
+
+/* Verberg het inklappijltje (label toggle) op top-level secties */
+.md-nav--primary > .md-nav__list > .md-nav__item--section > .md-nav__toggle ~ .md-nav__link::after {
+  display: none !important;
+}
+
+/* Verberg de checkbox toggle */
+.md-nav--primary > .md-nav__list > .md-nav__item--section > .md-nav__toggle {
+  display: none !important;
+}
+
+/* Forceer subsecties altijd zichtbaar, ongeacht checkbox state */
+.md-nav--primary > .md-nav__list > .md-nav__item--section > .md-nav {
+  display: block !important;
+  overflow: visible !important;
+  opacity: 1 !important;
+  max-height: none !important;
+}
+
+/* Extra ruimte tussen hoofdsecties */
+.md-nav--primary > .md-nav__list > .md-nav__item--section {
+  margin-bottom: 0.8rem;
+}

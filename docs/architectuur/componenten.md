@@ -1,40 +1,80 @@
 # Componenten en hun onderlinge relaties
 
-## Overzicht componenten
+## Componentoverzicht
 
 | Component | Formaat | Doel | Doelgroep |
 |-----------|---------|------|-----------|
-| Begrippenkader | SKOS (Turtle) | Eenduidige definities en relaties | Informatiespecialisten, beleidsmedewerkers |
+| Begrippenkader | SKOS (Turtle) | Eenduidige definities en hiërarchische relaties | Informatiespecialisten, beleidsmedewerkers |
 | Informatiemodel | MIM/UML (QEA) | Structuur van informatieobjecten | Modelleurs, architecten |
 | Ontologie | OWL/RDF (Turtle) | Formele beschrijving voor machines | Ontwikkelaars, data-engineers |
 | JSON-LD context | JSON-LD | Koppeling JSON-data aan ontologie | API-ontwikkelaars |
 | SHACL shapes | SHACL (Turtle) | Validatie van data tegen het model | Data-engineers, kwaliteitsbeheerders |
 
-## Relaties tussen componenten
+## Begrippenkader ↔ Informatiemodel
 
-## Begrippenkader → Informatiemodel
+Het begrippenkader leeft op het **semantische niveau** (MIM niveau I): het is bedoeld voor domeinexperts en beleidsmakers om overeenstemming te bereiken over de *betekenis* van termen. Het informatiemodel (MIM niveau II/III) formaliseert deze begrippen tot klassen en attributen voor gegevensuitwisseling.
 
-Het begrippenkader definieert de **betekenis** van termen. Het informatiemodel verwijst naar begrippen via `mim:begrip`. Elk informatieobject in het model is gekoppeld aan een begrip in het begrippenkader.
+De koppeling loopt via:
 
-## Informatiemodel → Ontologie
+- **`mim:begrip`** — het informatiemodel verwijst naar het corresponderende SKOS-concept
+- **`skos:exactMatch`** — het begrip correspondeert met een ontologie-klasse
+- **`rdfs:isDefinedBy`** — de ontologie-term verwijst terug naar het begrippenkader
 
-Het informatiemodel is de **bron** voor de ontologie. Via crunch_uml worden klassen, attributen en relaties getransformeerd naar OWL-klassen en -eigenschappen.
+Zo is er altijd traceerbaarheid van formele structuur (voor systemen) naar menselijke betekenis (voor mensen).
 
-## Ontologie → JSON-LD context
+## Informatiemodel generiek ↔ use-case-specifiek
 
-De JSON-LD `@context` verwijst naar termen in de gepubliceerde ontologie. Hierdoor worden JSON-objecten automatisch machine-leesbaar als Linked Data.
+Het generieke informatiemodel bevat klassen en attributen die over alle GBO use-cases heen herbruikbaar zijn — vergelijkbaar met de OSLO-kernvocabularia of de ISA Core Vocabularies. Use-case-specifieke uitbreidingen (applicatieprofielen) voegen toe:
 
-## Begrippenkader → Ontologie
+- **Beperkingen** — strengere cardinaliteiten, specifieke waardelijsten
+- **Nieuwe klassen** — domeinspecifieke entiteiten die alleen in die use case voorkomen
+- **Aanvullende relaties** — verbanden die niet in het generieke model thuishoren
 
-Begrippen en ontologie-termen worden aan elkaar gekoppeld via:
+Het generieke model wordt hierbij **niet aangepast**: het applicatieprofiel *hergebruikt* en *verfijnt*.
 
-- `skos:exactMatch` — een begrip komt exact overeen met een ontologie-term
-- `rdfs:isDefinedBy` — een ontologie-term wordt gedefinieerd door het begrippenkader
+## Informatiemodel → Gepubliceerde ontologie
+
+Het informatiemodel wordt via een geautomatiseerde transformatie gepubliceerd als OWL/RDF-ontologie. De toolchain volgt het OSLO-patroon:
+
+![OSLO toolchain patroon](../assets/diagrams/oslo-patroon.svg)
+
+GBO gebruikt [crunch_uml](https://github.com/brienen/crunch_uml) voor deze transformatie:
+
+```bash
+task generate:lod
+```
+
+De transformatieregels:
+
+| MIM-element | OWL-equivalent |
+|-------------|---------------|
+| Objecttype | `owl:Class` |
+| Attribuutsoort | `owl:DatatypeProperty` |
+| Relatiesoort | `owl:ObjectProperty` |
+| Generalisatie | `rdfs:subClassOf` |
+| Enumeratie | `skos:ConceptScheme` |
+
+## Gepubliceerde ontologie → JSON-LD @context
+
+De JSON-LD `@context` definieert een mapping van JSON-sleutels naar ontologie-URI's. OSLO publiceert per vocabularium een herbruikbaar context-bestand; GBO volgt hetzelfde patroon:
+
+- **Kern-context:** `https://data.gbo.nl/context/kern.jsonld`
+- **Use-case-context:** `https://data.gbo.nl/context/{usecase}.jsonld`
+
+Meerdere context-bestanden kunnen worden gecombineerd in een API-response.
+
+## Begrippenkader in datapayloads
+
+SKOS-concept-URI's kunnen als **attribuutwaarden** in JSON-LD payloads verschijnen. Bijvoorbeeld: een `status`-veld verwijst naar een SKOS-concept in de gepubliceerde thesaurus. Hierdoor worden waardelijsten de-referenceable en machine-leesbaar, conform de OSLO-aanpak voor codelijsten.
+
+```json
+{
+  "gbo:status": {
+    "@id": "https://data.gbo.nl/begrippen/zaakstatus/afgerond"
+  }
+}
+```
 
 ## SHACL → Ontologie
 
 SHACL shapes valideren instantiedata tegen de ontologie. De shapes verwijzen naar OWL-klassen en -eigenschappen om structuur- en cardinaliteitseisen af te dwingen.
-
-!!! note "Placeholder"
-    De exacte koppelingen worden uitgewerkt zodra het begrippenkader en informatiemodel zijn opgeleverd.
-

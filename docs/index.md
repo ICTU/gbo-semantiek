@@ -1,60 +1,46 @@
-## Doel en scope
+# GBO Semantiek
 
-### Doel
+!!! warning "Concept"
+    GBO Semantiek bevindt zich in de conceptfase (v0.1). De inhoud is nog niet normatief.
 
-GBO Semantiek heeft als doel een **gedeeld semantisch fundament** te bieden voor gemeentelijke basisgegevens. Door eenduidige definities, relaties en representatievormen te standaardiseren, kunnen gemeenten en ketenpartners gegevens eenvoudiger uitwisselen en hergebruiken.
+## Gemeenschappelijke BronOntsluting
 
-De standaard beoogt:
+De Gemeenschappelijke BronOntsluting (GBO) is een programma dat gemeenten in staat stelt gegevens bij de bron te ontsluiten en te delen met andere organisaties. In plaats van gegevens te kopiëren tussen systemen, worden ze eenmalig geregistreerd en via gestandaardiseerde interfaces beschikbaar gesteld. Het concrete uitvoeringsproject — Uniforme BronOntsluting (UBO) — wordt uitgevoerd door VNG Realisatie en gebruikt het Gemeentelijk Gegevensmodel (GGM) als basis voor de datamodellen.
 
-1. **Interoperabiliteit** te bevorderen tussen gemeentelijke systemen en externe afnemers
-2. **Datakwaliteit** te verhogen door eenduidige begrippendefinities
-3. **Hergebruik** te faciliteren door artefacten beschikbaar te stellen in meerdere formaten (OWL, JSON-LD, SKOS)
-4. **Alignment** met nationale en Europese standaarden zoals MIM, NEN 3610, DCAT en INSPIRE
+## Waarom semantiek?
 
-### Scope
+Wanneer systemen gegevens uitwisselen, is het niet genoeg dat de data technisch correct wordt overgedragen. De **betekenis** van die gegevens moet voor alle partijen helder zijn. Wat is precies een "zaak"? Wat verstaan we onder een "betrokkene"? En als twee systemen allebei een veld "status" hebben — bedoelen ze dan hetzelfde?
+
+Semantiek legt die betekenis vast. Door begrippen eenduidig te definiëren en die definities uit te drukken in informatiemodellen, ontstaat een gedeelde taal. Systemen kunnen elkaars gegevens interpreteren zonder menselijke tussenkomst. Mensen begrijpen wat systemen doen, omdat de definities traceerbaar zijn naar een begrippenkader dat in gewone taal is opgesteld.
+
+Voor GBO is dit essentieel. Het programma verbindt tientallen systemen van honderden gemeenten met landelijke registraties en ketenpartners. Zonder een gedeeld semantisch fundament blijft gegevensuitwisseling fragiel: afhankelijk van bilaterale afspraken, maatwerkvertalingen en handmatige controles. Met een formeel vastgelegd semantisch raamwerk wordt die uitwisseling schaalbaar, verifieerbaar en herbruikbaar.
+
+Dit document beschrijft dat raamwerk: hoe begrippen, informatiemodellen, ontologieën en JSON-LD datapublicatie samenhangen en elkaar versterken.
+
+## Doel
+
+GBO Semantiek beoogt:
+
+1. **Interoperabiliteit** — systemen van verschillende gemeenten en ketenpartners kunnen elkaars gegevens interpreteren doordat ze dezelfde begrippen en modellen gebruiken
+2. **Datakwaliteit** — eenduidige begrippendefinities voorkomen interpretatieverschillen en fouten bij gegevensuitwisseling
+3. **Hergebruik** — door semantische artefacten als Linked Data te publiceren (OWL, JSON-LD, SKOS) kunnen ze breed worden hergebruikt, ook buiten het gemeentelijke domein
+4. **Aansluiting op standaarden** — alignment met MIM, NEN 3610, DCAT en andere nationale en Europese standaarden
+
+## Scope
 
 GBO Semantiek richt zich op:
 
-- Gemeentelijke basisgegevens zoals die worden geregistreerd en uitgewisseld in de gemeentelijke informatiehuishouding
-- De semantische laag: definities, begrippen en informatieobjecten
-- Toepassingsprofielen en representatieformaten voor uitwisseling
+- De **semantische laag** van gemeentelijke basisgegevens: begrippen, informatieobjecten en hun representaties
+- De **publicatie** van die semantiek als machine-leesbare artefacten (ontologie, JSON-LD context, SKOS thesaurus)
+- **Toepassingsprofielen** per use case die het generieke model uitbreiden
 
-#### Buiten scope
+Buiten scope vallen procesmodellen, specifieke systeemimplementaties en AVG-verantwoording.
 
-- Procesmodellen of workflowbeschrijvingen
-- Technische implementaties van specifieke systemen
-- Privacyaspecten en AVG-verantwoording (hoewel de standaard hiermee compatibel moet zijn)
+## Leeswijzer
 
-## Leeswijzer en doelgroepen
-
-### Doelgroepen
-
-| Doelgroep | Belang | Aanbevolen secties |
-|-----------|--------|-------------------|
-| Gemeentelijke informatiespecialisten | Primaire doelgroep; toepassen van de standaard | Begrippenkader, Informatiemodel |
-| Informatiearchitecten | Inrichten semantische architectuur | Architectuurprincipes, Semantisch raamwerk |
-| Softwareleveranciers | Implementatie in systemen en API's | Ontologie, JSON-LD datapublicatie |
-| Data-engineers | Koppelen en publiceren van Linked Data | Ontologie, JSON-LD, URI-strategie |
-| Beleidsmedewerkers | Begrip van gegevenslandschap | Inleiding, Begrippenkader |
-| Onderzoekers en studenten | Referentie voor studie en onderzoek | Alle secties |
-
-### Leeswijzer
-
-Dit document is als volgt opgebouwd:
-
-1. **Inleiding** — beschrijft het doel, de scope en de doelgroepen van GBO Semantiek
-2. **Architectuurprincipes en kaders** — legt de ontwerpprincipes en gehanteerde standaarden uit
-3. **Semantisch raamwerk** — geeft een architectuuroverzicht van de samenhang tussen alle componenten
-4. **Begrippenkader** — beschrijft de SKOS-thesaurus met begrippen en definities
-5. **Informatiemodel** — beschrijft het generieke informatiemodel en de applicatieprofielen
-6. **Ontologie-publicatie** — beschrijft hoe het informatiemodel als OWL/RDF-ontologie wordt gepubliceerd
-7. **JSON-LD datapublicatie** — beschrijft patronen voor het gebruik van JSON-LD in API-responses
-
-De **bijlagen** bevatten een verklarende woordenlijst, een overzicht van URI-namespaces en informatie over de gebruikte tooling.
-
-#### Hoe te lezen
-
-- **Nieuw bij GBO Semantiek?** Start bij de Inleiding en het Semantisch raamwerk voor een overzicht.
-- **Modelleur of informatiespecialist?** Focus op het Begrippenkader en Informatiemodel.
-- **Ontwikkelaar of data-engineer?** Begin bij de Ontologie-publicatie en JSON-LD secties.
-- **Op zoek naar een specifiek begrip?** Raadpleeg de Verklarende woordenlijst in Bijlage A.
+| Doelgroep | Aanbevolen secties |
+|-----------|-------------------|
+| Informatiearchitecten | Uitgangspunten, Architectuur |
+| Gemeentelijke informatiespecialisten | Begrippenkader, Informatiemodel |
+| Softwareleveranciers en data-engineers | Ontologie, JSON-LD |
+| Beleidsmedewerkers | Inleiding, Begrippenkader |

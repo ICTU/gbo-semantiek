@@ -1,24 +1,55 @@
 # Publicatiestrategie en versioning
 
+## Modulair publiceren
+
+Naar het voorbeeld van TOOI publiceert GBO elk artefact als apart document met een stabiele URI:
+
+| Artefact | Formaat | URI-patroon |
+|----------|---------|-------------|
+| Begrippenkader | SKOS (Turtle) | `https://data.gbo.nl/begrippen/` |
+| Informatiemodel | MIM/UML (QEA) | Repository: `v{versie}/informatiemodel/` |
+| Ontologie | OWL (Turtle) | `https://data.gbo.nl/ontologie/` |
+| JSON-LD context | JSON-LD | `https://data.gbo.nl/context/{usecase}.jsonld` |
+| Waardelijsten | SKOS (Turtle) | `https://data.gbo.nl/begrippen/{waardelijst}/` |
+
+## Automatisch genereren
+
+GBO volgt het OSLO-patroon waarin vanuit **een bronmodel meerdere artefacten** worden gegenereerd. De toolchain gebruikt [crunch_uml](https://github.com/brienen/crunch_uml) als centraal transformatiemiddel:
+
+```
+QEA-model → crunch_uml → Turtle ontologie
+                        → Markdown definities
+                        → JSON-LD context (toekomstig)
+                        → SHACL shapes (toekomstig)
+```
+
+Dit garandeert consistentie: er is een bron van waarheid (het QEA-model) waaruit alle afgeleide artefacten voortkomen.
+
+## Koppeling tussen artefacten
+
+De koppelingen worden expliciet vastgelegd:
+
+| Van | Naar | Via |
+|----|------|-----|
+| `skos:Concept` | `owl:Class` | `skos:exactMatch` of `owl:equivalentClass` |
+| `owl:Class` | JSON-LD `@type` | De `@context`-mapping |
+| Waardelijstwaarde in data | `skos:Concept` URI | De-referenceable URI |
+| `owl:Class` | `skos:Concept` | `rdfs:isDefinedBy` |
+
 ## Versiebeheer
 
-GBO Semantiek hanteert **twee afzonderlijke versieringssystematieken**:
+GBO hanteert **twee afzonderlijke versieringssystematieken**:
 
-1. **Documentatieversiebeheer** — beheerd via [mike](https://github.com/jimporter/mike) en gepubliceerd op GitHub Pages
-2. **Artefactversiebeheer** — beheerd via aparte mappen in de repository-root
+### Documentatieversies (via mike)
 
-Dit onderscheid is bewust: documentatie-updates vereisen niet altijd een nieuwe modelversie, en vice versa.
-
-## Documentatieversies
-
-De documentatiewebsite wordt gepubliceerd met **mike**, dat meerdere versies naast elkaar beheert op GitHub Pages:
+De documentatiewebsite wordt gepubliceerd met [mike](https://github.com/jimporter/mike), dat meerdere versies naast elkaar beheert op GitHub Pages:
 
 - `https://brienen.github.io/gbo-semantiek/v0.1/`
-- `https://brienen.github.io/gbo-semantiek/latest/` (alias voor de nieuwste versie)
+- `https://brienen.github.io/gbo-semantiek/latest/`
 
-## Artefactversies
+### Artefactversies (via repository-mappen)
 
-Modelartefacten worden opgeslagen in **genummerde mappen** in de repository-root:
+Modelartefacten worden opgeslagen in genummerde mappen in de repository-root:
 
 ```
 /v0.1/
@@ -27,32 +58,18 @@ Modelartefacten worden opgeslagen in **genummerde mappen** in de repository-root
   ontologie/       ← OWL/RDF-ontologie (Turtle, JSON-LD)
 ```
 
-## Versienummering
-
-- Versienummering volgt [Semantic Versioning](https://semver.org/lang/nl/): `MAJOR.MINOR`
-  - **MAJOR** — achterwaarts incompatibele modelwijzigingen
-  - **MINOR** — achterwaarts compatibele uitbreidingen
-- Een versiegerelateerde map wordt **niet gewijzigd** na publicatie
+Versienummering volgt [Semantic Versioning](https://semver.org/lang/nl/): `MAJOR.MINOR`. Een versiegerelateerde map wordt niet gewijzigd na publicatie.
 
 ## Publicatieproces
 
 Het publicatieproces wordt aangestuurd via de Taskfile:
 
-```bash
-# Volledige deployment: import, generatie en publicatie
-task full-deploy
-
-# Alleen lokaal deployen (zonder push naar GitHub)
-task publish:local
-
-# Publiceren naar GitHub Pages
-task publish:github
-```
-
 | Stap | Task | Beschrijving |
 |------|------|-------------|
-| 1 | `import:model` | QEA-model inladen in crunch_uml |
-| 2 | `generate:docs` | Markdown definities genereren |
-| 3 | `generate:lod` | Linked Data (TTL) genereren |
-| 4 | `publish:local` | Versioned docs bouwen via mike |
-| 5 | `publish:github` | Publiceren naar GitHub Pages |
+| 1 | `task import:model` | QEA-model inladen in crunch_uml |
+| 2 | `task generate:docs` | Markdown definities genereren |
+| 3 | `task generate:lod` | Linked Data (TTL) genereren |
+| 4 | `task publish:local` | Versioned docs bouwen via mike |
+| 5 | `task publish:github` | Publiceren naar GitHub Pages |
+
+Of in een keer: `task full-deploy`

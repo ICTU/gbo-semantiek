@@ -50,6 +50,7 @@ theme:
         icon: material/brightness-4
         name: Schakel naar licht thema
   features:
+    - navigation.sections
     - navigation.top
     - navigation.footer
     - navigation.indexes
@@ -60,13 +61,17 @@ theme:
   font:
     text: Roboto
     code: Roboto Mono
-  logo: assets/icon.png
-  favicon: assets/icon.png
+  logo: assets/icon.svg
+  favicon: assets/icon.svg
 
 # Plugins
 plugins:
   - search:
       lang: nl
+
+# Custom CSS
+extra_css:
+  - assets/stylesheets/custom.css
 
 # Markdown-extensies
 markdown_extensions:
@@ -83,6 +88,9 @@ markdown_extensions:
       alternate_style: true
   - attr_list
   - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 # Navigatiestructuur
 # Links: alleen de hoofdsecties. Rechts: subpagina's en TOC van de huidige pagina.
@@ -91,8 +99,8 @@ nav:
   - Inleiding: index.md
   - Uitgangspunten:
     - Ontwerprincipes: uitgangspunten/ontwerpprincipes.md
-    - Andere standaarden: uitgangspunten/andere_standaarden.md
-    - URI-strategie: uitgangspunten/uri-strategie.md
+    - Standaarden en kaders: uitgangspunten/standaarden_kaders.md
+    - Inspiratie: uitgangspunten/inspiratie.md
   - Architectuur: 
     - Raamwerk: architectuur/raamwerk.md
     - Componenten: architectuur/componenten.md
@@ -112,12 +120,14 @@ nav:
     - Skos: ontologie/skos.md
     - Kwaliteit: ontologie/kwaliteit.md
     - Publicatie: ontologie/publicatie.md
+  - Implementatie:
+    - URI-strategie: implementatie/uri-strategie.md
   - JSON-LD:
-    - Context: jsonld/context.md
-    - API-patronen: jsonld/api-patronen.md
-    - Framing: jsonld/framing.md
-    - Meerdere contexts: jsonld/meerdere_contexts.md
+    - Context: json-ld/context.md
+    - API-patronen: json-ld/api-patronen.md
+    - Framing: json-ld/framing.md
+    - Meerdere contexts: json-ld/meerdere-contexts.md
   - Bijlagen:
     - Woordenlijst: bijlagen/woordenlijst.md
     - Tooling: bijlagen/tooling.md
-    - URI-namespace: bijlagen/namespace.md
+    - URI-namespace: bijlagen/uri-namespace.md

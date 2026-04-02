@@ -1,43 +1,39 @@
-## Informatiemodel
+# Informatiemodel
 
-### Generiek informatiemodel (GBO-kern)
+## Generiek informatiemodel (GBO-kern)
 
-Het generieke informatiemodel beschrijft de **kern** van GBO Semantiek: de informatieobjecten die gemeenschappelijk zijn voor alle gemeentelijke processen en registraties.
+Het generieke informatiemodel beschrijft de **kern** van GBO Semantiek: de informatieobjecten die gemeenschappelijk zijn voor alle gemeentelijke processen en registraties. Het is vergelijkbaar met de OSLO-kernvocabularia of de ISA Core Vocabularies op Europees niveau.
 
-Het model volgt het MIM-metamodel (Geonovum) en wordt beheerd in Enterprise Architect (QEA-formaat).
+### Kenmerken
 
-#### Kenmerken
-
-- **Metamodel:** MIM 1.1
+- **Metamodel:** MIM 1.1 (Geonovum)
 - **Tooling:** Enterprise Architect, crunch_uml
 - **Formaat:** QEA (Enterprise Architect repository)
 - **Locatie:** `v{versie}/informatiemodel/`
+- **Basis:** Gemeentelijk Gegevensmodel (GGM)
 
-#### Modelonderdelen
+### Modelonderdelen
 
 Het generieke model bevat:
 
-- **Objecttypen** — de kern-entiteiten (bijv. Persoon, Adres, Organisatie)
+- **Objecttypen** — de kern-entiteiten (bijv. Zaak, Persoon, Adres, Organisatie)
 - **Attribuutsoorten** — eigenschappen van objecttypen
 - **Relatiesoorten** — verbanden tussen objecttypen
-- **Waardelijsten** — toegestane waarden voor attributen
+- **Waardelijsten** — toegestane waarden voor attributen (gepubliceerd als SKOS)
 - **Gegevensgroepen** — samengestelde attributen
-
-!!! note "Placeholder"
-    Het informatiemodel wordt opgeleverd in een toekomstige versie. Gegenereerde definities zijn beschikbaar in de `docs/definities/` map.
-
----
-
-- **[Applicatieprofielen](applicatieprofielen.md)** — use-case-specifieke uitbreidingen
-- **[Modelleerconventies](modelleerconventies.md)** — naamgeving, cardinaliteit en stereotypen (conform MIM)
 
 ## Use-case-specifieke uitbreidingen (applicatieprofielen)
 
-### Wat is een applicatieprofiel?
+### Het OSLO-patroon
 
-Een applicatieprofiel is een **specifieke selectie en aanvulling** op het generieke informatiemodel voor een concrete use case. Het profiel bepaalt welke objecttypen, attributen en relaties relevant zijn en kan aanvullende constraints bevatten.
+GBO volgt het OSLO-patroon van scheiding tussen **vocabularium** en **applicatieprofiel**:
 
-### Structuur
+- Het **vocabularium** (generiek informatiemodel) bevat klassen en attributen die over alle use cases heen herbruikbaar zijn — stabiel en breed gedragen
+- Het **applicatieprofiel** (use-case-specifiek) voegt beperkingen of uitbreidingen toe voor een concrete context, zonder het generieke model te doorbreken
+
+Dit is hetzelfde patroon als de ISA Core Vocabularies versus de nationale uitbreidingen daarvan.
+
+### Structuur van een applicatieprofiel
 
 Elk applicatieprofiel:
 
@@ -46,25 +42,9 @@ Elk applicatieprofiel:
 - **Voegt toe** waar nodig use-case-specifieke attributen of relaties
 - **Beperkt** waardelijsten of cardinaliteiten waar de use case dit vereist
 
-### Use cases
+## Modelleerconventies (conform MIM)
 
-#### Use case: [naam]
-
-!!! note "Placeholder"
-    Concrete use cases worden uitgewerkt in samenwerking met de werkgroep.
-
-#### Use case: [naam]
-
-!!! note "Placeholder"
-    Concrete use cases worden uitgewerkt in samenwerking met de werkgroep.
-
-## Modelleerconventies
-
-### MIM-conformiteit
-
-Het informatiemodel volgt de conventies van het [MIM-metamodel](https://www.geonovum.nl/geo-standaarden/mim) (versie 1.1). Dit betekent:
-
-#### Naamgeving
+### Naamgeving
 
 | Element | Conventie | Voorbeeld |
 |---------|-----------|-----------|
@@ -73,22 +53,17 @@ Het informatiemodel volgt de conventies van het [MIM-metamodel](https://www.geon
 | Relatiesoort | lowerCamelCase, werkwoordvorm | `heeftAlsAdres` |
 | Waardelijst | CamelCase, enkelvoud | `Geslachtsaanduiding` |
 
-#### Definities
+### Definities
 
 - Elk objecttype, attribuut en relatie **moet** een definitie hebben
 - Definities zijn in het **Nederlands**
-- Definities zijn **eenduidig** en **begrijpelijk** voor de doelgroep
+- Definities zijn **eenduidig** en gekoppeld aan het begrippenkader (via `mim:begrip`)
 
-#### Cardinaliteit
+### Cardinaliteit
 
-- Cardinaliteit wordt altijd expliciet aangegeven
-- Standaard: `[1]` (verplicht, enkelvoudig)
-- Optioneel: `[0..1]`
-- Meervoudig: `[0..*]` of `[1..*]`
+Cardinaliteit wordt altijd expliciet aangegeven: `[1]` (verplicht), `[0..1]` (optioneel), `[0..*]` of `[1..*]` (meervoudig).
 
-#### Stereotypen
-
-De volgende MIM-stereotypen worden gehanteerd:
+### Stereotypen
 
 | Stereotype | Gebruik |
 |------------|---------|
@@ -98,6 +73,3 @@ De volgende MIM-stereotypen worden gehanteerd:
 | `<<Gegevensgroeptype>>` | Samengesteld attribuut |
 | `<<Referentielijst>>` | Externe waardelijst |
 | `<<Enumeratie>>` | Interne waardelijst |
-
-!!! note "Placeholder"
-    De modelleerconventies worden verder aangescherpt bij het opstellen van het informatiemodel.

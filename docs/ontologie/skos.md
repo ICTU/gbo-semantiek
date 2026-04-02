@@ -2,37 +2,48 @@
 
 ## Principe
 
-De ontologie en het begrippenkader zijn **twee afzonderlijke artefacten** die expliciet aan elkaar worden gekoppeld. De ontologie beschrijft de formele structuur; het begrippenkader beschrijft de menselijke betekenis.
+De ontologie en het begrippenkader zijn **twee afzonderlijke artefacten** die expliciet aan elkaar worden gekoppeld — conform de TOOI-aanpak waarin thesauri en ontologieën gescheiden documenten zijn, verbonden via URI's. De ontologie beschrijft de formele structuur (voor machines); het begrippenkader beschrijft de menselijke betekenis (voor domeinexperts).
 
 ## Koppelingsproperties
 
 | Property | Richting | Beschrijving |
 |----------|----------|-------------|
-| `skos:exactMatch` | Begrip → Ontologie-term | Het begrip komt exact overeen met een ontologie-klasse of -eigenschap |
-| `rdfs:isDefinedBy` | Ontologie-term → Begrippenkader | De ontologie-term wordt gedefinieerd door het begrippenkader |
+| `skos:exactMatch` | Begrip → Ontologie-term | Het begrip correspondeert exact met een OWL-klasse |
+| `rdfs:isDefinedBy` | Ontologie-term → Begrippenkader | De ontologie-term verwijst naar de gezaghebbende definitie |
 | `rdfs:seeAlso` | Beide richtingen | Verwijzing naar gerelateerde documentatie |
 
 ## Voorbeeld
 
 ```turtle
 # In het begrippenkader:
-gbobegrip:Persoon a skos:Concept ;
-    skos:prefLabel "Persoon"@nl ;
-    skos:definition "Een natuurlijk persoon."@nl ;
-    skos:exactMatch gbo:Persoon .
+gbobegrip:Zaak a skos:Concept ;
+    skos:prefLabel "Zaak"@nl ;
+    skos:definition "Een samenhangende hoeveelheid werk met een gedefinieerde aanleiding en een gedefinieerd eindresultaat."@nl ;
+    skos:exactMatch gbo:Zaak .
 
 # In de ontologie:
-gbo:Persoon a owl:Class ;
-    rdfs:label "Persoon"@nl ;
-    rdfs:isDefinedBy gbobegrip:Persoon .
+gbo:Zaak a owl:Class ;
+    rdfs:label "Zaak"@nl ;
+    rdfs:isDefinedBy gbobegrip:Zaak .
 ```
+
+## Waardelijsten als SKOS ConceptScheme
+
+Enumeraties en waardelijsten uit het informatiemodel worden gepubliceerd als SKOS `ConceptScheme`. Hierdoor zijn individuele waarden **de-referenceable** via HTTP en kunnen ze als URI-waarden voorkomen in JSON-LD payloads:
+
+```json
+{
+  "gbo:status": {
+    "@id": "https://data.gbo.nl/begrippen/zaakstatus/afgerond"
+  }
+}
+```
+
+Dit volgt de OSLO-aanpak voor codelijsten.
 
 ## Richtlijnen
 
 1. Elke OWL-klasse **moet** een `rdfs:isDefinedBy` verwijzing hebben naar het begrippenkader
-2. Elk SKOS-concept dat overeenkomt met een ontologie-term **moet** een `skos:exactMatch` bevatten
+2. Elk SKOS-concept dat correspondeert met een ontologie-term **moet** een `skos:exactMatch` bevatten
 3. Labels in de ontologie (`rdfs:label`) komen overeen met de voorkeurstterm (`skos:prefLabel`) in het begrippenkader
-
-!!! note "Placeholder"
-    De koppelingen worden concreet ingevuld zodra beide artefacten zijn opgeleverd.
-
+4. Waardelijsten worden als SKOS `ConceptScheme` gepubliceerd, niet als OWL `oneOf` enumeraties

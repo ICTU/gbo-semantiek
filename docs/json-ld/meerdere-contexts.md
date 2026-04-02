@@ -2,16 +2,16 @@
 
 ## Scenario's
 
-In de praktijk kan een API-response gegevens bevatten uit meerdere bronnen of domeinen. JSON-LD biedt hiervoor mechanismen om meerdere `@context`-definities te combineren.
+In de praktijk bevat een API-response vaak gegevens uit meerdere bronnen of domeinen. JSON-LD biedt mechanismen om meerdere `@context`-definities te combineren — essentieel voor het GBO-patroon van kern-context plus use-case-context.
 
 ## Combineren van contexts
 
-Meerdere contexts kunnen worden samengevoegd in een array:
+Meerdere contexts worden samengevoegd in een array:
 
 ```json
 {
   "@context": [
-    "https://lod.gbo-semantiek.nl/context.jsonld",
+    "https://data.gbo.nl/context/kern.jsonld",
     "https://bag.basisregistraties.overheid.nl/context.jsonld"
   ],
   "@type": "Persoon",
@@ -30,7 +30,7 @@ Een lokale context kan de GBO-context uitbreiden met domeinspecifieke termen:
 ```json
 {
   "@context": [
-    "https://lod.gbo-semantiek.nl/context.jsonld",
+    "https://data.gbo.nl/context/kern.jsonld",
     {
       "bsn": {
         "@id": "gbo:burgerservicenummer",
@@ -53,9 +53,7 @@ Bij conflicterende definities geldt:
 
 ## Aanbevelingen
 
-- Gebruik de GBO-context als **eerste** in de array
-- Voeg domeinspecifieke contexts toe als **tweede**
+- Gebruik de **GBO kern-context als eerste** in de array
+- Voeg domeinspecifieke of use-case-contexts toe als **tweede**
 - Houd lokale uitbreidingen **minimaal** — definieer nieuwe termen liever in een eigen gepubliceerde context
-
-!!! note "Placeholder"
-    Best practices voor het combineren van contexts worden uitgewerkt aan de hand van concrete use cases.
+- Publiceer context-bestanden op een **stabiele URL** met versiebeheer
