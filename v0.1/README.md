@@ -1,0 +1,44 @@
+# Datamodel GBO Semantiek — versie 0.1
+
+> **Status:** Concept
+> **Datum:** 2024
+
+---
+
+Deze map bevat de datamodel-artefacten voor versie 0.1 van GBO Semantiek.
+
+## Inhoud
+
+| Map | Beschrijving | Status |
+|-----|-------------|--------|
+| `uml/` | UML-modellen en XMI-exports | Placeholder |
+| `jsonschema/` | JSON Schema-bestanden per informatieobjecttype | Placeholder |
+| `rdf/` | RDF/OWL-ontologieën (Turtle, JSON-LD) | Placeholder |
+
+## Versiestatus
+
+Versie 0.1 is de initiële conceptversie. De artefacten in deze map zijn **placeholders** en zijn nog niet normatief.
+
+## Gebruik
+
+De artefacten in deze map zijn bedoeld voor:
+
+- **UML-bestanden:** modellering en tooling (Enterprise Architect, Sparx)
+- **JSON Schema-bestanden:** validatie van berichten en API-responses
+- **RDF-bestanden:** Linked Data-toepassingen en SPARQL-queries
+
+## Relatie tot documentatie
+
+De documentatie die bij deze versie hoort, is gepubliceerd via:
+
+```
+https://brienen.github.io/gbo-semantiek/v0.1/
+```
+
+Zie [docs/versiebeheer.md](../../docs/versiebeheer.md) voor uitleg over het versiebeleid.
+
+## Wijzigingen ten opzichte van vorige versie
+
+Versie 0.1 is de eerste versie; er is geen vorige versie.
+
+Zie [CHANGELOG.md](../../CHANGELOG.md) voor het volledige wijzigingsoverzicht.

@@ -1,2 +1,123 @@
-# gbo-semantiek
-GBO Architectuur voor Semantiek
+# GBO Semantiek
+
+> **Gemeentelijk Basisgegeven Objecten – Informatiemodel Semantiek**
+> Versie: v0.1 | Status: Concept
+
+---
+
+## Over dit repository
+
+Dit repository bevat het **GBO Semantiek informatiemodel**: een open standaard voor de semantische beschrijving van gemeentelijke basisgegevens. Het doel is om een gedeeld begrippenkader en gegevensmodel te bieden dat gemeenten en ketenpartners kunnen gebruiken voor interoperabiliteit en datakwaliteit.
+
+Dit repository is opgezet conform het principe *documentation-first*: de documentatie is de primaire bron van waarheid voor de standaard. Artefacten zoals UML-modellen, JSON Schema's en RDF/OWL-beschrijvingen worden afgeleid van de documentatie.
+
+### Gebaseerd op GGM
+
+De opzet van dit repository is **geïnspireerd op het [Gemeentelijk Gegevensmodel (GGM)](https://github.com/gemeenteshertogenbosch/GGM)**, een open informatiemodel dat als referentie geldt voor gemeentelijke gegevensuitwisseling. Wij volgen eenzelfde documentatie- en governance-aanpak, maar passen deze toe op het bredere domein van GBO Semantiek.
+
+---
+
+## Versiebeheer
+
+Er zijn **twee afzonderlijke versieringssystematieken** in dit repository:
+
+### 1. Documentatieversiebeheer (via mike)
+
+De documentatiewebsite wordt beheerd met [MkDocs Material](https://squidfunk.github.io/mkdocs-material/) en gepubliceerd via [mike](https://github.com/jimporter/mike). Hierdoor kunnen meerdere versies van de documentatie naast elkaar gepubliceerd worden op GitHub Pages:
+
+- `v0.1` → `https://<organisatie>.github.io/gbo-semantiek/v0.1/`
+- `v0.2` → `https://<organisatie>.github.io/gbo-semantiek/v0.2/`
+
+Mike beheert de gepubliceerde documentatieversies en staat los van de inhoudelijke modelversies.
+
+### 2. Datamodelversiebeheer (via root-mappen)
+
+De daadwerkelijke modelartefacten (UML, JSON Schema, RDF) worden **niet** via mike beheerd, maar via aparte mappen in de repository-root:
+
+```
+/v0.1/
+  uml/
+  jsonschema/
+  rdf/
+/v0.2/          ← toekomstige versie
+  ...
+```
+
+Dit onderscheid is bewust: documentatieversies kunnen los van modelversies evolueren. Een documentatie-update vereist niet altijd een nieuwe modelversie, en vice versa.
+
+---
+
+## Directory-structuur
+
+```
+gbo-semantiek/
+├── docs/                        # MkDocs documentatiebron (in het Nederlands)
+│   ├── index.md                 # Introductie
+│   ├── doel-en-scope.md
+│   ├── begrippen.md
+│   ├── architectuur.md
+│   ├── versiebeheer.md
+│   ├── governance.md
+│   └── roadmap.md
+├── v0.1/                        # Datamodel artefacten versie 0.1
+│   ├── uml/
+│   ├── jsonschema/
+│   └── rdf/
+├── tools/                       # Hulpscripts voor validatie en publicatie
+├── .github/
+│   └── workflows/               # CI/CD workflows
+├── mkdocs.yml                   # MkDocs configuratie
+├── CHANGELOG.md
+├── CONTRIBUTING.md
+└── README.md
+```
+
+---
+
+## Aan de slag
+
+### Documentatiewebsite lokaal draaien
+
+```bash
+# Installeer afhankelijkheden
+pip install mkdocs-material mike
+
+# Start lokale ontwikkelserver
+mkdocs serve
+```
+
+### Gedocumenteerde versie publiceren (mike)
+
+```bash
+# Publiceer versie v0.1 als standaard
+mike deploy --push --update-aliases v0.1 latest
+
+# Bekijk gepubliceerde versies
+mike list
+```
+
+Zie [docs/versiebeheer.md](docs/versiebeheer.md) voor een uitgebreide uitleg over het versiebeleid.
+
+---
+
+## Bijdragen
+
+Bijdragen zijn van harte welkom! Lees [CONTRIBUTING.md](CONTRIBUTING.md) voor de richtlijnen.
+
+Kort samengevat:
+1. Fork dit repository
+2. Maak een feature branch aan (`git checkout -b feature/mijn-wijziging`)
+3. Commit je wijzigingen (`git commit -m 'feat: beschrijving'`)
+4. Open een Pull Request
+
+---
+
+## Licentie
+
+Dit repository valt onder de [EUPL-1.2 licentie](https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12), conform de standaard voor open source software bij Nederlandse overheidsorganisaties.
+
+---
+
+## Contact
+
+Voor vragen en suggesties kun je een [issue aanmaken](../../issues) of contact opnemen via de bijbehorende organisatie.
