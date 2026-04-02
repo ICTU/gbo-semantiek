@@ -1,0 +1,3686 @@
+
+<!doctype html>
+<html lang="nl" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Informatiemodel Semantiek voor Gemeentelijke Basisgegevens Objecten — open standaard voor interoperabiliteit en datakwaliteit binnen gemeenten.">
+      
+      
+        <meta name="author" content="GBO Semantiek Werkgroep">
+      
+      
+        <link rel="canonical" href="https://brienen.github.io/gbo-semantiek/v0.1/definities/definitie_Model%20Kern%20RGBZ/">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.26">
+    
+    
+      
+        <title>Model Kern RGBZ - GBO Semantiek</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6543a935.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#model-kern-rgbz" class="md-skip">
+          Ga naar inhoud
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="GBO Semantiek" class="md-header__button md-logo" aria-label="GBO Semantiek" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GBO Semantiek
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Model Kern RGBZ
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-label="Schakel naar donker thema"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Schakel naar donker thema" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-label="Schakel naar licht thema"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Schakel naar licht thema" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Zoeken" placeholder="Zoeken" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Zoeken">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Delen" aria-label="Delen" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Leegmaken" aria-label="Leegmaken" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Zoeken initialiseren
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/brienen/gbo-semantiek" title="Ga naar repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    brienen/gbo-semantiek
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Introductie
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../doel-en-scope/" class="md-tabs__link">
+        
+  
+    
+  
+  Doel en scope
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../begrippen/" class="md-tabs__link">
+        
+  
+    
+  
+  Begrippen
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../architectuur/" class="md-tabs__link">
+        
+  
+    
+  
+  Architectuur
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../versiebeheer/" class="md-tabs__link">
+        
+  
+    
+  
+  Versiebeheer
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../governance/" class="md-tabs__link">
+        
+  
+    
+  
+  Governance
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../roadmap/" class="md-tabs__link">
+        
+  
+    
+  
+  Roadmap
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigatie" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="GBO Semantiek" class="md-nav__button md-logo" aria-label="GBO Semantiek" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    GBO Semantiek
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/brienen/gbo-semantiek" title="Ga naar repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    brienen/gbo-semantiek
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introductie
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../doel-en-scope/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Doel en scope
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../begrippen/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Begrippen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architectuur/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Architectuur
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../versiebeheer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Versiebeheer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../governance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Governance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roadmap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Roadmap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Op deze pagina">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Op deze pagina
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#inleiding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inleiding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objecttypen-model-kern-rgbz" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objecttypen Model Kern RGBZ
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Objecttypen Model Kern RGBZ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bedrijfsproces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bedrijfsproces
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bedrijfsprocestype" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bedrijfsprocestype
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#besluit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Besluit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#besluittype" class="md-nav__link">
+    <span class="md-ellipsis">
+      Besluittype
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#betaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Betaling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#betrokkene" class="md-nav__link">
+    <span class="md-ellipsis">
+      Betrokkene
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deelproces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deelproces
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deelprocestype" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deelprocestype
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#document" class="md-nav__link">
+    <span class="md-ellipsis">
+      Document
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documenttype" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documenttype
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enkelvoudigdocument" class="md-nav__link">
+    <span class="md-ellipsis">
+      EnkelvoudigDocument
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#heffing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Heffing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#identificatiekenmerk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Identificatiekenmerk
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#klantcontact" class="md-nav__link">
+    <span class="md-ellipsis">
+      Klantcontact
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#medewerker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Medewerker
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Object
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#offerte" class="md-nav__link">
+    <span class="md-ellipsis">
+      Offerte
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organisatorischeeenheid" class="md-nav__link">
+    <span class="md-ellipsis">
+      OrganisatorischeEenheid
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#samengestelddocument" class="md-nav__link">
+    <span class="md-ellipsis">
+      SamengesteldDocument
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#status" class="md-nav__link">
+    <span class="md-ellipsis">
+      Status
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#statustype" class="md-nav__link">
+    <span class="md-ellipsis">
+      Statustype
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vestigingvanzaakbehandelendeorganisatie" class="md-nav__link">
+    <span class="md-ellipsis">
+      VestigingVanZaakbehandelendeOrganisatie
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zaak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zaak
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zaak-origineel" class="md-nav__link">
+    <span class="md-ellipsis">
+      ZAAK - Origineel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zaaktype" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zaaktype
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enumeraties-model-kern-rgbz" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enumeraties Model Kern RGBZ
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enumeraties Model Kern RGBZ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#boolean" class="md-nav__link">
+    <span class="md-ellipsis">
+      Boolean
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/brienen/gbo-semantiek/edit/main/docs/definities/definitie_Model Kern RGBZ.md" title="Wijzig deze pagina" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="model-kern-rgbz">Model Kern RGBZ<a class="headerlink" href="#model-kern-rgbz" title="Permanent link">&para;</a></h1>
+<h2 id="inleiding">Inleiding<a class="headerlink" href="#inleiding" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>Definitie Model Kern RGBZ:</strong></p>
+<p>Het subdomein RGBZ met alle objecttypen betreffend zaakgericht werken.</p>
+</blockquote>
+<details class="info">
+<summary>Kenmerken Model Model Kern RGBZ</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Kenmerk</th>
+<th style="text-align: left;">Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">Model Kern RGBZ</td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichting</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">synoniemen</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">uri</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">bron</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">author</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">version</td>
+<td style="text-align: left;">1.4.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">created</td>
+<td style="text-align: left;">2010-10-19 17:21:37</td>
+</tr>
+<tr>
+<td style="text-align: left;">modified</td>
+<td style="text-align: left;">2025-12-22 15:27:01</td>
+</tr>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">EAPK_2EDFFA95_0A05_4292_84C5_2A912A6B6718</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>Het model 'Model Kern RGBZ' kent de volgende objecttypen:</p>
+<ul>
+<li><strong>Bedrijfsproces</strong>: Reeks opeenvolgend uit te voeren activiteiten die bijdraagt aan een specifiek resultaat, zoals de levering van een product of product of dienst.</li>
+<li><strong>Bedrijfsprocestype</strong>: soort Bedrijfsproces met bepaalde kenmerken</li>
+<li><strong>Besluit</strong>: Een na overweging of beraadslaging vastgestelde beslissing voor een individueel of concreet geval.</li>
+<li><strong>Besluittype</strong>: Generieke aanduiding van de aard van een besluit</li>
+<li><strong>Betaling</strong>: het onderhandigen of overboeken van geld in ruil voor goed of dienst</li>
+<li><strong>Betrokkene</strong>: Een SUBJECT, zijnde een NATUURLIJK PERSOON, NIET-NATUURLIJK PERSOON of VESTIGING, ORGANISATORISCHE EENHEID (binnen een vestiging van de zaak-behandelende niet-natuurlijk persoon), of MEDEWERKER (van die organisatorische eenheid) die een rol kan spelen bij een ZAAK.</li>
+<li><strong>Deelproces</strong>: Een geordende reeks van processtappen die binnen één organisatorische eenheid binnen een organisatie wordt uitgevoerd met als doel een specifieke bijdrage (prestatie) te leveren aan een dienst die uiteindelijke zal worden geleverd aan een burger, een bedrijf of een andere organisatie. Voorheen 'werkproces' genoemd.</li>
+<li><strong>Deelprocestype</strong>: soort Deelproces met bepaalde kenmerken</li>
+<li><strong>Document</strong>: Geheel van gegevens met een eigen identiteit ongeacht zijn vorm, met de bijbehorende metadata ontvangen of opgemaakt door een natuurlijke en/of rechtspersoon bij de uitvoering van taken, zijnde een ENKELVOUDIG DOCUMENT of een SAMENGESTELD DOCUMENT.</li>
+<li><strong>Documenttype</strong>: Aanduiding van de aard van een DOCUMENT zoals gehanteerd door de zaakbehandelende organisatie</li>
+<li><strong>EnkelvoudigDocument</strong>: Een DOCUMENT waarvan aard, omvang en/of vorm aanleiding geven het als één geheel te behandelen en te beheren.</li>
+<li><strong>Heffing</strong>: Een door de overheid opgelegde verplichting tot betaling</li>
+<li><strong>Identificatiekenmerk</strong>: Nodig voor archivering om verschillende typen identificatie te kunnen onderscheiden:</li>
+<li><strong>Klantcontact</strong>: <blockquote>
+<p>Klantcontacten zijn contactmomenten die werkelijk hebben plaatsgevonden, terwijl Balieafspraken afspraken zijn voor een klantcontact. Dit ongeacht of deze werkelijk heeft plaatsgevonden, soms liggen deze in de toekomst of is iemand niet op komen dagen, of iets anders waardoor het klantcontact nog niet heeft plaatsgevonden.
+Hetzelfde geldt voor de telefoontjes, de klantcontacten komen uit levelOneData, dat zijn alle telefoontjes die werkelijk met een medewerker (of een gedelegeerde) hebben plaatsgevonden (soms zelfs meerdere binnen 1 telefoontje).</p>
+</blockquote>
+</li>
+<li><strong>Medewerker</strong>: Een medewerker van de organisatie die zaken behandelt uit hoofde van zijn of haar functie binnen een ORGANISATORISCHE EENHEID.</li>
+<li><strong>Object</strong>: Het OBJECT waarop een ZAAK betrekking kan hebben zijnde één of meer voorkomens van de in het RSGB en het RGBZ onderscheiden objecttypen.</li>
+<li><strong>Offerte</strong>: Aanbod, aanbieding of voorstel van goederen of diensten waarin opgave is gedaan van de prijs.</li>
+<li><strong>OrganisatorischeEenheid</strong>: Het deel van een functioneel afgebakend onderdeel binnen de organisatie dat haar activiteiten uitvoert binnen een VESTIGING VAN ZAAKBEHANDELENDE ORGANISATIE en die verantwoordelijk is voor de behandeling van zaken.</li>
+<li><strong>SamengesteldDocument</strong>: Een DOCUMENT waarbinnen twee of meer ENKELVOUDIGe DOCUMENTen onderscheiden worden die vanwege gezamenlijke vervaardiging en/of ontvangst en/of vanwege aard en/of omvang als één geheel beschouwd moeten worden dan wel behandeld worden.,</li>
+<li><strong>Status</strong>: Een aanduiding van de stand van zaken van een zaak op basis van betekenisvol behaald resultaat voor de initiator van de zaak.</li>
+<li><strong>Statustype</strong>: Generieke aanduiding van de aard van een STATUS</li>
+<li><strong>VestigingVanZaakbehandelendeOrganisatie</strong>: Een VESTIGING van een onderneming of rechtspersoon zijnde de zaakbehandelende organisatie.</li>
+<li><strong>Zaak</strong>: Een samenhangende hoeveelheid werk met een welgedefinieerde aanleiding en een welgedefinieerd eindresultaat, waarvan kwaliteit en doorlooptijd bewaakt moeten worden.</li>
+<li><strong>ZAAK - Origineel</strong>: Een samenhangende hoeveelheid werk met een welgedefinieerde aanleiding en een welgedefinieerd eindresultaat, waarvan kwaliteit en doorlooptijd bewaakt moeten worden.</li>
+<li><strong>Zaaktype</strong>: Generieke aanduiding van de aard van een zaak</li>
+</ul>
+<h2 id="objecttypen-model-kern-rgbz">Objecttypen Model Kern RGBZ<a class="headerlink" href="#objecttypen-model-kern-rgbz" title="Permanent link">&para;</a></h2>
+<h3 id="bedrijfsproces">Bedrijfsproces<a class="headerlink" href="#bedrijfsproces" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Definitie Bedrijfsproces:</strong></p>
+<p>Reeks opeenvolgend uit te voeren activiteiten die bijdraagt aan een specifiek resultaat, zoals de levering van een product of product of dienst.</p>
+</blockquote>
+<details class="info">
+<summary>Kenmerken Model Bedrijfsproces</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Eigenschap</th>
+<th style="text-align: left;">Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">Bedrijfsproces</td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichting</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">synoniemen</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">uri</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">bron</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">author</td>
+<td style="text-align: left;">Ashkan Ashkpour</td>
+</tr>
+<tr>
+<td style="text-align: left;">version</td>
+<td style="text-align: left;">1.14.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">created</td>
+<td style="text-align: left;">2023-05-15 13:27:23</td>
+</tr>
+<tr>
+<td style="text-align: left;">modified</td>
+<td style="text-align: left;">2025-12-22 15:27:00</td>
+</tr>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">EAID_EDB5D3CD_CE4D_4317_81C6_C01CC7325148</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>Attributen van objecttype Bedrijfsproces</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Attribuut</th>
+<th style="text-align: left;">Datatype</th>
+<th style="text-align: left;">Beschrijving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Omschrijving</td>
+<td style="text-align: left;">AN200</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Datum_start</td>
+<td style="text-align: left;">Date</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Datum_eind</td>
+<td style="text-align: left;">Date</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Afgerond</td>
+<td style="text-align: left;">Enumeratie: "Boolean"</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Naam</td>
+<td style="text-align: left;">AN200</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="bedrijfsprocestype">Bedrijfsprocestype<a class="headerlink" href="#bedrijfsprocestype" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Definitie Bedrijfsprocestype:</strong></p>
+<p>soort Bedrijfsproces met bepaalde kenmerken</p>
+</blockquote>
+<details class="info">
+<summary>Kenmerken Model Bedrijfsprocestype</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Eigenschap</th>
+<th style="text-align: left;">Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">Bedrijfsprocestype</td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichting</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">synoniemen</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">uri</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">bron</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">author</td>
+<td style="text-align: left;">Ashkan Ashkpour</td>
+</tr>
+<tr>
+<td style="text-align: left;">version</td>
+<td style="text-align: left;">1.12.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">created</td>
+<td style="text-align: left;">2023-05-15 13:29:43</td>
+</tr>
+<tr>
+<td style="text-align: left;">modified</td>
+<td style="text-align: left;">2025-12-22 15:27:00</td>
+</tr>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">EAID_14E4AF23_21E9_412a_B78D_C208EE9F419D</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>Attributen van objecttype Bedrijfsprocestype</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Attribuut</th>
+<th style="text-align: left;">Datatype</th>
+<th style="text-align: left;">Beschrijving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Omschrijving</td>
+<td style="text-align: left;">AN200</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="besluit">Besluit<a class="headerlink" href="#besluit" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Definitie Besluit:</strong></p>
+<p>Een na overweging of beraadslaging vastgestelde beslissing voor een individueel of concreet geval.</p>
+</blockquote>
+<details class="info">
+<summary>Kenmerken Model Besluit</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Eigenschap</th>
+<th style="text-align: left;">Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">Besluit</td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichting</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">synoniemen</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">uri</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">bron</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">author</td>
+<td style="text-align: left;">mante_h</td>
+</tr>
+<tr>
+<td style="text-align: left;">version</td>
+<td style="text-align: left;">1.12.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">created</td>
+<td style="text-align: left;">2010-08-19 09:41:46</td>
+</tr>
+<tr>
+<td style="text-align: left;">modified</td>
+<td style="text-align: left;">2025-12-22 15:27:00</td>
+</tr>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">EAID_AFB100D2_8C68_4488_8949_13E945D15920</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>Attributen van objecttype Besluit</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Attribuut</th>
+<th style="text-align: left;">Datatype</th>
+<th style="text-align: left;">Beschrijving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">besluitidentificatie</td>
+<td style="text-align: left;">AN50</td>
+<td style="text-align: left;">Identificatie van het besluit.</td>
+</tr>
+<tr>
+<td style="text-align: left;">datumBesluit</td>
+<td style="text-align: left;">Datum</td>
+<td style="text-align: left;">De beslisdatum (AWB) van het besluit.</td>
+</tr>
+<tr>
+<td style="text-align: left;">besluittoelichting</td>
+<td style="text-align: left;">AN1000</td>
+<td style="text-align: left;">Toelichting bij het besluit.</td>
+</tr>
+<tr>
+<td style="text-align: left;">datumStart</td>
+<td style="text-align: left;">Datum</td>
+<td style="text-align: left;">Ingangsdatum van de werkingsperiode van het besluit.</td>
+</tr>
+<tr>
+<td style="text-align: left;">datumVerval</td>
+<td style="text-align: left;">Datum</td>
+<td style="text-align: left;">Datum waarop de werkingsperiode van het besluit eindigt.</td>
+</tr>
+<tr>
+<td style="text-align: left;">redenVerval</td>
+<td style="text-align: left;">AN40</td>
+<td style="text-align: left;">De omschrijving die aangeeft op grond waarvan het besluit is of komt te vervallen.</td>
+</tr>
+<tr>
+<td style="text-align: left;">datumPublicatie</td>
+<td style="text-align: left;">Datum</td>
+<td style="text-align: left;">Datum waarop het besluit gepubliceerd wordt.</td>
+</tr>
+<tr>
+<td style="text-align: left;">datumVerzending</td>
+<td style="text-align: left;">Datum</td>
+<td style="text-align: left;">Datum waarop het besluit verzonden is.</td>
+</tr>
+<tr>
+<td style="text-align: left;">datumUiterlijkeReactie</td>
+<td style="text-align: left;">Datum</td>
+<td style="text-align: left;">De datum tot wanneer verweer tegen het besluit mogelijk is.</td>
+</tr>
+<tr>
+<td style="text-align: left;">omschrijving</td>
+<td style="text-align: left;">AN200</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="besluittype">Besluittype<a class="headerlink" href="#besluittype" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Definitie Besluittype:</strong></p>
+<p>Generieke aanduiding van de aard van een besluit</p>
+</blockquote>
+<details class="info">
+<summary>Kenmerken Model Besluittype</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Eigenschap</th>
+<th style="text-align: left;">Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">Besluittype</td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichting</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">synoniemen</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">uri</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">bron</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">author</td>
+<td style="text-align: left;">mante_h</td>
+</tr>
+<tr>
+<td style="text-align: left;">version</td>
+<td style="text-align: left;">1.12.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">created</td>
+<td style="text-align: left;">2010-08-19 10:01:32</td>
+</tr>
+<tr>
+<td style="text-align: left;">modified</td>
+<td style="text-align: left;">2025-12-22 15:27:00</td>
+</tr>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">EAID_922D3938_A0EA_42bf_9EFC_23A6A236AF9B</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>Attributen van objecttype Besluittype</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Attribuut</th>
+<th style="text-align: left;">Datatype</th>
+<th style="text-align: left;">Beschrijving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">besluittypeOmschrijving</td>
+<td style="text-align: left;">AN80</td>
+<td style="text-align: left;">Omschrijving van de aard van BESLUITen van het BESLUITTYPE.</td>
+</tr>
+<tr>
+<td style="text-align: left;">besluittypeOmschrijvingGeneriek</td>
+<td style="text-align: left;">AN80</td>
+<td style="text-align: left;">Algemeen gehanteerde omschrijving van de aard van BESLUITen van het BESLUITTYPE</td>
+</tr>
+<tr>
+<td style="text-align: left;">besluitcategorie</td>
+<td style="text-align: left;">AN40</td>
+<td style="text-align: left;">Typering van de aard van BESLUITen van het BESLUITTYPE.</td>
+</tr>
+<tr>
+<td style="text-align: left;">reactietermijn</td>
+<td style="text-align: left;">N3</td>
+<td style="text-align: left;">Het aantal dagen, gerekend vanaf de verzend- of publicatiedatum, waarbinnen verweer tegen een besluit van het besluittype mogelijk is.</td>
+</tr>
+<tr>
+<td style="text-align: left;">indicatiePublicatie</td>
+<td style="text-align: left;">AN1</td>
+<td style="text-align: left;">Aanduiding of BESLUITen van dit BESLUITTYPE gepubliceerd moeten worden.</td>
+</tr>
+<tr>
+<td style="text-align: left;">publicatietekst</td>
+<td style="text-align: left;">AN1000</td>
+<td style="text-align: left;">De generieke tekst van de publicatie van BESLUITen van dit BESLUITTYPE</td>
+</tr>
+<tr>
+<td style="text-align: left;">publicatietermijn</td>
+<td style="text-align: left;">N3</td>
+<td style="text-align: left;">Het aantal dagen, gerekend vanaf de verzend- of publicatiedatum, dat BESLUITen van dit BESLUITTYPE gepubliceerd moeten blijven.</td>
+</tr>
+<tr>
+<td style="text-align: left;">datumBeginGeldigheidBesluittype</td>
+<td style="text-align: left;">OnvolledigeDatum</td>
+<td style="text-align: left;">De datum waarop het BESLUITTYPE is ontstaan.</td>
+</tr>
+<tr>
+<td style="text-align: left;">datumEindeGeldigheidBesluittype</td>
+<td style="text-align: left;">OnvolledigeDatum</td>
+<td style="text-align: left;">De datum waarop het BESLUITTYPE is opgeheven.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="betaling">Betaling<a class="headerlink" href="#betaling" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Definitie Betaling:</strong></p>
+<p>het onderhandigen of overboeken van geld in ruil voor goed of dienst</p>
+</blockquote>
+<details class="info">
+<summary>Kenmerken Model Betaling</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Eigenschap</th>
+<th style="text-align: left;">Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">Betaling</td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichting</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">synoniemen</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">uri</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">bron</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">author</td>
+<td style="text-align: left;">Arjen Brienen</td>
+</tr>
+<tr>
+<td style="text-align: left;">version</td>
+<td style="text-align: left;">1.14.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">created</td>
+<td style="text-align: left;">2018-04-23 11:51:28</td>
+</tr>
+<tr>
+<td style="text-align: left;">modified</td>
+<td style="text-align: left;">2025-12-22 15:27:00</td>
+</tr>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">EAID_FC488929_8721_402f_A073_1DFDB76A816E</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>Attributen van objecttype Betaling</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Attribuut</th>
+<th style="text-align: left;">Datatype</th>
+<th style="text-align: left;">Beschrijving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">bedrag</td>
+<td style="text-align: left;">Bedrag</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">datumtijd</td>
+<td style="text-align: left;">datetime</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">valuta</td>
+<td style="text-align: left;">AN3</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">omschrijving</td>
+<td style="text-align: left;">AN200</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="betrokkene">Betrokkene<a class="headerlink" href="#betrokkene" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Definitie Betrokkene:</strong></p>
+<p>Een SUBJECT, zijnde een NATUURLIJK PERSOON, NIET-NATUURLIJK PERSOON of VESTIGING, ORGANISATORISCHE EENHEID (binnen een vestiging van de zaak-behandelende niet-natuurlijk persoon), of MEDEWERKER (van die organisatorische eenheid) die een rol kan spelen bij een ZAAK.</p>
+</blockquote>
+<details class="info">
+<summary>Kenmerken Model Betrokkene</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Eigenschap</th>
+<th style="text-align: left;">Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">Betrokkene</td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichting</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">synoniemen</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">uri</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">bron</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">author</td>
+<td style="text-align: left;">mante_h</td>
+</tr>
+<tr>
+<td style="text-align: left;">version</td>
+<td style="text-align: left;">1.12.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">created</td>
+<td style="text-align: left;">2010-08-19 10:58:19</td>
+</tr>
+<tr>
+<td style="text-align: left;">modified</td>
+<td style="text-align: left;">2025-12-22 15:27:00</td>
+</tr>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">EAID_16FB8171_A9ED_4027_A663_C035509501C8</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>Attributen van objecttype Betrokkene</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Attribuut</th>
+<th style="text-align: left;">Datatype</th>
+<th style="text-align: left;">Beschrijving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">naam</td>
+<td style="text-align: left;">AN200</td>
+<td style="text-align: left;">De benaming van de BETROKKENE indien dit een (NIET) NATUURLIJK PERSOON, VESTIGING of specialisatie daarvan is.</td>
+</tr>
+<tr>
+<td style="text-align: left;">identificatie</td>
+<td style="text-align: left;">AN50</td>
+<td style="text-align: left;">De unieke identificatie van de BETROKKENE</td>
+</tr>
+<tr>
+<td style="text-align: left;">adresBinnenland</td>
+<td style="text-align: left;">Class: "BinnenlandsAdres"</td>
+<td style="text-align: left;">De aanduiding van het adres van de BETROKKENE indien dit adres in Nederland gelegen is.</td>
+</tr>
+<tr>
+<td style="text-align: left;">adresBuitenland</td>
+<td style="text-align: left;">AN200</td>
+<td style="text-align: left;">De aanduiding van het adres waar specialisaties van de BETROKKENE zijnde een (NIET) NATUURLIJK PERSOON of VESTIGING dan wel een specialisatie daarvan, verblijft dan wel bereikbaar is in het buitenland.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="deelproces">Deelproces<a class="headerlink" href="#deelproces" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Definitie Deelproces:</strong></p>
+<p>Een geordende reeks van processtappen die binnen één organisatorische eenheid binnen een organisatie wordt uitgevoerd met als doel een specifieke bijdrage (prestatie) te leveren aan een dienst die uiteindelijke zal worden geleverd aan een burger, een bedrijf of een andere organisatie. Voorheen 'werkproces' genoemd.</p>
+</blockquote>
+<details class="info">
+<summary>Kenmerken Model Deelproces</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Eigenschap</th>
+<th style="text-align: left;">Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">Deelproces</td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichting</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">synoniemen</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">uri</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">bron</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">author</td>
+<td style="text-align: left;">Ashkan Ashkpour</td>
+</tr>
+<tr>
+<td style="text-align: left;">version</td>
+<td style="text-align: left;">1.12.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">created</td>
+<td style="text-align: left;">2023-05-15 13:30:05</td>
+</tr>
+<tr>
+<td style="text-align: left;">modified</td>
+<td style="text-align: left;">2025-12-22 15:27:00</td>
+</tr>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">EAID_1B65D674_DC17_40e8_B663_85DA82FD7E94</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>Attributen van objecttype Deelproces</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Attribuut</th>
+<th style="text-align: left;">Datatype</th>
+<th style="text-align: left;">Beschrijving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Datum_gepland</td>
+<td style="text-align: left;">Date</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Datum_afgehandeld</td>
+<td style="text-align: left;">Date</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="deelprocestype">Deelprocestype<a class="headerlink" href="#deelprocestype" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Definitie Deelprocestype:</strong></p>
+<p>soort Deelproces met bepaalde kenmerken</p>
+</blockquote>
+<details class="info">
+<summary>Kenmerken Model Deelprocestype</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Eigenschap</th>
+<th style="text-align: left;">Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">Deelprocestype</td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichting</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">synoniemen</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">uri</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">bron</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">author</td>
+<td style="text-align: left;">Ashkan Ashkpour</td>
+</tr>
+<tr>
+<td style="text-align: left;">version</td>
+<td style="text-align: left;">1.12.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">created</td>
+<td style="text-align: left;">2023-05-15 13:30:19</td>
+</tr>
+<tr>
+<td style="text-align: left;">modified</td>
+<td style="text-align: left;">2025-12-22 15:27:00</td>
+</tr>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">EAID_710A1D2B_3C7B_41cf_A947_727186C40A98</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>Attributen van objecttype Deelprocestype</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Attribuut</th>
+<th style="text-align: left;">Datatype</th>
+<th style="text-align: left;">Beschrijving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Omschrijving</td>
+<td style="text-align: left;">AN200</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="document">Document<a class="headerlink" href="#document" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Definitie Document:</strong></p>
+<p>Geheel van gegevens met een eigen identiteit ongeacht zijn vorm, met de bijbehorende metadata ontvangen of opgemaakt door een natuurlijke en/of rechtspersoon bij de uitvoering van taken, zijnde een ENKELVOUDIG DOCUMENT of een SAMENGESTELD DOCUMENT.</p>
+</blockquote>
+<details class="info">
+<summary>Kenmerken Model Document</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Eigenschap</th>
+<th style="text-align: left;">Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">Document</td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichting</td>
+<td style="text-align: left;">#NOTES#Een inhoudelijke toelichting op de toepassing van het informatie-element.</td>
+</tr>
+<tr>
+<td style="text-align: left;">synoniemen</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">uri</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">bron</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">author</td>
+<td style="text-align: left;">mante_h</td>
+</tr>
+<tr>
+<td style="text-align: left;">version</td>
+<td style="text-align: left;">1.13.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">created</td>
+<td style="text-align: left;">2010-08-19 12:15:35</td>
+</tr>
+<tr>
+<td style="text-align: left;">modified</td>
+<td style="text-align: left;">2025-12-22 15:44:36</td>
+</tr>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">EAID_5641C50A_C0FA_4e71_B07B_26C7B1CE94ED</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>Attributen van objecttype Document</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Attribuut</th>
+<th style="text-align: left;">Datatype</th>
+<th style="text-align: left;">Beschrijving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">documentIdentificatie</td>
+<td style="text-align: left;">AN40</td>
+<td style="text-align: left;">Een binnen een gegeven context ondubbelzinnige referentie naar het document.<br>Bijvoorbeeld potsregistratienummer</td>
+</tr>
+<tr>
+<td style="text-align: left;">datumCreatieDocument</td>
+<td style="text-align: left;">Datum</td>
+<td style="text-align: left;">Een datum of een gebeurtenis in de levenscyclus van het document.</td>
+</tr>
+<tr>
+<td style="text-align: left;">datumOntvangstdocument</td>
+<td style="text-align: left;">Datum</td>
+<td style="text-align: left;">De datum waarop het DOCUMENT ontvangen is.</td>
+</tr>
+<tr>
+<td style="text-align: left;">documentTitel</td>
+<td style="text-align: left;">AN200</td>
+<td style="text-align: left;">De naam waaronder het document formeel bekend is.</td>
+</tr>
+<tr>
+<td style="text-align: left;">cocumentBeschrijving</td>
+<td style="text-align: left;">AN1000</td>
+<td style="text-align: left;">Een generieke beschrijving van de inhoud van het document.</td>
+</tr>
+<tr>
+<td style="text-align: left;">datumVerzendingDocument</td>
+<td style="text-align: left;">Datum</td>
+<td style="text-align: left;">De datum waarop het DOCUMENT verzonden is.</td>
+</tr>
+<tr>
+<td style="text-align: left;">vertrouwelijkAanduiding</td>
+<td style="text-align: left;">AN20</td>
+<td style="text-align: left;">Aanduiding van de mate waarin het DOCUMENT voor de openbaarheid bestemd is.</td>
+</tr>
+<tr>
+<td style="text-align: left;">documentAuteur</td>
+<td style="text-align: left;">AN200</td>
+<td style="text-align: left;">De persoon of organisatie die in de eerste plaats verantwoordelijk is voor het creëren van de inhoud van het document.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="documenttype">Documenttype<a class="headerlink" href="#documenttype" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Definitie Documenttype:</strong></p>
+<p>Aanduiding van de aard van een DOCUMENT zoals gehanteerd door de zaakbehandelende organisatie</p>
+</blockquote>
+<details class="info">
+<summary>Kenmerken Model Documenttype</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Eigenschap</th>
+<th style="text-align: left;">Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">Documenttype</td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichting</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">synoniemen</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">uri</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">bron</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">author</td>
+<td style="text-align: left;">mante_h</td>
+</tr>
+<tr>
+<td style="text-align: left;">version</td>
+<td style="text-align: left;">1.12.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">created</td>
+<td style="text-align: left;">2010-08-19 11:30:39</td>
+</tr>
+<tr>
+<td style="text-align: left;">modified</td>
+<td style="text-align: left;">2025-12-22 15:27:00</td>
+</tr>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">EAID_77C7D6B6_44DE_44c0_A662_8E1A0A226EA8</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>Attributen van objecttype Documenttype</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Attribuut</th>
+<th style="text-align: left;">Datatype</th>
+<th style="text-align: left;">Beschrijving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">documenttypeOmschrijving</td>
+<td style="text-align: left;">AN80</td>
+<td style="text-align: left;">Omschrijving van de aard van DOCUMENTen van dit DOCUMENTTYPE.</td>
+</tr>
+<tr>
+<td style="text-align: left;">documenttypeOmschrijvingGeneriek</td>
+<td style="text-align: left;">AN80</td>
+<td style="text-align: left;">Algemeen gehanteerde omschrijving van het DOCUMENTTYPE</td>
+</tr>
+<tr>
+<td style="text-align: left;">documentCategorie</td>
+<td style="text-align: left;">AN80</td>
+<td style="text-align: left;">Typering van de aard van DOCUMENTen van dit DOCUMENTTYPE.</td>
+</tr>
+<tr>
+<td style="text-align: left;">documenttypeTrefwoord</td>
+<td style="text-align: left;">AN30</td>
+<td style="text-align: left;">Trefwoord(en) waarmee DOCUMENTen van het DOCUMENTTYPE kunnen worden gekarakteriseerd.</td>
+</tr>
+<tr>
+<td style="text-align: left;">datumBeginGeldigheidDocumenttype</td>
+<td style="text-align: left;">OnvolledigeDatum</td>
+<td style="text-align: left;">De datum waarop het DOCUMENTTYPE is ontstaan.</td>
+</tr>
+<tr>
+<td style="text-align: left;">datumEindeGeldigheidDocumenttype</td>
+<td style="text-align: left;">OnvolledigeDatum</td>
+<td style="text-align: left;">De datum waarop het DOCUMENTTYPE is opgeheven.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="enkelvoudigdocument">EnkelvoudigDocument<a class="headerlink" href="#enkelvoudigdocument" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Definitie EnkelvoudigDocument:</strong></p>
+<p>Een DOCUMENT waarvan aard, omvang en/of vorm aanleiding geven het als één geheel te behandelen en te beheren.</p>
+</blockquote>
+<details class="info">
+<summary>Kenmerken Model EnkelvoudigDocument</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Eigenschap</th>
+<th style="text-align: left;">Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">EnkelvoudigDocument</td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichting</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">synoniemen</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">uri</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">bron</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">author</td>
+<td style="text-align: left;">mante_h</td>
+</tr>
+<tr>
+<td style="text-align: left;">version</td>
+<td style="text-align: left;">1.12.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">created</td>
+<td style="text-align: left;">2010-08-19 11:32:47</td>
+</tr>
+<tr>
+<td style="text-align: left;">modified</td>
+<td style="text-align: left;">2025-12-22 15:27:00</td>
+</tr>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">EAID_547FD48D_F885_4816_BCFA_4048995C8D83</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>Attributen van objecttype EnkelvoudigDocument</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Attribuut</th>
+<th style="text-align: left;">Datatype</th>
+<th style="text-align: left;">Beschrijving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">documentFormaat</td>
+<td style="text-align: left;">AN10</td>
+<td style="text-align: left;">De digitale manifestatie van het ENKELVOUDIG DOCUMENT.</td>
+</tr>
+<tr>
+<td style="text-align: left;">documentTaal</td>
+<td style="text-align: left;">AN20</td>
+<td style="text-align: left;">Een taal van de intellectuele inhoud van het ENKELVOUDIG DOCUMENT</td>
+</tr>
+<tr>
+<td style="text-align: left;">documentVersie</td>
+<td style="text-align: left;">AN5</td>
+<td style="text-align: left;">Aanduiding van de bewerkingsfase van het ENKELVOUDIG DOCUMENT</td>
+</tr>
+<tr>
+<td style="text-align: left;">documentStatus</td>
+<td style="text-align: left;">AN20</td>
+<td style="text-align: left;">Aanduiding van de stand van zaken van een ENKELVOUDIG DOCUMENTDOCUMENT.</td>
+</tr>
+<tr>
+<td style="text-align: left;">documentInhoud</td>
+<td style="text-align: left;">AN255</td>
+<td style="text-align: left;">Datgene wat in een ENKELVOUDIG DOCUMENT wordt meegedeeld.</td>
+</tr>
+<tr>
+<td style="text-align: left;">documentLink</td>
+<td style="text-align: left;">AN200</td>
+<td style="text-align: left;">De URL waarmee de documentinhoud op te vragen is.</td>
+</tr>
+<tr>
+<td style="text-align: left;">bestandsnaam</td>
+<td style="text-align: left;">AN255</td>
+<td style="text-align: left;">De naam van het fysieke bestand waarin de documentinhoud is vastgelegd.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="heffing">Heffing<a class="headerlink" href="#heffing" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Definitie Heffing:</strong></p>
+<p>Een door de overheid opgelegde verplichting tot betaling</p>
+</blockquote>
+<details class="info">
+<summary>Kenmerken Model Heffing</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Eigenschap</th>
+<th style="text-align: left;">Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">Heffing</td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichting</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">synoniemen</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">uri</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">bron</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">author</td>
+<td style="text-align: left;">Arjen Brienen</td>
+</tr>
+<tr>
+<td style="text-align: left;">version</td>
+<td style="text-align: left;">1.14.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">created</td>
+<td style="text-align: left;">2019-04-17 13:44:30</td>
+</tr>
+<tr>
+<td style="text-align: left;">modified</td>
+<td style="text-align: left;">2025-12-22 15:27:00</td>
+</tr>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">EAID_B3371695_97AD_49d2_9AF1_15591B422007</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>Attributen van objecttype Heffing</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Attribuut</th>
+<th style="text-align: left;">Datatype</th>
+<th style="text-align: left;">Beschrijving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">bedrag</td>
+<td style="text-align: left;">bedrag</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">code</td>
+<td style="text-align: left;">AN80</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">inrekening</td>
+<td style="text-align: left;">bedrag</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">gefactureerd</td>
+<td style="text-align: left;">boolean</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">runnummer</td>
+<td style="text-align: left;">int</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">datumIndiening</td>
+<td style="text-align: left;">datum</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">nummer</td>
+<td style="text-align: left;">int</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="identificatiekenmerk">Identificatiekenmerk<a class="headerlink" href="#identificatiekenmerk" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Definitie Identificatiekenmerk:</strong></p>
+<p>Nodig voor archivering om verschillende typen identificatie te kunnen onderscheiden:</p>
+</blockquote>
+<details class="info">
+<summary>Kenmerken Model Identificatiekenmerk</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Eigenschap</th>
+<th style="text-align: left;">Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">Identificatiekenmerk</td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichting</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">synoniemen</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">uri</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">bron</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">author</td>
+<td style="text-align: left;">Arjen Brienen</td>
+</tr>
+<tr>
+<td style="text-align: left;">version</td>
+<td style="text-align: left;">1.12.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">created</td>
+<td style="text-align: left;">2018-07-02 10:30:07</td>
+</tr>
+<tr>
+<td style="text-align: left;">modified</td>
+<td style="text-align: left;">2025-12-22 15:27:01</td>
+</tr>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">EAID_D73AFAEC_3BF1_4309_93FE_5354EF26DA51</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>Attributen van objecttype Identificatiekenmerk</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Attribuut</th>
+<th style="text-align: left;">Datatype</th>
+<th style="text-align: left;">Beschrijving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">kenmerk</td>
+<td style="text-align: left;">AN20</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="klantcontact">Klantcontact<a class="headerlink" href="#klantcontact" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Definitie Klantcontact:</strong></p>
+<p>Klantcontacten zijn contactmomenten die werkelijk hebben plaatsgevonden, terwijl Balieafspraken afspraken zijn voor een klantcontact. Dit ongeacht of deze werkelijk heeft plaatsgevonden, soms liggen deze in de toekomst of is iemand niet op komen dagen, of iets anders waardoor het klantcontact nog niet heeft plaatsgevonden.
+Hetzelfde geldt voor de telefoontjes, de klantcontacten komen uit levelOneData, dat zijn alle telefoontjes die werkelijk met een medewerker (of een gedelegeerde) hebben plaatsgevonden (soms zelfs meerdere binnen 1 telefoontje).</p>
+</blockquote>
+<details class="info">
+<summary>Kenmerken Model Klantcontact</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Eigenschap</th>
+<th style="text-align: left;">Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">Klantcontact</td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichting</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">synoniemen</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">uri</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">bron</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">author</td>
+<td style="text-align: left;">Arjen Brienen</td>
+</tr>
+<tr>
+<td style="text-align: left;">version</td>
+<td style="text-align: left;">1.14.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">created</td>
+<td style="text-align: left;">2018-04-25 14:49:05</td>
+</tr>
+<tr>
+<td style="text-align: left;">modified</td>
+<td style="text-align: left;">2025-12-22 15:44:36</td>
+</tr>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">EAID_A3DAD553_0E55_4256_824B_CDB5E12CB545</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>Attributen van objecttype Klantcontact</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Attribuut</th>
+<th style="text-align: left;">Datatype</th>
+<th style="text-align: left;">Beschrijving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">eindtijd</td>
+<td style="text-align: left;">Datetime</td>
+<td style="text-align: left;">Werkelijke eindtijd van het klantcontact. Het moment dat de conversatie ten einde is.<br>Bij digitaal klantcontact (het indienen van een webformulier) zijn start- en eindtijd aan elkaar gelijk</td>
+</tr>
+<tr>
+<td style="text-align: left;">starttijd</td>
+<td style="text-align: left;">Datetime</td>
+<td style="text-align: left;">Werkelijke starttijd van het klantcontact, dus het moment dat klant en medewerker van de gemeente elkaar spreken.<br>Bij digitaal klantcontact (het indienen van een webformulier) zijn start- en eindtijd aan elkaar gelijk</td>
+</tr>
+<tr>
+<td style="text-align: left;">tijdsduur</td>
+<td style="text-align: left;">int</td>
+<td style="text-align: left;">Werkelijke tijdsduur in seconden</td>
+</tr>
+<tr>
+<td style="text-align: left;">wachttijdTotaal</td>
+<td style="text-align: left;">int</td>
+<td style="text-align: left;">De totale wachttijd voor de starttijd van het klantcontact. Dit inclusief eventueel te vroeg verschijnen op een afspraak</td>
+</tr>
+<tr>
+<td style="text-align: left;">kanaal</td>
+<td style="text-align: left;">AN20</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichting</td>
+<td style="text-align: left;">text</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">notitie</td>
+<td style="text-align: left;">text</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="medewerker">Medewerker<a class="headerlink" href="#medewerker" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Definitie Medewerker:</strong></p>
+<p>Een medewerker van de organisatie die zaken behandelt uit hoofde van zijn of haar functie binnen een ORGANISATORISCHE EENHEID.</p>
+</blockquote>
+<details class="info">
+<summary>Kenmerken Model Medewerker</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Eigenschap</th>
+<th style="text-align: left;">Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">Medewerker</td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichting</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">synoniemen</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">uri</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">bron</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">author</td>
+<td style="text-align: left;">mante_h</td>
+</tr>
+<tr>
+<td style="text-align: left;">version</td>
+<td style="text-align: left;">1.12.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">created</td>
+<td style="text-align: left;">2010-08-19 11:35:05</td>
+</tr>
+<tr>
+<td style="text-align: left;">modified</td>
+<td style="text-align: left;">2025-12-22 15:27:01</td>
+</tr>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">EAID_16EB3936_03CB_4854_9CD8_9F0911EEA51B</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>Attributen van objecttype Medewerker</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Attribuut</th>
+<th style="text-align: left;">Datatype</th>
+<th style="text-align: left;">Beschrijving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">medewerkerIdentificatie</td>
+<td style="text-align: left;">AN24</td>
+<td style="text-align: left;">Een korte unieke aanduiding van de medewerker.</td>
+</tr>
+<tr>
+<td style="text-align: left;">achternaam</td>
+<td style="text-align: left;">AN200</td>
+<td style="text-align: left;">De achternaam zoals de medewerker die in het dagelijkse verkeer gebruikt.</td>
+</tr>
+<tr>
+<td style="text-align: left;">datumUitDienst</td>
+<td style="text-align: left;">Datum</td>
+<td style="text-align: left;">Een aanduiding van de datum waarop de arbeidsplaatsvervulling eindigt.</td>
+</tr>
+<tr>
+<td style="text-align: left;">emailadres</td>
+<td style="text-align: left;">AN254</td>
+<td style="text-align: left;">Elektronisch postadres waaronder de medewerker in de regel bereikbaar is.</td>
+</tr>
+<tr>
+<td style="text-align: left;">functie</td>
+<td style="text-align: left;">AN50</td>
+<td style="text-align: left;">De aanduiding van de taken, rechten en plichten die de medewerker heeft of heeft gehad binnen de zaakbehandelende organisatie.</td>
+</tr>
+<tr>
+<td style="text-align: left;">geslachtsaanduiding</td>
+<td style="text-align: left;">A1</td>
+<td style="text-align: left;">Een aanduiding die aangeeft of de persoon een man of een vrouw is, of dat het geslacht nog onbekend is.</td>
+</tr>
+<tr>
+<td style="text-align: left;">medewerkerToelichting</td>
+<td style="text-align: left;">AN1000</td>
+<td style="text-align: left;">Toelichting bij en/of over de medewerker.</td>
+</tr>
+<tr>
+<td style="text-align: left;">roepnaam</td>
+<td style="text-align: left;">AN30</td>
+<td style="text-align: left;">Naam waarmee de werknemer wordt aangesproken.</td>
+</tr>
+<tr>
+<td style="text-align: left;">telefoonnummer</td>
+<td style="text-align: left;">AN20</td>
+<td style="text-align: left;">Telefoonnummer waaronder de medewerker in de regel bereikbaar is.</td>
+</tr>
+<tr>
+<td style="text-align: left;">voorletters</td>
+<td style="text-align: left;">AN20</td>
+<td style="text-align: left;">De verzameling letters die gevormd wordt door de eerste letter van alle in volgorde voorkomende voornamen.</td>
+</tr>
+<tr>
+<td style="text-align: left;">voorvoegselAchternaam</td>
+<td style="text-align: left;">AN10</td>
+<td style="text-align: left;">Dat deel van de geslachtsnaam dat voorkomt in Tabel 36 (GBA), voorvoegseltabel, en door een spatie van de geslachtsnaam is<br>gescheiden.</td>
+</tr>
+<tr>
+<td style="text-align: left;">extern</td>
+<td style="text-align: left;">CharacterString</td>
+<td style="text-align: left;">Medewerker is een externe?</td>
+</tr>
+<tr>
+<td style="text-align: left;">datumInDienst</td>
+<td style="text-align: left;">Date</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="object">Object<a class="headerlink" href="#object" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Definitie Object:</strong></p>
+<p>Het OBJECT waarop een ZAAK betrekking kan hebben zijnde één of meer voorkomens van de in het RSGB en het RGBZ onderscheiden objecttypen.</p>
+</blockquote>
+<details class="info">
+<summary>Kenmerken Model Object</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Eigenschap</th>
+<th style="text-align: left;">Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">Object</td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichting</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">synoniemen</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">uri</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">bron</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">author</td>
+<td style="text-align: left;">mante_h</td>
+</tr>
+<tr>
+<td style="text-align: left;">version</td>
+<td style="text-align: left;">1.12.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">created</td>
+<td style="text-align: left;">2010-08-19 11:37:35</td>
+</tr>
+<tr>
+<td style="text-align: left;">modified</td>
+<td style="text-align: left;">2025-12-22 15:27:01</td>
+</tr>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">EAID_91F9D39E_0322_42c6_AE7F_5027B36F3EC3</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>Attributen van objecttype Object</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Attribuut</th>
+<th style="text-align: left;">Datatype</th>
+<th style="text-align: left;">Beschrijving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">identificatie</td>
+<td style="text-align: left;">AN50</td>
+<td style="text-align: left;">De unieke identificatie van het OBJECT</td>
+</tr>
+<tr>
+<td style="text-align: left;">objecttype</td>
+<td style="text-align: left;">AN3</td>
+<td style="text-align: left;">Het onderscheid van een OBJECT naar haar specialisatiies.<br>De code voor de Objecttypering gevolgd door de unieke aanduiding van de specialisatie (van OBJECT):<br>ADRESSEERBAAR OBJECT AANDUIDING, BENOEMD OBJECT, BESLUIT, BUURT, ENKELVOUDIG INFORMATIEOBJECT, GEMEENTE, GEMEENTELIJKE OPENBARE RUIMTE, HUISHOUDEN, INRICHTINGSELEMENT, KADASTRALE ONROERENDE ZAAK, KUNSTWERKDEEL, MAATSSCHAPPELIJKE ACTIVITEIT, MEDEWERKER, OPENBARE RUIMTE, SAMENGESTELD INFORMATIEOBJECT, ORGANISATORISCHE EENHEID, PAND, SPOORBAANDEEL, STATUS, SUBJECT, TERREINDEEL, WATERDEEL, WEGDEEL, WIJK, WOONPLAATS, WOZ- DEELOBJECT, WOZ-OBJECT, WOZ-WAARDE of<br>ZAKELIJK RECHT (of afleidbare identificatie).</td>
+</tr>
+<tr>
+<td style="text-align: left;">naam</td>
+<td style="text-align: left;">AN200</td>
+<td style="text-align: left;">De benaming van het OBJECT indien dit een SUBJECT of specialisatie daarvan is.</td>
+</tr>
+<tr>
+<td style="text-align: left;">adresBinnenland</td>
+<td style="text-align: left;">Class: "BinnenlandsAdres"</td>
+<td style="text-align: left;">De aanduiding van het adres van het OBJECT indien dit adres in Nederland gelegen is.</td>
+</tr>
+<tr>
+<td style="text-align: left;">adresBuitenland</td>
+<td style="text-align: left;">AN200</td>
+<td style="text-align: left;">De aanduiding van het adres waar specialisaties van het OBJECT zijnde een SUBJECT dan wel een specialisatie daarvan, verblijft dan wel bereikbaar is in het buitenland.</td>
+</tr>
+<tr>
+<td style="text-align: left;">kadastraleAanduiding</td>
+<td style="text-align: left;">AN30</td>
+<td style="text-align: left;">De kadastrale aanduiding van het OBJECT</td>
+</tr>
+<tr>
+<td style="text-align: left;">geometrie</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">De minimaal tweedimensionale geometrische representatie van het OBJECT.</td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichting</td>
+<td style="text-align: left;">Tekst</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">domein</td>
+<td style="text-align: left;">AN200</td>
+<td style="text-align: left;">Het toepassingsgebied of de sector DOMEIN waarbinnen handhaving op het object plaatsvindt</td>
+</tr>
+<tr>
+<td style="text-align: left;">indicatieRisico</td>
+<td style="text-align: left;">Boolean</td>
+<td style="text-align: left;">Indicatie van de risico's van (de uitvoering van activiteiten in) het handhavingsobject op gevolgen voor het handhavingsobject zelf, de daarin aanwezige personen, de omgeving van het handhavingsobject en/of de samenleving.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="offerte">Offerte<a class="headerlink" href="#offerte" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Definitie Offerte:</strong></p>
+<p>Aanbod, aanbieding of voorstel van goederen of diensten waarin opgave is gedaan van de prijs.</p>
+</blockquote>
+<details class="info">
+<summary>Kenmerken Model Offerte</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Eigenschap</th>
+<th style="text-align: left;">Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">Offerte</td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichting</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">synoniemen</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">uri</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">bron</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">author</td>
+<td style="text-align: left;">Arjen Brienen</td>
+</tr>
+<tr>
+<td style="text-align: left;">version</td>
+<td style="text-align: left;">1.12.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">created</td>
+<td style="text-align: left;">2019-11-26 15:21:20</td>
+</tr>
+<tr>
+<td style="text-align: left;">modified</td>
+<td style="text-align: left;">2025-12-22 15:27:01</td>
+</tr>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">EAID_B259BE5F_AC3A_4e0f_A149_D1F165277CC2</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>Attributen van objecttype Offerte</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Attribuut</th>
+<th style="text-align: left;">Datatype</th>
+<th style="text-align: left;">Beschrijving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="organisatorischeeenheid">OrganisatorischeEenheid<a class="headerlink" href="#organisatorischeeenheid" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Definitie OrganisatorischeEenheid:</strong></p>
+<p>Het deel van een functioneel afgebakend onderdeel binnen de organisatie dat haar activiteiten uitvoert binnen een VESTIGING VAN ZAAKBEHANDELENDE ORGANISATIE en die verantwoordelijk is voor de behandeling van zaken.</p>
+</blockquote>
+<details class="info">
+<summary>Kenmerken Model OrganisatorischeEenheid</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Eigenschap</th>
+<th style="text-align: left;">Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">OrganisatorischeEenheid</td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichting</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">synoniemen</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">uri</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">bron</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">author</td>
+<td style="text-align: left;">mante_h</td>
+</tr>
+<tr>
+<td style="text-align: left;">version</td>
+<td style="text-align: left;">1.12.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">created</td>
+<td style="text-align: left;">2010-08-19 13:30:16</td>
+</tr>
+<tr>
+<td style="text-align: left;">modified</td>
+<td style="text-align: left;">2025-12-22 15:27:01</td>
+</tr>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">EAID_936A4E8B_3E5A_44b6_8A5D_EFB39F83FB6D</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>Attributen van objecttype OrganisatorischeEenheid</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Attribuut</th>
+<th style="text-align: left;">Datatype</th>
+<th style="text-align: left;">Beschrijving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">organisatieIdentificatie</td>
+<td style="text-align: left;">AN24</td>
+<td style="text-align: left;">Een korte identificatie van de organisatorische eenheid.</td>
+</tr>
+<tr>
+<td style="text-align: left;">datumOntstaan</td>
+<td style="text-align: left;">Datum</td>
+<td style="text-align: left;">De datum waarop de organisatorische eenheid is ontstaan.</td>
+</tr>
+<tr>
+<td style="text-align: left;">datumOpheffing</td>
+<td style="text-align: left;">Datum</td>
+<td style="text-align: left;">De datum waarop de organisatorische eenheid is opgeheven.</td>
+</tr>
+<tr>
+<td style="text-align: left;">emailadres</td>
+<td style="text-align: left;">AN254</td>
+<td style="text-align: left;">Elektronisch postadres waaronder de organisatorische eenheid in de regel bereikbaar is.</td>
+</tr>
+<tr>
+<td style="text-align: left;">faxnummer</td>
+<td style="text-align: left;">AN20</td>
+<td style="text-align: left;">Faxnummer waaronder de organisatorische eenheid in de regel bereikbaar is.</td>
+</tr>
+<tr>
+<td style="text-align: left;">naam</td>
+<td style="text-align: left;">AN50</td>
+<td style="text-align: left;">De feitelijke naam van de organisatorische eenheid.</td>
+</tr>
+<tr>
+<td style="text-align: left;">naamVerkort</td>
+<td style="text-align: left;">AN25</td>
+<td style="text-align: left;">Een verkorte naam voor de organisatorische eenheid.</td>
+</tr>
+<tr>
+<td style="text-align: left;">omschrijving</td>
+<td style="text-align: left;">AN80</td>
+<td style="text-align: left;">Een omschrijving van de organisatorische eenheid.</td>
+</tr>
+<tr>
+<td style="text-align: left;">telefoonnummer</td>
+<td style="text-align: left;">AN20</td>
+<td style="text-align: left;">Telefoonnummer waaronder de organisatorische eenheid in de regel bereikbaar is.</td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichting</td>
+<td style="text-align: left;">AN1000</td>
+<td style="text-align: left;">Toelichting bij de organisatorische eenheid.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Formatie</td>
+<td style="text-align: left;">AN255</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="samengestelddocument">SamengesteldDocument<a class="headerlink" href="#samengestelddocument" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Definitie SamengesteldDocument:</strong></p>
+<p>Een DOCUMENT waarbinnen twee of meer ENKELVOUDIGe DOCUMENTen onderscheiden worden die vanwege gezamenlijke vervaardiging en/of ontvangst en/of vanwege aard en/of omvang als één geheel beschouwd moeten worden dan wel behandeld worden.,</p>
+</blockquote>
+<details class="info">
+<summary>Kenmerken Model SamengesteldDocument</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Eigenschap</th>
+<th style="text-align: left;">Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">SamengesteldDocument</td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichting</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">synoniemen</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">uri</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">bron</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">author</td>
+<td style="text-align: left;">mante_h</td>
+</tr>
+<tr>
+<td style="text-align: left;">version</td>
+<td style="text-align: left;">1.12.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">created</td>
+<td style="text-align: left;">2010-08-19 13:42:59</td>
+</tr>
+<tr>
+<td style="text-align: left;">modified</td>
+<td style="text-align: left;">2025-12-22 15:27:01</td>
+</tr>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">EAID_47DA1FC8_F181_41bc_B16A_CE80D2CA13B1</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>Attributen van objecttype SamengesteldDocument</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Attribuut</th>
+<th style="text-align: left;">Datatype</th>
+<th style="text-align: left;">Beschrijving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="status">Status<a class="headerlink" href="#status" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Definitie Status:</strong></p>
+<p>Een aanduiding van de stand van zaken van een zaak op basis van betekenisvol behaald resultaat voor de initiator van de zaak.</p>
+</blockquote>
+<details class="info">
+<summary>Kenmerken Model Status</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Eigenschap</th>
+<th style="text-align: left;">Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">Status</td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichting</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">synoniemen</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">uri</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">bron</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">author</td>
+<td style="text-align: left;">mante_h</td>
+</tr>
+<tr>
+<td style="text-align: left;">version</td>
+<td style="text-align: left;">1.12.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">created</td>
+<td style="text-align: left;">2010-08-19 13:44:49</td>
+</tr>
+<tr>
+<td style="text-align: left;">modified</td>
+<td style="text-align: left;">2025-12-22 15:27:01</td>
+</tr>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">EAID_7C975D37_670B_405e_B825_924BCAFA74C7</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>Attributen van objecttype Status</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Attribuut</th>
+<th style="text-align: left;">Datatype</th>
+<th style="text-align: left;">Beschrijving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">datumStatusGezet</td>
+<td style="text-align: left;">Datum</td>
+<td style="text-align: left;">De datum waarop de zaak de status heeft verkregen.</td>
+</tr>
+<tr>
+<td style="text-align: left;">statustoelichting</td>
+<td style="text-align: left;">AN1000</td>
+<td style="text-align: left;">Een, voor de initiator van de zaak relevante, toelichting op de status van een zaak.</td>
+</tr>
+<tr>
+<td style="text-align: left;">indicatieIaatstGezetteStatus</td>
+<td style="text-align: left;">AN1</td>
+<td style="text-align: left;">Aanduding of het de laatst bekende bereikte status betreft.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="statustype">Statustype<a class="headerlink" href="#statustype" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Definitie Statustype:</strong></p>
+<p>Generieke aanduiding van de aard van een STATUS</p>
+</blockquote>
+<details class="info">
+<summary>Kenmerken Model Statustype</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Eigenschap</th>
+<th style="text-align: left;">Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">Statustype</td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichting</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">synoniemen</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">uri</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">bron</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">author</td>
+<td style="text-align: left;">mante_h</td>
+</tr>
+<tr>
+<td style="text-align: left;">version</td>
+<td style="text-align: left;">1.12.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">created</td>
+<td style="text-align: left;">2010-08-19 13:47:35</td>
+</tr>
+<tr>
+<td style="text-align: left;">modified</td>
+<td style="text-align: left;">2025-12-22 15:27:01</td>
+</tr>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">EAID_AA496B7B_913C_40fd_943E_52F1A6E89440</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>Attributen van objecttype Statustype</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Attribuut</th>
+<th style="text-align: left;">Datatype</th>
+<th style="text-align: left;">Beschrijving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">statustypeOmschrijving</td>
+<td style="text-align: left;">AN80</td>
+<td style="text-align: left;">Een korte, voor de initiator van de zaak relevante, omschrijving van de aard van de STATUS van zaken van een ZAAKTYPE.</td>
+</tr>
+<tr>
+<td style="text-align: left;">statustypeVolgnummer</td>
+<td style="text-align: left;">N4</td>
+<td style="text-align: left;">Een volgnummer voor de status binnen een zaak.</td>
+</tr>
+<tr>
+<td style="text-align: left;">doorlooptijdStatus</td>
+<td style="text-align: left;">N3</td>
+<td style="text-align: left;">De door de zaakbehandelende organisatie(s) gestelde norm voor de doorlooptijd voor het bereiken van STATUSsen van dit STATUSTYPE bij het desbetreffende ZAAKTYPE.</td>
+</tr>
+<tr>
+<td style="text-align: left;">statustypeOmschrijvingGeneriek</td>
+<td style="text-align: left;">AN80</td>
+<td style="text-align: left;">Algemeen gehanteerde omschrijving van de aard van STATUSsen van het STATUSTYPE</td>
+</tr>
+<tr>
+<td style="text-align: left;">datumBeginGeldigheidStatustype</td>
+<td style="text-align: left;">OnvolledigeDatum</td>
+<td style="text-align: left;">De datum waarop het STATUSTYPE is ontstaan.</td>
+</tr>
+<tr>
+<td style="text-align: left;">datumEindeGeldigheidStatustype</td>
+<td style="text-align: left;">OnvolledigeDatum</td>
+<td style="text-align: left;">De datum waarop het STATUSTYPE is opgeheven.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="vestigingvanzaakbehandelendeorganisatie">VestigingVanZaakbehandelendeOrganisatie<a class="headerlink" href="#vestigingvanzaakbehandelendeorganisatie" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Definitie VestigingVanZaakbehandelendeOrganisatie:</strong></p>
+<p>Een VESTIGING van een onderneming of rechtspersoon zijnde de zaakbehandelende organisatie.</p>
+</blockquote>
+<details class="info">
+<summary>Kenmerken Model VestigingVanZaakbehandelendeOrganisatie</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Eigenschap</th>
+<th style="text-align: left;">Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">VestigingVanZaakbehandelendeOrganisatie</td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichting</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">synoniemen</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">uri</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">bron</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">author</td>
+<td style="text-align: left;">mante_h</td>
+</tr>
+<tr>
+<td style="text-align: left;">version</td>
+<td style="text-align: left;">1.12.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">created</td>
+<td style="text-align: left;">2010-08-19 11:03:44</td>
+</tr>
+<tr>
+<td style="text-align: left;">modified</td>
+<td style="text-align: left;">2025-12-22 15:27:01</td>
+</tr>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">EAID_D8142B98_64CB_408e_9941_92423543F08A</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>Attributen van objecttype VestigingVanZaakbehandelendeOrganisatie</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Attribuut</th>
+<th style="text-align: left;">Datatype</th>
+<th style="text-align: left;">Beschrijving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="zaak">Zaak<a class="headerlink" href="#zaak" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Definitie Zaak:</strong></p>
+<p>Een samenhangende hoeveelheid werk met een welgedefinieerde aanleiding en een welgedefinieerd eindresultaat, waarvan kwaliteit en doorlooptijd bewaakt moeten worden.</p>
+</blockquote>
+<details class="info">
+<summary>Kenmerken Model Zaak</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Eigenschap</th>
+<th style="text-align: left;">Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">Zaak</td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichting</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">synoniemen</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">uri</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">bron</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">author</td>
+<td style="text-align: left;">mante_h</td>
+</tr>
+<tr>
+<td style="text-align: left;">version</td>
+<td style="text-align: left;">1.12.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">created</td>
+<td style="text-align: left;">2010-08-19 13:48:52</td>
+</tr>
+<tr>
+<td style="text-align: left;">modified</td>
+<td style="text-align: left;">2025-12-22 15:27:01</td>
+</tr>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">EAID_649EFD86_ED52_4293_8577_DBE5445845BF</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>Attributen van objecttype Zaak</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Attribuut</th>
+<th style="text-align: left;">Datatype</th>
+<th style="text-align: left;">Beschrijving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">zaakidentificatie</td>
+<td style="text-align: left;">AN40</td>
+<td style="text-align: left;">Een identificatie van de zaak.</td>
+</tr>
+<tr>
+<td style="text-align: left;">datumEinde</td>
+<td style="text-align: left;">Datum</td>
+<td style="text-align: left;">De datum waarop de uitvoering van de zaak afgerond is.</td>
+</tr>
+<tr>
+<td style="text-align: left;">datumEindeGepland</td>
+<td style="text-align: left;">Datum</td>
+<td style="text-align: left;">De datum waarop volgens de planning verwacht wordt dat de zaak afgerond wordt.</td>
+</tr>
+<tr>
+<td style="text-align: left;">omschrijving</td>
+<td style="text-align: left;">AN80</td>
+<td style="text-align: left;">Een korte omschrijving van de zaak.</td>
+</tr>
+<tr>
+<td style="text-align: left;">omschrijvingResultaat</td>
+<td style="text-align: left;">AN80</td>
+<td style="text-align: left;">Een korte omschrijving wat het resultaat van de zaak inhoudt.</td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichtingResultaat</td>
+<td style="text-align: left;">AN1000</td>
+<td style="text-align: left;">Een toelichting op wat het resultaat van de zaak inhoudt.</td>
+</tr>
+<tr>
+<td style="text-align: left;">datumStart</td>
+<td style="text-align: left;">Datum</td>
+<td style="text-align: left;">De datum waarop met de uitvoering van de zaak is gestart.</td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichting</td>
+<td style="text-align: left;">AN1000</td>
+<td style="text-align: left;">Een toelichting op de zaak.</td>
+</tr>
+<tr>
+<td style="text-align: left;">datumEindeUiterlijkeAfdoening</td>
+<td style="text-align: left;">Datum</td>
+<td style="text-align: left;">De laatste datum waarop volgens wet- en regelgeving de zaak afgerond dient te zijn.</td>
+</tr>
+<tr>
+<td style="text-align: left;">zaakniveau</td>
+<td style="text-align: left;">N1</td>
+<td style="text-align: left;">Het niveau van een ZAAK in de hierarchie van hoofdzaak met deelzaken.</td>
+</tr>
+<tr>
+<td style="text-align: left;">indicatieDeelzaken</td>
+<td style="text-align: left;">Boolean</td>
+<td style="text-align: left;">De aanduiding of een ZAAK behandeld wordt in deelzaken.</td>
+</tr>
+<tr>
+<td style="text-align: left;">datumRegistratie</td>
+<td style="text-align: left;">Datum</td>
+<td style="text-align: left;">De datum waarop de zaakbehandelende organisatie de ZAAK heeft geregistreerd</td>
+</tr>
+<tr>
+<td style="text-align: left;">datumPublicatie</td>
+<td style="text-align: left;">datum</td>
+<td style="text-align: left;">Datum waarop (het starten van) de zaak gepubliceerd is of wordt.</td>
+</tr>
+<tr>
+<td style="text-align: left;">archiefnominatie</td>
+<td style="text-align: left;">AN1</td>
+<td style="text-align: left;">Indicatie of het zaakdossier (de ZAAK met alle bijbehorende DOCUMENTen) gearchiveerd dient te worden</td>
+</tr>
+<tr>
+<td style="text-align: left;">datumVernietigingDossier</td>
+<td style="text-align: left;">Datum</td>
+<td style="text-align: left;">De datum waarop het, al dan niet gearchiveerde, zaakdossier (de ZAAK met alle bijbehorende DOCUMENTen) vernietigd mag worden.</td>
+</tr>
+<tr>
+<td style="text-align: left;">indicatieBetaling</td>
+<td style="text-align: left;">AN12</td>
+<td style="text-align: left;">Indicatie of de, met behandeling van de zaak gemoeide, kosten betaald zijn door de desbetreffende betrokkene.</td>
+</tr>
+<tr>
+<td style="text-align: left;">datumLaatsteBetaling</td>
+<td style="text-align: left;">Datum</td>
+<td style="text-align: left;">De datum waarop de meest recente betaling is verwerkt van kosten die gemoeid zijn met behandeling van de zaak.</td>
+</tr>
+<tr>
+<td style="text-align: left;">indicatieOpschorting</td>
+<td style="text-align: left;">AN1</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">duurVerlenging</td>
+<td style="text-align: left;">N3</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">redenOpschorting</td>
+<td style="text-align: left;">AN200</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">redenVerlenging</td>
+<td style="text-align: left;">AN200</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">vertrouwelijkheid</td>
+<td style="text-align: left;">AN40</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">leges</td>
+<td style="text-align: left;">AN100</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="zaak-origineel">ZAAK - Origineel<a class="headerlink" href="#zaak-origineel" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Definitie ZAAK - Origineel:</strong></p>
+<p>Een samenhangende hoeveelheid werk met een welgedefinieerde aanleiding en een welgedefinieerd eindresultaat, waarvan kwaliteit en doorlooptijd bewaakt moeten worden.</p>
+</blockquote>
+<details class="info">
+<summary>Kenmerken Model ZAAK - Origineel</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Eigenschap</th>
+<th style="text-align: left;">Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">ZAAK - Origineel</td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichting</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">synoniemen</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">uri</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">bron</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">author</td>
+<td style="text-align: left;">mante_h</td>
+</tr>
+<tr>
+<td style="text-align: left;">version</td>
+<td style="text-align: left;">1.12.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">created</td>
+<td style="text-align: left;">2018-05-28 13:18:59</td>
+</tr>
+<tr>
+<td style="text-align: left;">modified</td>
+<td style="text-align: left;">2025-12-22 15:27:01</td>
+</tr>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">EAID_766265DF_56DD_4560_A55C_FF82E3B9751A</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>Attributen van objecttype ZAAK - Origineel</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Attribuut</th>
+<th style="text-align: left;">Datatype</th>
+<th style="text-align: left;">Beschrijving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">zaakidentificatie</td>
+<td style="text-align: left;">AN40</td>
+<td style="text-align: left;">Een identificatie van de zaak.</td>
+</tr>
+<tr>
+<td style="text-align: left;">datumEinde</td>
+<td style="text-align: left;">Datum</td>
+<td style="text-align: left;">De datum waarop de uitvoering van de zaak afgerond is.</td>
+</tr>
+<tr>
+<td style="text-align: left;">datumEindeGepland</td>
+<td style="text-align: left;">Datum</td>
+<td style="text-align: left;">De datum waarop volgens de planning verwacht wordt dat de zaak afgerond wordt.</td>
+</tr>
+<tr>
+<td style="text-align: left;">omschrijving</td>
+<td style="text-align: left;">AN80</td>
+<td style="text-align: left;">Een korte omschrijving van de zaak.</td>
+</tr>
+<tr>
+<td style="text-align: left;">kenmerk</td>
+<td style="text-align: left;">Class: "KenmerkenZaak"</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">omschrijvingResultaat</td>
+<td style="text-align: left;">AN80</td>
+<td style="text-align: left;">Een korte omschrijving wat het resultaat van de zaak inhoudt.</td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichtingResultaat</td>
+<td style="text-align: left;">AN1000</td>
+<td style="text-align: left;">Een toelichting op wat het resultaat van de zaak inhoudt.</td>
+</tr>
+<tr>
+<td style="text-align: left;">datumStart</td>
+<td style="text-align: left;">Datum</td>
+<td style="text-align: left;">De datum waarop met de uitvoering van de zaak is gestart.</td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichting</td>
+<td style="text-align: left;">AN1000</td>
+<td style="text-align: left;">Een toelichting op de zaak.</td>
+</tr>
+<tr>
+<td style="text-align: left;">datumEindeUiterlijkeAfdoening</td>
+<td style="text-align: left;">Datum</td>
+<td style="text-align: left;">De laatste datum waarop volgens wet- en regelgeving de zaak afgerond dient te zijn.</td>
+</tr>
+<tr>
+<td style="text-align: left;">zaakniveau</td>
+<td style="text-align: left;">N1</td>
+<td style="text-align: left;">Het niveau van een ZAAK in de hierarchie van hoofdzaak met deelzaken.</td>
+</tr>
+<tr>
+<td style="text-align: left;">indicatieDeelzaken</td>
+<td style="text-align: left;">Boolean</td>
+<td style="text-align: left;">De aanduiding of een ZAAK behandeld wordt in deelzaken.</td>
+</tr>
+<tr>
+<td style="text-align: left;">datumRegistratie</td>
+<td style="text-align: left;">Datum</td>
+<td style="text-align: left;">De datum waarop de zaakbehandelende organisatie de ZAAK heeft geregistreerd</td>
+</tr>
+<tr>
+<td style="text-align: left;">datumPublicatie</td>
+<td style="text-align: left;">datum</td>
+<td style="text-align: left;">Datum waarop (het starten van) de zaak gepubliceerd is of wordt.</td>
+</tr>
+<tr>
+<td style="text-align: left;">archiefnominatie</td>
+<td style="text-align: left;">AN1</td>
+<td style="text-align: left;">Indicatie of het zaakdossier (de ZAAK met alle bijbehorende DOCUMENTen) gearchiveerd dient te worden</td>
+</tr>
+<tr>
+<td style="text-align: left;">datumVernietigingDossier</td>
+<td style="text-align: left;">Datum</td>
+<td style="text-align: left;">De datum waarop het, al dan niet gearchiveerde, zaakdossier (de ZAAK met alle bijbehorende DOCUMENTen) vernietigd mag worden.</td>
+</tr>
+<tr>
+<td style="text-align: left;">indicatieBetaling</td>
+<td style="text-align: left;">AN12</td>
+<td style="text-align: left;">Indicatie of de, met behandeling van de zaak gemoeide, kosten betaald zijn door de desbetreffende betrokkene.</td>
+</tr>
+<tr>
+<td style="text-align: left;">datumLaatsteBetaling</td>
+<td style="text-align: left;">Datum</td>
+<td style="text-align: left;">De datum waarop de meest recente betaling is verwerkt van kosten die gemoeid zijn met behandeling van de zaak.</td>
+</tr>
+<tr>
+<td style="text-align: left;">opschorting</td>
+<td style="text-align: left;">Class: "OpschortingZaak"</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">verlenging</td>
+<td style="text-align: left;">Class: "VerlengingZaak"</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">anderZaakobject</td>
+<td style="text-align: left;">Class: "AnderZaakobjectZaak"</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="zaaktype">Zaaktype<a class="headerlink" href="#zaaktype" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Definitie Zaaktype:</strong></p>
+<p>Generieke aanduiding van de aard van een zaak</p>
+</blockquote>
+<details class="info">
+<summary>Kenmerken Model Zaaktype</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Eigenschap</th>
+<th style="text-align: left;">Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">Zaaktype</td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichting</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">synoniemen</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">uri</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">bron</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">author</td>
+<td style="text-align: left;">mante_h</td>
+</tr>
+<tr>
+<td style="text-align: left;">version</td>
+<td style="text-align: left;">1.12.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">created</td>
+<td style="text-align: left;">2010-08-19 13:54:55</td>
+</tr>
+<tr>
+<td style="text-align: left;">modified</td>
+<td style="text-align: left;">2025-12-22 15:27:01</td>
+</tr>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">EAID_7210A379_17EE_4143_A106_ECD9414B2A0D</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>Attributen van objecttype Zaaktype</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Attribuut</th>
+<th style="text-align: left;">Datatype</th>
+<th style="text-align: left;">Beschrijving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">zaaktypeOmschrijving</td>
+<td style="text-align: left;">AN80</td>
+<td style="text-align: left;">Omschrijving van de aard van ZAAKen van het ZAAKTYPE.</td>
+</tr>
+<tr>
+<td style="text-align: left;">zaaktypeOmschrijvingGeneriek</td>
+<td style="text-align: left;">AN80</td>
+<td style="text-align: left;">Algemeen gehanteerde omschrijving van de aard van ZAAKen van het ZAAKTYPE</td>
+</tr>
+<tr>
+<td style="text-align: left;">trefwoord</td>
+<td style="text-align: left;">AN30</td>
+<td style="text-align: left;">Een trefwoord waarmee ZAAKen van het ZAAKTYPE kunnen worden gekarakteriseerd.</td>
+</tr>
+<tr>
+<td style="text-align: left;">doorlooptijdBehandeling</td>
+<td style="text-align: left;">N3</td>
+<td style="text-align: left;">De periode waarbinnen volgens wet- en regelgeving een ZAAk van het ZAAKTYPE afgerond dient te zijn.</td>
+</tr>
+<tr>
+<td style="text-align: left;">servicenormBehandeling</td>
+<td style="text-align: left;">N3</td>
+<td style="text-align: left;">De periode waarbinnen verwacht wordt dat een ZAAk van het ZAAKTYPE afgerond wordt coform de geldende servicenormen van de zaakbehandelende organisatie(s).</td>
+</tr>
+<tr>
+<td style="text-align: left;">archiefcode</td>
+<td style="text-align: left;">AN20</td>
+<td style="text-align: left;">De systematische identificatie van zaakdossiers van dit ZAAKTYPE overeenkomstig logisch gestructureerde conventies, methoden en procedureregels.</td>
+</tr>
+<tr>
+<td style="text-align: left;">vertrouwelijkAanduiding</td>
+<td style="text-align: left;">AN20</td>
+<td style="text-align: left;">Aanduiding van de mate waarin zaakdossiers van ZAAKen van dit ZAAKTYPE voor de openbaarheid bestemd zijn.</td>
+</tr>
+<tr>
+<td style="text-align: left;">indicatiePublicatie</td>
+<td style="text-align: left;">AN1</td>
+<td style="text-align: left;">Aanduiding of (het starten van) een ZAAK van dit ZAAKTYPE gepubliceerd moet worden.</td>
+</tr>
+<tr>
+<td style="text-align: left;">zaakcategorie</td>
+<td style="text-align: left;">AN40</td>
+<td style="text-align: left;">Typering van de aard van ZAAKen van het ZAAKTYPE.</td>
+</tr>
+<tr>
+<td style="text-align: left;">publicatietekst</td>
+<td style="text-align: left;">AN1000</td>
+<td style="text-align: left;">De generieke tekst van de publicatie van ZAAKen van dit ZAAKTYPE</td>
+</tr>
+<tr>
+<td style="text-align: left;">datumBeginGeldigheidZaaktype</td>
+<td style="text-align: left;">OnvolledigeDatum</td>
+<td style="text-align: left;">De datum waarop het ZAAKTYPE is ontstaan.</td>
+</tr>
+<tr>
+<td style="text-align: left;">datumEindeGeldigheidZaaktype</td>
+<td style="text-align: left;">OnvolledigeDatum</td>
+<td style="text-align: left;">De datum waarop het ZAAKTYPE is opgeheven.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="enumeraties-model-kern-rgbz">Enumeraties Model Kern RGBZ<a class="headerlink" href="#enumeraties-model-kern-rgbz" title="Permanent link">&para;</a></h2>
+<h3 id="boolean">Boolean<a class="headerlink" href="#boolean" title="Permanent link">&para;</a></h3>
+<p>Geen Definitie</p>
+<p>Het enumeratie Boolean kent de volgende waarden:</p>
+<ul>
+<li><strong>Ja</strong>: </li>
+<li><strong>Nee</strong>: </li>
+<li><strong>Onbekend</strong>: </li>
+<li><strong>Leeg</strong>: </li>
+</ul>
+<p>De enumeratie Boolean heeft de volgende kenmerken:</p>
+<details class="info">
+<summary>Kenmerken Model Boolean</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Kenmerk</th>
+<th style="text-align: left;">Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">Boolean</td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichting</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">synoniemen</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">uri</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">bron</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">author</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">version</td>
+<td style="text-align: left;">1.10.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">created</td>
+<td style="text-align: left;">2025-03-26 11:13:35</td>
+</tr>
+<tr>
+<td style="text-align: left;">modified</td>
+<td style="text-align: left;">2025-12-22 15:27:04</td>
+</tr>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">EAID_3fba3c79_7335_4148_8f4a_61eb89967c82</td>
+</tr>
+</tbody>
+</table>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Terug naar boven
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.footer", "search.highlight", "search.share", "content.action.edit", "content.code.copy"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.ad660dcc.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1661 @@
+
+<!doctype html>
+<html lang="nl" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Informatiemodel Semantiek voor Gemeentelijke Basisgegevens Objecten — open standaard voor interoperabiliteit en datakwaliteit binnen gemeenten.">
+      
+      
+        <meta name="author" content="GBO Semantiek Werkgroep">
+      
+      
+        <link rel="canonical" href="https://brienen.github.io/gbo-semantiek/v0.1/definities/definitie_Complex%20datatype/">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.26">
+    
+    
+      
+        <title>Complex datatype - GBO Semantiek</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6543a935.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#complex-datatype" class="md-skip">
+          Ga naar inhoud
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="GBO Semantiek" class="md-header__button md-logo" aria-label="GBO Semantiek" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GBO Semantiek
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Complex datatype
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-label="Schakel naar donker thema"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Schakel naar donker thema" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-label="Schakel naar licht thema"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Schakel naar licht thema" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Zoeken" placeholder="Zoeken" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Zoeken">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Delen" aria-label="Delen" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Leegmaken" aria-label="Leegmaken" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Zoeken initialiseren
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/brienen/gbo-semantiek" title="Ga naar repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    brienen/gbo-semantiek
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Introductie
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../doel-en-scope/" class="md-tabs__link">
+        
+  
+    
+  
+  Doel en scope
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../begrippen/" class="md-tabs__link">
+        
+  
+    
+  
+  Begrippen
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../architectuur/" class="md-tabs__link">
+        
+  
+    
+  
+  Architectuur
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../versiebeheer/" class="md-tabs__link">
+        
+  
+    
+  
+  Versiebeheer
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../governance/" class="md-tabs__link">
+        
+  
+    
+  
+  Governance
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../roadmap/" class="md-tabs__link">
+        
+  
+    
+  
+  Roadmap
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigatie" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="GBO Semantiek" class="md-nav__button md-logo" aria-label="GBO Semantiek" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    GBO Semantiek
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/brienen/gbo-semantiek" title="Ga naar repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    brienen/gbo-semantiek
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introductie
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../doel-en-scope/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Doel en scope
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../begrippen/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Begrippen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architectuur/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Architectuur
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../versiebeheer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Versiebeheer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../governance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Governance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roadmap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Roadmap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Op deze pagina">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Op deze pagina
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#inleiding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inleiding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objecttypen-complex-datatype" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objecttypen Complex datatype
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Objecttypen Complex datatype">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bagobjectnummering" class="md-nav__link">
+    <span class="md-ellipsis">
+      BAGObjectnummering
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compositeid" class="md-nav__link">
+    <span class="md-ellipsis">
+      CompositeID
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#typebedrag" class="md-nav__link">
+    <span class="md-ellipsis">
+      TypeBedrag
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#typebreuk" class="md-nav__link">
+    <span class="md-ellipsis">
+      TypeBreuk
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#typekadastraleaanduiding" class="md-nav__link">
+    <span class="md-ellipsis">
+      TypeKadastraleAanduiding
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#typekoopsom" class="md-nav__link">
+    <span class="md-ellipsis">
+      TypeKoopsom
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#typelabel" class="md-nav__link">
+    <span class="md-ellipsis">
+      TypeLabel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#typelabelpositie" class="md-nav__link">
+    <span class="md-ellipsis">
+      TypeLabelpositie
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#typelandinrichtingsrente" class="md-nav__link">
+    <span class="md-ellipsis">
+      TypeLandinrichtingsrente
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enumeraties-complex-datatype" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enumeraties Complex datatype
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enumeraties Complex datatype">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#typeobjectcode" class="md-nav__link">
+    <span class="md-ellipsis">
+      typeObjectcode
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/brienen/gbo-semantiek/edit/main/docs/definities/definitie_Complex datatype.md" title="Wijzig deze pagina" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="complex-datatype">Complex datatype<a class="headerlink" href="#complex-datatype" title="Permanent link">&para;</a></h1>
+<h2 id="inleiding">Inleiding<a class="headerlink" href="#inleiding" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>Definitie Complex datatype:</strong></p>
+<p>Geen definitie</p>
+</blockquote>
+<details class="info">
+<summary>Kenmerken Model Complex datatype</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Kenmerk</th>
+<th style="text-align: left;">Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">Complex datatype</td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichting</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">synoniemen</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">uri</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">bron</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">author</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">version</td>
+<td style="text-align: left;">1.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">created</td>
+<td style="text-align: left;">2015-12-01 07:52:09</td>
+</tr>
+<tr>
+<td style="text-align: left;">modified</td>
+<td style="text-align: left;">2025-12-22 15:27:04</td>
+</tr>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">EAPK_EF3887BA_3215_4cd3_A6E0_18B0C850D4BE</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>Het model 'Complex datatype' kent de volgende objecttypen:</p>
+<ul>
+<li><strong>BAGObjectnummering</strong>: Unieke objectaanduiding van een object uit de BAG binnen een gemeente.</li>
+<li><strong>CompositeID</strong>: <blockquote>
+<p>Unieke identificatie door het Kadaster toegekend. De identificatie heeft een opbouw conform NEN3610:2011 maar
+namespaces zijn onder beheer van kadaster (CDMKAD, delen van IMKAD) of Geonovum/NEN3610 (IMKAD).</p>
+</blockquote>
+</li>
+<li><strong>TypeBedrag</strong>: Een hoeveelheid geld in cijfers in een bepaalde valuta.</li>
+<li><strong>TypeBreuk</strong>: De uitkomst van een deling van een geheel getal (de teller) door een ander geheel getal (de noemer).</li>
+<li><strong>TypeKadastraleAanduiding</strong>: De typering van de kadastrale aanduiding van een onroerende zaak conform Kadaster.</li>
+<li><strong>TypeKoopsom</strong>: Hetbedrag, waarvoor één of meer onroerende zaken zijn verkregen, het koopjaar en een indicator of het meerdere onroerende goederen betreft.</li>
+<li><strong>TypeLabel</strong>: De tekst en positie van een label.</li>
+<li><strong>TypeLabelpositie</strong>: De positie van een label op de kaart, samengesteld uit plaatsingspunt en rotatiehoek.</li>
+<li><strong>TypeLandinrichtingsrente</strong>: <blockquote>
+<p>De rente die berekend is over de percelen die in een herverkavelingblok van een landinrichtingsproject hebben
+gelegen.</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="objecttypen-complex-datatype">Objecttypen Complex datatype<a class="headerlink" href="#objecttypen-complex-datatype" title="Permanent link">&para;</a></h2>
+<h3 id="bagobjectnummering">BAGObjectnummering<a class="headerlink" href="#bagobjectnummering" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Definitie BAGObjectnummering:</strong></p>
+<p>Unieke objectaanduiding van een object uit de BAG binnen een gemeente.</p>
+</blockquote>
+<details class="info">
+<summary>Kenmerken Model BAGObjectnummering</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Eigenschap</th>
+<th style="text-align: left;">Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">BAGObjectnummering</td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichting</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">synoniemen</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">uri</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">bron</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">author</td>
+<td style="text-align: left;">Debat_E</td>
+</tr>
+<tr>
+<td style="text-align: left;">version</td>
+<td style="text-align: left;">1.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">created</td>
+<td style="text-align: left;">2015-11-26 11:06:00</td>
+</tr>
+<tr>
+<td style="text-align: left;">modified</td>
+<td style="text-align: left;">2025-12-22 15:27:04</td>
+</tr>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">EAID_AB8B30D0_FD1F_4c44_9396_BB05389EA20B</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>Attributen van objecttype BAGObjectnummering</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Attribuut</th>
+<th style="text-align: left;">Datatype</th>
+<th style="text-align: left;">Beschrijving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">gemeentecode</td>
+<td style="text-align: left;">AN4</td>
+<td style="text-align: left;">de (viercijferig) 'gemeentecode'</td>
+</tr>
+<tr>
+<td style="text-align: left;">objecttypecode</td>
+<td style="text-align: left;">Enumeratie: "typeObjectcode"</td>
+<td style="text-align: left;">Een code waarmee het objecttype van een object wordt<br>aangegeven.</td>
+</tr>
+<tr>
+<td style="text-align: left;">objectvolgnummer</td>
+<td style="text-align: left;">AN10</td>
+<td style="text-align: left;">Een uniek volgnummer waarmee een object van een bepaald<br>objecttype binnen een gemeente kan worden aangeduid.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="compositeid">CompositeID<a class="headerlink" href="#compositeid" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Definitie CompositeID:</strong></p>
+<p>Unieke identificatie door het Kadaster toegekend. De identificatie heeft een opbouw conform NEN3610:2011 maar
+namespaces zijn onder beheer van kadaster (CDMKAD, delen van IMKAD) of Geonovum/NEN3610 (IMKAD).</p>
+</blockquote>
+<details class="info">
+<summary>Kenmerken Model CompositeID</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Eigenschap</th>
+<th style="text-align: left;">Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">CompositeID</td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichting</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">synoniemen</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">uri</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">bron</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">author</td>
+<td style="text-align: left;">debat_e</td>
+</tr>
+<tr>
+<td style="text-align: left;">version</td>
+<td style="text-align: left;">1.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">created</td>
+<td style="text-align: left;">2015-11-30 09:17:09</td>
+</tr>
+<tr>
+<td style="text-align: left;">modified</td>
+<td style="text-align: left;">2025-12-22 15:27:04</td>
+</tr>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">EAID_D0110970_3A90_451c_9EF3_ABD4AD5AA82A</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>Attributen van objecttype CompositeID</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Attribuut</th>
+<th style="text-align: left;">Datatype</th>
+<th style="text-align: left;">Beschrijving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Namspace</td>
+<td style="text-align: left;">AN</td>
+<td style="text-align: left;">Unieke verwijzing naar een domein binnen de Kadaster registratie van objecten</td>
+</tr>
+<tr>
+<td style="text-align: left;">Lokaal id</td>
+<td style="text-align: left;">AN</td>
+<td style="text-align: left;">unieke identificatiecode binnen kadaster registratie</td>
+</tr>
+<tr>
+<td style="text-align: left;">Versie</td>
+<td style="text-align: left;">AN</td>
+<td style="text-align: left;">Versie-aanduiding van een object.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="typebedrag">TypeBedrag<a class="headerlink" href="#typebedrag" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Definitie TypeBedrag:</strong></p>
+<p>Een hoeveelheid geld in cijfers in een bepaalde valuta.</p>
+</blockquote>
+<details class="info">
+<summary>Kenmerken Model TypeBedrag</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Eigenschap</th>
+<th style="text-align: left;">Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">TypeBedrag</td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichting</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">synoniemen</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">uri</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">bron</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">author</td>
+<td style="text-align: left;">debat_e</td>
+</tr>
+<tr>
+<td style="text-align: left;">version</td>
+<td style="text-align: left;">1.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">created</td>
+<td style="text-align: left;">2015-11-02 10:32:09</td>
+</tr>
+<tr>
+<td style="text-align: left;">modified</td>
+<td style="text-align: left;">2025-12-22 15:27:04</td>
+</tr>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">EAID_510A0B01_75F9_430e_9FF1_99911FAA614E</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>Attributen van objecttype TypeBedrag</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Attribuut</th>
+<th style="text-align: left;">Datatype</th>
+<th style="text-align: left;">Beschrijving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">som</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">Een hoeveelheid</td>
+</tr>
+<tr>
+<td style="text-align: left;">valutasoort</td>
+<td style="text-align: left;">Class: "Valutasoort"</td>
+<td style="text-align: left;">Aanduiding van de valutasoort.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="typebreuk">TypeBreuk<a class="headerlink" href="#typebreuk" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Definitie TypeBreuk:</strong></p>
+<p>De uitkomst van een deling van een geheel getal (de teller) door een ander geheel getal (de noemer).</p>
+</blockquote>
+<details class="info">
+<summary>Kenmerken Model TypeBreuk</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Eigenschap</th>
+<th style="text-align: left;">Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">TypeBreuk</td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichting</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">synoniemen</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">uri</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">bron</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">author</td>
+<td style="text-align: left;">debat_e</td>
+</tr>
+<tr>
+<td style="text-align: left;">version</td>
+<td style="text-align: left;">1.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">created</td>
+<td style="text-align: left;">2015-11-02 08:29:23</td>
+</tr>
+<tr>
+<td style="text-align: left;">modified</td>
+<td style="text-align: left;">2025-12-22 15:27:04</td>
+</tr>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">EAID_02C9FDB1_0F08_4cd9_80FE_319F83C26757</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>Attributen van objecttype TypeBreuk</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Attribuut</th>
+<th style="text-align: left;">Datatype</th>
+<th style="text-align: left;">Beschrijving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">teller</td>
+<td style="text-align: left;">N8</td>
+<td style="text-align: left;">Het aantal delen.</td>
+</tr>
+<tr>
+<td style="text-align: left;">noemer</td>
+<td style="text-align: left;">N8</td>
+<td style="text-align: left;">De noemer van het deel</td>
+</tr>
+</tbody>
+</table>
+<h3 id="typekadastraleaanduiding">TypeKadastraleAanduiding<a class="headerlink" href="#typekadastraleaanduiding" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Definitie TypeKadastraleAanduiding:</strong></p>
+<p>De typering van de kadastrale aanduiding van een onroerende zaak conform Kadaster.</p>
+</blockquote>
+<details class="info">
+<summary>Kenmerken Model TypeKadastraleAanduiding</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Eigenschap</th>
+<th style="text-align: left;">Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">TypeKadastraleAanduiding</td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichting</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">synoniemen</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">uri</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">bron</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">author</td>
+<td style="text-align: left;">debat_e</td>
+</tr>
+<tr>
+<td style="text-align: left;">version</td>
+<td style="text-align: left;">1.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">created</td>
+<td style="text-align: left;">2015-11-02 09:50:52</td>
+</tr>
+<tr>
+<td style="text-align: left;">modified</td>
+<td style="text-align: left;">2025-12-22 15:27:04</td>
+</tr>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">EAID_DB619B91_E690_49c0_88C0_733F37C0357B</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>Attributen van objecttype TypeKadastraleAanduiding</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Attribuut</th>
+<th style="text-align: left;">Datatype</th>
+<th style="text-align: left;">Beschrijving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">kadastraleGemeentecode</td>
+<td style="text-align: left;">Class: "AkrKadastraleGemeentecode"</td>
+<td style="text-align: left;">AKR code voor de kadastrale gemeente.</td>
+</tr>
+<tr>
+<td style="text-align: left;">perceelnummer</td>
+<td style="text-align: left;">N5</td>
+<td style="text-align: left;">Het perceelnummer dat een geheel perceel of een complex uniek identificeert binnen de sectie.</td>
+</tr>
+<tr>
+<td style="text-align: left;">sectie</td>
+<td style="text-align: left;">AN2</td>
+<td style="text-align: left;">De sectie die de sectie binnen de kadastrale gemeente uniek identificeert.</td>
+</tr>
+<tr>
+<td style="text-align: left;">appartementsrechtvolgnummer</td>
+<td style="text-align: left;">N4</td>
+<td style="text-align: left;">Nummer dat het kadastraal object uniek identificeert als een appartementsrecht binnen het complex.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="typekoopsom">TypeKoopsom<a class="headerlink" href="#typekoopsom" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Definitie TypeKoopsom:</strong></p>
+<p>Hetbedrag, waarvoor één of meer onroerende zaken zijn verkregen, het koopjaar en een indicator of het meerdere onroerende goederen betreft.</p>
+</blockquote>
+<details class="info">
+<summary>Kenmerken Model TypeKoopsom</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Eigenschap</th>
+<th style="text-align: left;">Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">TypeKoopsom</td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichting</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">synoniemen</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">uri</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">bron</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">author</td>
+<td style="text-align: left;">debat_e</td>
+</tr>
+<tr>
+<td style="text-align: left;">version</td>
+<td style="text-align: left;">1.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">created</td>
+<td style="text-align: left;">2015-11-02 10:21:00</td>
+</tr>
+<tr>
+<td style="text-align: left;">modified</td>
+<td style="text-align: left;">2025-12-22 15:27:04</td>
+</tr>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">EAID_72D99BCE_F52F_4a19_90A6_5813DB40066B</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>Attributen van objecttype TypeKoopsom</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Attribuut</th>
+<th style="text-align: left;">Datatype</th>
+<th style="text-align: left;">Beschrijving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">bedrag</td>
+<td style="text-align: left;">TypeBedrag</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">koopjaar</td>
+<td style="text-align: left;">JAAR</td>
+<td style="text-align: left;">Het jaar waarin het belangrijkste recht van het kadastraal object is verkregen.</td>
+</tr>
+<tr>
+<td style="text-align: left;">meerOnroerendGoed</td>
+<td style="text-align: left;">INDIC</td>
+<td style="text-align: left;">Indicatie of de koopsom betrekking heeft op meer dan 1 kadastraal object.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="typelabel">TypeLabel<a class="headerlink" href="#typelabel" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Definitie TypeLabel:</strong></p>
+<p>De tekst en positie van een label.</p>
+</blockquote>
+<details class="info">
+<summary>Kenmerken Model TypeLabel</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Eigenschap</th>
+<th style="text-align: left;">Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">TypeLabel</td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichting</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">synoniemen</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">uri</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">bron</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">author</td>
+<td style="text-align: left;">debat_e</td>
+</tr>
+<tr>
+<td style="text-align: left;">version</td>
+<td style="text-align: left;">1.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">created</td>
+<td style="text-align: left;">2015-11-02 14:28:43</td>
+</tr>
+<tr>
+<td style="text-align: left;">modified</td>
+<td style="text-align: left;">2025-12-22 15:27:04</td>
+</tr>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">EAID_C74E1553_32AE_4fd8_9796_00C6E1C51A11</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>Attributen van objecttype TypeLabel</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Attribuut</th>
+<th style="text-align: left;">Datatype</th>
+<th style="text-align: left;">Beschrijving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">labelTekst</td>
+<td style="text-align: left;">AN</td>
+<td style="text-align: left;">De tekst van het label zoals getoond op de kaart.</td>
+</tr>
+<tr>
+<td style="text-align: left;">labelPositie</td>
+<td style="text-align: left;">TypeLabelpositie</td>
+<td style="text-align: left;">De locatie op de kaart waar het label moet worden getoond, samengesteld uit plaatsingspunt en rotatiehoek</td>
+</tr>
+</tbody>
+</table>
+<h3 id="typelabelpositie">TypeLabelpositie<a class="headerlink" href="#typelabelpositie" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Definitie TypeLabelpositie:</strong></p>
+<p>De positie van een label op de kaart, samengesteld uit plaatsingspunt en rotatiehoek.</p>
+</blockquote>
+<details class="info">
+<summary>Kenmerken Model TypeLabelpositie</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Eigenschap</th>
+<th style="text-align: left;">Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">TypeLabelpositie</td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichting</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">synoniemen</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">uri</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">bron</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">author</td>
+<td style="text-align: left;">debat_e</td>
+</tr>
+<tr>
+<td style="text-align: left;">version</td>
+<td style="text-align: left;">1.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">created</td>
+<td style="text-align: left;">2015-11-02 14:03:12</td>
+</tr>
+<tr>
+<td style="text-align: left;">modified</td>
+<td style="text-align: left;">2025-12-22 15:27:04</td>
+</tr>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">EAID_5EEC2C27_B576_4f86_9768_5E785592FA4F</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>Attributen van objecttype TypeLabelpositie</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Attribuut</th>
+<th style="text-align: left;">Datatype</th>
+<th style="text-align: left;">Beschrijving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">plaatsingspunt</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Coördinaten voor de locatie waar het label moet worden getoond.</td>
+</tr>
+<tr>
+<td style="text-align: left;">hoek</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">De rotatie van het label bij visualisatie, met de klok mee ten opzichte<br>van de normale tekstrichting.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="typelandinrichtingsrente">TypeLandinrichtingsrente<a class="headerlink" href="#typelandinrichtingsrente" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Definitie TypeLandinrichtingsrente:</strong></p>
+<p>De rente die berekend is over de percelen die in een herverkavelingblok van een landinrichtingsproject hebben
+gelegen.</p>
+</blockquote>
+<details class="info">
+<summary>Kenmerken Model TypeLandinrichtingsrente</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Eigenschap</th>
+<th style="text-align: left;">Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">TypeLandinrichtingsrente</td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichting</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">synoniemen</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">uri</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">bron</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">author</td>
+<td style="text-align: left;">debat_e</td>
+</tr>
+<tr>
+<td style="text-align: left;">version</td>
+<td style="text-align: left;">1.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">created</td>
+<td style="text-align: left;">2015-11-02 11:08:40</td>
+</tr>
+<tr>
+<td style="text-align: left;">modified</td>
+<td style="text-align: left;">2025-12-22 15:27:04</td>
+</tr>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">EAID_46A510E7_E757_4ad6_B697_DF79FE87F4F2</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>Attributen van objecttype TypeLandinrichtingsrente</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Attribuut</th>
+<th style="text-align: left;">Datatype</th>
+<th style="text-align: left;">Beschrijving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">bedrag</td>
+<td style="text-align: left;">TypeBedrag</td>
+<td style="text-align: left;">Het bedrag waarmee de Onroerende zaak is belast in het kader van de landinrichtingswet.</td>
+</tr>
+<tr>
+<td style="text-align: left;">eindjaar</td>
+<td style="text-align: left;">JAAR</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="enumeraties-complex-datatype">Enumeraties Complex datatype<a class="headerlink" href="#enumeraties-complex-datatype" title="Permanent link">&para;</a></h2>
+<h3 id="typeobjectcode">typeObjectcode<a class="headerlink" href="#typeobjectcode" title="Permanent link">&para;</a></h3>
+<p>Geen Definitie</p>
+<p>Het enumeratie typeObjectcode kent de volgende waarden:</p>
+<ul>
+<li><strong>verblijfsobject</strong>: </li>
+<li><strong>ligplaats</strong>: </li>
+<li><strong>standplaats</strong>: </li>
+<li><strong>pand</strong>: </li>
+<li><strong>nummeraanduiding</strong>: </li>
+<li><strong>openbare ruimte</strong>: </li>
+<li><strong>overig adreseerbaar object aanduiding</strong>: </li>
+<li><strong>overig gebouwd object</strong>: </li>
+<li><strong>overig benoemd terrein</strong>: </li>
+</ul>
+<p>De enumeratie typeObjectcode heeft de volgende kenmerken:</p>
+<details class="info">
+<summary>Kenmerken Model typeObjectcode</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Kenmerk</th>
+<th style="text-align: left;">Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">typeObjectcode</td>
+</tr>
+<tr>
+<td style="text-align: left;">toelichting</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">synoniemen</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">uri</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">bron</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">author</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">version</td>
+<td style="text-align: left;">1.10.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">created</td>
+<td style="text-align: left;">2025-03-26 11:13:41</td>
+</tr>
+<tr>
+<td style="text-align: left;">modified</td>
+<td style="text-align: left;">2025-12-22 15:27:05</td>
+</tr>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">EAID_80f5f9ec_77b1_4bcc_ba2c_870d9a4b526e</td>
+</tr>
+</tbody>
+</table>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Terug naar boven
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.footer", "search.highlight", "search.share", "content.action.edit", "content.code.copy"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.ad660dcc.min.js"></script>
+      
+    
+  </body>
+</html>
