@@ -45,6 +45,12 @@ Thumbs.db
 ehthumbs.db
 Desktop.ini
 
+# Task
+.task/
+
+# Crunch UML database
+crunch_uml.db
+
 # Tijdelijke bestanden
 *.tmp
 *.temp

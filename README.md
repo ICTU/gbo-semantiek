@@ -63,9 +63,14 @@ gbo-semantiek/
 │   ├── uml/
 │   ├── jsonschema/
 │   └── rdf/
-├── tools/                       # Hulpscripts voor validatie en publicatie
+├── tools/                       # Hulpscripts en templates
+│   ├── gbo_markdown.j2          # Jinja2-template voor definitie-generatie
+│   ├── validate_docs.sh
+│   └── deploy_docs.sh
 ├── .github/
 │   └── workflows/               # CI/CD workflows
+├── Taskfile.yml                 # Task-runner configuratie (go-task)
+├── .env                         # Omgevingsvariabelen (versie, bestandsnamen)
 ├── mkdocs.yml                   # MkDocs configuratie
 ├── CHANGELOG.md
 ├── CONTRIBUTING.md
@@ -76,24 +81,51 @@ gbo-semantiek/
 
 ## Aan de slag
 
+### Vereisten
+
+- [go-task](https://taskfile.dev/) — task-runner
+- [crunch_uml](https://github.com/brienen/crunch_uml) — model import/export
+- Python 3.9+ met `mkdocs-material` en `mike`
+- `jq` — JSON-processor
+
+Controleer of alles geïnstalleerd is:
+
+```bash
+task prepare:check-tools
+```
+
 ### Documentatiewebsite lokaal draaien
 
 ```bash
-# Installeer afhankelijkheden
-pip install mkdocs-material mike
-
 # Start lokale ontwikkelserver
-mkdocs serve
+task build:serve
 ```
 
-### Gedocumenteerde versie publiceren (mike)
+### Beschikbare taken
+
+Alle taken zijn gegroepeerd per fase:
+
+| Fase | Taken | Beschrijving |
+|------|-------|-------------|
+| **prepare** | `prepare:check-tools`, `prepare:check-vars` | Voorwaarden valideren |
+| **import** | `import:model`, `import:previous` | Model(len) inladen in crunch_uml |
+| **generate** | `generate:docs`, `generate:lod`, `generate:diff` | Artifacts genereren uit het model |
+| **build** | `build:validate`, `build:site`, `build:serve` | MkDocs bouwen, valideren, serveren |
+| **publish** | `publish:local`, `publish:github` | Mike deploy (lokaal) of push naar gh-pages |
+| | `full-deploy` | Volledige deployment van import t/m publish |
 
 ```bash
-# Publiceer versie v0.1 als standaard
-mike deploy --push --update-aliases v0.1 latest
+# Bekijk alle beschikbare taken
+task --list
 
-# Bekijk gepubliceerde versies
-mike list
+# Volledige deployment
+task full-deploy
+
+# Alleen documentatie genereren
+task generate:docs
+
+# Publiceren naar GitHub Pages
+task publish:github
 ```
 
 Zie [docs/versiebeheer.md](docs/versiebeheer.md) voor een uitgebreide uitleg over het versiebeleid.

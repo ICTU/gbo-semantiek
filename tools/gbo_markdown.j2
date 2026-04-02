@@ -1,0 +1,70 @@
+{%- set generieke_kenmerken = ['name', 'toelichting', 'synoniemen', 'uri', 'bron', 'author', 'version', 'created', 'modified', 'id'] -%}
+{%- set package_kenmerken = generieke_kenmerken + [] -%}
+{%- set object_kenmerken = generieke_kenmerken + [] -%}
+# {{ package.name }}
+## Inleiding
+> **Definitie {{ package.name }}:**
+>
+> {{ package.definitie|default("Geen definitie", true)|fix_and_format()|set_url() }}
+
+??? info "Kenmerken Model {{ package.name }}"
+
+    | Kenmerk | Waarde |
+    | :--- | :------ |
+    {% for kenmerk in package_kenmerken %}| {{ kenmerk }} | {{ package.to_dict().get(kenmerk,'')|default("", true)|set_url()|fix_and_format_table() }} |
+    {% endfor %}
+
+Het model '{{ package.name }}' kent de volgende objecttypen:
+
+{% for class in package.classes %}* **{{ class.name }}**: {{ class.definitie|default("<Geen Definities>", true)|fix_and_format()|set_url()  }}
+{% endfor %}
+
+## Objecttypen {{ package.name }}
+{# Classes #}
+{% for class in package.classes %}
+### {{ class.name }}
+> **Definitie {{ class.name }}:**
+>
+> {{ class.definitie|default("Geen Definitie", true)|fix_and_format()|set_url() }}
+
+??? info "Kenmerken Model {{ class.name }}"
+
+    | Eigenschap | Waarde |
+    | :--- | :------ |
+    {% for kenmerk in object_kenmerken %}| {{ kenmerk }} | {{ class.to_dict().get(kenmerk,'')|default("", true)|set_url()|fix_and_format_table() }} |
+    {% endfor %}
+
+Attributen van objecttype {{ class.name }}
+
+| Attribuut | Datatype | Beschrijving |
+| :--- | :--- | :--- |
+{% for attribute in class.attributes if attribute.name -%}
+| {{ attribute.name }} | {{ attribute.getDatatype()|default("", true) }} | {{ attribute.definitie|default("", true)|set_url()|fix_and_format_table() }} |
+{% endfor %}
+
+{% endfor %}
+{# Enumerations #}
+{% if package.enumerations|length > 0 %}
+
+## Enumeraties {{ package.name }}
+
+{% for enumeration in package.enumerations %}
+### {{ enumeration.name }}
+{{ enumeration.definitie|default("Geen Definitie", true)|fix_and_format()|set_url() }}
+
+Het enumeratie {{ enumeration.name }} kent de volgende waarden:
+
+{% for literal in enumeration.literals %}{% if literal.name is not none %}* **{{ literal.name }}**: {{ literal.definitie|default("<Geen Definities>", true)|fix_and_format()|set_url() }}{% endif %}
+{% endfor %}
+
+De enumeratie {{ enumeration.name }} heeft de volgende kenmerken:
+
+??? info "Kenmerken Model {{ enumeration.name }}"
+
+    | Kenmerk | Waarde |
+    | :--- | :------ |
+    {% for kenmerk in object_kenmerken %}| {{ kenmerk }} | {{ enumeration.to_dict().get(kenmerk,'')|set_url()|fix_and_format_table() }} |
+    {% endfor %}
+
+{% endfor %}
+{% endif %}

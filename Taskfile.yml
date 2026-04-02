@@ -1,0 +1,253 @@
+# Taskfile for automating the GBO Semantiek deployment process
+#
+# This Taskfile defines tasks for:
+# - Validating tools and variables
+# - Importing the QEA file into Crunch UML
+# - Generating Markdown documentation, definitions, and Linked Data
+# - Building and publishing documentation to GitHub Pages
+#
+# Usage:
+# - Run `task --list` to see all available tasks.
+# - Run `task <taskname>` to execute a specific task.
+#
+# Environment:
+# - A `.env` file is used to load configuration variables like `VERSION`.
+# - Ensure required tools are installed before running (`task prepare:check-tools`).
+#
+# Examples:
+# - To perform a full deployment: `task full-deploy`
+# - To generate documentation: `task generate:docs`
+# - To generate Linked Data: `task generate:lod`
+# - To publish documentation to GitHub Pages: `task publish:github`
+#
+# Author: Arjen Brienen
+version: '3'
+
+dotenv: ['.env']
+
+vars:
+  VERSION_DIR: "./{{.VERSION}}"
+  PREVIOUS_VERSION_DIR: "./{{.PREVIOUS_VERSION}}"
+  GBO: "{{.VERSION_DIR}}/{{.GBO_FILE}}"
+  PREVIOUS_GBO: "{{.PREVIOUS_VERSION_DIR}}/{{.GBO_FILE}}"
+  LOD: "{{.VERSION_DIR}}/{{.LOD_FILE}}"
+  GBO_ROOT_SCHEMA: "GBO_ROOT_SCHEMA"
+  GBO_PREVIOUS_SCHEMA_RAW: "GBO_PREVIOUS_SCHEMA_RAW"
+  GBO_PREVIOUS_SCHEMA: "GBO_PREVIOUS_SCHEMA"
+  CRUNCH_UML_DB: "./crunch_uml.db"
+  DOCS: "./docs"
+  DEFS: "./docs/definities"
+  ROOT_GBO: "{{.ROOT_NODE_GBO}}"
+  CHANGES_MD: "{{.VERSION_DIR}}/{{.CHANGES_MD_FILE}}"
+
+tasks:
+  # ==========================================================================
+  # Prepare — Voorwaarden valideren
+  # ==========================================================================
+  prepare:check-tools:
+    desc: "Verify required tools are installed."
+    cmds:
+      - |
+        # Lijst van vereiste tools en hun download-URLs
+        declare -A tools=(
+          ["crunch_uml"]="https://github.com/brienen/crunch_uml"
+          ["mkdocs"]="https://www.mkdocs.org"
+          ["mike"]="https://github.com/jimporter/mike"
+          ["jq"]="https://stedolan.github.io/jq"
+          ["python3"]="https://www.python.org/downloads/"
+        )
+
+        # Controleer of tools geïnstalleerd zijn
+        missing_tools=()
+        for tool in "${!tools[@]}"; do
+          if ! command -v $tool &> /dev/null; then
+            missing_tools+=($tool)
+          fi
+        done
+
+        # Meld ontbrekende tools en geef installatie-instructies
+        if [ ${#missing_tools[@]} -ne 0 ]; then
+          echo "Error: The following tools are not installed:"
+          for tool in "${missing_tools[@]}"; do
+            echo "- $tool: ${tools[$tool]}"
+          done
+          echo "Please install the missing tools and try again."
+          exit 1
+        else
+          echo "All required tools are installed."
+        fi
+    shell: bash
+
+  prepare:check-vars:
+    desc: "Validate required variables VERSION and check if VERSION_DIR exists."
+    cmds:
+      - |
+        echo "Validating input parameter {{.VERSION}} ..."
+      - |
+        if [ -z "{{.VERSION}}" ]; then
+          echo "Error: VERSION cannot be empty."
+          exit 1
+        fi
+        if [[ ! "{{.VERSION}}" =~ ^v[0-9]+\.[0-9]+(\.[0-9]+)?$ ]]; then
+          echo "Error: Invalid VERSION format. Use v{number}.{number} or v{number}.{number}.{number}, e.g., v0.1 or v1.0.0"
+          exit 1
+        fi
+        if [ ! -d "{{.VERSION_DIR}}" ]; then
+          echo "Error: Directory '{{.VERSION_DIR}}' does not exist."
+          exit 1
+        fi
+      - |
+        echo "VERSION {{.VERSION}} and Versiondir {{.VERSION_DIR}} are valid..."
+    shell: bash
+
+  # ==========================================================================
+  # Import — Model(len) inladen in Crunch UML
+  # ==========================================================================
+  import:model:
+    desc: "Import the QEA file into Crunch UML Database."
+    deps: [prepare:check-tools, prepare:check-vars]
+    cmds:
+      - |
+        if [ ! -f "{{.GBO}}" ]; then
+          echo "Error: QEA file '{{.GBO}}' does not exist."
+          exit 1
+        fi
+      - echo "Importing QEA file '{{.GBO}}' into Crunch UML..."
+      - crunch_uml import -f "{{.GBO}}" -t qea -db_create
+      - echo "Copying Core GBO Model to {{.GBO_ROOT_SCHEMA}}..."
+      - crunch_uml transform -ttp copy -sch_to "{{.GBO_ROOT_SCHEMA}}" -rt_pkg "{{.ROOT_GBO}}"
+      - echo "Crunch database successfully created and setup..."
+    shell: bash
+    sources:
+      - "{{.GBO}}"
+    generates:
+      - "{{.CRUNCH_UML_DB}}"
+    run: when_changed
+
+  import:previous:
+    desc: "Import the QEA file of previous version {{.PREVIOUS_VERSION}} into Crunch UML Database."
+    deps: [import:model]
+    cmds:
+      - |
+        if [ ! -f "{{.PREVIOUS_GBO}}" ]; then
+          echo "Error: QEA file '{{.PREVIOUS_GBO}}' does not exist."
+          exit 1
+        fi
+      - echo "Importing QEA file '{{.PREVIOUS_GBO}}' into Crunch UML schema {{.GBO_PREVIOUS_SCHEMA_RAW}}..."
+      - crunch_uml -sch {{.GBO_PREVIOUS_SCHEMA_RAW}} import -f "{{.PREVIOUS_GBO}}" -t qea
+      - echo "Copying {{.GBO_PREVIOUS_SCHEMA_RAW}} GBO Model to {{.GBO_PREVIOUS_SCHEMA}}..."
+      - crunch_uml transform -ttp copy -sch_from "{{.GBO_PREVIOUS_SCHEMA_RAW}}" -sch_to "{{.GBO_PREVIOUS_SCHEMA}}" -rt_pkg "{{.ROOT_GBO}}"
+      - echo "Successfully added previous schema to Crunch database..."
+    shell: bash
+    sources:
+      - "{{.PREVIOUS_GBO}}"
+      - "{{.GBO}}"
+    generates:
+      - "{{.CRUNCH_UML_DB}}"
+    run: when_changed
+
+  # ==========================================================================
+  # Generate — Artifacts genereren uit het model
+  # ==========================================================================
+  generate:docs:
+    desc: "Generate Markdown documentation from the model."
+    deps: [import:model]
+    cmds:
+      - echo "Generating Markdown documentation..."
+      - mkdir -p "{{.DEFS}}"
+      - rm -rf "{{.DEFS}}"/*.md
+      - crunch_uml -sch "{{.GBO_ROOT_SCHEMA}}" export -t jinja2 --output_jinja2_template gbo_markdown.j2 -f "{{.DEFS}}/definitie.md" --output_jinja2_templatedir ./tools/
+      - |
+        # Vervang de versies in de uitwisselspecificatie-templates
+        # Loop door alle .template-bestanden in de directory en submappen
+        echo "Processing template files in {{.DOCS}} ..."
+        for file in $(find "{{.DOCS}}" -type f -name "*.template"); do
+          # Bepaal de doelbestandnaam door ".template" te verwijderen
+          output_file="${file%.template}"
+
+          # Gebruik sed om de placeholder ###VERSION### te vervangen door de versie
+          sed "s/###VERSION###/{{.VERSION}}/g" "$file" > "$output_file"
+
+          # Geef een bericht over de verwerking
+          echo "Processed $file -> $output_file"
+        done
+    shell: bash
+
+  generate:lod:
+    desc: "Generate the Linked Data (TTL) specification from the model. Generating '{{.LOD}}'"
+    deps: [import:model]
+    cmds:
+      - echo "Generating Linked Data specification..."
+      - crunch_uml -sch "{{.GBO_ROOT_SCHEMA}}" export -t ttl -f "{{.LOD}}" --linked_data_namespace {{.LINKED_DATA_NS}}
+    shell: bash
+
+  generate:diff:
+    desc: "Generate Changes to previous version {{.PREVIOUS_VERSION}} in Markdown file {{.CHANGES_MD}}."
+    deps: [import:model, import:previous]
+    cmds:
+      - echo "Generating changes between version {{.PREVIOUS_VERSION}} and {{.VERSION}} in file {{.CHANGES_MD}}..."
+      - crunch_uml -sch "{{.GBO_PREVIOUS_SCHEMA}}" export -t diff_md -f "{{.CHANGES_MD}}" --compare_schema_name "{{.GBO_ROOT_SCHEMA}}" --compare_title "Changes from {{.PREVIOUS_VERSION}} to {{.VERSION}}"
+    shell: bash
+
+  # ==========================================================================
+  # Build — MkDocs site bouwen en valideren
+  # ==========================================================================
+  build:validate:
+    desc: "Build the MkDocs documentation in strict mode to check for errors."
+    cmds:
+      - echo "Validating MkDocs documentation..."
+      - mkdocs build --strict --site-dir /tmp/gbo-semantiek-site
+      - echo "Documentation validation passed."
+    shell: bash
+
+  build:site:
+    desc: "Build the MkDocs site."
+    cmds:
+      - echo "Building MkDocs site..."
+      - mkdocs build --clean
+      - echo "Site built successfully."
+    shell: bash
+
+  build:serve:
+    desc: "Start the local MkDocs development server."
+    cmds:
+      - echo "Starting MkDocs development server..."
+      - mkdocs serve
+    shell: bash
+
+  # ==========================================================================
+  # Publish — Documentatie publiceren
+  # ==========================================================================
+  publish:local:
+    desc: "Deploy versioned documentation locally using Mike."
+    deps: [generate:docs]
+    cmds:
+      - echo "Deploying documentation with Mike..."
+      - mkdocs build --clean
+      - mike deploy "{{.VERSION}}" latest --update-aliases
+      - mike set-default "{{.VERSION}}"
+      - echo "Documentation deployed locally. Use 'mike serve' to view results..."
+    shell: bash
+
+  publish:github:
+    desc: "Publish the documentation directly to GitHub Pages."
+    deps: [publish:local]
+    prompt:
+     - Dit commando publiceert de documentatie direct naar de LIVE GitHub pages. Doorgaan?
+     - Weet je het zeker?
+    cmds:
+      - echo 'Deploying to GitHub Pages...'
+      - git push origin gh-pages
+
+  # ==========================================================================
+  # Orchestratie
+  # ==========================================================================
+  full-deploy:
+    desc: "Execute the entire deployment process: import, generate, build and publish."
+    cmds:
+      - task: generate:docs
+      - task: generate:lod
+      - task: generate:diff
+      - task: publish:local
+      - echo "Full deployment completed."
+    shell: bash

@@ -10,6 +10,11 @@ De versienummering volgt [Semantic Versioning](https://semver.org/lang/nl/).
 ## [Niet uitgebracht]
 
 ### Toegevoegd
+- `Taskfile.yml` met gegroepeerde taken (prepare, import, generate, build, publish, full-deploy)
+- `.env` configuratiebestand voor versie- en bestandsnaamvariabelen
+- `tools/gbo_markdown.j2` Jinja2-template voor definitie-generatie via crunch_uml
+- Crunch UML-integratie: model import, Linked Data export, versievergelijking
+- `.gitignore` uitgebreid met `.task/` en `crunch_uml.db`
 - Eerste concept begrippenkader (SKOS/Turtle) *(gepland)*
 - Eerste MIM-conform informatiemodel *(gepland)*
 

@@ -32,7 +32,7 @@ Wil je direct een bijdrage leveren? Volg dan deze stappen:
    ```
 3. Maak je wijzigingen en test lokaal:
    ```bash
-   mkdocs serve
+   task build:serve
    ```
 4. **Commit** je wijzigingen met een beschrijvende commit-boodschap:
    ```bash
@@ -78,12 +78,15 @@ De documentatie staat in de `docs/`-map en is geschreven in Markdown (MkDocs).
 ### Lokaal draaien
 
 ```bash
-# Installeer afhankelijkheden (eenmalig)
-pip install mkdocs-material mike
+# Controleer of alle tools geïnstalleerd zijn
+task prepare:check-tools
 
 # Start lokale ontwikkelserver
-mkdocs serve
+task build:serve
 # Open http://127.0.0.1:8000 in je browser
+
+# Valideer de documentatie (strict mode)
+task build:validate
 ```
 
 ### Taalbeleid
