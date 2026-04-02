@@ -1,0 +1,96 @@
+# mkdocs.yml — GBO Semantiek documentatieconfiguratie
+#
+# Gebruik:
+#   mkdocs serve          — lokale ontwikkelserver
+#   mkdocs build          — statische site bouwen
+#   mike deploy v0.1      — versie publiceren via mike
+#
+# Mike-integratie:
+#   mike beheert gedocumenteerde versies op GitHub Pages (gh-pages branch).
+#   Gebruik 'mike deploy --push --update-aliases <versie> latest' om te publiceren.
+#   Zie docs/versiebeheer.md voor meer uitleg.
+
+site_name: GBO Semantiek
+site_description: >-
+  Informatiemodel Semantiek voor Gemeentelijke Basisgegevens Objecten —
+  open standaard voor interoperabiliteit en datakwaliteit binnen gemeenten.
+site_author: GBO Semantiek Werkgroep
+site_url: https://brienen.github.io/gbo-semantiek/
+
+# Repository-link in de navigatie
+repo_name: brienen/gbo-semantiek
+repo_url: https://github.com/brienen/gbo-semantiek
+edit_uri: edit/main/docs/
+
+# Documentatiedirectory
+docs_dir: docs
+site_dir: site
+
+# Mike-versioning: stel in zodat mike de versie-informatie correct injecteert
+extra:
+  version:
+    provider: mike
+    default: latest
+
+# Thema: Material (conform GGM-stijl)
+theme:
+  name: material
+  language: nl
+  palette:
+    - scheme: default
+      primary: blue
+      accent: light blue
+      toggle:
+        icon: material/brightness-7
+        name: Schakel naar donker thema
+    - scheme: slate
+      primary: blue
+      accent: light blue
+      toggle:
+        icon: material/brightness-4
+        name: Schakel naar licht thema
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - search.highlight
+    - search.share
+    - content.action.edit
+    - content.code.copy
+  font:
+    text: Roboto
+    code: Roboto Mono
+  logo: assets/logo.png
+  favicon: assets/favicon.png
+
+# Plugins
+plugins:
+  - search:
+      lang: nl
+
+# Markdown-extensies
+markdown_extensions:
+  - admonition
+  - tables
+  - toc:
+      permalink: true
+      title: Op deze pagina
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list
+  - md_in_html
+
+# Navigatiestructuur (in het Nederlands)
+nav:
+  - Introductie: index.md
+  - Doel en scope: doel-en-scope.md
+  - Begrippen: begrippen.md
+  - Architectuur: architectuur.md
+  - Versiebeheer: versiebeheer.md
+  - Governance: governance.md
+  - Roadmap: roadmap.md

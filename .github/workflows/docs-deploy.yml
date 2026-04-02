@@ -1,0 +1,112 @@
+# docs-deploy.yml — Versioned deployment van documentatie via mike
+#
+# Deze workflow publiceert de MkDocs-documentatie via mike naar GitHub Pages.
+# Mike beheert meerdere documentatieversies naast elkaar op de gh-pages branch.
+#
+# Triggers:
+#   - Bij het aanmaken van een release-tag (v*.*.*)
+#   - Handmatig via workflow_dispatch (voor hotfixes en dev-publicaties)
+#
+# Versiebeleid:
+#   - Release-tags (v0.1.0, v0.2.0, etc.) worden gepubliceerd als gedocumenteerde versie
+#   - De alias 'latest' verwijst altijd naar de meest recente stabiele versie
+#   - Push naar main publiceert als 'dev' (onstabiel)
+
+name: Documentatie publiceren (mike)
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'   # Semantische versietags: v0.1.0, v1.0.0, etc.
+    branches:
+      - main                        # Dev-publicatie bij push naar main
+
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Versie om te publiceren (bijv. v0.1)'
+        required: true
+        default: 'dev'
+      alias:
+        description: 'Alias (bijv. latest) — optioneel'
+        required: false
+        default: ''
+      set_default:
+        description: 'Stel deze versie in als standaard (true/false)'
+        required: false
+        default: 'false'
+
+# Rechten voor GitHub Pages publicatie
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    name: Documentatie publiceren via mike
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Repository uitchecken (volledige geschiedenis)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Vereist door mike voor gh-pages branch beheer
+
+      - name: Git-configuratie voor mike
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Python instellen
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Afhankelijkheden installeren
+        run: pip install mkdocs-material mike
+
+      - name: Versie bepalen (bij release-tag)
+        if: startsWith(github.ref, 'refs/tags/')
+        id: tag_version
+        run: |
+          # Extraheer major.minor uit de volledige semver-tag (v0.1.0 → v0.1)
+          TAG="${GITHUB_REF#refs/tags/}"
+          DOC_VERSION=$(echo "${TAG}" | sed 's/\.[0-9]*$//')
+          echo "doc_version=${DOC_VERSION}" >> "$GITHUB_OUTPUT"
+          echo "Gepubliceerde documentatieversie: ${DOC_VERSION}"
+
+      - name: Documentatie publiceren — release-tag
+        if: startsWith(github.ref, 'refs/tags/')
+        run: |
+          VERSION="${{ steps.tag_version.outputs.doc_version }}"
+          mike deploy --push --update-aliases "${VERSION}" latest
+          mike set-default --push latest
+          echo "Gepubliceerd: ${VERSION} (alias: latest)"
+
+      - name: Documentatie publiceren — dev (push naar main)
+        if: github.ref == 'refs/heads/main' && !startsWith(github.ref, 'refs/tags/')
+        run: |
+          mike deploy --push dev
+          echo "Gepubliceerd: dev"
+
+      - name: Documentatie publiceren — handmatig (workflow_dispatch)
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          VERSION="${{ github.event.inputs.version }}"
+          ALIAS="${{ github.event.inputs.alias }}"
+          SET_DEFAULT="${{ github.event.inputs.set_default }}"
+
+          if [ -n "${ALIAS}" ]; then
+            mike deploy --push --update-aliases "${VERSION}" "${ALIAS}"
+          else
+            mike deploy --push "${VERSION}"
+          fi
+
+          if [ "${SET_DEFAULT}" = "true" ]; then
+            mike set-default --push "${VERSION}"
+          fi
+
+          echo "Gepubliceerd: ${VERSION}${ALIAS:+ (alias: ${ALIAS})}"
+
+      - name: Gepubliceerde versies weergeven
+        run: mike list

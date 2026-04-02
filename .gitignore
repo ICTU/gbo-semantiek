@@ -1,0 +1,53 @@
+# Python-gerelateerde bestanden
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtuele omgevingen
+.venv/
+venv/
+ENV/
+env/
+
+# MkDocs gebouwde site
+site/
+
+# Mike lokale versiedata (wordt beheerd in gh-pages branch, niet in main)
+# .mike wordt aangemaakt bij lokale mike-operaties
+.mike
+
+# Pip-cache
+pip-wheel-metadata/
+.pip-cache/
+
+# Editor en IDE-bestanden
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# OS-bestanden
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Desktop.ini
+
+# Tijdelijke bestanden
+*.tmp
+*.temp
+*.bak
+*.orig
+/tmp/
