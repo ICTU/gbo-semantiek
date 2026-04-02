@@ -1,6 +1,6 @@
-## Publicatiestrategie en versioning
+# Publicatiestrategie en versioning
 
-### Versiebeheer
+## Versiebeheer
 
 GBO Semantiek hanteert **twee afzonderlijke versieringssystematieken**:
 
@@ -9,14 +9,14 @@ GBO Semantiek hanteert **twee afzonderlijke versieringssystematieken**:
 
 Dit onderscheid is bewust: documentatie-updates vereisen niet altijd een nieuwe modelversie, en vice versa.
 
-### Documentatieversies
+## Documentatieversies
 
 De documentatiewebsite wordt gepubliceerd met **mike**, dat meerdere versies naast elkaar beheert op GitHub Pages:
 
 - `https://brienen.github.io/gbo-semantiek/v0.1/`
 - `https://brienen.github.io/gbo-semantiek/latest/` (alias voor de nieuwste versie)
 
-### Artefactversies
+## Artefactversies
 
 Modelartefacten worden opgeslagen in **genummerde mappen** in de repository-root:
 
@@ -27,14 +27,14 @@ Modelartefacten worden opgeslagen in **genummerde mappen** in de repository-root
   ontologie/       ← OWL/RDF-ontologie (Turtle, JSON-LD)
 ```
 
-### Versienummering
+## Versienummering
 
 - Versienummering volgt [Semantic Versioning](https://semver.org/lang/nl/): `MAJOR.MINOR`
   - **MAJOR** — achterwaarts incompatibele modelwijzigingen
   - **MINOR** — achterwaarts compatibele uitbreidingen
 - Een versiegerelateerde map wordt **niet gewijzigd** na publicatie
 
-### Publicatieproces
+## Publicatieproces
 
 Het publicatieproces wordt aangestuurd via de Taskfile:
 

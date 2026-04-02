@@ -50,10 +50,9 @@ theme:
         icon: material/brightness-4
         name: Schakel naar licht thema
   features:
-    - navigation.tabs
-    - navigation.sections
     - navigation.top
     - navigation.footer
+    - navigation.indexes
     - search.highlight
     - search.share
     - content.action.edit
@@ -61,8 +60,8 @@ theme:
   font:
     text: Roboto
     code: Roboto Mono
-  logo: assets/logo.png
-  favicon: assets/favicon.png
+  logo: assets/icon.png
+  favicon: assets/icon.png
 
 # Plugins
 plugins:
@@ -85,12 +84,40 @@ markdown_extensions:
   - attr_list
   - md_in_html
 
-# Navigatiestructuur (in het Nederlands)
+# Navigatiestructuur
+# Links: alleen de hoofdsecties. Rechts: subpagina's en TOC van de huidige pagina.
+# Elke sectie heeft een index.md die de subpagina's linkt.
 nav:
-  - Introductie: index.md
-  - Doel en scope: doel-en-scope.md
-  - Begrippen: begrippen.md
-  - Architectuur: architectuur.md
-  - Versiebeheer: versiebeheer.md
-  - Governance: governance.md
-  - Roadmap: roadmap.md
+  - Inleiding: index.md
+  - Uitgangspunten:
+    - Ontwerprincipes: uitgangspunten/ontwerpprincipes.md
+    - Andere standaarden: uitgangspunten/andere_standaarden.md
+    - URI-strategie: uitgangspunten/uri-strategie.md
+  - Architectuur: 
+    - Raamwerk: architectuur/raamwerk.md
+    - Componenten: architectuur/componenten.md
+    - Publicatie: architectuur/publicatie.md
+  - "Laag 1: Begrippenmodel":
+    - Kader: begrippen/kader.md
+    - Relatie Informatiemodel: begrippen/relatie_informatiemodel.md
+    - Structuur: begrippen/structuur.md
+    - Beheer en governance: begrippen/beheer.md
+  - "Laag 2: Informatiemodel": 
+    - Model op hoofdlijnen: informatiemodel.md
+    - Detailmodel RSGB: "definities/definitie_Model Kern RSGB.md"
+    - Detailmodel RGBZ: "definities/definitie_Model Kern RGBZ.md"
+    - Detailmodel BAG: "definities/definitie_Model BAG.md"
+    - Detailmodel Generiek: "definities/definitie_Model Generiek.md"
+  - "Laag 3: Ontologie":
+    - Skos: ontologie/skos.md
+    - Kwaliteit: ontologie/kwaliteit.md
+    - Publicatie: ontologie/publicatie.md
+  - JSON-LD:
+    - Context: jsonld/context.md
+    - API-patronen: jsonld/api-patronen.md
+    - Framing: jsonld/framing.md
+    - Meerdere contexts: jsonld/meerdere_contexts.md
+  - Bijlagen:
+    - Woordenlijst: bijlagen/woordenlijst.md
+    - Tooling: bijlagen/tooling.md
+    - URI-namespace: bijlagen/namespace.md
