@@ -1,8 +1,8 @@
-# RDF / OWL Ontologie — GBO Semantiek v0.1
+# RDF / OWL Ontologie — GBO-Semantiek v0.1
 
 > **Status:** Placeholder
 
-Deze map bevat RDF/OWL-bestanden voor de Linked Data-representatie van GBO Semantiek versie 0.1.
+Deze map bevat RDF/OWL-bestanden voor de Linked Data-representatie van GBO-Semantiek versie 0.1.
 
 ## Verwachte inhoud
 
@@ -25,7 +25,7 @@ Deze map bevat RDF/OWL-bestanden voor de Linked Data-representatie van GBO Seman
 ## Voorbeeld begrippenkader (placeholder)
 
 ```turtle
-# begrippen.ttl — GBO Semantiek v0.1 begrippenkader (PLACEHOLDER)
+# begrippen.ttl — GBO-Semantiek v0.1 begrippenkader (PLACEHOLDER)
 
 @prefix gbo-begrip: <https://brienen.github.io/gbo-semantiek/begrip/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
@@ -33,8 +33,8 @@ Deze map bevat RDF/OWL-bestanden voor de Linked Data-representatie van GBO Seman
 
 <https://brienen.github.io/gbo-semantiek/begrippen>
     a skos:ConceptScheme ;
-    skos:prefLabel "GBO Semantiek Begrippenkader"@nl ;
-    dct:description "Begrippenkader voor GBO Semantiek — versie 0.1 (placeholder)"@nl .
+    skos:prefLabel "GBO-Semantiek Begrippenkader"@nl ;
+    dct:description "Begrippenkader voor GBO-Semantiek — versie 0.1 (placeholder)"@nl .
 
 # Voorbeeld begrip (placeholder)
 gbo-begrip:Basisgegeven

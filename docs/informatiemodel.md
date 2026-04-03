@@ -2,7 +2,7 @@
 
 ## Generiek informatiemodel (GBO-kern)
 
-Het generieke informatiemodel beschrijft de **kern** van GBO Semantiek: de informatieobjecten die gemeenschappelijk zijn voor alle gemeentelijke processen en registraties. Het is vergelijkbaar met de OSLO-kernvocabularia of de ISA Core Vocabularies op Europees niveau.
+Het generieke informatiemodel beschrijft de **kern** van GBO-Semantiek: de informatieobjecten die gemeenschappelijk zijn voor alle gemeentelijke processen en registraties. Het is vergelijkbaar met de OSLO-kernvocabularia of de ISA Core Vocabularies op Europees niveau.
 
 ### Kenmerken
 

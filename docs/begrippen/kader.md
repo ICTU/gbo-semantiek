@@ -2,7 +2,7 @@
 
 ## Doel en doelgroep
 
-Het begrippenkader vormt de **semantische basis** van GBO Semantiek. Het legt de definitieve betekenis van domeinbegrippen vast in voor mensen leesbare tekst, zodat er altijd een gezaghebbende bron van waarheid is voor de betekenis van een term.
+Het begrippenkader vormt de **semantische basis** van GBO-Semantiek. Het legt de definitieve betekenis van domeinbegrippen vast in voor mensen leesbare tekst, zodat er altijd een gezaghebbende bron van waarheid is voor de betekenis van een term.
 
 Het begrippenkader speelt drie onderscheiden rollen in de GBO informatie-architectuur:
 

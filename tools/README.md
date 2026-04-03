@@ -1,6 +1,6 @@
-# Tools en scripts — GBO Semantiek
+# Tools en scripts — GBO-Semantiek
 
-Deze map bevat hulpscripts en templates voor het beheer, de validatie en de publicatie van GBO Semantiek.
+Deze map bevat hulpscripts en templates voor het beheer, de validatie en de publicatie van GBO-Semantiek.
 
 ## Taskfile
 

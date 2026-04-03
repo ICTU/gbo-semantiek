@@ -1,4 +1,4 @@
-# Changelog — GBO Semantiek
+# Changelog — GBO-Semantiek
 
 Alle noemenswaardige wijzigingen in dit project worden bijgehouden in dit bestand.
 

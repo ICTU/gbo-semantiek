@@ -1,6 +1,6 @@
 # Inspiratie uit vergelijkbare initiatieven
 
-GBO Semantiek bouwt voort op bewezen patronen van vergelijkbare initiatieven. Dit hoofdstuk beschrijft de vier belangrijkste referenties en de lessen die GBO daaruit trekt.
+GBO-Semantiek bouwt voort op bewezen patronen van vergelijkbare initiatieven. Dit hoofdstuk beschrijft de vier belangrijkste referenties en de lessen die GBO daaruit trekt.
 
 ## OSLO — Open Standaarden voor Linkende Organisaties
 
@@ -36,7 +36,7 @@ De ontologie en thesauri zijn **gescheiden documenten** die apart worden beheerd
 
 Het [Gemeentelijk Gegevensmodel (GGM)](https://github.com/gemeenteshertogenbosch/GGM) is een open informatiemodel dat de gegevensstructuren beschrijft die gemeenten gebruiken in hun informatiehuishouding. Het GGM is MIM-conform, wordt beheerd in Enterprise Architect en dekt een breed scala aan gemeentelijke domeinen — van burgerzaken en sociaal domein tot ruimtelijke ordening.
 
-GBO Semantiek gebruikt het GGM als **directe basis** voor het informatiemodel. De toolchain van het GGM (Enterprise Architect → crunch_uml → documentatie en artefacten) is overgenomen en uitgebreid met semantische publicatie (ontologie, JSON-LD context, SKOS begrippenkader).
+GBO-Semantiek gebruikt het GGM als **directe basis** voor het informatiemodel. De toolchain van het GGM (Enterprise Architect → crunch_uml → documentatie en artefacten) is overgenomen en uitgebreid met semantische publicatie (ontologie, JSON-LD context, SKOS begrippenkader).
 
 !!! tip "Les voor GBO"
     Het GGM levert het bewijs dat een breed, MIM-conform informatiemodel voor gemeenten haalbaar en onderhoudbaar is. GBO voegt hier de semantische laag aan toe: van gegevensmodel naar betekenismodel.

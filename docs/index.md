@@ -1,7 +1,7 @@
-# GBO Semantiek
+# GBO-Semantiek
 
 !!! warning "Concept"
-    GBO Semantiek bevindt zich in de conceptfase (v0.1). De inhoud is nog niet normatief.
+    GBO-Semantiek bevindt zich in de conceptfase (v0.1). De inhoud is nog niet normatief.
 
 ## Gemeenschappelijke BronOntsluting
 
@@ -19,7 +19,7 @@ Dit document beschrijft dat raamwerk: hoe begrippen, informatiemodellen, ontolog
 
 ## Doel
 
-GBO Semantiek beoogt:
+GBO-Semantiek beoogt:
 
 1. **Interoperabiliteit** — systemen van verschillende gemeenten en ketenpartners kunnen elkaars gegevens interpreteren doordat ze dezelfde begrippen en modellen gebruiken
 2. **Datakwaliteit** — eenduidige begrippendefinities voorkomen interpretatieverschillen en fouten bij gegevensuitwisseling
@@ -28,7 +28,7 @@ GBO Semantiek beoogt:
 
 ## Scope
 
-GBO Semantiek richt zich op:
+GBO-Semantiek richt zich op:
 
 - De **semantische laag** van gemeentelijke basisgegevens: begrippen, informatieobjecten en hun representaties
 - De **publicatie** van die semantiek als machine-leesbare artefacten (ontologie, JSON-LD context, SKOS thesaurus)

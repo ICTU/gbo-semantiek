@@ -2,11 +2,11 @@
 
 ## Uitgangspunten
 
-GBO Semantiek hanteert een URI-strategie voor de identificatie van begrippen, klassen en eigenschappen. De strategie volgt de [aanbevelingen van het Platform Linked Data Nederland](https://www.pldn.nl/), de [URI-strategie voor de Nederlandse overheid](https://www.pilod.nl/wiki/Boek/URI-strategie), en de TOOI URI-strategie.
+GBO-Semantiek hanteert een URI-strategie voor de identificatie van begrippen, klassen en eigenschappen. De strategie volgt de [aanbevelingen van het Platform Linked Data Nederland](https://www.pldn.nl/), de [URI-strategie voor de Nederlandse overheid](https://www.pilod.nl/wiki/Boek/URI-strategie), en de TOOI URI-strategie.
 
 ## URI-patronen
 
-Het basis-URI-patroon voor GBO Semantiek volgt een driedeling conform W3C Best Practices:
+Het basis-URI-patroon voor GBO-Semantiek volgt een driedeling conform W3C Best Practices:
 
 | Type artefact | URI-patroon | Voorbeeld |
 |---------------|-------------|-----------|

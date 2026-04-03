@@ -1,4 +1,4 @@
-# GBO Semantiek
+# GBO-Semantiek
 
 > **Gemeentelijk Basisgegeven Objecten – Informatiemodel Semantiek**
 > Versie: v0.1 | Status: Concept
@@ -7,13 +7,13 @@
 
 ## Over dit repository
 
-Dit repository bevat het **GBO Semantiek informatiemodel**: een open standaard voor de semantische beschrijving van gemeentelijke basisgegevens. Het doel is om een gedeeld begrippenkader en gegevensmodel te bieden dat gemeenten en ketenpartners kunnen gebruiken voor interoperabiliteit en datakwaliteit.
+Dit repository bevat het **GBO-Semantiek informatiemodel**: een open standaard voor de semantische beschrijving van gemeentelijke basisgegevens. Het doel is om een gedeeld begrippenkader en gegevensmodel te bieden dat gemeenten en ketenpartners kunnen gebruiken voor interoperabiliteit en datakwaliteit.
 
 Dit repository is opgezet conform het principe *documentation-first*: de documentatie is de primaire bron van waarheid voor de standaard. Artefacten zoals UML-modellen, JSON Schema's en RDF/OWL-beschrijvingen worden afgeleid van de documentatie.
 
 ### Gebaseerd op GGM
 
-De opzet van dit repository is **geïnspireerd op het [Gemeentelijk Gegevensmodel (GGM)](https://github.com/gemeenteshertogenbosch/GGM)**, een open informatiemodel dat als referentie geldt voor gemeentelijke gegevensuitwisseling. Wij volgen eenzelfde documentatie- en governance-aanpak, maar passen deze toe op het bredere domein van GBO Semantiek.
+De opzet van dit repository is **geïnspireerd op het [Gemeentelijk Gegevensmodel (GGM)](https://github.com/gemeenteshertogenbosch/GGM)**, een open informatiemodel dat als referentie geldt voor gemeentelijke gegevensuitwisseling. Wij volgen eenzelfde documentatie- en governance-aanpak, maar passen deze toe op het bredere domein van GBO-Semantiek.
 
 ---
 

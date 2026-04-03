@@ -2,11 +2,11 @@
 
 Ontwerpprincipes zijn de richtinggevende uitgangspunten voor alle keuzes bij het ontwerp van het semantisch raamwerk van GBO. Ze beschrijven *waarom* we iets op een bepaalde manier doen en vormen de toetssteen bij het maken van het begrippenkader, het informatiemodel, de ontologie en de JSON-LD publicatie.
 
-De principes zijn afgeleid uit de Nederlandse overheidskaders (NORA, GEMMA, MIM), het Vlaamse OSLO-initiatief, de W3C Linked Data best practices, de FAIR-principes en internationale ontologiemethodologieën (LOT, MODDALS). Ze dienen als basis voor de ontwikkeling van GBO Semantiek en zijn bindend voor alle betrokken partijen.
+De principes zijn afgeleid uit de Nederlandse overheidskaders (NORA, GEMMA, MIM), het Vlaamse OSLO-initiatief, de W3C Linked Data best practices, de FAIR-principes en internationale ontologiemethodologieën (LOT, MODDALS). Ze dienen als basis voor de ontwikkeling van GBO-Semantiek en zijn bindend voor alle betrokken partijen.
 
 ## Linked Data principes
 
-GBO Semantiek publiceert volgens de standaarden van het Semantic Web. Het onderstaande [*layer cake*-model](https://en.wikipedia.org/wiki/Semantic_Web_Stack) toont hoe de technologieën op elkaar voortbouwen, van URI's als fundament tot applicaties aan de top. De gekleurde lagen zijn de technologieën die GBO Semantiek inzet; de grijze lagen zijn onderliggende infrastructuur of vallen buiten scope.
+GBO-Semantiek publiceert volgens de standaarden van het Semantic Web. Het onderstaande [*layer cake*-model](https://en.wikipedia.org/wiki/Semantic_Web_Stack) toont hoe de technologieën op elkaar voortbouwen, van URI's als fundament tot applicaties aan de top. De gekleurde lagen zijn de technologieën die GBO-Semantiek inzet; de grijze lagen zijn onderliggende infrastructuur of vallen buiten scope.
 
 ![Semantic Web Layer Cake](../assets/diagrams/linked-data-layer-cake.svg)
 

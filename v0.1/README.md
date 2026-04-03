@@ -1,11 +1,11 @@
-# Datamodel GBO Semantiek — versie 0.1
+# Datamodel GBO-Semantiek — versie 0.1
 
 > **Status:** Concept
 > **Datum:** 2024
 
 ---
 
-Deze map bevat de datamodel-artefacten voor versie 0.1 van GBO Semantiek.
+Deze map bevat de datamodel-artefacten voor versie 0.1 van GBO-Semantiek.
 
 ## Inhoud
 

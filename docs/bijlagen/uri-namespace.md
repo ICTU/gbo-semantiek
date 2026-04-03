@@ -1,6 +1,6 @@
 # Bijlage B: Overzicht URI-namespaces
 
-## GBO Semantiek namespaces
+## GBO-Semantiek namespaces
 
 | Prefix | Namespace | Beschrijving |
 |--------|-----------|-------------|

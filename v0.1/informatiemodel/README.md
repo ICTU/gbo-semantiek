@@ -1,8 +1,8 @@
-# UML-modellen — GBO Semantiek v0.1
+# UML-modellen — GBO-Semantiek v0.1
 
 > **Status:** Placeholder
 
-Deze map is bestemd voor UML-modellen en XMI-exports van het GBO Semantiek informatiemodel versie 0.1.
+Deze map is bestemd voor UML-modellen en XMI-exports van het GBO-Semantiek informatiemodel versie 0.1.
 
 ## Verwachte inhoud
 

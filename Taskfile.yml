@@ -1,4 +1,4 @@
-# Taskfile for automating the GBO Semantiek deployment process
+# Taskfile for automating the GBO-Semantiek deployment process
 #
 # This Taskfile defines tasks for:
 # - Validating tools and variables
@@ -22,6 +22,9 @@
 #
 # Author: Arjen Brienen
 version: '3'
+
+set: [pipefail]
+shopt: [globstar]
 
 dotenv: ['.env']
 
@@ -76,7 +79,7 @@ tasks:
         else
           echo "All required tools are installed."
         fi
-    shell: bash
+
 
   prepare:check-vars:
     desc: "Validate required variables VERSION and check if VERSION_DIR exists."
@@ -98,7 +101,7 @@ tasks:
         fi
       - |
         echo "VERSION {{.VERSION}} and Versiondir {{.VERSION_DIR}} are valid..."
-    shell: bash
+
 
   # ==========================================================================
   # Import — Model(len) inladen in Crunch UML
@@ -117,7 +120,7 @@ tasks:
       - echo "Copying Core GBO Model to {{.GBO_ROOT_SCHEMA}}..."
       - crunch_uml transform -ttp copy -sch_to "{{.GBO_ROOT_SCHEMA}}" -rt_pkg "{{.ROOT_GBO}}"
       - echo "Crunch database successfully created and setup..."
-    shell: bash
+
     sources:
       - "{{.GBO}}"
     generates:
@@ -138,7 +141,7 @@ tasks:
       - echo "Copying {{.GBO_PREVIOUS_SCHEMA_RAW}} GBO Model to {{.GBO_PREVIOUS_SCHEMA}}..."
       - crunch_uml transform -ttp copy -sch_from "{{.GBO_PREVIOUS_SCHEMA_RAW}}" -sch_to "{{.GBO_PREVIOUS_SCHEMA}}" -rt_pkg "{{.ROOT_GBO}}"
       - echo "Successfully added previous schema to Crunch database..."
-    shell: bash
+
     sources:
       - "{{.PREVIOUS_GBO}}"
       - "{{.GBO}}"
@@ -171,7 +174,7 @@ tasks:
           # Geef een bericht over de verwerking
           echo "Processed $file -> $output_file"
         done
-    shell: bash
+
 
   generate:lod:
     desc: "Generate the Linked Data (TTL) specification from the model. Generating '{{.LOD}}'"
@@ -179,7 +182,7 @@ tasks:
     cmds:
       - echo "Generating Linked Data specification..."
       - crunch_uml -sch "{{.GBO_ROOT_SCHEMA}}" export -t ttl -f "{{.LOD}}" --linked_data_namespace {{.LINKED_DATA_NS}}
-    shell: bash
+
 
   generate:diff:
     desc: "Generate Changes to previous version {{.PREVIOUS_VERSION}} in Markdown file {{.CHANGES_MD}}."
@@ -187,7 +190,7 @@ tasks:
     cmds:
       - echo "Generating changes between version {{.PREVIOUS_VERSION}} and {{.VERSION}} in file {{.CHANGES_MD}}..."
       - crunch_uml -sch "{{.GBO_PREVIOUS_SCHEMA}}" export -t diff_md -f "{{.CHANGES_MD}}" --compare_schema_name "{{.GBO_ROOT_SCHEMA}}" --compare_title "Changes from {{.PREVIOUS_VERSION}} to {{.VERSION}}"
-    shell: bash
+
 
   # ==========================================================================
   # Build — MkDocs site bouwen en valideren
@@ -198,7 +201,7 @@ tasks:
       - echo "Validating MkDocs documentation..."
       - mkdocs build --strict --site-dir /tmp/gbo-semantiek-site
       - echo "Documentation validation passed."
-    shell: bash
+
 
   build:site:
     desc: "Build the MkDocs site."
@@ -206,14 +209,14 @@ tasks:
       - echo "Building MkDocs site..."
       - mkdocs build --clean
       - echo "Site built successfully."
-    shell: bash
+
 
   build:serve:
     desc: "Start the local MkDocs development server."
     cmds:
       - echo "Starting MkDocs development server..."
       - mkdocs serve
-    shell: bash
+
 
   # ==========================================================================
   # Publish — Documentatie publiceren
@@ -227,7 +230,7 @@ tasks:
       - mike deploy "{{.VERSION}}" latest --update-aliases
       - mike set-default "{{.VERSION}}"
       - echo "Documentation deployed locally. Use 'mike serve' to view results..."
-    shell: bash
+
 
   publish:github:
     desc: "Publish the documentation directly to GitHub Pages."
@@ -250,4 +253,4 @@ tasks:
       - task: generate:diff
       - task: publish:local
       - echo "Full deployment completed."
-    shell: bash
+

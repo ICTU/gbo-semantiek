@@ -26,7 +26,7 @@ fi
 VERSION="${1}"
 ALIAS="${2:-}"
 
-echo "==> GBO Semantiek: documentatie publiceren"
+echo "==> GBO-Semantiek: documentatie publiceren"
 echo "    Versie:     ${VERSION}"
 echo "    Alias:      ${ALIAS:-<geen>}"
 echo "    Repository: ${REPO_ROOT}"

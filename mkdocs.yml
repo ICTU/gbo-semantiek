@@ -1,4 +1,4 @@
-# mkdocs.yml — GBO Semantiek documentatieconfiguratie
+# mkdocs.yml — GBO-Semantiek documentatieconfiguratie
 #
 # Gebruik:
 #   mkdocs serve          — lokale ontwikkelserver
@@ -10,11 +10,11 @@
 #   Gebruik 'mike deploy --push --update-aliases <versie> latest' om te publiceren.
 #   Zie docs/versiebeheer.md voor meer uitleg.
 
-site_name: GBO Semantiek
+site_name: GBO-Semantiek
 site_description: >-
   Informatiemodel Semantiek voor Gemeentelijke Basisgegevens Objecten —
   open standaard voor interoperabiliteit en datakwaliteit binnen gemeenten.
-site_author: GBO Semantiek Werkgroep
+site_author: GBO-Semantiek Werkgroep
 site_url: https://brienen.github.io/gbo-semantiek/
 
 # Repository-link in de navigatie

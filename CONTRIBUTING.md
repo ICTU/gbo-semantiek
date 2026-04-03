@@ -1,6 +1,6 @@
-# Bijdragen aan GBO Semantiek
+# Bijdragen aan GBO-Semantiek
 
-Dank voor je interesse in het bijdragen aan GBO Semantiek! Dit document beschrijft hoe je kunt bijdragen aan de standaard.
+Dank voor je interesse in het bijdragen aan GBO-Semantiek! Dit document beschrijft hoe je kunt bijdragen aan de standaard.
 
 ---
 
