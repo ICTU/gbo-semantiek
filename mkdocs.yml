@@ -99,10 +99,11 @@ nav:
   - Inleiding: index.md
   - Uitgangspunten:
     - Ontwerprincipes: uitgangspunten/ontwerpprincipes.md
-    - Standaarden en kaders: uitgangspunten/standaarden_kaders.md
+    - Kaders en standaarden: uitgangspunten/kaders_standaarden.md
     - Inspiratie: uitgangspunten/inspiratie.md
-  - Architectuur: 
+  - Architectuur:
     - Raamwerk: architectuur/raamwerk.md
+    - Conceptueel: architectuur/conceptueel.md
     - Componenten: architectuur/componenten.md
     - Publicatie: architectuur/publicatie.md
   - "Laag 1: Begrippenmodel":
@@ -122,6 +123,7 @@ nav:
     - Publicatie: ontologie/publicatie.md
   - Implementatie:
     - URI-strategie: implementatie/uri-strategie.md
+    - Naamgeving: implementatie/naamgeving.md
   - JSON-LD:
     - Context: json-ld/context.md
     - API-patronen: json-ld/api-patronen.md

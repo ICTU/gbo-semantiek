@@ -1,4 +1,4 @@
-# Standaarden en kaders
+# Kaders  en standaarden
 
 GBO-Semantiek opereert binnen een landschap van architectuurkaders en technische standaarden. Dit hoofdstuk beschrijft eerst de kaders die de context en spelregels bepalen, en vervolgens de standaarden die GBO technisch invullen.
 
@@ -81,7 +81,7 @@ OWL is de taal van de **gepubliceerde ontologie**. Het informatiemodel (opgestel
 [JSON-LD](https://www.w3.org/TR/json-ld11/) is de W3C-standaard die reguliere JSON-data voorziet van semantische context door middel van een `@context`-verwijzing naar een ontologie. JSON-LD maakt het mogelijk om bestaande JSON-API's met minimale aanpassing Linked Data-compatibel te maken.
 
 **Rol in GBO-Semantiek:**
-JSON-LD is het **publicatieformaat voor API-responses**. De `@context`-bestanden koppelen JSON-sleutels aan ontologie-URI's, zodat elke ontvanger weet wat de gegevens semantisch betekenen. GBO publiceert context-bestanden per vocabularium, naar het OSLO-patroon.
+JSON-LD is het **publicatieformaat voor API-responses**. De `@context`-bestanden koppelen JSON-sleutels aan ontologie-URI's, zodat elke ontvanger weet wat de gegevens semantisch betekenen. GBO publiceert context-bestanden per informatiemodel, naar het OSLO-patroon.
 
 ### SHACL — Shapes Constraint Language
 
@@ -96,3 +96,10 @@ SHACL wordt ingezet voor **kwaliteitsborging**. De shapes valideren of gepublice
 
 **Rol in GBO-Semantiek:**
 RDF is de **onderliggende datataal** van alle semantische artefacten. Het begrippenkader (SKOS), de ontologie (OWL) en de validatieshapes (SHACL) zijn allemaal RDF-gebaseerd. Het primaire serialisatieformaat is Turtle (`.ttl`) vanwege de leesbaarheid.
+
+### VC — verifiable Credentials
+
+[Verifiable Credentials](https://www.w3.org/TR/vc-data-model/) is de W3C-standaard voor het uitwisselen van cryptografisch ondertekende, verifieerbare verklaringen over een subject. Een VC is controleerbaar door een ontvanger zonder dat de uitgever opnieuw geraadpleegd hoeft te worden, en vormt samen met Decentralized Identifiers (DID's) de basis voor betrouwbare digitale gegevensuitwisseling.
+
+**Rol in GBO-Semantiek:**
+VC's bieden een mechanisme om GBO-gegevens **verifieerbaar uit te wisselen** tussen gemeenten, ketenpartners en burgers. Doordat VC's gebruikmaken van JSON-LD en `@context`, sluiten ze direct aan op de GBO-ontologie: de semantiek van de uitgewisselde attributen is eenduidig vastgelegd conform het begrippenkader.

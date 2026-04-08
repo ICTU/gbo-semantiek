@@ -62,14 +62,23 @@ Versienummering volgt [Semantic Versioning](https://semver.org/lang/nl/): `MAJOR
 
 ## Publicatieproces
 
-Het publicatieproces wordt aangestuurd via de Taskfile:
+Het publicatieproces wordt aangestuurd via de Taskfile. Dankzij de dependency-graaf hoef je in de regel maar één commando aan te roepen — de voorafgaande stappen worden automatisch uitgevoerd wanneer hun bronbestanden zijn gewijzigd.
 
-| Stap | Task | Beschrijving |
-|------|------|-------------|
-| 1 | `task import:model` | QEA-model inladen in crunch_uml |
-| 2 | `task generate:docs` | Markdown definities genereren |
-| 3 | `task generate:lod` | Linked Data (TTL) genereren |
-| 4 | `task publish:local` | Versioned docs bouwen via mike |
-| 5 | `task publish:github` | Publiceren naar GitHub Pages |
+| Stap | Task | Beschrijving | Trigger |
+|------|------|-------------|---------|
+| 1 | `task import:model` | QEA-model inladen in crunch_uml | automatisch via elke `generate:*` |
+| 2 | `task import:previous` | Vorige QEA-versie inladen | automatisch via `generate:diff` |
+| 3 | `task generate:docs` | Markdown definities genereren | automatisch via `publish:local` |
+| 4 | `task generate:lod` | Linked Data (TTL) genereren | automatisch via `publish:local` |
+| 5 | `task generate:diff` | Verschilrapport t.o.v. vorige versie | automatisch via `publish:local` |
+| 6 | `task generate:diagrams` | `.drawio` → SVG exporteren | automatisch via `publish:local` |
+| 7 | `task publish:local` | Versioned docs bouwen via mike | trekt alle `generate:*` mee |
+| 8 | `task publish:github` | Publiceren naar GitHub Pages | trekt `publish:local` mee |
 
-Of in een keer: `task full-deploy`
+Een volledige publicatie naar GitHub Pages komt daarmee neer op één commando:
+
+```bash
+task publish:github
+```
+
+De alias `task full-deploy` roept `publish:local` aan en is bedoeld voor een lokale deploy zonder `git push`. Voor een snelle preview tijdens het schrijven kun je `task build:serve` gebruiken; deze heeft bewust geen dependencies en draait dus direct `mkdocs serve` op wat er in `docs/` staat. Wijzig je het UML-model of een `.drawio`-bestand, draai dan eerst `task generate:docs` respectievelijk `task generate:diagrams`.

@@ -26,9 +26,9 @@ Het generieke model bevat:
 
 ### Het OSLO-patroon
 
-GBO volgt het OSLO-patroon van scheiding tussen **vocabularium** en **applicatieprofiel**:
+GBO volgt het OSLO-patroon van scheiding tussen **generiek informatiemodel** en **applicatieprofiel** (in OSLO-terminologie respectievelijk *vocabularium* en *applicatieprofiel*):
 
-- Het **vocabularium** (generiek informatiemodel) bevat klassen en attributen die over alle use cases heen herbruikbaar zijn — stabiel en breed gedragen
+- Het **generieke informatiemodel** bevat klassen en attributen die over alle use cases heen herbruikbaar zijn — stabiel en breed gedragen
 - Het **applicatieprofiel** (use-case-specifiek) voegt beperkingen of uitbreidingen toe voor een concrete context, zonder het generieke model te doorbreken
 
 Dit is hetzelfde patroon als de ISA Core Vocabularies versus de nationale uitbreidingen daarvan.

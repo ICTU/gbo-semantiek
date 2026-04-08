@@ -4,6 +4,19 @@ Ontwerpprincipes zijn de richtinggevende uitgangspunten voor alle keuzes bij het
 
 De principes zijn afgeleid uit de Nederlandse overheidskaders (NORA, GEMMA, MIM), het Vlaamse OSLO-initiatief, de W3C Linked Data best practices, de FAIR-principes en internationale ontologiemethodologieën (LOT, MODDALS). Ze dienen als basis voor de ontwikkeling van GBO-Semantiek en zijn bindend voor alle betrokken partijen.
 
+## Data bij de bron
+
+Gegevens worden uitsluitend beheerd en gemuteerd bij de (authentieke) bron. GBO-Semantiek sluit aan bij het NORA-principe *"eenmalige registratie, meervoudig gebruik"* en bij het stelsel van basisregistraties: voor elk type gegeven is één bronhouder verantwoordelijk voor de kwaliteit, actualiteit en betekenis. Kopieën in data-lakes, caches, zoekindexen of read-models zijn toegestaan maar nooit gezaghebbend; zij ontlenen hun betekenis aan de bron en worden van daaruit geactualiseerd.
+
+Voor de semantiek heeft dit een belangrijke implicatie: elke vorm van hergebruik moet herleidbaar zijn naar de bron. In GBO-Semantiek realiseren we dit door elk object een stabiele URI van de bronhouder te geven en kopieën expliciet te koppelen via `prov:wasDerivedFrom` of `owl:sameAs`. Hetzelfde geldt voor de semantische afspraken zelf: het begrippenkader, het informatiemodel en de ontologie hebben elk een eigen gezaghebbende bron.
+
+!!! info "Wat betekent dit voor GBO-Semantiek?"
+    - Per objecttype is er één aangewezen authentieke bron (bronhouder)
+    - Mutaties vinden uitsluitend plaats bij de bron; andere systemen nemen over, synchroniseren of cachen
+    - Kopieën, caches en afgeleide representaties zijn toegestaan, maar nooit gezaghebbend
+    - Elke kopie verwijst naar de bron-URI via `prov:wasDerivedFrom` of `owl:sameAs`
+    - Ook de semantiek zelf (begrippen, definities, ontologie) wordt bij één bron beheerd en van daaruit hergebruikt
+
 ## Linked Data principes
 
 GBO-Semantiek publiceert volgens de standaarden van het Semantic Web. Het onderstaande [*layer cake*-model](https://en.wikipedia.org/wiki/Semantic_Web_Stack) toont hoe de technologieën op elkaar voortbouwen, van URI's als fundament tot applicaties aan de top. De gekleurde lagen zijn de technologieën die GBO-Semantiek inzet; de grijze lagen zijn onderliggende infrastructuur of vallen buiten scope.
@@ -19,13 +32,20 @@ De vier [Linked Data-principes](https://www.w3.org/DesignIssues/LinkedData.html)
 
 Voor GBO betekent dit dat elk modelelement (klasse, property, begrip) een stabiele HTTP-URI krijgt waarop content-negotiation actief is: een browser krijgt HTML-documentatie, een machine krijgt Turtle of JSON-LD.
 
-De W3C Best Practices voegen hieraan toe: gebruik bestaande standaardvocabularia zoveel mogelijk en maak alleen een nieuw vocabularium als er geen passend bestaand bestaat.
+De W3C Best Practices voegen hieraan toe: gebruik bestaande standaard-informatiemodellen zoveel mogelijk en maak alleen een nieuw informatiemodel als er geen passend bestaand bestaat.
+
+!!! info "Wat betekent dit voor GBO-Semantiek?"
+    - Elk modelelement (klasse, property, begrip) krijgt een stabiele HTTP-URI
+    - URI's zijn dereferenceable met content-negotiation: HTML voor mensen, Turtle en JSON-LD voor machines
+    - Hergebruik van bestaande W3C- en overheidsvocabularia is uitgangspunt
+    - Alleen nieuwe termen definiëren waar geen passende bestaan
+    - Interne termen linken expliciet naar externe termen
 
 ## FAIR als basisraamwerk
 
 De [FAIR-principes](https://www.go-fair.org/fair-principles/) (Findable, Accessible, Interoperable, Reusable) vormen de overkoepelende basis voor alle ontwerpkeuzes rond data en semantische artefacten. NORA vertaalt deze principes expliciet naar de Nederlandse overheidscontext als architectuurprincipe 1.1: *"Gegevens die kunnen worden gedeeld zijn vindbaar, toegankelijk, interoperabel en herbruikbaar"*.
 
-Voor ontologieën geldt dat FAIR niet alleen op data maar ook op de semantische artefacten zelf van toepassing is, de ontologie, het begrippenkader en de context-bestanden moeten zelf ook FAIR zijn.
+Voor ontologieën geldt dat FAIR niet alleen op data maar ook op de semantische artefacten zelf van toepassing is: de ontologie, het begrippenkader en de context-bestanden moeten zelf ook FAIR zijn.
 
 De vier FAIR-dimensies vertalen zich concreet naar semantiek en informatiemodellen:
 
@@ -33,31 +53,32 @@ De vier FAIR-dimensies vertalen zich concreet naar semantiek en informatiemodell
 |---|---|
 | **Findable** | Globaal unieke, persistente URI's voor alle modelelementen; publicatie in doorzoekbare catalogus |
 | **Accessible** | De-referenceable URI's via HTTP; content-negotiation (HTML voor mensen, Turtle voor machines) |
-| **Interoperable** | Formele taal (OWL, SHACL, SKOS); gebruik van gedeelde vocabularia; gekwalificeerde links |
+| **Interoperable** | Formele taal (OWL, SHACL, SKOS); gebruik van gedeelde informatiemodellen; gekwalificeerde links |
 | **Reusable** | Rijke metadata bij artefacten; expliciete licenties; herkomst traceerbaar; conform domeinstandaarden |
 
-## URI-strategie en naamgeving
+NORA stelt als implicatie van principe 1.1 dat *"gegevens en hun metagegevens zijn voorzien van wereldwijd unieke en stabiele identificaties"*. GBO geeft hier invulling aan via een expliciete URI- en naamgevingsstrategie, die zorgt dat elk modelelement vindbaar, opvraagbaar en herbruikbaar is.
 
-Een consistente URI-strategie is de hoeksteen van een duurzame semantische publicatie. GBO hanteert de volgende principes:
+!!! info "Wat betekent dit voor GBO-Semantiek?"
+    GBO geeft vorm aan FAIR via een consistente URI- en naamgevingsstrategie:
 
-- **Persistentie**, URI's veranderen niet na publicatie; gebruik een stabiel domein dat los staat van technische implementatie
-- **Uniekheid**, elke URI identificeert precies een ding (klasse, begrip, property, instantie); geen hergebruik van URI's voor meerdere concepten
-- **Dereferenceerbaarheid**, elke URI is opvraagbaar via HTTP en levert nuttige informatie terug
-- **Onderscheid document vs. ding**, gebruik aparte URI's voor een real-world concept en het document dat het beschrijft (via `303 redirect` of `#hash URI`)
-- **Leesbaarheid**, geef URI-paden een beschrijvende naam (bijv. `/ontologie/Zaak` in plaats van `/id/a4f2`), maar houd namen stabiel bij naamswijzigingen via `owl:sameAs`
-- **Naamruimte-consistentie**, een consistente naamruimte per artefacttype (ontologie, begrippenkader, context-bestanden, instanties)
+    - **Persistent**: URI's veranderen niet na publicatie en gebruiken een stabiel domein, los van technische implementatie
+    - **Uniek**: elke URI identificeert precies één ding; geen hergebruik voor meerdere concepten
+    - **Dereferenceerbaar**: elke URI is opvraagbaar via HTTP met content-negotiation (HTML, Turtle, JSON-LD)
+    - **Onderscheid document vs. ding**: aparte URI's voor een real-world concept en het document dat het beschrijft (via `303 redirect` of `#hash URI`)
+    - **Leesbaar**: URI-paden en elementnamen zijn betekenisvol; naamswijzigingen worden afgevangen met `owl:sameAs`
+    - **Naamruimte-consistent**: één consistente naamruimte per artefacttype (ontologie, begrippenkader, context, instanties)
+    - **Rijke metadata**: elk artefact heeft expliciete licentie, versie, herkomst en publicatiedatum
+    - **Formele talen**: OWL, SHACL en SKOS voor machine-verwerkbaarheid
 
-NORA stelt als implicatie van principe 1.1 dat *"gegevens en hun metagegevens zijn voorzien van wereldwijd unieke en stabiele identificaties"*, wat direct aansluit bij deze URI-eisen.
-
-De concrete URI-patronen voor GBO staan beschreven in [URI-strategie](../implementatie/uri-strategie.md).
+    De concrete uitwerking staat in [URI-strategie](../implementatie/uri-strategie.md) en [Naamgeving](../implementatie/naamgeving.md).
 
 ## Modulariteit: generiek vs. use-case-specifiek
 
-### Vocabularium en applicatieprofiel
+### Informatiemodel en applicatieprofiel
 
 Het [OSLO](https://data.vlaanderen.be/)-initiatief introduceert het patroon van *vocabularia* (generiek, herbruikbaar) versus *applicatieprofielen* (use-case-specifiek, beperkingen opleggen). Dit is een directe toepassing van het separation of concerns-principe: generieke kennis wordt een keer gedefinieerd en door meerdere applicatieprofielen hergebruikt.
 
-Een applicatieprofiel voegt nooit nieuwe klassen toe aan de generieke vocabularia, het legt uitsluitend beperkingen op (cardinaliteiten, waardelijsten) of combineert klassen uit meerdere vocabularia.
+Een applicatieprofiel kan nieuwe klassen en eigenschappen introduceren, maar uitsluitend binnen het eigen use-case-domein. Het profiel legt daarnaast beperkingen op (cardinaliteiten, waardelijsten) en combineert klassen uit meerdere informatiemodellen. De koppeling met de onderliggende generieke modellen loopt via expliciete relaties — overerving (`rdfs:subClassOf`), equivalentie of andere semantische verbanden — zodat de herkomst en samenhang traceerbaar blijven.
 
 GBO past dit patroon toe:
 
@@ -98,6 +119,13 @@ Naar het voorbeeld van TOOI publiceert GBO elk artefact als apart, versioned doc
 
 Dit maakt onafhankelijk beheer en hergebruik per artefact mogelijk.
 
+!!! info "Wat betekent dit voor GBO-Semantiek?"
+    - Generiek informatiemodel (GBO-kern) staat los van use-case-specifieke applicatieprofielen
+    - Applicatieprofielen kunnen binnen hun eigen domein nieuwe klassen en eigenschappen toevoegen, en leggen verbanden met onderliggende modellen via overerving of andere relaties
+    - Gelaagde opbouw: kern → horizontale domeinen → verticale domeinen
+    - Afhankelijkheden lopen alleen naar beneden; de kern is altijd onafhankelijk
+    - Elk artefact (begrippenkader, informatiemodel, ontologie, waardelijsten, context) wordt apart en versioned gepubliceerd
+
 ## Principes voor het begrippenkader
 
 Het begrippenkader als SKOS-thesaurus volgt specifieke principes:
@@ -110,30 +138,24 @@ Het begrippenkader als SKOS-thesaurus volgt specifieke principes:
 - **Koppeling aan bronwetgeving**, leg via `skos:exactMatch` of `dct:source` vast welke wet of regeling aan de grondslag ligt van een definitie
 - **Publiceer als Linked Data**, het begrippenkader is de-referenceable, conform NORA-principe 3.5: *"Metagegevens zijn beschikbaar als Linked Data"*
 
+!!! info "Wat betekent dit voor GBO-Semantiek?"
+    - Het informatiemodel verwijst naar het begrippenmodel
+    - Eén gezaghebbende definitie per begrip; synoniemen via `skos:altLabel`
+    - Hiërarchie is acyclisch; GBO-specifieke afbakening via `skos:scopeNote`
+    - Begrippen en waardelijsten staan in aparte `skos:ConceptScheme`s
+    - Herkomst uit wet- of regelgeving wordt expliciet vastgelegd via `dct:source`
+    - Het begrippenkader wordt als Linked Data gepubliceerd
+
 ## Principes voor het informatiemodel
-
-### Naamgeving conform MIM
-
-Het informatiemodel volgt de naamgevingsconventies van [MIM](https://www.geonovum.nl/geo-standaarden/mim):
-
-| MIM-element | Conventie | Voorbeeld |
-|-------------|-----------|-----------|
-| Objecttype | UpperCamelCase, enkelvoud, zelfstandig naamwoord | `NatuurlijkPersoon`, `Zaak` |
-| Attribuutsoort | lowerCamelCase, zelfstandig naamwoord | `geboortedatum`, `postcode` |
-| Relatiesoort | lowerCamelCase, werkwoord of samenstelling | `heeftAlsAdres`, `isVan` |
-| Relatierol | lowerCamelCase, zelfstandig naamwoord | `adres`, `eigenaar` |
-| Gegevensgroeptype | UpperCamelCase, enkelvoud | `Contactgegevens` |
-| Enumeratie | UpperCamelCase, enkelvoud | `Geslachtsaanduiding` |
-| Enumeratiewaarde | Zoals in de bron gedefinieerd | `man`, `vrouw`, `onbekend` |
-
-Aanvullend:
-
-- Definities zijn in het **Nederlands** en gekoppeld aan het begrippenkader
-- Namen zijn **betekenisvol** en herkenbaar voor domeinexperts, geen afkortingen of technische codes
 
 ### Minimale ontologische committering
 
 Definieer in het generieke informatiemodel alleen wat door alle use cases gedeeld wordt. Het principe van *minimal ontological commitment* stelt: modeleer alleen wat noodzakelijk is en laat de rest open voor applicatieprofielen. Te veel beperkingen in het generieke model maakt hergebruik moeilijk.
+
+!!! info "Wat betekent dit voor GBO-Semantiek?"
+    - Alleen wat alle use cases delen, zit in het generieke model
+    - Specifieke beperkingen horen thuis in een applicatieprofiel, niet in de kern
+    - Bij twijfel: laat open in het generieke model en leg pas vast in het profiel
 
 ### Hergebruik boven herontwikkeling
 
@@ -165,6 +187,12 @@ Voor de ontologie-publicatie worden bestaande W3C- en overheidsvocabularia herge
 | `skos:` | Begrippenkaders, codelijsten, thesauri |
 | `time:` (OWL-Time) | Temporele aspecten van gegevens |
 
+!!! info "Wat betekent dit voor GBO-Semantiek?"
+    - Hergebruik van bestaande MIM-conforme modellen (GGM, RSGB, RGBZ) gaat vóór herontwikkeling
+    - Hergebruik van gevestigde vocabularia (`schema:`, `org:`, `dcterms:`, `prov:`, `skos:`, `time:`) is uitgangspunt
+    - Nieuwe termen worden alleen gedefinieerd waar geen passend bestaand alternatief is
+    - Externe termen worden expliciet gekoppeld via `rdfs:subClassOf`, `owl:equivalentClass` of `skos:exactMatch`
+
 ### Versioning en evolutie
 
 Modellen evolueren. GBO hanteert versiebeheer op twee niveaus:
@@ -189,11 +217,23 @@ De gepubliceerde ontologie legt versie-informatie vast via standaard metadata-pr
 
 Verouderde klassen en properties worden gemarkeerd met `owl:deprecated` in plaats van verwijderd, zodat bestaande data geldig blijft en verwijzingen niet breken. Dit garandeert dat historische JSON-LD payloads ook na een modelwijziging interpreteerbaar blijven.
 
+!!! info "Wat betekent dit voor GBO-Semantiek?"
+    - Het informatiemodel volgt Semantic Versioning (`MAJOR.MINOR.PATCH`)
+    - Elke versie wordt onveranderlijk opgeslagen in een eigen map (`/v0.1/`, `/v0.2/`, ...)
+    - De ontologie legt versie-informatie vast via `owl:versionInfo`, `dct:issued` en `dct:modified`
+    - Verouderde elementen worden gemarkeerd met `owl:deprecated` en nooit verwijderd
+    - Definities zijn in het Nederlands en gekoppeld aan het begrippenkader; conventies staan in [Naamgeving](../implementatie/naamgeving.md)
+
 ## Principes voor semantische publicatie en koppeling
 
 ### Content-negotiation
 
 Publiceer elk semantisch artefact via een URI met content-negotiation: HTML voor mensen, Turtle voor machines, JSON-LD als alternatief. Dit implementeert tegelijk de Linked Data-principes en FAIR-principe A1 (opvraagbaarheid via standaard protocol).
+
+!!! info "Wat betekent dit voor GBO-Semantiek?"
+    - Elk artefact is opvraagbaar via één URI met content-negotiation
+    - Een browser ontvangt HTML-documentatie, een machine Turtle of JSON-LD
+    - Het aanbieden van ten minste HTML en Turtle is een publicatievereiste
 
 ### Koppeling tussen artefacten
 
@@ -208,15 +248,26 @@ Leg koppelingen tussen artefacten altijd expliciet vast met de juiste eigenschap
 
 NORA-principe 3.4 stelt dat *"modelelementen in informatie- en gegevensmodellen expliciet verwijzen naar de gedefinieerde begrippen die ze representeren"*. Dit impliceert dat elke `owl:Class` in het GBO-informatiemodel een `skos:exactMatch`-koppeling heeft naar het corresponderende begrip in het SKOS-begrippenkader.
 
+!!! info "Wat betekent dit voor GBO-Semantiek?"
+    - Koppelingen tussen artefacten zijn expliciet en machine-leesbaar
+    - Elke `owl:Class` verwijst via `skos:exactMatch` naar het bijbehorende begrip (NORA 3.4)
+    - Voor externe termen worden `rdfs:isDefinedBy`, `owl:equivalentClass` of `skos:broadMatch`/`closeMatch` gebruikt naargelang de aard van de overeenkomst
+
 ### JSON-LD context-ontwerp
 
 Principes voor het ontwerp van JSON-LD context-bestanden:
 
-- Publiceer een context per vocabularium of use case op een stabiele URI
+- Publiceer een context per informatiemodel of use case op een stabiele URI
 - Gebruik compacte, begrijpelijke sleutelnamen die overeenkomen met de property-namen in het domein
 - Voorkom naamconflicten door een consistent prefix-schema
 - Zorg dat context-bestanden afzonderlijk en gecombineerd (`"@context": [...]`) bruikbaar zijn
 - Leg de koppeling tussen JSON-sleutel en ontologie-term expliciet vast in documentatie
+
+!!! info "Wat betekent dit voor GBO-Semantiek?"
+    - Een JSON-LD context per informatiemodel of use case, op een stabiele URI
+    - Sleutelnamen zijn compact, begrijpelijk en consistent met de domein-properties
+    - Prefixen zijn eenduidig en voorkomen naamconflicten
+    - Contexten zijn afzonderlijk én gecombineerd bruikbaar (`"@context": [...]`)
 
 ### Betekenis zit in de data, niet in de applicatie
 
@@ -228,3 +279,9 @@ Dit principe heeft concrete consequenties voor GBO:
 - De koppeling tussen data en semantiek is **duurzaam**: ook jaren na publicatie blijft de betekenis van historische payloads reconstrueerbaar, zolang de ontologie-URI persistent is
 - Semantisch equivalente data uit **verschillende bronnen** (bijv. twee gemeenten die dezelfde ontologie gebruiken) is automatisch combineerbaar zonder aparte mapping
 - **Validatie op semantisch niveau** (via SHACL) wordt mogelijk zodra data naar de ontologie verwijst
+
+!!! info "Wat betekent dit voor GBO-Semantiek?"
+    - Elke JSON-LD payload is zelfbeschrijvend via `@context`
+    - De semantische interpretatie is ontvanger-onafhankelijk en duurzaam zolang de ontologie-URI persistent is
+    - Data uit verschillende bronnen met dezelfde ontologie is automatisch combineerbaar zonder aparte mapping
+    - SHACL-validatie op semantisch niveau is mogelijk zodra data naar de ontologie verwijst

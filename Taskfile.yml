@@ -80,6 +80,14 @@ tasks:
           echo "All required tools are installed."
         fi
 
+        # Optioneel: drawio desktop voor generate:diagrams
+        if ! command -v drawio &> /dev/null \
+           && [ ! -x "/Applications/draw.io.app/Contents/MacOS/draw.io" ]; then
+          echo "Warning: drawio desktop is niet gevonden."
+          echo "  Alleen nodig voor 'task generate:diagrams'."
+          echo "  Zie https://github.com/jgraph/drawio-desktop/releases"
+        fi
+
 
   prepare:check-vars:
     desc: "Validate required variables VERSION and check if VERSION_DIR exists."
@@ -186,10 +194,53 @@ tasks:
 
   generate:diff:
     desc: "Generate Changes to previous version {{.PREVIOUS_VERSION}} in Markdown file {{.CHANGES_MD}}."
-    deps: [import:model, import:previous]
+    deps: [import:previous]
     cmds:
       - echo "Generating changes between version {{.PREVIOUS_VERSION}} and {{.VERSION}} in file {{.CHANGES_MD}}..."
       - crunch_uml -sch "{{.GBO_PREVIOUS_SCHEMA}}" export -t diff_md -f "{{.CHANGES_MD}}" --compare_schema_name "{{.GBO_ROOT_SCHEMA}}" --compare_title "Changes from {{.PREVIOUS_VERSION}} to {{.VERSION}}"
+
+
+  generate:diagrams:
+    desc: "Exporteer alle .drawio-bestanden in docs/assets/diagrams/ naar SVG."
+    sources:
+      - "{{.DOCS}}/assets/diagrams/*.drawio"
+    generates:
+      - "{{.DOCS}}/assets/diagrams/*.svg"
+    run: when_changed
+    cmds:
+      - |
+        # Bepaal het drawio-commando: CLI in PATH of macOS-app
+        if command -v drawio &> /dev/null; then
+          DRAWIO="drawio"
+        elif [ -x "/Applications/draw.io.app/Contents/MacOS/draw.io" ]; then
+          DRAWIO="/Applications/draw.io.app/Contents/MacOS/draw.io"
+        else
+          echo "Error: drawio is niet gevonden."
+          echo "Installeer drawio desktop (https://github.com/jgraph/drawio-desktop/releases)"
+          echo "of zorg dat 'drawio' in je PATH staat."
+          exit 1
+        fi
+
+        DIAGRAMS_DIR="{{.DOCS}}/assets/diagrams"
+        if [ ! -d "$DIAGRAMS_DIR" ]; then
+          echo "Error: Directory '$DIAGRAMS_DIR' bestaat niet."
+          exit 1
+        fi
+
+        shopt -s nullglob
+        count=0
+        for src in "$DIAGRAMS_DIR"/*.drawio; do
+          base="$(basename "$src" .drawio)"
+          out="$DIAGRAMS_DIR/$base.svg"
+          if [ -f "$out" ] && [ "$out" -nt "$src" ]; then
+            echo "Up-to-date: $base.svg"
+            continue
+          fi
+          echo "Exporting: $base.drawio -> $base.svg"
+          "$DRAWIO" -x -f svg -o "$out" "$src"
+          count=$((count + 1))
+        done
+        echo "Klaar — $count diagram(men) geëxporteerd."
 
 
   # ==========================================================================
@@ -197,6 +248,7 @@ tasks:
   # ==========================================================================
   build:validate:
     desc: "Build the MkDocs documentation in strict mode to check for errors."
+    deps: [generate:docs, generate:diagrams]
     cmds:
       - echo "Validating MkDocs documentation..."
       - mkdocs build --strict --site-dir /tmp/gbo-semantiek-site
@@ -205,6 +257,7 @@ tasks:
 
   build:site:
     desc: "Build the MkDocs site."
+    deps: [generate:docs, generate:diagrams]
     cmds:
       - echo "Building MkDocs site..."
       - mkdocs build --clean
@@ -212,7 +265,7 @@ tasks:
 
 
   build:serve:
-    desc: "Start the local MkDocs development server."
+    desc: "Start the local MkDocs development server (snelle preview, genereert geen docs vooraf — draai zo nodig eerst 'task generate:docs' of 'task generate:diagrams')."
     cmds:
       - echo "Starting MkDocs development server..."
       - mkdocs serve
@@ -223,7 +276,7 @@ tasks:
   # ==========================================================================
   publish:local:
     desc: "Deploy versioned documentation locally using Mike."
-    deps: [generate:docs]
+    deps: [generate:docs, generate:lod, generate:diff, generate:diagrams]
     cmds:
       - echo "Deploying documentation with Mike..."
       - mkdocs build --clean
@@ -248,9 +301,6 @@ tasks:
   full-deploy:
     desc: "Execute the entire deployment process: import, generate, build and publish."
     cmds:
-      - task: generate:docs
-      - task: generate:lod
-      - task: generate:diff
       - task: publish:local
       - echo "Full deployment completed."
 

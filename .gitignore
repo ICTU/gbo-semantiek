@@ -57,3 +57,4 @@ crunch_uml.db
 *.bak
 *.orig
 /tmp/
+.$*

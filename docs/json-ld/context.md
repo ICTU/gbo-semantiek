@@ -6,7 +6,7 @@ De JSON-LD `@context` koppelt JSON-sleutels aan termen in de gepubliceerde ontol
 
 ## Structuur
 
-De GBO `@context` volgt het OSLO-patroon van context-bestanden per vocabularium:
+De GBO `@context` volgt het OSLO-patroon van context-bestanden per informatiemodel:
 
 - **Kern-context:** `https://data.gbo.nl/context/kern.jsonld` — de basismapping voor het generieke informatiemodel
 - **Use-case-context:** `https://data.gbo.nl/context/{usecase}.jsonld` — aanvullende mappings per applicatieprofiel
