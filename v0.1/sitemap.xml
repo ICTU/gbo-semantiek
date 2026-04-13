@@ -6,16 +6,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brienen.github.io/gbo-semantiek/v0.1/informatiemodel-gbo/</loc>
-         <lastmod>2026-04-13</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brienen.github.io/gbo-semantiek/v0.1/informatiemodel/</loc>
-         <lastmod>2026-04-13</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://brienen.github.io/gbo-semantiek/v0.1/architectuur/gegevensarchitectuur/</loc>
          <lastmod>2026-04-13</lastmod>
          <changefreq>daily</changefreq>
@@ -152,6 +142,16 @@
     </url>
     <url>
          <loc>https://brienen.github.io/gbo-semantiek/v0.1/implementatie/uri-strategie/</loc>
+         <lastmod>2026-04-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brienen.github.io/gbo-semantiek/v0.1/informatiemodel/informatiemodel-gbo/</loc>
+         <lastmod>2026-04-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brienen.github.io/gbo-semantiek/v0.1/informatiemodel/informatiemodel/</loc>
          <lastmod>2026-04-13</lastmod>
          <changefreq>daily</changefreq>
     </url>

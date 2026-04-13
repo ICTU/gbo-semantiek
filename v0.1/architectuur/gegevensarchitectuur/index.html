@@ -806,7 +806,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../informatiemodel/" class="md-nav__link">
+      <a href="../../informatiemodel/informatiemodel/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -827,7 +827,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../informatiemodel-gbo/" class="md-nav__link">
+      <a href="../../informatiemodel/informatiemodel-gbo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1410,8 +1410,8 @@
 <p><strong>Gebouwinformatie</strong> richt zich op de fysieke en functionele kenmerken van gebouwen. Dit sectormodel bevat objecten als Verblijfsobject, Gebruiksdoel, Bouwjaar, Oppervlakte en Pandstatus. De gegevens komen primair uit de BAG en worden aangevuld met domeinspecifieke kenmerken.</p>
 <p>Een <strong>derde sectormodel</strong> is gereserveerd voor een volgend domein. De architectuur is zo opgezet dat nieuwe domeinen kunnen worden toegevoegd door een sectormodel te definiëren dat de Core Data-definities hergebruikt en het GBO-informatiemodel importeert.</p>
 <h2 id="gbo-model-onderlaag">GBO-model (onderlaag)<a class="headerlink" href="#gbo-model-onderlaag" title="Permanent link">&para;</a></h2>
-<p>De onderlaag beschrijft het <a href="../../informatiemodel-gbo/">informatiemodel</a> voor de Gemeenschappelijke Bron Ontsluiting. Dit model definieert in één samenhangend geheel hoe gegevens uit de Core Data-laag gestructureerd, ontsloten en uitgewisseld worden: welke gegevens er zijn, wie erbij betrokken is en onder welke voorwaarden gegevens mogen worden gedeeld.</p>
-<p>Het model bevat objecttypen voor de structuur van gegevensdeling (zoals Gegevenselement, Bron, Dienst en Scope), voor de betrokken rollen (zoals Burger, Bronhouder en Dienstverlener) en voor het transactieproces (zoals Toestemming, Gegevensverzoek en Grondslag). De volledige uitwerking van deze objecttypen staat in het <a href="../../informatiemodel-gbo/">Informatiemodel GBO</a>.</p>
+<p>De onderlaag beschrijft het <a href="../../informatiemodel/informatiemodel-gbo/">informatiemodel</a> voor de Gemeenschappelijke Bron Ontsluiting. Dit model definieert in één samenhangend geheel hoe gegevens uit de Core Data-laag gestructureerd, ontsloten en uitgewisseld worden: welke gegevens er zijn, wie erbij betrokken is en onder welke voorwaarden gegevens mogen worden gedeeld.</p>
+<p>Het model bevat objecttypen voor de structuur van gegevensdeling (zoals Gegevenselement, Bron, Dienst en Scope), voor de betrokken rollen (zoals Burger, Bronhouder en Dienstverlener) en voor het transactieproces (zoals Toestemming, Gegevensverzoek en Grondslag). De volledige uitwerking van deze objecttypen staat in het <a href="../../informatiemodel/informatiemodel-gbo/">Informatiemodel GBO</a>.</p>
 <p>Het GBO-informatiemodel wordt per domein uitgebreid met specifieke gegevenselementen, bronnen en diensten. Een domeinextensie importeert het generieke model en voegt alleen toe wat domeinspecifiek is. Voorbeelden van domeinen zijn hypotheekadvies, zorgeloos vastgoed en gebouwinformatie.</p>
 <h2 id="samenhang-tussen-de-lagen">Samenhang tussen de lagen<a class="headerlink" href="#samenhang-tussen-de-lagen" title="Permanent link">&para;</a></h2>
 <p>De kracht van deze drielaagse opzet zit in de gedeelde kern. Sectormodellen en het GBO-informatiemodel worden onafhankelijk van elkaar ontwikkeld en beheerd, maar delen dezelfde fundamentele definities uit Core Data. Het GBO-informatiemodel beschrijft <em>hoe</em> gegevens worden gedeeld: met welke scope, op welke grondslag en met wiens toestemming.</p>
@@ -1512,6 +1512,10 @@
     
     
       <script src="../../assets/javascripts/bundle.ad660dcc.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@11/dist/mermaid.min.js"></script>
+      
+        <script src="../../assets/javascripts/mermaid-init.js"></script>
       
     
   <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
