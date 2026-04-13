@@ -12,13 +12,13 @@
         <meta name="author" content="GBO-Semantiek Werkgroep">
       
       
-        <link rel="canonical" href="https://brienen.github.io/gbo-semantiek/v0.1/architectuur/componenten/">
+        <link rel="canonical" href="https://brienen.github.io/gbo-semantiek/v0.1/implementatie/publicatie/">
       
       
-        <link rel="prev" href="../conceptueel/">
+        <link rel="prev" href="../deployment/">
       
       
-        <link rel="next" href="../publicatie/">
+        <link rel="next" href="../../bijlagen/woordenlijst/">
       
       
       <link rel="icon" href="../../assets/icon.svg">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Componenten - GBO-Semantiek</title>
+        <title>Publicatie - GBO-Semantiek</title>
       
     
     
@@ -61,7 +61,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -80,7 +89,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#componenten-en-hun-onderlinge-relaties" class="md-skip">
+        <a href="#publicatie" class="md-skip">
           Ga naar inhoud
         </a>
       
@@ -119,7 +128,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Componenten
+              Publicatie
             
           </span>
         </div>
@@ -401,14 +410,10 @@
       
   
   
-    
   
   
-  
     
     
-      
-        
       
         
       
@@ -424,11 +429,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
@@ -442,7 +447,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Architectuur
@@ -456,11 +461,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../raamwerk/" class="md-nav__link">
+      <a href="../../architectuur/gegevensarchitectuur/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Raamwerk
+    Gegevensarchitectuur
   </span>
   
 
@@ -477,141 +482,15 @@
   
   
     <li class="md-nav__item">
-      <a href="../conceptueel/" class="md-nav__link">
+      <a href="../../architectuur/gegevenscomponenten/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Conceptueel
+    Gegevenscomponenten
   </span>
   
 
       </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Componenten
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  <span class="md-ellipsis">
-    Componenten
-  </span>
-  
-
-      </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="Op deze pagina">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Op deze pagina
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#componentoverzicht" class="md-nav__link">
-    <span class="md-ellipsis">
-      Componentoverzicht
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#begrippenkader-informatiemodel" class="md-nav__link">
-    <span class="md-ellipsis">
-      Begrippenkader ↔ Informatiemodel
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#informatiemodel-generiek-use-case-specifiek" class="md-nav__link">
-    <span class="md-ellipsis">
-      Informatiemodel generiek ↔ use-case-specifiek
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#informatiemodel-gepubliceerde-ontologie" class="md-nav__link">
-    <span class="md-ellipsis">
-      Informatiemodel → Gepubliceerde ontologie
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#gepubliceerde-ontologie-json-ld-context" class="md-nav__link">
-    <span class="md-ellipsis">
-      Gepubliceerde ontologie → JSON-LD @context
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#begrippenkader-in-datapayloads" class="md-nav__link">
-    <span class="md-ellipsis">
-      Begrippenkader in datapayloads
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#shacl-ontologie" class="md-nav__link">
-    <span class="md-ellipsis">
-      SHACL → Ontologie
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -624,11 +503,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../publicatie/" class="md-nav__link">
+      <a href="../../architectuur/gegevenstoepassing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Publicatie
+    Gegevenstoepassing
   </span>
   
 
@@ -805,6 +684,8 @@
       
         
       
+        
+      
     
     
       
@@ -850,6 +731,27 @@
   
   <span class="md-ellipsis">
     Model op hoofdlijnen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../informatiemodel-gbo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Informatiemodel GBO
   </span>
   
 
@@ -1072,10 +974,16 @@
       
   
   
+    
   
   
+  
     
     
+      
+        
+      
+        
       
         
       
@@ -1089,11 +997,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
         
           
           <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
@@ -1107,7 +1015,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             Implementatie
@@ -1121,7 +1029,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../implementatie/uri-strategie/" class="md-nav__link">
+      <a href="../uri-strategie/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1142,7 +1050,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../implementatie/naamgeving/" class="md-nav__link">
+      <a href="../naamgeving/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1151,6 +1059,126 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deployment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Publicatie
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Publicatie
+  </span>
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Op deze pagina">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Op deze pagina
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#informatiemodel-gepubliceerde-ontologie" class="md-nav__link">
+    <span class="md-ellipsis">
+      Informatiemodel → Gepubliceerde ontologie
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gepubliceerde-ontologie-json-ld-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gepubliceerde ontologie → JSON-LD @context
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#begrippenkader-in-datapayloads" class="md-nav__link">
+    <span class="md-ellipsis">
+      Begrippenkader in datapayloads
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shacl-ontologie" class="md-nav__link">
+    <span class="md-ellipsis">
+      SHACL → Ontologie
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1171,8 +1199,6 @@
   
     
     
-      
-        
       
         
       
@@ -1199,7 +1225,7 @@
             
   
   <span class="md-ellipsis">
-    JSON-LD
+    Bijlagen
   </span>
   
 
@@ -1208,145 +1234,6 @@
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
-            <span class="md-nav__icon md-icon"></span>
-            JSON-LD
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../json-ld/context/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Context
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../json-ld/api-patronen/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    API-patronen
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../json-ld/framing/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Framing
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../json-ld/meerdere-contexts/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Meerdere contexts
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
-        
-          
-          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
-            
-  
-  <span class="md-ellipsis">
-    Bijlagen
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             Bijlagen
           </label>
@@ -1451,33 +1338,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#componentoverzicht" class="md-nav__link">
-    <span class="md-ellipsis">
-      Componentoverzicht
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#begrippenkader-informatiemodel" class="md-nav__link">
-    <span class="md-ellipsis">
-      Begrippenkader ↔ Informatiemodel
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#informatiemodel-generiek-use-case-specifiek" class="md-nav__link">
-    <span class="md-ellipsis">
-      Informatiemodel generiek ↔ use-case-specifiek
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#informatiemodel-gepubliceerde-ontologie" class="md-nav__link">
     <span class="md-ellipsis">
       Informatiemodel → Gepubliceerde ontologie
@@ -1528,7 +1388,7 @@
                   
 
   
-    <a href="https://github.com/brienen/gbo-semantiek/edit/main/docs/architectuur/componenten.md" title="Wijzig deze pagina" class="md-content__button md-icon">
+    <a href="https://github.com/brienen/gbo-semantiek/edit/main/docs/implementatie/publicatie.md" title="Wijzig deze pagina" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -1536,70 +1396,10 @@
   
 
 
-<h1 id="componenten-en-hun-onderlinge-relaties">Componenten en hun onderlinge relaties<a class="headerlink" href="#componenten-en-hun-onderlinge-relaties" title="Permanent link">&para;</a></h1>
-<h2 id="componentoverzicht">Componentoverzicht<a class="headerlink" href="#componentoverzicht" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Component</th>
-<th>Formaat</th>
-<th>Doel</th>
-<th>Doelgroep</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Begrippenkader</td>
-<td>SKOS (Turtle)</td>
-<td>Eenduidige definities en hiërarchische relaties</td>
-<td>Informatiespecialisten, beleidsmedewerkers</td>
-</tr>
-<tr>
-<td>Informatiemodel</td>
-<td>MIM/UML (QEA)</td>
-<td>Structuur van informatieobjecten</td>
-<td>Modelleurs, architecten</td>
-</tr>
-<tr>
-<td>Ontologie</td>
-<td>OWL/RDF (Turtle)</td>
-<td>Formele beschrijving voor machines</td>
-<td>Ontwikkelaars, data-engineers</td>
-</tr>
-<tr>
-<td>JSON-LD context</td>
-<td>JSON-LD</td>
-<td>Koppeling JSON-data aan ontologie</td>
-<td>API-ontwikkelaars</td>
-</tr>
-<tr>
-<td>SHACL shapes</td>
-<td>SHACL (Turtle)</td>
-<td>Validatie van data tegen het model</td>
-<td>Data-engineers, kwaliteitsbeheerders</td>
-</tr>
-</tbody>
-</table>
-<h2 id="begrippenkader-informatiemodel">Begrippenkader ↔ Informatiemodel<a class="headerlink" href="#begrippenkader-informatiemodel" title="Permanent link">&para;</a></h2>
-<p>Het begrippenkader leeft op het <strong>semantische niveau</strong> (MIM niveau I): het is bedoeld voor domeinexperts en beleidsmakers om overeenstemming te bereiken over de <em>betekenis</em> van termen. Het informatiemodel (MIM niveau II/III) formaliseert deze begrippen tot klassen en attributen voor gegevensuitwisseling.</p>
-<p>De koppeling loopt via:</p>
-<ul>
-<li><strong><code>mim:begrip</code></strong> — het informatiemodel verwijst naar het corresponderende SKOS-concept</li>
-<li><strong><code>skos:exactMatch</code></strong> — het begrip correspondeert met een ontologie-klasse</li>
-<li><strong><code>rdfs:isDefinedBy</code></strong> — de ontologie-term verwijst terug naar het begrippenkader</li>
-</ul>
-<p>Zo is er altijd traceerbaarheid van formele structuur (voor systemen) naar menselijke betekenis (voor mensen).</p>
-<h2 id="informatiemodel-generiek-use-case-specifiek">Informatiemodel generiek ↔ use-case-specifiek<a class="headerlink" href="#informatiemodel-generiek-use-case-specifiek" title="Permanent link">&para;</a></h2>
-<p>Het generieke informatiemodel bevat klassen en attributen die over alle GBO use-cases heen herbruikbaar zijn — vergelijkbaar met de OSLO-kernvocabularia of de ISA Core Vocabularies. Use-case-specifieke uitbreidingen (applicatieprofielen) voegen toe:</p>
-<ul>
-<li><strong>Beperkingen</strong> — strengere cardinaliteiten, specifieke waardelijsten</li>
-<li><strong>Nieuwe klassen</strong> — domeinspecifieke entiteiten die alleen in die use case voorkomen</li>
-<li><strong>Aanvullende relaties</strong> — verbanden die niet in het generieke model thuishoren</li>
-</ul>
-<p>Het generieke model wordt hierbij <strong>niet aangepast</strong>: het applicatieprofiel <em>hergebruikt</em> en <em>verfijnt</em>.</p>
+<h1 id="publicatie">Publicatie<a class="headerlink" href="#publicatie" title="Permanent link">&para;</a></h1>
 <h2 id="informatiemodel-gepubliceerde-ontologie">Informatiemodel → Gepubliceerde ontologie<a class="headerlink" href="#informatiemodel-gepubliceerde-ontologie" title="Permanent link">&para;</a></h2>
 <p>Het informatiemodel wordt via een geautomatiseerde transformatie gepubliceerd als OWL/RDF-ontologie. De toolchain volgt het OSLO-patroon:</p>
-<p><img alt="OSLO toolchain patroon" src="../../assets/diagrams/oslo-patroon.svg" /></p>
+<p><a class="glightbox" href="../../assets/diagrams/oslo-patroon.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="OSLO toolchain patroon" src="../../assets/diagrams/oslo-patroon.svg" /></a></p>
 <p>GBO gebruikt <a href="https://github.com/brienen/crunch_uml">crunch_uml</a> voor deze transformatie:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>task<span class="w"> </span>generate:lod
 </code></pre></div>
@@ -1686,7 +1486,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../conceptueel/" class="md-footer__link md-footer__link--prev" aria-label="Vorige: Conceptueel">
+          <a href="../deployment/" class="md-footer__link md-footer__link--prev" aria-label="Vorige: Deployment">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -1696,20 +1496,20 @@
                 Vorige
               </span>
               <div class="md-ellipsis">
-                Conceptueel
+                Deployment
               </div>
             </div>
           </a>
         
         
           
-          <a href="../publicatie/" class="md-footer__link md-footer__link--next" aria-label="Volgende: Publicatie">
+          <a href="../../bijlagen/woordenlijst/" class="md-footer__link md-footer__link--next" aria-label="Volgende: Woordenlijst">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Volgende
               </span>
               <div class="md-ellipsis">
-                Publicatie
+                Woordenlijst
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -1749,5 +1549,7 @@
       <script src="../../assets/javascripts/bundle.ad660dcc.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>
