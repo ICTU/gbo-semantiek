@@ -104,8 +104,8 @@ nav:
     - Inspiratie: uitgangspunten/inspiratie.md
   - Architectuur:
     - Gegevensarchitectuur: architectuur/gegevensarchitectuur.md
-    - Componenten: architectuur/componenten.md
-    - Toepassing: architectuur/toepassing.md
+    - Gegevenscomponenten: architectuur/gegevenscomponenten.md
+    - Gegevenstoepassing: architectuur/gegevenstoepassing.md
     # - Raamwerk: architectuur/raamwerk.md
   - "Laag 1: Begrippenmodel":
     - Kader: begrippen/kader.md

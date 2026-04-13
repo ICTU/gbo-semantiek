@@ -1,4 +1,4 @@
-# Componenten en hun onderlinge relaties
+# Gegevenscomponenten
 
 De GBO-Semantiek architectuur bestaat uit een beperkt aantal componenten die samen zorgen voor een consistente, herbruikbare beschrijving van gemeentelijke basisgegevens. Dit hoofdstuk beschrijft elke component op conceptueel niveau: wat het is, waarom het bestaat en voor wie het bedoeld is.
 
@@ -16,11 +16,15 @@ Het begrippenmodel is het gedeelde woordenboek van het gemeentelijk domein. Het 
 
 Het begrippenmodel is bedoeld voor **domeinexperts, informatiespecialisten en beleidsmedewerkers**: mensen die overeenstemming moeten bereiken over de betekenis van termen, zonder dat ze zich bezighouden met technische datastructuren. Het wordt beheerd in SKOS-formaat via tooling zoals TopBraid of Excel.
 
+[Laag 1: Begrippenmodel](../begrippen/kader.md) bevat de uitwerking van het begrippenmodel.
+
 ### Informatiemodel
 
 Het informatiemodel beschrijft de structuur van gegevens: welke objecten (klassen) bestaan er, welke eigenschappen (attributen) hebben ze, en hoe verhouden ze zich tot elkaar (relaties). Waar het begrippenmodel zegt *wat iets betekent*, zegt het informatiemodel *hoe informatie over dat begrip is georganiseerd*.
 
 Het informatiemodel is bedoeld voor **modelleurs en informatiearchitecten** en wordt beheerd in UML via Enterprise Architect (.qea). Het volgt de MIM-standaard (Metamodel Informatiemodellering) op niveau II/III.
+
+[Laag 2: Informatiemodel](../informatiemodel.md) bevat de uitwerking van het informatiemodel.
 
 ### Waarom twee aparte bronnen?
 
@@ -49,17 +53,3 @@ De machine-leesbare publicatie bestaat uit drie artefacten die samen het volledi
 ### Mens-leesbare publicatie
 
 **Specificatiepagina's (HTML)** worden gegenereerd uit Markdown en bieden een leesbare weergave van het model voor architecten, beleidsmedewerkers en andere niet-technische stakeholders. Omdat deze pagina's uit dezelfde bron worden gegenereerd als de ontologie, is er gegarandeerde overeenkomst tussen wat mensen lezen en wat machines verwerken.
-
-## Samenhang
-
-De kracht van deze architectuur zit in de enkele bron van waarheid. Eén wijziging in het begrippenmodel of informatiemodel, gevolgd door één run van de transformatie, resulteert in consistent bijgewerkte ontologie, JSON-LD context, GraphQL-schema en specificatiepagina's. Dit elimineert de kans op divergentie tussen documentatie en technische artefacten.
-
-| Component | Formaat | Fase | Doelgroep |
-|-----------|---------|------|-----------|
-| Begrippenmodel | SKOS (Turtle) | Bron | Domeinexperts, beleidsmedewerkers |
-| Informatiemodel | MIM/UML (.qea) | Bron | Modelleurs, informatiearchitecten |
-| Transformatiecomponent | Geautomatiseerd | Transformatie | Beheerders toolchain |
-| Ontologie | OWL/RDF/SHACL (.ttl) | Publicatie | Ontwikkelaars, data-engineers |
-| JSON-LD @context | JSON-LD | Publicatie | API-ontwikkelaars |
-| GraphQL-endpoint | GraphQL | Publicatie | API-afnemers |
-| Specificatiepagina's | HTML | Publicatie | Architecten, beleidsmedewerkers |
