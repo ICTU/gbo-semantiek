@@ -1,0 +1,155 @@
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+@prefix gbobegrip: <https://lod.gbo-semantiek.nl/begrip/> .
+@prefix gbo:      <https://lod.gbo-semantiek.nl/def/> .
+
+# =============================================================================
+# GBO-Begrippenkader — SKOS ConceptScheme
+# Versie:  v0.1 (concept)
+# Status:  Voorstel, afgeleid van het Informatiemodel GBO
+# Licentie: EUPL-1.2
+# =============================================================================
+
+gbobegrip:GBOBegrippenkader a skos:ConceptScheme ;
+    skos:prefLabel "GBO-Begrippenkader"@nl ;
+    skos:definition "Begrippenkader voor Gemeentelijk Basisgegeven Objecten, afgeleid van het Informatiemodel GBO. Beschrijft de kernbegrippen voor gegevensdeling tussen gemeenten en ketenpartners."@nl ;
+    dcterms:creator "GBO-Semantiek werkgroep" ;
+    dcterms:created "2026-04-13"^^xsd:date ;
+    dcterms:license <https://spdx.org/licenses/EUPL-1.2> ;
+    skos:hasTopConcept gbobegrip:Gegevenselement ,
+                       gbobegrip:Bron ,
+                       gbobegrip:Dienst ,
+                       gbobegrip:Scope ,
+                       gbobegrip:Dienstencatalogus ,
+                       gbobegrip:Burger ,
+                       gbobegrip:Bronhouder ,
+                       gbobegrip:Dienstverlener ,
+                       gbobegrip:Afnemer ,
+                       gbobegrip:Toestemming ,
+                       gbobegrip:Gegevensverzoek ,
+                       gbobegrip:Grondslag .
+
+
+# =============================================================================
+# OBJECTTYPEN
+# =============================================================================
+
+gbobegrip:Gegevenselement a skos:Concept ;
+    skos:prefLabel "Gegevenselement"@nl ;
+    skos:definition "De kleinste adresseerbare eenheid van data in het GBO-model. Elk gegevenselement verwijst naar precies een begrip in het begrippenkader en voegt structuurinformatie toe: datatype, kardinaliteit en positie in een objectstructuur."@nl ;
+    skos:related gbobegrip:Bron ,
+                gbobegrip:Scope ;
+    skos:exactMatch gbo:Gegevenselement ;
+    skos:topConceptOf gbobegrip:GBOBegrippenkader ;
+    skos:inScheme gbobegrip:GBOBegrippenkader .
+
+gbobegrip:Bron a skos:Concept ;
+    skos:prefLabel "Bron"@nl ;
+    skos:altLabel "Bronregistratie"@nl ;
+    skos:definition "Een registratie of gegevensverzameling bij een bronhouder. Een bron bevat gegevenselementen en heeft een wettelijke grondslag."@nl ;
+    skos:scopeNote "Voorbeelden: BRP, Kadaster, BRK."@nl ;
+    skos:related gbobegrip:Gegevenselement ,
+                gbobegrip:Bronhouder ,
+                gbobegrip:Dienst ;
+    skos:exactMatch gbo:Bron ;
+    skos:topConceptOf gbobegrip:GBOBegrippenkader ;
+    skos:inScheme gbobegrip:GBOBegrippenkader .
+
+gbobegrip:Dienst a skos:Concept ;
+    skos:prefLabel "Dienst"@nl ;
+    skos:definition "Een afgebakend doel waarvoor gegevens mogen worden opgevraagd. Een dienst is wettelijk verankerd (AMvB of ministeriele regeling) en heeft een maximale scope."@nl ;
+    skos:related gbobegrip:Scope ,
+                gbobegrip:Bron ,
+                gbobegrip:Dienstencatalogus ;
+    skos:exactMatch gbo:Dienst ;
+    skos:topConceptOf gbobegrip:GBOBegrippenkader ;
+    skos:inScheme gbobegrip:GBOBegrippenkader .
+
+gbobegrip:Scope a skos:Concept ;
+    skos:prefLabel "Scope"@nl ;
+    skos:altLabel "Gegevensverzameling"@nl ;
+    skos:definition "Een benoemde verzameling gegevenselementen. De maximale scope wordt bepaald door wetgeving; een afnemer kan een kleinere scope aanvragen (dataminimalisatie)."@nl ;
+    skos:related gbobegrip:Dienst ,
+                gbobegrip:Gegevenselement ,
+                gbobegrip:Toestemming ;
+    skos:exactMatch gbo:Scope ;
+    skos:topConceptOf gbobegrip:GBOBegrippenkader ;
+    skos:inScheme gbobegrip:GBOBegrippenkader .
+
+gbobegrip:Dienstencatalogus a skos:Concept ;
+    skos:prefLabel "Dienstencatalogus"@nl ;
+    skos:definition "Het register van alle beschikbare diensten met hun scopes."@nl ;
+    skos:related gbobegrip:Dienst ;
+    skos:exactMatch gbo:Dienstencatalogus ;
+    skos:topConceptOf gbobegrip:GBOBegrippenkader ;
+    skos:inScheme gbobegrip:GBOBegrippenkader .
+
+gbobegrip:Burger a skos:Concept ;
+    skos:prefLabel "Burger"@nl ;
+    skos:definition "De persoon over wie gegevens worden uitgewisseld. In de context van GBO heeft de burger altijd een BSN; private dienstverleners ontvangen een pseudoniem via het BSNK-koppelregister."@nl ;
+    skos:related gbobegrip:Toestemming ;
+    skos:exactMatch gbo:Burger ;
+    skos:topConceptOf gbobegrip:GBOBegrippenkader ;
+    skos:inScheme gbobegrip:GBOBegrippenkader .
+
+gbobegrip:Bronhouder a skos:Concept ;
+    skos:prefLabel "Bronhouder"@nl ;
+    skos:definition "De partij die een of meer bronregistraties beheert en verantwoordelijk is voor het Policy Enforcement Point (PEP) dat elk gegevensverzoek toetst op identiteit, autorisatie en grondslag."@nl ;
+    skos:related gbobegrip:Bron ,
+                gbobegrip:Gegevensverzoek ;
+    skos:exactMatch gbo:Bronhouder ;
+    skos:topConceptOf gbobegrip:GBOBegrippenkader ;
+    skos:inScheme gbobegrip:GBOBegrippenkader .
+
+gbobegrip:Dienstverlener a skos:Concept ;
+    skos:prefLabel "Dienstverlener"@nl ;
+    skos:definition "De partij die namens of ten behoeve van de burger gegevens opvraagt. De dienstverlener vraagt toestemming aan bij de burger en specificeert daarbij een scope."@nl ;
+    skos:related gbobegrip:Toestemming ,
+                gbobegrip:Gegevensverzoek ;
+    skos:exactMatch gbo:Dienstverlener ;
+    skos:topConceptOf gbobegrip:GBOBegrippenkader ;
+    skos:inScheme gbobegrip:GBOBegrippenkader .
+
+gbobegrip:Afnemer a skos:Concept ;
+    skos:prefLabel "Afnemer"@nl ;
+    skos:definition "De partij die de gegevens uiteindelijk gebruikt. Dit kan dezelfde partij zijn als de dienstverlener, of een andere partij."@nl ;
+    skos:related gbobegrip:Gegevensverzoek ;
+    skos:exactMatch gbo:Afnemer ;
+    skos:topConceptOf gbobegrip:GBOBegrippenkader ;
+    skos:inScheme gbobegrip:GBOBegrippenkader .
+
+gbobegrip:Toestemming a skos:Concept ;
+    skos:prefLabel "Toestemming"@nl ;
+    skos:definition "Het expliciete akkoord van de burger dat een specifieke dienstverlener een specifieke set gegevens mag opvragen. Een toestemming is altijd gebonden aan een scope, heeft een geldigheidsduur en is niet overdraagbaar."@nl ;
+    skos:related gbobegrip:Burger ,
+                gbobegrip:Dienstverlener ,
+                gbobegrip:Scope ,
+                gbobegrip:Grondslag ,
+                gbobegrip:Gegevensverzoek ;
+    skos:exactMatch gbo:Toestemming ;
+    skos:topConceptOf gbobegrip:GBOBegrippenkader ;
+    skos:inScheme gbobegrip:GBOBegrippenkader .
+
+gbobegrip:Gegevensverzoek a skos:Concept ;
+    skos:prefLabel "Gegevensverzoek"@nl ;
+    skos:definition "De technische transactie waarmee een dienstverlener of afnemer brondata opvraagt. Elk verzoek verwijst naar een toestemming of een wettelijke grondslag en specificeert welke gegevenselementen worden opgevraagd."@nl ;
+    skos:related gbobegrip:Toestemming ,
+                gbobegrip:Grondslag ,
+                gbobegrip:Dienstverlener ,
+                gbobegrip:Afnemer ,
+                gbobegrip:Bronhouder ;
+    skos:exactMatch gbo:Gegevensverzoek ;
+    skos:topConceptOf gbobegrip:GBOBegrippenkader ;
+    skos:inScheme gbobegrip:GBOBegrippenkader .
+
+gbobegrip:Grondslag a skos:Concept ;
+    skos:prefLabel "Grondslag"@nl ;
+    skos:altLabel "Wettelijke grondslag"@nl ;
+    skos:definition "De juridische basis voor gegevensuitwisseling. Dit kan toestemming van de burger zijn, maar ook een wettelijke verplichting."@nl ;
+    skos:related gbobegrip:Toestemming ,
+                gbobegrip:Gegevensverzoek ;
+    skos:exactMatch gbo:Grondslag ;
+    skos:topConceptOf gbobegrip:GBOBegrippenkader ;
+    skos:inScheme gbobegrip:GBOBegrippenkader .

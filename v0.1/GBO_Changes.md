@@ -23,20 +23,6 @@ _No datatype changes in this package._
 
 ### Enumerations
 
-#### typeObjectcode — **Added**
-
-##### Literals
-
-- `ligplaats` — **Added**
-- `nummeraanduiding` — **Added**
-- `openbare ruimte` — **Added**
-- `overig adreseerbaar object aanduiding` — **Added**
-- `overig benoemd terrein` — **Added**
-- `overig gebouwd object` — **Added**
-- `pand` — **Added**
-- `standplaats` — **Added**
-- `verblijfsobject` — **Added**
-
 #### typeObjectcode — **Removed**
 
 ##### Literals
@@ -50,6 +36,20 @@ _No datatype changes in this package._
 - `pand` — **Removed**
 - `standplaats` — **Removed**
 - `verblijfsobject` — **Removed**
+
+#### typeObjectcode — **Added**
+
+##### Literals
+
+- `ligplaats` — **Added**
+- `nummeraanduiding` — **Added**
+- `openbare ruimte` — **Added**
+- `overig adreseerbaar object aanduiding` — **Added**
+- `overig benoemd terrein` — **Added**
+- `overig gebouwd object` — **Added**
+- `pand` — **Added**
+- `standplaats` — **Added**
+- `verblijfsobject` — **Added**
 
 ## Package: Groepattribuutsoort
 
@@ -244,17 +244,6 @@ _No datatype changes in this package._
 - `tram` — **Removed**
 - `trein` — **Removed**
 
-#### predicaat — **Added**
-
-##### Literals
-
-- `Hare Hoogheid` — **Added**
-- `Hare Koninklijke Hoogheid` — **Added**
-- `Zijne Hoogheid` — **Added**
-- `Zijne Koninklijke Hoogheid` — **Added**
-- `jonkheer` — **Added**
-- `jonkvrouw` — **Added**
-
 #### predicaat — **Removed**
 
 ##### Literals
@@ -265,6 +254,17 @@ _No datatype changes in this package._
 - `Zijne Koninklijke Hoogheid` — **Removed**
 - `jonkheer` — **Removed**
 - `jonkvrouw` — **Removed**
+
+#### predicaat — **Added**
+
+##### Literals
+
+- `Hare Hoogheid` — **Added**
+- `Hare Koninklijke Hoogheid` — **Added**
+- `Zijne Hoogheid` — **Added**
+- `Zijne Koninklijke Hoogheid` — **Added**
+- `jonkheer` — **Added**
+- `jonkvrouw` — **Added**
 
 #### redenEindeRelatie — **Removed**
 
@@ -314,19 +314,19 @@ _No datatype changes in this package._
 - `Onbekend` — **Added**
 - `Technische wijzigingen i.v.m. BAG` — **Added**
 
-#### soortMigratie — **Added**
-
-##### Literals
-
-- `Emigratie` — **Added**
-- `Immigratie` — **Added**
-
 #### soortMigratie — **Removed**
 
 ##### Literals
 
 - `Emigratie` — **Removed**
 - `Immigratie` — **Removed**
+
+#### soortMigratie — **Added**
+
+##### Literals
+
+- `Emigratie` — **Added**
+- `Immigratie` — **Added**
 
 #### typeringFunctioneelGebied — **Added**
 
@@ -493,15 +493,6 @@ _No datatype changes in this package._
 
 ### Enumerations
 
-#### Boolean — **Added**
-
-##### Literals
-
-- `Ja` — **Added**
-- `Leeg` — **Added**
-- `Nee` — **Added**
-- `Onbekend` — **Added**
-
 #### Boolean — **Removed**
 
 ##### Literals
@@ -510,6 +501,15 @@ _No datatype changes in this package._
 - `Leeg` — **Removed**
 - `Nee` — **Removed**
 - `Onbekend` — **Removed**
+
+#### Boolean — **Added**
+
+##### Literals
+
+- `Ja` — **Added**
+- `Leeg` — **Added**
+- `Nee` — **Added**
+- `Onbekend` — **Added**
 
 ## Package: Model Kern RSGB
 
@@ -591,14 +591,14 @@ _No datatype changes in this package._
 
 ### Enumerations
 
-#### StatLigplaatsStandplaats — **Removed**
+#### StatLigplaatsStandplaats — **Added**
 
 ##### Literals
 
-- `Leeg` — **Removed**
-- `Onbekend` — **Removed**
-- `plaats aangewezen` — **Removed**
-- `plaats ingetrokken` — **Removed**
+- `Leeg` — **Added**
+- `Onbekend` — **Added**
+- `plaats aangewezen` — **Added**
+- `plaats ingetrokken` — **Added**
 
 #### StatLigplaatsStandplaats — **Removed**
 
@@ -618,107 +618,14 @@ _No datatype changes in this package._
 - `plaats aangewezen` — **Added**
 - `plaats ingetrokken` — **Added**
 
-#### StatLigplaatsStandplaats — **Added**
+#### StatLigplaatsStandplaats — **Removed**
 
 ##### Literals
 
-- `Leeg` — **Added**
-- `Onbekend` — **Added**
-- `plaats aangewezen` — **Added**
-- `plaats ingetrokken` — **Added**
-
-#### bouwkundigeBestemming — **Removed**
-
-##### Literals
-
-- `CAI` — **Removed**
-- `aanleunwoonverblijf` — **Removed**
-- `academisch onderwijs` — **Removed**
-- `akkerbouw` — **Removed**
-- `algemeen voortgezet onderwijs` — **Removed**
-- `andere doeleinden van openbaar nut` — **Removed**
-- `basisschool` — **Removed**
-- `begraafplaats/crematorium` — **Removed**
-- `bejaardenwoning` — **Removed**
-- `bejaardenwoonverblijf (in bejaardenoord, centrale keuken)` — **Removed**
-- `bibliotheek` — **Removed**
-- `bijzonder onderwijs` — **Removed**
-- `bioscoop` — **Removed**
-- `brandweer` — **Removed**
-- `cafe/bar/restaurant` — **Removed**
-- `congres` — **Removed**
-- `dagverblijf` — **Removed**
-- `defensie` — **Removed**
-- `detailhandel` — **Removed**
-- `dienstwoning` — **Removed**
-- `dierenverzorging` — **Removed**
-- `doeleinden voor agrarisch bedrijf` — **Removed**
-- `doeleinden voor cultuur` — **Removed**
-- `doeleinden voor gezondheidszorg` — **Removed**
-- `doeleinden voor handel, horeca en bedrijf` — **Removed**
-- `doeleinden voor niet-wonen` — **Removed**
-- `doeleinden voor nutsvoorzieningen` — **Removed**
-- `doeleinden voor onderwijs` — **Removed**
-- `doeleinden voor recreatie` — **Removed**
-- `doeleinden voor verkeer` — **Removed**
-- `doeleinden voor wonen` — **Removed**
-- `eengezinswoning` — **Removed**
-- `elektriciteit` — **Removed**
-- `expositie` — **Removed**
-- `fabricage en productie` — **Removed**
-- `gas` — **Removed**
-- `gehandicaptenwooneenheid` — **Removed**
-- `gemeentehuis` — **Removed**
-- `gemengd bedrijf` — **Removed**
-- `gevangenis/gesticht` — **Removed**
-- `godsdienst (kerk, klooster e.d.)` — **Removed**
-- `hoger beroepsonderwijs` — **Removed**
-- `hotel/logies` — **Removed**
-- `jongerenwooneenheid` — **Removed**
-- `kantoor` — **Removed**
-- `kinderopvang` — **Removed**
-- `laboratoria` — **Removed**
-- `luchtvaart` — **Removed**
-- `meergezinswoning` — **Removed**
-- `musea` — **Removed**
-- `natuur en landschap` — **Removed**
-- `onderhoud en reparatie` — **Removed**
-- `opslag en distributie` — **Removed**
-- `overige andere doeleinden van openbaar nut` — **Removed**
-- `overige doeleinden voor agrarisch bedrijf` — **Removed**
-- `overige doeleinden voor cultuur` — **Removed**
-- `overige doeleinden voor gezondheidszorg` — **Removed**
-- `overige doeleinden voor niet-wonen` — **Removed**
-- `overige doeleinden voor nutsvoorzieningen` — **Removed**
-- `overige doeleinden voor onderwijs` — **Removed**
-- `overige doeleinden voor recreatie` — **Removed**
-- `overige doeleinden voor verkeer` — **Removed**
-- `polikliniek` — **Removed**
-- `politie` — **Removed**
-- `praktijkruimte` — **Removed**
-- `psychiatrische inrichting` — **Removed**
-- `recreatie` — **Removed**
-- `recreatiewoning` — **Removed**
-- `scheepvaart` — **Removed**
-- `spoorwegverkeer` — **Removed**
-- `sport binnen` — **Removed**
-- `sport buiten` — **Removed**
-- `stalling (fietsen/auto's)` — **Removed**
-- `telecommunicatie` — **Removed**
-- `theater en concert` — **Removed**
-- `tuinbouw` — **Removed**
-- `veeteelt` — **Removed**
-- `verpleegtehuis` — **Removed**
-- `verzorgingstehuis en bejaardentehuis` — **Removed**
-- `vrijetijds onderwijs` — **Removed**
-- `waternuts doeleinden` — **Removed**
-- `waterschaps en waterverdediging` — **Removed**
-- `wegverkeer` — **Removed**
-- `wijk-/buurt-/verenigingsactiviteiten` — **Removed**
-- `wijkverzorging` — **Removed**
-- `ziekenhuis` — **Removed**
-- `zorgwoonverblijf` — **Removed**
-- `zwembad` — **Removed**
+- `Leeg` — **Removed**
+- `Onbekend` — **Removed**
+- `plaats aangewezen` — **Removed**
+- `plaats ingetrokken` — **Removed**
 
 #### bouwkundigeBestemming — **Added**
 
@@ -813,33 +720,98 @@ _No datatype changes in this package._
 - `zorgwoonverblijf` — **Added**
 - `zwembad` — **Added**
 
-#### inwinningsmethodeGeometrie — **Removed**
+#### bouwkundigeBestemming — **Removed**
 
 ##### Literals
 
-- `bouwtekening` — **Removed**
-- `digitaliseren` — **Removed**
-- `fotogrammetrisch` — **Removed**
-- `geconstrueerd` — **Removed**
-- `laser` — **Removed**
-- `niet bekend` — **Removed**
-- `panoramabeelden` — **Removed**
-- `scannen` — **Removed**
-- `terrestrisch` — **Removed**
-
-#### inwinningsmethodeGeometrie — **Removed**
-
-##### Literals
-
-- `bouwtekening` — **Removed**
-- `digitaliseren` — **Removed**
-- `fotogrammetrisch` — **Removed**
-- `geconstrueerd` — **Removed**
-- `laser` — **Removed**
-- `niet bekend` — **Removed**
-- `panoramabeelden` — **Removed**
-- `scannen` — **Removed**
-- `terrestrisch` — **Removed**
+- `CAI` — **Removed**
+- `aanleunwoonverblijf` — **Removed**
+- `academisch onderwijs` — **Removed**
+- `akkerbouw` — **Removed**
+- `algemeen voortgezet onderwijs` — **Removed**
+- `andere doeleinden van openbaar nut` — **Removed**
+- `basisschool` — **Removed**
+- `begraafplaats/crematorium` — **Removed**
+- `bejaardenwoning` — **Removed**
+- `bejaardenwoonverblijf (in bejaardenoord, centrale keuken)` — **Removed**
+- `bibliotheek` — **Removed**
+- `bijzonder onderwijs` — **Removed**
+- `bioscoop` — **Removed**
+- `brandweer` — **Removed**
+- `cafe/bar/restaurant` — **Removed**
+- `congres` — **Removed**
+- `dagverblijf` — **Removed**
+- `defensie` — **Removed**
+- `detailhandel` — **Removed**
+- `dienstwoning` — **Removed**
+- `dierenverzorging` — **Removed**
+- `doeleinden voor agrarisch bedrijf` — **Removed**
+- `doeleinden voor cultuur` — **Removed**
+- `doeleinden voor gezondheidszorg` — **Removed**
+- `doeleinden voor handel, horeca en bedrijf` — **Removed**
+- `doeleinden voor niet-wonen` — **Removed**
+- `doeleinden voor nutsvoorzieningen` — **Removed**
+- `doeleinden voor onderwijs` — **Removed**
+- `doeleinden voor recreatie` — **Removed**
+- `doeleinden voor verkeer` — **Removed**
+- `doeleinden voor wonen` — **Removed**
+- `eengezinswoning` — **Removed**
+- `elektriciteit` — **Removed**
+- `expositie` — **Removed**
+- `fabricage en productie` — **Removed**
+- `gas` — **Removed**
+- `gehandicaptenwooneenheid` — **Removed**
+- `gemeentehuis` — **Removed**
+- `gemengd bedrijf` — **Removed**
+- `gevangenis/gesticht` — **Removed**
+- `godsdienst (kerk, klooster e.d.)` — **Removed**
+- `hoger beroepsonderwijs` — **Removed**
+- `hotel/logies` — **Removed**
+- `jongerenwooneenheid` — **Removed**
+- `kantoor` — **Removed**
+- `kinderopvang` — **Removed**
+- `laboratoria` — **Removed**
+- `luchtvaart` — **Removed**
+- `meergezinswoning` — **Removed**
+- `musea` — **Removed**
+- `natuur en landschap` — **Removed**
+- `onderhoud en reparatie` — **Removed**
+- `opslag en distributie` — **Removed**
+- `overige andere doeleinden van openbaar nut` — **Removed**
+- `overige doeleinden voor agrarisch bedrijf` — **Removed**
+- `overige doeleinden voor cultuur` — **Removed**
+- `overige doeleinden voor gezondheidszorg` — **Removed**
+- `overige doeleinden voor niet-wonen` — **Removed**
+- `overige doeleinden voor nutsvoorzieningen` — **Removed**
+- `overige doeleinden voor onderwijs` — **Removed**
+- `overige doeleinden voor recreatie` — **Removed**
+- `overige doeleinden voor verkeer` — **Removed**
+- `polikliniek` — **Removed**
+- `politie` — **Removed**
+- `praktijkruimte` — **Removed**
+- `psychiatrische inrichting` — **Removed**
+- `recreatie` — **Removed**
+- `recreatiewoning` — **Removed**
+- `scheepvaart` — **Removed**
+- `spoorwegverkeer` — **Removed**
+- `sport binnen` — **Removed**
+- `sport buiten` — **Removed**
+- `stalling (fietsen/auto's)` — **Removed**
+- `telecommunicatie` — **Removed**
+- `theater en concert` — **Removed**
+- `tuinbouw` — **Removed**
+- `veeteelt` — **Removed**
+- `verpleegtehuis` — **Removed**
+- `verzorgingstehuis en bejaardentehuis` — **Removed**
+- `vrijetijds onderwijs` — **Removed**
+- `waternuts doeleinden` — **Removed**
+- `waterschaps en waterverdediging` — **Removed**
+- `wegverkeer` — **Removed**
+- `wijk-/buurt-/verenigingsactiviteiten` — **Removed**
+- `wijkverzorging` — **Removed**
+- `ziekenhuis` — **Removed**
+- `zorgwoonverblijf` — **Removed**
+- `zwembad` — **Removed**
 
 #### inwinningsmethodeGeometrie — **Added**
 
@@ -854,6 +826,34 @@ _No datatype changes in this package._
 - `panoramabeelden` — **Added**
 - `scannen` — **Added**
 - `terrestrisch` — **Added**
+
+#### inwinningsmethodeGeometrie — **Removed**
+
+##### Literals
+
+- `bouwtekening` — **Removed**
+- `digitaliseren` — **Removed**
+- `fotogrammetrisch` — **Removed**
+- `geconstrueerd` — **Removed**
+- `laser` — **Removed**
+- `niet bekend` — **Removed**
+- `panoramabeelden` — **Removed**
+- `scannen` — **Removed**
+- `terrestrisch` — **Removed**
+
+#### inwinningsmethodeGeometrie — **Removed**
+
+##### Literals
+
+- `bouwtekening` — **Removed**
+- `digitaliseren` — **Removed**
+- `fotogrammetrisch` — **Removed**
+- `geconstrueerd` — **Removed**
+- `laser` — **Removed**
+- `niet bekend` — **Removed**
+- `panoramabeelden` — **Removed**
+- `scannen` — **Removed**
+- `terrestrisch` — **Removed**
 
 #### inwinningsmethodeGeometrie — **Added**
 
@@ -915,18 +915,6 @@ _No datatype changes in this package._
 - `roltrap` — **Removed**
 - `trap` — **Removed**
 
-#### soortWoonobject — **Added**
-
-##### Literals
-
-- `Leeg` — **Added**
-- `Onbekend` — **Added**
-- `bijzonder woongebouw` — **Added**
-- `overig woonverblijf` — **Added**
-- `recreatiewoning` — **Added**
-- `woning` — **Added**
-- `wooneenheid` — **Added**
-
 #### soortWoonobject — **Removed**
 
 ##### Literals
@@ -938,6 +926,18 @@ _No datatype changes in this package._
 - `recreatiewoning` — **Removed**
 - `woning` — **Removed**
 - `wooneenheid` — **Removed**
+
+#### soortWoonobject — **Added**
+
+##### Literals
+
+- `Leeg` — **Added**
+- `Onbekend` — **Added**
+- `bijzonder woongebouw` — **Added**
+- `overig woonverblijf` — **Added**
+- `recreatiewoning` — **Added**
+- `woning` — **Added**
+- `wooneenheid` — **Added**
 
 #### statusNummeraanduiding — **Added**
 
@@ -1056,6 +1056,25 @@ _No datatype changes in this package._
 - `verbouwvergunning ingetrokken` — **Added**
 - `verbouwvergunning verleend` — **Added**
 
+#### statusVoortgangBouw — **Removed**
+
+##### Literals
+
+- `Leeg` — **Removed**
+- `Onbekend` — **Removed**
+- `nieuwbouw gereed` — **Removed**
+- `nieuwbouw gestart` — **Removed**
+- `nieuwbouwvergunning ingetrokken` — **Removed**
+- `nieuwbouwvergunning verleend` — **Removed**
+- `sloop gereed` — **Removed**
+- `sloop gestart` — **Removed**
+- `sloopvergunning ingetrokken` — **Removed**
+- `sloopvergunning verleend` — **Removed**
+- `verbouw gereed` — **Removed**
+- `verbouw gestart` — **Removed**
+- `verbouwvergunning ingetrokken` — **Removed**
+- `verbouwvergunning verleend` — **Removed**
+
 #### statusVoortgangBouw — **Added**
 
 ##### Literals
@@ -1094,34 +1113,6 @@ _No datatype changes in this package._
 - `verbouwvergunning ingetrokken` — **Removed**
 - `verbouwvergunning verleend` — **Removed**
 
-#### statusVoortgangBouw — **Removed**
-
-##### Literals
-
-- `Leeg` — **Removed**
-- `Onbekend` — **Removed**
-- `nieuwbouw gereed` — **Removed**
-- `nieuwbouw gestart` — **Removed**
-- `nieuwbouwvergunning ingetrokken` — **Removed**
-- `nieuwbouwvergunning verleend` — **Removed**
-- `sloop gereed` — **Removed**
-- `sloop gestart` — **Removed**
-- `sloopvergunning ingetrokken` — **Removed**
-- `sloopvergunning verleend` — **Removed**
-- `verbouw gereed` — **Removed**
-- `verbouw gestart` — **Removed**
-- `verbouwvergunning ingetrokken` — **Removed**
-- `verbouwvergunning verleend` — **Removed**
-
-#### statusWoonplaats — **Removed**
-
-##### Literals
-
-- `Leeg` — **Removed**
-- `Onbekend` — **Removed**
-- `woonplaats aangewezen` — **Removed**
-- `woonplaats ingetrokken` — **Removed**
-
 #### statusWoonplaats — **Added**
 
 ##### Literals
@@ -1131,20 +1122,14 @@ _No datatype changes in this package._
 - `woonplaats aangewezen` — **Added**
 - `woonplaats ingetrokken` — **Added**
 
-#### typeringOpenbareRuimte — **Added**
+#### statusWoonplaats — **Removed**
 
 ##### Literals
 
-- `Leeg` — **Added**
-- `Onbekend` — **Added**
-- `administratief gebied` — **Added**
-- `functioneel gebied` — **Added**
-- `kunstwerk` — **Added**
-- `landschappelijk gebied` — **Added**
-- `spoorbaan` — **Added**
-- `terrein` — **Added**
-- `water` — **Added**
-- `weg` — **Added**
+- `Leeg` — **Removed**
+- `Onbekend` — **Removed**
+- `woonplaats aangewezen` — **Removed**
+- `woonplaats ingetrokken` — **Removed**
 
 #### typeringOpenbareRuimte — **Removed**
 
@@ -1160,6 +1145,21 @@ _No datatype changes in this package._
 - `terrein` — **Removed**
 - `water` — **Removed**
 - `weg` — **Removed**
+
+#### typeringOpenbareRuimte — **Added**
+
+##### Literals
+
+- `Leeg` — **Added**
+- `Onbekend` — **Added**
+- `administratief gebied` — **Added**
+- `functioneel gebied` — **Added**
+- `kunstwerk` — **Added**
+- `landschappelijk gebied` — **Added**
+- `spoorbaan` — **Added**
+- `terrein` — **Added**
+- `water` — **Added**
+- `weg` — **Added**
 
 ## Package: Model Kern RSGB
 
@@ -1426,14 +1426,14 @@ _No datatype changes in this package._
 
 ### Enumerations
 
-#### Boolean — **Removed**
+#### Boolean — **Added**
 
 ##### Literals
 
-- `Ja` — **Removed**
-- `Leeg` — **Removed**
-- `Nee` — **Removed**
-- `Onbekend` — **Removed**
+- `Ja` — **Added**
+- `Leeg` — **Added**
+- `Nee` — **Added**
+- `Onbekend` — **Added**
 
 #### Boolean — **Removed**
 
@@ -1462,6 +1462,24 @@ _No datatype changes in this package._
 - `Nee` — **Removed**
 - `Onbekend` — **Removed**
 
+#### Boolean — **Added**
+
+##### Literals
+
+- `Ja` — **Added**
+- `Leeg` — **Added**
+- `Nee` — **Added**
+- `Onbekend` — **Added**
+
+#### Boolean — **Added**
+
+##### Literals
+
+- `Ja` — **Added**
+- `Leeg` — **Added**
+- `Nee` — **Added**
+- `Onbekend` — **Added**
+
 #### Boolean — **Removed**
 
 ##### Literals
@@ -1471,47 +1489,14 @@ _No datatype changes in this package._
 - `Nee` — **Removed**
 - `Onbekend` — **Removed**
 
-#### Boolean — **Added**
+#### Boolean — **Removed**
 
 ##### Literals
 
-- `Ja` — **Added**
-- `Leeg` — **Added**
-- `Nee` — **Added**
-- `Onbekend` — **Added**
-
-#### Boolean — **Added**
-
-##### Literals
-
-- `Ja` — **Added**
-- `Leeg` — **Added**
-- `Nee` — **Added**
-- `Onbekend` — **Added**
-
-#### Boolean — **Added**
-
-##### Literals
-
-- `Ja` — **Added**
-- `Leeg` — **Added**
-- `Nee` — **Added**
-- `Onbekend` — **Added**
-
-#### Gezinsrelatie — **Removed**
-
-##### Literals
-
-- `Alleenstaand/Samenwonend` — **Removed**
-- `Echtgenote binnen gezin` — **Removed**
-- `Hoofd gezin met kind(eren)` — **Removed**
-- `Hoofd gezin zonder kind(eren)` — **Removed**
-- `Hoofd huwelijk gelijk geslacht` — **Removed**
-- `Hoofd partnerrelatie` — **Removed**
-- `Kind` — **Removed**
+- `Ja` — **Removed**
 - `Leeg` — **Removed**
+- `Nee` — **Removed**
 - `Onbekend` — **Removed**
-- `Ouder met kind(eren)` — **Removed**
 
 #### Gezinsrelatie — **Added**
 
@@ -1527,6 +1512,21 @@ _No datatype changes in this package._
 - `Leeg` — **Added**
 - `Onbekend` — **Added**
 - `Ouder met kind(eren)` — **Added**
+
+#### Gezinsrelatie — **Removed**
+
+##### Literals
+
+- `Alleenstaand/Samenwonend` — **Removed**
+- `Echtgenote binnen gezin` — **Removed**
+- `Hoofd gezin met kind(eren)` — **Removed**
+- `Hoofd gezin zonder kind(eren)` — **Removed**
+- `Hoofd huwelijk gelijk geslacht` — **Removed**
+- `Hoofd partnerrelatie` — **Removed**
+- `Kind` — **Removed**
+- `Leeg` — **Removed**
+- `Onbekend` — **Removed**
+- `Ouder met kind(eren)` — **Removed**
 
 #### aanduidingInhoudingVermissingReisdocument — **Added**
 
@@ -1546,24 +1546,6 @@ _No datatype changes in this package._
 - `Rechtswege` — **Removed**
 - `Vermist` — **Removed**
 
-#### adelijkeTitel — **Removed**
-
-##### Literals
-
-- `Leeg` — **Removed**
-- `Onbekend` — **Removed**
-- `baron` — **Removed**
-- `barones` — **Removed**
-- `graaf` — **Removed**
-- `gravin` — **Removed**
-- `hertog` — **Removed**
-- `hertogin` — **Removed**
-- `markies` — **Removed**
-- `markiezin` — **Removed**
-- `prins` — **Removed**
-- `prinses` — **Removed**
-- `ridder` — **Removed**
-
 #### adelijkeTitel — **Added**
 
 ##### Literals
@@ -1581,6 +1563,24 @@ _No datatype changes in this package._
 - `prins` — **Added**
 - `prinses` — **Added**
 - `ridder` — **Added**
+
+#### adelijkeTitel — **Removed**
+
+##### Literals
+
+- `Leeg` — **Removed**
+- `Onbekend` — **Removed**
+- `baron` — **Removed**
+- `barones` — **Removed**
+- `graaf` — **Removed**
+- `gravin` — **Removed**
+- `hertog` — **Removed**
+- `hertogin` — **Removed**
+- `markies` — **Removed**
+- `markiezin` — **Removed**
+- `prins` — **Removed**
+- `prinses` — **Removed**
+- `ridder` — **Removed**
 
 #### burgelijkeStaat — **Removed**
 
@@ -1638,19 +1638,19 @@ _No datatype changes in this package._
 - `recht van opstal verkregen` — **Removed**
 - `vol eigendom` — **Removed**
 
-#### functieOndersteunendWegdeel — **Added**
-
-##### Literals
-
-- `berm` — **Added**
-- `verkeerseiland` — **Added**
-
 #### functieOndersteunendWegdeel — **Removed**
 
 ##### Literals
 
 - `berm` — **Removed**
 - `verkeerseiland` — **Removed**
+
+#### functieOndersteunendWegdeel — **Added**
+
+##### Literals
+
+- `berm` — **Added**
+- `verkeerseiland` — **Added**
 
 #### functieWeg — **Added**
 
@@ -1796,17 +1796,6 @@ _No datatype changes in this package._
 - `vollegrondsteelt` — **Removed**
 - `wijngaarden` — **Removed**
 
-#### fysiekVoorkomenOnbegroeidTerrein — **Added**
-
-##### Literals
-
-- `Gesloten verharding` — **Added**
-- `erf` — **Added**
-- `half verhard` — **Added**
-- `onverhard` — **Added**
-- `open verharding` — **Added**
-- `zand` — **Added**
-
 #### fysiekVoorkomenOnbegroeidTerrein — **Removed**
 
 ##### Literals
@@ -1818,27 +1807,16 @@ _No datatype changes in this package._
 - `open verharding` — **Removed**
 - `zand` — **Removed**
 
-#### fysiekVoorkomenOnbegroeidTerreinPlus — **Removed**
+#### fysiekVoorkomenOnbegroeidTerrein — **Added**
 
 ##### Literals
 
-- `asfalt` — **Removed**
-- `betonelement` — **Removed**
-- `betonstraatstenen` — **Removed**
-- `boomschors` — **Removed**
-- `cementbeton` — **Removed**
-- `gebakken klinkers` — **Removed**
-- `grasklinkers` — **Removed**
-- `gravel` — **Removed**
-- `grind` — **Removed**
-- `kunststof` — **Removed**
-- `puin` — **Removed**
-- `schelpen` — **Removed**
-- `sierbestrating` — **Removed**
-- `strand en strandwal` — **Removed**
-- `tegels` — **Removed**
-- `zand` — **Removed**
-- `zandverstuiving` — **Removed**
+- `Gesloten verharding` — **Added**
+- `erf` — **Added**
+- `half verhard` — **Added**
+- `onverhard` — **Added**
+- `open verharding` — **Added**
+- `zand` — **Added**
 
 #### fysiekVoorkomenOnbegroeidTerreinPlus — **Added**
 
@@ -1862,6 +1840,28 @@ _No datatype changes in this package._
 - `zand` — **Added**
 - `zandverstuiving` — **Added**
 
+#### fysiekVoorkomenOnbegroeidTerreinPlus — **Removed**
+
+##### Literals
+
+- `asfalt` — **Removed**
+- `betonelement` — **Removed**
+- `betonstraatstenen` — **Removed**
+- `boomschors` — **Removed**
+- `cementbeton` — **Removed**
+- `gebakken klinkers` — **Removed**
+- `grasklinkers` — **Removed**
+- `gravel` — **Removed**
+- `grind` — **Removed**
+- `kunststof` — **Removed**
+- `puin` — **Removed**
+- `schelpen` — **Removed**
+- `sierbestrating` — **Removed**
+- `strand en strandwal` — **Removed**
+- `tegels` — **Removed**
+- `zand` — **Removed**
+- `zandverstuiving` — **Removed**
+
 #### fysiekVoorkomenOndersteunendWegdeel — **Removed**
 
 ##### Literals
@@ -1879,31 +1879,6 @@ _No datatype changes in this package._
 - `groenvoorziening` — **Added**
 - `half verhard` — **Added**
 - `onverhard` — **Added**
-
-#### fysiekVoorkomenOndersteunendWegdeelPlus — **Added**
-
-##### Literals
-
-- `puin` — **Added**
-- `asfalt` — **Added**
-- `beton element` — **Added**
-- `betonstraatstenen` — **Added**
-- `bodembedekkers` — **Added**
-- `boomschors` — **Added**
-- `bosplantsoen` — **Added**
-- `cementbeton` — **Added**
-- `gebakken klinkers` — **Added**
-- `gras- en kruidachtigen` — **Added**
-- `grasklinkers` — **Added**
-- `gravel` — **Added**
-- `grind` — **Added**
-- `heesters` — **Added**
-- `planten` — **Added**
-- `schelpen` — **Added**
-- `sierbestrating` — **Added**
-- `struikrozen` — **Added**
-- `tegels` — **Added**
-- `zand` — **Added**
 
 #### fysiekVoorkomenOndersteunendWegdeelPlus — **Removed**
 
@@ -1930,14 +1905,30 @@ _No datatype changes in this package._
 - `tegels` — **Removed**
 - `zand` — **Removed**
 
-#### fysiekVoorkomenWeg — **Added**
+#### fysiekVoorkomenOndersteunendWegdeelPlus — **Added**
 
 ##### Literals
 
-- `gesloten verharding` — **Added**
-- `half verhard` — **Added**
-- `onverhard` — **Added**
-- `open verharding` — **Added**
+- `puin` — **Added**
+- `asfalt` — **Added**
+- `beton element` — **Added**
+- `betonstraatstenen` — **Added**
+- `bodembedekkers` — **Added**
+- `boomschors` — **Added**
+- `bosplantsoen` — **Added**
+- `cementbeton` — **Added**
+- `gebakken klinkers` — **Added**
+- `gras- en kruidachtigen` — **Added**
+- `grasklinkers` — **Added**
+- `gravel` — **Added**
+- `grind` — **Added**
+- `heesters` — **Added**
+- `planten` — **Added**
+- `schelpen` — **Added**
+- `sierbestrating` — **Added**
+- `struikrozen` — **Added**
+- `tegels` — **Added**
+- `zand` — **Added**
 
 #### fysiekVoorkomenWeg — **Removed**
 
@@ -1948,24 +1939,14 @@ _No datatype changes in this package._
 - `onverhard` — **Removed**
 - `open verharding` — **Removed**
 
-#### fysiekVoorkomenWegPlus — **Added**
+#### fysiekVoorkomenWeg — **Added**
 
 ##### Literals
 
-- `asfalt` — **Added**
-- `beton element` — **Added**
-- `betonstraatstenen` — **Added**
-- `boomschors` — **Added**
-- `cementbeton` — **Added**
-- `gebakken klinkers` — **Added**
-- `grasklinkers` — **Added**
-- `gravel` — **Added**
-- `grind` — **Added**
-- `puin` — **Added**
-- `schelpen` — **Added**
-- `sierbestrating` — **Added**
-- `tegels` — **Added**
-- `zand` — **Added**
+- `gesloten verharding` — **Added**
+- `half verhard` — **Added**
+- `onverhard` — **Added**
+- `open verharding` — **Added**
 
 #### fysiekVoorkomenWegPlus — **Removed**
 
@@ -1986,23 +1967,24 @@ _No datatype changes in this package._
 - `tegels` — **Removed**
 - `zand` — **Removed**
 
-#### gebruiksdoel — **Removed**
+#### fysiekVoorkomenWegPlus — **Added**
 
 ##### Literals
 
-- `Leeg` — **Removed**
-- `Onbekend` — **Removed**
-- `bijeenkomstfunctie` — **Removed**
-- `celfunctie` — **Removed**
-- `gezondheidszorgfunctie` — **Removed**
-- `industriefunctie` — **Removed**
-- `kantoorfunctie` — **Removed**
-- `logiesfunctie` — **Removed**
-- `onderwijsfunctie` — **Removed**
-- `overige gebruiksfunctie` — **Removed**
-- `sportfunctie` — **Removed**
-- `winkelfunctie` — **Removed**
-- `woonfunctie` — **Removed**
+- `asfalt` — **Added**
+- `beton element` — **Added**
+- `betonstraatstenen` — **Added**
+- `boomschors` — **Added**
+- `cementbeton` — **Added**
+- `gebakken klinkers` — **Added**
+- `grasklinkers` — **Added**
+- `gravel` — **Added**
+- `grind` — **Added**
+- `puin` — **Added**
+- `schelpen` — **Added**
+- `sierbestrating` — **Added**
+- `tegels` — **Added**
+- `zand` — **Added**
 
 #### gebruiksdoel — **Added**
 
@@ -2021,6 +2003,24 @@ _No datatype changes in this package._
 - `sportfunctie` — **Added**
 - `winkelfunctie` — **Added**
 - `woonfunctie` — **Added**
+
+#### gebruiksdoel — **Removed**
+
+##### Literals
+
+- `Leeg` — **Removed**
+- `Onbekend` — **Removed**
+- `bijeenkomstfunctie` — **Removed**
+- `celfunctie` — **Removed**
+- `gezondheidszorgfunctie` — **Removed**
+- `industriefunctie` — **Removed**
+- `kantoorfunctie` — **Removed**
+- `logiesfunctie` — **Removed**
+- `onderwijsfunctie` — **Removed**
+- `overige gebruiksfunctie` — **Removed**
+- `sportfunctie` — **Removed**
+- `winkelfunctie` — **Removed**
+- `woonfunctie` — **Removed**
 
 #### soortGebruik — **Removed**
 
@@ -2052,58 +2052,6 @@ _No datatype changes in this package._
 - `woning dienend tot hoofdverblijf` — **Added**
 - `woning met praktijkruimte` — **Added**
 
-#### soortRechtsvorm — **Removed**
-
-##### Literals
-
-- `Besloten vennootschap` — **Removed**
-- `Europese Cooperatieve Vennootschap` — **Removed**
-- `Europese Naamloze Vennootschap` — **Removed**
-- `Leeg` — **Removed**
-- `Onbekend` — **Removed**
-- `commanditaire vennootschap` — **Removed**
-- `cooperatie, Europees Economische Samenwerking` — **Removed**
-- `kapitaalvennootschap binnen EER` — **Removed**
-- `kapitaalvennootschap buiten EER` — **Removed**
-- `kerkelijke Organisatie` — **Removed**
-- `maatschap` — **Removed**
-- `naamloze Vennootschap` — **Removed**
-- `onderlinge Waarborg Maatschappij` — **Removed**
-- `overig privaatrechtelijke rechtspersoon` — **Removed**
-- `overige buitenlandse rechtspersoon vennootschap` — **Removed**
-- `publiekrechtelijke Rechtspersoon` — **Removed**
-- `rederij` — **Removed**
-- `stichting` — **Removed**
-- `vennootschap onder Firma` — **Removed**
-- `vereniging` — **Removed**
-- `vereniging van Eigenaars` — **Removed**
-
-#### soortRechtsvorm — **Added**
-
-##### Literals
-
-- `Besloten vennootschap` — **Added**
-- `Europese Cooperatieve Vennootschap` — **Added**
-- `Europese Naamloze Vennootschap` — **Added**
-- `Leeg` — **Added**
-- `Onbekend` — **Added**
-- `commanditaire vennootschap` — **Added**
-- `cooperatie, Europees Economische Samenwerking` — **Added**
-- `kapitaalvennootschap binnen EER` — **Added**
-- `kapitaalvennootschap buiten EER` — **Added**
-- `kerkelijke Organisatie` — **Added**
-- `maatschap` — **Added**
-- `naamloze Vennootschap` — **Added**
-- `onderlinge Waarborg Maatschappij` — **Added**
-- `overig privaatrechtelijke rechtspersoon` — **Added**
-- `overige buitenlandse rechtspersoon vennootschap` — **Added**
-- `publiekrechtelijke Rechtspersoon` — **Added**
-- `rederij` — **Added**
-- `stichting` — **Added**
-- `vennootschap onder Firma` — **Added**
-- `vereniging` — **Added**
-- `vereniging van Eigenaars` — **Added**
-
 #### soortRechtsvorm — **Added**
 
 ##### Literals
@@ -2156,6 +2104,242 @@ _No datatype changes in this package._
 - `vereniging` — **Removed**
 - `vereniging van Eigenaars` — **Removed**
 
+#### soortRechtsvorm — **Added**
+
+##### Literals
+
+- `Besloten vennootschap` — **Added**
+- `Europese Cooperatieve Vennootschap` — **Added**
+- `Europese Naamloze Vennootschap` — **Added**
+- `Leeg` — **Added**
+- `Onbekend` — **Added**
+- `commanditaire vennootschap` — **Added**
+- `cooperatie, Europees Economische Samenwerking` — **Added**
+- `kapitaalvennootschap binnen EER` — **Added**
+- `kapitaalvennootschap buiten EER` — **Added**
+- `kerkelijke Organisatie` — **Added**
+- `maatschap` — **Added**
+- `naamloze Vennootschap` — **Added**
+- `onderlinge Waarborg Maatschappij` — **Added**
+- `overig privaatrechtelijke rechtspersoon` — **Added**
+- `overige buitenlandse rechtspersoon vennootschap` — **Added**
+- `publiekrechtelijke Rechtspersoon` — **Added**
+- `rederij` — **Added**
+- `stichting` — **Added**
+- `vennootschap onder Firma` — **Added**
+- `vereniging` — **Added**
+- `vereniging van Eigenaars` — **Added**
+
+#### soortRechtsvorm — **Removed**
+
+##### Literals
+
+- `Besloten vennootschap` — **Removed**
+- `Europese Cooperatieve Vennootschap` — **Removed**
+- `Europese Naamloze Vennootschap` — **Removed**
+- `Leeg` — **Removed**
+- `Onbekend` — **Removed**
+- `commanditaire vennootschap` — **Removed**
+- `cooperatie, Europees Economische Samenwerking` — **Removed**
+- `kapitaalvennootschap binnen EER` — **Removed**
+- `kapitaalvennootschap buiten EER` — **Removed**
+- `kerkelijke Organisatie` — **Removed**
+- `maatschap` — **Removed**
+- `naamloze Vennootschap` — **Removed**
+- `onderlinge Waarborg Maatschappij` — **Removed**
+- `overig privaatrechtelijke rechtspersoon` — **Removed**
+- `overige buitenlandse rechtspersoon vennootschap` — **Removed**
+- `publiekrechtelijke Rechtspersoon` — **Removed**
+- `rederij` — **Removed**
+- `stichting` — **Removed**
+- `vennootschap onder Firma` — **Removed**
+- `vereniging` — **Removed**
+- `vereniging van Eigenaars` — **Removed**
+
+#### statusGeoObject — **Added**
+
+##### Literals
+
+- `bestaand` — **Added**
+- `historie` — **Added**
+- `plan` — **Added**
+
+#### statusGeoObject — **Added**
+
+##### Literals
+
+- `bestaand` — **Added**
+- `historie` — **Added**
+- `plan` — **Added**
+
+#### statusGeoObject — **Removed**
+
+##### Literals
+
+- `bestaand` — **Removed**
+- `historie` — **Removed**
+- `plan` — **Removed**
+
+#### statusGeoObject — **Removed**
+
+##### Literals
+
+- `bestaand` — **Removed**
+- `historie` — **Removed**
+- `plan` — **Removed**
+
+#### statusGeoObject — **Removed**
+
+##### Literals
+
+- `bestaand` — **Removed**
+- `historie` — **Removed**
+- `plan` — **Removed**
+
+#### statusGeoObject — **Removed**
+
+##### Literals
+
+- `bestaand` — **Removed**
+- `historie` — **Removed**
+- `plan` — **Removed**
+
+#### statusGeoObject — **Removed**
+
+##### Literals
+
+- `bestaand` — **Removed**
+- `historie` — **Removed**
+- `plan` — **Removed**
+
+#### statusGeoObject — **Removed**
+
+##### Literals
+
+- `bestaand` — **Removed**
+- `historie` — **Removed**
+- `plan` — **Removed**
+
+#### statusGeoObject — **Added**
+
+##### Literals
+
+- `bestaand` — **Added**
+- `historie` — **Added**
+- `plan` — **Added**
+
+#### statusGeoObject — **Added**
+
+##### Literals
+
+- `bestaand` — **Added**
+- `historie` — **Added**
+- `plan` — **Added**
+
+#### statusGeoObject — **Removed**
+
+##### Literals
+
+- `bestaand` — **Removed**
+- `historie` — **Removed**
+- `plan` — **Removed**
+
+#### statusGeoObject — **Removed**
+
+##### Literals
+
+- `bestaand` — **Removed**
+- `historie` — **Removed**
+- `plan` — **Removed**
+
+#### statusGeoObject — **Added**
+
+##### Literals
+
+- `bestaand` — **Added**
+- `historie` — **Added**
+- `plan` — **Added**
+
+#### statusGeoObject — **Removed**
+
+##### Literals
+
+- `bestaand` — **Removed**
+- `historie` — **Removed**
+- `plan` — **Removed**
+
+#### statusGeoObject — **Added**
+
+##### Literals
+
+- `bestaand` — **Added**
+- `historie` — **Added**
+- `plan` — **Added**
+
+#### statusGeoObject — **Added**
+
+##### Literals
+
+- `bestaand` — **Added**
+- `historie` — **Added**
+- `plan` — **Added**
+
+#### statusGeoObject — **Added**
+
+##### Literals
+
+- `bestaand` — **Added**
+- `historie` — **Added**
+- `plan` — **Added**
+
+#### statusGeoObject — **Added**
+
+##### Literals
+
+- `bestaand` — **Added**
+- `historie` — **Added**
+- `plan` — **Added**
+
+#### statusGeoObject — **Removed**
+
+##### Literals
+
+- `bestaand` — **Removed**
+- `historie` — **Removed**
+- `plan` — **Removed**
+
+#### statusGeoObject — **Removed**
+
+##### Literals
+
+- `bestaand` — **Removed**
+- `historie` — **Removed**
+- `plan` — **Removed**
+
+#### statusGeoObject — **Added**
+
+##### Literals
+
+- `bestaand` — **Added**
+- `historie` — **Added**
+- `plan` — **Added**
+
+#### statusGeoObject — **Removed**
+
+##### Literals
+
+- `bestaand` — **Removed**
+- `historie` — **Removed**
+- `plan` — **Removed**
+
+#### statusGeoObject — **Added**
+
+##### Literals
+
+- `bestaand` — **Added**
+- `historie` — **Added**
+- `plan` — **Added**
+
 #### statusGeoObject — **Removed**
 
 ##### Literals
@@ -2196,22 +2380,6 @@ _No datatype changes in this package._
 - `historie` — **Added**
 - `plan` — **Added**
 
-#### statusGeoObject — **Removed**
-
-##### Literals
-
-- `bestaand` — **Removed**
-- `historie` — **Removed**
-- `plan` — **Removed**
-
-#### statusGeoObject — **Removed**
-
-##### Literals
-
-- `bestaand` — **Removed**
-- `historie` — **Removed**
-- `plan` — **Removed**
-
 #### statusGeoObject — **Added**
 
 ##### Literals
@@ -2243,174 +2411,6 @@ _No datatype changes in this package._
 - `bestaand` — **Added**
 - `historie` — **Added**
 - `plan` — **Added**
-
-#### statusGeoObject — **Removed**
-
-##### Literals
-
-- `bestaand` — **Removed**
-- `historie` — **Removed**
-- `plan` — **Removed**
-
-#### statusGeoObject — **Added**
-
-##### Literals
-
-- `bestaand` — **Added**
-- `historie` — **Added**
-- `plan` — **Added**
-
-#### statusGeoObject — **Added**
-
-##### Literals
-
-- `bestaand` — **Added**
-- `historie` — **Added**
-- `plan` — **Added**
-
-#### statusGeoObject — **Removed**
-
-##### Literals
-
-- `bestaand` — **Removed**
-- `historie` — **Removed**
-- `plan` — **Removed**
-
-#### statusGeoObject — **Added**
-
-##### Literals
-
-- `bestaand` — **Added**
-- `historie` — **Added**
-- `plan` — **Added**
-
-#### statusGeoObject — **Removed**
-
-##### Literals
-
-- `bestaand` — **Removed**
-- `historie` — **Removed**
-- `plan` — **Removed**
-
-#### statusGeoObject — **Removed**
-
-##### Literals
-
-- `bestaand` — **Removed**
-- `historie` — **Removed**
-- `plan` — **Removed**
-
-#### statusGeoObject — **Added**
-
-##### Literals
-
-- `bestaand` — **Added**
-- `historie` — **Added**
-- `plan` — **Added**
-
-#### statusGeoObject — **Removed**
-
-##### Literals
-
-- `bestaand` — **Removed**
-- `historie` — **Removed**
-- `plan` — **Removed**
-
-#### statusGeoObject — **Added**
-
-##### Literals
-
-- `bestaand` — **Added**
-- `historie` — **Added**
-- `plan` — **Added**
-
-#### statusGeoObject — **Added**
-
-##### Literals
-
-- `bestaand` — **Added**
-- `historie` — **Added**
-- `plan` — **Added**
-
-#### statusGeoObject — **Added**
-
-##### Literals
-
-- `bestaand` — **Added**
-- `historie` — **Added**
-- `plan` — **Added**
-
-#### statusGeoObject — **Added**
-
-##### Literals
-
-- `bestaand` — **Added**
-- `historie` — **Added**
-- `plan` — **Added**
-
-#### statusGeoObject — **Removed**
-
-##### Literals
-
-- `bestaand` — **Removed**
-- `historie` — **Removed**
-- `plan` — **Removed**
-
-#### statusGeoObject — **Added**
-
-##### Literals
-
-- `bestaand` — **Added**
-- `historie` — **Added**
-- `plan` — **Added**
-
-#### statusGeoObject — **Added**
-
-##### Literals
-
-- `bestaand` — **Added**
-- `historie` — **Added**
-- `plan` — **Added**
-
-#### statusGeoObject — **Removed**
-
-##### Literals
-
-- `bestaand` — **Removed**
-- `historie` — **Removed**
-- `plan` — **Removed**
-
-#### statusGeoObject — **Added**
-
-##### Literals
-
-- `bestaand` — **Added**
-- `historie` — **Added**
-- `plan` — **Added**
-
-#### statusGeoObject — **Removed**
-
-##### Literals
-
-- `bestaand` — **Removed**
-- `historie` — **Removed**
-- `plan` — **Removed**
-
-#### statusGeoObject — **Removed**
-
-##### Literals
-
-- `bestaand` — **Removed**
-- `historie` — **Removed**
-- `plan` — **Removed**
-
-#### statusGeoObject — **Removed**
-
-##### Literals
-
-- `bestaand` — **Removed**
-- `historie` — **Removed**
-- `plan` — **Removed**
 
 #### statusGeoObject — **Added**
 
@@ -2510,16 +2510,6 @@ _No datatype changes in this package._
 - `waarde ambtshalve verminderd` — **Removed**
 - `waarde te gebruiken voor voorlopige aanslag` — **Removed**
 
-#### typeOverbrugging — **Removed**
-
-##### Literals
-
-- `aquaduct` — **Removed**
-- `brug` — **Removed**
-- `ecoduct` — **Removed**
-- `fly-over` — **Removed**
-- `viaduct` — **Removed**
-
 #### typeOverbrugging — **Added**
 
 ##### Literals
@@ -2530,15 +2520,15 @@ _No datatype changes in this package._
 - `fly-over` — **Added**
 - `viaduct` — **Added**
 
-#### typeringAppartementsrechtsplitsing — **Added**
+#### typeOverbrugging — **Removed**
 
 ##### Literals
 
-- `Leeg` — **Added**
-- `Onbekend` — **Added**
-- `hoofdsplitsing` — **Added**
-- `ondersplitsing` — **Added**
-- `splitsingafkooperfpacht` — **Added**
+- `aquaduct` — **Removed**
+- `brug` — **Removed**
+- `ecoduct` — **Removed**
+- `fly-over` — **Removed**
+- `viaduct` — **Removed**
 
 #### typeringAppartementsrechtsplitsing — **Removed**
 
@@ -2549,6 +2539,16 @@ _No datatype changes in this package._
 - `hoofdsplitsing` — **Removed**
 - `ondersplitsing` — **Removed**
 - `splitsingafkooperfpacht` — **Removed**
+
+#### typeringAppartementsrechtsplitsing — **Added**
+
+##### Literals
+
+- `Leeg` — **Added**
+- `Onbekend` — **Added**
+- `hoofdsplitsing` — **Added**
+- `ondersplitsing` — **Added**
+- `splitsingafkooperfpacht` — **Added**
 
 #### typeringGebouwinstallatie — **Added**
 
@@ -2597,108 +2597,6 @@ _No datatype changes in this package._
 - `straatmeubilair` — **Removed**
 - `waterinrichtingselement` — **Removed**
 - `weginrichtingselement` — **Removed**
-
-#### typeringInrichtingselementPlus — **Added**
-
-##### Literals
-
-- `CAI-kast` — **Added**
-- `GMS kast` — **Added**
-- `GMS sensor` — **Added**
-- `abri` — **Added**
-- `afsluitpaal` — **Added**
-- `afval aparte plaats` — **Added**
-- `afvalbak` — **Added**
-- `balustrade` — **Added**
-- `bank` — **Added**
-- `benzine- / olieput` — **Added**
-- `betaalautomaat` — **Added**
-- `betonning` — **Added**
-- `bloembak` — **Added**
-- `bolder` — **Added**
-- `boomspiegel` — **Added**
-- `bovenleidingmast` — **Added**
-- `brandkraan / -put` — **Added**
-- `brievenbus` — **Added**
-- `camera` — **Added**
-- `container` — **Added**
-- `debietmeter` — **Added**
-- `detectielus` — **Added**
-- `dijkpaal` — **Added**
-- `drainageput` — **Added**
-- `drinkbak` — **Added**
-- `drukknoppaal` — **Added**
-- `dynamische snelheidsindicator` — **Added**
-- `elektrakast` — **Added**
-- `fietsenkluis` — **Added**
-- `fietsenrek` — **Added**
-- `flitser` — **Added**
-- `fontein` — **Added**
-- `gaskast` — **Added**
-- `gasput` — **Added**
-- `geleideconstructie` — **Added**
-- `geleidewerk` — **Added**
-- `grensmarkering` — **Added**
-- `haltepaal` — **Added**
-- `hectometerpaal` — **Added**
-- `herdenkingsmonument` — **Added**
-- `hoogtedetectieapparaat` — **Added**
-- `hoogtemerk` — **Added**
-- `informatiebord` — **Added**
-- `inspectie- / rioolput` — **Added**
-- `kolk` — **Added**
-- `kunstobject` — **Added**
-- `laagspanningsmast` — **Added**
-- `lichtcel` — **Added**
-- `lichtmast` — **Added**
-- `lichtpunt` — **Added**
-- `lijnafwatering` — **Added**
-- `meerpaal` — **Added**
-- `molgoot` — **Added**
-- `openbaar toilet` — **Added**
-- `openbare verlichtingskast` — **Added**
-- `parkeerbeugel` — **Added**
-- `picknicktafel` — **Added**
-- `plaatsnaambord` — **Added**
-- `poller` — **Added**
-- `pomp` — **Added**
-- `portaal` — **Added**
-- `praatpaal` — **Added**
-- `radar detector` — **Added**
-- `radarmast` — **Added**
-- `reclamebord` — **Added**
-- `reclamezuil` — **Added**
-- `remmingswerk` — **Added**
-- `rioolkast` — **Added**
-- `scheepvaartbord` — **Added**
-- `sirene` — **Added**
-- `slagboom` — **Added**
-- `speelvoorziening` — **Added**
-- `straalzender` — **Added**
-- `straatnaambord` — **Added**
-- `telecom kast` — **Added**
-- `telefooncel` — **Added**
-- `telkast` — **Added**
-- `telpaal` — **Added**
-- `verblindingswering` — **Added**
-- `verkeersbord` — **Added**
-- `verkeersbordpaal` — **Added**
-- `verkeersregelinstallatiekast` — **Added**
-- `verkeersregelinstallatiepaal` — **Added**
-- `verklikker transportleiding` — **Added**
-- `vlaggenmast` — **Added**
-- `vuilvang` — **Added**
-- `waarschuwingshek` — **Added**
-- `waterleidingput` — **Added**
-- `waterstandmeter` — **Added**
-- `weerstation` — **Added**
-- `wegmarkering` — **Added**
-- `wegwijzer` — **Added**
-- `wildrooster` — **Added**
-- `windmeter` — **Added**
-- `zand- / zoutbak` — **Added**
-- `zendmast` — **Added**
-- `zonnepaneel` — **Added**
 
 #### typeringInrichtingselementPlus — **Removed**
 
@@ -2802,12 +2700,107 @@ _No datatype changes in this package._
 - `zendmast` — **Removed**
 - `zonnepaneel` — **Removed**
 
-#### typeringOndersteunendWater — **Added**
+#### typeringInrichtingselementPlus — **Added**
 
 ##### Literals
 
-- `oever, slootkant` — **Added**
-- `slik` — **Added**
+- `CAI-kast` — **Added**
+- `GMS kast` — **Added**
+- `GMS sensor` — **Added**
+- `abri` — **Added**
+- `afsluitpaal` — **Added**
+- `afval aparte plaats` — **Added**
+- `afvalbak` — **Added**
+- `balustrade` — **Added**
+- `bank` — **Added**
+- `benzine- / olieput` — **Added**
+- `betaalautomaat` — **Added**
+- `betonning` — **Added**
+- `bloembak` — **Added**
+- `bolder` — **Added**
+- `boomspiegel` — **Added**
+- `bovenleidingmast` — **Added**
+- `brandkraan / -put` — **Added**
+- `brievenbus` — **Added**
+- `camera` — **Added**
+- `container` — **Added**
+- `debietmeter` — **Added**
+- `detectielus` — **Added**
+- `dijkpaal` — **Added**
+- `drainageput` — **Added**
+- `drinkbak` — **Added**
+- `drukknoppaal` — **Added**
+- `dynamische snelheidsindicator` — **Added**
+- `elektrakast` — **Added**
+- `fietsenkluis` — **Added**
+- `fietsenrek` — **Added**
+- `flitser` — **Added**
+- `fontein` — **Added**
+- `gaskast` — **Added**
+- `gasput` — **Added**
+- `geleideconstructie` — **Added**
+- `geleidewerk` — **Added**
+- `grensmarkering` — **Added**
+- `haltepaal` — **Added**
+- `hectometerpaal` — **Added**
+- `herdenkingsmonument` — **Added**
+- `hoogtedetectieapparaat` — **Added**
+- `hoogtemerk` — **Added**
+- `informatiebord` — **Added**
+- `inspectie- / rioolput` — **Added**
+- `kolk` — **Added**
+- `kunstobject` — **Added**
+- `laagspanningsmast` — **Added**
+- `lichtcel` — **Added**
+- `lichtmast` — **Added**
+- `lichtpunt` — **Added**
+- `lijnafwatering` — **Added**
+- `meerpaal` — **Added**
+- `molgoot` — **Added**
+- `openbaar toilet` — **Added**
+- `openbare verlichtingskast` — **Added**
+- `parkeerbeugel` — **Added**
+- `picknicktafel` — **Added**
+- `plaatsnaambord` — **Added**
+- `poller` — **Added**
+- `pomp` — **Added**
+- `portaal` — **Added**
+- `praatpaal` — **Added**
+- `radar detector` — **Added**
+- `radarmast` — **Added**
+- `reclamebord` — **Added**
+- `reclamezuil` — **Added**
+- `remmingswerk` — **Added**
+- `rioolkast` — **Added**
+- `scheepvaartbord` — **Added**
+- `sirene` — **Added**
+- `slagboom` — **Added**
+- `speelvoorziening` — **Added**
+- `straalzender` — **Added**
+- `straatnaambord` — **Added**
+- `telecom kast` — **Added**
+- `telefooncel` — **Added**
+- `telkast` — **Added**
+- `telpaal` — **Added**
+- `verblindingswering` — **Added**
+- `verkeersbord` — **Added**
+- `verkeersbordpaal` — **Added**
+- `verkeersregelinstallatiekast` — **Added**
+- `verkeersregelinstallatiepaal` — **Added**
+- `verklikker transportleiding` — **Added**
+- `vlaggenmast` — **Added**
+- `vuilvang` — **Added**
+- `waarschuwingshek` — **Added**
+- `waterleidingput` — **Added**
+- `waterstandmeter` — **Added**
+- `weerstation` — **Added**
+- `wegmarkering` — **Added**
+- `wegwijzer` — **Added**
+- `wildrooster` — **Added**
+- `windmeter` — **Added**
+- `zand- / zoutbak` — **Added**
+- `zendmast` — **Added**
+- `zonnepaneel` — **Added**
 
 #### typeringOndersteunendWater — **Removed**
 
@@ -2816,15 +2809,12 @@ _No datatype changes in this package._
 - `oever, slootkant` — **Removed**
 - `slik` — **Removed**
 
-#### typeringOverbruggingsdeel — **Removed**
+#### typeringOndersteunendWater — **Added**
 
 ##### Literals
 
-- `dek` — **Removed**
-- `landhoofd` — **Removed**
-- `pijler` — **Removed**
-- `pyloon` — **Removed**
-- `sloof` — **Removed**
+- `oever, slootkant` — **Added**
+- `slik` — **Added**
 
 #### typeringOverbruggingsdeel — **Added**
 
@@ -2836,12 +2826,15 @@ _No datatype changes in this package._
 - `pyloon` — **Added**
 - `sloof` — **Added**
 
-#### typeringOverigeScheiding — **Removed**
+#### typeringOverbruggingsdeel — **Removed**
 
 ##### Literals
 
-- `draadraster` — **Removed**
-- `faunaraster` — **Removed**
+- `dek` — **Removed**
+- `landhoofd` — **Removed**
+- `pijler` — **Removed**
+- `pyloon` — **Removed**
+- `sloof` — **Removed**
 
 #### typeringOverigeScheiding — **Added**
 
@@ -2850,12 +2843,12 @@ _No datatype changes in this package._
 - `draadraster` — **Added**
 - `faunaraster` — **Added**
 
-#### typeringVegetatieobject — **Added**
+#### typeringOverigeScheiding — **Removed**
 
 ##### Literals
 
-- `boom` — **Added**
-- `haag` — **Added**
+- `draadraster` — **Removed**
+- `faunaraster` — **Removed**
 
 #### typeringVegetatieobject — **Removed**
 
@@ -2863,6 +2856,13 @@ _No datatype changes in this package._
 
 - `boom` — **Removed**
 - `haag` — **Removed**
+
+#### typeringVegetatieobject — **Added**
+
+##### Literals
+
+- `boom` — **Added**
+- `haag` — **Added**
 
 #### typeringWater — **Added**
 
@@ -2908,16 +2908,16 @@ _No datatype changes in this package._
 - `rivier` — **Removed**
 - `sloot` — **Removed**
 
-#### typeringZekerheidsrecht — **Added**
-
-##### Literals
-
-- `beslag` — **Added**
-- `recht van hypotheek` — **Added**
-
 #### typeringZekerheidsrecht — **Removed**
 
 ##### Literals
 
 - `beslag` — **Removed**
 - `recht van hypotheek` — **Removed**
+
+#### typeringZekerheidsrecht — **Added**
+
+##### Literals
+
+- `beslag` — **Added**
+- `recht van hypotheek` — **Added**

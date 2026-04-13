@@ -117,9 +117,11 @@ nav:
     - Gegevenstoepassing: architectuur/gegevenstoepassing.md
     # - Raamwerk: architectuur/raamwerk.md
   - "Laag 1: Begrippenmodel":
-    - Kader: begrippen/kader.md
+    - Inleiding: begrippen/inleiding.md
+    - GBO-Begrippenkader: begrippen/gbo-begrippenkader.md
+    # - Kader: begrippen/kader.md
     - Relatie Informatiemodel: begrippen/relatie_informatiemodel.md
-    - Structuur: begrippen/structuur.md
+    # - Structuur: begrippen/structuur.md
     - Beheer en governance: begrippen/beheer.md
   - "Laag 2: Informatiemodel":
     - Model op hoofdlijnen: informatiemodel/informatiemodel.md
