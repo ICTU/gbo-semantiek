@@ -26,9 +26,9 @@ Een **derde sectormodel** is gereserveerd voor een volgend domein. De architectu
 
 ## GBO-model (onderlaag)
 
-De onderlaag beschrijft het [informatiemodel](../informatiemodel-gbo.md) voor de Gemeenschappelijke Bron Ontsluiting. Dit model definieert in één samenhangend geheel hoe gegevens uit de Core Data-laag gestructureerd, ontsloten en uitgewisseld worden: welke gegevens er zijn, wie erbij betrokken is en onder welke voorwaarden gegevens mogen worden gedeeld.
+De onderlaag beschrijft het [informatiemodel](../informatiemodel/informatiemodel-gbo.md) voor de Gemeenschappelijke Bron Ontsluiting. Dit model definieert in één samenhangend geheel hoe gegevens uit de Core Data-laag gestructureerd, ontsloten en uitgewisseld worden: welke gegevens er zijn, wie erbij betrokken is en onder welke voorwaarden gegevens mogen worden gedeeld.
 
-Het model bevat objecttypen voor de structuur van gegevensdeling (zoals Gegevenselement, Bron, Dienst en Scope), voor de betrokken rollen (zoals Burger, Bronhouder en Dienstverlener) en voor het transactieproces (zoals Toestemming, Gegevensverzoek en Grondslag). De volledige uitwerking van deze objecttypen staat in het [Informatiemodel GBO](../informatiemodel-gbo.md).
+Het model bevat objecttypen voor de structuur van gegevensdeling (zoals Gegevenselement, Bron, Dienst en Scope), voor de betrokken rollen (zoals Burger, Bronhouder en Dienstverlener) en voor het transactieproces (zoals Toestemming, Gegevensverzoek en Grondslag). De volledige uitwerking van deze objecttypen staat in het [Informatiemodel GBO](../informatiemodel/informatiemodel-gbo.md).
 
 Het GBO-informatiemodel wordt per domein uitgebreid met specifieke gegevenselementen, bronnen en diensten. Een domeinextensie importeert het generieke model en voegt alleen toe wat domeinspecifiek is. Voorbeelden van domeinen zijn hypotheekadvies, zorgeloos vastgoed en gebouwinformatie.
 

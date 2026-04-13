@@ -74,6 +74,11 @@ plugins:
 extra_css:
   - assets/stylesheets/custom.css
 
+# Custom JavaScript
+extra_javascript:
+  - https://unpkg.com/mermaid@11/dist/mermaid.min.js
+  - assets/javascripts/mermaid-init.js
+
 # Markdown-extensies
 markdown_extensions:
   - admonition
@@ -82,7 +87,11 @@ markdown_extensions:
       permalink: true
       title: Op deze pagina
   - pymdownx.details
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_div_format
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.tabbed:
@@ -113,8 +122,8 @@ nav:
     - Structuur: begrippen/structuur.md
     - Beheer en governance: begrippen/beheer.md
   - "Laag 2: Informatiemodel":
-    - Model op hoofdlijnen: informatiemodel.md
-    - Informatiemodel GBO: informatiemodel-gbo.md
+    - Model op hoofdlijnen: informatiemodel/informatiemodel.md
+    - Informatiemodel GBO: informatiemodel/informatiemodel-gbo.md
     - Detailmodel RSGB: "definities/definitie_Model Kern RSGB.md"
     - Detailmodel RGBZ: "definities/definitie_Model Kern RGBZ.md"
     - Detailmodel BAG: "definities/definitie_Model BAG.md"

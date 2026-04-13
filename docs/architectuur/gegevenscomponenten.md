@@ -24,7 +24,7 @@ Het informatiemodel beschrijft de structuur van gegevens: welke objecten (klasse
 
 Het informatiemodel is bedoeld voor **modelleurs en informatiearchitecten** en wordt beheerd in UML via Enterprise Architect (.qea). Het volgt de MIM-standaard (Metamodel Informatiemodellering) op niveau II/III.
 
-[Laag 2: Informatiemodel](../informatiemodel.md) bevat de uitwerking van het informatiemodel.
+[Laag 2: Informatiemodel](../informatiemodel/informatiemodel.md) bevat de uitwerking van het informatiemodel.
 
 ### Waarom twee aparte bronnen?
 

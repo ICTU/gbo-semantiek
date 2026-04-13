@@ -40,3 +40,29 @@
 .glightbox-container .gslide-media {
   max-width: 95vw !important;
 }
+
+/* === Mermaid-diagrammen: klik-om-te-vergroten overlay === */
+.mermaid svg {
+  cursor: pointer;
+}
+
+.mermaid-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+  padding: 2rem;
+}
+
+.mermaid-overlay svg {
+  max-width: 95vw;
+  max-height: 90vh;
+  background: #fff;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+}

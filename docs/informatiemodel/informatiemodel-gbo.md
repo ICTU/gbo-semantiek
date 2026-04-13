@@ -1,6 +1,6 @@
 # Informatiemodel GBO
 
-Het informatiemodel voor de Gemeenschappelijke Bron Ontsluiting opereert als laag 2 in de semantische architectuur: het definieert de *structuur* van gegevens en verwijst voor *betekenis* naar het begrippenkader (laag 1, SKOS). Zie de [gegevensarchitectuur](architectuur/gegevensarchitectuur.md) voor de positie van dit model in het geheel.
+Het informatiemodel voor de Gemeenschappelijke Bron Ontsluiting opereert als laag 2 in de semantische architectuur: het definieert de *structuur* van gegevens en verwijst voor *betekenis* naar het begrippenkader (laag 1, SKOS). Zie de [gegevensarchitectuur](../architectuur/gegevensarchitectuur.md) voor de positie van dit model in het geheel.
 
 Het informatiemodel beschrijft in één samenhangend geheel welke gegevens er zijn, wie erbij betrokken is en onder welke voorwaarden gegevens mogen worden gedeeld. Per domein kunnen **extensies** worden gemaakt die het generieke model uitbreiden met domeinspecifieke gegevenselementen.
 
