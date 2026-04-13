@@ -68,6 +68,7 @@ theme:
 plugins:
   - search:
       lang: nl
+  - glightbox
 
 # Custom CSS
 extra_css:
@@ -102,17 +103,18 @@ nav:
     - Kaders en standaarden: uitgangspunten/kaders_standaarden.md
     - Inspiratie: uitgangspunten/inspiratie.md
   - Architectuur:
-    - Raamwerk: architectuur/raamwerk.md
-    - Conceptueel: architectuur/conceptueel.md
+    - Gegevensarchitectuur: architectuur/gegevensarchitectuur.md
     - Componenten: architectuur/componenten.md
-    - Publicatie: architectuur/publicatie.md
+    - Toepassing: architectuur/toepassing.md
+    # - Raamwerk: architectuur/raamwerk.md
   - "Laag 1: Begrippenmodel":
     - Kader: begrippen/kader.md
     - Relatie Informatiemodel: begrippen/relatie_informatiemodel.md
     - Structuur: begrippen/structuur.md
     - Beheer en governance: begrippen/beheer.md
-  - "Laag 2: Informatiemodel": 
+  - "Laag 2: Informatiemodel":
     - Model op hoofdlijnen: informatiemodel.md
+    - Informatiemodel GBO: informatiemodel-gbo.md
     - Detailmodel RSGB: "definities/definitie_Model Kern RSGB.md"
     - Detailmodel RGBZ: "definities/definitie_Model Kern RGBZ.md"
     - Detailmodel BAG: "definities/definitie_Model BAG.md"
@@ -124,11 +126,13 @@ nav:
   - Implementatie:
     - URI-strategie: implementatie/uri-strategie.md
     - Naamgeving: implementatie/naamgeving.md
-  - JSON-LD:
-    - Context: json-ld/context.md
-    - API-patronen: json-ld/api-patronen.md
-    - Framing: json-ld/framing.md
-    - Meerdere contexts: json-ld/meerdere-contexts.md
+    - Deployment: implementatie/deployment.md
+    - Publicatie: implementatie/publicatie.md
+  #- JSON-LD:
+  #  - Context: json-ld/context.md
+  #  - API-patronen: json-ld/api-patronen.md
+  #  - Framing: json-ld/framing.md
+  #  - Meerdere contexts: json-ld/meerdere-contexts.md
   - Bijlagen:
     - Woordenlijst: bijlagen/woordenlijst.md
     - Tooling: bijlagen/tooling.md

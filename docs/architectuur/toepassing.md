@@ -1,21 +1,8 @@
-# Conceptueel
+# Toepassing
 
 De conceptuele architectuur bestaat uit twee diagrammen met elk een eigen tijdlijn: de **toolchain** beschrijft hoe de canonieke artefacten worden geproduceerd, het **runtime-proces** hoe ze worden geconsumeerd. Ze zijn bewust gescheiden — ontwerptijd en runtime hebben verschillende deelnemers, ritmes en uitkomsten.
 
-## 1. Toolchain — van bron tot publicatie
-
-![GBO-Semantiek Toolchain](../assets/diagrams/GBO-Semantiek-Toolchain.svg)
-
-Twee bronmodellen worden door `crunch_uml` op deterministische wijze omgezet naar publicatie-artefacten:
-
-- **Bronnen.** Een SKOS-*begrippenmodel* (MIM-niveau I, beheerd door domeinexperts) en een UML-*informatiemodel* in Enterprise Architect (MIM-niveau II/III). Bewust gescheiden: betekenis en structuur hebben verschillende doelgroepen en ritmes.
-- **Transformatie.** Eén centrale tool, eenrichtingsverkeer. Wijzigingen gebeuren alleen in de bron en stromen door naar de publicatie.
-- **Machine-leesbare output.** *SHACL/OWL/RDF* (Turtle) als canonieke vorm, met daaruit afgeleid een *JSON-LD @context* en een *GraphQL-endpoint*.
-- **Mens-leesbare output.** HTML-*specificatiepagina's* uit dezelfde bron, zodat wat een architect leest gegarandeerd overeenkomt met de SHACL-shapes.
-
-De RDF-ontologie is het anker omdat alleen RDF de uitdrukkingskracht heeft voor formele klassen, axioma's en validatie-shapes; JSON-LD en GraphQL zijn pragmatische projecties.
-
-## 2. Runtime — semantiek in de DvTP-architectuur
+## Runtime — semantiek in de DvTP-architectuur
 
 ![GBO-Semantiek in de DvTP-architectuur](../assets/diagrams/GBO-Semantiek-in-Architectuur.svg)
 

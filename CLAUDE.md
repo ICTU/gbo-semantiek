@@ -22,21 +22,27 @@ De documentatie in `docs/` is de **primaire bron van waarheid**. UML-modellen, J
 
 ```
 gbo-semantiek/
-├── docs/              MkDocs documentatiebron (Nederlandstalig) — bron van waarheid
-│   ├── architectuur/  Architectuurbeschrijving
-│   ├── begrippen/     Begrippenkader (kader, structuur, beheer)
-│   ├── definities/    Gegenereerde definities
-│   ├── implementatie/
-│   ├── json-ld/       JSON-LD context, framing, API-patronen
-│   ├── ontologie/     SKOS, kwaliteit, publicatie
-│   ├── uitgangspunten/
+├── docs/                MkDocs documentatiebron (Nederlandstalig) — bron van waarheid
+│   ├── architectuur/    Architectuurbeschrijving (componenten, toepassing)
+│   ├── begrippen/       Begrippenkader (kader, structuur, beheer, relatie informatiemodel)
+│   ├── bijlagen/        Woordenlijst, tooling, URI-namespace
+│   ├── definities/      Gegenereerde definities (uit crunch_uml, NIET handmatig bewerken)
+│   ├── implementatie/   URI-strategie, naamgeving, deployment, publicatie
+│   ├── json-ld/         JSON-LD context, framing, API-patronen (concept, nog niet in nav)
+│   ├── ontologie/       SKOS, kwaliteit, publicatie
+│   ├── uitgangspunten/  Ontwerpprincipes, kaders en standaarden, inspiratie
+│   ├── assets/          Diagrammen (.drawio + .svg), CSS, icon
 │   └── informatiemodel.md
-├── v0.1/              Datamodel-artefacten v0.1 (uml, jsonschema, rdf)
-├── tools/             Hulpscripts (deploy, validatie) en Jinja-templates
-├── site/              Gebouwde MkDocs-site (NIET handmatig bewerken)
-├── Taskfile.yml       go-task runner met alle build/deploy-taken
-├── mkdocs.yml         MkDocs Material-configuratie
-├── crunch_uml.db      SQLite-database van crunch_uml (NIET handmatig bewerken)
+├── v0.1/                Datamodel-artefacten v0.1
+│   ├── begrippen/       Begrippen (placeholder)
+│   ├── informatiemodel/ GBO-Informatiemodel.qea (Enterprise Architect)
+│   └── ontologie/       GBO-Linked-Data.ttl (gegenereerd)
+├── tools/               Hulpscripts (deploy, validatie) en Jinja-templates
+├── site/                Gebouwde MkDocs-site (NIET handmatig bewerken)
+├── Taskfile.yml         go-task runner met alle build/deploy-taken
+├── mkdocs.yml           MkDocs Material-configuratie
+├── .env                 Omgevingsvariabelen (VERSION, bestandspaden, namespace)
+├── crunch_uml.db        SQLite-database van crunch_uml (NIET handmatig bewerken)
 ├── CHANGELOG.md
 ├── CONTRIBUTING.md
 └── README.md
@@ -103,12 +109,24 @@ task generate:docs       # documentatie regenereren uit het model
 task full-deploy         # volledige pipeline draaien
 ```
 
+### Omgevingsvariabelen (`.env`)
+
+De `.env` wordt geladen door Taskfile.yml en bevat onder andere:
+
+- `VERSION` — huidige modelversie (bijv. `v0.1`)
+- `PREVIOUS_VERSION` — vorige versie voor diff-generatie
+- `GBO_FILE` — bestandsnaam van het informatiemodel (.qea)
+- `LOD_FILE` — bestandsnaam van de Linked Data export (.ttl)
+- `LINKED_DATA_NS` — namespace voor Linked Data (`https://lod.gbo-semantiek.nl`)
+- `ROOT_NODE_GBO` — Enterprise Architect root-package GUID
+
 ### Vereiste tools
 
 - `go-task`
 - `crunch_uml` (Python-pakket, zie github.com/brienen/crunch_uml)
 - Python 3.9+ met `mkdocs-material` en `mike`
 - `jq`
+- `drawio` (optioneel, alleen voor `task generate:diagrams`)
 
 ---
 
