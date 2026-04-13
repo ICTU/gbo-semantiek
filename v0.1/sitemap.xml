@@ -31,6 +31,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://brienen.github.io/gbo-semantiek/v0.1/begrippen/gbo-begrippenkader/</loc>
+         <lastmod>2026-04-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brienen.github.io/gbo-semantiek/v0.1/begrippen/inleiding/</loc>
+         <lastmod>2026-04-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://brienen.github.io/gbo-semantiek/v0.1/begrippen/kader/</loc>
          <lastmod>2026-04-13</lastmod>
          <changefreq>daily</changefreq>

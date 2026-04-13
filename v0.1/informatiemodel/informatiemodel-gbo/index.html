@@ -581,11 +581,32 @@
   
   
     <li class="md-nav__item">
-      <a href="../../begrippen/kader/" class="md-nav__link">
+      <a href="../../begrippen/inleiding/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Kader
+    Inleiding
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../begrippen/gbo-begrippenkader/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GBO-Begrippenkader
   </span>
   
 
@@ -607,27 +628,6 @@
   
   <span class="md-ellipsis">
     Relatie Informatiemodel
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../begrippen/structuur/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Structuur
   </span>
   
 
@@ -811,45 +811,6 @@
       Toelichting objecttypen
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Toelichting objecttypen">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#doorvertaling-naar-andere-lagen" class="md-nav__link">
-    <span class="md-ellipsis">
-      Doorvertaling naar andere lagen
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#domeinextensies" class="md-nav__link">
-    <span class="md-ellipsis">
-      Domeinextensies
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Domeinextensies">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#voorbeeld-hypotheekadvies" class="md-nav__link">
-    <span class="md-ellipsis">
-      Voorbeeld: hypotheekadvies
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1374,45 +1335,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Toelichting objecttypen">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#doorvertaling-naar-andere-lagen" class="md-nav__link">
-    <span class="md-ellipsis">
-      Doorvertaling naar andere lagen
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#domeinextensies" class="md-nav__link">
-    <span class="md-ellipsis">
-      Domeinextensies
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Domeinextensies">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#voorbeeld-hypotheekadvies" class="md-nav__link">
-    <span class="md-ellipsis">
-      Voorbeeld: hypotheekadvies
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -1439,40 +1361,40 @@
 
 
 <h1 id="informatiemodel-gbo">Informatiemodel GBO<a class="headerlink" href="#informatiemodel-gbo" title="Permanent link">&para;</a></h1>
-<p>Het informatiemodel voor de Gemeenschappelijke Bron Ontsluiting opereert als laag 2 in de semantische architectuur: het definieert de <em>structuur</em> van gegevens en verwijst voor <em>betekenis</em> naar het begrippenkader (laag 1, SKOS). Zie de <a href="../../architectuur/gegevensarchitectuur/">gegevensarchitectuur</a> voor de positie van dit model in het geheel.</p>
+<p>Het informatiemodel voor de Gemeenschappelijke Bron Ontsluiting opereert als laag 2 in de semantische architectuur: het definieert de <em>structuur</em> van gegevens en verwijst voor <em>betekenis</em> naar het begrippenkader (laag 1). Zie de <a href="../../architectuur/gegevensarchitectuur/">gegevensarchitectuur</a> voor de positie van dit model in het geheel.</p>
 <p>Het informatiemodel beschrijft in één samenhangend geheel welke gegevens er zijn, wie erbij betrokken is en onder welke voorwaarden gegevens mogen worden gedeeld. Per domein kunnen <strong>extensies</strong> worden gemaakt die het generieke model uitbreiden met domeinspecifieke gegevenselementen.</p>
 <div class="admonition info">
 <p class="admonition-title">Afbakening</p>
-<p>Begrippen (definities, labels, relaties tussen termen) worden <em>niet</em> in het informatiemodel beheerd maar in het SKOS-begrippenkader. Het informatiemodel verwijst naar begrippen via <code>mim:begrip</code> naar <code>skos:Concept</code> URI's.</p>
+<p>Begrippen (definities, labels, relaties tussen termen) worden <em>niet</em> in het informatiemodel beheerd maar in het begrippenkader. Elk objecttype en gegevenselement in het informatiemodel verwijst naar precies één begrip in het begrippenkader voor zijn betekenis.</p>
 </div>
 <hr />
 <h2 id="objecttypen-en-relaties">Objecttypen en relaties<a class="headerlink" href="#objecttypen-en-relaties" title="Permanent link">&para;</a></h2>
 <p>Het informatiemodel definieert de herbruikbare objecttypen die voor elk GBO-domein gelden. Een nieuw domein importeert dit model en voegt alleen domeinspecifieke gegevenselementen toe.</p>
 <div class="mermaid">classDiagram
     class Gegevenselement {
-        +URI identificatie
+        +string identificatie
         +string naam
         +string datatype
         +string kardinaliteit
-        +URI begrip
+        +Begrip begrip
     }
 
     class Bron {
-        +URI identificatie
+        +string identificatie
         +string naam
         +string bronhouder
         +string wettelijkeGrondslag
     }
 
     class Dienst {
-        +URI identificatie
+        +string identificatie
         +string naam
         +string wettelijkeVerankering
         +Scope maximaleScope
     }
 
     class Scope {
-        +URI identificatie
+        +string identificatie
         +string naam
         +string doelbeschrijving
     }
@@ -1506,7 +1428,7 @@
     }
 
     class Toestemming {
-        +URI identificatie
+        +string identificatie
         +Burger burger
         +Dienstverlener aanvrager
         +Scope scope
@@ -1515,7 +1437,7 @@
     }
 
     class Gegevensverzoek {
-        +URI identificatie
+        +string identificatie
         +Scope gevraagdeScope
         +Toestemming grondslag
         +datetime tijdstip
@@ -1528,7 +1450,7 @@
         +string toelichting
     }
 
-    note for Gegevenselement "begrip verwijst naar\nskos:Concept URI\nin het begrippenkader"
+    note for Gegevenselement "begrip verwijst naar\neen begrip in het\nbegrippenkader"
 
     Bron "1" --&gt; "*" Gegevenselement : bevat
     Bronhouder "1" --&gt; "*" Bron : beheert
@@ -1547,11 +1469,11 @@
     Burger "1" ..&gt; "1" Pseudoniem : via BSNK</div>
 <hr />
 <h2 id="toelichting-objecttypen">Toelichting objecttypen<a class="headerlink" href="#toelichting-objecttypen" title="Permanent link">&para;</a></h2>
-<p><strong>Gegevenselement</strong> is de technisch adresseerbare eenheid van data. Elk gegevenselement verwijst via <code>begrip</code> (URI) naar precies één <code>skos:Concept</code> in het begrippenkader. Het gegevenselement voegt structuurinformatie toe die het begrip niet heeft: datatype, kardinaliteit en positie in een objectstructuur. Bij de MIM-naar-OWL transformatie (laag 3) wordt elk gegevenselement een <code>owl:DatatypeProperty</code> of <code>owl:ObjectProperty</code>.</p>
-<p><strong>Bron</strong> is een registratie of gegevensverzameling bij een bronhouder. Een bron bevat gegevenselementen en heeft een wettelijke grondslag. Voorbeelden: BRP, Kadaster, BRK. Bij de ontologietransformatie wordt een Bron een <code>owl:Class</code> met de gegevenselementen als properties.</p>
-<p><strong>Dienst</strong> beschrijft een afgebakend doel waarvoor gegevens mogen worden opgevraagd. Een dienst is wettelijk verankerd (AMvB of ministeriële regeling) en heeft een maximale scope. In de ontologie wordt dit <code>gbo:Dienst</code>; in JSON-LD verschijnt de dienst in het toestemmingsverzoek.</p>
-<p><strong>Scope</strong> is een benoemde verzameling gegevenselementen. De maximale scope wordt bepaald door wetgeving; een afnemer kan een kleinere scope aanvragen (dataminimalisatie). In de ontologie wordt een scope een <code>gbo:Scope</code> die via <code>gbo:omvat</code> verwijst naar properties. In de JSON-LD @context bepaalt de scope welke keys beschikbaar zijn.</p>
-<p><strong>Dienstencatalogus</strong> is het register van alle beschikbare diensten met hun scopes, gepubliceerd als machine-leesbaar register (JSON-LD).</p>
+<p><strong>Gegevenselement</strong> is de kleinste adresseerbare eenheid van data. Elk gegevenselement verwijst via <code>begrip</code> naar precies één begrip in het begrippenkader. Het gegevenselement voegt structuurinformatie toe die het begrip niet heeft: datatype, kardinaliteit en positie in een objectstructuur.</p>
+<p><strong>Bron</strong> is een registratie of gegevensverzameling bij een bronhouder. Een bron bevat gegevenselementen en heeft een wettelijke grondslag. Voorbeelden: BRP, Kadaster, BRK.</p>
+<p><strong>Dienst</strong> beschrijft een afgebakend doel waarvoor gegevens mogen worden opgevraagd. Een dienst is wettelijk verankerd (AMvB of ministeriële regeling) en heeft een maximale scope.</p>
+<p><strong>Scope</strong> is een benoemde verzameling gegevenselementen. De maximale scope wordt bepaald door wetgeving; een afnemer kan een kleinere scope aanvragen (dataminimalisatie).</p>
+<p><strong>Dienstencatalogus</strong> is het register van alle beschikbare diensten met hun scopes.</p>
 <p><strong>Burger</strong> is de persoon over wie gegevens worden uitgewisseld. In de context van GBO heeft de burger altijd een BSN, maar private dienstverleners ontvangen een pseudoniem via het BSNK-koppelregister. De burger verleent expliciet toestemming via het toestemmingsportaal.</p>
 <p><strong>Bronhouder</strong> beheert een of meer bronregistraties en is verantwoordelijk voor het Policy Enforcement Point (PEP) dat elk gegevensverzoek toetst op identiteit, autorisatie en grondslag.</p>
 <p><strong>Dienstverlener</strong> is de partij die namens of ten behoeve van de burger gegevens opvraagt. De dienstverlener vraagt toestemming aan bij de burger en specificeert daarbij een scope.</p>
@@ -1559,109 +1481,6 @@
 <p><strong>Toestemming</strong> is het expliciete akkoord van de burger dat een specifieke dienstverlener een specifieke set gegevens mag opvragen. Een toestemming is altijd gebonden aan een scope, heeft een geldigheidsduur en is niet overdraagbaar.</p>
 <p><strong>Gegevensverzoek</strong> is de technische transactie waarmee een dienstverlener of afnemer brondata opvraagt. Elk verzoek verwijst naar een toestemming (of een wettelijke grondslag) en specificeert welke gegevenselementen worden opgevraagd.</p>
 <p><strong>Grondslag</strong> beschrijft de juridische basis voor gegevensuitwisseling. Dit kan toestemming van de burger zijn, maar ook een wettelijke verplichting (bijvoorbeeld bij leningverstrekking waar BSN noodzakelijk is).</p>
-<h3 id="doorvertaling-naar-andere-lagen">Doorvertaling naar andere lagen<a class="headerlink" href="#doorvertaling-naar-andere-lagen" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Informatiemodel-element</th>
-<th>Begrippenkader (laag 1)</th>
-<th>Ontologie (laag 3)</th>
-<th>JSON-LD (laag 4)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Gegevenselement</td>
-<td><code>mim:begrip</code> naar <code>skos:Concept</code></td>
-<td><code>owl:DatatypeProperty</code> / <code>owl:ObjectProperty</code></td>
-<td>JSON-key in @context</td>
-</tr>
-<tr>
-<td>Bron</td>
-<td><code>mim:begrip</code> naar <code>skos:Concept</code></td>
-<td><code>owl:Class</code></td>
-<td>niet in response</td>
-</tr>
-<tr>
-<td>Dienst</td>
-<td><code>mim:begrip</code> naar <code>skos:Concept</code></td>
-<td><code>gbo:Dienst</code> (owl:Class)</td>
-<td>Object in dienstencatalogus-response</td>
-</tr>
-<tr>
-<td>Scope</td>
-<td><code>mim:begrip</code> naar <code>skos:Concept</code></td>
-<td><code>gbo:Scope</code> (owl:Class)</td>
-<td>Set van keys / OAuth scope</td>
-</tr>
-<tr>
-<td>Dienstencatalogus</td>
-<td>n.v.t.</td>
-<td><code>gbo:Dienstencatalogus</code></td>
-<td>JSON-LD register</td>
-</tr>
-<tr>
-<td>Toestemming</td>
-<td><code>mim:begrip</code> naar <code>skos:Concept</code></td>
-<td><code>gbo:Toestemming</code> (owl:Class)</td>
-<td>Object in toestemmingsverzoek</td>
-</tr>
-<tr>
-<td>Gegevensverzoek</td>
-<td><code>mim:begrip</code> naar <code>skos:Concept</code></td>
-<td><code>gbo:Gegevensverzoek</code> (owl:Class)</td>
-<td>JSON-LD request payload</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="domeinextensies">Domeinextensies<a class="headerlink" href="#domeinextensies" title="Permanent link">&para;</a></h2>
-<p>Het informatiemodel wordt per domein uitgebreid met specifieke gegevenselementen, bronnen en diensten. Een domeinextensie importeert het GBO-informatiemodel en voegt alleen toe wat domeinspecifiek is.</p>
-<h3 id="voorbeeld-hypotheekadvies">Voorbeeld: hypotheekadvies<a class="headerlink" href="#voorbeeld-hypotheekadvies" title="Permanent link">&para;</a></h3>
-<p>De hypotheek-extensie illustreert hoe het informatiemodel wordt geëxtendeerd. Het domein voegt gegevenselementen toe die verwijzen naar begrippen in een domeinspecifiek begrippenkader (<code>gbo-hyp:</code>):</p>
-<table>
-<thead>
-<tr>
-<th>Gegevenselement</th>
-<th>Datatype</th>
-<th>Begrip (URI)</th>
-<th>Bron</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>inkomen</code></td>
-<td>Bedrag</td>
-<td><code>gbo-hyp:inkomen</code></td>
-<td>UWV</td>
-</tr>
-<tr>
-<td><code>wozWaarde</code></td>
-<td>Bedrag</td>
-<td><code>gbo-hyp:wozwaarde</code></td>
-<td>WOZ-register</td>
-</tr>
-<tr>
-<td><code>heeftEigendom</code></td>
-<td>boolean</td>
-<td><code>gbo-hyp:eigendomsrecht</code></td>
-<td>BRK</td>
-</tr>
-<tr>
-<td><code>verblijfsadres</code></td>
-<td>Adresstructuur</td>
-<td><code>gbo-hyp:adres</code></td>
-<td>BAG</td>
-</tr>
-<tr>
-<td><code>totaleSchuld</code></td>
-<td>Bedrag</td>
-<td><code>gbo-hyp:schuld</code></td>
-<td>BKR</td>
-</tr>
-</tbody>
-</table>
-<p>Bij het hypotheekadvies wordt de dienst "Hypotheekadvies" gedefinieerd met een maximale scope over alle vijf gegevenselementen. Een afnemer kan vervolgens een beperktere scope aanvragen, bijvoorbeeld alleen inkomen en WOZ-waarde voor een oriënterend advies. De dienstverlener vraagt toestemming aan bij de burger; in het toestemmingsportaal ziet de burger de <code>skos:prefLabel</code> en <code>skos:definition</code> van de begrippen uit het begrippenkader. De data wordt geleverd als JSON-LD, waardoor de keys resolveren naar URI's in de ontologie.</p>
 
 
 
