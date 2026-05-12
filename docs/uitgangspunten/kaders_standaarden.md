@@ -18,6 +18,13 @@ Het [Federatief Datastelsel](https://federatiefdatastelsel.nl/) is een programma
 **Toepassing in GBO-Semantiek:**
 GBO ondersteunt de FDS-ambities door gegevens als Linked Data te publiceren met persistente URI's, machine-leesbare metadata en gestandaardiseerde vocabulaires. Het begrippenkader en de ontologie maken GBO-gegevens vindbaar en koppelbaar binnen het bredere federatieve stelsel.
 
+### Stelselcatalogus
+
+De [Stelselcatalogus](https://www.stelselcatalogus.nl/) is de landelijke online catalogus van het stelsel van basisregistraties. Zij ontsluit begrippen, gegevenselementen en hun definities uit de basisregistraties op één centrale plek, zodat overheidsorganisaties en ketenpartners eenduidige semantiek kunnen hergebruiken.
+
+**Toepassing in GBO-Semantiek:**
+Het GBO-begrippenkader sluit aan bij de Stelselcatalogus door begrippen waar mogelijk te koppelen aan reeds geregistreerde basisbegrippen. Zo voorkomt GBO duplicatie en versterkt het de samenhang met de landelijke basisregistraties.
+
 ---
 
 ## Standaarden
