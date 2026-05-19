@@ -1127,6 +1127,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#ind-brp-lt-56-verblijfstitel" class="md-nav__link">
+    <span class="md-ellipsis">
+      IND ↔ BRP-LT 56 (verblijfstitel)
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1688,6 +1697,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#ind-brp-lt-56-verblijfstitel" class="md-nav__link">
+    <span class="md-ellipsis">
+      IND ↔ BRP-LT 56 (verblijfstitel)
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1817,10 +1835,10 @@ van <a href="https://www.geonovum.nl/">Geonovum</a>:</p>
 </tr>
 <tr>
 <td><code>Real</code></td>
-<td><code>Numeriek</code> (decimaal)</td>
+<td><code>Numeriek</code> (decimaal) / <code>Decimaal</code></td>
 <td>Decimaal getal zonder eenheid.</td>
 <td><a href="https://docs.geostandaarden.nl/mim/mim/">MIM 1.2</a></td>
-<td>Voor bedragen wordt <code>Bedrag</code> gebruikt (zie aanvullende datatypes), niet <code>Real</code> direct, vanwege de verplichte valuta-aanduiding.</td>
+<td>De alias <code>Decimaal</code> wordt in de deelmodellen gebruikt voor breuk-getallen zonder valuta-aanduiding, bijvoorbeeld <code>Schuld.rentepercentage</code> en <code>ModuleInschrijving.ects</code>. Voor bedragen wordt <code>Bedrag</code> gebruikt (zie aanvullende datatypes), niet <code>Real</code> direct, vanwege de verplichte valuta-aanduiding.</td>
 </tr>
 <tr>
 <td><code>Boolean</code></td>
@@ -1849,6 +1867,13 @@ van <a href="https://www.geonovum.nl/">Geonovum</a>:</p>
 <td>Kalenderjaar in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>, vier cijfers (<code>jjjj</code>).</td>
 <td><a href="https://docs.geostandaarden.nl/mim/mim/">MIM 1.2</a> / <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a></td>
 <td>Gebruikt voor <code>oorspronkelijkBouwjaar</code> op Pand en andere jaar-precieze gegevens.</td>
+</tr>
+<tr>
+<td><code>Duration</code></td>
+<td><code>Duur</code></td>
+<td>Tijdsduur in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>-periode-notatie (<code>P5Y</code>, <code>P3M</code>, <code>P7D</code>).</td>
+<td><a href="https://docs.geostandaarden.nl/mim/mim/">MIM 1.2</a> / <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a></td>
+<td>Gebruikt voor bewaartermijnen en doorlooptijden, bijvoorbeeld <code>BijzonderheidsCodering.bewaartermijnPeriode</code> (vijf jaar conform Algemeen Reglement CKI).</td>
 </tr>
 <tr>
 <td><code>URI</code></td>
@@ -1974,6 +1999,12 @@ de beheerder.</p>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><a href="https://publicaties.rvig.nl/home">BRP-Landelijke Tabel 33 Gemeenten</a></td>
+<td><a href="https://www.rvig.nl/landelijke-tabellen-en-besluiten">RvIG</a> / BZK</td>
+<td><code>Codelijst~LT33</code></td>
+<td>Stelselbreed voor gemeente-codering. <a href="../deelmodellen/adressen-en-gebouwen/">Adressen en gebouwen</a>: <code>Gemeente.gemeentecode</code>. <a href="../deelmodellen/personen/">Personen</a>: <code>IngeschrevenPersoon.gemeenteVanInschrijving</code>. <a href="../deelmodellen/waarde-onroerende-zaken/">Waarde onroerende zaken</a>: <code>WOZObject.verantwoordelijkeGemeente</code>. Formeel een BRP-codelijst, feitelijk de stelselbrede gemeente-codering inclusief historische gemeenten met einddatum.</td>
+</tr>
 <tr>
 <td><a href="https://www.cbs.nl/nl-nl/onze-diensten/methoden/classificaties/activiteiten/standaard-bedrijfsindeling--sbi--">CBS Standaard Bedrijfsindeling (SBI 2008 / 2025)</a> — <a href="https://www.cbs.nl/nl-nl/onze-diensten/methoden/classificaties/activiteiten/standaard-bedrijfsindeling--sbi--/sbi-code-zoeken">SBI-zoektool</a></td>
 <td><a href="https://www.cbs.nl/">CBS</a></td>
@@ -2130,6 +2161,60 @@ alpha-2-codes.</p>
 <li><a href="https://www.rvig.nl/landelijke-tabellen-en-besluiten">BRP Landelijke Tabellen — overzicht (RvIG)</a>.</li>
 <li><a href="https://www.iso.org/iso-3166-country-codes.html">ISO 3166-1 alpha-2 (iso.org)</a>.</li>
 </ul>
+<h3 id="ind-brp-lt-56-verblijfstitel">IND ↔ BRP-LT 56 (verblijfstitel)<a class="headerlink" href="#ind-brp-lt-56-verblijfstitel" title="Permanent link">&para;</a></h3>
+<p><a href="https://publicaties.rvig.nl/home">BRP-Landelijke Tabel 56 Verblijfstitels</a>
+levert per verblijfstitel een BRP-code met IND-cross-link. GBO
+modelleert <code>Verblijfstitel.aanduiding</code> als
+<a href="https://ind.nl/nl/verblijfsvergunningen"><code>Codelijst~IND</code></a> (autoritatief
+vanuit <a href="https://ind.nl/">IND</a>) met cross-walk naar LT 56 voor
+BRP-uitwisseling. De cross-walk evolueert mee met IND-beleidswijzigingen.</p>
+<table>
+<thead>
+<tr>
+<th>BRP-code (LT 56)</th>
+<th>IND-aanduiding</th>
+<th>Omschrijving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9</td>
+<td>(geen verblijfstitel)</td>
+<td>Onderdaan EU / EER, geen titel nodig</td>
+</tr>
+<tr>
+<td>10</td>
+<td>verblijf onbeperkt</td>
+<td>Verblijfsvergunning regulier voor onbepaalde tijd</td>
+</tr>
+<tr>
+<td>11</td>
+<td>verblijf bepaald</td>
+<td>Verblijfsvergunning regulier voor bepaalde tijd</td>
+</tr>
+<tr>
+<td>12</td>
+<td>asiel onbeperkt</td>
+<td>Verblijfsvergunning asiel onbepaalde tijd</td>
+</tr>
+<tr>
+<td>13</td>
+<td>asiel bepaald</td>
+<td>Verblijfsvergunning asiel bepaalde tijd</td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Volledige lijsten</strong>:</p>
+<ul>
+<li><a href="https://publicaties.rvig.nl/home">BRP-LT 56 Verblijfstitel — publicaties.rvig.nl</a>, ook beschikbaar via de <a href="https://developer.rvig.nl/brp-api/">Haal Centraal BRP Tabellen-API</a>.</li>
+<li><a href="https://www.rvig.nl/lo-brp">Logisch Ontwerp BRP</a> §11.10.</li>
+<li><a href="https://ind.nl/nl/verblijfsvergunningen">IND Verblijfsvergunningen</a>.</li>
+</ul>
 <h2 id="versionering-en-herindelingen">Versionering en herindelingen<a class="headerlink" href="#versionering-en-herindelingen" title="Permanent link">&para;</a></h2>
 <h3 id="cbs-wijk-en-buurt-jaarlijkse-herziening">CBS Wijk en Buurt: jaarlijkse herziening<a class="headerlink" href="#cbs-wijk-en-buurt-jaarlijkse-herziening" title="Permanent link">&para;</a></h3>
 <p>CBS herziet Wijk- en Buurtgrenzen jaarlijks via de
@@ -2155,6 +2240,26 @@ het onderhoudsritme bij het betreffende deelmodel.</p>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><a href="https://publicaties.rvig.nl/home">BRP-LT 32 Nationaliteiten</a></td>
+<td>Halfjaarlijks</td>
+<td><a href="https://www.rvig.nl/landelijke-tabellen-en-besluiten">RvIG</a></td>
+</tr>
+<tr>
+<td><a href="https://publicaties.rvig.nl/home">BRP-LT 33 Gemeenten</a></td>
+<td>Jaarlijks (1 januari, gemeentelijke herindelingen)</td>
+<td><a href="https://www.rvig.nl/landelijke-tabellen-en-besluiten">RvIG</a></td>
+</tr>
+<tr>
+<td><a href="https://publicaties.rvig.nl/home">BRP-LT 34 Landen</a></td>
+<td>Halfjaarlijks</td>
+<td><a href="https://www.rvig.nl/landelijke-tabellen-en-besluiten">RvIG</a></td>
+</tr>
+<tr>
+<td><a href="https://publicaties.rvig.nl/home">BRP-LT 56 Verblijfstitels</a></td>
+<td>Per IND-beleidswijziging</td>
+<td><a href="https://www.rvig.nl/landelijke-tabellen-en-besluiten">RvIG</a> (afstemming met IND)</td>
+</tr>
 <tr>
 <td><a href="https://www.cbs.nl/nl-nl/onze-diensten/methoden/classificaties/activiteiten/standaard-bedrijfsindeling--sbi--">CBS SBI</a></td>
 <td>Per SBI-revisie</td>

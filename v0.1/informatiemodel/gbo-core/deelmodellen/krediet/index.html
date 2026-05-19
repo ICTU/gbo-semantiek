@@ -2199,7 +2199,7 @@ verplichtingen prive en zakelijk.</p>
 </tr>
 <tr>
 <td>Populatie</td>
-<td>Alle aan CKI gemelde achterstanden, inclusief inmiddels herstelde voor zover binnen de bewaartermijn van vijf jaar.</td>
+<td>Alle aan CKI gemelde achterstanden op kredietovereenkomsten, inclusief inmiddels herstelde voor zover binnen de bewaartermijn van vijf jaar.</td>
 </tr>
 </tbody>
 </table>
@@ -2307,16 +2307,20 @@ vaste looptijd. Meldingsplichtig boven EUR 250.</p>
 <td><code>https://begrippen.gbo-semantiek.nl/id/begrip/AflopendKrediet</code></td>
 </tr>
 <tr>
-<td>Notation</td>
-<td>AK</td>
-</tr>
-<tr>
 <td>Herkomst</td>
 <td>CKI</td>
 </tr>
 <tr>
 <td>Datum opname</td>
 <td>2026-05-19</td>
+</tr>
+<tr>
+<td>Populatie</td>
+<td>Alle aan CKI gemelde aflopende kredieten boven de meldingsdrempel van EUR 250, gedurende de looptijd plus de bewaartermijn na einddatum.</td>
+</tr>
+<tr>
+<td>Notation</td>
+<td>AK</td>
 </tr>
 </tbody>
 </table>
@@ -2400,6 +2404,10 @@ bijzonderheids-coderingen kennen, elk met een eigen code en datum.</p>
 <td>Datum opname</td>
 <td>2026-05-19</td>
 </tr>
+<tr>
+<td>Populatie</td>
+<td>Alle aan CKI gemelde bijzonderheidscoderingen op kredietovereenkomsten, gedurende de bewaartermijn.</td>
+</tr>
 </tbody>
 </table>
 <p><strong>Attribuutsoorten</strong>:</p>
@@ -2478,8 +2486,8 @@ met spreidingsfunctie en sommige private leases.</p>
 <td>DoorlopendKrediet</td>
 </tr>
 <tr>
-<td>Notation</td>
-<td>RK</td>
+<td>Begrip (URI)</td>
+<td><code>https://begrippen.gbo-semantiek.nl/id/begrip/DoorlopendKrediet</code></td>
 </tr>
 <tr>
 <td>Herkomst</td>
@@ -2488,6 +2496,14 @@ met spreidingsfunctie en sommige private leases.</p>
 <tr>
 <td>Datum opname</td>
 <td>2026-05-19</td>
+</tr>
+<tr>
+<td>Populatie</td>
+<td>Alle aan CKI gemelde doorlopende kredieten boven de meldingsdrempel van EUR 250 als kredietlimiet, gedurende de looptijd plus de bewaartermijn.</td>
+</tr>
+<tr>
+<td>Notation</td>
+<td>RK</td>
 </tr>
 </tbody>
 </table>
@@ -2571,12 +2587,16 @@ tussen familieleden vallen er niet onder.</p>
 <td>CKI; Wgs</td>
 </tr>
 <tr>
+<td>Datum opname</td>
+<td>2026-05-19</td>
+</tr>
+<tr>
 <td>Indicatie abstract object</td>
 <td>Ja</td>
 </tr>
 <tr>
-<td>Datum opname</td>
-<td>2026-05-19</td>
+<td>Populatie</td>
+<td>Abstract. Concrete populatie wordt bepaald door de subklassen KredietOvereenkomst en SchuldhulpverleningTraject: alle in CKI of in een gemeentelijke beschikking geformaliseerde geldelijke verplichtingen van een natuurlijk of niet-natuurlijk persoon.</td>
 </tr>
 </tbody>
 </table>
@@ -2648,12 +2668,20 @@ lopende.</p>
 <td>HerstelMelding</td>
 </tr>
 <tr>
+<td>Begrip (URI)</td>
+<td><code>https://begrippen.gbo-semantiek.nl/id/begrip/HerstelMelding</code></td>
+</tr>
+<tr>
 <td>Herkomst</td>
 <td>CKI</td>
 </tr>
 <tr>
 <td>Datum opname</td>
 <td>2026-05-19</td>
+</tr>
+<tr>
+<td>Populatie</td>
+<td>Alle aan CKI gemelde herstellen van eerder geregistreerde achterstanden, gedurende de bewaartermijn van de oorspronkelijke achterstand.</td>
 </tr>
 </tbody>
 </table>
@@ -2726,8 +2754,8 @@ of de eigen kredietadministratie van de geldverstrekker.</p>
 <td>HypothecairKredietEigenWoning</td>
 </tr>
 <tr>
-<td>Notation</td>
-<td>HY</td>
+<td>Begrip (URI)</td>
+<td><code>https://begrippen.gbo-semantiek.nl/id/begrip/HypothecairKredietEigenWoning</code></td>
 </tr>
 <tr>
 <td>Herkomst</td>
@@ -2736,6 +2764,14 @@ of de eigen kredietadministratie van de geldverstrekker.</p>
 <tr>
 <td>Datum opname</td>
 <td>2026-05-19</td>
+</tr>
+<tr>
+<td>Populatie</td>
+<td>Hypothecaire kredieten voor de eigen woning waarop een negatieve betalingservaring aan CKI is gemeld; reguliere kredieten zonder achterstand verschijnen niet in CKI.</td>
+</tr>
+<tr>
+<td>Notation</td>
+<td>HY</td>
 </tr>
 </tbody>
 </table>
@@ -2809,8 +2845,8 @@ zit in de rol van de onroerende zaak.</p>
 <td>HypothecairKredietOverigeOnroerendeZaken</td>
 </tr>
 <tr>
-<td>Notation</td>
-<td>HO</td>
+<td>Begrip (URI)</td>
+<td><code>https://begrippen.gbo-semantiek.nl/id/begrip/HypothecairKredietOverigeOnroerendeZaken</code></td>
 </tr>
 <tr>
 <td>Herkomst</td>
@@ -2819,6 +2855,14 @@ zit in de rol van de onroerende zaak.</p>
 <tr>
 <td>Datum opname</td>
 <td>2026-05-19</td>
+</tr>
+<tr>
+<td>Populatie</td>
+<td>Alle aan CKI gemelde hypothecaire kredieten op onroerende zaken anders dan de eigen woning (tweede woning, verhuurpand, beleggingspand) boven de meldingsdrempel van EUR 250.</td>
+</tr>
+<tr>
+<td>Notation</td>
+<td>HO</td>
 </tr>
 </tbody>
 </table>
@@ -2901,12 +2945,20 @@ mini-leningen van enkele honderden euros met een termijn van weken.</p>
 <td>KortKrediet</td>
 </tr>
 <tr>
+<td>Begrip (URI)</td>
+<td><code>https://begrippen.gbo-semantiek.nl/id/begrip/KortKrediet</code></td>
+</tr>
+<tr>
 <td>Herkomst</td>
 <td>CKI</td>
 </tr>
 <tr>
 <td>Datum opname</td>
 <td>2026-05-19</td>
+</tr>
+<tr>
+<td>Populatie</td>
+<td>Aan CKI gemelde kortlopende kredieten (dagkredieten, mini-leningen) met een looptijd doorgaans korter dan drie maanden.</td>
 </tr>
 </tbody>
 </table>
@@ -2965,8 +3017,8 @@ herstel, gevolgd door opnieuw een achterstand.</p>
 <td>KredietFeit</td>
 </tr>
 <tr>
-<td>Indicatie abstract object</td>
-<td>Ja</td>
+<td>Begrip (URI)</td>
+<td><code>https://begrippen.gbo-semantiek.nl/id/begrip/KredietFeit</code></td>
 </tr>
 <tr>
 <td>Herkomst</td>
@@ -2975,6 +3027,14 @@ herstel, gevolgd door opnieuw een achterstand.</p>
 <tr>
 <td>Datum opname</td>
 <td>2026-05-19</td>
+</tr>
+<tr>
+<td>Indicatie abstract object</td>
+<td>Ja</td>
+</tr>
+<tr>
+<td>Populatie</td>
+<td>Abstract. Concrete populatie wordt bepaald door de subklassen AchterstandRegistratie, HerstelMelding en BijzonderheidsCodering: alle gedurende de looptijd van een kredietovereenkomst aan CKI gemelde gebeurtenissen.</td>
 </tr>
 </tbody>
 </table>
@@ -3073,8 +3133,8 @@ zij niet aan CKI worden gemeld:</p>
 <td>KredietOvereenkomst</td>
 </tr>
 <tr>
-<td>Indicatie abstract object</td>
-<td>Ja</td>
+<td>Begrip (URI)</td>
+<td><code>https://begrippen.gbo-semantiek.nl/id/begrip/KredietOvereenkomst</code></td>
 </tr>
 <tr>
 <td>Herkomst</td>
@@ -3083,6 +3143,14 @@ zij niet aan CKI worden gemeld:</p>
 <tr>
 <td>Datum opname</td>
 <td>2026-05-19</td>
+</tr>
+<tr>
+<td>Indicatie abstract object</td>
+<td>Ja</td>
+</tr>
+<tr>
+<td>Populatie</td>
+<td>Abstract. Concrete populatie wordt bepaald door de twaalf subklassen: alle kredietovereenkomsten die op grond van het Algemeen Reglement CKI aan het Centraal Krediet Informatiesysteem worden gemeld.</td>
 </tr>
 </tbody>
 </table>
@@ -3203,8 +3271,8 @@ eigenaar en kent een eigen kredietvorm-code sinds 1 januari 2017.</p>
 <td>OperationalAutolease</td>
 </tr>
 <tr>
-<td>Notation</td>
-<td>OA</td>
+<td>Begrip (URI)</td>
+<td><code>https://begrippen.gbo-semantiek.nl/id/begrip/OperationalAutolease</code></td>
 </tr>
 <tr>
 <td>Herkomst</td>
@@ -3213,6 +3281,14 @@ eigenaar en kent een eigen kredietvorm-code sinds 1 januari 2017.</p>
 <tr>
 <td>Datum opname</td>
 <td>2026-05-19</td>
+</tr>
+<tr>
+<td>Populatie</td>
+<td>Aan CKI gemelde operational-autoleasecontracten waarbij de leasemaatschappij eigenaar van het voertuig blijft en het totale contractbedrag boven de meldingsdrempel van EUR 250 ligt.</td>
+</tr>
+<tr>
+<td>Notation</td>
+<td>OA</td>
 </tr>
 </tbody>
 </table>
@@ -3283,8 +3359,8 @@ borgstelling).</p>
 <td>OverigeFinancieleVerplichtingPrive</td>
 </tr>
 <tr>
-<td>Notation</td>
-<td>RO</td>
+<td>Begrip (URI)</td>
+<td><code>https://begrippen.gbo-semantiek.nl/id/begrip/OverigeFinancieleVerplichtingPrive</code></td>
 </tr>
 <tr>
 <td>Herkomst</td>
@@ -3293,6 +3369,14 @@ borgstelling).</p>
 <tr>
 <td>Datum opname</td>
 <td>2026-05-19</td>
+</tr>
+<tr>
+<td>Populatie</td>
+<td>Aan CKI gemelde overige private financiele verplichtingen van natuurlijke personen die niet onder een andere kredietvorm vallen, voor zover een negatieve betalingservaring is gemeld.</td>
+</tr>
+<tr>
+<td>Notation</td>
+<td>RO</td>
 </tr>
 </tbody>
 </table>
@@ -3348,8 +3432,8 @@ CKI-registratie loopt gedurende dit proces door.</p>
 <td>RestschuldHypothecairKredietMetNHG</td>
 </tr>
 <tr>
-<td>Notation</td>
-<td>RN</td>
+<td>Begrip (URI)</td>
+<td><code>https://begrippen.gbo-semantiek.nl/id/begrip/RestschuldHypothecairKredietMetNHG</code></td>
 </tr>
 <tr>
 <td>Herkomst</td>
@@ -3358,6 +3442,14 @@ CKI-registratie loopt gedurende dit proces door.</p>
 <tr>
 <td>Datum opname</td>
 <td>2026-05-19</td>
+</tr>
+<tr>
+<td>Populatie</td>
+<td>Aan CKI gemelde restschulden boven EUR 250 na verkoop van een onroerende zaak waarop een hypothecair krediet rustte met dekking door de Nationale Hypotheek Garantie.</td>
+</tr>
+<tr>
+<td>Notation</td>
+<td>RN</td>
 </tr>
 </tbody>
 </table>
@@ -3440,8 +3532,8 @@ voor de aansprakelijkheid en de afbetalingsverplichting.</p>
 <td>RestschuldHypothecairKredietZonderNHG</td>
 </tr>
 <tr>
-<td>Notation</td>
-<td>RH</td>
+<td>Begrip (URI)</td>
+<td><code>https://begrippen.gbo-semantiek.nl/id/begrip/RestschuldHypothecairKredietZonderNHG</code></td>
 </tr>
 <tr>
 <td>Herkomst</td>
@@ -3450,6 +3542,14 @@ voor de aansprakelijkheid en de afbetalingsverplichting.</p>
 <tr>
 <td>Datum opname</td>
 <td>2026-05-19</td>
+</tr>
+<tr>
+<td>Populatie</td>
+<td>Aan CKI gemelde restschulden boven EUR 250 na verkoop van een onroerende zaak waarop een hypothecair krediet rustte zonder dekking door de Nationale Hypotheek Garantie.</td>
+</tr>
+<tr>
+<td>Notation</td>
+<td>RH</td>
 </tr>
 </tbody>
 </table>
@@ -3532,8 +3632,8 @@ schuldhulpverleningstraject.</p>
 <td>Saneringskrediet</td>
 </tr>
 <tr>
-<td>Notation</td>
-<td>SK</td>
+<td>Begrip (URI)</td>
+<td><code>https://begrippen.gbo-semantiek.nl/id/begrip/Saneringskrediet</code></td>
 </tr>
 <tr>
 <td>Herkomst</td>
@@ -3542,6 +3642,14 @@ schuldhulpverleningstraject.</p>
 <tr>
 <td>Datum opname</td>
 <td>2026-05-19</td>
+</tr>
+<tr>
+<td>Populatie</td>
+<td>Aan CKI gemelde saneringskredieten boven EUR 250, verstrekt door een gemeente of door de gemeente aangewezen kredietbank in het kader van schuldhulpverlening.</td>
+</tr>
+<tr>
+<td>Notation</td>
+<td>SK</td>
 </tr>
 </tbody>
 </table>
@@ -3606,8 +3714,8 @@ meldingsplichtig.</p>
 <td>ZakelijkKrediet</td>
 </tr>
 <tr>
-<td>Notation</td>
-<td>ZK</td>
+<td>Begrip (URI)</td>
+<td><code>https://begrippen.gbo-semantiek.nl/id/begrip/ZakelijkKrediet</code></td>
 </tr>
 <tr>
 <td>Herkomst</td>
@@ -3616,6 +3724,14 @@ meldingsplichtig.</p>
 <tr>
 <td>Datum opname</td>
 <td>2026-05-19</td>
+</tr>
+<tr>
+<td>Populatie</td>
+<td>Aan CKI gemelde zakelijke kredieten boven EUR 1.000 met persoonlijke aansprakelijkheid van een of meer natuurlijke personen (typisch ZZP en eenmanszaken, en BV/NV met persoonlijke borgstelling).</td>
+</tr>
+<tr>
+<td>Notation</td>
+<td>ZK</td>
 </tr>
 </tbody>
 </table>
@@ -3697,8 +3813,8 @@ verplichting kunnen zowel ZK als ZO van toepassing zijn.</p>
 <td>ZakelijkeOverigeFinancieleVerplichting</td>
 </tr>
 <tr>
-<td>Notation</td>
-<td>ZO</td>
+<td>Begrip (URI)</td>
+<td><code>https://begrippen.gbo-semantiek.nl/id/begrip/ZakelijkeOverigeFinancieleVerplichting</code></td>
 </tr>
 <tr>
 <td>Herkomst</td>
@@ -3707,6 +3823,14 @@ verplichting kunnen zowel ZK als ZO van toepassing zijn.</p>
 <tr>
 <td>Datum opname</td>
 <td>2026-05-19</td>
+</tr>
+<tr>
+<td>Populatie</td>
+<td>Aan CKI gemelde overige zakelijke financiele verplichtingen boven EUR 1.000 die niet onder ZakelijkKrediet vallen, voor zover een negatieve betalingservaring is gemeld.</td>
+</tr>
+<tr>
+<td>Notation</td>
+<td>ZO</td>
 </tr>
 </tbody>
 </table>
@@ -3772,12 +3896,20 @@ de aard.</p>
 <td>BorgstellingRol</td>
 </tr>
 <tr>
+<td>Begrip (URI)</td>
+<td><code>https://begrippen.gbo-semantiek.nl/id/begrip/BorgstellingRol</code></td>
+</tr>
+<tr>
 <td>Herkomst</td>
 <td>CKI; BW</td>
 </tr>
 <tr>
 <td>Datum opname</td>
 <td>2026-05-19</td>
+</tr>
+<tr>
+<td>Populatie</td>
+<td>Natuurlijke personen die zich als borg hebben verbonden voor een kredietovereenkomst; in CKI alleen zichtbaar bij activering van de borgstelling via een negatieve betalingservaring.</td>
 </tr>
 </tbody>
 </table>
@@ -3870,12 +4002,20 @@ onderdeel zijn van het traject.</p>
 <td>SchuldhulpverleningTraject</td>
 </tr>
 <tr>
+<td>Begrip (URI)</td>
+<td><code>https://begrippen.gbo-semantiek.nl/id/begrip/SchuldhulpverleningTraject</code></td>
+</tr>
+<tr>
 <td>Herkomst</td>
 <td>Wgs; CKI</td>
 </tr>
 <tr>
 <td>Datum opname</td>
 <td>2026-05-19</td>
+</tr>
+<tr>
+<td>Populatie</td>
+<td>Alle bij beschikking aan een natuurlijk persoon toegekende gemeentelijke schuldhulpverleningstrajecten op grond van de Wet gemeentelijke schuldhulpverlening; aangemeld bij CKI conform art. 18a Algemeen Reglement CKI.</td>
 </tr>
 </tbody>
 </table>
@@ -3961,6 +4101,10 @@ en datum.</p>
 <td>BijzonderheidsCode</td>
 </tr>
 <tr>
+<td>Begrip (URI)</td>
+<td><code>https://begrippen.gbo-semantiek.nl/id/begrip/BijzonderheidsCode</code></td>
+</tr>
+<tr>
 <td>Herkomst</td>
 <td>CKI</td>
 </tr>
@@ -3977,28 +4121,34 @@ en datum.</p>
 <tr>
 <th>Code (notation)</th>
 <th>Definitie</th>
+<th>Toelichting</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>1</td>
 <td>Aflossingsregeling getroffen na ontstane achterstand.</td>
+<td>Markeert dat partijen tot een betalingsregeling zijn gekomen.</td>
 </tr>
 <tr>
 <td>2</td>
 <td>Zakelijke klant heeft betaling van restant of gehele vordering geeist.</td>
+<td>Opeising door zakelijke kredietverstrekker.</td>
 </tr>
 <tr>
 <td>3</td>
 <td>Zakelijke klant heeft EUR 250 of meer afgeboekt.</td>
+<td>Afboeking als oninbaar door de zakelijke kredietverstrekker.</td>
 </tr>
 <tr>
 <td>4</td>
 <td>Consument blijkt onbereikbaar.</td>
+<td>Communicatie met kredietnemer is verstoord.</td>
 </tr>
 <tr>
 <td>5</td>
 <td>Schriftelijke preventieve betaalregeling voor hypothecair krediet van minimaal vier maanden.</td>
+<td>Alleen van toepassing op hypothecair krediet.</td>
 </tr>
 </tbody>
 </table>
@@ -4023,6 +4173,10 @@ geen vaste tweeletter-code.</p>
 <td>KredietVormCode</td>
 </tr>
 <tr>
+<td>Begrip (URI)</td>
+<td><code>https://begrippen.gbo-semantiek.nl/id/begrip/KredietVormCode</code></td>
+</tr>
+<tr>
 <td>Herkomst</td>
 <td>CKI</td>
 </tr>
@@ -4032,13 +4186,14 @@ geen vaste tweeletter-code.</p>
 </tr>
 </tbody>
 </table>
-<p><strong>Gebruikt door</strong>: <code>KredietOvereenkomst.kredietvormCode</code>.</p>
+<p><strong>Gebruikt door</strong>: <code>KredietOvereenkomst.kredietvormCode</code> (en daarmee alle concrete subklassen: <code>AflopendKrediet.kredietvormCode</code>, <code>DoorlopendKrediet.kredietvormCode</code>, <code>Saneringskrediet.kredietvormCode</code>, <code>HypothecairKredietEigenWoning.kredietvormCode</code>, <code>HypothecairKredietOverigeOnroerendeZaken.kredietvormCode</code>, <code>RestschuldHypothecairKredietZonderNHG.kredietvormCode</code>, <code>RestschuldHypothecairKredietMetNHG.kredietvormCode</code>, <code>OperationalAutolease.kredietvormCode</code>, <code>OverigeFinancieleVerplichtingPrive.kredietvormCode</code>, <code>ZakelijkKrediet.kredietvormCode</code>, <code>ZakelijkeOverigeFinancieleVerplichting.kredietvormCode</code>).</p>
 <p><strong>Waarden</strong>:</p>
 <table>
 <thead>
 <tr>
 <th>Code (notation)</th>
 <th>Naam</th>
+<th>Definitie</th>
 <th>Bron</th>
 </tr>
 </thead>
@@ -4046,61 +4201,73 @@ geen vaste tweeletter-code.</p>
 <tr>
 <td>AK</td>
 <td>Aflopend krediet</td>
+<td>Krediet met vaste looptijd en periodieke aflossing tot nul.</td>
 <td>art. 16</td>
 </tr>
 <tr>
 <td>RK</td>
 <td>Doorlopend krediet</td>
+<td>Revolverend krediet tot een afgesproken kredietlimiet.</td>
 <td>art. 17</td>
 </tr>
 <tr>
 <td>SH</td>
 <td>Schuldhulpverlening</td>
+<td>Schuldhulpverleningstraject onder Wgs, gemeld op grond van art. 18a.</td>
 <td>art. 18a</td>
 </tr>
 <tr>
 <td>SK</td>
 <td>Saneringskrediet</td>
+<td>Persoonlijke lening door gemeente of kredietbank ter bundeling van bestaande schulden.</td>
 <td>art. 18</td>
 </tr>
 <tr>
 <td>HY</td>
 <td>Hypothecair krediet eigen woning</td>
+<td>Hypothecair krediet op de eigen woning; alleen negatieve betalingservaringen gemeld.</td>
 <td>art. 19</td>
 </tr>
 <tr>
 <td>HO</td>
 <td>Hypothecair krediet overige onroerende zaken</td>
+<td>Hypothecair krediet op overige onroerende zaken (tweede woning, beleggingspand).</td>
 <td>art. 20</td>
 </tr>
 <tr>
 <td>RH</td>
 <td>Restschuld hypothecair krediet zonder NHG</td>
+<td>Restschuld na verkoop onroerende zaak, zonder NHG-dekking.</td>
 <td>art. 21</td>
 </tr>
 <tr>
 <td>RN</td>
 <td>Restschuld hypothecair krediet met NHG</td>
+<td>Restschuld na verkoop onroerende zaak, met NHG-dekking.</td>
 <td>art. 21</td>
 </tr>
 <tr>
 <td>OA</td>
 <td>Operational autolease</td>
+<td>Leasecontract waarbij leasemaatschappij eigenaar blijft van het voertuig.</td>
 <td>art. 22</td>
 </tr>
 <tr>
 <td>RO</td>
 <td>Overige financiele verplichting prive</td>
+<td>Restcategorie private verplichting; alleen negatieve betalingservaringen.</td>
 <td>art. 23</td>
 </tr>
 <tr>
 <td>ZK</td>
 <td>Zakelijk krediet</td>
+<td>Zakelijk krediet met persoonlijke aansprakelijkheid van een natuurlijk persoon.</td>
 <td>art. 24</td>
 </tr>
 <tr>
 <td>ZO</td>
 <td>Zakelijke overige financiele verplichting</td>
+<td>Restcategorie zakelijke verplichting; alleen negatieve betalingservaringen.</td>
 <td>art. 25</td>
 </tr>
 </tbody>
@@ -4127,6 +4294,10 @@ combinatie-sleutel op basis van postcode-cijferdeel en geboortedatum.</p>
 <td>PersoonsgegevensCategorieCKI</td>
 </tr>
 <tr>
+<td>Begrip (URI)</td>
+<td><code>https://begrippen.gbo-semantiek.nl/id/begrip/PersoonsgegevensCategorieCKI</code></td>
+</tr>
+<tr>
 <td>Herkomst</td>
 <td>CKI</td>
 </tr>
@@ -4136,13 +4307,15 @@ combinatie-sleutel op basis van postcode-cijferdeel en geboortedatum.</p>
 </tr>
 </tbody>
 </table>
+<p><strong>Gebruikt door</strong>: CKI-registratie-categorisering, niet direct als attribuut. Beschrijft welke categorieen persoonsgegevens Stichting BKR in CKI verwerkt onder art. 9 lid 2 Algemeen Reglement CKI.</p>
 <p><strong>Waarden</strong>:</p>
 <table>
 <thead>
 <tr>
 <th>Code</th>
 <th>Categorie</th>
-<th>Inhoud</th>
+<th>Definitie</th>
+<th>Toelichting</th>
 </tr>
 </thead>
 <tbody>
@@ -4150,21 +4323,25 @@ combinatie-sleutel op basis van postcode-cijferdeel en geboortedatum.</p>
 <td>a</td>
 <td>Identificerende gegevens</td>
 <td>Geboortenaam, geboortedatum, eerste voornaam, initialen, geslacht.</td>
+<td>Identificatie verloopt zonder BSN; combinatie-sleutel postcode-cijferdeel + geboortedatum.</td>
 </tr>
 <tr>
 <td>b</td>
 <td>Adresgegevens</td>
 <td>Adres inclusief postcode.</td>
+<td>Onderdeel van de combinatie-sleutel.</td>
 </tr>
 <tr>
 <td>c</td>
 <td>Overeenkomstgegevens</td>
 <td>Verwijzing naar geregistreerde kredietovereenkomsten.</td>
+<td>Linkt naar <code>KredietOvereenkomst</code>.</td>
 </tr>
 <tr>
 <td>d</td>
 <td>Bijzonderheidsgegevens</td>
 <td>Verwijzing naar achterstanden, herstellen en bijzonderheidscoderingen.</td>
+<td>Linkt naar <code>AchterstandRegistratie</code>, <code>HerstelMelding</code> en <code>BijzonderheidsCodering</code>.</td>
 </tr>
 </tbody>
 </table>
