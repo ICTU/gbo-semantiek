@@ -186,6 +186,21 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://brienen.github.io/gbo-semantiek/v0.1/informatiemodel/gbo-core/deelmodellen/belastingen/</loc>
+         <lastmod>2026-05-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brienen.github.io/gbo-semantiek/v0.1/informatiemodel/gbo-core/deelmodellen/krediet/</loc>
+         <lastmod>2026-05-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brienen.github.io/gbo-semantiek/v0.1/informatiemodel/gbo-core/deelmodellen/onderwijs/</loc>
+         <lastmod>2026-05-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://brienen.github.io/gbo-semantiek/v0.1/informatiemodel/gbo-core/deelmodellen/onroerende-zaken/</loc>
          <lastmod>2026-05-19</lastmod>
          <changefreq>daily</changefreq>
@@ -197,6 +212,11 @@
     </url>
     <url>
          <loc>https://brienen.github.io/gbo-semantiek/v0.1/informatiemodel/gbo-core/deelmodellen/waarde-onroerende-zaken/</loc>
+         <lastmod>2026-05-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brienen.github.io/gbo-semantiek/v0.1/informatiemodel/gbo-core/deelmodellen/werk-en-inkomen/</loc>
          <lastmod>2026-05-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -237,6 +257,11 @@
     </url>
     <url>
          <loc>https://brienen.github.io/gbo-semantiek/v0.1/ontologie/skos/</loc>
+         <lastmod>2026-05-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brienen.github.io/gbo-semantiek/v0.1/uitgangspunten/bronnenprioritering/</loc>
          <lastmod>2026-05-19</lastmod>
          <changefreq>daily</changefreq>
     </url>

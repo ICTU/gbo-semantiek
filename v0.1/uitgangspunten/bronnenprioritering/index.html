@@ -6,15 +6,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Informatiemodel Semantiek voor Gemeentelijke Basisgegevens Objecten — open standaard voor interoperabiliteit en datakwaliteit binnen gemeenten.">
+        <meta name="description" content="Vier-lagen-strategie L1 tot en met L4 voor het afleiden en refereren van GBO-Core-elementen uit basisregistraties, sectorale registers, nationale ankers en internationale vocabulaires.">
       
       
         <meta name="author" content="GBO-Semantiek Werkgroep">
       
       
-        <link rel="canonical" href="https://brienen.github.io/gbo-semantiek/v0.1/definities/definitie_Metagegevens/">
+        <link rel="canonical" href="https://brienen.github.io/gbo-semantiek/v0.1/uitgangspunten/bronnenprioritering/">
       
       
+        <link rel="prev" href="../kaders_standaarden/">
+      
+      
+        <link rel="next" href="../inspiratie/">
       
       
       <link rel="icon" href="../../assets/icon.svg">
@@ -22,7 +26,7 @@
     
     
       
-        <title>Metagegevens - GBO-Semantiek</title>
+        <title>Bronnenprioritering: beslisregels GBO Core - GBO-Semantiek</title>
       
     
     
@@ -85,7 +89,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#metagegevens" class="md-skip">
+        <a href="#bronnenprioritering-beslisregels-gbo-core" class="md-skip">
           Ga naar inhoud
         </a>
       
@@ -124,7 +128,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Metagegevens
+              Bronnenprioritering: beslisregels GBO Core
             
           </span>
         </div>
@@ -288,8 +292,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -309,11 +315,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -327,7 +333,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Uitgangspunten
@@ -341,7 +347,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../uitgangspunten/ontwerpprincipes/" class="md-nav__link">
+      <a href="../ontwerpprincipes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -362,7 +368,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../uitgangspunten/kaders_standaarden/" class="md-nav__link">
+      <a href="../kaders_standaarden/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -380,10 +386,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../uitgangspunten/bronnenprioritering/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Bronnenprioritering
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -392,6 +418,109 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Op deze pagina">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Op deze pagina
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#vier-lagen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vier lagen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bronnen-per-laag" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bronnen per laag
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#l1-authoritative" class="md-nav__link">
+    <span class="md-ellipsis">
+      L1 Authoritative
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#l2-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      L2 Interface
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#l3-nationaal-anker" class="md-nav__link">
+    <span class="md-ellipsis">
+      L3 Nationaal anker
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#l4-internationaal" class="md-nav__link">
+    <span class="md-ellipsis">
+      L4 Internationaal
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beslisregels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Beslisregels
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bronvermelding-per-uml-element" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bronvermelding per UML-element
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wat-niet-als-bronlaag-telt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wat niet als bronlaag telt
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -404,7 +533,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../uitgangspunten/inspiratie/" class="md-nav__link">
+      <a href="../inspiratie/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1464,71 +1593,83 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#inleiding" class="md-nav__link">
+  <a href="#vier-lagen" class="md-nav__link">
     <span class="md-ellipsis">
-      Inleiding
+      Vier lagen
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#objecttypen-metagegevens" class="md-nav__link">
+  <a href="#bronnen-per-laag" class="md-nav__link">
     <span class="md-ellipsis">
-      Objecttypen Metagegevens
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Objecttypen Metagegevens">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#brondocumenten" class="md-nav__link">
-    <span class="md-ellipsis">
-      Brondocumenten
+      Bronnen per laag
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#formelehistorie" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#l1-authoritative" class="md-nav__link">
     <span class="md-ellipsis">
-      FormeleHistorie
+      L1 Authoritative
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#inonderzoek" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#l2-interface" class="md-nav__link">
     <span class="md-ellipsis">
-      InOnderzoek
+      L2 Interface
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#materielehistorie" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#l3-nationaal-anker" class="md-nav__link">
     <span class="md-ellipsis">
-      MaterieleHistorie
+      L3 Nationaal anker
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#strijdigheidofnietigheid" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#l4-internationaal" class="md-nav__link">
     <span class="md-ellipsis">
-      StrijdigheidOfNietigheid
+      L4 Internationaal
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#beslisregels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Beslisregels
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bronvermelding-per-uml-element" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bronvermelding per UML-element
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wat-niet-als-bronlaag-telt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wat niet als bronlaag telt
+    </span>
+  </a>
   
 </li>
       
@@ -1547,7 +1688,7 @@
                   
 
   
-    <a href="https://github.com/brienen/gbo-semantiek/edit/main/docs/definities/definitie_Metagegevens.md" title="Wijzig deze pagina" class="md-content__button md-icon">
+    <a href="https://github.com/brienen/gbo-semantiek/edit/main/docs/uitgangspunten/bronnenprioritering.md" title="Wijzig deze pagina" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -1555,480 +1696,452 @@
   
 
 
-<h1 id="metagegevens">Metagegevens<a class="headerlink" href="#metagegevens" title="Permanent link">&para;</a></h1>
-<h2 id="inleiding">Inleiding<a class="headerlink" href="#inleiding" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p><strong>Definitie Metagegevens:</strong></p>
-<p>Geen definitie</p>
-</blockquote>
-<details class="info">
-<summary>Kenmerken Model Metagegevens</summary>
+<h1 id="bronnenprioritering-beslisregels-gbo-core">Bronnenprioritering: beslisregels GBO Core<a class="headerlink" href="#bronnenprioritering-beslisregels-gbo-core" title="Permanent link">&para;</a></h1>
+<p>Voor de onderdelen waaruit GBO Core wordt opgebouwd zijn niet altijd
+dezelfde of eenduidige bronnen. We hanteren een afwegingskader om
+tot goede modelafleidingen te komen. Dat afwegingskader staat in
+deze pagina.</p>
+<p><strong>Doel</strong>: GBO Core is compatibel met de bestaande informatiemodellen
+en koppelvlakken van de basisregistraties, sectorale registers en
+de DUO-, UWV- en Belastingdienst-administraties. Een afnemer die werkt
+vanuit een catalogus of een API moet GBO Core direct herkennen.</p>
+<p>We bereiken dat door voor elk UML-element (klasse, attribuut,
+datatype, multipliciteit, omschrijving) systematisch uit de
+bronregisters af te leiden. In principe komt de invulling uit L1; uit
+L2 of L3 als L1 ontbreekt of als er een functionele behoefte is. Waar
+bronnen onduidelijk zijn, formele modellen ontbreken, of registraties
+elkaar tegenspreken, leiden we zelf af, met heldere bronvermelding.</p>
+<h2 id="vier-lagen">Vier lagen<a class="headerlink" href="#vier-lagen" title="Permanent link">&para;</a></h2>
+<p>Bij elk UML-element wordt de referentie-strategie afgepeld in deze
+volgorde.</p>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Kenmerk</th>
-<th style="text-align: left;">Waarde</th>
+<th>Laag</th>
+<th>Soort bron</th>
+<th>Levert</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">name</td>
-<td style="text-align: left;">Metagegevens</td>
+<td>L1 Authoritative</td>
+<td>Datamodel van de registratie (voorkeur); anders functioneel ontwerp of catalogus</td>
+<td>Inhoudelijke definitie en structurele eigenschappen</td>
 </tr>
 <tr>
-<td style="text-align: left;">toelichting</td>
-<td style="text-align: left;"></td>
+<td>L2 Interface</td>
+<td>Koppelvlak-specificatie</td>
+<td>Naamgeving, datatype, uitwisselings-contract</td>
 </tr>
 <tr>
-<td style="text-align: left;">synoniemen</td>
-<td style="text-align: left;"></td>
+<td>L3 Nationaal anker</td>
+<td>NL-overkoepelende begrippen, thesauri, referentiemodellen</td>
+<td>Cross-registratie-binding</td>
 </tr>
 <tr>
-<td style="text-align: left;">uri</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">bron</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">author</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">version</td>
-<td style="text-align: left;">1.3</td>
-</tr>
-<tr>
-<td style="text-align: left;">created</td>
-<td style="text-align: left;">2011-02-15 15:15:28</td>
-</tr>
-<tr>
-<td style="text-align: left;">modified</td>
-<td style="text-align: left;">2025-12-22 15:27:01</td>
-</tr>
-<tr>
-<td style="text-align: left;">id</td>
-<td style="text-align: left;">EAPK_BB99418E_DCA8_493d_99A2_67E5EB095ED0</td>
+<td>L4 Internationaal</td>
+<td>Generieke EU-vocabulaires</td>
+<td>Publicatie-binding en FAIR-conformiteit</td>
 </tr>
 </tbody>
 </table>
-</details>
-<p>Het model 'Metagegevens' kent de volgende objecttypen:</p>
+<h2 id="bronnen-per-laag">Bronnen per laag<a class="headerlink" href="#bronnen-per-laag" title="Permanent link">&para;</a></h2>
+<p>GBO Core dekt op dit moment tien bronregisters of equivalente
+administraties:</p>
 <ul>
-<li><strong>Brondocumenten</strong>: Indicatie of bij een opname, mutatie of verwijdering van de relatie het brondocument aangeduid wordt op basis waarvan de verandering van de relatie heeft plaatsgevonden en zo ja, de specificatie van de metagegevens waarmee het brondcument aangeduid wordt, zijnde één of meer van de volgende metagegevens: Documentidentificatie, Documentdatum, Documentcode, Documentomschrijving, Document- soort, Documenthouder.</li>
-<li><strong>FormeleHistorie</strong>: Indicatie of de formele historie van de attribuutsoort te bevragen is. Formele historie geeft aan wanneer in de administratie een verandering is verwerkt van de attribuutwaarde (wanneer was de verandering bekend en is deze verwerkt)</li>
-<li><strong>InOnderzoek</strong>: De indicatie of te bevragen is dat er twijfel is of is geweest aan de juistheid van de attribuutwaarde en dat een onderzoek wordt of is uitgevoerd naar de juistheid van de attribuutwaarde.</li>
-<li><strong>MaterieleHistorie</strong>: Indicatie of de materiële historie van de attribuutsoort te bevragen is. Materiële historie geeft aan wanneer een verandering is opgetreden in de werkelijkheid die heeft geleid tot veranderjng van de attribuutwaarde.</li>
-<li><strong>StrijdigheidOfNietigheid</strong>: De aanduiding of te bevragen is dat de attribuutwaarde strijdig met de openbare orde dan wel nietig is.</li>
+<li>Vier basisregistraties met L1 datamodel: <strong>BRP</strong>, <strong>BAG</strong>, <strong>BRK</strong>,
+  <strong>BGT</strong>.</li>
+<li>Twee basisregistraties zonder L1 datamodel: <strong>HR</strong> en <strong>WOZ</strong>;
+  modellering via L2 en L3.</li>
+<li>Een basisregistratie met L1 als SKOS-begrip: <strong>BRI</strong> (een authentiek
+  gegeven, gepubliceerd via de Stelselcatalogus).</li>
+<li>Drie sectorale registers en hun L1-bronnen: <strong>ROD</strong>
+  (Register Onderwijsdeelnemers, DUO/OCW), <strong>CKI</strong> (Centraal Krediet
+  Informatiesysteem, Stichting BKR), <strong>SGR</strong> (Suwi Gegevensregister,
+  BKWI namens UWV).</li>
+<li>Twee L1+L2-bronnen die niet als register opereren maar wel
+  definitief inhoudelijk-leidend zijn: <strong>SBR-NT</strong> (Nederlandse
+  Taxonomie, Belastingdienst voor aangiften) en
+  <strong>Gegevensspecificaties aangifte loonheffingen</strong> (Belastingdienst
+  plus UWV voor de loonketen).</li>
 </ul>
-<h2 id="objecttypen-metagegevens">Objecttypen Metagegevens<a class="headerlink" href="#objecttypen-metagegevens" title="Permanent link">&para;</a></h2>
-<h3 id="brondocumenten">Brondocumenten<a class="headerlink" href="#brondocumenten" title="Permanent link">&para;</a></h3>
-<blockquote>
-<p><strong>Definitie Brondocumenten:</strong></p>
-<p>Indicatie of bij een opname, mutatie of verwijdering van de relatie het brondocument aangeduid wordt op basis waarvan de verandering van de relatie heeft plaatsgevonden en zo ja, de specificatie van de metagegevens waarmee het brondcument aangeduid wordt, zijnde één of meer van de volgende metagegevens: Documentidentificatie, Documentdatum, Documentcode, Documentomschrijving, Document- soort, Documenthouder.</p>
-</blockquote>
-<details class="info">
-<summary>Kenmerken Model Brondocumenten</summary>
+<p>BRT, BRO en BRV blijven voorlopig buiten scope; bij toekomstige
+ingest volgen zij hetzelfde patroon (L1 datamodel of catalogus,
+L2 koppelvlak).</p>
+<h2 id="l1-authoritative">L1 Authoritative<a class="headerlink" href="#l1-authoritative" title="Permanent link">&para;</a></h2>
+<p>Per bronregister het officiele datamodel; bij ontbreken het
+functionele ontwerp, de catalogus of (in bijzondere gevallen) een
+SKOS-publicatie.</p>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Eigenschap</th>
-<th style="text-align: left;">Waarde</th>
+<th>Bronregister</th>
+<th>Bron</th>
+<th>URL</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">name</td>
-<td style="text-align: left;">Brondocumenten</td>
+<td>BAG</td>
+<td>IMBAG met Catalogus BAG</td>
+<td><code>https://imbag.github.io/catalogus/</code></td>
 </tr>
 <tr>
-<td style="text-align: left;">toelichting</td>
-<td style="text-align: left;"></td>
+<td>BGT</td>
+<td>IMGeo (Gegevenscatalogus BGT/IMGeo)</td>
+<td><code>https://docs.geostandaarden.nl/imgeo/catalogus/imgeo/</code></td>
 </tr>
 <tr>
-<td style="text-align: left;">synoniemen</td>
-<td style="text-align: left;"></td>
+<td>BRI</td>
+<td>Stelselcatalogus, begrip <em>authentiek_inkomen</em> (SKOS-RDF)</td>
+<td><code>https://opendata.stelselcatalogus.nl/bri/id/begrip/authentiek_inkomen</code></td>
 </tr>
 <tr>
-<td style="text-align: left;">uri</td>
-<td style="text-align: left;"></td>
+<td>BRK</td>
+<td>IMKAD</td>
+<td><code>https://developer.kadaster.nl/schemas/imkad/20200130/cat/index.html</code></td>
 </tr>
 <tr>
-<td style="text-align: left;">bron</td>
-<td style="text-align: left;"></td>
+<td>BRK</td>
+<td>BRK-Catalogus</td>
+<td><code>https://www.kadaster.nl/-/catalogus-brk</code></td>
 </tr>
 <tr>
-<td style="text-align: left;">author</td>
-<td style="text-align: left;">Debat_E</td>
+<td>BRP</td>
+<td>LO BRP (Logisch Ontwerp BRP)</td>
+<td><code>https://www.rvig.nl/lo-brp</code></td>
 </tr>
 <tr>
-<td style="text-align: left;">version</td>
-<td style="text-align: left;">1.13.0</td>
+<td>CKI</td>
+<td>Algemeen Reglement CKI</td>
+<td><code>https://www.bkr.nl/media/4dyezfiz/algemeen-reglement-cki-juli-2024.pdf</code></td>
 </tr>
 <tr>
-<td style="text-align: left;">created</td>
-<td style="text-align: left;">2011-02-08 15:04:00</td>
+<td>HR</td>
+<td>L1 ontbreekt; modellering via L2 en L3</td>
+<td>n.v.t.</td>
 </tr>
 <tr>
-<td style="text-align: left;">modified</td>
-<td style="text-align: left;">2025-12-22 15:27:01</td>
+<td>Loonheffingen</td>
+<td>Gegevensspecificaties aangifte loonheffingen</td>
+<td><code>https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/themaoverstijgend/brochures_en_publicaties/gegevensspecificaties-aangifte-loonheffingen</code></td>
 </tr>
 <tr>
-<td style="text-align: left;">id</td>
-<td style="text-align: left;">EAID_C8CE34A2_362A_4c99_A934_C66A2E6A0793</td>
+<td>ROD</td>
+<td>Programma van Eisen ROD per sector (PO, VO, MBO/VAVO, HO) plus Gegevenswoordenboek DUO</td>
+<td><code>https://duo.nl/zakelijk/standaarden-ocw/canonieke-gegevensmodellen/duo-gegevenswoordenboek.jsp</code></td>
+</tr>
+<tr>
+<td>SBR-NT</td>
+<td>Nederlandse Taxonomie NT20 (hoofdrelease en extensies)</td>
+<td><code>https://www.sbr-nl.nl/werken-met-sbr/taxonomie/documentatie-nederlandse-taxonomie</code></td>
+</tr>
+<tr>
+<td>SGR</td>
+<td>Suwi Gegevensregister, beheerd door BKWI</td>
+<td><code>https://sgr.bkwi.nl/sgr/index.html</code></td>
+</tr>
+<tr>
+<td>WOZ</td>
+<td>L1 ontbreekt; modellering via L2 en L3</td>
+<td>n.v.t.</td>
 </tr>
 </tbody>
 </table>
-</details>
-<p>Attributen van objecttype Brondocumenten</p>
+<h2 id="l2-interface">L2 Interface<a class="headerlink" href="#l2-interface" title="Permanent link">&para;</a></h2>
+<p>Koppelvlak-specificaties per registratie. Voor BRI is er geen
+publiek koppelvlak; toegang verloopt via afnemers in het SUWI- en
+toeslagen-stelsel. Voor CKI is de detail-koppelvlak-laag gated (alleen
+voor erkende zakelijke klanten van Stichting BKR).</p>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Attribuut</th>
-<th style="text-align: left;">Datatype</th>
-<th style="text-align: left;">Beschrijving</th>
+<th>Bronregister</th>
+<th>Bron</th>
+<th>URL</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">documentGemeente</td>
-<td style="text-align: left;">N4</td>
-<td style="text-align: left;">De code uit de gemeentetabel die aangeeft in welke gemeente de ontlening aan of de afleiding uit het document heeft plaatsgevonde</td>
+<td>BAG</td>
+<td>Haal Centraal BAG Individuele Bevragingen</td>
+<td><code>https://lvbag.github.io/BAG-API/Technische%20specificatie/</code></td>
 </tr>
 <tr>
-<td style="text-align: left;">akteGemeente</td>
-<td style="text-align: left;">N4</td>
-<td style="text-align: left;">De code uit de gemeentetabel die aangeeft in welke gemeente de akte in de registers van de burgerlijke stand in Nederland is opgenomen.</td>
+<td>BGT</td>
+<td>PDOK BGT-services</td>
+<td><code>https://www.pdok.nl/introductie/-/article/basisregistratie-grootschalige-topografie-bgt-</code></td>
 </tr>
 <tr>
-<td style="text-align: left;">documentOmschrijving</td>
-<td style="text-align: left;">AN40</td>
-<td style="text-align: left;">Beschrijving van het document waaraan de gegevens zijn ontleend of waaruit de gegevens zijn afgeleid</td>
+<td>BRI</td>
+<td>Geen publiek koppelvlak; afname via SUWI- en toeslagen-stelsel</td>
+<td>n.v.t.</td>
 </tr>
 <tr>
-<td style="text-align: left;">datumDocument</td>
-<td style="text-align: left;">Datum</td>
-<td style="text-align: left;">De datum waarop het brondocument is vastgesteld, op basis waarvan een opname, mutatie of een verwijdering van gegevens ten aanzien van de entiteit heeft plaatsgevonden</td>
+<td>BRK</td>
+<td>Haal Centraal BRK Bevragen</td>
+<td><code>https://kadaster.github.io/BRK-bevragen/</code></td>
 </tr>
 <tr>
-<td style="text-align: left;">documentIdentificatie</td>
-<td style="text-align: left;">AN20</td>
-<td style="text-align: left;">De unieke aanduiding van het brondocument op basis waarvan een opname, mutatie of een verwijdering van gegevens ten aanzien van een entiteit heeft plaatsgevonden</td>
+<td>BRP</td>
+<td>Haal Centraal BRP-suite (Personen, Historie, Bewoning, Reisdocumenten, Tabellen, Update)</td>
+<td><code>https://developer.rvig.nl/brp-api/overview/</code></td>
+</tr>
+<tr>
+<td>CKI</td>
+<td>Algemene Handleiding CKI (gated, alleen erkende zakelijke klanten)</td>
+<td><code>https://www.bkr.nl/nl/inloggen-portalen</code></td>
+</tr>
+<tr>
+<td>HR</td>
+<td>KVK Developer Portal (Zoeken, Basisprofiel, Vestigingsprofiel, Naamgeving, Mutatieservice)</td>
+<td><code>https://developers.kvk.nl/documentation</code></td>
+</tr>
+<tr>
+<td>Loonheffingen</td>
+<td>XSD-bijlage Gegevensspecificaties; transport via Digipoort</td>
+<td>(onderdeel van L1-URL)</td>
+</tr>
+<tr>
+<td>ROD</td>
+<td>PvE ROD per sector via Edukoppeling 1.3 (WUS-profiel)</td>
+<td><code>https://duo.nl/zakelijk/</code> (per sectorpagina)</td>
+</tr>
+<tr>
+<td>SBR-NT</td>
+<td>XBRL-entrypoints per belastingsoort en jaar</td>
+<td><code>https://www.sbr-nl.nl/werken-met-sbr/taxonomie/documentatie-nederlandse-taxonomie</code></td>
+</tr>
+<tr>
+<td>SGR</td>
+<td>SuwiML-berichten boven SGR (Polisadministratie-bevraging, Inkomstenopgaaf, Uitkeringsoverzicht)</td>
+<td><code>https://sgr.bkwi.nl/sgr/</code></td>
+</tr>
+<tr>
+<td>WOZ</td>
+<td>Haal Centraal WOZ Bevragen</td>
+<td><code>https://kadaster.github.io/WOZ-bevragen/</code></td>
 </tr>
 </tbody>
 </table>
-<h3 id="formelehistorie">FormeleHistorie<a class="headerlink" href="#formelehistorie" title="Permanent link">&para;</a></h3>
-<blockquote>
-<p><strong>Definitie FormeleHistorie:</strong></p>
-<p>Indicatie of de formele historie van de attribuutsoort te bevragen is. Formele historie geeft aan wanneer in de administratie een verandering is verwerkt van de attribuutwaarde (wanneer was de verandering bekend en is deze verwerkt)</p>
-</blockquote>
-<details class="info">
-<summary>Kenmerken Model FormeleHistorie</summary>
+<p>Renseigneringen aan de Belastingdienst (Bankproducten,
+Verzekeringsproducten, Pensioenproducten) verlopen via het ODB; de
+detail-specificaties zijn gated achter een ondersteuningsabonnement.</p>
+<h2 id="l3-nationaal-anker">L3 Nationaal anker<a class="headerlink" href="#l3-nationaal-anker" title="Permanent link">&para;</a></h2>
+<p>NL-overkoepelende begrippen-bronnen voor cross-registratie-binding.</p>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Eigenschap</th>
-<th style="text-align: left;">Waarde</th>
+<th>Bron</th>
+<th>Functie</th>
+<th>URL</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">name</td>
-<td style="text-align: left;">FormeleHistorie</td>
+<td>Stelselcatalogus</td>
+<td>Cross-registratie-begrippen; ook publicatie van het BRI-begrip in SKOS-RDF</td>
+<td><code>https://www.stelselcatalogus.nl/</code></td>
 </tr>
 <tr>
-<td style="text-align: left;">toelichting</td>
-<td style="text-align: left;"></td>
+<td>CBS Begrippen</td>
+<td>Statistische en afgeleide begrippen</td>
+<td><code>https://www.cbs.nl/nl-nl/onze-diensten/methoden/begrippen</code></td>
 </tr>
 <tr>
-<td style="text-align: left;">synoniemen</td>
-<td style="text-align: left;"></td>
+<td>TOOI</td>
+<td>Overheidsorganisaties, informatieobjecten, regelgevingstermen</td>
+<td><code>https://standaarden.overheid.nl/tooi</code></td>
 </tr>
 <tr>
-<td style="text-align: left;">uri</td>
-<td style="text-align: left;"></td>
+<td>GGM</td>
+<td>Gemeentelijk gegevensmodel; sector-uitbreidingen</td>
+<td><code>https://www.gemeentelijkgegevensmodel.nl/</code></td>
 </tr>
 <tr>
-<td style="text-align: left;">bron</td>
-<td style="text-align: left;"></td>
+<td>RSGB</td>
+<td>Historische gemeentelijke baseline (onder GEMMA)</td>
+<td><code>https://www.gemmaonline.nl/index.php/Referentiemodel_Stelsel_van_Gemeentelijke_Basisgegevens</code></td>
 </tr>
 <tr>
-<td style="text-align: left;">author</td>
-<td style="text-align: left;">Debat_E</td>
-</tr>
-<tr>
-<td style="text-align: left;">version</td>
-<td style="text-align: left;">1.13.0</td>
-</tr>
-<tr>
-<td style="text-align: left;">created</td>
-<td style="text-align: left;">2011-02-08 14:57:38</td>
-</tr>
-<tr>
-<td style="text-align: left;">modified</td>
-<td style="text-align: left;">2025-12-22 15:27:01</td>
-</tr>
-<tr>
-<td style="text-align: left;">id</td>
-<td style="text-align: left;">EAID_BB4E5922_F0E8_40bb_8BB6_9B0DC648DD85</td>
+<td>NORA</td>
+<td>Nederlandse Overheid Referentie Architectuur; positionering sectorale registers</td>
+<td><code>https://www.noraonline.nl/</code></td>
 </tr>
 </tbody>
 </table>
-</details>
-<p>Attributen van objecttype FormeleHistorie</p>
+<h2 id="l4-internationaal">L4 Internationaal<a class="headerlink" href="#l4-internationaal" title="Permanent link">&para;</a></h2>
+<p>Generieke EU- en internationale vocabulaires voor publicatie-binding
+en FAIR.</p>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Attribuut</th>
-<th style="text-align: left;">Datatype</th>
-<th style="text-align: left;">Beschrijving</th>
+<th>Bron</th>
+<th>Functie</th>
+<th>URL</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">tijdstipRegistratieGegevens</td>
-<td style="text-align: left;">DateTime</td>
-<td style="text-align: left;">De datum en tijd waarop één of meer gegevens van de entiteit gelijktijdig zijn opgenomen in de registratie.</td>
+<td>EU Core Vocabularies (SEMIC)</td>
+<td>Persoon, onderneming, locatie, overheidsorganisatie</td>
+<td><code>https://semiceu.github.io/</code></td>
+</tr>
+<tr>
+<td>schema.org</td>
+<td>SEO en AI-vindbaarheid bij publicatie</td>
+<td><code>https://schema.org/</code></td>
+</tr>
+<tr>
+<td>ELMO</td>
+<td>Europees onderwijs-uitwisselings-format (Learner Mobility)</td>
+<td><code>https://elmo.eu/</code></td>
+</tr>
+<tr>
+<td>FIBO</td>
+<td>Financial Industry Business Ontology (krediet, financiele verplichting)</td>
+<td><code>https://spec.edmcouncil.org/fibo/</code></td>
+</tr>
+<tr>
+<td>ESCO</td>
+<td>European Skills, Competences, Qualifications and Occupations</td>
+<td><code>https://ec.europa.eu/esco/</code></td>
+</tr>
+<tr>
+<td>ISO 3166</td>
+<td>Landcodes (alpha-2, alpha-3, numeriek)</td>
+<td><code>https://www.iso.org/iso-3166-country-codes.html</code></td>
+</tr>
+<tr>
+<td>MCD 2014/17/EU</td>
+<td>Richtlijn hypothecair krediet</td>
+<td><code>https://eur-lex.europa.eu/legal-content/NL/TXT/?uri=CELEX%3A32014L0017</code></td>
 </tr>
 </tbody>
 </table>
-<h3 id="inonderzoek">InOnderzoek<a class="headerlink" href="#inonderzoek" title="Permanent link">&para;</a></h3>
-<blockquote>
-<p><strong>Definitie InOnderzoek:</strong></p>
-<p>De indicatie of te bevragen is dat er twijfel is of is geweest aan de juistheid van de attribuutwaarde en dat een onderzoek wordt of is uitgevoerd naar de juistheid van de attribuutwaarde.</p>
-</blockquote>
-<details class="info">
-<summary>Kenmerken Model InOnderzoek</summary>
+<h2 id="beslisregels">Beslisregels<a class="headerlink" href="#beslisregels" title="Permanent link">&para;</a></h2>
+<p><strong>L1 is default; L2 of L3 op functionele gronden.</strong> De invulling van
+elk UML-element komt in principe uit L1 zolang die beschikbaar is.
+L2 of L3 wordt gebruikt wanneer L1 ontbreekt, niet voldoet, of wanneer
+een functionele behoefte daarom vraagt (bijvoorbeeld afnemer-
+herkenbaarheid in API-naamgeving, datatype-conventies, of
+cross-registratie-binding).</p>
+<p><strong>Leid zelf af bij gaten of conflicten.</strong> Wanneer ook L2 en L3 geen
+invulling leveren (HR en WOZ missen L1; sommige rubrieken zitten
+alleen in legacy-koppelvlakken; twee L1's modelleren hetzelfde
+concept anders), vul je de UML-eigenschap zelf in op basis van de
+best beschikbare informatie. De afleiding moet semantisch passen bij
+wat L1, L2 of L3 wel zegt, en mag niet ruimer zijn dan wat de bron
+toelaat.</p>
+<p><strong>Vermeld altijd de bron per UML-element.</strong> Elke klasse en elk
+attribuut krijgt verplichte herkomstvermelding waarin zichtbaar is
+uit welke laag of welke combinatie de invulling komt. Zonder
+bronverwijzing is een UML-element niet vastgesteld.</p>
+<p><strong>Specifieke regels per bron-type</strong>:</p>
+<ul>
+<li>Voor <strong>basisregistraties</strong> (BRP, BAG, BRK, BGT, WOZ, BRI) geldt de
+  reguliere L1-default. Bij HR en WOZ leunt de eerste keus altijd
+  op L2 wegens ontbrekend L1.</li>
+<li>Voor <strong>sectorale registers</strong> (ROD, CKI, SGR) wordt L1 ontleend
+  aan het reglement of de catalogus van de beheerder. CKI heeft
+  een gated L2; voor GBO-Core-modellering is dat geen blokkade,
+  alle concepten zijn modelleerbaar uit L1.</li>
+<li>Voor <strong>SBR-NT en Loonheffingen</strong> geldt L1+L2 gecombineerd: het
+  document bevat zowel inhoudelijke definities als koppelvlak-
+  specificaties. Citaten kunnen daarom van een PDF-pagina-anker zijn
+  (definitie) of van een XBRL-conceptnaam (koppelvlak).</li>
+<li>Voor <strong>InkomensOndersteuning</strong> als cross-domein supertype boven
+  Toeslag en Uitkering geldt een GBO-eigen afleiding op basis van
+  Awir art. 1, Wet SUWI en de individuele werknemers- en
+  volksverzekeringswetten. De koepel zelf staat niet in een enkele
+  bron.</li>
+</ul>
+<h2 id="bronvermelding-per-uml-element">Bronvermelding per UML-element<a class="headerlink" href="#bronvermelding-per-uml-element" title="Permanent link">&para;</a></h2>
+<p>Per UML-element minimaal twee tagged-values:</p>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Eigenschap</th>
-<th style="text-align: left;">Waarde</th>
+<th>Tagged value</th>
+<th>Wat</th>
+<th>Voorbeeld</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">name</td>
-<td style="text-align: left;">InOnderzoek</td>
+<td><code>herkomst:</code></td>
+<td>Verwijzing per eigenschap, of compact als een bron volstaat</td>
+<td>"IMBAG paragraaf X (definitie, multipliciteit); HC BAG (naam, datatype)"</td>
 </tr>
 <tr>
-<td style="text-align: left;">toelichting</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">synoniemen</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">uri</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">bron</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">author</td>
-<td style="text-align: left;">Debat_E</td>
-</tr>
-<tr>
-<td style="text-align: left;">version</td>
-<td style="text-align: left;">1.13.0</td>
-</tr>
-<tr>
-<td style="text-align: left;">created</td>
-<td style="text-align: left;">2011-02-08 14:41:15</td>
-</tr>
-<tr>
-<td style="text-align: left;">modified</td>
-<td style="text-align: left;">2025-12-22 15:27:01</td>
-</tr>
-<tr>
-<td style="text-align: left;">id</td>
-<td style="text-align: left;">EAID_E4DA500D_AB53_4e8a_B1A5_411F354F4AD2</td>
+<td><code>bron-uri:</code></td>
+<td>Machine-leesbare bron-URI waar resolvable</td>
+<td>"https://imbag.github.io/catalogus/objecttypen/Pand"</td>
 </tr>
 </tbody>
 </table>
-</details>
-<p>Attributen van objecttype InOnderzoek</p>
+<p>Bij eigen afleiding (GBO-Core-modellering zonder directe bron):</p>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Attribuut</th>
-<th style="text-align: left;">Datatype</th>
-<th style="text-align: left;">Beschrijving</th>
+<th>Tagged value</th>
+<th>Wat</th>
+<th>Voorbeeld</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">aanduidingGegevensInOnderzoek</td>
-<td style="text-align: left;">AN1</td>
-<td style="text-align: left;">Een aanduiding waarmee wordt aangegeven dat een onderzoek wordt uitgevoerd naar de juistheid van een of meerdere gegevens van het betreffende object.</td>
+<td><code>herkomst:</code></td>
+<td>Markeert afleiding plus gebruikte bronnen</td>
+<td>"GBO-afleiding op basis van KVK Basisprofiel en GGM Handelsregister-domein"</td>
 </tr>
 </tbody>
 </table>
-<h3 id="materielehistorie">MaterieleHistorie<a class="headerlink" href="#materielehistorie" title="Permanent link">&para;</a></h3>
-<blockquote>
-<p><strong>Definitie MaterieleHistorie:</strong></p>
-<p>Indicatie of de materiële historie van de attribuutsoort te bevragen is. Materiële historie geeft aan wanneer een verandering is opgetreden in de werkelijkheid die heeft geleid tot veranderjng van de attribuutwaarde.</p>
-</blockquote>
-<details class="info">
-<summary>Kenmerken Model MaterieleHistorie</summary>
+<p>Voor cross-walks naar L3 en L4:</p>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Eigenschap</th>
-<th style="text-align: left;">Waarde</th>
+<th>Tagged value</th>
+<th>Wat</th>
+<th>Voorbeeld</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">name</td>
-<td style="text-align: left;">MaterieleHistorie</td>
+<td><code>verwantBegrip:</code></td>
+<td>L3-binding</td>
+<td>"https://standaarden.overheid.nl/tooi/id/"</td>
 </tr>
 <tr>
-<td style="text-align: left;">toelichting</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">synoniemen</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">uri</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">bron</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">author</td>
-<td style="text-align: left;">Debat_E</td>
-</tr>
-<tr>
-<td style="text-align: left;">version</td>
-<td style="text-align: left;">1.13.0</td>
-</tr>
-<tr>
-<td style="text-align: left;">created</td>
-<td style="text-align: left;">2011-02-08 14:50:17</td>
-</tr>
-<tr>
-<td style="text-align: left;">modified</td>
-<td style="text-align: left;">2025-12-22 15:27:01</td>
-</tr>
-<tr>
-<td style="text-align: left;">id</td>
-<td style="text-align: left;">EAID_3D63DBCE_3FD5_4988_81D5_93A2D01A9D99</td>
+<td><code>internationaal-equivalent:</code></td>
+<td>L4-binding via SKOS-mapping-relatie</td>
+<td>"cpv:Person via skos:exactMatch"</td>
 </tr>
 </tbody>
 </table>
-</details>
-<p>Attributen van objecttype MaterieleHistorie</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Attribuut</th>
-<th style="text-align: left;">Datatype</th>
-<th style="text-align: left;">Beschrijving</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">datumEindeGeldigheidGegevens</td>
-<td style="text-align: left;">Datum</td>
-<td style="text-align: left;">De einddatum van een periode waarin een of meer gegevens die worden bijgehouden over de entiteit een wijziging hebben ondergaan</td>
-</tr>
-<tr>
-<td style="text-align: left;">datumBeginGeldigheidGegevens</td>
-<td style="text-align: left;">Datum</td>
-<td style="text-align: left;">De begindatum van een periode waarin een of meer gegevens die worden bijgehouden over de entiteit een wijziging hebben ondergaan</td>
-</tr>
-</tbody>
-</table>
-<h3 id="strijdigheidofnietigheid">StrijdigheidOfNietigheid<a class="headerlink" href="#strijdigheidofnietigheid" title="Permanent link">&para;</a></h3>
-<blockquote>
-<p><strong>Definitie StrijdigheidOfNietigheid:</strong></p>
-<p>De aanduiding of te bevragen is dat de attribuutwaarde strijdig met de openbare orde dan wel nietig is.</p>
-</blockquote>
-<details class="info">
-<summary>Kenmerken Model StrijdigheidOfNietigheid</summary>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Eigenschap</th>
-<th style="text-align: left;">Waarde</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">name</td>
-<td style="text-align: left;">StrijdigheidOfNietigheid</td>
-</tr>
-<tr>
-<td style="text-align: left;">toelichting</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">synoniemen</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">uri</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">bron</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">author</td>
-<td style="text-align: left;">Debat_E</td>
-</tr>
-<tr>
-<td style="text-align: left;">version</td>
-<td style="text-align: left;">1.13.0</td>
-</tr>
-<tr>
-<td style="text-align: left;">created</td>
-<td style="text-align: left;">2011-02-08 14:45:29</td>
-</tr>
-<tr>
-<td style="text-align: left;">modified</td>
-<td style="text-align: left;">2025-12-22 15:27:01</td>
-</tr>
-<tr>
-<td style="text-align: left;">id</td>
-<td style="text-align: left;">EAID_85741CBC_594C_43f9_A2B5_C50166F1A461</td>
-</tr>
-</tbody>
-</table>
-</details>
-<p>Attributen van objecttype StrijdigheidOfNietigheid</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Attribuut</th>
-<th style="text-align: left;">Datatype</th>
-<th style="text-align: left;">Beschrijving</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">aanduidingStrijdigheidNietigheid</td>
-<td style="text-align: left;">AN1</td>
-<td style="text-align: left;">De aanduiding dat één of meer gegevens van het object strijdig met de openbare orde dan wel nietig zijn</td>
-</tr>
-</tbody>
-</table>
+<h2 id="wat-niet-als-bronlaag-telt">Wat niet als bronlaag telt<a class="headerlink" href="#wat-niet-als-bronlaag-telt" title="Permanent link">&para;</a></h2>
+<p>De methodologische standaarden die GBO Core toepast zijn geen
+inhoudelijke definitie-bronnen en horen niet als laag in dit
+overzicht thuis:</p>
+<ul>
+<li><strong>MIM 1.2</strong> is de modelleer-methodiek waarin GBO Core wordt
+  uitgedrukt. Conformance-statement op model-niveau, geen referentie-
+  laag.</li>
+<li><strong>SKOS</strong> is het metamodel voor codelijsten. Per codelijst geldt
+  een afzonderlijke L1- of L3-bron.</li>
+<li><strong>DCAT-AP-NL</strong> is een dataset-metadata-standaard voor publicatie,
+  niet voor inhoud.</li>
+<li><strong>StUF</strong> is een legacy-transportlaag voor de gemeentelijke
+  inkomende keten. Voor GBO Core de laagste terugval-bron.</li>
+</ul>
 
 
 
 
 
 
+
+  
+  
 
 
 
@@ -2053,6 +2166,44 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../kaders_standaarden/" class="md-footer__link md-footer__link--prev" aria-label="Vorige: Kaders en standaarden">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Vorige
+              </span>
+              <div class="md-ellipsis">
+                Kaders en standaarden
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../inspiratie/" class="md-footer__link md-footer__link--next" aria-label="Volgende: Inspiratie">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Volgende
+              </span>
+              <div class="md-ellipsis">
+                Inspiratie
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">

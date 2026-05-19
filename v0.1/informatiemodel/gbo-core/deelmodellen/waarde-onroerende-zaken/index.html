@@ -18,7 +18,7 @@
         <link rel="prev" href="../onroerende-zaken/">
       
       
-        <link rel="next" href="../../datatypes-en-codelijsten/">
+        <link rel="next" href="../belastingen/">
       
       
       <link rel="icon" href="../../../../assets/icon.svg">
@@ -303,6 +303,8 @@
       
         
       
+        
+      
     
     
       
@@ -369,6 +371,27 @@
   
   <span class="md-ellipsis">
     Kaders en standaarden
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../uitgangspunten/bronnenprioritering/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bronnenprioritering
   </span>
   
 
@@ -738,6 +761,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
       
@@ -1084,6 +1115,90 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../belastingen/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deelmodel Belastingen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../krediet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deelmodel Krediet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../onderwijs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deelmodel Onderwijs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../werk-en-inkomen/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deelmodel Werk en Inkomen
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1805,7 +1920,7 @@ afzonderlijke velden op het WOZ-object zoals in HC-WOZ.</p>
 <tbody>
 <tr>
 <td><code>rolBelanghebbende</code></td>
-<td><code>RolBelanghebbende</code></td>
+<td><a href="#rolbelanghebbende"><code>RolBelanghebbende</code></a></td>
 <td>1</td>
 <td>Authentiek</td>
 <td>Ja</td>
@@ -1827,7 +1942,7 @@ afzonderlijke velden op het WOZ-object zoals in HC-WOZ.</p>
 </tr>
 <tr>
 <td><code>datumIngang</code></td>
-<td>Datum</td>
+<td><a href="../../datatypes-en-codelijsten/#simpele-datatypes">Datum</a></td>
 <td>1</td>
 <td>Authentiek</td>
 <td>Ja</td>
@@ -1838,7 +1953,7 @@ afzonderlijke velden op het WOZ-object zoals in HC-WOZ.</p>
 </tr>
 <tr>
 <td><code>datumEinde</code></td>
-<td>Datum</td>
+<td><a href="../../datatypes-en-codelijsten/#simpele-datatypes">Datum</a></td>
 <td>0..1</td>
 <td>Authentiek</td>
 <td>Ja</td>
@@ -1947,7 +2062,7 @@ volgt bij een concrete use-case.</p>
 <tbody>
 <tr>
 <td><code>deelobjectnummer</code></td>
-<td>Numeriek</td>
+<td><a href="../../datatypes-en-codelijsten/#simpele-datatypes">Numeriek</a></td>
 <td>1</td>
 <td>Basisgegeven</td>
 <td>Nee</td>
@@ -1958,7 +2073,7 @@ volgt bij een concrete use-case.</p>
 </tr>
 <tr>
 <td><code>omschrijving</code></td>
-<td>Tekst</td>
+<td><a href="../../datatypes-en-codelijsten/#simpele-datatypes">Tekst</a></td>
 <td>0..1</td>
 <td>Basisgegeven</td>
 <td>Nee</td>
@@ -2062,7 +2177,7 @@ aanduiding.</p>
 <tbody>
 <tr>
 <td><code>wozObjectnummer</code></td>
-<td>Numeriek</td>
+<td><a href="../../datatypes-en-codelijsten/#simpele-datatypes">Numeriek</a></td>
 <td>1</td>
 <td>Authentiek</td>
 <td>Ja</td>
@@ -2073,7 +2188,7 @@ aanduiding.</p>
 </tr>
 <tr>
 <td><code>aanduiding</code></td>
-<td><code>ObjectAanduiding</code></td>
+<td><a href="../../datatypes-en-codelijsten/#aanvullende-datatypes"><code>ObjectAanduiding</code></a></td>
 <td>1</td>
 <td>Authentiek</td>
 <td>Ja</td>
@@ -2084,7 +2199,7 @@ aanduiding.</p>
 </tr>
 <tr>
 <td><code>verantwoordelijkeGemeente</code></td>
-<td><code>Codelijst~LT33</code></td>
+<td><a href="../adressen-en-gebouwen/#codelijsten"><code>Codelijst~LT33</code></a></td>
 <td>1</td>
 <td>Authentiek</td>
 <td>Ja</td>
@@ -2095,7 +2210,7 @@ aanduiding.</p>
 </tr>
 <tr>
 <td><code>grondoppervlakte</code></td>
-<td>Numeriek</td>
+<td><a href="../../datatypes-en-codelijsten/#simpele-datatypes">Numeriek</a></td>
 <td>0..1</td>
 <td>Basisgegeven</td>
 <td>Ja</td>
@@ -2106,7 +2221,7 @@ aanduiding.</p>
 </tr>
 <tr>
 <td><code>gebruikscode</code></td>
-<td><code>Codelijst~WOZ</code></td>
+<td><a href="#codelijsten"><code>Codelijst~WOZ</code></a></td>
 <td>0..1</td>
 <td>Basisgegeven</td>
 <td>Ja</td>
@@ -2117,7 +2232,7 @@ aanduiding.</p>
 </tr>
 <tr>
 <td><code>statusWOZObject</code></td>
-<td><code>StatusWOZObject</code></td>
+<td><a href="#statuswozobject"><code>StatusWOZObject</code></a></td>
 <td>1</td>
 <td>Basisgegeven</td>
 <td>Ja</td>
@@ -2252,7 +2367,7 @@ historie staat centraal. De keten <code>beschikkingsStatussen[]</code> (<code>Co
 <tbody>
 <tr>
 <td><code>vastgesteldeWaarde</code></td>
-<td>Bedrag</td>
+<td><a href="../../datatypes-en-codelijsten/#aanvullende-datatypes">Bedrag</a></td>
 <td>1</td>
 <td>Authentiek</td>
 <td>Nee</td>
@@ -2263,7 +2378,7 @@ historie staat centraal. De keten <code>beschikkingsStatussen[]</code> (<code>Co
 </tr>
 <tr>
 <td><code>waardepeildatum</code></td>
-<td>Datum</td>
+<td><a href="../../datatypes-en-codelijsten/#simpele-datatypes">Datum</a></td>
 <td>1</td>
 <td>Authentiek</td>
 <td>Nee</td>
@@ -2274,7 +2389,7 @@ historie staat centraal. De keten <code>beschikkingsStatussen[]</code> (<code>Co
 </tr>
 <tr>
 <td><code>ingangsdatum</code></td>
-<td>Datum</td>
+<td><a href="../../datatypes-en-codelijsten/#simpele-datatypes">Datum</a></td>
 <td>1</td>
 <td>Authentiek</td>
 <td>Nee</td>
@@ -2285,7 +2400,7 @@ historie staat centraal. De keten <code>beschikkingsStatussen[]</code> (<code>Co
 </tr>
 <tr>
 <td><code>einddatum</code></td>
-<td>Datum</td>
+<td><a href="../../datatypes-en-codelijsten/#simpele-datatypes">Datum</a></td>
 <td>0..1</td>
 <td>Basisgegeven</td>
 <td>Nee</td>
@@ -2296,7 +2411,7 @@ historie staat centraal. De keten <code>beschikkingsStatussen[]</code> (<code>Co
 </tr>
 <tr>
 <td><code>beschikkingsnummer</code></td>
-<td>Identificatie</td>
+<td><a href="../../datatypes-en-codelijsten/#simpele-datatypes">Identificatie</a></td>
 <td>0..1</td>
 <td>Authentiek</td>
 <td>Nee</td>
@@ -2307,7 +2422,7 @@ historie staat centraal. De keten <code>beschikkingsStatussen[]</code> (<code>Co
 </tr>
 <tr>
 <td><code>statusWOZWaarde</code></td>
-<td><code>StatusWOZWaarde</code></td>
+<td><a href="#statuswozwaarde"><code>StatusWOZWaarde</code></a></td>
 <td>1</td>
 <td>Basisgegeven</td>
 <td>Nee</td>
@@ -2318,7 +2433,7 @@ historie staat centraal. De keten <code>beschikkingsStatussen[]</code> (<code>Co
 </tr>
 <tr>
 <td><code>beschikkingsStatussen</code></td>
-<td><code>BeschikkingStatus</code></td>
+<td><a href="#beschikkingstatus"><code>BeschikkingStatus</code></a></td>
 <td>1..*</td>
 <td>Basisgegeven</td>
 <td>Nee</td>
@@ -2329,7 +2444,7 @@ historie staat centraal. De keten <code>beschikkingsStatussen[]</code> (<code>Co
 </tr>
 <tr>
 <td><code>indicatieBezwaarBeroep</code></td>
-<td>Indicatie</td>
+<td><a href="../../datatypes-en-codelijsten/#simpele-datatypes">Indicatie</a></td>
 <td>1</td>
 <td>Basisgegeven</td>
 <td>Nee</td>
@@ -2712,13 +2827,13 @@ voor die data blijft StUF-WOZ naast HC bestaan.</p>
         
         
           
-          <a href="../../datatypes-en-codelijsten/" class="md-footer__link md-footer__link--next" aria-label="Volgende: Datatypes en codelijsten">
+          <a href="../belastingen/" class="md-footer__link md-footer__link--next" aria-label="Volgende: Deelmodel Belastingen">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Volgende
               </span>
               <div class="md-ellipsis">
-                Datatypes en codelijsten
+                Deelmodel Belastingen
               </div>
             </div>
             <div class="md-footer__button md-icon">
