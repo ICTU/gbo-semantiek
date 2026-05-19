@@ -1,0 +1,3883 @@
+
+<!doctype html>
+<html lang="nl" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Natuurlijke personen: ingezetenen (BRP-GBA), niet-ingezetenen (BRP-RNI) en NP zonder BRP-inschrijving, inclusief BRP-PL-categorieën.">
+      
+      
+        <meta name="author" content="GBO-Semantiek Werkgroep">
+      
+      
+        <link rel="canonical" href="https://brienen.github.io/gbo-semantiek/v0.1/informatiemodel/gbo-core/deelmodellen/personen/">
+      
+      
+        <link rel="prev" href="../../hoofdmodel/">
+      
+      
+        <link rel="next" href="../bedrijven-en-instellingen/">
+      
+      
+      <link rel="icon" href="../../../../assets/icon.svg">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.26">
+    
+    
+      
+        <title>Deelmodel: Personen - GBO-Semantiek</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.6543a935.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#deelmodel-personen" class="md-skip">
+          Ga naar inhoud
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="GBO-Semantiek" class="md-header__button md-logo" aria-label="GBO-Semantiek" data-md-component="logo">
+      
+  <img src="../../../../assets/icon.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GBO-Semantiek
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Deelmodel: Personen
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-label="Schakel naar donker thema"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Schakel naar donker thema" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-label="Schakel naar licht thema"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Schakel naar licht thema" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Zoeken" placeholder="Zoeken" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Zoeken">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Delen" aria-label="Delen" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Leegmaken" aria-label="Leegmaken" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Zoeken initialiseren
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/brienen/gbo-semantiek" title="Ga naar repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    brienen/gbo-semantiek
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigatie" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="GBO-Semantiek" class="md-nav__button md-logo" aria-label="GBO-Semantiek" data-md-component="logo">
+      
+  <img src="../../../../assets/icon.svg" alt="logo">
+
+    </a>
+    GBO-Semantiek
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/brienen/gbo-semantiek" title="Ga naar repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    brienen/gbo-semantiek
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inleiding
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Uitgangspunten
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Uitgangspunten
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../uitgangspunten/ontwerpprincipes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ontwerprincipes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../uitgangspunten/kaders_standaarden/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kaders en standaarden
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../uitgangspunten/inspiratie/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inspiratie
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Architectuur
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Architectuur
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../architectuur/gegevensarchitectuur/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gegevensarchitectuur
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../architectuur/gegevenscomponenten/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gegevenscomponenten
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../architectuur/gegevenstoepassing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gegevenstoepassing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Laag 1: Begrippenmodel
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Laag 1: Begrippenmodel
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../begrippen/inleiding/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inleiding
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../begrippen/gbo-begrippenkader/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GBO-Begrippenkader
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../begrippen/relatie_informatiemodel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Relatie Informatiemodel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../begrippen/beheer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Beheer en governance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Laag 2: Informatiemodel
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Laag 2: Informatiemodel
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    GBO Core
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            GBO Core
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hoofdmodel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hoofdmodel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Deelmodel Personen
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Deelmodel Personen
+  </span>
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Op deze pagina">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Op deze pagina
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objecttypen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objecttypen
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Objecttypen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ingeschrevenpersoon" class="md-nav__link">
+    <span class="md-ellipsis">
+      IngeschrevenPersoon
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ingezetene" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ingezetene
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#natuurlijkpersoon" class="md-nav__link">
+    <span class="md-ellipsis">
+      NatuurlijkPersoon
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nietingezetene" class="md-nav__link">
+    <span class="md-ellipsis">
+      NietIngezetene
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#brp-persoonslijst-categorieen" class="md-nav__link">
+    <span class="md-ellipsis">
+      BRP-persoonslijst-categorieën
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="BRP-persoonslijst-categorieën">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gezagsverhouding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gezagsverhouding
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#huwelijk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Huwelijk
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#immigratie" class="md-nav__link">
+    <span class="md-ellipsis">
+      Immigratie
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nationaliteit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nationaliteit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verblijfstitel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verblijfstitel
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adres-subtypen-specifiek-voor-personen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adres-subtypen specifiek voor Personen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enumeraties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enumeraties
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enumeraties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#europeeskiesrecht" class="md-nav__link">
+    <span class="md-ellipsis">
+      EuropeesKiesrecht
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geslacht" class="md-nav__link">
+    <span class="md-ellipsis">
+      Geslacht
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indicatiegezag" class="md-nav__link">
+    <span class="md-ellipsis">
+      IndicatieGezag
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opschortingbijhouding" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpschortingBijhouding
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#soortverbintenis" class="md-nav__link">
+    <span class="md-ellipsis">
+      SoortVerbintenis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uitsluitingkiesrecht" class="md-nav__link">
+    <span class="md-ellipsis">
+      UitsluitingKiesrecht
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verificatie" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verificatie
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codelijsten" class="md-nav__link">
+    <span class="md-ellipsis">
+      Codelijsten
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Codelijsten">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cross-walk-ind-codelijst-brp-lt-56-verblijfstitel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cross-walk: IND-codelijst ↔ BRP-LT 56 (verblijfstitel)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onderhoudsritme" class="md-nav__link">
+    <span class="md-ellipsis">
+      Onderhoudsritme
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stelselkoppelingen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stelselkoppelingen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bron" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bron
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bedrijven-en-instellingen/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deelmodel Bedrijven en Instellingen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adressen-en-gebouwen/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deelmodel Adressen en Gebouwen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../onroerende-zaken/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deelmodel Onroerende Zaken
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../waarde-onroerende-zaken/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deelmodel Waarde Onroerende Zaken
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../datatypes-en-codelijsten/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Datatypes en codelijsten
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../informatiemodel-gbo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Informatiemodel GBO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Laag 3: Ontologie
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Laag 3: Ontologie
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ontologie/skos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Skos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ontologie/kwaliteit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kwaliteit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ontologie/publicatie/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Publicatie
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Implementatie
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Implementatie
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../implementatie/uri-strategie/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    URI-strategie
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../implementatie/naamgeving/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Naamgeving
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../implementatie/deployment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deployment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../implementatie/publicatie/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Publicatie
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Bijlagen
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Bijlagen
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../bijlagen/woordenlijst/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Woordenlijst
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../bijlagen/tooling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tooling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../bijlagen/uri-namespace/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    URI-namespace
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Op deze pagina">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Op deze pagina
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objecttypen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objecttypen
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Objecttypen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ingeschrevenpersoon" class="md-nav__link">
+    <span class="md-ellipsis">
+      IngeschrevenPersoon
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ingezetene" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ingezetene
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#natuurlijkpersoon" class="md-nav__link">
+    <span class="md-ellipsis">
+      NatuurlijkPersoon
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nietingezetene" class="md-nav__link">
+    <span class="md-ellipsis">
+      NietIngezetene
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#brp-persoonslijst-categorieen" class="md-nav__link">
+    <span class="md-ellipsis">
+      BRP-persoonslijst-categorieën
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="BRP-persoonslijst-categorieën">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gezagsverhouding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gezagsverhouding
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#huwelijk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Huwelijk
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#immigratie" class="md-nav__link">
+    <span class="md-ellipsis">
+      Immigratie
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nationaliteit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nationaliteit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verblijfstitel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verblijfstitel
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adres-subtypen-specifiek-voor-personen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adres-subtypen specifiek voor Personen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enumeraties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enumeraties
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enumeraties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#europeeskiesrecht" class="md-nav__link">
+    <span class="md-ellipsis">
+      EuropeesKiesrecht
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geslacht" class="md-nav__link">
+    <span class="md-ellipsis">
+      Geslacht
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indicatiegezag" class="md-nav__link">
+    <span class="md-ellipsis">
+      IndicatieGezag
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opschortingbijhouding" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpschortingBijhouding
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#soortverbintenis" class="md-nav__link">
+    <span class="md-ellipsis">
+      SoortVerbintenis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uitsluitingkiesrecht" class="md-nav__link">
+    <span class="md-ellipsis">
+      UitsluitingKiesrecht
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verificatie" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verificatie
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codelijsten" class="md-nav__link">
+    <span class="md-ellipsis">
+      Codelijsten
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Codelijsten">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cross-walk-ind-codelijst-brp-lt-56-verblijfstitel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cross-walk: IND-codelijst ↔ BRP-LT 56 (verblijfstitel)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onderhoudsritme" class="md-nav__link">
+    <span class="md-ellipsis">
+      Onderhoudsritme
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stelselkoppelingen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stelselkoppelingen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bron" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bron
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/brienen/gbo-semantiek/edit/main/docs/informatiemodel/gbo-core/deelmodellen/personen.md" title="Wijzig deze pagina" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="deelmodel-personen">Deelmodel: Personen<a class="headerlink" href="#deelmodel-personen" title="Permanent link">&para;</a></h1>
+<p>Natuurlijke personen: ingezetenen (BRP-GBA), niet-ingezetenen (BRP-RNI),
+en overige natuurlijke personen zonder BRP-inschrijving (buitenlandse
+eenmanszaak-eigenaar, partner van een ingezetene bij buitenlands
+huwelijk, historisch persoon). Inclusief de BRP-PL-categorieën die aan de
+ingeschreven persoon hangen: nationaliteit, huwelijk, verblijfstitel,
+gezagsverhouding, ouder-relaties.</p>
+<p>Niet-natuurlijke personen vallen buiten dit deelmodel; zie
+<a href="../bedrijven-en-instellingen/">Bedrijven en instellingen</a>. Het
+<code>Partij</code>-supertype is gedefinieerd in het <a href="../../hoofdmodel/">hoofdmodel</a>.</p>
+<h2 id="diagram">Diagram<a class="headerlink" href="#diagram" title="Permanent link">&para;</a></h2>
+<p><a class="glightbox" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjb250ZW50U3R5bGVUeXBlPSJ0ZXh0L2NzcyIgZGF0YS1kaWFncmFtLXR5cGU9IkNMQVNTIiBoZWlnaHQ9Ijc5Ny43MDgzcHgiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHN0eWxlPSJ3aWR0aDoxMTQ5cHg7aGVpZ2h0Ojc5N3B4O2JhY2tncm91bmQ6I0ZGRkZGRjsiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDExNDkgNzk3IiB3aWR0aD0iMTE0OS4xNjY3cHgiIHpvb21BbmRQYW49Im1hZ25pZnkiPjw/cGxhbnR1bWwgMS4yMDI2LjM/PjxkZWZzLz48Zz48IS0tY2xhc3MgUGFydGlqLS0+PGcgY2xhc3M9ImVudGl0eSIgZGF0YS1xdWFsaWZpZWQtbmFtZT0iUGFydGlqIiBkYXRhLXNvdXJjZS1saW5lPSIyNSIgaWQ9ImVudDAwMDIiPjxyZWN0IGZpbGw9IiNGM0U1RjUiIGhlaWdodD0iNTkuMjM5MSIgcng9IjQuMzc1IiByeT0iNC4zNzUiIHN0eWxlPSJzdHJva2U6IzZBMUI5QTtzdHJva2Utd2lkdGg6MC43MjkyOyIgd2lkdGg9IjEwMy4zMzY2IiB4PSI4MjguNjc5NyIgeT0iMTcuNSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE3LjUiIGZvbnQtc3R5bGU9Iml0YWxpYyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMDAuNDE5OSIgeD0iODMwLjEzOCIgeT0iNDEuNzEwNiI+JiMxNzE7YWxnZW1lZW4mIzE4Nzs8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjAuNDE2NyIgZm9udC1zdHlsZT0iaXRhbGljIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjUwLjY2MjgiIHg9Ijg1NS4wMTY2IiB5PSI2NS4xNDA4Ij5QYXJ0aWo8L3RleHQ+PC9nPjwhLS1jbGFzcyBOYXR1dXJsaWprUGVyc29vbi0tPjxnIGNsYXNzPSJlbnRpdHkiIGRhdGEtcXVhbGlmaWVkLW5hbWU9Ik5hdHV1cmxpamtQZXJzb29uIiBkYXRhLXNvdXJjZS1saW5lPSIyOCIgaWQ9ImVudDAwMDMiPjxyZWN0IGZpbGw9IiNFOEYwRkUiIGhlaWdodD0iNTkuMjM5MSIgcng9IjQuMzc1IiByeT0iNC4zNzUiIHN0eWxlPSJzdHJva2U6IzE5NjdEMjtzdHJva2Utd2lkdGg6MC43MjkyOyIgd2lkdGg9IjE4NS41NjE1IiB4PSI3NTYuNjQwMyIgeT0iMjIwLjUxMTciLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNy41IiBmb250LXN0eWxlPSJpdGFsaWMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iOTcuNDAzNiIgeD0iODAwLjcxOTMiIHk9IjI0NC43MjIzIj4mIzE3MTtwZXJzb25lbiYjMTg3OzwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIyMC40MTY3IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjE3Ni44MTE1IiB4PSI3NjEuMDE1MyIgeT0iMjY4LjE1MjUiPk5hdHV1cmxpamtQZXJzb29uPC90ZXh0PjwvZz48IS0tY2xhc3MgSW5nZXNjaHJldmVuUGVyc29vbi0tPjxnIGNsYXNzPSJlbnRpdHkiIGRhdGEtcXVhbGlmaWVkLW5hbWU9IkluZ2VzY2hyZXZlblBlcnNvb24iIGRhdGEtc291cmNlLWxpbmU9IjI5IiBpZD0iZW50MDAwNCI+PHJlY3QgZmlsbD0iI0U4RjBGRSIgaGVpZ2h0PSI1OS4yMzkxIiByeD0iNC4zNzUiIHJ5PSI0LjM3NSIgc3R5bGU9InN0cm9rZTojMTk2N0QyO3N0cm9rZS13aWR0aDowLjcyOTI7IiB3aWR0aD0iMjE4LjQ1OTUiIHg9Ijc0MC4xOTEzIiB5PSIzNDQuODczIi8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTcuNSIgZm9udC1zdHlsZT0iaXRhbGljIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9Ijk3LjQwMzYiIHg9IjgwMC43MTkzIiB5PSIzNjkuMDgzNyI+JiMxNzE7cGVyc29uZW4mIzE4Nzs8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjAuNDE2NyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIyMDkuNzA5NSIgeD0iNzQ0LjU2NjMiIHk9IjM5Mi41MTM4Ij5Jbmdlc2NocmV2ZW5QZXJzb29uPC90ZXh0PjwvZz48IS0tY2xhc3MgSW5nZXpldGVuZS0tPjxnIGNsYXNzPSJlbnRpdHkiIGRhdGEtcXVhbGlmaWVkLW5hbWU9IkluZ2V6ZXRlbmUiIGRhdGEtc291cmNlLWxpbmU9IjMwIiBpZD0iZW50MDAwNSI+PHJlY3QgZmlsbD0iI0U4RjBGRSIgaGVpZ2h0PSI1OS4yMzkxIiByeD0iNC4zNzUiIHJ5PSI0LjM3NSIgc3R5bGU9InN0cm9rZTojMTk2N0QyO3N0cm9rZS13aWR0aDowLjcyOTI7IiB3aWR0aD0iMTE3LjU0MjUiIHg9IjE3NS43MjM1IiB5PSI1ODYuODA2OCIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE3LjUiIGZvbnQtc3R5bGU9Iml0YWxpYyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI5Ny40MDM2IiB4PSIxODUuNzkyOSIgeT0iNjExLjAxNzUiPiYjMTcxO3BlcnNvbmVuJiMxODc7PC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjIwLjQxNjciIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTA4Ljc5MjUiIHg9IjE4MC4wOTg1IiB5PSI2MzQuNDQ3NiI+SW5nZXpldGVuZTwvdGV4dD48L2c+PCEtLWNsYXNzIE5pZXRJbmdlemV0ZW5lLS0+PGcgY2xhc3M9ImVudGl0eSIgZGF0YS1xdWFsaWZpZWQtbmFtZT0iTmlldEluZ2V6ZXRlbmUiIGRhdGEtc291cmNlLWxpbmU9IjMxIiBpZD0iZW50MDAwNiI+PHJlY3QgZmlsbD0iI0U4RjBGRSIgaGVpZ2h0PSI1OS4yMzkxIiByeD0iNC4zNzUiIHJ5PSI0LjM3NSIgc3R5bGU9InN0cm9rZTojMTk2N0QyO3N0cm9rZS13aWR0aDowLjcyOTI7IiB3aWR0aD0iMTU3LjUzODUiIHg9Ijg0OC42NzMxIiB5PSI1ODYuODA2OCIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE3LjUiIGZvbnQtc3R5bGU9Iml0YWxpYyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI5Ny40MDM2IiB4PSI4NzguNzQwNSIgeT0iNjExLjAxNzUiPiYjMTcxO3BlcnNvbmVuJiMxODc7PC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjIwLjQxNjciIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTQ4Ljc4ODUiIHg9Ijg1My4wNDgxIiB5PSI2MzQuNDQ3NiI+TmlldEluZ2V6ZXRlbmU8L3RleHQ+PC9nPjwhLS1jbGFzcyBJbW1pZ3JhdGllLS0+PGcgY2xhc3M9ImVudGl0eSIgZGF0YS1xdWFsaWZpZWQtbmFtZT0iSW1taWdyYXRpZSIgZGF0YS1zb3VyY2UtbGluZT0iMzUiIGlkPSJlbnQwMDA3Ij48cmVjdCBmaWxsPSIjRThGMEZFIiBoZWlnaHQ9IjU5LjIzOTEiIHJ4PSI0LjM3NSIgcnk9IjQuMzc1IiBzdHlsZT0ic3Ryb2tlOiMxOTY3RDI7c3Ryb2tlLXdpZHRoOjAuNzI5MjsiIHdpZHRoPSIxMTUuOTI3NSIgeD0iNDgxLjA4NDgiIHk9IjU5OS40MjkxIi8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTcuNSIgZm9udC1zdHlsZT0iaXRhbGljIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9Ijk3LjQwMzYiIHg9IjQ5MC4zNDY4IiB5PSI2MjMuNjM5NyI+JiMxNzE7cGVyc29uZW4mIzE4Nzs8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjAuNDE2NyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMDcuMTc3NSIgeD0iNDg1LjQ1OTgiIHk9IjY0Ny4wNjk5Ij5JbW1pZ3JhdGllPC90ZXh0PjwvZz48IS0tY2xhc3MgTmF0aW9uYWxpdGVpdC0tPjxnIGNsYXNzPSJlbnRpdHkiIGRhdGEtcXVhbGlmaWVkLW5hbWU9Ik5hdGlvbmFsaXRlaXQiIGRhdGEtc291cmNlLWxpbmU9IjM2IiBpZD0iZW50MDAwOCI+PHJlY3QgZmlsbD0iI0U4RjBGRSIgaGVpZ2h0PSI1OS4yMzkxIiByeD0iNC4zNzUiIHJ5PSI0LjM3NSIgc3R5bGU9InN0cm9rZTojMTk2N0QyO3N0cm9rZS13aWR0aDowLjcyOTI7IiB3aWR0aD0iMTI5LjQ4NTUiIHg9IjMyMi40MzI3IiB5PSI1OTkuNDI5MSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE3LjUiIGZvbnQtc3R5bGU9Iml0YWxpYyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI5Ny40MDM2IiB4PSIzMzguNDczNiIgeT0iNjIzLjYzOTciPiYjMTcxO3BlcnNvbmVuJiMxODc7PC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjIwLjQxNjciIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTIwLjczNTUiIHg9IjMyNi44MDc3IiB5PSI2NDcuMDY5OSI+TmF0aW9uYWxpdGVpdDwvdGV4dD48L2c+PCEtLWNsYXNzIEh1d2VsaWprLS0+PGcgY2xhc3M9ImVudGl0eSIgZGF0YS1xdWFsaWZpZWQtbmFtZT0iSHV3ZWxpamsiIGRhdGEtc291cmNlLWxpbmU9IjM3IiBpZD0iZW50MDAwOSI+PHJlY3QgZmlsbD0iI0U4RjBGRSIgaGVpZ2h0PSI1OS4yMzkxIiByeD0iNC4zNzUiIHJ5PSI0LjM3NSIgc3R5bGU9InN0cm9rZTojMTk2N0QyO3N0cm9rZS13aWR0aDowLjcyOTI7IiB3aWR0aD0iMTAwLjMyMDIiIHg9IjY5OS4xOTI4IiB5PSIxNy41Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTcuNSIgZm9udC1zdHlsZT0iaXRhbGljIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9Ijk3LjQwMzYiIHg9IjcwMC42NTExIiB5PSI0MS43MTA2Ij4mIzE3MTtwZXJzb25lbiYjMTg3OzwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIyMC40MTY3IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9Ijg0LjcyNzIiIHg9IjcwNi45ODkzIiB5PSI2NS4xNDA4Ij5IdXdlbGlqazwvdGV4dD48L2c+PCEtLWNsYXNzIFZlcmJsaWpmc3RpdGVsLS0+PGcgY2xhc3M9ImVudGl0eSIgZGF0YS1xdWFsaWZpZWQtbmFtZT0iVmVyYmxpamZzdGl0ZWwiIGRhdGEtc291cmNlLWxpbmU9IjM4IiBpZD0iZW50MDAxMCI+PHJlY3QgZmlsbD0iI0U4RjBGRSIgaGVpZ2h0PSI1OS4yMzkxIiByeD0iNC4zNzUiIHJ5PSI0LjM3NSIgc3R5bGU9InN0cm9rZTojMTk2N0QyO3N0cm9rZS13aWR0aDowLjcyOTI7IiB3aWR0aD0iMTI5LjA1NjgiIHg9IjE3LjUiIHk9IjU5OS40MjkxIi8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTcuNSIgZm9udC1zdHlsZT0iaXRhbGljIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9Ijk3LjQwMzYiIHg9IjMzLjMyNjYiIHk9IjYyMy42Mzk3Ij4mIzE3MTtwZXJzb25lbiYjMTg3OzwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIyMC40MTY3IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjEyMC4zMDY4IiB4PSIyMS44NzUiIHk9IjY0Ny4wNjk5Ij5WZXJibGlqZnN0aXRlbDwvdGV4dD48L2c+PCEtLWNsYXNzIEdlemFnc3ZlcmhvdWRpbmctLT48ZyBjbGFzcz0iZW50aXR5IiBkYXRhLXF1YWxpZmllZC1uYW1lPSJHZXphZ3N2ZXJob3VkaW5nIiBkYXRhLXNvdXJjZS1saW5lPSIzOSIgaWQ9ImVudDAwMTEiPjxyZWN0IGZpbGw9IiNFOEYwRkUiIGhlaWdodD0iNTkuMjM5MSIgcng9IjQuMzc1IiByeT0iNC4zNzUiIHN0eWxlPSJzdHJva2U6IzE5NjdEMjtzdHJva2Utd2lkdGg6MC43MjkyOyIgd2lkdGg9IjE5My4zMjc0IiB4PSI2MjYuMTc5IiB5PSI1OTkuNDI5MSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE3LjUiIGZvbnQtc3R5bGU9Iml0YWxpYyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI5Ny40MDM2IiB4PSI2NzQuMTQwOSIgeT0iNjIzLjYzOTciPiYjMTcxO3BlcnNvbmVuJiMxODc7PC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjIwLjQxNjciIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTg0LjU3NzQiIHg9IjYzMC41NTQiIHk9IjY0Ny4wNjk5Ij5HZXphZ3N2ZXJob3VkaW5nPC90ZXh0PjwvZz48ZyBjbGFzcz0iZW50aXR5IiBkYXRhLXF1YWxpZmllZC1uYW1lPSJHTU4yMiIgZGF0YS1zb3VyY2UtbGluZT0iNTUiIGlkPSJlbnQwMDIzIj48cGF0aCBkPSJNMzUuNjQ4Myw3MjEuMzc2NSBMMzUuNjQ4Myw3NzEuODY1NiBBNC4zNzUsNC4zNzUgMCAwIDAgNDAuMDIzMyw3NzYuMjQwNiBMNDI4Ljk2NjEsNzc2LjI0MDYgQTQuMzc1LDQuMzc1IDAgMCAwIDQzMy4zNDExLDc3MS44NjU2IEw0MzMuMzQxMSw3MzEuNTg0OSBMNDE4Ljc1NzgsNzE3LjAwMTUgTDQwLjAyMzMsNzE3LjAwMTUgQTQuMzc1LDQuMzc1IDAgMCAwIDM1LjY0ODMsNzIxLjM3NjUiIGZpbGw9IiNGRkZDRDgiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MC43MjkyOyIvPjxwYXRoIGQ9Ik00MTguNzU3OCw3MTcuMDAxNSBMNDE4Ljc1NzgsNzI5LjM5NzQgQTIuMTg3NSwyLjE4NzUgMCAwIDAgNDIwLjk0NTMsNzMxLjU4NDkgTDQzMy4zNDExLDczMS41ODQ5IEw0MTguNzU3OCw3MTcuMDAxNSIgZmlsbD0iI0ZGRkNEOCIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjQ1ODM7Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTguOTU4MyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIyNTguMzA3MyIgeD0iNDQuMzk4MyIgeT0iNzQyLjYyMjEiPkJSUC1HQkEgJiM4MjEyOyB3b29udCBvcCBBZHJlczwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOC45NTgzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjM2Ny4wNjc4IiB4PSI0NC4zOTgzIiB5PSI3NjQuOTUiPih6aWUgZGVlbG1vZGVsIEFkcmVzc2VuIGVuIGdlYm91d2VuKS48L3RleHQ+PC9nPjxnIGNsYXNzPSJlbnRpdHkiIGRhdGEtcXVhbGlmaWVkLW5hbWU9IkdNTjI1IiBkYXRhLXNvdXJjZS1saW5lPSI2MCIgaWQ9ImVudDAwMjYiPjxwYXRoIGQ9Ik03MjYuNTU5NCw3MjEuMzc2NSBMNzI2LjU1OTQsNzQ5LjUzNzggQTQuMzc1LDQuMzc1IDAgMCAwIDczMC45MzQ0LDc1My45MTI4IEwxMTIzLjk1MDIsNzUzLjkxMjggQTQuMzc1LDQuMzc1IDAgMCAwIDExMjguMzI1Miw3NDkuNTM3OCBMMTEyOC4zMjUyLDczMS41ODQ5IEwxMTEzLjc0MTksNzE3LjAwMTUgTDczMC45MzQ0LDcxNy4wMDE1IEE0LjM3NSw0LjM3NSAwIDAgMCA3MjYuNTU5NCw3MjEuMzc2NSIgZmlsbD0iI0ZGRkNEOCIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDowLjcyOTI7Ii8+PHBhdGggZD0iTTExMTMuNzQxOSw3MTcuMDAxNSBMMTExMy43NDE5LDcyOS4zOTc0IEEyLjE4NzUsMi4xODc1IDAgMCAwIDExMTUuOTI5NCw3MzEuNTg0OSBMMTEyOC4zMjUyLDczMS41ODQ5IEwxMTEzLjc0MTksNzE3LjAwMTUiIGZpbGw9IiNGRkZDRDgiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS40NTgzOyIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4Ljk1ODMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMzcxLjE0MDgiIHg9IjczNS4zMDk0IiB5PSI3NDIuNjIyMSI+QlJQLVJOSSAmIzgyMTI7IHR5cGlzY2ggb3AgQnVpdGVubGFuZHNhZHJlcy48L3RleHQ+PC9nPjxnIGNsYXNzPSJlbnRpdHkiIGRhdGEtcXVhbGlmaWVkLW5hbWU9IkdNTjI4IiBkYXRhLXNvdXJjZS1saW5lPSI2NCIgaWQ9ImVudDAwMjkiPjxwYXRoIGQ9Ik0yNzUuMTk1OSwyMDkuMzQ3NyBMMjc1LjE5NTksMjgyLjE2NDcgQTQuMzc1LDQuMzc1IDAgMCAwIDI3OS41NzA5LDI4Ni41Mzk3IEw1OTYuMDY4NCwyODYuNTM5NyBBNC4zNzUsNC4zNzUgMCAwIDAgNjAwLjQ0MzQsMjgyLjE2NDcgTDYwMC40NDM0LDIxOS41NTYxIEw1ODUuODYwMSwyMDQuOTcyNyBMMjc5LjU3MDksMjA0Ljk3MjcgQTQuMzc1LDQuMzc1IDAgMCAwIDI3NS4xOTU5LDIwOS4zNDc3IiBmaWxsPSIjRkZGQ0Q4IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNzI5MjsiLz48cGF0aCBkPSJNNTg1Ljg2MDEsMjA0Ljk3MjcgTDU4NS44NjAxLDIxNy4zNjg2IEEyLjE4NzUsMi4xODc1IDAgMCAwIDU4OC4wNDc2LDIxOS41NTYxIEw2MDAuNDQzNCwyMTkuNTU2MSBMNTg1Ljg2MDEsMjA0Ljk3MjciIGZpbGw9IiNGRkZDRDgiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS40NTgzOyIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4Ljk1ODMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMjcwLjI1ODEiIHg9IjI4My45NDU5IiB5PSIyMzAuNTkzMyI+VHVzc2VuIDIgTmF0dXVybGlqa1BlcnNvbmVuLjwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOC45NTgzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjI5NC42MjI1IiB4PSIyODMuOTQ1OSIgeT0iMjUyLjkyMTEiPkluY2wuIGdlcmVnaXN0cmVlcmQgcGFydG5lcnNjaGFwPC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4Ljk1ODMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTkwLjAxODQiIHg9IjI4My45NDU5IiB5PSIyNzUuMjQ5Ij52aWEgc29vcnRWZXJiaW50ZW5pcy48L3RleHQ+PC9nPjxsaW5lIHN0eWxlPSJzdHJva2U6IzQ0NDQ0NDtzdHJva2Utd2lkdGg6MS40NTgzOyIgeDE9Ijg4MC4zNDgiIHgyPSI4ODAuMzQ4IiB5MT0iNzYuNzM5MSIgeTI9IjIyMC41MTE3Ii8+PHBvbHlnb24gZmlsbD0iI0ZGRkZGRiIgcG9pbnRzPSI4ODAuMzQ4LDc2LjczOTEsODcwLjEzOTcsMTA0LjQ0NzQsODkwLjU1NjMsMTA0LjQ0NzQsODgwLjM0OCw3Ni43MzkxIiBzdHlsZT0ic3Ryb2tlOiM0NDQ0NDQ7c3Ryb2tlLXdpZHRoOjEuNDU4MzsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiM0NDQ0NDQ7c3Ryb2tlLXdpZHRoOjEuNDU4MzsiIHgxPSI4NDkuNDIxMSIgeDI9Ijg0OS40MjExIiB5MT0iMjc5Ljc1MDgiIHkyPSIzNDQuODczIi8+PHBvbHlnb24gZmlsbD0iI0ZGRkZGRiIgcG9pbnRzPSI4NDkuNDIxMSwyNzkuNzUwOCw4MzkuMjEyNywzMDcuNDU5MSw4NTkuNjI5NCwzMDcuNDU5MSw4NDkuNDIxMSwyNzkuNzUwOCIgc3R5bGU9InN0cm9rZTojNDQ0NDQ0O3N0cm9rZS13aWR0aDoxLjQ1ODM7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojNDQ0NDQ0O3N0cm9rZS13aWR0aDoxLjQ1ODM7IiB4MT0iODAyLjYwODMiIHgyPSI4MDIuNjA4MyIgeTE9IjQwNC4xMTIxIiB5Mj0iNDU4LjUyMzQiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiM0NDQ0NDQ7c3Ryb2tlLXdpZHRoOjEuNDU4MzsiIHgxPSI4MDIuNjA4MyIgeDI9IjIzNC40OTQ3IiB5MT0iNDU4LjUyMzQiIHkyPSI0NTguNTIzNCIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzQ0NDQ0NDtzdHJva2Utd2lkdGg6MS40NTgzOyIgeDE9IjIzNC40OTQ3IiB4Mj0iMjM0LjQ5NDciIHkxPSI0NTguNTIzNCIgeTI9IjU4Ni44MDY4Ii8+PHBvbHlnb24gZmlsbD0iI0ZGRkZGRiIgcG9pbnRzPSI4MDIuNjA4Myw0MDQuMTEyMSw3OTIuNCw0MzEuODIwNSw4MTIuODE2Nyw0MzEuODIwNSw4MDIuNjA4Myw0MDQuMTEyMSIgc3R5bGU9InN0cm9rZTojNDQ0NDQ0O3N0cm9rZS13aWR0aDoxLjQ1ODM7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojNDQ0NDQ0O3N0cm9rZS13aWR0aDoxLjQ1ODM7IiB4MT0iOTI3LjQ0MjMiIHgyPSI5MjcuNDQyMyIgeTE9IjQwNC4xMTIxIiB5Mj0iNTg2LjgwNjgiLz48cG9seWdvbiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjkyNy40NDIzLDQwNC4xMTIxLDkxNy4yMzQsNDMxLjgyMDUsOTM3LjY1MDcsNDMxLjgyMDUsOTI3LjQ0MjMsNDA0LjExMjEiIHN0eWxlPSJzdHJva2U6IzQ0NDQ0NDtzdHJva2Utd2lkdGg6MS40NTgzOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzQ0NDQ0NDtzdHJva2Utd2lkdGg6MS40NTgzOyIgeDE9Ijc1Ni42NDAzIiB4Mj0iNzQyLjA1NyIgeTE9IjI0MC4yNTgiIHkyPSIyNDAuMjU4Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojNDQ0NDQ0O3N0cm9rZS13aWR0aDoxLjQ1ODM7IiB4MT0iNzQyLjA1NyIgeDI9Ijc0Mi4wNTciIHkxPSIyNDAuMjU4IiB5Mj0iMjYwLjAwNDQiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiM0NDQ0NDQ7c3Ryb2tlLXdpZHRoOjEuNDU4MzsiIHgxPSI3NDIuMDU3IiB4Mj0iNzU2LjY0MDMiIHkxPSIyNjAuMDA0NCIgeTI9IjI2MC4wMDQ0Ii8+PHBvbHlnb24gZmlsbD0iIzQ0NDQ0NCIgcG9pbnRzPSI3NTYuNjQwMywyNjAuMDA0NCw3NjIuNDczNywyNDYuODc5NCw3NTYuNjQwMywyNTIuNzEyNyw3NTAuODA3LDI0Ni44Nzk0LDc1Ni42NDAzLDI2MC4wMDQ0IiBzdHlsZT0ic3Ryb2tlOiM0NDQ0NDQ7c3Ryb2tlLXdpZHRoOjEuNDU4MzsiLz48dGV4dCBmaWxsPSIjMzMzMzMzIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOC45NTgzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjEwMy42OTY5IiB4PSI2MzIuNTI2OCIgeT0iMjM0Ljk2ODMiPmhlZWZ0T3VkZXI8L3RleHQ+PHRleHQgZmlsbD0iIzMzMzMzMyIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTguOTU4MyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIzMy4xMjE1IiB4PSI3MDYuMDE4OCIgeT0iMjYwLjIxMjgiPjAuLio8L3RleHQ+PHRleHQgZmlsbD0iIzMzMzMzMyIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTguOTU4MyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIzNS45NzI3IiB4PSI3MDMuMTY3NiIgeT0iMjgyLjU0MDciPjAuLjI8L3RleHQ+PGxpbmUgc3R5bGU9InN0cm9rZTojNDQ0NDQ0O3N0cm9rZS13aWR0aDoxLjQ1ODM7IiB4MT0iNzY2LjA3MyIgeDI9Ijc2Ni4wNzMiIHkxPSI3Ni43MzkxIiB5Mj0iMTczLjg5NDkiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiM0NDQ0NDQ7c3Ryb2tlLXdpZHRoOjEuNDU4MzsiIHgxPSI3NjYuMDczIiB4Mj0iODE4LjQ5NDIiIHkxPSIxNzMuODk0OSIgeTI9IjE3My44OTQ5Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojNDQ0NDQ0O3N0cm9rZS13aWR0aDoxLjQ1ODM7IiB4MT0iODE4LjQ5NDIiIHgyPSI4MTguNDk0MiIgeTE9IjE3My44OTQ5IiB5Mj0iMjIwLjUxMTciLz48cG9seWdvbiBmaWxsPSIjNDQ0NDQ0IiBwb2ludHM9IjgxOC40OTQyLDIyMC41MTE3LDgyNC4zMjc1LDIwNy4zODY3LDgxOC40OTQyLDIxMy4yMiw4MTIuNjYwOCwyMDcuMzg2Nyw4MTguNDk0MiwyMjAuNTExNyIgc3R5bGU9InN0cm9rZTojNDQ0NDQ0O3N0cm9rZS13aWR0aDoxLjQ1ODM7Ii8+PHRleHQgZmlsbD0iIzMzMzMzMyIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTguOTU4MyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI3Ni45OTk3IiB4PSI2ODMuMjM5OSIgeT0iMTUyLjM5NTgiPnBhcnRuZXJzPC90ZXh0Pjx0ZXh0IGZpbGw9IiMzMzMzMzMiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4Ljk1ODMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTEuOTg3OCIgeD0iNzcwLjQ0OCIgeT0iOTcuOTg0NiI+MTwvdGV4dD48dGV4dCBmaWxsPSIjMzMzMzMzIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOC45NTgzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjExLjk4NzgiIHg9IjgyMi44NjkyIiB5PSIyMDYuODA3Ij4yPC90ZXh0PjxsaW5lIHN0eWxlPSJzdHJva2U6IzQ0NDQ0NDtzdHJva2Utd2lkdGg6MS40NTgzOyIgeDE9IjgzMy44MTY4IiB4Mj0iODMzLjgxNjgiIHkxPSI0MDQuMTEyMSIgeTI9IjQ3My4xMDY3Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojNDQ0NDQ0O3N0cm9rZS13aWR0aDoxLjQ1ODM7IiB4MT0iODMzLjgxNjgiIHgyPSIzODcuMTc1NCIgeTE9IjQ3My4xMDY3IiB5Mj0iNDczLjEwNjciLz48bGluZSBzdHlsZT0ic3Ryb2tlOiM0NDQ0NDQ7c3Ryb2tlLXdpZHRoOjEuNDU4MzsiIHgxPSIzODcuMTc1NCIgeDI9IjM4Ny4xNzU0IiB5MT0iNDczLjEwNjciIHkyPSI1OTkuNDI5MSIvPjxwb2x5Z29uIGZpbGw9IiM0NDQ0NDQiIHBvaW50cz0iMzg3LjE3NTQsNTk5LjQyOTEsMzkzLjAwODcsNTg2LjMwNDEsMzg3LjE3NTQsNTkyLjEzNzUsMzgxLjM0MjEsNTg2LjMwNDEsMzg3LjE3NTQsNTk5LjQyOTEiIHN0eWxlPSJzdHJva2U6IzQ0NDQ0NDtzdHJva2Utd2lkdGg6MS40NTgzOyIvPjx0ZXh0IGZpbGw9IiMzMzMzMzMiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4Ljk1ODMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iNDYuOTUxNSIgeD0iMzM0LjM5MDYiIHk9IjUzOC4xMDIyIj5oZWVmdDwvdGV4dD48dGV4dCBmaWxsPSIjMzMzMzMzIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOC45NTgzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjExLjk4NzgiIHg9IjgzOC4xOTE4IiB5PSI0MjUuMzU3NyI+MTwvdGV4dD48dGV4dCBmaWxsPSIjMzMzMzMzIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOC45NTgzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjMzLjEyMTUiIHg9IjM5MS41NTA0IiB5PSI1OTIuNTEzNCI+MC4uKjwvdGV4dD48bGluZSBzdHlsZT0ic3Ryb2tlOiM0NDQ0NDQ7c3Ryb2tlLXdpZHRoOjEuNDU4MzsiIHgxPSI3NzEuMzk5OCIgeDI9Ijc3MS4zOTk4IiB5MT0iNDA0LjExMjEiIHkyPSI0NDMuOTQiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiM0NDQ0NDQ7c3Ryb2tlLXdpZHRoOjEuNDU4MzsiIHgxPSI3NzEuMzk5OCIgeDI9IjgyLjAyODQiIHkxPSI0NDMuOTQiIHkyPSI0NDMuOTQiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiM0NDQ0NDQ7c3Ryb2tlLXdpZHRoOjEuNDU4MzsiIHgxPSI4Mi4wMjg0IiB4Mj0iODIuMDI4NCIgeTE9IjQ0My45NCIgeTI9IjU5OS40MjkxIi8+PHBvbHlnb24gZmlsbD0iIzQ0NDQ0NCIgcG9pbnRzPSI4Mi4wMjg0LDU5OS40MjkxLDg3Ljg2MTcsNTg2LjMwNDEsODIuMDI4NCw1OTIuMTM3NSw3Ni4xOTUxLDU4Ni4zMDQxLDgyLjAyODQsNTk5LjQyOTEiIHN0eWxlPSJzdHJva2U6IzQ0NDQ0NDtzdHJva2Utd2lkdGg6MS40NTgzOyIvPjx0ZXh0IGZpbGw9IiMzMzMzMzMiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4Ljk1ODMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iNDYuOTUxNSIgeD0iMjkuMjQzNiIgeT0iNTM4LjEwMjIiPmhlZWZ0PC90ZXh0Pjx0ZXh0IGZpbGw9IiMzMzMzMzMiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4Ljk1ODMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTEuOTg3OCIgeD0iNzc1Ljc3NDgiIHk9IjQyNS4zNTc3Ij4xPC90ZXh0Pjx0ZXh0IGZpbGw9IiMzMzMzMzMiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4Ljk1ODMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMzUuOTcyNyIgeD0iODYuNDAzNCIgeT0iNTkyLjUxMzQiPjAuLjE8L3RleHQ+PGxpbmUgc3R5bGU9InN0cm9rZTojNDQ0NDQ0O3N0cm9rZS13aWR0aDoxLjQ1ODM7IiB4MT0iODk2LjIzMzgiIHgyPSI4OTYuMjMzOCIgeTE9IjQwNC4xMTIxIiB5Mj0iNTAyLjI3MzQiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiM0NDQ0NDQ7c3Ryb2tlLXdpZHRoOjEuNDU4MzsiIHgxPSI4OTYuMjMzOCIgeDI9IjcyMi44NDI3IiB5MT0iNTAyLjI3MzQiIHkyPSI1MDIuMjczNCIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzQ0NDQ0NDtzdHJva2Utd2lkdGg6MS40NTgzOyIgeDE9IjcyMi44NDI3IiB4Mj0iNzIyLjg0MjciIHkxPSI1MDIuMjczNCIgeTI9IjU5OS40MjkxIi8+PHBvbHlnb24gZmlsbD0iIzQ0NDQ0NCIgcG9pbnRzPSI3MjIuODQyNyw1OTkuNDI5MSw3MjguNjc2LDU4Ni4zMDQxLDcyMi44NDI3LDU5Mi4xMzc1LDcxNy4wMDk0LDU4Ni4zMDQxLDcyMi44NDI3LDU5OS40MjkxIiBzdHlsZT0ic3Ryb2tlOiM0NDQ0NDQ7c3Ryb2tlLXdpZHRoOjEuNDU4MzsiLz48dGV4dCBmaWxsPSIjMzMzMzMzIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOC45NTgzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjU1LjU0MiIgeD0iNjYxLjQ2NzQiIHk9IjUzOC4xMDIyIj5nZXphZzwvdGV4dD48dGV4dCBmaWxsPSIjMzMzMzMzIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOC45NTgzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjExLjk4NzgiIHg9IjkwMC42MDg4IiB5PSI0MjUuMzU3NyI+MTwvdGV4dD48dGV4dCBmaWxsPSIjMzMzMzMzIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOC45NTgzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjM1Ljk3MjciIHg9IjcyNy4yMTc3IiB5PSI1OTIuNTEzNCI+MC4uMTwvdGV4dD48bGluZSBzdHlsZT0ic3Ryb2tlOiM0NDQ0NDQ7c3Ryb2tlLXdpZHRoOjEuNDU4MzsiIHgxPSI4NjUuMDI1MyIgeDI9Ijg2NS4wMjUzIiB5MT0iNDA0LjExMjEiIHkyPSI0ODcuNjkiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiM0NDQ0NDQ7c3Ryb2tlLXdpZHRoOjEuNDU4MzsiIHgxPSI4NjUuMDI1MyIgeDI9IjUzOS4wNDg2IiB5MT0iNDg3LjY5IiB5Mj0iNDg3LjY5Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojNDQ0NDQ0O3N0cm9rZS13aWR0aDoxLjQ1ODM7IiB4MT0iNTM5LjA0ODYiIHgyPSI1MzkuMDQ4NiIgeTE9IjQ4Ny42OSIgeTI9IjU5OS40MjkxIi8+PHBvbHlnb24gZmlsbD0iIzQ0NDQ0NCIgcG9pbnRzPSI1MzkuMDQ4Niw1OTkuNDI5MSw1NDQuODgxOSw1ODYuMzA0MSw1MzkuMDQ4Niw1OTIuMTM3NSw1MzMuMjE1Miw1ODYuMzA0MSw1MzkuMDQ4Niw1OTkuNDI5MSIgc3R5bGU9InN0cm9rZTojNDQ0NDQ0O3N0cm9rZS13aWR0aDoxLjQ1ODM7Ii8+PHRleHQgZmlsbD0iIzMzMzMzMyIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTguOTU4MyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI0Ni45NTE1IiB4PSI0ODYuMjYzNyIgeT0iNTM4LjEwMjIiPmhlZWZ0PC90ZXh0Pjx0ZXh0IGZpbGw9IiMzMzMzMzMiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4Ljk1ODMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTEuOTg3OCIgeD0iODY5LjQwMDMiIHk9IjQyNS4zNTc3Ij4xPC90ZXh0Pjx0ZXh0IGZpbGw9IiMzMzMzMzMiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4Ljk1ODMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMzUuOTcyNyIgeD0iNTQzLjQyMzYiIHk9IjU5Mi41MTM0Ij4wLi4xPC90ZXh0PjxsaW5lIHN0eWxlPSJzdHJva2U6IzQ0NDQ0NDtzdHJva2Utd2lkdGg6MS40NTgzO3N0cm9rZS1kYXNoYXJyYXk6MTAuMjA4MywxMC4yMDgzOyIgeDE9IjIzNC40OTQ3IiB4Mj0iMjM0LjQ5NDciIHkxPSI2NDYuMDQ1OSIgeTI9IjcxNy4wMDE1Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojNDQ0NDQ0O3N0cm9rZS13aWR0aDoxLjQ1ODM7c3Ryb2tlLWRhc2hhcnJheToxMC4yMDgzLDEwLjIwODM7IiB4MT0iOTI3LjQ0MjMiIHgyPSI5MjcuNDQyMyIgeTE9IjY0Ni4wNDU5IiB5Mj0iNzE3LjAwMTUiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiM0NDQ0NDQ7c3Ryb2tlLXdpZHRoOjEuNDU4MztzdHJva2UtZGFzaGFycmF5OjEwLjIwODMsMTAuMjA4MzsiIHgxPSI3MzIuNjMyOSIgeDI9IjczMi42MzI5IiB5MT0iNzYuNzM5MSIgeTI9IjExNi41NjciLz48bGluZSBzdHlsZT0ic3Ryb2tlOiM0NDQ0NDQ7c3Ryb2tlLXdpZHRoOjEuNDU4MztzdHJva2UtZGFzaGFycmF5OjEwLjIwODMsMTAuMjA4MzsiIHgxPSI3MzIuNjMyOSIgeDI9IjQzNy44MTk3IiB5MT0iMTE2LjU2NyIgeTI9IjExNi41NjciLz48bGluZSBzdHlsZT0ic3Ryb2tlOiM0NDQ0NDQ7c3Ryb2tlLXdpZHRoOjEuNDU4MztzdHJva2UtZGFzaGFycmF5OjEwLjIwODMsMTAuMjA4MzsiIHgxPSI0MzcuODE5NyIgeDI9IjQzNy44MTk3IiB5MT0iMTE2LjU2NyIgeTI9IjIwNC45NzI3Ii8+PD9wbGFudHVtbC1zcmMgYkxKQlJqaW00QnBwQXhSa2ZJclc4eXdoSUgwT2k1Q3V5U0tEcWc5dElibjlaMmJJZUFXT1NNa1c3ejRseDlUcUFTazZlYVZKS1plOGt4Q3htcmJJUnBCQnV2STN1aS1jUzgxZ25MWS1hWmhaYmdTV0NXZFpxd0RROTVHeXB3VkVNSGFLM1hVWHFMX2ExZzRFb0hDa3A1aGc2MkFrU2duYmgyY3FrMzVNZXVOcE1scDZEdnRuUzFMTjI2S2lsOXJGX1RFMjZJbEdMZjJwU2pLV0tzbERrYWdVYmdrUGQxbGpBaTE5a01nMGZON09iWjZWdHRvd084YUsyOVhjeFhiSUowRXEtSXVLSVhpZ1A0c0JoZy12WVo1NXI5QzlWNlMwaFJ4SDJQdjVQcHZKdHo0djdtVU5kQTl0bzJkUUx4TGp5c0thb1VYLUZobzhaWTlpeWVxbHBwLUF1dHctZ2NoQlU5MHhvcUV0ZXVEeFJmcnlYRmVzNk5DY0hmVkdTQnMwN014OU5MNU85SHpOenJ3VnFMMU5VZTBqVDhudmM1WHlHbHFnUzhDRUROUmRibjlUN3NSUmdOMkhmWkFzdENjLVpmR29jWWxmS0Jma281c25IaF81eGttdGowNWJlem5IMnpNRGtTS0RaX0NkajhhZlhCeXdKVTV4bHR5Q1hzckZNT1ZCN2paWEFranFVV19Va1RRRlVVYWt3LTBUNzhyNjdtT203NHhBcC1EMW5tY3VXV0duU2Z5QkVkM2l1RHJXTjlOcnJEMVhUemZWa292clgtOFRfU2tQTE5vbDVqOWRPclJfS1RjUXUxTjRGbEdsalJLWms2VGFjbHY1NDFaZEowZWNnYS03UmwzM19WMXNEZU5WRnRfMWNsZXZDMWJDWFNNU2FreXNyNE9XZ2pHOHNhOFBwYjQzbEo0NlhrcE14cVNDakcxRnFJOWdaN1g3emgxU2I2SmtFUEVxNXF5dEF5V1hoUldNRVZTS1ZzY3Y3cDRyLXJnS01ld1I0d1BwRmdCcUdlVGdIMzhqbmY5LUR1WE03RU9VOVptWm85RmFHMXZRdnFTYkRNY0dUVXVfPz48L2c+PC9zdmc+" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjb250ZW50U3R5bGVUeXBlPSJ0ZXh0L2NzcyIgZGF0YS1kaWFncmFtLXR5cGU9IkNMQVNTIiBoZWlnaHQ9Ijc5Ny43MDgzcHgiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHN0eWxlPSJ3aWR0aDoxMTQ5cHg7aGVpZ2h0Ojc5N3B4O2JhY2tncm91bmQ6I0ZGRkZGRjsiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDExNDkgNzk3IiB3aWR0aD0iMTE0OS4xNjY3cHgiIHpvb21BbmRQYW49Im1hZ25pZnkiPjw/cGxhbnR1bWwgMS4yMDI2LjM/PjxkZWZzLz48Zz48IS0tY2xhc3MgUGFydGlqLS0+PGcgY2xhc3M9ImVudGl0eSIgZGF0YS1xdWFsaWZpZWQtbmFtZT0iUGFydGlqIiBkYXRhLXNvdXJjZS1saW5lPSIyNSIgaWQ9ImVudDAwMDIiPjxyZWN0IGZpbGw9IiNGM0U1RjUiIGhlaWdodD0iNTkuMjM5MSIgcng9IjQuMzc1IiByeT0iNC4zNzUiIHN0eWxlPSJzdHJva2U6IzZBMUI5QTtzdHJva2Utd2lkdGg6MC43MjkyOyIgd2lkdGg9IjEwMy4zMzY2IiB4PSI4MjguNjc5NyIgeT0iMTcuNSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE3LjUiIGZvbnQtc3R5bGU9Iml0YWxpYyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMDAuNDE5OSIgeD0iODMwLjEzOCIgeT0iNDEuNzEwNiI+JiMxNzE7YWxnZW1lZW4mIzE4Nzs8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjAuNDE2NyIgZm9udC1zdHlsZT0iaXRhbGljIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjUwLjY2MjgiIHg9Ijg1NS4wMTY2IiB5PSI2NS4xNDA4Ij5QYXJ0aWo8L3RleHQ+PC9nPjwhLS1jbGFzcyBOYXR1dXJsaWprUGVyc29vbi0tPjxnIGNsYXNzPSJlbnRpdHkiIGRhdGEtcXVhbGlmaWVkLW5hbWU9Ik5hdHV1cmxpamtQZXJzb29uIiBkYXRhLXNvdXJjZS1saW5lPSIyOCIgaWQ9ImVudDAwMDMiPjxyZWN0IGZpbGw9IiNFOEYwRkUiIGhlaWdodD0iNTkuMjM5MSIgcng9IjQuMzc1IiByeT0iNC4zNzUiIHN0eWxlPSJzdHJva2U6IzE5NjdEMjtzdHJva2Utd2lkdGg6MC43MjkyOyIgd2lkdGg9IjE4NS41NjE1IiB4PSI3NTYuNjQwMyIgeT0iMjIwLjUxMTciLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNy41IiBmb250LXN0eWxlPSJpdGFsaWMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iOTcuNDAzNiIgeD0iODAwLjcxOTMiIHk9IjI0NC43MjIzIj4mIzE3MTtwZXJzb25lbiYjMTg3OzwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIyMC40MTY3IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjE3Ni44MTE1IiB4PSI3NjEuMDE1MyIgeT0iMjY4LjE1MjUiPk5hdHV1cmxpamtQZXJzb29uPC90ZXh0PjwvZz48IS0tY2xhc3MgSW5nZXNjaHJldmVuUGVyc29vbi0tPjxnIGNsYXNzPSJlbnRpdHkiIGRhdGEtcXVhbGlmaWVkLW5hbWU9IkluZ2VzY2hyZXZlblBlcnNvb24iIGRhdGEtc291cmNlLWxpbmU9IjI5IiBpZD0iZW50MDAwNCI+PHJlY3QgZmlsbD0iI0U4RjBGRSIgaGVpZ2h0PSI1OS4yMzkxIiByeD0iNC4zNzUiIHJ5PSI0LjM3NSIgc3R5bGU9InN0cm9rZTojMTk2N0QyO3N0cm9rZS13aWR0aDowLjcyOTI7IiB3aWR0aD0iMjE4LjQ1OTUiIHg9Ijc0MC4xOTEzIiB5PSIzNDQuODczIi8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTcuNSIgZm9udC1zdHlsZT0iaXRhbGljIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9Ijk3LjQwMzYiIHg9IjgwMC43MTkzIiB5PSIzNjkuMDgzNyI+JiMxNzE7cGVyc29uZW4mIzE4Nzs8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjAuNDE2NyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIyMDkuNzA5NSIgeD0iNzQ0LjU2NjMiIHk9IjM5Mi41MTM4Ij5Jbmdlc2NocmV2ZW5QZXJzb29uPC90ZXh0PjwvZz48IS0tY2xhc3MgSW5nZXpldGVuZS0tPjxnIGNsYXNzPSJlbnRpdHkiIGRhdGEtcXVhbGlmaWVkLW5hbWU9IkluZ2V6ZXRlbmUiIGRhdGEtc291cmNlLWxpbmU9IjMwIiBpZD0iZW50MDAwNSI+PHJlY3QgZmlsbD0iI0U4RjBGRSIgaGVpZ2h0PSI1OS4yMzkxIiByeD0iNC4zNzUiIHJ5PSI0LjM3NSIgc3R5bGU9InN0cm9rZTojMTk2N0QyO3N0cm9rZS13aWR0aDowLjcyOTI7IiB3aWR0aD0iMTE3LjU0MjUiIHg9IjE3NS43MjM1IiB5PSI1ODYuODA2OCIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE3LjUiIGZvbnQtc3R5bGU9Iml0YWxpYyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI5Ny40MDM2IiB4PSIxODUuNzkyOSIgeT0iNjExLjAxNzUiPiYjMTcxO3BlcnNvbmVuJiMxODc7PC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjIwLjQxNjciIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTA4Ljc5MjUiIHg9IjE4MC4wOTg1IiB5PSI2MzQuNDQ3NiI+SW5nZXpldGVuZTwvdGV4dD48L2c+PCEtLWNsYXNzIE5pZXRJbmdlemV0ZW5lLS0+PGcgY2xhc3M9ImVudGl0eSIgZGF0YS1xdWFsaWZpZWQtbmFtZT0iTmlldEluZ2V6ZXRlbmUiIGRhdGEtc291cmNlLWxpbmU9IjMxIiBpZD0iZW50MDAwNiI+PHJlY3QgZmlsbD0iI0U4RjBGRSIgaGVpZ2h0PSI1OS4yMzkxIiByeD0iNC4zNzUiIHJ5PSI0LjM3NSIgc3R5bGU9InN0cm9rZTojMTk2N0QyO3N0cm9rZS13aWR0aDowLjcyOTI7IiB3aWR0aD0iMTU3LjUzODUiIHg9Ijg0OC42NzMxIiB5PSI1ODYuODA2OCIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE3LjUiIGZvbnQtc3R5bGU9Iml0YWxpYyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI5Ny40MDM2IiB4PSI4NzguNzQwNSIgeT0iNjExLjAxNzUiPiYjMTcxO3BlcnNvbmVuJiMxODc7PC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjIwLjQxNjciIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTQ4Ljc4ODUiIHg9Ijg1My4wNDgxIiB5PSI2MzQuNDQ3NiI+TmlldEluZ2V6ZXRlbmU8L3RleHQ+PC9nPjwhLS1jbGFzcyBJbW1pZ3JhdGllLS0+PGcgY2xhc3M9ImVudGl0eSIgZGF0YS1xdWFsaWZpZWQtbmFtZT0iSW1taWdyYXRpZSIgZGF0YS1zb3VyY2UtbGluZT0iMzUiIGlkPSJlbnQwMDA3Ij48cmVjdCBmaWxsPSIjRThGMEZFIiBoZWlnaHQ9IjU5LjIzOTEiIHJ4PSI0LjM3NSIgcnk9IjQuMzc1IiBzdHlsZT0ic3Ryb2tlOiMxOTY3RDI7c3Ryb2tlLXdpZHRoOjAuNzI5MjsiIHdpZHRoPSIxMTUuOTI3NSIgeD0iNDgxLjA4NDgiIHk9IjU5OS40MjkxIi8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTcuNSIgZm9udC1zdHlsZT0iaXRhbGljIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9Ijk3LjQwMzYiIHg9IjQ5MC4zNDY4IiB5PSI2MjMuNjM5NyI+JiMxNzE7cGVyc29uZW4mIzE4Nzs8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjAuNDE2NyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMDcuMTc3NSIgeD0iNDg1LjQ1OTgiIHk9IjY0Ny4wNjk5Ij5JbW1pZ3JhdGllPC90ZXh0PjwvZz48IS0tY2xhc3MgTmF0aW9uYWxpdGVpdC0tPjxnIGNsYXNzPSJlbnRpdHkiIGRhdGEtcXVhbGlmaWVkLW5hbWU9Ik5hdGlvbmFsaXRlaXQiIGRhdGEtc291cmNlLWxpbmU9IjM2IiBpZD0iZW50MDAwOCI+PHJlY3QgZmlsbD0iI0U4RjBGRSIgaGVpZ2h0PSI1OS4yMzkxIiByeD0iNC4zNzUiIHJ5PSI0LjM3NSIgc3R5bGU9InN0cm9rZTojMTk2N0QyO3N0cm9rZS13aWR0aDowLjcyOTI7IiB3aWR0aD0iMTI5LjQ4NTUiIHg9IjMyMi40MzI3IiB5PSI1OTkuNDI5MSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE3LjUiIGZvbnQtc3R5bGU9Iml0YWxpYyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI5Ny40MDM2IiB4PSIzMzguNDczNiIgeT0iNjIzLjYzOTciPiYjMTcxO3BlcnNvbmVuJiMxODc7PC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjIwLjQxNjciIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTIwLjczNTUiIHg9IjMyNi44MDc3IiB5PSI2NDcuMDY5OSI+TmF0aW9uYWxpdGVpdDwvdGV4dD48L2c+PCEtLWNsYXNzIEh1d2VsaWprLS0+PGcgY2xhc3M9ImVudGl0eSIgZGF0YS1xdWFsaWZpZWQtbmFtZT0iSHV3ZWxpamsiIGRhdGEtc291cmNlLWxpbmU9IjM3IiBpZD0iZW50MDAwOSI+PHJlY3QgZmlsbD0iI0U4RjBGRSIgaGVpZ2h0PSI1OS4yMzkxIiByeD0iNC4zNzUiIHJ5PSI0LjM3NSIgc3R5bGU9InN0cm9rZTojMTk2N0QyO3N0cm9rZS13aWR0aDowLjcyOTI7IiB3aWR0aD0iMTAwLjMyMDIiIHg9IjY5OS4xOTI4IiB5PSIxNy41Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTcuNSIgZm9udC1zdHlsZT0iaXRhbGljIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9Ijk3LjQwMzYiIHg9IjcwMC42NTExIiB5PSI0MS43MTA2Ij4mIzE3MTtwZXJzb25lbiYjMTg3OzwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIyMC40MTY3IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9Ijg0LjcyNzIiIHg9IjcwNi45ODkzIiB5PSI2NS4xNDA4Ij5IdXdlbGlqazwvdGV4dD48L2c+PCEtLWNsYXNzIFZlcmJsaWpmc3RpdGVsLS0+PGcgY2xhc3M9ImVudGl0eSIgZGF0YS1xdWFsaWZpZWQtbmFtZT0iVmVyYmxpamZzdGl0ZWwiIGRhdGEtc291cmNlLWxpbmU9IjM4IiBpZD0iZW50MDAxMCI+PHJlY3QgZmlsbD0iI0U4RjBGRSIgaGVpZ2h0PSI1OS4yMzkxIiByeD0iNC4zNzUiIHJ5PSI0LjM3NSIgc3R5bGU9InN0cm9rZTojMTk2N0QyO3N0cm9rZS13aWR0aDowLjcyOTI7IiB3aWR0aD0iMTI5LjA1NjgiIHg9IjE3LjUiIHk9IjU5OS40MjkxIi8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTcuNSIgZm9udC1zdHlsZT0iaXRhbGljIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9Ijk3LjQwMzYiIHg9IjMzLjMyNjYiIHk9IjYyMy42Mzk3Ij4mIzE3MTtwZXJzb25lbiYjMTg3OzwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIyMC40MTY3IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjEyMC4zMDY4IiB4PSIyMS44NzUiIHk9IjY0Ny4wNjk5Ij5WZXJibGlqZnN0aXRlbDwvdGV4dD48L2c+PCEtLWNsYXNzIEdlemFnc3ZlcmhvdWRpbmctLT48ZyBjbGFzcz0iZW50aXR5IiBkYXRhLXF1YWxpZmllZC1uYW1lPSJHZXphZ3N2ZXJob3VkaW5nIiBkYXRhLXNvdXJjZS1saW5lPSIzOSIgaWQ9ImVudDAwMTEiPjxyZWN0IGZpbGw9IiNFOEYwRkUiIGhlaWdodD0iNTkuMjM5MSIgcng9IjQuMzc1IiByeT0iNC4zNzUiIHN0eWxlPSJzdHJva2U6IzE5NjdEMjtzdHJva2Utd2lkdGg6MC43MjkyOyIgd2lkdGg9IjE5My4zMjc0IiB4PSI2MjYuMTc5IiB5PSI1OTkuNDI5MSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE3LjUiIGZvbnQtc3R5bGU9Iml0YWxpYyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI5Ny40MDM2IiB4PSI2NzQuMTQwOSIgeT0iNjIzLjYzOTciPiYjMTcxO3BlcnNvbmVuJiMxODc7PC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjIwLjQxNjciIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTg0LjU3NzQiIHg9IjYzMC41NTQiIHk9IjY0Ny4wNjk5Ij5HZXphZ3N2ZXJob3VkaW5nPC90ZXh0PjwvZz48ZyBjbGFzcz0iZW50aXR5IiBkYXRhLXF1YWxpZmllZC1uYW1lPSJHTU4yMiIgZGF0YS1zb3VyY2UtbGluZT0iNTUiIGlkPSJlbnQwMDIzIj48cGF0aCBkPSJNMzUuNjQ4Myw3MjEuMzc2NSBMMzUuNjQ4Myw3NzEuODY1NiBBNC4zNzUsNC4zNzUgMCAwIDAgNDAuMDIzMyw3NzYuMjQwNiBMNDI4Ljk2NjEsNzc2LjI0MDYgQTQuMzc1LDQuMzc1IDAgMCAwIDQzMy4zNDExLDc3MS44NjU2IEw0MzMuMzQxMSw3MzEuNTg0OSBMNDE4Ljc1NzgsNzE3LjAwMTUgTDQwLjAyMzMsNzE3LjAwMTUgQTQuMzc1LDQuMzc1IDAgMCAwIDM1LjY0ODMsNzIxLjM3NjUiIGZpbGw9IiNGRkZDRDgiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MC43MjkyOyIvPjxwYXRoIGQ9Ik00MTguNzU3OCw3MTcuMDAxNSBMNDE4Ljc1NzgsNzI5LjM5NzQgQTIuMTg3NSwyLjE4NzUgMCAwIDAgNDIwLjk0NTMsNzMxLjU4NDkgTDQzMy4zNDExLDczMS41ODQ5IEw0MTguNzU3OCw3MTcuMDAxNSIgZmlsbD0iI0ZGRkNEOCIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjQ1ODM7Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTguOTU4MyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIyNTguMzA3MyIgeD0iNDQuMzk4MyIgeT0iNzQyLjYyMjEiPkJSUC1HQkEgJiM4MjEyOyB3b29udCBvcCBBZHJlczwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOC45NTgzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjM2Ny4wNjc4IiB4PSI0NC4zOTgzIiB5PSI3NjQuOTUiPih6aWUgZGVlbG1vZGVsIEFkcmVzc2VuIGVuIGdlYm91d2VuKS48L3RleHQ+PC9nPjxnIGNsYXNzPSJlbnRpdHkiIGRhdGEtcXVhbGlmaWVkLW5hbWU9IkdNTjI1IiBkYXRhLXNvdXJjZS1saW5lPSI2MCIgaWQ9ImVudDAwMjYiPjxwYXRoIGQ9Ik03MjYuNTU5NCw3MjEuMzc2NSBMNzI2LjU1OTQsNzQ5LjUzNzggQTQuMzc1LDQuMzc1IDAgMCAwIDczMC45MzQ0LDc1My45MTI4IEwxMTIzLjk1MDIsNzUzLjkxMjggQTQuMzc1LDQuMzc1IDAgMCAwIDExMjguMzI1Miw3NDkuNTM3OCBMMTEyOC4zMjUyLDczMS41ODQ5IEwxMTEzLjc0MTksNzE3LjAwMTUgTDczMC45MzQ0LDcxNy4wMDE1IEE0LjM3NSw0LjM3NSAwIDAgMCA3MjYuNTU5NCw3MjEuMzc2NSIgZmlsbD0iI0ZGRkNEOCIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDowLjcyOTI7Ii8+PHBhdGggZD0iTTExMTMuNzQxOSw3MTcuMDAxNSBMMTExMy43NDE5LDcyOS4zOTc0IEEyLjE4NzUsMi4xODc1IDAgMCAwIDExMTUuOTI5NCw3MzEuNTg0OSBMMTEyOC4zMjUyLDczMS41ODQ5IEwxMTEzLjc0MTksNzE3LjAwMTUiIGZpbGw9IiNGRkZDRDgiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS40NTgzOyIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4Ljk1ODMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMzcxLjE0MDgiIHg9IjczNS4zMDk0IiB5PSI3NDIuNjIyMSI+QlJQLVJOSSAmIzgyMTI7IHR5cGlzY2ggb3AgQnVpdGVubGFuZHNhZHJlcy48L3RleHQ+PC9nPjxnIGNsYXNzPSJlbnRpdHkiIGRhdGEtcXVhbGlmaWVkLW5hbWU9IkdNTjI4IiBkYXRhLXNvdXJjZS1saW5lPSI2NCIgaWQ9ImVudDAwMjkiPjxwYXRoIGQ9Ik0yNzUuMTk1OSwyMDkuMzQ3NyBMMjc1LjE5NTksMjgyLjE2NDcgQTQuMzc1LDQuMzc1IDAgMCAwIDI3OS41NzA5LDI4Ni41Mzk3IEw1OTYuMDY4NCwyODYuNTM5NyBBNC4zNzUsNC4zNzUgMCAwIDAgNjAwLjQ0MzQsMjgyLjE2NDcgTDYwMC40NDM0LDIxOS41NTYxIEw1ODUuODYwMSwyMDQuOTcyNyBMMjc5LjU3MDksMjA0Ljk3MjcgQTQuMzc1LDQuMzc1IDAgMCAwIDI3NS4xOTU5LDIwOS4zNDc3IiBmaWxsPSIjRkZGQ0Q4IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNzI5MjsiLz48cGF0aCBkPSJNNTg1Ljg2MDEsMjA0Ljk3MjcgTDU4NS44NjAxLDIxNy4zNjg2IEEyLjE4NzUsMi4xODc1IDAgMCAwIDU4OC4wNDc2LDIxOS41NTYxIEw2MDAuNDQzNCwyMTkuNTU2MSBMNTg1Ljg2MDEsMjA0Ljk3MjciIGZpbGw9IiNGRkZDRDgiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS40NTgzOyIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4Ljk1ODMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMjcwLjI1ODEiIHg9IjI4My45NDU5IiB5PSIyMzAuNTkzMyI+VHVzc2VuIDIgTmF0dXVybGlqa1BlcnNvbmVuLjwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOC45NTgzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjI5NC42MjI1IiB4PSIyODMuOTQ1OSIgeT0iMjUyLjkyMTEiPkluY2wuIGdlcmVnaXN0cmVlcmQgcGFydG5lcnNjaGFwPC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4Ljk1ODMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTkwLjAxODQiIHg9IjI4My45NDU5IiB5PSIyNzUuMjQ5Ij52aWEgc29vcnRWZXJiaW50ZW5pcy48L3RleHQ+PC9nPjxsaW5lIHN0eWxlPSJzdHJva2U6IzQ0NDQ0NDtzdHJva2Utd2lkdGg6MS40NTgzOyIgeDE9Ijg4MC4zNDgiIHgyPSI4ODAuMzQ4IiB5MT0iNzYuNzM5MSIgeTI9IjIyMC41MTE3Ii8+PHBvbHlnb24gZmlsbD0iI0ZGRkZGRiIgcG9pbnRzPSI4ODAuMzQ4LDc2LjczOTEsODcwLjEzOTcsMTA0LjQ0NzQsODkwLjU1NjMsMTA0LjQ0NzQsODgwLjM0OCw3Ni43MzkxIiBzdHlsZT0ic3Ryb2tlOiM0NDQ0NDQ7c3Ryb2tlLXdpZHRoOjEuNDU4MzsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiM0NDQ0NDQ7c3Ryb2tlLXdpZHRoOjEuNDU4MzsiIHgxPSI4NDkuNDIxMSIgeDI9Ijg0OS40MjExIiB5MT0iMjc5Ljc1MDgiIHkyPSIzNDQuODczIi8+PHBvbHlnb24gZmlsbD0iI0ZGRkZGRiIgcG9pbnRzPSI4NDkuNDIxMSwyNzkuNzUwOCw4MzkuMjEyNywzMDcuNDU5MSw4NTkuNjI5NCwzMDcuNDU5MSw4NDkuNDIxMSwyNzkuNzUwOCIgc3R5bGU9InN0cm9rZTojNDQ0NDQ0O3N0cm9rZS13aWR0aDoxLjQ1ODM7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojNDQ0NDQ0O3N0cm9rZS13aWR0aDoxLjQ1ODM7IiB4MT0iODAyLjYwODMiIHgyPSI4MDIuNjA4MyIgeTE9IjQwNC4xMTIxIiB5Mj0iNDU4LjUyMzQiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiM0NDQ0NDQ7c3Ryb2tlLXdpZHRoOjEuNDU4MzsiIHgxPSI4MDIuNjA4MyIgeDI9IjIzNC40OTQ3IiB5MT0iNDU4LjUyMzQiIHkyPSI0NTguNTIzNCIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzQ0NDQ0NDtzdHJva2Utd2lkdGg6MS40NTgzOyIgeDE9IjIzNC40OTQ3IiB4Mj0iMjM0LjQ5NDciIHkxPSI0NTguNTIzNCIgeTI9IjU4Ni44MDY4Ii8+PHBvbHlnb24gZmlsbD0iI0ZGRkZGRiIgcG9pbnRzPSI4MDIuNjA4Myw0MDQuMTEyMSw3OTIuNCw0MzEuODIwNSw4MTIuODE2Nyw0MzEuODIwNSw4MDIuNjA4Myw0MDQuMTEyMSIgc3R5bGU9InN0cm9rZTojNDQ0NDQ0O3N0cm9rZS13aWR0aDoxLjQ1ODM7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojNDQ0NDQ0O3N0cm9rZS13aWR0aDoxLjQ1ODM7IiB4MT0iOTI3LjQ0MjMiIHgyPSI5MjcuNDQyMyIgeTE9IjQwNC4xMTIxIiB5Mj0iNTg2LjgwNjgiLz48cG9seWdvbiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjkyNy40NDIzLDQwNC4xMTIxLDkxNy4yMzQsNDMxLjgyMDUsOTM3LjY1MDcsNDMxLjgyMDUsOTI3LjQ0MjMsNDA0LjExMjEiIHN0eWxlPSJzdHJva2U6IzQ0NDQ0NDtzdHJva2Utd2lkdGg6MS40NTgzOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzQ0NDQ0NDtzdHJva2Utd2lkdGg6MS40NTgzOyIgeDE9Ijc1Ni42NDAzIiB4Mj0iNzQyLjA1NyIgeTE9IjI0MC4yNTgiIHkyPSIyNDAuMjU4Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojNDQ0NDQ0O3N0cm9rZS13aWR0aDoxLjQ1ODM7IiB4MT0iNzQyLjA1NyIgeDI9Ijc0Mi4wNTciIHkxPSIyNDAuMjU4IiB5Mj0iMjYwLjAwNDQiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiM0NDQ0NDQ7c3Ryb2tlLXdpZHRoOjEuNDU4MzsiIHgxPSI3NDIuMDU3IiB4Mj0iNzU2LjY0MDMiIHkxPSIyNjAuMDA0NCIgeTI9IjI2MC4wMDQ0Ii8+PHBvbHlnb24gZmlsbD0iIzQ0NDQ0NCIgcG9pbnRzPSI3NTYuNjQwMywyNjAuMDA0NCw3NjIuNDczNywyNDYuODc5NCw3NTYuNjQwMywyNTIuNzEyNyw3NTAuODA3LDI0Ni44Nzk0LDc1Ni42NDAzLDI2MC4wMDQ0IiBzdHlsZT0ic3Ryb2tlOiM0NDQ0NDQ7c3Ryb2tlLXdpZHRoOjEuNDU4MzsiLz48dGV4dCBmaWxsPSIjMzMzMzMzIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOC45NTgzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjEwMy42OTY5IiB4PSI2MzIuNTI2OCIgeT0iMjM0Ljk2ODMiPmhlZWZ0T3VkZXI8L3RleHQ+PHRleHQgZmlsbD0iIzMzMzMzMyIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTguOTU4MyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIzMy4xMjE1IiB4PSI3MDYuMDE4OCIgeT0iMjYwLjIxMjgiPjAuLio8L3RleHQ+PHRleHQgZmlsbD0iIzMzMzMzMyIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTguOTU4MyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIzNS45NzI3IiB4PSI3MDMuMTY3NiIgeT0iMjgyLjU0MDciPjAuLjI8L3RleHQ+PGxpbmUgc3R5bGU9InN0cm9rZTojNDQ0NDQ0O3N0cm9rZS13aWR0aDoxLjQ1ODM7IiB4MT0iNzY2LjA3MyIgeDI9Ijc2Ni4wNzMiIHkxPSI3Ni43MzkxIiB5Mj0iMTczLjg5NDkiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiM0NDQ0NDQ7c3Ryb2tlLXdpZHRoOjEuNDU4MzsiIHgxPSI3NjYuMDczIiB4Mj0iODE4LjQ5NDIiIHkxPSIxNzMuODk0OSIgeTI9IjE3My44OTQ5Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojNDQ0NDQ0O3N0cm9rZS13aWR0aDoxLjQ1ODM7IiB4MT0iODE4LjQ5NDIiIHgyPSI4MTguNDk0MiIgeTE9IjE3My44OTQ5IiB5Mj0iMjIwLjUxMTciLz48cG9seWdvbiBmaWxsPSIjNDQ0NDQ0IiBwb2ludHM9IjgxOC40OTQyLDIyMC41MTE3LDgyNC4zMjc1LDIwNy4zODY3LDgxOC40OTQyLDIxMy4yMiw4MTIuNjYwOCwyMDcuMzg2Nyw4MTguNDk0MiwyMjAuNTExNyIgc3R5bGU9InN0cm9rZTojNDQ0NDQ0O3N0cm9rZS13aWR0aDoxLjQ1ODM7Ii8+PHRleHQgZmlsbD0iIzMzMzMzMyIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTguOTU4MyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI3Ni45OTk3IiB4PSI2ODMuMjM5OSIgeT0iMTUyLjM5NTgiPnBhcnRuZXJzPC90ZXh0Pjx0ZXh0IGZpbGw9IiMzMzMzMzMiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4Ljk1ODMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTEuOTg3OCIgeD0iNzcwLjQ0OCIgeT0iOTcuOTg0NiI+MTwvdGV4dD48dGV4dCBmaWxsPSIjMzMzMzMzIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOC45NTgzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjExLjk4NzgiIHg9IjgyMi44NjkyIiB5PSIyMDYuODA3Ij4yPC90ZXh0PjxsaW5lIHN0eWxlPSJzdHJva2U6IzQ0NDQ0NDtzdHJva2Utd2lkdGg6MS40NTgzOyIgeDE9IjgzMy44MTY4IiB4Mj0iODMzLjgxNjgiIHkxPSI0MDQuMTEyMSIgeTI9IjQ3My4xMDY3Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojNDQ0NDQ0O3N0cm9rZS13aWR0aDoxLjQ1ODM7IiB4MT0iODMzLjgxNjgiIHgyPSIzODcuMTc1NCIgeTE9IjQ3My4xMDY3IiB5Mj0iNDczLjEwNjciLz48bGluZSBzdHlsZT0ic3Ryb2tlOiM0NDQ0NDQ7c3Ryb2tlLXdpZHRoOjEuNDU4MzsiIHgxPSIzODcuMTc1NCIgeDI9IjM4Ny4xNzU0IiB5MT0iNDczLjEwNjciIHkyPSI1OTkuNDI5MSIvPjxwb2x5Z29uIGZpbGw9IiM0NDQ0NDQiIHBvaW50cz0iMzg3LjE3NTQsNTk5LjQyOTEsMzkzLjAwODcsNTg2LjMwNDEsMzg3LjE3NTQsNTkyLjEzNzUsMzgxLjM0MjEsNTg2LjMwNDEsMzg3LjE3NTQsNTk5LjQyOTEiIHN0eWxlPSJzdHJva2U6IzQ0NDQ0NDtzdHJva2Utd2lkdGg6MS40NTgzOyIvPjx0ZXh0IGZpbGw9IiMzMzMzMzMiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4Ljk1ODMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iNDYuOTUxNSIgeD0iMzM0LjM5MDYiIHk9IjUzOC4xMDIyIj5oZWVmdDwvdGV4dD48dGV4dCBmaWxsPSIjMzMzMzMzIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOC45NTgzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjExLjk4NzgiIHg9IjgzOC4xOTE4IiB5PSI0MjUuMzU3NyI+MTwvdGV4dD48dGV4dCBmaWxsPSIjMzMzMzMzIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOC45NTgzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjMzLjEyMTUiIHg9IjM5MS41NTA0IiB5PSI1OTIuNTEzNCI+MC4uKjwvdGV4dD48bGluZSBzdHlsZT0ic3Ryb2tlOiM0NDQ0NDQ7c3Ryb2tlLXdpZHRoOjEuNDU4MzsiIHgxPSI3NzEuMzk5OCIgeDI9Ijc3MS4zOTk4IiB5MT0iNDA0LjExMjEiIHkyPSI0NDMuOTQiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiM0NDQ0NDQ7c3Ryb2tlLXdpZHRoOjEuNDU4MzsiIHgxPSI3NzEuMzk5OCIgeDI9IjgyLjAyODQiIHkxPSI0NDMuOTQiIHkyPSI0NDMuOTQiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiM0NDQ0NDQ7c3Ryb2tlLXdpZHRoOjEuNDU4MzsiIHgxPSI4Mi4wMjg0IiB4Mj0iODIuMDI4NCIgeTE9IjQ0My45NCIgeTI9IjU5OS40MjkxIi8+PHBvbHlnb24gZmlsbD0iIzQ0NDQ0NCIgcG9pbnRzPSI4Mi4wMjg0LDU5OS40MjkxLDg3Ljg2MTcsNTg2LjMwNDEsODIuMDI4NCw1OTIuMTM3NSw3Ni4xOTUxLDU4Ni4zMDQxLDgyLjAyODQsNTk5LjQyOTEiIHN0eWxlPSJzdHJva2U6IzQ0NDQ0NDtzdHJva2Utd2lkdGg6MS40NTgzOyIvPjx0ZXh0IGZpbGw9IiMzMzMzMzMiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4Ljk1ODMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iNDYuOTUxNSIgeD0iMjkuMjQzNiIgeT0iNTM4LjEwMjIiPmhlZWZ0PC90ZXh0Pjx0ZXh0IGZpbGw9IiMzMzMzMzMiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4Ljk1ODMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTEuOTg3OCIgeD0iNzc1Ljc3NDgiIHk9IjQyNS4zNTc3Ij4xPC90ZXh0Pjx0ZXh0IGZpbGw9IiMzMzMzMzMiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4Ljk1ODMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMzUuOTcyNyIgeD0iODYuNDAzNCIgeT0iNTkyLjUxMzQiPjAuLjE8L3RleHQ+PGxpbmUgc3R5bGU9InN0cm9rZTojNDQ0NDQ0O3N0cm9rZS13aWR0aDoxLjQ1ODM7IiB4MT0iODk2LjIzMzgiIHgyPSI4OTYuMjMzOCIgeTE9IjQwNC4xMTIxIiB5Mj0iNTAyLjI3MzQiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiM0NDQ0NDQ7c3Ryb2tlLXdpZHRoOjEuNDU4MzsiIHgxPSI4OTYuMjMzOCIgeDI9IjcyMi44NDI3IiB5MT0iNTAyLjI3MzQiIHkyPSI1MDIuMjczNCIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzQ0NDQ0NDtzdHJva2Utd2lkdGg6MS40NTgzOyIgeDE9IjcyMi44NDI3IiB4Mj0iNzIyLjg0MjciIHkxPSI1MDIuMjczNCIgeTI9IjU5OS40MjkxIi8+PHBvbHlnb24gZmlsbD0iIzQ0NDQ0NCIgcG9pbnRzPSI3MjIuODQyNyw1OTkuNDI5MSw3MjguNjc2LDU4Ni4zMDQxLDcyMi44NDI3LDU5Mi4xMzc1LDcxNy4wMDk0LDU4Ni4zMDQxLDcyMi44NDI3LDU5OS40MjkxIiBzdHlsZT0ic3Ryb2tlOiM0NDQ0NDQ7c3Ryb2tlLXdpZHRoOjEuNDU4MzsiLz48dGV4dCBmaWxsPSIjMzMzMzMzIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOC45NTgzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjU1LjU0MiIgeD0iNjYxLjQ2NzQiIHk9IjUzOC4xMDIyIj5nZXphZzwvdGV4dD48dGV4dCBmaWxsPSIjMzMzMzMzIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOC45NTgzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjExLjk4NzgiIHg9IjkwMC42MDg4IiB5PSI0MjUuMzU3NyI+MTwvdGV4dD48dGV4dCBmaWxsPSIjMzMzMzMzIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOC45NTgzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjM1Ljk3MjciIHg9IjcyNy4yMTc3IiB5PSI1OTIuNTEzNCI+MC4uMTwvdGV4dD48bGluZSBzdHlsZT0ic3Ryb2tlOiM0NDQ0NDQ7c3Ryb2tlLXdpZHRoOjEuNDU4MzsiIHgxPSI4NjUuMDI1MyIgeDI9Ijg2NS4wMjUzIiB5MT0iNDA0LjExMjEiIHkyPSI0ODcuNjkiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiM0NDQ0NDQ7c3Ryb2tlLXdpZHRoOjEuNDU4MzsiIHgxPSI4NjUuMDI1MyIgeDI9IjUzOS4wNDg2IiB5MT0iNDg3LjY5IiB5Mj0iNDg3LjY5Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojNDQ0NDQ0O3N0cm9rZS13aWR0aDoxLjQ1ODM7IiB4MT0iNTM5LjA0ODYiIHgyPSI1MzkuMDQ4NiIgeTE9IjQ4Ny42OSIgeTI9IjU5OS40MjkxIi8+PHBvbHlnb24gZmlsbD0iIzQ0NDQ0NCIgcG9pbnRzPSI1MzkuMDQ4Niw1OTkuNDI5MSw1NDQuODgxOSw1ODYuMzA0MSw1MzkuMDQ4Niw1OTIuMTM3NSw1MzMuMjE1Miw1ODYuMzA0MSw1MzkuMDQ4Niw1OTkuNDI5MSIgc3R5bGU9InN0cm9rZTojNDQ0NDQ0O3N0cm9rZS13aWR0aDoxLjQ1ODM7Ii8+PHRleHQgZmlsbD0iIzMzMzMzMyIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTguOTU4MyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI0Ni45NTE1IiB4PSI0ODYuMjYzNyIgeT0iNTM4LjEwMjIiPmhlZWZ0PC90ZXh0Pjx0ZXh0IGZpbGw9IiMzMzMzMzMiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4Ljk1ODMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTEuOTg3OCIgeD0iODY5LjQwMDMiIHk9IjQyNS4zNTc3Ij4xPC90ZXh0Pjx0ZXh0IGZpbGw9IiMzMzMzMzMiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4Ljk1ODMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMzUuOTcyNyIgeD0iNTQzLjQyMzYiIHk9IjU5Mi41MTM0Ij4wLi4xPC90ZXh0PjxsaW5lIHN0eWxlPSJzdHJva2U6IzQ0NDQ0NDtzdHJva2Utd2lkdGg6MS40NTgzO3N0cm9rZS1kYXNoYXJyYXk6MTAuMjA4MywxMC4yMDgzOyIgeDE9IjIzNC40OTQ3IiB4Mj0iMjM0LjQ5NDciIHkxPSI2NDYuMDQ1OSIgeTI9IjcxNy4wMDE1Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojNDQ0NDQ0O3N0cm9rZS13aWR0aDoxLjQ1ODM7c3Ryb2tlLWRhc2hhcnJheToxMC4yMDgzLDEwLjIwODM7IiB4MT0iOTI3LjQ0MjMiIHgyPSI5MjcuNDQyMyIgeTE9IjY0Ni4wNDU5IiB5Mj0iNzE3LjAwMTUiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiM0NDQ0NDQ7c3Ryb2tlLXdpZHRoOjEuNDU4MztzdHJva2UtZGFzaGFycmF5OjEwLjIwODMsMTAuMjA4MzsiIHgxPSI3MzIuNjMyOSIgeDI9IjczMi42MzI5IiB5MT0iNzYuNzM5MSIgeTI9IjExNi41NjciLz48bGluZSBzdHlsZT0ic3Ryb2tlOiM0NDQ0NDQ7c3Ryb2tlLXdpZHRoOjEuNDU4MztzdHJva2UtZGFzaGFycmF5OjEwLjIwODMsMTAuMjA4MzsiIHgxPSI3MzIuNjMyOSIgeDI9IjQzNy44MTk3IiB5MT0iMTE2LjU2NyIgeTI9IjExNi41NjciLz48bGluZSBzdHlsZT0ic3Ryb2tlOiM0NDQ0NDQ7c3Ryb2tlLXdpZHRoOjEuNDU4MztzdHJva2UtZGFzaGFycmF5OjEwLjIwODMsMTAuMjA4MzsiIHgxPSI0MzcuODE5NyIgeDI9IjQzNy44MTk3IiB5MT0iMTE2LjU2NyIgeTI9IjIwNC45NzI3Ii8+PD9wbGFudHVtbC1zcmMgYkxKQlJqaW00QnBwQXhSa2ZJclc4eXdoSUgwT2k1Q3V5U0tEcWc5dElibjlaMmJJZUFXT1NNa1c3ejRseDlUcUFTazZlYVZKS1plOGt4Q3htcmJJUnBCQnV2STN1aS1jUzgxZ25MWS1hWmhaYmdTV0NXZFpxd0RROTVHeXB3VkVNSGFLM1hVWHFMX2ExZzRFb0hDa3A1aGc2MkFrU2duYmgyY3FrMzVNZXVOcE1scDZEdnRuUzFMTjI2S2lsOXJGX1RFMjZJbEdMZjJwU2pLV0tzbERrYWdVYmdrUGQxbGpBaTE5a01nMGZON09iWjZWdHRvd084YUsyOVhjeFhiSUowRXEtSXVLSVhpZ1A0c0JoZy12WVo1NXI5QzlWNlMwaFJ4SDJQdjVQcHZKdHo0djdtVU5kQTl0bzJkUUx4TGp5c0thb1VYLUZobzhaWTlpeWVxbHBwLUF1dHctZ2NoQlU5MHhvcUV0ZXVEeFJmcnlYRmVzNk5DY0hmVkdTQnMwN014OU5MNU85SHpOenJ3VnFMMU5VZTBqVDhudmM1WHlHbHFnUzhDRUROUmRibjlUN3NSUmdOMkhmWkFzdENjLVpmR29jWWxmS0Jma281c25IaF81eGttdGowNWJlem5IMnpNRGtTS0RaX0NkajhhZlhCeXdKVTV4bHR5Q1hzckZNT1ZCN2paWEFranFVV19Va1RRRlVVYWt3LTBUNzhyNjdtT203NHhBcC1EMW5tY3VXV0duU2Z5QkVkM2l1RHJXTjlOcnJEMVhUemZWa292clgtOFRfU2tQTE5vbDVqOWRPclJfS1RjUXUxTjRGbEdsalJLWms2VGFjbHY1NDFaZEowZWNnYS03UmwzM19WMXNEZU5WRnRfMWNsZXZDMWJDWFNNU2FreXNyNE9XZ2pHOHNhOFBwYjQzbEo0NlhrcE14cVNDakcxRnFJOWdaN1g3emgxU2I2SmtFUEVxNXF5dEF5V1hoUldNRVZTS1ZzY3Y3cDRyLXJnS01ld1I0d1BwRmdCcUdlVGdIMzhqbmY5LUR1WE03RU9VOVptWm85RmFHMXZRdnFTYkRNY0dUVXVfPz48L2c+PC9zdmc+" class="uml" alt="GBO PlantUML class-diagram" title="GBO" /></a></p>
+<h2 id="objecttypen">Objecttypen<a class="headerlink" href="#objecttypen" title="Permanent link">&para;</a></h2>
+<h3 id="ingeschrevenpersoon">IngeschrevenPersoon<a class="headerlink" href="#ingeschrevenpersoon" title="Permanent link">&para;</a></h3>
+<p><strong>Definitie</strong>: Een natuurlijke persoon die in de Basisregistratie Personen is
+opgenomen, hetzij als ingezetene van een Nederlandse gemeente, hetzij als
+niet-ingezetene in de Registratie Niet-Ingezetenen.</p>
+<p><strong>Herkomst definitie</strong>: Wet BRP art. 1.2 en art. 2.1; Logisch Ontwerp BRP
+v4.3.0 §1 (registratiedomein BRP).</p>
+<p><strong>Toelichting</strong>: IngeschrevenPersoon is de drager van de
+BRP-persoonslijst-gegevens (identificatienummers, bijhouding-status,
+kiesrechtgegevens) en het aanknopingspunt voor de
+BRP-persoonslijst-categorieën (nationaliteit, huwelijk, verblijfstitel,
+gezagsverhouding, immigratie). Het objecttype draagt het Voorkomen-mixin
+zodat alle BRP-gegevens bitemporeel kunnen worden gevoerd. De twee
+concrete varianten Ingezetene en NietIngezetene staan onder dit
+objecttype.</p>
+<table>
+<thead>
+<tr>
+<th>MIM-veld</th>
+<th>Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Naam</td>
+<td>IngeschrevenPersoon</td>
+</tr>
+<tr>
+<td>Begrip (URI)</td>
+<td><code>https://begrippen.gbo-semantiek.nl/id/begrip/IngeschrevenPersoon</code></td>
+</tr>
+<tr>
+<td>Herkomst</td>
+<td>BRP</td>
+</tr>
+<tr>
+<td>Datum opname</td>
+<td>2026-04-28</td>
+</tr>
+<tr>
+<td>Indicatie abstract object</td>
+<td>Ja</td>
+</tr>
+<tr>
+<td>Unieke aanduiding</td>
+<td><code>bsn</code></td>
+</tr>
+<tr>
+<td>Populatie</td>
+<td>Alle natuurlijke personen met een actieve of opgeschorte BRP-inschrijving (BRP-GBA of BRP-RNI).</td>
+</tr>
+<tr>
+<td>Kwaliteit</td>
+<td>Geborgd via BRP-bijhouding-status: <code>opschortingBijhouding</code>, <code>inOnderzoek</code>, <code>verificatie</code>.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Attribuutsoorten</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Naam</th>
+<th>Type</th>
+<th>Kard.</th>
+<th>Authentiek</th>
+<th>Mat. hist.</th>
+<th>Form. hist.</th>
+<th>Definitie</th>
+<th>Herkomst</th>
+<th>Toelichting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bsn</code></td>
+<td>Numeriek9</td>
+<td>1</td>
+<td>Authentiek</td>
+<td>Ja</td>
+<td>Ja</td>
+<td>Het door de Beheervoorziening BSN uitgegeven persoonsnummer.</td>
+<td>BRP cat 01 grp 01</td>
+<td>Primaire identifier; uniek per actieve inschrijving.</td>
+</tr>
+<tr>
+<td><code>aNummer</code></td>
+<td>Alfanumeriek10</td>
+<td>0..1</td>
+<td>Basisgegeven</td>
+<td>Ja</td>
+<td>Ja</td>
+<td>Het interne BRP-administratienummer.</td>
+<td>BRP cat 01 grp 01</td>
+<td>Intern BRP, niet als externe identifier gebruikt.</td>
+</tr>
+<tr>
+<td><code>tin</code></td>
+<td>Alfanumeriek</td>
+<td>0..1</td>
+<td>Basisgegeven</td>
+<td>Ja</td>
+<td>Ja</td>
+<td>Het persoonsnummer dat een ander land aan deze persoon heeft toegekend.</td>
+<td>BRP cat 04 grp 73</td>
+<td>Alleen aanwezig binnen een EU-nationaliteit-stapel.</td>
+</tr>
+<tr>
+<td><code>datumEersteInschrijving</code></td>
+<td>DatumIncompleet</td>
+<td>0..1</td>
+<td>Basisgegeven</td>
+<td>Ja</td>
+<td>Ja</td>
+<td>De datum waarop deze persoon voor het eerst in de BRP werd opgenomen.</td>
+<td>BRP cat 07 grp 67</td>
+<td></td>
+</tr>
+<tr>
+<td><code>gemeenteVanInschrijving</code></td>
+<td><code>Codelijst~LT33</code></td>
+<td>0..1</td>
+<td>Basisgegeven</td>
+<td>Ja</td>
+<td>Ja</td>
+<td>De gemeente die de persoonslijst bijhoudt.</td>
+<td>BRP cat 07 grp 67</td>
+<td>Voor RNI-inschrijvingen leeg of gevuld met een RNI-deelnemer-equivalent.</td>
+</tr>
+<tr>
+<td><code>opschortingBijhouding</code></td>
+<td><code>OpschortingBijhouding</code></td>
+<td>0..1</td>
+<td>Basisgegeven</td>
+<td>Ja</td>
+<td>Ja</td>
+<td>Reden waarom bijhouding van de persoonslijst is opgeschort.</td>
+<td>BRP cat 07 grp 67</td>
+<td>Bijhouding stopt bij overlijden, emigratie of opname in RNI.</td>
+</tr>
+<tr>
+<td><code>uitsluitingKiesrecht</code></td>
+<td><code>UitsluitingKiesrecht</code></td>
+<td>0..1</td>
+<td>Basisgegeven</td>
+<td>Ja</td>
+<td>Ja</td>
+<td>Aanduiding dat de persoon van het kiesrecht is uitgesloten.</td>
+<td>BRP cat 13</td>
+<td>Rechterlijke uitspraak conform Kieswet.</td>
+</tr>
+<tr>
+<td><code>europeesKiesrecht</code></td>
+<td><code>EuropeesKiesrecht</code></td>
+<td>0..1</td>
+<td>Basisgegeven</td>
+<td>Ja</td>
+<td>Ja</td>
+<td>Aanduiding dat de persoon kiesgerechtigd is voor het Europees Parlement vanuit Nederland.</td>
+<td>BRP cat 13</td>
+<td>Relevant voor EU-onderdanen die in Nederland het Europees kiesrecht uitoefenen.</td>
+</tr>
+<tr>
+<td><code>verificatie</code></td>
+<td><code>Verificatie</code></td>
+<td>0..1</td>
+<td>Basisgegeven</td>
+<td>Ja</td>
+<td>Ja</td>
+<td>Datum en bron van de laatste gegevensverificatie.</td>
+<td>BRP cat 07</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inOnderzoek</code></td>
+<td>Indicatie</td>
+<td>1</td>
+<td>Basisgegeven</td>
+<td>Ja</td>
+<td>Ja</td>
+<td>Indicatie dat een of meer gegevens van de persoonslijst onderwerp zijn van onderzoek.</td>
+<td>BRP cat 07</td>
+<td>Datakwaliteits-flag.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Relatiesoorten</strong> (uitgaand):</p>
+<table>
+<thead>
+<tr>
+<th>Naam</th>
+<th>Doel</th>
+<th>Kard. (bron→doel)</th>
+<th>Authentiek</th>
+<th>Mat. hist.</th>
+<th>Form. hist.</th>
+<th>Toelichting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>heeft</td>
+<td>Nationaliteit</td>
+<td>1 → 0..*</td>
+<td>Authentiek</td>
+<td>Ja</td>
+<td>Ja</td>
+<td>Nationaliteiten conform BRP cat 04.</td>
+</tr>
+<tr>
+<td>heeft</td>
+<td>Verblijfstitel</td>
+<td>1 → 0..1</td>
+<td>Basisgegeven</td>
+<td>Ja</td>
+<td>Ja</td>
+<td>Aanwezig bij niet-Nederlandse onderdanen.</td>
+</tr>
+<tr>
+<td>gezag</td>
+<td>Gezagsverhouding</td>
+<td>1 → 0..1</td>
+<td>Basisgegeven</td>
+<td>Ja</td>
+<td>Ja</td>
+<td>Aanwezig bij minderjarigheid of curatele.</td>
+</tr>
+<tr>
+<td>heeft</td>
+<td>Immigratie</td>
+<td>1 → 0..1</td>
+<td>Basisgegeven</td>
+<td>Ja</td>
+<td>Ja</td>
+<td>Aanwezig bij vestiging vanuit het buitenland.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ingezetene">Ingezetene<a class="headerlink" href="#ingezetene" title="Permanent link">&para;</a></h3>
+<p><strong>Definitie</strong>: Een ingeschreven persoon die zijn adres heeft op het
+grondgebied van een Nederlandse gemeente en daar door die gemeente in de
+basisregistratie wordt bijgehouden.</p>
+<p><strong>Herkomst definitie</strong>: Wet BRP art. 1.1 onder e (definitie ingezetene)
+en art. 2.4; Logisch Ontwerp BRP v4.3.0 §1.5 (BRP-GBA-spoor).</p>
+<p><strong>Toelichting</strong>: Ingezetene is het BRP-GBA-spoor, de gemeentelijk
+bijgehouden tak van de basisregistratie. Een Ingezetene woont op een
+Binnenlandsadres of, in uitzonderingsgevallen, op een Postadres
+(briefadres) of een verblijfplaats-aanduiding zonder vast adres. Het
+verband Adres ↔ Ingezetene draagt zelf het Voorkomen-mixin voor
+verblijfshistorie.</p>
+<table>
+<thead>
+<tr>
+<th>MIM-veld</th>
+<th>Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Naam</td>
+<td>Ingezetene</td>
+</tr>
+<tr>
+<td>Begrip (URI)</td>
+<td><code>https://begrippen.gbo-semantiek.nl/id/begrip/Ingezetene</code></td>
+</tr>
+<tr>
+<td>Herkomst</td>
+<td>BRP</td>
+</tr>
+<tr>
+<td>Datum opname</td>
+<td>2026-04-28</td>
+</tr>
+<tr>
+<td>Unieke aanduiding</td>
+<td><code>bsn</code> (geërfd)</td>
+</tr>
+<tr>
+<td>Populatie</td>
+<td>Alle in een Nederlandse gemeente ingeschreven natuurlijke personen, met of zonder Nederlandse nationaliteit.</td>
+</tr>
+<tr>
+<td>Kwaliteit</td>
+<td>Geborgd via BRP-bijhouding (gemeente verantwoordelijk).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Attribuutsoorten</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Naam</th>
+<th>Type</th>
+<th>Kard.</th>
+<th>Authentiek</th>
+<th>Mat. hist.</th>
+<th>Form. hist.</th>
+<th>Definitie</th>
+<th>Herkomst</th>
+<th>Toelichting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>datumInschrijvingGemeente</code></td>
+<td>Datum</td>
+<td>0..1</td>
+<td>Basisgegeven</td>
+<td>Ja</td>
+<td>Ja</td>
+<td>De datum waarop de persoon zich in de huidige gemeente heeft ingeschreven.</td>
+<td>BRP cat 07 grp 67</td>
+<td></td>
+</tr>
+<tr>
+<td><code>indicatieGeheim</code></td>
+<td>Indicatie</td>
+<td>1</td>
+<td>Basisgegeven</td>
+<td>Ja</td>
+<td>Ja</td>
+<td>Aanduiding dat de gemeente verstrekking van gegevens aan derden heeft beperkt.</td>
+<td>BRP cat 07 grp 70</td>
+<td>Verfijning naar 7-niveau-geheimhouding is een open onderwerp; in dit deelmodel staat het als enkele indicatie.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Relatiesoorten</strong> (uitgaand):</p>
+<table>
+<thead>
+<tr>
+<th>Naam</th>
+<th>Doel</th>
+<th>Kard. (bron→doel)</th>
+<th>Authentiek</th>
+<th>Mat. hist.</th>
+<th>Form. hist.</th>
+<th>Toelichting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>woontOp</td>
+<td>Binnenlandsadres</td>
+<td>1 → 0..1</td>
+<td>Authentiek</td>
+<td>Ja</td>
+<td>Ja</td>
+<td>Verblijfadres; zie deelmodel <a href="../adressen-en-gebouwen/">Adressen en gebouwen</a>.</td>
+</tr>
+<tr>
+<td>heeftBriefadres</td>
+<td>Postadres</td>
+<td>1 → 0..1</td>
+<td>Basisgegeven</td>
+<td>Ja</td>
+<td>Ja</td>
+<td>Briefadres bij ontbreken regulier woonadres.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="natuurlijkpersoon">NatuurlijkPersoon<a class="headerlink" href="#natuurlijkpersoon" title="Permanent link">&para;</a></h3>
+<p><strong>Definitie</strong>: Een mens als drager van burgerlijke rechten en plichten.</p>
+<p><strong>Herkomst definitie</strong>: Burgerlijk Wetboek art. 1:1 BW (algemene
+grondslag voor het rechtssubject mens); Logisch Ontwerp BRP v4.3.0 §1
+voor de operationele invulling binnen de basisregistratie.</p>
+<p><strong>Toelichting</strong>: NatuurlijkPersoon omvat zowel mensen die in een
+Nederlandse persoonsregistratie zijn opgenomen als mensen daarbuiten
+(buitenlandse partner van een ingezetene, historisch persoon zonder
+persoonslijst, buitenlandse eigenaar van een eenmanszaak).
+Registratielagen, namelijk IngeschrevenPersoon, Ingezetene en
+NietIngezetene, zijn specifieke varianten binnen het natuurlijk-persoon-
+concept. Overlijden hangt als attribuut-cluster aan NatuurlijkPersoon
+zelf, omdat het feit per mens ten hoogste eenmaal voorkomt en geen
+contextvelden kent buiten datum, plaats en land.</p>
+<table>
+<thead>
+<tr>
+<th>MIM-veld</th>
+<th>Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Naam</td>
+<td>NatuurlijkPersoon</td>
+</tr>
+<tr>
+<td>Begrip (URI)</td>
+<td><code>https://begrippen.gbo-semantiek.nl/id/begrip/NatuurlijkPersoon</code></td>
+</tr>
+<tr>
+<td>Herkomst</td>
+<td>BRP cat 01 (basis); semantische verbreding voor personen buiten de Nederlandse persoonsregistratie</td>
+</tr>
+<tr>
+<td>Datum opname</td>
+<td>2026-04-28</td>
+</tr>
+<tr>
+<td>Unieke aanduiding</td>
+<td><code>partijnummer</code> (geërfd van Partij)</td>
+</tr>
+<tr>
+<td>Populatie</td>
+<td>Alle natuurlijke personen die voor een overheidsorganisatie relevant zijn: ingeschrevenen in BRP-GBA en BRP-RNI, en niet-ingeschrevenen (buitenlandse partner van een ingezetene, historisch persoon zonder persoonslijst, buitenlandse eigenaar van een eenmanszaak).</td>
+</tr>
+<tr>
+<td>Kwaliteit</td>
+<td>Voor BRP-ingeschrevenen geldt de BRP-bijhouding-status (<code>opschortingBijhouding</code>, <code>inOnderzoek</code>) als kwaliteitsindicator. Voor niet-ingeschrevenen ontbreekt zo'n centrale kwaliteitsstempel; bronvermelding per attribuut is dan leidend.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Attribuutsoorten</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Naam</th>
+<th>Type</th>
+<th>Kard.</th>
+<th>Authentiek</th>
+<th>Mat. hist.</th>
+<th>Form. hist.</th>
+<th>Definitie</th>
+<th>Herkomst</th>
+<th>Toelichting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>geslachtsnaam</code></td>
+<td>Tekst</td>
+<td>1</td>
+<td>Basisgegeven</td>
+<td>Nee</td>
+<td>Nee</td>
+<td>De officiële familienaam van de persoon.</td>
+<td>BRP cat 01 grp 02</td>
+<td>Verplicht; zonder geslachtsnaam geen NatuurlijkPersoon.</td>
+</tr>
+<tr>
+<td><code>voornamen</code></td>
+<td>Tekst</td>
+<td>0..1</td>
+<td>Basisgegeven</td>
+<td>Nee</td>
+<td>Nee</td>
+<td>Alle officiële voornamen van de persoon.</td>
+<td>BRP cat 01 grp 02</td>
+<td></td>
+</tr>
+<tr>
+<td><code>voorvoegsel</code></td>
+<td>Tekst</td>
+<td>0..1</td>
+<td>Basisgegeven</td>
+<td>Nee</td>
+<td>Nee</td>
+<td>Het voorvoegsel bij de geslachtsnaam.</td>
+<td>BRP cat 01 grp 02</td>
+<td>Alias: <code>voorvoegselGeslachtsnaam</code> (BRP-LO-elementnaam). Conform <code>Codelijst~LT36</code> als validatie.</td>
+</tr>
+<tr>
+<td><code>adellijkeTitelPredicaat</code></td>
+<td><code>Codelijst~LT38</code></td>
+<td>0..1</td>
+<td>Basisgegeven</td>
+<td>Nee</td>
+<td>Nee</td>
+<td>Adellijke titel of predicaat.</td>
+<td>BRP cat 01 grp 02</td>
+<td>Codelijst LT 38.</td>
+</tr>
+<tr>
+<td><code>geboortedatum</code></td>
+<td>DatumIncompleet</td>
+<td>0..1</td>
+<td>Basisgegeven</td>
+<td>Nee</td>
+<td>Nee</td>
+<td>De datum waarop de persoon is geboren.</td>
+<td>BRP cat 01 grp 03</td>
+<td>Jaar/maand/dag kunnen apart onbekend zijn.</td>
+</tr>
+<tr>
+<td><code>geboorteplaats</code></td>
+<td>Tekst</td>
+<td>0..1</td>
+<td>Basisgegeven</td>
+<td>Nee</td>
+<td>Nee</td>
+<td>De gemeente of plaats waar de persoon is geboren.</td>
+<td>BRP cat 01 grp 03</td>
+<td></td>
+</tr>
+<tr>
+<td><code>geboorteland</code></td>
+<td><code>Codelijst~ISO3166</code></td>
+<td>0..1</td>
+<td>Basisgegeven</td>
+<td>Nee</td>
+<td>Nee</td>
+<td>Het land waar de persoon is geboren.</td>
+<td>BRP cat 01 grp 03</td>
+<td>Cross-walk naar LT 34.</td>
+</tr>
+<tr>
+<td><code>geslacht</code></td>
+<td>Codelijst</td>
+<td>0..1</td>
+<td>Basisgegeven</td>
+<td>Nee</td>
+<td>Nee</td>
+<td>Het geslacht van de persoon.</td>
+<td>BRP cat 01 grp 04</td>
+<td>Enumeratie Vrouw, Man, VastgesteldOnbekend.</td>
+</tr>
+<tr>
+<td><code>datumOverlijden</code></td>
+<td>DatumIncompleet</td>
+<td>0..1</td>
+<td>Basisgegeven</td>
+<td>Nee</td>
+<td>Nee</td>
+<td>De datum waarop de persoon is overleden.</td>
+<td>BRP cat 06 grp 08</td>
+<td></td>
+</tr>
+<tr>
+<td><code>plaatsOverlijden</code></td>
+<td>Tekst</td>
+<td>0..1</td>
+<td>Basisgegeven</td>
+<td>Nee</td>
+<td>Nee</td>
+<td>De plaats waar de persoon is overleden.</td>
+<td>BRP cat 06 grp 08</td>
+<td></td>
+</tr>
+<tr>
+<td><code>landOverlijden</code></td>
+<td><code>Codelijst~ISO3166</code></td>
+<td>0..1</td>
+<td>Basisgegeven</td>
+<td>Nee</td>
+<td>Nee</td>
+<td>Het land waar de persoon is overleden.</td>
+<td>BRP cat 06 grp 08</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Relatiesoorten</strong> (uitgaand):</p>
+<table>
+<thead>
+<tr>
+<th>Naam</th>
+<th>Doel</th>
+<th>Kard. (bron→doel)</th>
+<th>Authentiek</th>
+<th>Mat. hist.</th>
+<th>Form. hist.</th>
+<th>Toelichting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>heeftOuder</td>
+<td>NatuurlijkPersoon</td>
+<td>0..* → 0..2</td>
+<td>Basisgegeven</td>
+<td>Nee</td>
+<td>Nee</td>
+<td>Met <code>ouderAanduiding</code> (Ouder1/Ouder2) als attribuut op de relatie; herkomst BRP cat 02/03.</td>
+</tr>
+<tr>
+<td>partner</td>
+<td>NatuurlijkPersoon</td>
+<td>2 (via Huwelijk)</td>
+<td>Basisgegeven</td>
+<td>Nee</td>
+<td>Nee</td>
+<td>Symmetrisch deel van <code>Huwelijk</code> (<code>partners 2..2</code>).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="nietingezetene">NietIngezetene<a class="headerlink" href="#nietingezetene" title="Permanent link">&para;</a></h3>
+<p><strong>Definitie</strong>: Een ingeschreven persoon die niet als ingezetene van een
+Nederlandse gemeente is geregistreerd en wiens persoonslijst centraal
+wordt bijgehouden in de Registratie Niet-Ingezetenen.</p>
+<p><strong>Herkomst definitie</strong>: Wet BRP art. 1.1 onder f en art. 2.1; Logisch
+Ontwerp BRP v4.3.0 §1.5 (BRP-RNI-spoor).</p>
+<p><strong>Toelichting</strong>: NietIngezetene is het BRP-RNI-spoor: centraal
+bijgehouden onder verantwoordelijkheid van de Minister van BZK voor
+personen met een relatie tot Nederland zonder gemeentelijke
+inschrijving. Een NietIngezetene verblijft typisch in het buitenland en
+woont in dat geval op een Buitenlandsadres. De persoonslijst is
+gereduceerd: geen ouders, kinderen, huwelijk, gezag, reisdocument of
+kiesrecht.</p>
+<table>
+<thead>
+<tr>
+<th>MIM-veld</th>
+<th>Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Naam</td>
+<td>NietIngezetene</td>
+</tr>
+<tr>
+<td>Begrip (URI)</td>
+<td><code>https://begrippen.gbo-semantiek.nl/id/begrip/NietIngezetene</code></td>
+</tr>
+<tr>
+<td>Herkomst</td>
+<td>BRP</td>
+</tr>
+<tr>
+<td>Datum opname</td>
+<td>2026-04-28</td>
+</tr>
+<tr>
+<td>Unieke aanduiding</td>
+<td><code>bsn</code> (geërfd)</td>
+</tr>
+<tr>
+<td>Populatie</td>
+<td>Alle in de RNI ingeschreven natuurlijke personen: voormalig ingezetenen die zijn geëmigreerd én nooit-ingezetenen met een Nederlandse relatie (grensarbeider, buitenlandse student, ambtenaar in het buitenland).</td>
+</tr>
+<tr>
+<td>Kwaliteit</td>
+<td>Geborgd via RNI-bijhouding door aangewezen RNI-deelnemers (Belastingdienst, IND, UWV, SVB en grensgemeenten).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Attribuutsoorten</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Naam</th>
+<th>Type</th>
+<th>Kard.</th>
+<th>Authentiek</th>
+<th>Mat. hist.</th>
+<th>Form. hist.</th>
+<th>Definitie</th>
+<th>Herkomst</th>
+<th>Toelichting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>datumInschrijvingRNI</code></td>
+<td>Datum</td>
+<td>0..1</td>
+<td>Basisgegeven</td>
+<td>Ja</td>
+<td>Ja</td>
+<td>De datum waarop de persoon in de RNI is ingeschreven.</td>
+<td>BRP cat 07 grp 88</td>
+<td></td>
+</tr>
+<tr>
+<td><code>landVanVerblijf</code></td>
+<td><code>Codelijst~ISO3166</code></td>
+<td>0..1</td>
+<td>Basisgegeven</td>
+<td>Ja</td>
+<td>Ja</td>
+<td>Het land waarin de niet-ingezetene zijn verblijfplaats heeft.</td>
+<td>BRP cat 08 grp 13</td>
+<td></td>
+</tr>
+<tr>
+<td><code>deelnemerCodeRNI</code></td>
+<td><code>Codelijst~LT88</code></td>
+<td>0..1</td>
+<td>Basisgegeven</td>
+<td>Ja</td>
+<td>Ja</td>
+<td>De RNI-deelnemer die de inschrijving heeft aangemaakt of bijgehouden.</td>
+<td>BRP cat 07 grp 88</td>
+<td>Codelijst LT 88.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Relatiesoorten</strong> (uitgaand):</p>
+<table>
+<thead>
+<tr>
+<th>Naam</th>
+<th>Doel</th>
+<th>Kard. (bron→doel)</th>
+<th>Authentiek</th>
+<th>Mat. hist.</th>
+<th>Form. hist.</th>
+<th>Toelichting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>woontOp</td>
+<td>Buitenlandsadres</td>
+<td>1 → 0..1</td>
+<td>Basisgegeven</td>
+<td>Ja</td>
+<td>Ja</td>
+<td>Verblijfadres in het buitenland; zie deelmodel <a href="../adressen-en-gebouwen/">Adressen en gebouwen</a>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="brp-persoonslijst-categorieen">BRP-persoonslijst-categorieën<a class="headerlink" href="#brp-persoonslijst-categorieen" title="Permanent link">&para;</a></h2>
+<h3 id="gezagsverhouding">Gezagsverhouding<a class="headerlink" href="#gezagsverhouding" title="Permanent link">&para;</a></h3>
+<p><strong>Definitie</strong>: De juridische gezagssituatie van een ingeschreven persoon:
+ouderlijk gezag bij minderjarigheid of onder-curatele-stelling bij
+meerderjarigheid.</p>
+<p><strong>Herkomst definitie</strong>: Burgerlijk Wetboek Boek 1 titel 14 (ouderlijk
+gezag) en BW art. 1:378 (curatele); BRP cat 11 Gezagsverhouding;
+Logisch Ontwerp BRP v4.3.0.</p>
+<p><strong>Toelichting</strong>: Gezagsverhouding hangt aan IngeschrevenPersoon en is
+aanwezig bij minderjarigen (<code>indicatieGezagMinderjarige</code>) of bij
+meerderjarigen onder curatele (<code>indicatieCuratele</code>). Een verfijnde
+subtype-modellering met onderscheid naar gezamenlijk ouderlijk gezag,
+voogdij en curatele is een open onderwerp; voorlopig volstaat de
+gecombineerde objectstructuur.</p>
+<table>
+<thead>
+<tr>
+<th>MIM-veld</th>
+<th>Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Naam</td>
+<td>Gezagsverhouding</td>
+</tr>
+<tr>
+<td>Begrip (URI)</td>
+<td><code>https://begrippen.gbo-semantiek.nl/id/begrip/Gezagsverhouding</code></td>
+</tr>
+<tr>
+<td>Herkomst</td>
+<td>BRP cat 11</td>
+</tr>
+<tr>
+<td>Datum opname</td>
+<td>2026-04-28</td>
+</tr>
+<tr>
+<td>Populatie</td>
+<td>Alle gezagssituaties van ingeschreven personen waarvoor een gezags- of curatele-aanduiding is geregistreerd.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Attribuutsoorten</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Naam</th>
+<th>Type</th>
+<th>Kard.</th>
+<th>Authentiek</th>
+<th>Mat. hist.</th>
+<th>Form. hist.</th>
+<th>Definitie</th>
+<th>Herkomst</th>
+<th>Toelichting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>indicatieGezagMinderjarige</code></td>
+<td><code>IndicatieGezag</code></td>
+<td>0..1</td>
+<td>Basisgegeven</td>
+<td>Nee</td>
+<td>Nee</td>
+<td>Aanduiding van het ouderlijk gezag over een minderjarige.</td>
+<td>BRP cat 11</td>
+<td>Enum-waarden vanuit BRP; subtype-modellering staat open voor verfijning.</td>
+</tr>
+<tr>
+<td><code>indicatieCuratele</code></td>
+<td>Indicatie</td>
+<td>1</td>
+<td>Basisgegeven</td>
+<td>Nee</td>
+<td>Nee</td>
+<td>Aanduiding dat de meerderjarige persoon onder curatele is gesteld.</td>
+<td>BRP cat 11</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="huwelijk">Huwelijk<a class="headerlink" href="#huwelijk" title="Permanent link">&para;</a></h3>
+<p><strong>Definitie</strong>: Een formele verbintenis tussen twee natuurlijke personen,
+hetzij een huwelijk in de zin van het burgerlijk recht, hetzij een
+geregistreerd partnerschap.</p>
+<p><strong>Herkomst definitie</strong>: Burgerlijk Wetboek Boek 1 titel 5 (huwelijk) en
+titel 5A (geregistreerd partnerschap); BRP cat 05 Huwelijk/Geregistreerd
+Partnerschap; Logisch Ontwerp BRP v4.3.0.</p>
+<p><strong>Toelichting</strong>: Huwelijk koppelt twee NatuurlijkPersonen symmetrisch
+via één <code>partners 2..2</code>-relatie, ongeacht hun BRP-inschrijfstatus. Dit
+laat huwelijken tussen niet-ingeschreven personen toe (buitenlandse
+huwelijken die later in RNI belanden). Het onderscheid tussen huwelijk
+en geregistreerd partnerschap loopt via <code>soortVerbintenis</code>. Ontbinding,
+inclusief overlijden van een partner of echtscheiding, zit als attribuut
+op het huwelijk zelf.</p>
+<table>
+<thead>
+<tr>
+<th>MIM-veld</th>
+<th>Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Naam</td>
+<td>Huwelijk</td>
+</tr>
+<tr>
+<td>Begrip (URI)</td>
+<td><code>https://begrippen.gbo-semantiek.nl/id/begrip/Huwelijk</code></td>
+</tr>
+<tr>
+<td>Herkomst</td>
+<td>BRP cat 05</td>
+</tr>
+<tr>
+<td>Datum opname</td>
+<td>2026-04-28</td>
+</tr>
+<tr>
+<td>Populatie</td>
+<td>Alle geregistreerde huwelijken en geregistreerde partnerschappen waarvan ten minste één partner in de BRP is opgenomen, plus huwelijken tussen niet-ingeschreven natuurlijke personen voor zover relevant.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Attribuutsoorten</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Naam</th>
+<th>Type</th>
+<th>Kard.</th>
+<th>Authentiek</th>
+<th>Mat. hist.</th>
+<th>Form. hist.</th>
+<th>Definitie</th>
+<th>Herkomst</th>
+<th>Toelichting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>soortVerbintenis</code></td>
+<td><code>SoortVerbintenis</code></td>
+<td>1</td>
+<td>Basisgegeven</td>
+<td>Nee</td>
+<td>Nee</td>
+<td>Onderscheidt huwelijk van geregistreerd partnerschap.</td>
+<td>BRP cat 05</td>
+<td></td>
+</tr>
+<tr>
+<td><code>datumVoltrekking</code></td>
+<td>DatumIncompleet</td>
+<td>0..1</td>
+<td>Basisgegeven</td>
+<td>Nee</td>
+<td>Nee</td>
+<td>De datum waarop de verbintenis is aangegaan.</td>
+<td>BRP cat 05 grp 06</td>
+<td></td>
+</tr>
+<tr>
+<td><code>plaatsVoltrekking</code></td>
+<td>Tekst</td>
+<td>0..1</td>
+<td>Basisgegeven</td>
+<td>Nee</td>
+<td>Nee</td>
+<td>De plaats waar de verbintenis is aangegaan.</td>
+<td>BRP cat 05 grp 06</td>
+<td></td>
+</tr>
+<tr>
+<td><code>landVoltrekking</code></td>
+<td><code>Codelijst~ISO3166</code></td>
+<td>0..1</td>
+<td>Basisgegeven</td>
+<td>Nee</td>
+<td>Nee</td>
+<td>Het land waarin de verbintenis is aangegaan.</td>
+<td>BRP cat 05 grp 06</td>
+<td></td>
+</tr>
+<tr>
+<td><code>datumOntbinding</code></td>
+<td>DatumIncompleet</td>
+<td>0..1</td>
+<td>Basisgegeven</td>
+<td>Nee</td>
+<td>Nee</td>
+<td>De datum waarop de verbintenis is ontbonden.</td>
+<td>BRP cat 05 grp 07</td>
+<td></td>
+</tr>
+<tr>
+<td><code>redenOntbinding</code></td>
+<td><code>Codelijst~BRP</code></td>
+<td>0..1</td>
+<td>Basisgegeven</td>
+<td>Nee</td>
+<td>Nee</td>
+<td>De reden van ontbinding (echtscheiding, overlijden, nietigverklaring).</td>
+<td>BRP cat 05 grp 07</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Relatiesoorten</strong> (uitgaand):</p>
+<table>
+<thead>
+<tr>
+<th>Naam</th>
+<th>Doel</th>
+<th>Kard. (bron→doel)</th>
+<th>Authentiek</th>
+<th>Mat. hist.</th>
+<th>Form. hist.</th>
+<th>Toelichting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>partners</td>
+<td>NatuurlijkPersoon</td>
+<td>1 → 2</td>
+<td>Basisgegeven</td>
+<td>Nee</td>
+<td>Nee</td>
+<td>Symmetrisch; geen aangaande/partner-onderscheid.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="immigratie">Immigratie<a class="headerlink" href="#immigratie" title="Permanent link">&para;</a></h3>
+<p><strong>Definitie</strong>: De gebeurtenis waarbij een ingeschreven persoon zich vanuit
+het buitenland in Nederland vestigt en daarmee in de BRP wordt
+opgenomen of zijn inschrijving wordt heractiveerd.</p>
+<p><strong>Herkomst definitie</strong>: Wet BRP art. 2.39 (aangifte van vestiging
+vanuit het buitenland); BRP cat 08 grp 14 Inschrijving;
+Logisch Ontwerp BRP v4.3.0.</p>
+<p><strong>Toelichting</strong>: Immigratie hangt eenmalig (0..1) aan IngeschrevenPersoon
+en legt vast wanneer en waarvandaan de persoon zich in Nederland heeft
+gevestigd. Latere wijzigingen van adres binnen Nederland zijn geen
+immigratie; daarvoor geldt het verblijfshistorie-mechanisme op
+adresrelaties.</p>
+<table>
+<thead>
+<tr>
+<th>MIM-veld</th>
+<th>Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Naam</td>
+<td>Immigratie</td>
+</tr>
+<tr>
+<td>Begrip (URI)</td>
+<td><code>https://begrippen.gbo-semantiek.nl/id/begrip/Immigratie</code></td>
+</tr>
+<tr>
+<td>Herkomst</td>
+<td>BRP cat 08</td>
+</tr>
+<tr>
+<td>Datum opname</td>
+<td>2026-04-28</td>
+</tr>
+<tr>
+<td>Populatie</td>
+<td>Alle ingeschreven personen die zich vanuit het buitenland in Nederland hebben gevestigd, voor zover die vestigingsgebeurtenis als immigratie is geregistreerd.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Attribuutsoorten</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Naam</th>
+<th>Type</th>
+<th>Kard.</th>
+<th>Authentiek</th>
+<th>Mat. hist.</th>
+<th>Form. hist.</th>
+<th>Definitie</th>
+<th>Herkomst</th>
+<th>Toelichting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>datumVestigingInNederland</code></td>
+<td>Datum</td>
+<td>0..1</td>
+<td>Basisgegeven</td>
+<td>Nee</td>
+<td>Nee</td>
+<td>De datum waarop de persoon zich in Nederland heeft gevestigd.</td>
+<td>BRP cat 08 grp 14</td>
+<td></td>
+</tr>
+<tr>
+<td><code>landVanwaar</code></td>
+<td><code>Codelijst~ISO3166</code></td>
+<td>0..1</td>
+<td>Basisgegeven</td>
+<td>Nee</td>
+<td>Nee</td>
+<td>Het land waarvandaan de persoon zich in Nederland heeft gevestigd.</td>
+<td>BRP cat 08 grp 14</td>
+<td></td>
+</tr>
+<tr>
+<td><code>landBinnenkomst</code></td>
+<td><code>Codelijst~ISO3166</code></td>
+<td>0..1</td>
+<td>Basisgegeven</td>
+<td>Nee</td>
+<td>Nee</td>
+<td>Het land via welke grens de persoon Nederland is binnengekomen.</td>
+<td>BRP cat 08 grp 14</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="nationaliteit">Nationaliteit<a class="headerlink" href="#nationaliteit" title="Permanent link">&para;</a></h3>
+<p><strong>Definitie</strong>: Een nationaliteit die aan een ingeschreven persoon is
+toegekend, inclusief de gebeurtenis van verkrijging en eventueel verlies.</p>
+<p><strong>Herkomst definitie</strong>: Rijkswet op het Nederlanderschap voor de
+Nederlandse nationaliteit; BRP cat 04 Nationaliteit; Logisch Ontwerp
+BRP v4.3.0.</p>
+<p><strong>Toelichting</strong>: Een ingeschreven persoon kan meerdere nationaliteiten
+hebben. Elke nationaliteit is een zelfstandig objecttype zodat
+verkrijging en verlies per nationaliteit historisch traceerbaar zijn.
+De codelijst voor het land volgt ISO 3166, met een cross-walk naar de
+landelijke tabel LT 32 voor BRP-equivalentie.</p>
+<table>
+<thead>
+<tr>
+<th>MIM-veld</th>
+<th>Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Naam</td>
+<td>Nationaliteit</td>
+</tr>
+<tr>
+<td>Begrip (URI)</td>
+<td><code>https://begrippen.gbo-semantiek.nl/id/begrip/Nationaliteit</code></td>
+</tr>
+<tr>
+<td>Herkomst</td>
+<td>BRP cat 04</td>
+</tr>
+<tr>
+<td>Datum opname</td>
+<td>2026-04-28</td>
+</tr>
+<tr>
+<td>Populatie</td>
+<td>Alle aan een ingeschreven persoon toegekende nationaliteiten, inclusief inmiddels verloren nationaliteiten voor zover die historisch worden bijgehouden.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Attribuutsoorten</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Naam</th>
+<th>Type</th>
+<th>Kard.</th>
+<th>Authentiek</th>
+<th>Mat. hist.</th>
+<th>Form. hist.</th>
+<th>Definitie</th>
+<th>Herkomst</th>
+<th>Toelichting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>nationaliteit</code></td>
+<td><code>Codelijst~ISO3166</code></td>
+<td>1</td>
+<td>Authentiek</td>
+<td>Nee</td>
+<td>Nee</td>
+<td>De nationaliteit zelf, als landcode.</td>
+<td>BRP cat 04 grp 05</td>
+<td>Cross-walk naar LT 32.</td>
+</tr>
+<tr>
+<td><code>redenVerkrijging</code></td>
+<td><code>Codelijst~LT37</code></td>
+<td>0..1</td>
+<td>Basisgegeven</td>
+<td>Nee</td>
+<td>Nee</td>
+<td>De reden waarom de nationaliteit is verkregen.</td>
+<td>BRP cat 04 grp 63</td>
+<td>Codelijst LT 37.</td>
+</tr>
+<tr>
+<td><code>redenVerlies</code></td>
+<td><code>Codelijst~LT37</code></td>
+<td>0..1</td>
+<td>Basisgegeven</td>
+<td>Nee</td>
+<td>Nee</td>
+<td>De reden waarom de nationaliteit is verloren.</td>
+<td>BRP cat 04 grp 64</td>
+<td>Codelijst LT 37.</td>
+</tr>
+<tr>
+<td><code>datumVerkrijging</code></td>
+<td>DatumIncompleet</td>
+<td>0..1</td>
+<td>Basisgegeven</td>
+<td>Nee</td>
+<td>Nee</td>
+<td>De datum waarop de nationaliteit is verkregen.</td>
+<td>BRP cat 04 grp 63</td>
+<td></td>
+</tr>
+<tr>
+<td><code>datumVerlies</code></td>
+<td>DatumIncompleet</td>
+<td>0..1</td>
+<td>Basisgegeven</td>
+<td>Nee</td>
+<td>Nee</td>
+<td>De datum waarop de nationaliteit is verloren.</td>
+<td>BRP cat 04 grp 64</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="verblijfstitel">Verblijfstitel<a class="headerlink" href="#verblijfstitel" title="Permanent link">&para;</a></h3>
+<p><strong>Definitie</strong>: De verblijfsrechtelijke status van een ingeschreven
+persoon die niet de Nederlandse nationaliteit bezit.</p>
+<p><strong>Herkomst definitie</strong>: Vreemdelingenwet 2000; BRP cat 10
+Verblijfstitel; Logisch Ontwerp BRP v4.3.0. Codelijst gebaseerd op
+IND-aanduidingen, met cross-walk naar landelijke tabel LT 56.</p>
+<p><strong>Toelichting</strong>: Verblijfstitel hangt 0..1 aan IngeschrevenPersoon en
+is aanwezig bij personen zonder Nederlandse nationaliteit voor wie de
+IND een verblijfsrecht heeft vastgesteld. De aanduiding volgt de
+IND-codelijst; de cross-walk naar LT 56 ondersteunt BRP-equivalentie.</p>
+<table>
+<thead>
+<tr>
+<th>MIM-veld</th>
+<th>Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Naam</td>
+<td>Verblijfstitel</td>
+</tr>
+<tr>
+<td>Begrip (URI)</td>
+<td><code>https://begrippen.gbo-semantiek.nl/id/begrip/Verblijfstitel</code></td>
+</tr>
+<tr>
+<td>Herkomst</td>
+<td>BRP cat 10</td>
+</tr>
+<tr>
+<td>Datum opname</td>
+<td>2026-04-28</td>
+</tr>
+<tr>
+<td>Populatie</td>
+<td>Alle aan ingeschreven personen toegekende verblijfstitels conform de Vreemdelingenwet 2000, voor zover door de IND aan de BRP gemeld.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Attribuutsoorten</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Naam</th>
+<th>Type</th>
+<th>Kard.</th>
+<th>Authentiek</th>
+<th>Mat. hist.</th>
+<th>Form. hist.</th>
+<th>Definitie</th>
+<th>Herkomst</th>
+<th>Toelichting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>aanduiding</code></td>
+<td><code>Codelijst~IND</code></td>
+<td>1</td>
+<td>Basisgegeven</td>
+<td>Nee</td>
+<td>Nee</td>
+<td>De aanduiding van het verblijfsrecht (IND-codelijst).</td>
+<td>BRP cat 10 grp 39</td>
+<td>Cross-walk naar LT 56.</td>
+</tr>
+<tr>
+<td><code>datumIngang</code></td>
+<td>Datum</td>
+<td>1</td>
+<td>Basisgegeven</td>
+<td>Nee</td>
+<td>Nee</td>
+<td>De datum waarop het verblijfsrecht is ingegaan.</td>
+<td>BRP cat 10 grp 39</td>
+<td></td>
+</tr>
+<tr>
+<td><code>datumEinde</code></td>
+<td>Datum</td>
+<td>0..1</td>
+<td>Basisgegeven</td>
+<td>Nee</td>
+<td>Nee</td>
+<td>De datum waarop het verblijfsrecht is geëindigd.</td>
+<td>BRP cat 10 grp 39</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="adres-subtypen-specifiek-voor-personen">Adres-subtypen specifiek voor Personen<a class="headerlink" href="#adres-subtypen-specifiek-voor-personen" title="Permanent link">&para;</a></h2>
+<p><code>Locatie</code> (omschrijving + land) en <code>VerblijfplaatsOnbekend</code>
+(<code>datumIngangOnbekend</code>) zijn adres-subtypen die voorkomen wanneer een
+ingeschreven persoon geen regulier adres heeft. Beide zijn formeel
+gedefinieerd in <a href="../adressen-en-gebouwen/">Adressen en gebouwen</a>.</p>
+<h2 id="enumeraties">Enumeraties<a class="headerlink" href="#enumeraties" title="Permanent link">&para;</a></h2>
+<h3 id="europeeskiesrecht">EuropeesKiesrecht<a class="headerlink" href="#europeeskiesrecht" title="Permanent link">&para;</a></h3>
+<p><strong>Definitie</strong>: Indicatie of een EU-burger in Nederland is geregistreerd voor het kiesrecht voor het Europees Parlement.</p>
+<p><strong>Herkomst definitie</strong>: Kieswet hoofdstuk Y (kiesrecht Europees Parlement, registratie EU-burgers in andere lidstaat); Logisch Ontwerp BRP v4.3.0 cat 13.</p>
+<p><strong>Toelichting</strong>: Geldt alleen voor EU-burgers met andere nationaliteit dan de Nederlandse die in Nederland wonen. Zij kunnen voor EP-verkiezingen kiezen tussen stemrecht in Nederland en in hun land van nationaliteit. Voor Nederlanders is dit veld niet van toepassing en mag de waarde ontbreken. Opgezet als Ja/Nee-keuzelijst zodat "geen waarde" (niet geregistreerd of niet van toepassing) onderscheidbaar blijft van "Nee" (expliciet niet gekozen voor NL-registratie).</p>
+<table>
+<thead>
+<tr>
+<th>MIM-veld</th>
+<th>Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Naam</td>
+<td>EuropeesKiesrecht</td>
+</tr>
+<tr>
+<td>Begrip (URI)</td>
+<td><code>https://begrippen.gbo-semantiek.nl/id/begrip/EuropeesKiesrecht</code></td>
+</tr>
+<tr>
+<td>Herkomst</td>
+<td>BRP cat 13 Kiesrecht</td>
+</tr>
+<tr>
+<td>Datum opname</td>
+<td>2026-04-28</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Gebruikt door</strong>: <code>IngeschrevenPersoon.europeesKiesrecht</code>.</p>
+<p><strong>Waarden</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Naam</th>
+<th>Definitie</th>
+<th>Toelichting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ja</td>
+<td>De persoon is geregistreerd voor EP-kiesrecht in Nederland.</td>
+<td></td>
+</tr>
+<tr>
+<td>Nee</td>
+<td>De persoon is niet geregistreerd voor EP-kiesrecht in Nederland.</td>
+<td>"Geen waarde" betekent niet van toepassing (Nederlander, of registratie niet vastgesteld).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="geslacht">Geslacht<a class="headerlink" href="#geslacht" title="Permanent link">&para;</a></h3>
+<p><strong>Definitie</strong>: Geregistreerde geslachtsaanduiding van een natuurlijk persoon.</p>
+<p><strong>Herkomst definitie</strong>: Logisch Ontwerp BRP v4.3.0 §4.6 element 04.10 (groep 04 Geslacht op de persoonslijst); juridische grondslag Wet BRP en Burgerlijk Wetboek Boek 1.</p>
+<p><strong>Toelichting</strong>: Driewaardige keuzelijst conform BRP-praktijk. GBO volgt expliciet BRP en niet ISO 5218 (dat een vier-waarde-codering 0/1/2/9 kent). <code>VastgesteldOnbekend</code> is een BRP-specifieke waarde voor situaties waarin het geslacht expliciet als onbekend is vastgesteld, niet voor het ontbreken van registratie.</p>
+<table>
+<thead>
+<tr>
+<th>MIM-veld</th>
+<th>Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Naam</td>
+<td>Geslacht</td>
+</tr>
+<tr>
+<td>Begrip (URI)</td>
+<td><code>https://begrippen.gbo-semantiek.nl/id/begrip/Geslacht</code></td>
+</tr>
+<tr>
+<td>Herkomst</td>
+<td>BRP cat 01 grp 04 Geslacht</td>
+</tr>
+<tr>
+<td>Datum opname</td>
+<td>2026-04-28</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Gebruikt door</strong>: <code>NatuurlijkPersoon.geslacht</code>.</p>
+<p><strong>Waarden</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Naam</th>
+<th>Definitie</th>
+<th>Toelichting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Man</td>
+<td>Persoon met geslachtsregistratie "Man" in BRP.</td>
+<td>BRP-code M of 1.</td>
+</tr>
+<tr>
+<td>Vrouw</td>
+<td>Persoon met geslachtsregistratie "Vrouw" in BRP.</td>
+<td>BRP-code V of 2.</td>
+</tr>
+<tr>
+<td>VastgesteldOnbekend</td>
+<td>Persoon waarvan het geslacht expliciet als onbekend is vastgesteld.</td>
+<td>BRP-code O of 9; afwijkend van "geen waarde" (ontbreken registratie).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="indicatiegezag">IndicatieGezag<a class="headerlink" href="#indicatiegezag" title="Permanent link">&para;</a></h3>
+<p><strong>Definitie</strong>: Vorm van het ouderlijk gezag of de voogdij over een minderjarige.</p>
+<p><strong>Herkomst definitie</strong>: Burgerlijk Wetboek Boek 1 titel 14 (gezag over minderjarigen: ouderlijk gezag, gezamenlijk gezag, voogdij, ondertoezichtstelling); Logisch Ontwerp BRP v4.3.0 cat 11 Gezagsverhouding.</p>
+<p><strong>Toelichting</strong>: Platte keuzelijst die de gezagssituatie van een minderjarige typeert. De koppeling met de BRP-vormen van gezag (ouderlijk gezag, voogdij) verloopt via deze waardenset; cluster-modellering met datums en betrokkenen ligt op <code>Gezagsverhouding</code> zelf.</p>
+<table>
+<thead>
+<tr>
+<th>MIM-veld</th>
+<th>Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Naam</td>
+<td>IndicatieGezag</td>
+</tr>
+<tr>
+<td>Begrip (URI)</td>
+<td><code>https://begrippen.gbo-semantiek.nl/id/begrip/IndicatieGezag</code></td>
+</tr>
+<tr>
+<td>Herkomst</td>
+<td>BRP cat 11 Gezagsverhouding</td>
+</tr>
+<tr>
+<td>Datum opname</td>
+<td>2026-04-28</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Gebruikt door</strong>: <code>Gezagsverhouding.indicatieGezagMinderjarige</code>.</p>
+<p><strong>Waarden</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Naam</th>
+<th>Definitie</th>
+<th>Toelichting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EenhoofdigOuder</td>
+<td>Eén ouder oefent alleen het gezag uit.</td>
+<td>BW 1:251a: gezag na scheiding bij één ouder.</td>
+</tr>
+<tr>
+<td>GezamenlijkOuders</td>
+<td>Beide ouders oefenen gezamenlijk het gezag uit.</td>
+<td>BW 1:251: standaard binnen huwelijk.</td>
+</tr>
+<tr>
+<td>GezamenlijkOuderEnDerde</td>
+<td>Eén ouder en een niet-ouder oefenen gezamenlijk gezag uit.</td>
+<td>BW 1:253t.</td>
+</tr>
+<tr>
+<td>Voogdij</td>
+<td>Gezag bij een niet-ouder (voogd), benoemd of van rechtswege.</td>
+<td>BW 1:282 e.v.</td>
+</tr>
+<tr>
+<td>TijdelijkGeenGezag</td>
+<td>Gezag is tijdelijk niet aanwezig in afwachting van een beslissing.</td>
+<td>Tijdelijke leemte in gezag.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="opschortingbijhouding">OpschortingBijhouding<a class="headerlink" href="#opschortingbijhouding" title="Permanent link">&para;</a></h3>
+<p><strong>Definitie</strong>: Reden waarom de bijhouding van een persoonslijst in de basisregistratie is opgeschort.</p>
+<p><strong>Herkomst definitie</strong>: Logisch Ontwerp BRP v4.3.0 §4.6 cat 07 grp 67 Opschorting bijhouding; Wet BRP (opgenomen gegevens blijven opgenomen, ook na opschorting).</p>
+<p><strong>Toelichting</strong>: Een opgeschorte persoonslijst wordt niet langer bijgewerkt maar blijft beschikbaar voor historisch en juridisch gebruik. De reden van opschorting is een belangrijk datakwaliteits-signaal voor afnemers: een persoonslijst met opschorting Overlijden is bijvoorbeeld niet meer geldig als adresreferentie.</p>
+<table>
+<thead>
+<tr>
+<th>MIM-veld</th>
+<th>Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Naam</td>
+<td>OpschortingBijhouding</td>
+</tr>
+<tr>
+<td>Begrip (URI)</td>
+<td><code>https://begrippen.gbo-semantiek.nl/id/begrip/OpschortingBijhouding</code></td>
+</tr>
+<tr>
+<td>Herkomst</td>
+<td>BRP cat 07 grp 67 Opschorting</td>
+</tr>
+<tr>
+<td>Datum opname</td>
+<td>2026-04-28</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Gebruikt door</strong>: <code>IngeschrevenPersoon.opschortingBijhouding</code>.</p>
+<p><strong>Waarden</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Naam</th>
+<th>Definitie</th>
+<th>Toelichting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Overlijden</td>
+<td>Bijhouding opgeschort omdat de geregistreerde is overleden.</td>
+<td>Meest voorkomende reden; mapping met cat 06 Overlijden.</td>
+</tr>
+<tr>
+<td>Emigratie</td>
+<td>Bijhouding opgeschort omdat de geregistreerde naar het buitenland is vertrokken zonder RNI-overgang.</td>
+<td>Te onderscheiden van overgang naar RNI.</td>
+</tr>
+<tr>
+<td>Vermissing</td>
+<td>Bijhouding opgeschort vanwege langdurige vermissing.</td>
+<td>Juridische status, geen bewezen overlijden.</td>
+</tr>
+<tr>
+<td>FoutAangelegdOfFraude</td>
+<td>Bijhouding opgeschort vanwege foutieve aanleg, dubbele persoonslijst of vastgestelde identiteitsfraude.</td>
+<td>Restwaarde voor administratieve correcties.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="soortverbintenis">SoortVerbintenis<a class="headerlink" href="#soortverbintenis" title="Permanent link">&para;</a></h3>
+<p><strong>Definitie</strong>: Juridisch type van een formele verbintenis tussen twee natuurlijke personen.</p>
+<p><strong>Herkomst definitie</strong>: Burgerlijk Wetboek Boek 1 titel 5 (huwelijk) en titel 5A (geregistreerd partnerschap); Logisch Ontwerp BRP v4.3.0 cat 05 Huwelijk/Geregistreerd partnerschap.</p>
+<p><strong>Toelichting</strong>: Het objecttype <code>Huwelijk</code> omvat beide vormen van formele verbintenis; deze keuzelijst onderscheidt huwelijk van geregistreerd partnerschap. Informele samenwoning (samenlevingscontract bij notaris) wordt in BRP niet als verbintenis geregistreerd en is geen waarde in deze keuzelijst.</p>
+<table>
+<thead>
+<tr>
+<th>MIM-veld</th>
+<th>Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Naam</td>
+<td>SoortVerbintenis</td>
+</tr>
+<tr>
+<td>Begrip (URI)</td>
+<td><code>https://begrippen.gbo-semantiek.nl/id/begrip/SoortVerbintenis</code></td>
+</tr>
+<tr>
+<td>Herkomst</td>
+<td>BRP cat 05 Huwelijk/Geregistreerd partnerschap</td>
+</tr>
+<tr>
+<td>Datum opname</td>
+<td>2026-04-28</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Gebruikt door</strong>: <code>Huwelijk.soortVerbintenis</code>.</p>
+<p><strong>Waarden</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Naam</th>
+<th>Definitie</th>
+<th>Toelichting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Huwelijk</td>
+<td>Verbintenis volgens BW Boek 1 titel 5 (burgerlijk huwelijk).</td>
+<td></td>
+</tr>
+<tr>
+<td>GeregistreerdPartnerschap</td>
+<td>Verbintenis volgens BW Boek 1 titel 5A.</td>
+<td>Sinds 1998 in Nederland mogelijk.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="uitsluitingkiesrecht">UitsluitingKiesrecht<a class="headerlink" href="#uitsluitingkiesrecht" title="Permanent link">&para;</a></h3>
+<p><strong>Definitie</strong>: Indicatie of een persoon door rechterlijke uitspraak is uitgesloten van het kiesrecht voor de Tweede Kamer en provinciale staten.</p>
+<p><strong>Herkomst definitie</strong>: Kieswet art. B 5 en J 25 (gronden voor uitsluiting kiesrecht); Logisch Ontwerp BRP v4.3.0 cat 13 Kiesrecht.</p>
+<p><strong>Toelichting</strong>: Opgezet als Ja/Nee-keuzelijst en niet als algemene <code>Indicatie</code>, omdat afnemers het onderscheid tussen "geen waarde" (niet vastgesteld of niet relevant, bijvoorbeeld onder de stemgerechtigde leeftijd) en "Nee" (expliciet niet uitgesloten) moeten kunnen maken. De einddatum van een rechterlijke uitsluiting wordt elders op de persoonslijst vastgelegd, niet in deze keuzelijst.</p>
+<table>
+<thead>
+<tr>
+<th>MIM-veld</th>
+<th>Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Naam</td>
+<td>UitsluitingKiesrecht</td>
+</tr>
+<tr>
+<td>Begrip (URI)</td>
+<td><code>https://begrippen.gbo-semantiek.nl/id/begrip/UitsluitingKiesrecht</code></td>
+</tr>
+<tr>
+<td>Herkomst</td>
+<td>BRP cat 13 Kiesrecht</td>
+</tr>
+<tr>
+<td>Datum opname</td>
+<td>2026-04-28</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Gebruikt door</strong>: <code>IngeschrevenPersoon.uitsluitingKiesrecht</code>.</p>
+<p><strong>Waarden</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Naam</th>
+<th>Definitie</th>
+<th>Toelichting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ja</td>
+<td>De persoon is uitgesloten van het kiesrecht.</td>
+<td></td>
+</tr>
+<tr>
+<td>Nee</td>
+<td>De persoon is expliciet niet uitgesloten van het kiesrecht.</td>
+<td>"Geen waarde" betekent niet vastgesteld.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="verificatie">Verificatie<a class="headerlink" href="#verificatie" title="Permanent link">&para;</a></h3>
+<p><strong>Definitie</strong>: Status van de meest recente identiteitsverificatie van een persoonslijst.</p>
+<p><strong>Herkomst definitie</strong>: Logisch Ontwerp BRP v4.3.0 §4.6 cat 07 grp 71 Verificatie; Wet BRP (verplichting tot periodieke identiteitscontrole).</p>
+<p><strong>Toelichting</strong>: Datakwaliteits-aanduiding die aangeeft of identiteitsbewijzen recent zijn gecontroleerd (paspoort- of ID-kaart-controle aan het gemeenteloket). De keuzelijst levert alleen de status; datum en omschrijving van de verificatie worden elders op de persoonslijst vastgelegd.</p>
+<table>
+<thead>
+<tr>
+<th>MIM-veld</th>
+<th>Waarde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Naam</td>
+<td>Verificatie</td>
+</tr>
+<tr>
+<td>Begrip (URI)</td>
+<td><code>https://begrippen.gbo-semantiek.nl/id/begrip/Verificatie</code></td>
+</tr>
+<tr>
+<td>Herkomst</td>
+<td>BRP cat 07 grp 71 Verificatie</td>
+</tr>
+<tr>
+<td>Datum opname</td>
+<td>2026-04-28</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Gebruikt door</strong>: <code>IngeschrevenPersoon.verificatie</code>.</p>
+<p><strong>Waarden</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Naam</th>
+<th>Definitie</th>
+<th>Toelichting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Geverifieerd</td>
+<td>Identiteit is recent met geldig document geverifieerd.</td>
+<td></td>
+</tr>
+<tr>
+<td>NietGeverifieerd</td>
+<td>Identiteit is niet recent geverifieerd.</td>
+<td>Geen actief signaal van onderzoek.</td>
+</tr>
+<tr>
+<td>InOnderzoek</td>
+<td>Identiteit staat onder actief onderzoek door de gemeente of RvIG.</td>
+<td>Te onderscheiden van het generieke <code>inOnderzoek</code>-attribuut op groepsniveau.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="codelijsten">Codelijsten<a class="headerlink" href="#codelijsten" title="Permanent link">&para;</a></h2>
+<p>Deelmodel-specifieke codelijsten. Stelselbrede codelijsten
+(ISO 3166 voor landcodes en nationaliteiten) staan op de
+<a href="../../datatypes-en-codelijsten/">Datatypes en codelijsten</a>.</p>
+<p>De BRP-Landelijke Tabellen worden gepubliceerd door
+<a href="https://www.rvig.nl/landelijke-tabellen-en-besluiten">RvIG</a>; de
+feitelijke tabellen staan op
+<a href="https://publicaties.rvig.nl/home">publicaties.rvig.nl</a> en zijn ook
+op te halen via de
+<a href="https://developer.rvig.nl/brp-api/">Haal Centraal BRP Tabellen-API</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Codelijst</th>
+<th>Bron / beheerder</th>
+<th>GBO-typering</th>
+<th>Gebruikt door</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://ind.nl/nl/verblijfsvergunningen">IND Verblijfstitels</a></td>
+<td><a href="https://ind.nl/">IND</a></td>
+<td><code>Codelijst~IND</code></td>
+<td><code>Verblijfstitel.aanduiding</code> (cross-walk naar BRP-LT 56 hieronder).</td>
+</tr>
+<tr>
+<td><a href="https://publicaties.rvig.nl/home">BRP-LT 36 Voorvoegsels</a></td>
+<td><a href="https://www.rvig.nl/landelijke-tabellen-en-besluiten">RvIG</a> / BZK</td>
+<td><code>Codelijst~LT36</code></td>
+<td><code>NatuurlijkPersoon.voorvoegsel</code> (validatie).</td>
+</tr>
+<tr>
+<td><a href="https://publicaties.rvig.nl/home">BRP-LT 37 Reden opnemen / beëindigen nationaliteit</a></td>
+<td><a href="https://www.rvig.nl/landelijke-tabellen-en-besluiten">RvIG</a> / BZK</td>
+<td><code>Codelijst~LT37</code></td>
+<td><code>Nationaliteit.redenVerkrijging</code>, <code>Nationaliteit.redenVerlies</code>.</td>
+</tr>
+<tr>
+<td><a href="https://publicaties.rvig.nl/home">BRP-LT 38 Adellijke titel / predicaat</a></td>
+<td><a href="https://www.rvig.nl/landelijke-tabellen-en-besluiten">RvIG</a> / BZK</td>
+<td><code>Codelijst~LT38</code></td>
+<td><code>NatuurlijkPersoon.adellijkeTitelPredicaat</code>.</td>
+</tr>
+<tr>
+<td><a href="https://publicaties.rvig.nl/home">BRP-LT 88 RNI-deelnemer</a></td>
+<td><a href="https://www.rvig.nl/landelijke-tabellen-en-besluiten">RvIG</a> / BZK</td>
+<td><code>Codelijst~LT88</code></td>
+<td><code>NietIngezetene.deelnemerCodeRNI</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cross-walk-ind-codelijst-brp-lt-56-verblijfstitel">Cross-walk: IND-codelijst ↔ BRP-LT 56 (verblijfstitel)<a class="headerlink" href="#cross-walk-ind-codelijst-brp-lt-56-verblijfstitel" title="Permanent link">&para;</a></h3>
+<p><a href="https://publicaties.rvig.nl/home">BRP-LT 56</a> levert verblijfstitel-codes
+met IND-cross-link. GBO modelleert <code>Verblijfstitel.aanduiding</code> als
+<code>Codelijst~IND</code> (autoritatief vanuit <a href="https://ind.nl/">IND</a>) met
+cross-walk naar LT 56 voor BRP-uitwisseling.</p>
+<p>Een fragment uit de cross-walk; de volledige tabel beschrijft tientallen
+verblijfstitels en wordt onderhouden door RvIG in afstemming met de IND.</p>
+<table>
+<thead>
+<tr>
+<th>BRP-code (LT 56)</th>
+<th>IND-aanduiding</th>
+<th>Omschrijving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9</td>
+<td>(geen verblijfstitel)</td>
+<td>Onderdaan EU / EER, geen titel nodig</td>
+</tr>
+<tr>
+<td>10</td>
+<td>verblijf onbeperkt</td>
+<td>Verblijfsvergunning regulier voor onbepaalde tijd</td>
+</tr>
+<tr>
+<td>11</td>
+<td>verblijf bepaald</td>
+<td>Verblijfsvergunning regulier voor bepaalde tijd</td>
+</tr>
+<tr>
+<td>12</td>
+<td>asiel onbeperkt</td>
+<td>Verblijfsvergunning asiel onbepaalde tijd</td>
+</tr>
+<tr>
+<td>13</td>
+<td>asiel bepaald</td>
+<td>Verblijfsvergunning asiel bepaalde tijd</td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Volledige lijsten</strong>:</p>
+<ul>
+<li><a href="https://publicaties.rvig.nl/home">BRP-LT 56 Verblijfstitel — publicaties.rvig.nl</a> — ook beschikbaar via de <a href="https://developer.rvig.nl/brp-api/">Haal Centraal BRP Tabellen-API</a>.</li>
+<li><a href="https://www.rvig.nl/lo-brp">Logisch Ontwerp BRP</a> §11.10.</li>
+<li><a href="https://ind.nl/nl/verblijfsvergunningen">IND Verblijfsvergunningen</a>.</li>
+</ul>
+<p>De cross-walk evolueert mee met IND-beleidswijzigingen.</p>
+<h3 id="onderhoudsritme">Onderhoudsritme<a class="headerlink" href="#onderhoudsritme" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Codelijst</th>
+<th>Mutatieritme</th>
+<th>Bron</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://ind.nl/nl/verblijfsvergunningen">IND Verblijfstitels</a></td>
+<td>Per IND-beleidswijziging</td>
+<td><a href="https://ind.nl/">IND</a></td>
+</tr>
+<tr>
+<td><a href="https://publicaties.rvig.nl/home">BRP-LT 36 / LT 38</a></td>
+<td>Sporadisch</td>
+<td><a href="https://www.rvig.nl/landelijke-tabellen-en-besluiten">RvIG</a></td>
+</tr>
+<tr>
+<td><a href="https://publicaties.rvig.nl/home">BRP-LT 37</a></td>
+<td>Sporadisch</td>
+<td><a href="https://www.rvig.nl/landelijke-tabellen-en-besluiten">RvIG</a></td>
+</tr>
+<tr>
+<td><a href="https://publicaties.rvig.nl/home">BRP-LT 56</a></td>
+<td>Per IND-beleidswijziging</td>
+<td><a href="https://www.rvig.nl/landelijke-tabellen-en-besluiten">RvIG</a> (afstemming met IND)</td>
+</tr>
+<tr>
+<td><a href="https://publicaties.rvig.nl/home">BRP-LT 88</a></td>
+<td>Sporadisch</td>
+<td><a href="https://www.rvig.nl/landelijke-tabellen-en-besluiten">RvIG</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="stelselkoppelingen">Stelselkoppelingen<a class="headerlink" href="#stelselkoppelingen" title="Permanent link">&para;</a></h2>
+<ul>
+<li>→ <a href="../adressen-en-gebouwen/">Adressen en gebouwen</a>:
+  <code>NatuurlijkPersoon woont op Adres</code> op hoofdmodel-niveau. In detail:
+  <code>Ingezetene</code> op <code>Binnenlandsadres</code>, <code>NietIngezetene</code> op
+  <code>Buitenlandsadres</code>, briefadres als <code>Postadres</code>.</li>
+<li>→ <a href="../bedrijven-en-instellingen/">Bedrijven en instellingen</a>: gedeeld
+  via het <code>Partij</code>-supertype. <code>NatuurlijkPersoon</code> kan eigenaar zijn van
+  een eenmanszaak of vennoot in een VOF.</li>
+<li>→ <a href="../onroerende-zaken/">Onroerende zaken</a>: <code>NatuurlijkPersoon</code> is via
+  <code>Tenaamstelling</code> tenaamgesteld op een <code>ZakelijkRecht</code>.</li>
+</ul>
+<h2 id="bron">Bron<a class="headerlink" href="#bron" title="Permanent link">&para;</a></h2>
+<p>Autoritatieve bron: <strong>BRP</strong> (Basisregistratie Personen), beheerd door de
+Rijksdienst voor Identiteitsgegevens (RvIG). Logisch Ontwerp BRP v4.3.0
+is normatief; primaire identifier is het BSN. Onder Haal Centraal levert
+RvIG zes API's (Personen Bevragen, Historie Bevragen, Bewoning,
+Reisdocumenten, Landelijke Tabellen, Update) met mTLS-authenticatie en
+veld-niveau-autorisatie.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Terug naar boven
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../hoofdmodel/" class="md-footer__link md-footer__link--prev" aria-label="Vorige: Hoofdmodel">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Vorige
+              </span>
+              <div class="md-ellipsis">
+                Hoofdmodel
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../bedrijven-en-instellingen/" class="md-footer__link md-footer__link--next" aria-label="Volgende: Deelmodel Bedrijven en Instellingen">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Volgende
+              </span>
+              <div class="md-ellipsis">
+                Deelmodel Bedrijven en Instellingen
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.sections", "navigation.top", "navigation.footer", "navigation.indexes", "search.highlight", "search.share", "content.action.edit", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.ad660dcc.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@11/dist/mermaid.min.js"></script>
+      
+        <script src="../../../../assets/javascripts/mermaid-init.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
