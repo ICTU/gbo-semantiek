@@ -214,9 +214,11 @@ vrijstellingen.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | AangifteErf |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/AangifteErf` |
 | Notation | Erf |
 | Herkomst | SBR-NT NT20 |
 | Datum opname | 2026-05-19 |
+| Populatie | Alle ingediende aangiften erfbelasting per nalatenschap, met de verdeling van die nalatenschap over de erfgenamen. |
 
 **Attribuutsoorten**:
 
@@ -244,9 +246,11 @@ authentieke inkomen voor de Basisregistratie Inkomen.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | AangifteIH |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/AangifteIH` |
 | Notation | IH |
 | Herkomst | SBR-NT NT20 |
 | Datum opname | 2026-05-19 |
+| Populatie | Alle door of namens een natuurlijk persoon ingediende jaaraangiften inkomstenbelasting (Box 1, Box 2 en Box 3). |
 
 **Attribuutsoorten**:
 
@@ -274,9 +278,11 @@ aan de begiftigde-zijde een vordering.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | AangifteSchenk |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/AangifteSchenk` |
 | Notation | Schenk |
 | Herkomst | SBR-NT NT20 |
 | Datum opname | 2026-05-19 |
+| Populatie | Alle ingediende aangiften schenkbelasting per schenking, inclusief schenking-op-papier-constructies. |
 
 **Attribuutsoorten**:
 
@@ -302,9 +308,11 @@ alimentatie, lijfrente en giften.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | Aftrekpost |
-| Indicatie abstract object | Ja |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/Aftrekpost` |
 | Herkomst | SBR-NT NT20 |
 | Datum opname | 2026-05-19 |
+| Indicatie abstract object | Ja |
+| Populatie | Alle in een IH-aangifte opgevoerde aftrekposten die het belastbaar inkomen verlagen, inclusief hypotheekrente, partneralimentatie, lijfrente en giften. |
 
 **Attribuutsoorten**:
 
@@ -329,8 +337,10 @@ wel belast bij de ontvanger.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | AlimentatieAftrek |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/AlimentatieAftrek` |
 | Herkomst | SBR-NT NT20 |
 | Datum opname | 2026-05-19 |
+| Populatie | Alle in een belastingjaar door de belastingplichtige aan een gewezen partner betaalde aftrekbare partneralimentatie. |
 
 **Attribuutsoorten**:
 
@@ -358,8 +368,10 @@ het BRI-inkomen te gebruiken.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | AuthentiekInkomen |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/AuthentiekInkomen` |
 | Herkomst | BRI; Stelselcatalogus |
 | Datum opname | 2026-05-19 |
+| Populatie | Alle door de Belastingdienst vastgestelde authentieke inkomensgegevens per natuurlijk persoon per belastingjaar, opgenomen in de Basisregistratie Inkomen. |
 
 **Attribuutsoorten**:
 
@@ -385,9 +397,11 @@ rapportage-eisen onder de CRS.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | BankSpaartegoed |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/BankSpaartegoed` |
 | Notation | BS |
 | Herkomst | SBR-NT NT20 |
 | Datum opname | 2026-05-19 |
+| Populatie | Alle in Box 3 opgegeven bank- en spaartegoeden van een natuurlijk persoon op peildatum 1 januari, bij Nederlandse of buitenlandse financiele instellingen. |
 
 **Attribuutsoorten**:
 
@@ -415,9 +429,11 @@ zijn voor toekomstige uitbreiding.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | BelastingAangifte |
-| Indicatie abstract object | Ja |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/BelastingAangifte` |
 | Herkomst | AWR; SBR-NT NT20 |
 | Datum opname | 2026-05-19 |
+| Indicatie abstract object | Ja |
+| Populatie | Alle door of namens belastingplichtigen ingediende aangiften voor een specifieke belastingsoort en periode. |
 
 **Attribuutsoorten**:
 
@@ -444,8 +460,11 @@ voor de eerste batch buiten scope.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | BelastingjaarAangifte |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/BelastingjaarAangifte` |
 | Herkomst | SBR-NT NT20 |
 | Datum opname | 2026-05-19 |
+| Indicatie abstract object | Ja |
+| Populatie | Alle belastingaangiften die op een specifiek belastingjaar betrekking hebben, ongeacht de belastingsoort (IH, Schenk, Erf). |
 
 **Attribuutsoorten**:
 
@@ -468,9 +487,11 @@ vergelijkbare effecten, vastgesteld op marktwaarde per peildatum
 | MIM-veld | Waarde |
 |---|---|
 | Naam | Belegging |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/Belegging` |
 | Notation | BE |
 | Herkomst | SBR-NT NT20 |
 | Datum opname | 2026-05-19 |
+| Populatie | Alle in Box 3 opgegeven beleggingen van een natuurlijk persoon op peildatum 1 januari, in de vorm van aandelen, obligaties, beleggingsfondsen of derivaten. |
 
 **Attribuutsoorten**:
 
@@ -494,9 +515,11 @@ stablecoins en vergelijkbare digitale tokens.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | Cryptovaluta |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/Cryptovaluta` |
 | Notation | CR |
 | Herkomst | SBR-NT NT20 |
 | Datum opname | 2026-05-19 |
+| Populatie | Alle in Box 3 opgegeven cryptotegoeden van een natuurlijk persoon op peildatum 1 januari (Bitcoin, Ether, stablecoins en vergelijkbare digitale tokens). |
 
 **Attribuutsoorten**:
 
@@ -523,8 +546,10 @@ Overig Bezit.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | EigenWoning |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/EigenWoning` |
 | Herkomst | SBR-NT NT20 |
 | Datum opname | 2026-05-19 |
+| Populatie | Alle onroerende zaken die als hoofdverblijf van de belastingplichtige of zijn fiscale partner binnen het eigenwoning-regime van Box 1 vallen. |
 
 **Attribuutsoorten**:
 
@@ -552,9 +577,11 @@ belastingjaar).
 | MIM-veld | Waarde |
 |---|---|
 | Naam | FiscaalFeit |
-| Indicatie abstract object | Ja |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/FiscaalFeit` |
 | Herkomst | SBR-NT NT20 |
 | Datum opname | 2026-05-19 |
+| Indicatie abstract object | Ja |
+| Populatie | Alle fiscaal relevante componenten die in een belastingjaar als onderdeel van een belastingaangifte voorkomen: vermogensbestanddelen, aftrekposten en vergelijkbare inkomensbestanddelen. |
 
 **Attribuutsoorten**:
 
@@ -581,8 +608,10 @@ kind, vaak de trigger. Het partnerschap geldt per belastingjaar.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | FiscalePartner |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/FiscalePartner` |
 | Herkomst | SBR-NT NT20 |
 | Datum opname | 2026-05-19 |
+| Populatie | Alle in een belastingjaar geldende fiscaal-partnerschapsrelaties tussen twee natuurlijke personen op grond van Wet IB 2001 art. 5a. |
 
 **Attribuutsoorten**:
 
@@ -609,8 +638,10 @@ drempelinkomen en plafond van 10% van het drempelinkomen.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | GiftenAftrek |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/GiftenAftrek` |
 | Herkomst | SBR-NT NT20 |
 | Datum opname | 2026-05-19 |
+| Populatie | Alle in een belastingjaar aan ANBI's en culturele instellingen gedane aftrekbare giften, zowel periodieke als eenmalige giften binnen drempel- en plafondbedragen. |
 
 **Attribuutsoorten**:
 
@@ -635,9 +666,11 @@ gezinssituatie.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | Huurtoeslag |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/Huurtoeslag` |
 | Notation | HT |
 | Herkomst | Awir |
 | Datum opname | 2026-05-19 |
+| Populatie | Alle aan huurders toegekende huurtoeslagen op grond van de Wet op de huurtoeslag, ter tegemoetkoming in de woonlasten. |
 
 **Attribuutsoorten**:
 
@@ -661,8 +694,10 @@ annuitaire of lineaire aflossingsverplichting voor leningen die na
 | MIM-veld | Waarde |
 |---|---|
 | Naam | Hypotheekrenteaftrek |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/Hypotheekrenteaftrek` |
 | Herkomst | SBR-NT NT20 |
 | Datum opname | 2026-05-19 |
+| Populatie | Alle in een belastingjaar in Box 1 aftrekbare rentebetalingen op de eigenwoningschuld van de belastingplichtige binnen het eigenwoning-regime. |
 
 **Attribuutsoorten**:
 
@@ -690,9 +725,11 @@ Inkomen kan Uitkering daar als parallel-variant worden gemodelleerd.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | InkomensOndersteuning |
-| Indicatie abstract object | Ja |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/InkomensOndersteuning` |
 | Herkomst | Awir; cross-domein abstractie |
 | Datum opname | 2026-05-19 |
+| Indicatie abstract object | Ja |
+| Populatie | Alle door of namens de overheid aan natuurlijke personen verstrekte financiele bijdragen ter inkomensondersteuning, in de vorm van inkomensafhankelijke regelingen of sociale-zekerheidsuitkeringen. |
 
 **Attribuutsoorten**:
 
@@ -716,8 +753,10 @@ inhoudingsplichtige.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | Inkomstenopgave |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/Inkomstenopgave` |
 | Herkomst | Loonheffingen 2026 |
 | Datum opname | 2026-05-19 |
+| Populatie | Alle aggregaties van loongegevens van een werknemer binnen een aangifte loonheffingen over een aangifteperiode (typisch maand, vier weken of week). |
 
 **Attribuutsoorten**:
 
@@ -745,8 +784,10 @@ contractuele uren of looncorrecties.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | Inkomstenperiode |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/Inkomstenperiode` |
 | Herkomst | Loonheffingen 2026 |
 | Datum opname | 2026-05-19 |
+| Populatie | Alle tijdvakken binnen een inkomstenopgave waarin specifieke loongegevens gelden, met gewerkte uren, loonbestanddelen en eventuele afwijkingen. |
 
 **Attribuutsoorten**:
 
@@ -774,8 +815,10 @@ banen bestaan meerdere inkomstenverhoudingen.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | Inkomstenverhouding |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/Inkomstenverhouding` |
 | Herkomst | Loonheffingen 2026 |
 | Datum opname | 2026-05-19 |
+| Populatie | Alle administratieve relaties tussen een inhoudingsplichtige en een natuurlijk persoon waarover doorlopend loon wordt uitbetaald en aangifte loonheffingen wordt gedaan. |
 
 **Attribuutsoorten**:
 
@@ -802,9 +845,11 @@ van beide ouders, aantal uren opvang en uurtarief.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | KinderopvangToeslag |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/KinderopvangToeslag` |
 | Notation | KOT |
 | Herkomst | Awir |
 | Datum opname | 2026-05-19 |
+| Populatie | Alle toegekende kinderopvangtoeslagen op grond van de Wet kinderopvang, ter tegemoetkoming in de kosten van formele kinderopvang. |
 
 **Attribuutsoorten**:
 
@@ -831,9 +876,11 @@ uitgevoerd.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | KindgebondenBudget |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/KindgebondenBudget` |
 | Notation | KGB |
 | Herkomst | Awir |
 | Datum opname | 2026-05-19 |
+| Populatie | Alle toegekende kindgebonden budgetten op grond van de Wet op het kindgebonden budget, ter tegemoetkoming in opvoeding- en levensonderhoudskosten van kinderen. |
 
 **Attribuutsoorten**:
 
@@ -859,8 +906,10 @@ reserveringsruimte over zeven voorafgaande jaren.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | LijfrenteAftrek |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/LijfrenteAftrek` |
 | Herkomst | SBR-NT NT20 |
 | Datum opname | 2026-05-19 |
+| Populatie | Alle in een belastingjaar binnen jaarruimte of reserveringsruimte aftrekbare lijfrente-premies en stortingen op bancaire lijfrente-rekeningen. |
 
 **Attribuutsoorten**:
 
@@ -889,8 +938,10 @@ levert ze door aan Belastingdienst.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | LoonAangifte |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/LoonAangifte` |
 | Herkomst | Loonheffingen 2026 |
 | Datum opname | 2026-05-19 |
+| Populatie | Alle periodieke aangiften loonheffingen die inhoudingsplichtigen indienen bij de Belastingdienst over een aangifteperiode, inclusief reguliere en correctie-aangiften. |
 
 **Attribuutsoorten**:
 
@@ -919,8 +970,10 @@ fiscale regels.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | LoonBestanddeel |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/LoonBestanddeel` |
 | Herkomst | Loonheffingen 2026 |
 | Datum opname | 2026-05-19 |
+| Populatie | Alle afzonderlijke loon-componenten binnen een inkomstenopgave: bruto loon, vakantiegeld, dertiende maand, toeslagen, bonus, bijtelling, pensioenpremie-eigen-bijdrage en vergelijkbare bestanddelen. |
 
 **Attribuutsoorten**:
 
@@ -946,9 +999,11 @@ EigenWoning gaat op grond van bewoning door de belastingplichtige.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | OnroerendeZaakOverigBezit |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/OnroerendeZaakOverigBezit` |
 | Notation | OZ-overig |
 | Herkomst | SBR-NT NT20 |
 | Datum opname | 2026-05-19 |
+| Populatie | Alle in Box 3 opgegeven onroerende zaken die niet de eigen woning zijn: tweede woningen, verhuurde panden, grond en vergelijkbare bezittingen, gewaardeerd op WOZ- of marktwaarde per peildatum 1 januari. |
 
 **Attribuutsoorten**:
 
@@ -977,8 +1032,10 @@ geen blokkade.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | Renseignering |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/Renseignering` |
 | Herkomst | ODB; AWR art. 53 |
 | Datum opname | 2026-05-19 |
+| Populatie | Alle door renseigneringsplichtige derden (banken, verzekeraars, pensioenuitvoerders) aan de Belastingdienst gemelde gegevens die relevant zijn voor de belastingheffing van een natuurlijk persoon. |
 
 **Attribuutsoorten**:
 
@@ -1006,9 +1063,11 @@ in Box 3 vallend.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | Schuld |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/Schuld` |
 | Notation | SC |
 | Herkomst | SBR-NT NT20 |
 | Datum opname | 2026-05-19 |
+| Populatie | Alle in Box 3 opgegeven schulden van een natuurlijk persoon die boven de schulddrempel uitkomen en op peildatum 1 januari het Box-3-vermogen verminderen. |
 
 **Attribuutsoorten**:
 
@@ -1040,9 +1099,11 @@ of terugvordering.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | Toeslag |
-| Indicatie abstract object | Ja |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/Toeslag` |
 | Herkomst | Awir |
 | Datum opname | 2026-05-19 |
+| Indicatie abstract object | Ja |
+| Populatie | Alle door Belastingdienst en Toeslagen aan natuurlijke personen toegekende inkomensafhankelijke bijdragen op grond van de Awir: huurtoeslag, zorgtoeslag, kinderopvangtoeslag en kindgebonden budget. |
 
 **Attribuutsoorten**:
 
@@ -1069,9 +1130,11 @@ en schuld. Per categorie gelden eigen waarderings-regels.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | VermogensBestanddeel |
-| Indicatie abstract object | Ja |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/VermogensBestanddeel` |
 | Herkomst | SBR-NT NT20 |
 | Datum opname | 2026-05-19 |
+| Indicatie abstract object | Ja |
+| Populatie | Alle bezittingen en schulden die op peildatum 1 januari onder Box 3 vallen en als zelfstandige post in een IH-aangifte worden opgevoerd. |
 
 **Attribuutsoorten**:
 
@@ -1095,9 +1158,11 @@ partner-status.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | Zorgtoeslag |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/Zorgtoeslag` |
 | Notation | ZT |
 | Herkomst | Awir |
 | Datum opname | 2026-05-19 |
+| Populatie | Alle aan natuurlijke personen toegekende zorgtoeslagen op grond van de Wet op de zorgtoeslag, ter tegemoetkoming in de premie van de basiszorgverzekering. |
 
 **Attribuutsoorten**:
 
@@ -1120,19 +1185,22 @@ meest voorkomende.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | AftrekpostCategorie |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/AftrekpostCategorie` |
 | Herkomst | Wet IB 2001 + SBR-NT |
 | Datum opname | 2026-05-19 |
 
+**Gebruikt door**: `Aftrekpost.categorie`.
+
 **Waarden (top selectie)**:
 
-| Code | Naam | Wet IB-art. |
-|---|---|---|
-| HRA | Hypotheekrenteaftrek | art. 3.120 |
-| ALI | Partneralimentatie | art. 6.3 |
-| LIJ | Lijfrente | art. 3.124 |
-| GIF | Giften | art. 6.32 |
-| ZRG | Zorgkosten | art. 6.17 |
-| WAA | Weekenduitgaven gehandicapt kind | art. 6.25 |
+| Code | Naam | Definitie | Wet IB-art. |
+|---|---|---|---|
+| HRA | Hypotheekrenteaftrek | Rente op eigenwoningschuld binnen het eigenwoning-regime. | art. 3.120 |
+| ALI | Partneralimentatie | Betaalde alimentatie aan een gewezen partner. | art. 6.3 |
+| LIJ | Lijfrente | Premies en stortingen binnen jaarruimte of reserveringsruimte. | art. 3.124 |
+| GIF | Giften | Giften aan ANBI's en culturele instellingen. | art. 6.32 |
+| ZRG | Zorgkosten | Niet-vergoede specifieke zorgkosten. | art. 6.17 |
+| WAA | Weekenduitgaven gehandicapt kind | Uitgaven voor weekendopvang van een gehandicapt kind. | art. 6.25 |
 
 ### BoxCategorie
 
@@ -1145,16 +1213,19 @@ hoofdstuk 5.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | BoxCategorie |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/BoxCategorie` |
 | Herkomst | Wet IB 2001 |
 | Datum opname | 2026-05-19 |
 
+**Gebruikt door**: `AangifteIH.boxCategorie`.
+
 **Waarden**:
 
-| Code | Naam | Toelichting |
-|---|---|---|
-| 1 | Box 1 (werk en woning) | Inkomen uit arbeid en eigenwoning. |
-| 2 | Box 2 (aanmerkelijk belang) | Inkomen uit aanmerkelijk belang in vennootschappen. |
-| 3 | Box 3 (sparen en beleggen) | Forfaitair inkomen uit vermogen op peildatum 1 januari. |
+| Code | Naam | Definitie | Toelichting |
+|---|---|---|---|
+| 1 | Box 1 (werk en woning) | Inkomen uit werk en eigenwoning. | Wet IB hoofdstuk 3. |
+| 2 | Box 2 (aanmerkelijk belang) | Inkomen uit aanmerkelijk belang in vennootschappen. | Wet IB hoofdstuk 4. |
+| 3 | Box 3 (sparen en beleggen) | Forfaitair inkomen uit vermogen op peildatum 1 januari. | Wet IB hoofdstuk 5. |
 
 ### CodeAardArbeidsverhouding
 
@@ -1170,23 +1241,26 @@ loonheffingen.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | CodeAardArbeidsverhouding |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/CodeAardArbeidsverhouding` |
 | Herkomst | Loonheffingen 2026 bijlage |
 | Datum opname | 2026-05-19 |
 
+**Gebruikt door**: `Inkomstenverhouding.codeAardArbeidsverhouding`.
+
 **Waarden**:
 
-| Code | Naam |
-|---|---|
-| 1 | Arbeidsovereenkomst (vast) |
-| 2 | Arbeidsovereenkomst (tijdelijk) |
-| 3 | Stagiair |
-| 4 | Uitzendovereenkomst |
-| 5 | Oproepovereenkomst |
-| 6 | Arbeidsovereenkomst BBL-onderwijs |
-| 7 | Wachtgeld |
-| 8 | Directeur-grootaandeelhouder |
-| 9 | Vrijwilligersregeling |
-| 11 | Publiekrechtelijke aanstelling |
+| Code | Naam | Definitie |
+|---|---|---|
+| 1 | Arbeidsovereenkomst (vast) | Arbeidsovereenkomst voor onbepaalde tijd. |
+| 2 | Arbeidsovereenkomst (tijdelijk) | Arbeidsovereenkomst voor bepaalde tijd. |
+| 3 | Stagiair | Stage-overeenkomst in opleiding. |
+| 4 | Uitzendovereenkomst | Driehoeksrelatie via uitzendbureau. |
+| 5 | Oproepovereenkomst | Min-max- of nul-uren-overeenkomst. |
+| 6 | Arbeidsovereenkomst BBL-onderwijs | Beroepsbegeleidende leerweg-overeenkomst. |
+| 7 | Wachtgeld | Wachtgeld-regeling overheid. |
+| 8 | Directeur-grootaandeelhouder | Bestuurder met aanmerkelijk belang. |
+| 9 | Vrijwilligersregeling | Onbetaalde of beperkt vergoede inzet binnen fiscale grens. |
+| 11 | Publiekrechtelijke aanstelling | Ambtelijke aanstelling overheid. |
 
 ### CodeRedenEindeArbeidsverhouding
 
@@ -1201,23 +1275,26 @@ arbeidsverhouding voor gebruik in de aangifte loonheffingen.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | CodeRedenEindeArbeidsverhouding |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/CodeRedenEindeArbeidsverhouding` |
 | Herkomst | Loonheffingen 2026 bijlage |
 | Datum opname | 2026-05-19 |
 
+**Gebruikt door**: `Inkomstenverhouding.codeRedenEinde`.
+
 **Waarden**:
 
-| Code | Naam |
-|---|---|
-| 01 | Einde op initiatief werknemer |
-| 02 | Einde op initiatief werkgever |
-| 03 | Wederzijds goedvinden |
-| 04 | Einde tijdelijk contract van rechtswege |
-| 05 | Ontbinding door kantonrechter |
-| 20 | Van rechtswege bij pensioen-gerechtigde leeftijd |
-| 30 | Overlijden van de werknemer |
-| 40 | Faillissement werkgever |
-| 50 | Overgang naar andere werkgever |
-| 90 | Overig |
+| Code | Naam | Definitie |
+|---|---|---|
+| 01 | Einde op initiatief werknemer | Opzegging door de werknemer. |
+| 02 | Einde op initiatief werkgever | Opzegging of ontslag door de werkgever. |
+| 03 | Wederzijds goedvinden | Beeindiging via vaststellingsovereenkomst. |
+| 04 | Einde tijdelijk contract van rechtswege | Aflopen tijdelijke arbeidsovereenkomst zonder verlenging. |
+| 05 | Ontbinding door kantonrechter | Rechterlijke ontbinding van de arbeidsovereenkomst. |
+| 20 | Van rechtswege bij pensioen-gerechtigde leeftijd | Pensionering volgens contract of cao. |
+| 30 | Overlijden van de werknemer | Einde door overlijden. |
+| 40 | Faillissement werkgever | Einde door faillissement van de inhoudingsplichtige. |
+| 50 | Overgang naar andere werkgever | Overgang van onderneming. |
+| 90 | Overig | Overige redenen niet expliciet genoemd. |
 
 ### CodeSectorindelingWhk
 
@@ -1233,23 +1310,26 @@ verzekeringen bepaalt.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | CodeSectorindelingWhk |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/CodeSectorindelingWhk` |
 | Herkomst | Loonheffingen 2026 + UWV |
 | Datum opname | 2026-05-19 |
 
+**Gebruikt door**: Loonheffingenaangifte-rubriek, sector-context (geen direct attribuut binnen dit deelmodel).
+
 **Waarden**:
 
-| Code | Naam |
-|---|---|
-| 01 | Agrarisch bedrijf |
-| 03 | Bouwbedrijf |
-| 12 | Metaalindustrie |
-| 17 | Detailhandel en ambachten |
-| 19 | Grootwinkelbedrijf |
-| 35 | Gezondheidszorg |
-| 50 | Overheid (Rijk) |
-| 51 | Overheid (provincie) |
-| 52 | Overheid (gemeente) |
-| 67 | Werk en re-integratie |
+| Code | Naam | Definitie |
+|---|---|---|
+| 01 | Agrarisch bedrijf | Land- en tuinbouw, veeteelt. |
+| 03 | Bouwbedrijf | Burgerlijke en utiliteitsbouw. |
+| 12 | Metaalindustrie | Productie en bewerking van metaal. |
+| 17 | Detailhandel en ambachten | Kleinhandel en ambachtelijke productie. |
+| 19 | Grootwinkelbedrijf | Filiaal- en grootwinkelketens. |
+| 35 | Gezondheidszorg | Zorgsector breed. |
+| 50 | Overheid (Rijk) | Rijksoverheid. |
+| 51 | Overheid (provincie) | Provinciale overheid. |
+| 52 | Overheid (gemeente) | Gemeentelijke overheid. |
+| 67 | Werk en re-integratie | Re-integratiebedrijven en sociale werkvoorziening. |
 
 ### CodeSoortInkomen
 
@@ -1265,23 +1345,26 @@ aangeleverd.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | CodeSoortInkomen |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/CodeSoortInkomen` |
 | Herkomst | Loonheffingen 2026 + SBR-NT VIA |
 | Datum opname | 2026-05-19 |
 
+**Gebruikt door**: `LoonBestanddeel.codeSoortInkomen`.
+
 **Waarden**:
 
-| Code | Naam |
-|---|---|
-| LOON | Bruto loon |
-| VKG | Vakantiegeld |
-| MD13 | Dertiende maand |
-| EJU | Eindejaarsuitkering |
-| BNS | Bonus |
-| PROV | Provisie |
-| OVW | Overwerk-vergoeding |
-| TS | Structurele toeslagen |
-| BTL | Bijtelling |
-| PNS | Pensioenpremie werknemer-eigen |
+| Code | Naam | Definitie |
+|---|---|---|
+| LOON | Bruto loon | Reguliere periodieke loonbetaling. |
+| VKG | Vakantiegeld | Vakantietoeslag. |
+| MD13 | Dertiende maand | Dertiende-maandsuitkering. |
+| EJU | Eindejaarsuitkering | Eindejaarsuitkering buiten dertiende maand. |
+| BNS | Bonus | Incidentele bonusbetaling. |
+| PROV | Provisie | Provisie of commissie. |
+| OVW | Overwerk-vergoeding | Vergoeding voor overuren. |
+| TS | Structurele toeslagen | Structurele toeslagen zoals ploegen- of onregelmatigheidstoeslag. |
+| BTL | Bijtelling | Bijtelling auto van de zaak of vergelijkbaar. |
+| PNS | Pensioenpremie werknemer-eigen | Eigen pensioenpremie-bijdrage van de werknemer. |
 
 ### CodeSoortInkomstenverhouding
 
@@ -1296,23 +1379,26 @@ gebruik in de aangifte loonheffingen.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | CodeSoortInkomstenverhouding |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/CodeSoortInkomstenverhouding` |
 | Herkomst | Loonheffingen 2026 bijlage |
 | Datum opname | 2026-05-19 |
 
+**Gebruikt door**: `Inkomstenverhouding.codeSoortInkomstenverhouding`.
+
 **Waarden**:
 
-| Code | Naam |
-|---|---|
-| 11 | Inkomsten uit tegenwoordige dienstbetrekking |
-| 13 | Inkomsten uit vroegere dienstbetrekking |
-| 15 | Wajong-uitkering |
-| 17 | Ziektewet-uitkering |
-| 21 | WIA-uitkering |
-| 22 | WW-uitkering |
-| 23 | Bijstandsuitkering |
-| 31 | AOW-uitkering |
-| 33 | ANW-uitkering |
-| 41 | Pensioen-uitkering |
+| Code | Naam | Definitie |
+|---|---|---|
+| 11 | Inkomsten uit tegenwoordige dienstbetrekking | Lopend dienstverband met actieve arbeid. |
+| 13 | Inkomsten uit vroegere dienstbetrekking | Inkomsten uit beeindigde dienstbetrekking (bijv. pensioen, VUT). |
+| 15 | Wajong-uitkering | Uitkering Wet arbeidsongeschiktheidsvoorziening jonggehandicapten. |
+| 17 | Ziektewet-uitkering | Uitkering Ziektewet. |
+| 21 | WIA-uitkering | Uitkering Wet werk en inkomen naar arbeidsvermogen. |
+| 22 | WW-uitkering | Uitkering Werkloosheidswet. |
+| 23 | Bijstandsuitkering | Uitkering Participatiewet. |
+| 31 | AOW-uitkering | Algemene Ouderdomswet-uitkering. |
+| 33 | ANW-uitkering | Algemene nabestaandenwet-uitkering. |
+| 41 | Pensioen-uitkering | Tweede-pijler-pensioenuitkering. |
 
 ### ToeslagSoort
 
@@ -1324,17 +1410,20 @@ van de Awir door Belastingdienst en Toeslagen worden uitgevoerd.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | ToeslagSoort |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/ToeslagSoort` |
 | Herkomst | Awir |
 | Datum opname | 2026-05-19 |
 
+**Gebruikt door**: `Toeslag.toeslagSoort`.
+
 **Waarden**:
 
-| Code | Naam | Wet |
-|---|---|---|
-| HT | Huurtoeslag | Wet op de huurtoeslag |
-| ZT | Zorgtoeslag | Wet op de zorgtoeslag |
-| KOT | Kinderopvangtoeslag | Wet kinderopvang |
-| KGB | Kindgebondenbudget | Wet op het kindgebondenbudget |
+| Code | Naam | Definitie | Wet |
+|---|---|---|---|
+| HT | Huurtoeslag | Tegemoetkoming in de woonlasten voor huurders met laag inkomen. | Wet op de huurtoeslag |
+| ZT | Zorgtoeslag | Tegemoetkoming in de premie van de basiszorgverzekering. | Wet op de zorgtoeslag |
+| KOT | Kinderopvangtoeslag | Tegemoetkoming in de kosten van formele kinderopvang. | Wet kinderopvang |
+| KGB | Kindgebondenbudget | Tegemoetkoming in de kosten van opvoeding en levensonderhoud van kinderen. | Wet op het kindgebondenbudget |
 
 ### VermogensBestanddeelCategorie
 
@@ -1349,23 +1438,26 @@ NT20.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | VermogensBestanddeelCategorie |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/VermogensBestanddeelCategorie` |
 | Herkomst | Wet IB 2001 + SBR-NT |
 | Datum opname | 2026-05-19 |
 
+**Gebruikt door**: `VermogensBestanddeel.categorie`.
+
 **Waarden**:
 
-| Code | Naam | Concept |
-|---|---|---|
-| BST | Banktegoed binnenland | BankSpaartegoed |
-| BSI | Banktegoed buitenland | BankSpaartegoed |
-| EFA | Aandelen | Belegging |
-| EFO | Obligaties | Belegging |
-| EFF | Beleggingsfondsen | Belegging |
-| EFD | Derivaten | Belegging |
-| CRY | Cryptovaluta | Cryptovaluta |
-| OZO | Onroerende zaak overig | OnroerendeZaakOverigBezit |
-| VRD | Vordering | (apart te modelleren) |
-| SCH | Schuld | Schuld |
+| Code | Naam | Definitie | Concept |
+|---|---|---|---|
+| BST | Banktegoed binnenland | Bank- of spaartegoed bij Nederlandse financiele instelling. | BankSpaartegoed |
+| BSI | Banktegoed buitenland | Bank- of spaartegoed bij buitenlandse financiele instelling. | BankSpaartegoed |
+| EFA | Aandelen | Beursgenoteerde of niet-genoteerde aandelen. | Belegging |
+| EFO | Obligaties | Vastrentende effecten. | Belegging |
+| EFF | Beleggingsfondsen | Deelnemingen in beleggingsinstellingen. | Belegging |
+| EFD | Derivaten | Afgeleide financiele instrumenten. | Belegging |
+| CRY | Cryptovaluta | Digitale tokens en cryptotegoeden. | Cryptovaluta |
+| OZO | Onroerende zaak overig | Onroerende zaak die geen eigen woning is. | OnroerendeZaakOverigBezit |
+| VRD | Vordering | Vordering op een derde (bijv. uit schenking op papier). | (apart te modelleren) |
+| SCH | Schuld | Schuld die het Box-3-vermogen vermindert. | Schuld |
 
 ## Codelijsten
 

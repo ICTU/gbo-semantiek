@@ -201,7 +201,7 @@ verplichtingen prive en zakelijk.
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/AchterstandRegistratie` |
 | Herkomst | CKI |
 | Datum opname | 2026-05-19 |
-| Populatie | Alle aan CKI gemelde achterstanden, inclusief inmiddels herstelde voor zover binnen de bewaartermijn van vijf jaar. |
+| Populatie | Alle aan CKI gemelde achterstanden op kredietovereenkomsten, inclusief inmiddels herstelde voor zover binnen de bewaartermijn van vijf jaar. |
 
 **Attribuutsoorten**:
 
@@ -238,9 +238,10 @@ vaste looptijd. Meldingsplichtig boven EUR 250.
 |---|---|
 | Naam | AflopendKrediet |
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/AflopendKrediet` |
-| Notation | AK |
 | Herkomst | CKI |
 | Datum opname | 2026-05-19 |
+| Populatie | Alle aan CKI gemelde aflopende kredieten boven de meldingsdrempel van EUR 250, gedurende de looptijd plus de bewaartermijn na einddatum. |
+| Notation | AK |
 
 **Attribuutsoorten**:
 
@@ -276,6 +277,7 @@ bijzonderheids-coderingen kennen, elk met een eigen code en datum.
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/BijzonderheidsCodering` |
 | Herkomst | CKI |
 | Datum opname | 2026-05-19 |
+| Populatie | Alle aan CKI gemelde bijzonderheidscoderingen op kredietovereenkomsten, gedurende de bewaartermijn. |
 
 **Attribuutsoorten**:
 
@@ -308,9 +310,11 @@ met spreidingsfunctie en sommige private leases.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | DoorlopendKrediet |
-| Notation | RK |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/DoorlopendKrediet` |
 | Herkomst | CKI |
 | Datum opname | 2026-05-19 |
+| Populatie | Alle aan CKI gemelde doorlopende kredieten boven de meldingsdrempel van EUR 250 als kredietlimiet, gedurende de looptijd plus de bewaartermijn. |
+| Notation | RK |
 
 **Attribuutsoorten**:
 
@@ -347,8 +351,9 @@ tussen familieleden vallen er niet onder.
 | Naam | FinancieleVerplichting |
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/FinancieleVerplichting` |
 | Herkomst | CKI; Wgs |
-| Indicatie abstract object | Ja |
 | Datum opname | 2026-05-19 |
+| Indicatie abstract object | Ja |
+| Populatie | Abstract. Concrete populatie wordt bepaald door de subklassen KredietOvereenkomst en SchuldhulpverleningTraject: alle in CKI of in een gemeentelijke beschikking geformaliseerde geldelijke verplichtingen van een natuurlijk of niet-natuurlijk persoon. |
 
 **Attribuutsoorten**:
 
@@ -379,8 +384,10 @@ lopende.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | HerstelMelding |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/HerstelMelding` |
 | Herkomst | CKI |
 | Datum opname | 2026-05-19 |
+| Populatie | Alle aan CKI gemelde herstellen van eerder geregistreerde achterstanden, gedurende de bewaartermijn van de oorspronkelijke achterstand. |
 
 **Attribuutsoorten**:
 
@@ -417,9 +424,11 @@ of de eigen kredietadministratie van de geldverstrekker.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | HypothecairKredietEigenWoning |
-| Notation | HY |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/HypothecairKredietEigenWoning` |
 | Herkomst | CKI |
 | Datum opname | 2026-05-19 |
+| Populatie | Hypothecaire kredieten voor de eigen woning waarop een negatieve betalingservaring aan CKI is gemeld; reguliere kredieten zonder achterstand verschijnen niet in CKI. |
+| Notation | HY |
 
 **Attribuutsoorten**:
 
@@ -451,9 +460,11 @@ zit in de rol van de onroerende zaak.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | HypothecairKredietOverigeOnroerendeZaken |
-| Notation | HO |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/HypothecairKredietOverigeOnroerendeZaken` |
 | Herkomst | CKI |
 | Datum opname | 2026-05-19 |
+| Populatie | Alle aan CKI gemelde hypothecaire kredieten op onroerende zaken anders dan de eigen woning (tweede woning, verhuurpand, beleggingspand) boven de meldingsdrempel van EUR 250. |
+| Notation | HO |
 
 **Attribuutsoorten**:
 
@@ -488,8 +499,10 @@ mini-leningen van enkele honderden euros met een termijn van weken.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | KortKrediet |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/KortKrediet` |
 | Herkomst | CKI |
 | Datum opname | 2026-05-19 |
+| Populatie | Aan CKI gemelde kortlopende kredieten (dagkredieten, mini-leningen) met een looptijd doorgaans korter dan drie maanden. |
 
 **Attribuutsoorten**:
 
@@ -519,9 +532,11 @@ herstel, gevolgd door opnieuw een achterstand.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | KredietFeit |
-| Indicatie abstract object | Ja |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/KredietFeit` |
 | Herkomst | CKI |
 | Datum opname | 2026-05-19 |
+| Indicatie abstract object | Ja |
+| Populatie | Abstract. Concrete populatie wordt bepaald door de subklassen AchterstandRegistratie, HerstelMelding en BijzonderheidsCodering: alle gedurende de looptijd van een kredietovereenkomst aan CKI gemelde gebeurtenissen. |
 
 **Attribuutsoorten**:
 
@@ -567,9 +582,11 @@ zij niet aan CKI worden gemeld:
 | MIM-veld | Waarde |
 |---|---|
 | Naam | KredietOvereenkomst |
-| Indicatie abstract object | Ja |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/KredietOvereenkomst` |
 | Herkomst | CKI |
 | Datum opname | 2026-05-19 |
+| Indicatie abstract object | Ja |
+| Populatie | Abstract. Concrete populatie wordt bepaald door de twaalf subklassen: alle kredietovereenkomsten die op grond van het Algemeen Reglement CKI aan het Centraal Krediet Informatiesysteem worden gemeld. |
 
 **Attribuutsoorten**:
 
@@ -609,9 +626,11 @@ eigenaar en kent een eigen kredietvorm-code sinds 1 januari 2017.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | OperationalAutolease |
-| Notation | OA |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/OperationalAutolease` |
 | Herkomst | CKI |
 | Datum opname | 2026-05-19 |
+| Populatie | Aan CKI gemelde operational-autoleasecontracten waarbij de leasemaatschappij eigenaar van het voertuig blijft en het totale contractbedrag boven de meldingsdrempel van EUR 250 ligt. |
+| Notation | OA |
 
 **Attribuutsoorten**:
 
@@ -641,9 +660,11 @@ borgstelling).
 | MIM-veld | Waarde |
 |---|---|
 | Naam | OverigeFinancieleVerplichtingPrive |
-| Notation | RO |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/OverigeFinancieleVerplichtingPrive` |
 | Herkomst | CKI |
 | Datum opname | 2026-05-19 |
+| Populatie | Aan CKI gemelde overige private financiele verplichtingen van natuurlijke personen die niet onder een andere kredietvorm vallen, voor zover een negatieve betalingservaring is gemeld. |
+| Notation | RO |
 
 **Attribuutsoorten**:
 
@@ -670,9 +691,11 @@ CKI-registratie loopt gedurende dit proces door.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | RestschuldHypothecairKredietMetNHG |
-| Notation | RN |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/RestschuldHypothecairKredietMetNHG` |
 | Herkomst | CKI |
 | Datum opname | 2026-05-19 |
+| Populatie | Aan CKI gemelde restschulden boven EUR 250 na verkoop van een onroerende zaak waarop een hypothecair krediet rustte met dekking door de Nationale Hypotheek Garantie. |
+| Notation | RN |
 
 **Attribuutsoorten**:
 
@@ -707,9 +730,11 @@ voor de aansprakelijkheid en de afbetalingsverplichting.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | RestschuldHypothecairKredietZonderNHG |
-| Notation | RH |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/RestschuldHypothecairKredietZonderNHG` |
 | Herkomst | CKI |
 | Datum opname | 2026-05-19 |
+| Populatie | Aan CKI gemelde restschulden boven EUR 250 na verkoop van een onroerende zaak waarop een hypothecair krediet rustte zonder dekking door de Nationale Hypotheek Garantie. |
+| Notation | RH |
 
 **Attribuutsoorten**:
 
@@ -744,9 +769,11 @@ schuldhulpverleningstraject.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | Saneringskrediet |
-| Notation | SK |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/Saneringskrediet` |
 | Herkomst | CKI |
 | Datum opname | 2026-05-19 |
+| Populatie | Aan CKI gemelde saneringskredieten boven EUR 250, verstrekt door een gemeente of door de gemeente aangewezen kredietbank in het kader van schuldhulpverlening. |
+| Notation | SK |
 
 **Attribuutsoorten**:
 
@@ -776,9 +803,11 @@ meldingsplichtig.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | ZakelijkKrediet |
-| Notation | ZK |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/ZakelijkKrediet` |
 | Herkomst | CKI |
 | Datum opname | 2026-05-19 |
+| Populatie | Aan CKI gemelde zakelijke kredieten boven EUR 1.000 met persoonlijke aansprakelijkheid van een of meer natuurlijke personen (typisch ZZP en eenmanszaken, en BV/NV met persoonlijke borgstelling). |
+| Notation | ZK |
 
 **Attribuutsoorten**:
 
@@ -812,9 +841,11 @@ verplichting kunnen zowel ZK als ZO van toepassing zijn.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | ZakelijkeOverigeFinancieleVerplichting |
-| Notation | ZO |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/ZakelijkeOverigeFinancieleVerplichting` |
 | Herkomst | CKI |
 | Datum opname | 2026-05-19 |
+| Populatie | Aan CKI gemelde overige zakelijke financiele verplichtingen boven EUR 1.000 die niet onder ZakelijkKrediet vallen, voor zover een negatieve betalingservaring is gemeld. |
+| Notation | ZO |
 
 **Attribuutsoorten**:
 
@@ -853,8 +884,10 @@ de aard.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | BorgstellingRol |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/BorgstellingRol` |
 | Herkomst | CKI; BW |
 | Datum opname | 2026-05-19 |
+| Populatie | Natuurlijke personen die zich als borg hebben verbonden voor een kredietovereenkomst; in CKI alleen zichtbaar bij activering van de borgstelling via een negatieve betalingservaring. |
 
 **Attribuutsoorten**:
 
@@ -894,8 +927,10 @@ onderdeel zijn van het traject.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | SchuldhulpverleningTraject |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/SchuldhulpverleningTraject` |
 | Herkomst | Wgs; CKI |
 | Datum opname | 2026-05-19 |
+| Populatie | Alle bij beschikking aan een natuurlijk persoon toegekende gemeentelijke schuldhulpverleningstrajecten op grond van de Wet gemeentelijke schuldhulpverlening; aangemeld bij CKI conform art. 18a Algemeen Reglement CKI. |
 
 **Attribuutsoorten**:
 
@@ -930,6 +965,7 @@ en datum.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | BijzonderheidsCode |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/BijzonderheidsCode` |
 | Herkomst | CKI |
 | Datum opname | 2026-05-19 |
 
@@ -937,13 +973,13 @@ en datum.
 
 **Waarden**:
 
-| Code (notation) | Definitie |
-|---|---|
-| 1 | Aflossingsregeling getroffen na ontstane achterstand. |
-| 2 | Zakelijke klant heeft betaling van restant of gehele vordering geeist. |
-| 3 | Zakelijke klant heeft EUR 250 of meer afgeboekt. |
-| 4 | Consument blijkt onbereikbaar. |
-| 5 | Schriftelijke preventieve betaalregeling voor hypothecair krediet van minimaal vier maanden. |
+| Code (notation) | Definitie | Toelichting |
+|---|---|---|
+| 1 | Aflossingsregeling getroffen na ontstane achterstand. | Markeert dat partijen tot een betalingsregeling zijn gekomen. |
+| 2 | Zakelijke klant heeft betaling van restant of gehele vordering geeist. | Opeising door zakelijke kredietverstrekker. |
+| 3 | Zakelijke klant heeft EUR 250 of meer afgeboekt. | Afboeking als oninbaar door de zakelijke kredietverstrekker. |
+| 4 | Consument blijkt onbereikbaar. | Communicatie met kredietnemer is verstoord. |
+| 5 | Schriftelijke preventieve betaalregeling voor hypothecair krediet van minimaal vier maanden. | Alleen van toepassing op hypothecair krediet. |
 
 ### KredietVormCode
 
@@ -960,27 +996,28 @@ geen vaste tweeletter-code.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | KredietVormCode |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/KredietVormCode` |
 | Herkomst | CKI |
 | Datum opname | 2026-05-19 |
 
-**Gebruikt door**: `KredietOvereenkomst.kredietvormCode`.
+**Gebruikt door**: `KredietOvereenkomst.kredietvormCode` (en daarmee alle concrete subklassen: `AflopendKrediet.kredietvormCode`, `DoorlopendKrediet.kredietvormCode`, `Saneringskrediet.kredietvormCode`, `HypothecairKredietEigenWoning.kredietvormCode`, `HypothecairKredietOverigeOnroerendeZaken.kredietvormCode`, `RestschuldHypothecairKredietZonderNHG.kredietvormCode`, `RestschuldHypothecairKredietMetNHG.kredietvormCode`, `OperationalAutolease.kredietvormCode`, `OverigeFinancieleVerplichtingPrive.kredietvormCode`, `ZakelijkKrediet.kredietvormCode`, `ZakelijkeOverigeFinancieleVerplichting.kredietvormCode`).
 
 **Waarden**:
 
-| Code (notation) | Naam | Bron |
-|---|---|---|
-| AK | Aflopend krediet | art. 16 |
-| RK | Doorlopend krediet | art. 17 |
-| SH | Schuldhulpverlening | art. 18a |
-| SK | Saneringskrediet | art. 18 |
-| HY | Hypothecair krediet eigen woning | art. 19 |
-| HO | Hypothecair krediet overige onroerende zaken | art. 20 |
-| RH | Restschuld hypothecair krediet zonder NHG | art. 21 |
-| RN | Restschuld hypothecair krediet met NHG | art. 21 |
-| OA | Operational autolease | art. 22 |
-| RO | Overige financiele verplichting prive | art. 23 |
-| ZK | Zakelijk krediet | art. 24 |
-| ZO | Zakelijke overige financiele verplichting | art. 25 |
+| Code (notation) | Naam | Definitie | Bron |
+|---|---|---|---|
+| AK | Aflopend krediet | Krediet met vaste looptijd en periodieke aflossing tot nul. | art. 16 |
+| RK | Doorlopend krediet | Revolverend krediet tot een afgesproken kredietlimiet. | art. 17 |
+| SH | Schuldhulpverlening | Schuldhulpverleningstraject onder Wgs, gemeld op grond van art. 18a. | art. 18a |
+| SK | Saneringskrediet | Persoonlijke lening door gemeente of kredietbank ter bundeling van bestaande schulden. | art. 18 |
+| HY | Hypothecair krediet eigen woning | Hypothecair krediet op de eigen woning; alleen negatieve betalingservaringen gemeld. | art. 19 |
+| HO | Hypothecair krediet overige onroerende zaken | Hypothecair krediet op overige onroerende zaken (tweede woning, beleggingspand). | art. 20 |
+| RH | Restschuld hypothecair krediet zonder NHG | Restschuld na verkoop onroerende zaak, zonder NHG-dekking. | art. 21 |
+| RN | Restschuld hypothecair krediet met NHG | Restschuld na verkoop onroerende zaak, met NHG-dekking. | art. 21 |
+| OA | Operational autolease | Leasecontract waarbij leasemaatschappij eigenaar blijft van het voertuig. | art. 22 |
+| RO | Overige financiele verplichting prive | Restcategorie private verplichting; alleen negatieve betalingservaringen. | art. 23 |
+| ZK | Zakelijk krediet | Zakelijk krediet met persoonlijke aansprakelijkheid van een natuurlijk persoon. | art. 24 |
+| ZO | Zakelijke overige financiele verplichting | Restcategorie zakelijke verplichting; alleen negatieve betalingservaringen. | art. 25 |
 
 ### PersoonsgegevensCategorieCKI
 
@@ -998,17 +1035,20 @@ combinatie-sleutel op basis van postcode-cijferdeel en geboortedatum.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | PersoonsgegevensCategorieCKI |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/PersoonsgegevensCategorieCKI` |
 | Herkomst | CKI |
 | Datum opname | 2026-05-19 |
 
+**Gebruikt door**: CKI-registratie-categorisering, niet direct als attribuut. Beschrijft welke categorieen persoonsgegevens Stichting BKR in CKI verwerkt onder art. 9 lid 2 Algemeen Reglement CKI.
+
 **Waarden**:
 
-| Code | Categorie | Inhoud |
-|---|---|---|
-| a | Identificerende gegevens | Geboortenaam, geboortedatum, eerste voornaam, initialen, geslacht. |
-| b | Adresgegevens | Adres inclusief postcode. |
-| c | Overeenkomstgegevens | Verwijzing naar geregistreerde kredietovereenkomsten. |
-| d | Bijzonderheidsgegevens | Verwijzing naar achterstanden, herstellen en bijzonderheidscoderingen. |
+| Code | Categorie | Definitie | Toelichting |
+|---|---|---|---|
+| a | Identificerende gegevens | Geboortenaam, geboortedatum, eerste voornaam, initialen, geslacht. | Identificatie verloopt zonder BSN; combinatie-sleutel postcode-cijferdeel + geboortedatum. |
+| b | Adresgegevens | Adres inclusief postcode. | Onderdeel van de combinatie-sleutel. |
+| c | Overeenkomstgegevens | Verwijzing naar geregistreerde kredietovereenkomsten. | Linkt naar `KredietOvereenkomst`. |
+| d | Bijzonderheidsgegevens | Verwijzing naar achterstanden, herstellen en bijzonderheidscoderingen. | Linkt naar `AchterstandRegistratie`, `HerstelMelding` en `BijzonderheidsCodering`. |
 
 ## Codelijsten
 

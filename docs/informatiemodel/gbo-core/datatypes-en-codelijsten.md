@@ -43,11 +43,12 @@ Eén-op-één afgeleid van de MIM 1.2-primitieve datatypes (zie
 |---|---|---|---|---|
 | `CharacterString` | `Tekst` | Reeks Unicode-tekens. | [MIM 1.2](https://docs.geostandaarden.nl/mim/mim/) | Lengte-varianten: `Tekst24` (max. 24 tekens). De alias `Alfanumeriek` wordt gebruikt voor reeksen uit het alfabet en de cijfers zonder leestekens, met varianten `Alfanumeriek10`, `AN40`, `AN80`. De alias `Identificatie` wordt gebruikt voor object- of documentidentificaties zonder vaste structuur; de alias `Postcode` voor de Nederlandse postcode in het formaat `9999 XX` (norm NEN 5825). |
 | `Integer` | `Numeriek` (geheel) | Geheel getal zonder eenheid. | [MIM 1.2](https://docs.geostandaarden.nl/mim/mim/) | Varianten met vaste lengte: `N2`, `N4`, `N5`, `N6` (geheel getal van precies dat aantal cijfers); varianten met maximumlengte: `Numeriek8`, `Numeriek9`, `Numeriek12`. |
-| `Real` | `Numeriek` (decimaal) | Decimaal getal zonder eenheid. | [MIM 1.2](https://docs.geostandaarden.nl/mim/mim/) | Voor bedragen wordt `Bedrag` gebruikt (zie aanvullende datatypes), niet `Real` direct, vanwege de verplichte valuta-aanduiding. |
+| `Real` | `Numeriek` (decimaal) / `Decimaal` | Decimaal getal zonder eenheid. | [MIM 1.2](https://docs.geostandaarden.nl/mim/mim/) | De alias `Decimaal` wordt in de deelmodellen gebruikt voor breuk-getallen zonder valuta-aanduiding, bijvoorbeeld `Schuld.rentepercentage` en `ModuleInschrijving.ects`. Voor bedragen wordt `Bedrag` gebruikt (zie aanvullende datatypes), niet `Real` direct, vanwege de verplichte valuta-aanduiding. |
 | `Boolean` | `Indicatie` | Logische waarde waar/onwaar. | [MIM 1.2](https://docs.geostandaarden.nl/mim/mim/) | GBO hanteert als NL-conventie een drie-waardig type `Indicatie` (Ja / Nee / Onbekend), zodat onbekendheid expliciet kan worden vastgelegd. De waarde Onbekend is geen MIM-Boolean-waarde maar volgt de BRP-conventie voor afwezigheid (zie [Logisch Ontwerp BRP](https://www.rvig.nl/lo-brp)). |
 | `Date` | `Datum` | Kalenderdatum in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html), precisie tot op de dag (`jjjj-mm-dd`). | [MIM 1.2](https://docs.geostandaarden.nl/mim/mim/) / [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) | Gebruikt voor de materiële tijdlijn (geldigheid van een gegeven in de werkelijkheid). |
 | `DateTime` | `DatumTijd` | Datum met tijdstip in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html), precisie tot op de seconde (`jjjj-mm-ddThh:mm:ss`). | [MIM 1.2](https://docs.geostandaarden.nl/mim/mim/) / [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) | Gebruikt voor de formele tijdlijn (registratiemoment in een systeem). |
 | `Year` | `Jaar` | Kalenderjaar in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html), vier cijfers (`jjjj`). | [MIM 1.2](https://docs.geostandaarden.nl/mim/mim/) / [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) | Gebruikt voor `oorspronkelijkBouwjaar` op Pand en andere jaar-precieze gegevens. |
+| `Duration` | `Duur` | Tijdsduur in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html)-periode-notatie (`P5Y`, `P3M`, `P7D`). | [MIM 1.2](https://docs.geostandaarden.nl/mim/mim/) / [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) | Gebruikt voor bewaartermijnen en doorlooptijden, bijvoorbeeld `BijzonderheidsCodering.bewaartermijnPeriode` (vijf jaar conform Algemeen Reglement CKI). |
 | `URI` | `URI` | Uniform Resource Identifier conform [RFC 3986](https://datatracker.ietf.org/doc/html/rfc3986). | [MIM 1.2](https://docs.geostandaarden.nl/mim/mim/) / [RFC 3986](https://datatracker.ietf.org/doc/html/rfc3986) | Gebruikt voor `begrip`-verwijzingen naar NL-SBB en andere semantische ankers. |
 
 ## Aanvullende datatypes
@@ -87,6 +88,7 @@ de beheerder.
 
 | Codelijst | Bron / beheerder | GBO-typering | Gebruikt door |
 |---|---|---|---|
+| [BRP-Landelijke Tabel 33 Gemeenten](https://publicaties.rvig.nl/home) | [RvIG](https://www.rvig.nl/landelijke-tabellen-en-besluiten) / BZK | `Codelijst~LT33` | Stelselbreed voor gemeente-codering. [Adressen en gebouwen](deelmodellen/adressen-en-gebouwen.md): `Gemeente.gemeentecode`. [Personen](deelmodellen/personen.md): `IngeschrevenPersoon.gemeenteVanInschrijving`. [Waarde onroerende zaken](deelmodellen/waarde-onroerende-zaken.md): `WOZObject.verantwoordelijkeGemeente`. Formeel een BRP-codelijst, feitelijk de stelselbrede gemeente-codering inclusief historische gemeenten met einddatum. |
 | [CBS Standaard Bedrijfsindeling (SBI 2008 / 2025)](https://www.cbs.nl/nl-nl/onze-diensten/methoden/classificaties/activiteiten/standaard-bedrijfsindeling--sbi--) — [SBI-zoektool](https://www.cbs.nl/nl-nl/onze-diensten/methoden/classificaties/activiteiten/standaard-bedrijfsindeling--sbi--/sbi-code-zoeken) | [CBS](https://www.cbs.nl/) | `Codelijst~CBS_SBI` | Stelselbreed voor bedrijfsindeling; primair in [Bedrijven en instellingen](deelmodellen/bedrijven-en-instellingen.md) (`Activiteit.sbiCode`, `Activiteit.sbiVersie`, `NietNatuurlijkPersoon.hoofdSbiCode`, `MaatschappelijkeActiviteit.hoofdSbiCode`). |
 | [CBS Wijk- en Buurtkaart](https://www.cbs.nl/nl-nl/dossier/nederland-regionaal/geografische-data) (jaarlijkse uitgave; [Kerncijfers wijken en buurten 2024](https://www.cbs.nl/nl-nl/maatwerk/2024/35/kerncijfers-wijken-en-buurten-2024)) | [CBS](https://www.cbs.nl/) | `Codelijst~CBS_WijkBuurt` | [Adressen en gebouwen](deelmodellen/adressen-en-gebouwen.md): `Wijk.wijkcode`, `Buurt.buurtcode`. |
 | [ISO 3166-1 alpha-2 (landcodes)](https://www.iso.org/iso-3166-country-codes.html) | [ISO](https://www.iso.org/) | `Codelijst~ISO3166` | Stelselbreed voor land- en nationaliteit-typering. [Personen](deelmodellen/personen.md): `Nationaliteit.nationaliteit`, `NatuurlijkPersoon.geboorteland`, `NatuurlijkPersoon.landOverlijden`, `Immigratie.landVanwaar`, `Immigratie.landBinnenkomst`, `Huwelijk.landVoltrekking`, `NietIngezetene.landVanVerblijf`. [Bedrijven en instellingen](deelmodellen/bedrijven-en-instellingen.md): `BuitenlandseEntiteit.landVanOprichting`. [Adressen en gebouwen](deelmodellen/adressen-en-gebouwen.md): `Buitenlandsadres.land`, `Locatie.land`. |
@@ -152,6 +154,30 @@ alpha-2-codes.
 - [BRP Landelijke Tabellen — overzicht (RvIG)](https://www.rvig.nl/landelijke-tabellen-en-besluiten).
 - [ISO 3166-1 alpha-2 (iso.org)](https://www.iso.org/iso-3166-country-codes.html).
 
+### IND ↔ BRP-LT 56 (verblijfstitel)
+
+[BRP-Landelijke Tabel 56 Verblijfstitels](https://publicaties.rvig.nl/home)
+levert per verblijfstitel een BRP-code met IND-cross-link. GBO
+modelleert `Verblijfstitel.aanduiding` als
+[`Codelijst~IND`](https://ind.nl/nl/verblijfsvergunningen) (autoritatief
+vanuit [IND](https://ind.nl/)) met cross-walk naar LT 56 voor
+BRP-uitwisseling. De cross-walk evolueert mee met IND-beleidswijzigingen.
+
+| BRP-code (LT 56) | IND-aanduiding | Omschrijving |
+|---|---|---|
+| 9 | (geen verblijfstitel) | Onderdaan EU / EER, geen titel nodig |
+| 10 | verblijf onbeperkt | Verblijfsvergunning regulier voor onbepaalde tijd |
+| 11 | verblijf bepaald | Verblijfsvergunning regulier voor bepaalde tijd |
+| 12 | asiel onbeperkt | Verblijfsvergunning asiel onbepaalde tijd |
+| 13 | asiel bepaald | Verblijfsvergunning asiel bepaalde tijd |
+| … | … | … |
+
+**Volledige lijsten**:
+
+- [BRP-LT 56 Verblijfstitel — publicaties.rvig.nl](https://publicaties.rvig.nl/home), ook beschikbaar via de [Haal Centraal BRP Tabellen-API](https://developer.rvig.nl/brp-api/).
+- [Logisch Ontwerp BRP](https://www.rvig.nl/lo-brp) §11.10.
+- [IND Verblijfsvergunningen](https://ind.nl/nl/verblijfsvergunningen).
+
 ## Versionering en herindelingen
 
 ### CBS Wijk en Buurt: jaarlijkse herziening
@@ -177,6 +203,10 @@ het onderhoudsritme bij het betreffende deelmodel.
 
 | Codelijst | Mutatieritme | Bron |
 |---|---|---|
+| [BRP-LT 32 Nationaliteiten](https://publicaties.rvig.nl/home) | Halfjaarlijks | [RvIG](https://www.rvig.nl/landelijke-tabellen-en-besluiten) |
+| [BRP-LT 33 Gemeenten](https://publicaties.rvig.nl/home) | Jaarlijks (1 januari, gemeentelijke herindelingen) | [RvIG](https://www.rvig.nl/landelijke-tabellen-en-besluiten) |
+| [BRP-LT 34 Landen](https://publicaties.rvig.nl/home) | Halfjaarlijks | [RvIG](https://www.rvig.nl/landelijke-tabellen-en-besluiten) |
+| [BRP-LT 56 Verblijfstitels](https://publicaties.rvig.nl/home) | Per IND-beleidswijziging | [RvIG](https://www.rvig.nl/landelijke-tabellen-en-besluiten) (afstemming met IND) |
 | [CBS SBI](https://www.cbs.nl/nl-nl/onze-diensten/methoden/classificaties/activiteiten/standaard-bedrijfsindeling--sbi--) | Per SBI-revisie | [CBS](https://www.cbs.nl/) |
 | [CBS Wijk- en Buurtkaart](https://www.cbs.nl/nl-nl/dossier/nederland-regionaal/geografische-data) | Jaarlijks | [CBS Open Data](https://www.cbs.nl/nl-nl/dossier/nederland-regionaal/geografische-data) |
 | [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) | Sporadisch (paar keer per decennium) | [ISO](https://www.iso.org/) |

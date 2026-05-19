@@ -163,8 +163,10 @@ leiden tot een wijziging van uitkeringssoort en hoogte.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | Arbeidsongeschiktheidspercentage |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/Arbeidsongeschiktheidspercentage` |
 | Herkomst | SGR cluster Beslissing |
 | Datum opname | 2026-05-19 |
+| Populatie | Alle door UWV vastgestelde arbeidsongeschiktheidspercentages die de basis vormen voor classificatie van een WIA-uitkering in IVA of WGA, inclusief herzieningen. |
 
 **Attribuutsoorten**:
 
@@ -195,8 +197,10 @@ loonheffingen vast.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | Arbeidsverhouding |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/Arbeidsverhouding` |
 | Herkomst | SGR cluster Arbeidsverhouding |
 | Datum opname | 2026-05-19 |
+| Populatie | Alle juridische en feitelijke arbeidsrelaties tussen een natuurlijk persoon als werknemer en een onderneming als werkgever die zichtbaar zijn in het Suwi Gegevensregister. |
 
 **Attribuutsoorten**:
 
@@ -229,8 +233,10 @@ zelfstandig werk.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | ArbeidsverledenFeit |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/ArbeidsverledenFeit` |
 | Herkomst | SGR cluster Arbeidsverhouding |
 | Datum opname | 2026-05-19 |
+| Populatie | Alle afzonderlijke feiten in het arbeids- of inkomensverleden van een natuurlijk persoon (dienstverband, uitkeringsperiode, leerwerk-periode of periode zelfstandig werk) die relevant zijn voor de berekening van werknemersverzekerings-rechten. |
 
 **Attribuutsoorten**:
 
@@ -260,8 +266,10 @@ beeindiging) zijn elk afzonderlijke beschikkingen.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | Beslissing |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/Beslissing` |
 | Herkomst | SGR cluster Beslissing |
 | Datum opname | 2026-05-19 |
+| Populatie | Alle door een SUWI-uitvoeringsinstelling (UWV, SVB) genomen besluiten over het recht op, de hoogte van of de beeindiging van een uitkering of voorziening voor een natuurlijk persoon. |
 
 **Attribuutsoorten**:
 
@@ -290,8 +298,10 @@ wettelijk maximumdagloon, jaarlijks door SZW vastgesteld.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | Dagloon |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/Dagloon` |
 | Herkomst | SGR cluster Uitkering |
 | Datum opname | 2026-05-19 |
+| Populatie | Alle door UWV vastgestelde daglonen die als grondslag dienen voor de hoogte van een werknemersverzekerings-uitkering, berekend uit de inkomstenopgaven over de referteperiode. |
 
 **Attribuutsoorten**:
 
@@ -324,9 +334,11 @@ en aanvraagprocedure.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | InkomensOndersteuning |
-| Indicatie abstract object | Ja |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/InkomensOndersteuning` |
 | Herkomst | Cross-domein abstractie |
 | Datum opname | 2026-05-19 |
+| Indicatie abstract object | Ja |
+| Populatie | Alle door of namens de overheid aan natuurlijke personen verstrekte financiele bijdragen met als doel inkomensondersteuning, omvattende zowel toeslagen (Awir) als sociale-zekerheidsuitkeringen (werknemers- en volksverzekeringen). |
 
 **Attribuutsoorten**:
 
@@ -354,9 +366,11 @@ Wajong, AOW).
 | MIM-veld | Waarde |
 |---|---|
 | Naam | Uitkering |
-| Indicatie abstract object | Ja |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/Uitkering` |
 | Herkomst | SGR cluster Uitkering |
 | Datum opname | 2026-05-19 |
+| Indicatie abstract object | Ja |
+| Populatie | Alle aan natuurlijke personen toegekende periodieke uitkeringen op grond van een werknemersverzekering (WW, ZW, WIA, IVA, WGA, Wajong) of volksverzekering (AOW), uitgevoerd door UWV of SVB. |
 
 **Attribuutsoorten**:
 
@@ -385,9 +399,11 @@ nodig.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | UitkeringAOW |
-| Notation | AOW |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/UitkeringAOW` |
 | Herkomst | SGR (ontsluiting); SVB (uitvoering) |
 | Datum opname | 2026-05-19 |
+| Notation | AOW |
+| Populatie | Alle door SVB op grond van de Algemene Ouderdomswet toegekende periodieke uitkeringen aan natuurlijke personen vanaf de AOW-gerechtigde leeftijd. |
 
 **Attribuutsoorten**:
 
@@ -412,9 +428,11 @@ stabieler dan WGA omdat het duurzaamheids-criterium is gehaald.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | UitkeringIVA |
-| Notation | IVA |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/UitkeringIVA` |
 | Herkomst | SGR cluster Uitkering |
 | Datum opname | 2026-05-19 |
+| Notation | IVA |
+| Populatie | Alle door UWV toegekende IVA-uitkeringen aan werknemers die duurzaam minder dan twintig procent van hun oude loon kunnen verdienen, op grond van hoofdstuk IV van de Wet WIA. |
 
 **Attribuutsoorten**:
 
@@ -441,9 +459,11 @@ voor duurzaam volledig arbeidsongeschikten).
 | MIM-veld | Waarde |
 |---|---|
 | Naam | UitkeringWajong |
-| Notation | Wajong |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/UitkeringWajong` |
 | Herkomst | SGR cluster Uitkering |
 | Datum opname | 2026-05-19 |
+| Notation | Wajong |
+| Populatie | Alle door UWV toegekende Wajong-uitkeringen aan jonggehandicapten, verdeeld over de drie generaties oude Wajong (toekenningen voor 2010), Wajong 2010 en Wajong 2015. |
 
 **Attribuutsoorten**:
 
@@ -470,9 +490,11 @@ minimumloon-percentages).
 | MIM-veld | Waarde |
 |---|---|
 | Naam | UitkeringWGA |
-| Notation | WGA |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/UitkeringWGA` |
 | Herkomst | SGR cluster Uitkering |
 | Datum opname | 2026-05-19 |
+| Notation | WGA |
+| Populatie | Alle door UWV toegekende WGA-uitkeringen aan werknemers die 35 tot 80 procent arbeidsongeschikt zijn, of volledig maar niet duurzaam, verdeeld over de fasen LGU, LAU en VVU. |
 
 **Attribuutsoorten**:
 
@@ -500,9 +522,11 @@ en UitkeringWGA.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | UitkeringWIA |
-| Notation | WIA |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/UitkeringWIA` |
 | Herkomst | SGR cluster Uitkering |
 | Datum opname | 2026-05-19 |
+| Notation | WIA |
+| Populatie | Alle door UWV toegekende WIA-uitkeringen aan werknemers die na de wachttijd van twee jaar ziekte gedeeltelijk of volledig arbeidsongeschikt zijn; concreet uitgesplitst naar UitkeringIVA en UitkeringWGA. |
 
 **Attribuutsoorten**:
 
@@ -526,9 +550,11 @@ arbeidsverledenjaren (basis-WW plus eventueel verlengde uitkering).
 | MIM-veld | Waarde |
 |---|---|
 | Naam | UitkeringWW |
-| Notation | WW |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/UitkeringWW` |
 | Herkomst | SGR cluster Uitkering |
 | Datum opname | 2026-05-19 |
+| Notation | WW |
+| Populatie | Alle door UWV aan werkloze werknemers toegekende WW-uitkeringen ter vervanging van weggevallen loon, op grond van de Werkloosheidswet. |
 
 **Attribuutsoorten**:
 
@@ -555,9 +581,11 @@ werkgever en vallen niet onder ZW.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | UitkeringZW |
-| Notation | ZW |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/UitkeringZW` |
 | Herkomst | SGR cluster Uitkering |
 | Datum opname | 2026-05-19 |
+| Notation | ZW |
+| Populatie | Alle door UWV toegekende ZW-uitkeringen aan zieke werknemers en vangnetters (uitzendkrachten, oproepkrachten, werklozen, werknemers zonder doorbetalingsplichtige werkgever) ter vervanging van weggevallen loon. |
 
 **Attribuutsoorten**:
 
@@ -575,22 +603,32 @@ of SVB kunnen worden genomen over uitkeringen en voorzieningen.
 
 **Herkomst definitie**: SGR cluster Beslissing.
 
+**Toelichting**: De waardenset onderscheidt de juridisch relevante
+beslissoorten die een uitkering doen ontstaan, wijzigen of laten
+eindigen, plus de procedurele soorten afwijzing, beslissing op
+bezwaar en sanctie. Per uitkering kan een keten van Beslissingen
+bestaan, beginnend bij een Toekenning en eventueel gevolgd door
+Herziening of Beeindiging.
+
 | MIM-veld | Waarde |
 |---|---|
 | Naam | BeslissingSoort |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/BeslissingSoort` |
 | Herkomst | SGR |
 | Datum opname | 2026-05-19 |
 
+**Gebruikt door**: `Beslissing.beslissingSoort`.
+
 **Waarden**:
 
-| Code | Naam | Toelichting |
-|---|---|---|
-| Toekenning | Toekenning uitkering | Nieuwe uitkering wordt toegekend. |
-| Herziening | Herziening uitkering | Hoogte of grondslag verandert. |
-| Beeindiging | Beeindiging uitkering | Uitkering eindigt. |
-| Afwijzing | Afwijzing aanvraag | Aanvraag wordt afgewezen. |
-| Bezwaar | Beslissing op bezwaar | Heroverweging na ingediend bezwaar. |
-| Sanctie | Sanctie-besluit | Bijvoorbeeld korting wegens niet-naleving. |
+| Code | Naam | Definitie | Toelichting |
+|---|---|---|---|
+| Toekenning | Toekenning uitkering | Besluit waarbij een nieuwe uitkering wordt toegekend. | Eerste beschikking onder een uitkering. |
+| Herziening | Herziening uitkering | Besluit waarbij hoogte of grondslag van een lopende uitkering wijzigt. | Bij wijziging van AO-percentage, dagloon of relevante feiten. |
+| Beeindiging | Beeindiging uitkering | Besluit waarbij een lopende uitkering eindigt. | Bij werkhervatting, einde wachttijd, AOW-leeftijd of overlijden. |
+| Afwijzing | Afwijzing aanvraag | Besluit waarbij een aanvraag voor een uitkering wordt afgewezen. | Geen uitkering ontstaat. |
+| Bezwaar | Beslissing op bezwaar | Heroverweging van een eerder besluit na een ingediend bezwaarschrift. | Awb hoofdstuk 7. |
+| Sanctie | Sanctie-besluit | Besluit waarbij een korting of maatregel wordt opgelegd wegens niet-nakomen van verplichtingen. | Bijvoorbeeld bij weigering passende arbeid of niet-melden van inkomsten. |
 
 ### RedenEindeUitkering
 
@@ -605,23 +643,26 @@ tegen SGR-publicatie.
 | MIM-veld | Waarde |
 |---|---|
 | Naam | RedenEindeUitkering |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/RedenEindeUitkering` |
 | Herkomst | SGR |
 | Datum opname | 2026-05-19 |
 
+**Gebruikt door**: `Uitkering.redenEinde`.
+
 **Waarden (top 10)**:
 
-| Code | Naam |
-|---|---|
-| WerkHervat | Werk hervat |
-| TermijnVerstreken | Maximale uitkeringsduur bereikt |
-| Herkeuring | Herkeuring leidt tot beeindiging |
-| BereiktAOW | AOW-leeftijd bereikt |
-| Overlijden | Persoon is overleden |
-| Emigratie | Persoon is gemigreerd |
-| Sanctie | Sanctie wegens niet-nakomen verplichtingen |
-| Detentie | Persoon zit in detentie |
-| WeigeringMedewerking | Weigering medewerking re-integratie |
-| BeeindigingDoorWerknemer | Vrijwillige beeindiging |
+| Code | Naam | Definitie | Toelichting |
+|---|---|---|---|
+| WerkHervat | Werk hervat | Uitkering eindigt omdat de rechthebbende weer aan het werk is. | Meest voorkomende reden bij WW en ZW. |
+| TermijnVerstreken | Maximale uitkeringsduur bereikt | Uitkering eindigt omdat de wettelijke maximumduur is verstreken. | Bij WW gerelateerd aan arbeidsverleden. |
+| Herkeuring | Herkeuring leidt tot beeindiging | Uitkering eindigt na een nieuwe medische of arbeidskundige beoordeling. | Bij WIA en Wajong. |
+| BereiktAOW | AOW-leeftijd bereikt | Uitkering eindigt omdat de rechthebbende de AOW-gerechtigde leeftijd heeft bereikt. | Overgang naar AOW. |
+| Overlijden | Persoon is overleden | Uitkering eindigt door overlijden van de rechthebbende. | Trigger via BRP cat 06. |
+| Emigratie | Persoon is gemigreerd | Uitkering eindigt omdat de rechthebbende naar het buitenland is vertrokken. | Tenzij export-recht van toepassing is. |
+| Sanctie | Sanctie wegens niet-nakomen verplichtingen | Uitkering eindigt als gevolg van een sanctie-besluit. | Zie BeslissingSoort = Sanctie. |
+| Detentie | Persoon zit in detentie | Uitkering eindigt omdat de rechthebbende in detentie verblijft. | Uitsluitingsgrond op grond van de SV-wetgeving. |
+| WeigeringMedewerking | Weigering medewerking re-integratie | Uitkering eindigt na vastgestelde weigering om mee te werken aan re-integratie. | Bij WW, ZW en WIA. |
+| BeeindigingDoorWerknemer | Vrijwillige beeindiging | Uitkering eindigt op verzoek van de rechthebbende zelf. | Bijvoorbeeld bij start eigen bedrijf. |
 
 ### SoortUitkering
 
@@ -631,23 +672,32 @@ volksverzekeringswetten.
 
 **Herkomst definitie**: SGR cluster Uitkering.
 
+**Toelichting**: De waardenset dekt de zeven concrete uitkerings-
+takken die binnen het SUWI-stelsel worden uitgevoerd door UWV
+(WW, ZW, WIA, IVA, WGA, Wajong) of SVB (AOW). De codes komen
+overeen met de gangbare juridische afkortingen van de
+onderliggende wetten.
+
 | MIM-veld | Waarde |
 |---|---|
 | Naam | SoortUitkering |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/SoortUitkering` |
 | Herkomst | SGR |
 | Datum opname | 2026-05-19 |
 
+**Gebruikt door**: `Uitkering.soortUitkering`.
+
 **Waarden**:
 
-| Code | Naam | Wettelijke basis |
-|---|---|---|
-| WW | Werkloosheidsuitkering | Werkloosheidswet |
-| ZW | Ziektewet-uitkering | Ziektewet |
-| WIA | WIA-uitkering | Wet WIA |
-| IVA | IVA-uitkering | Wet WIA hoofdstuk IV |
-| WGA | WGA-uitkering | Wet WIA hoofdstuk VII |
-| Wajong | Wajong-uitkering | Wajong |
-| AOW | AOW-uitkering | Algemene Ouderdomswet |
+| Code | Naam | Wettelijke basis | Definitie | Toelichting |
+|---|---|---|---|---|
+| WW | Werkloosheidsuitkering | Werkloosheidswet | Uitkering aan werkloze werknemer ter vervanging van weggevallen loon. | Uitgevoerd door UWV. |
+| ZW | Ziektewet-uitkering | Ziektewet | Uitkering aan zieke werknemer of vangnetter ter vervanging van door ziekte weggevallen loon. | Uitgevoerd door UWV. |
+| WIA | WIA-uitkering | Wet WIA | Uitkering aan werknemer die na wachttijd van twee jaar ziekte arbeidsongeschikt is. | Verzamel-aanduiding; concrete tak IVA of WGA. |
+| IVA | IVA-uitkering | Wet WIA hoofdstuk IV | Uitkering aan werknemer die duurzaam minder dan 20% van zijn oude loon kan verdienen. | WIA-subvorm; hoger en stabieler dan WGA. |
+| WGA | WGA-uitkering | Wet WIA hoofdstuk VII | Uitkering aan werknemer die 35-80% arbeidsongeschikt is, of volledig maar niet duurzaam. | WIA-subvorm; drie fasen (LGU, LAU, VVU). |
+| Wajong | Wajong-uitkering | Wajong | Uitkering aan jonggehandicapte die door arbeidsongeschiktheid niet of beperkt kan werken. | Drie generaties (oude Wajong, Wajong 2010, Wajong 2015). |
+| AOW | AOW-uitkering | Algemene Ouderdomswet | Uitkering aan persoon vanaf de AOW-gerechtigde leeftijd op basis van opgebouwde verzekerde jaren. | Uitgevoerd door SVB. |
 
 ## Codelijsten
 
