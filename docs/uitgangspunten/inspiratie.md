@@ -32,14 +32,14 @@ De ontologie en thesauri zijn **gescheiden documenten** die apart worden beheerd
 !!! tip "Les voor GBO"
     GBO neemt de modulaire publicatiestrategie over: begrippenkader (SKOS), informatiemodel (MIM), ontologie (OWL) en context-bestanden (JSON-LD) worden elk als apart artefact met een eigen URI gepubliceerd.
 
-## GGM — Gemeentelijk Gegevensmodel
+## GGM en RSGB: gemeentelijke bronmodellen
 
-Het [Gemeentelijk Gegevensmodel (GGM)](https://github.com/gemeenteshertogenbosch/GGM) is een open informatiemodel dat de gegevensstructuren beschrijft die gemeenten gebruiken in hun informatiehuishouding. Het GGM is MIM-conform, wordt beheerd in Enterprise Architect en dekt een breed scala aan gemeentelijke domeinen — van burgerzaken en sociaal domein tot ruimtelijke ordening.
+Het [Gemeentelijk Gegevensmodel (GGM)](https://github.com/gemeenteshertogenbosch/GGM) is een open informatiemodel dat de gegevensstructuren beschrijft die gemeenten gebruiken in hun informatiehuishouding. Het GGM is MIM-conform, wordt beheerd in Enterprise Architect en dekt een breed scala aan gemeentelijke domeinen, van burgerzaken en sociaal domein tot ruimtelijke ordening. Het oudere [Referentiemodel Stelsel van Gemeentelijke Basisgegevens (RSGB)](https://www.gemmaonline.nl/index.php/Referentiemodel_Stelsel_van_Gemeentelijke_Basisgegevens) vormt daarbinnen de historische baseline voor de kern van basisregistratiegegevens.
 
-GBO-Semantiek gebruikt het GGM als **directe basis** voor het informatiemodel. De toolchain van het GGM (Enterprise Architect → crunch_uml → documentatie en artefacten) is overgenomen en uitgebreid met semantische publicatie (ontologie, JSON-LD context, SKOS begrippenkader).
+GBO-Semantiek gebruikt het GGM, samen met het RSGB en de modellen van de landelijke basisregistraties, als **belangrijke inhoudelijke bron** voor het informatiemodel. De toolchain van het GGM (Enterprise Architect, crunch_uml, gegenereerde documentatie en artefacten) is overgenomen en uitgebreid met semantische publicatie (ontologie, JSON-LD context, SKOS begrippenkader).
 
 !!! tip "Les voor GBO"
-    Het GGM levert het bewijs dat een breed, MIM-conform informatiemodel voor gemeenten haalbaar en onderhoudbaar is. GBO voegt hier de semantische laag aan toe: van gegevensmodel naar betekenismodel.
+    GGM en RSGB leveren het bewijs dat een breed, MIM-conform informatiemodel voor gemeenten haalbaar en onderhoudbaar is. GBO bouwt hierop voort, verbreedt de scope tot een landelijke, sectoroverstijgende standaard en voegt de semantische laag toe: van gegevensmodel naar betekenismodel.
 
 ## UBO — Uniforme BronOntsluting
 

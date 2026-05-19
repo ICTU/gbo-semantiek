@@ -1,6 +1,6 @@
 # Gegevensarchitectuur
 
-De GBO-Semantiek gegevensarchitectuur is opgebouwd uit drie lagen die samen het volledige spectrum van gemeentelijke gegevensbeschrijving afdekken. De middelste laag vormt het fundament: een set gedeelde kerngegevens waar zowel de bovenliggende sectormodellen als het onderliggende GBO-informatiemodel op steunen.
+De GBO-Semantiek gegevensarchitectuur is opgebouwd uit drie lagen die samen het volledige spectrum van overheidsgegevensbeschrijving afdekken. De middelste laag vormt het fundament: een set gedeelde kerngegevens waar zowel de bovenliggende sectormodellen als het onderliggende GBO-informatiemodel op steunen.
 
 ![Gegevensarchitectuur](../assets/diagrams/gegevensarchitectuur.svg)
 
@@ -8,9 +8,11 @@ Het diagram toont de drie lagen en hun onderlinge afhankelijkheden. De pijlen ge
 
 ## Core Data (middenlaag)
 
-De Core Data-laag bevat de kerngegevens die voor alle gemeentelijke domeinen relevant zijn. Het gaat om gegevens uit de basisregistraties en andere bronnen die breed worden hergebruikt: personen (BRP), bedrijven (HR), panden (BAG), locaties (BGT, BRK) en aanverwante registraties.
+De [Core Data-laag](../informatiemodel/gbo-core/hoofdmodel.md) bevat de kerngegevens die voor alle aangesloten overheidsdomeinen relevant zijn, ongeacht of een afnemer een gemeente, een uitvoeringsorganisatie of een private ketenpartner is. Het gaat om gegevens uit de landelijke basisregistraties en aanvullende bronnen die breed worden hergebruikt: personen (BRP), bedrijven (HR), panden (BAG), locaties (BGT, BRK) en aanverwante registraties. De inhoudelijke definities zijn voor een belangrijk deel afgeleid uit gemeentelijke referentiemodellen zoals het GGM en het RSGB; de scope van GBO zelf is landelijk.
 
 Deze laag is de gemeenschappelijke taal van het GBO-stelsel. Door kernbegrippen zoals "Natuurlijk persoon", "Verblijfsobject" of "Kadastraal perceel" centraal te definiëren, hoeven individuele domeinen deze begrippen niet opnieuw uit te vinden. Elke verwijzing naar een persoon of een adres in een sectormodel of in het GBO-informatiemodel verwijst naar dezelfde, eenduidig gedefinieerde entiteit in Core Data.
+
+Uitwerking van het GBO Core-datamodel vind je in de sectie [GBO Core binnen Informatiemodel](../informatiemodel/gbo-core/hoofdmodel.md)
 
 ## Sectormodellen (bovenlaag)
 

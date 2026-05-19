@@ -6,10 +6,10 @@ Dit bestand helpt Claude (en andere AI-assistenten) om efficiënt en consistent 
 
 ## 1. Over dit project
 
-**Naam:** GBO-Semantiek — Gemeentelijk Basisgegeven Objecten, Informatiemodel Semantiek
-**Status:** Concept, versie v0.1
-**Doel:** Een open standaard voor de semantische beschrijving van gemeentelijke basisgegevens, met een gedeeld begrippenkader en gegevensmodel voor interoperabiliteit en datakwaliteit tussen gemeenten en ketenpartners.
-**Inspiratie:** Gebaseerd op het Gemeentelijk Gegevensmodel (GGM) van de gemeente 's-Hertogenbosch.
+**Naam:** GBO-Semantiek, het semantisch raamwerk van de Gemeenschappelijke BronOntsluting (GBO).
+**Status:** Concept, versie v0.1.
+**Doel:** Een landelijke, sectoroverstijgende open standaard voor de semantische beschrijving van basisgegevens uit overheidsregistraties, met een gedeeld begrippenkader en informatiemodel voor interoperabiliteit en datakwaliteit tussen overheidsorganisaties, gemeenten en ketenpartners.
+**Inhoudelijke bronnen:** GBO put uit meerdere bronmodellen. Een belangrijk deel komt uit gemeentelijke referentiemodellen, met name het Gemeentelijk Gegevensmodel (GGM, oorspronkelijk gemeente 's-Hertogenbosch) en het Referentiemodel Stelsel van Gemeentelijke Basisgegevens (RSGB). Daarnaast worden de officiële catalogi en modellen van de landelijke basisregistraties (BRP, BAG, BRK, BGT, HR, WOZ) gevolgd.
 **Licentie:** EUPL-1.2.
 
 ### Kernprincipe: documentation-first

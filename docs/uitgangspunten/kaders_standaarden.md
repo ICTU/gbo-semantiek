@@ -1,6 +1,6 @@
 # Kaders  en standaarden
 
-GBO-Semantiek opereert binnen een landschap van architectuurkaders en technische standaarden. Dit hoofdstuk beschrijft eerst de kaders die de context en spelregels bepalen, en vervolgens de standaarden die GBO technisch invullen.
+GBO-Semantiek opereert binnen een landschap van architectuurkaders en technische standaarden. Dit hoofdstuk beschrijft eerst de kaders die de context en spelregels bepalen, daarna de bronnen die worden gehanteerd om tot begrippenkaders en informatiemodellen te komen, en vervolgens de standaarden die GBO technisch invullen.
 
 ## Kaders
 
@@ -11,21 +11,106 @@ GBO-Semantiek opereert binnen een landschap van architectuurkaders en technische
 **Toepassing in GBO-Semantiek:**
 GBO volgt de NORA-principes die direct raken aan gegevensuitwisseling: *eenmalige registratie, meervoudig gebruik*, *open standaarden*, en *transparantie*. Het semantisch raamwerk is een concrete invulling van het NORA-principe dat gegevens een eenduidige betekenis moeten hebben die door alle partijen wordt begrepen.
 
-### Federatief Datastelsel (FDS)
-
-Het [Federatief Datastelsel](https://federatiefdatastelsel.nl/) is een programma van de Nederlandse overheid dat beoogt overheidsdata beter vindbaar, toegankelijk en herbruikbaar te maken door bronnen federatief te verbinden.
-
-**Toepassing in GBO-Semantiek:**
-GBO ondersteunt de FDS-ambities door gegevens als Linked Data te publiceren met persistente URI's, machine-leesbare metadata en gestandaardiseerde vocabulaires. Het begrippenkader en de ontologie maken GBO-gegevens vindbaar en koppelbaar binnen het bredere federatieve stelsel.
-
-### Stelselcatalogus
-
-De [Stelselcatalogus](https://www.stelselcatalogus.nl/) is de landelijke online catalogus van het stelsel van basisregistraties. Zij ontsluit begrippen, gegevenselementen en hun definities uit de basisregistraties op één centrale plek, zodat overheidsorganisaties en ketenpartners eenduidige semantiek kunnen hergebruiken.
-
-**Toepassing in GBO-Semantiek:**
-Het GBO-begrippenkader sluit aan bij de Stelselcatalogus door begrippen waar mogelijk te koppelen aan reeds geregistreerde basisbegrippen. Zo voorkomt GBO duplicatie en versterkt het de samenhang met de landelijke basisregistraties.
-
 ---
+
+## Bronnenprioritering: beslisregels GBO Core
+
+Voor de onderdelen waaruit we het GBO-Core opbouwen zijn niet altijd dezelfde of eenduidige bronnen. Hiertoe hanteren we een afwegingskader om tot de goede modelafleidingen te komen. Deze zijn in deze paragraaf opgenomen.
+
+Doel: GBO Core is compatibel met de bestaande informatiemodellen en koppelvlakken van de basisregistraties. Een afnemer die werkt vanuit een catalogus of API moet GBO direct herkennen.
+
+We bereiken dat door voor elk UML-element (klasse, attribuut, datatype, multipliciteit, omschrijving) systematisch uit de basisregistraties af te leiden. In principe komt de invulling uit L1; uit L2 of L3 als L1 ontbreekt of als er een functionele behoefte is. Waar bronnen onduidelijk zijn, formele modellen ontbreken, of registraties elkaar tegenspreken, leiden we zelf af, met heldere bronvermelding.
+
+### Vier lagen
+
+| Laag                   | Soort bron                                                                       | Levert                                              |
+| ---------------------- | -------------------------------------------------------------------------------- | --------------------------------------------------- |
+| **L1** Authoritative   | Datamodel van de registratie (voorkeur); anders functioneel ontwerp of catalogus | Inhoudelijke definitie en structurele eigenschappen |
+| **L2** Interface       | Koppelvlakspecificatie                                                           | Naamgeving, datatype, uitwisselingscontract         |
+| **L3** Nationaal anker | NL-overkoepelende begrippen, thesauri, referentiemodellen                        | Cross-registratie-binding                           |
+| **L4** Internationaal  | Generieke EU-vocabularies                                                        | Publicatie-binding en FAIR                          |
+
+### Bronnen per laag
+
+> BRT, BRO, BRV en BRI zijn nu niet opgenomen omdat ingest in GBO Core nog niet aan de orde is. Bij toekomstige ingest volgt voor elk hetzelfde patroon (L1 datamodel of catalogus, L2 koppelvlak).
+
+#### L1: Authoritative
+
+Per registratie het officiële datamodel; bij ontbreken het functioneel ontwerp of de catalogus.
+
+| Registratie | Bron                                   | URL                                                                 |
+| ----------- | -------------------------------------- | ------------------------------------------------------------------- |
+| BRP         | LO BRP (Logisch Ontwerp BRP)           | https://www.rvig.nl/lo-brp                                          |
+| BAG         | IMBAG met Catalogus BAG                | https://imbag.github.io/catalogus/                                  |
+| BRK         | IMKAD                                  | https://developer.kadaster.nl/schemas/imkad/20200130/cat/index.html |
+| BRK         | BRK-Catalogus                          | https://www.kadaster.nl/-/catalogus-brk                             |
+| BGT         | IMGeo (Gegevenscatalogus BGT/IMGeo)    | https://docs.geostandaarden.nl/imgeo/catalogus/imgeo/               |
+| WOZ         | L1 ontbreekt; modellering via L2 en L3 | n.v.t.                                                              |
+| HR          | L1 ontbreekt; modellering via L2 en L3 | n.v.t.                                                              |
+
+#### L2: Interface
+
+Koppelvlakspecificaties per registratie.
+
+| Registratie | Bron                                                                                       | URL                                                                                      |
+| ----------- | ------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
+| BRP         | Haal Centraal BRP-suite (Personen, Historie, Bewoning, Reisdocumenten, Tabellen, Update)   | https://developer.rvig.nl/brp-api/overview/                                              |
+| BAG         | HC BAG Individuele Bevragingen                                                             | https://lvbag.github.io/BAG-API/Technische%20specificatie/                               |
+| BRK         | HC BRK Bevragen                                                                            | https://kadaster.github.io/BRK-bevragen/                                                 |
+| WOZ         | HC WOZ Bevragen                                                                            | https://kadaster.github.io/WOZ-bevragen/                                                 |
+| HR          | KVK Developer Portal (Zoeken, Basisprofiel, Vestigingsprofiel, Naamgeving, Mutatieservice) | https://developers.kvk.nl/documentation                                                  |
+| BGT         | PDOK BGT-services                                                                          | https://www.pdok.nl/introductie/-/article/basisregistratie-grootschalige-topografie-bgt- |
+
+#### L3: Nationaal anker
+
+| Bron             | Functie                                                       | URL                                                                                          |
+| ---------------- | ------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| Stelselcatalogus | Cross-registratie-begrippen                                   | https://www.stelselcatalogus.nl/                                                             |
+| CBS Begrippen    | Statistische en afgeleide begrippen                           | https://www.cbs.nl/nl-nl/onze-diensten/methoden/begrippen                                    |
+| TOOI             | Overheidsorganisaties, informatieobjecten, regelgevingstermen | https://standaarden.overheid.nl/tooi                                                         |
+| GGM              | Gemeentelijk gegevensmodel; sector-uitbreidingen              | https://www.gemeentelijkgegevensmodel.nl/                                                    |
+| RSGB             | Historische gemeentelijke baseline (onder GEMMA)              | https://www.gemmaonline.nl/index.php/Referentiemodel_Stelsel_van_Gemeentelijke_Basisgegevens |
+
+#### L4: Internationaal
+
+| Bron                         | Functie                                             | URL                        |
+| ---------------------------- | --------------------------------------------------- | -------------------------- |
+| EU Core Vocabularies (SEMIC) | Persoon, onderneming, locatie, overheidsorganisatie | https://semiceu.github.io/ |
+| schema.org                   | SEO en AI-vindbaarheid bij publicatie               | https://schema.org/        |
+
+### 4. Beslisregels
+
+**L1 is default; L2 of L3 op functionele gronden.**
+De invulling van elk UML-element komt in principe uit L1 zolang die beschikbaar is. L2 of L3 wordt gebruikt wanneer L1 ontbreekt, niet voldoet, of wanneer een functionele behoefte daarom vraagt (bv. afnemer-herkenbaarheid in API-naamgeving, datatype-conventies, cross-registratie-binding).
+
+**Leid zelf af bij gaten of conflicten.**
+Wanneer ook L2 en L3 geen invulling leveren (HR en WOZ missen L1; sommige rubrieken zitten alleen in legacy-koppelvlakken; twee L1's modelleren hetzelfde concept anders), vul je de UML-eigenschap zelf in op basis van de best beschikbare informatie. De afleiding moet semantisch passen bij wat L1, L2 of L3 wel zegt, en mag niet ruimer zijn dan wat de bron toelaat.
+
+**Vermeld altijd de bron per UML-element.**
+Elke klasse en elk attribuut krijgt verplichte herkomstvermelding waarin zichtbaar is uit welke laag of welke combinatie de invulling komt. Zonder bronverwijzing is een UML-element niet vastgesteld.
+
+### 5. Bronvermelding
+
+Per UML-element minimaal:
+
+| Tagged value | Wat                                                        | Voorbeeld                                                              |
+| ------------ | ---------------------------------------------------------- | ---------------------------------------------------------------------- |
+| `herkomst:`  | Verwijzing per eigenschap of compact als één bron volstaat | `IMBAG §X (definitie, multipliciteit); HC BAG v2.9.2 (naam, datatype)` |
+| `bron-uri:`  | Machine-leesbare bron-URI (waar resolvable)                | `https://imbag.github.io/catalogus/objecttypen/Pand`                   |
+
+Bij eigen afleiding:
+
+| Tagged value | Wat                                       | Voorbeeld                                                                      |
+| ------------ | ----------------------------------------- | ------------------------------------------------------------------------------ |
+| `herkomst:`  | Markeert afleiding plus gebruikte bronnen | `GBO-afleiding op basis van KVK Basisprofiel v3 en GGM Handelsregister-domein` |
+
+Voor cross-walks:
+
+| Tagged value                 | Wat                                | Voorbeeld                                     |
+| ---------------------------- | ---------------------------------- | --------------------------------------------- |
+| `verwantBegrip:`             | L3-binding                         | `https://standaarden.overheid.nl/tooi/id/...` |
+| `internationaal-equivalent:` | L4-binding via SKOS-mappingrelatie | `cpv:Person (skos:exactMatch)`                |
+
 
 ## Standaarden
 
@@ -109,4 +194,4 @@ RDF is de **onderliggende datataal** van alle semantische artefacten. Het begrip
 [Verifiable Credentials](https://www.w3.org/TR/vc-data-model/) is de W3C-standaard voor het uitwisselen van cryptografisch ondertekende, verifieerbare verklaringen over een subject. Een VC is controleerbaar door een ontvanger zonder dat de uitgever opnieuw geraadpleegd hoeft te worden, en vormt samen met Decentralized Identifiers (DID's) de basis voor betrouwbare digitale gegevensuitwisseling.
 
 **Rol in GBO-Semantiek:**
-VC's bieden een mechanisme om GBO-gegevens **verifieerbaar uit te wisselen** tussen gemeenten, ketenpartners en burgers. Doordat VC's gebruikmaken van JSON-LD en `@context`, sluiten ze direct aan op de GBO-ontologie: de semantiek van de uitgewisselde attributen is eenduidig vastgelegd conform het begrippenkader.
+VC's bieden een mechanisme om GBO-gegevens **verifieerbaar uit te wisselen** tussen overheidsorganisaties, ketenpartners en burgers. Doordat VC's gebruikmaken van JSON-LD en `@context`, sluiten ze direct aan op de GBO-ontologie: de semantiek van de uitgewisselde attributen is eenduidig vastgelegd conform het begrippenkader.

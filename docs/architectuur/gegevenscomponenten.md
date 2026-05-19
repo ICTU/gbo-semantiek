@@ -1,6 +1,6 @@
 # Gegevenscomponenten
 
-De GBO-Semantiek architectuur bestaat uit een beperkt aantal componenten die samen zorgen voor een consistente, herbruikbare beschrijving van gemeentelijke basisgegevens. Dit hoofdstuk beschrijft elke component op conceptueel niveau: wat het is, waarom het bestaat en voor wie het bedoeld is.
+De GBO-Semantiek architectuur bestaat uit een beperkt aantal componenten die samen zorgen voor een consistente, herbruikbare beschrijving van basisgegevens uit overheidsregistraties. Dit hoofdstuk beschrijft elke component op conceptueel niveau: wat het is, waarom het bestaat en voor wie het bedoeld is.
 
 ![Componentenoverzicht](../assets/diagrams/componenten-overzicht.svg)
 
@@ -12,7 +12,7 @@ De architectuur kent twee bronmodellen die bewust gescheiden zijn: betekenis en 
 
 ### Begrippenmodel
 
-Het begrippenmodel is het gedeelde woordenboek van het gemeentelijk domein. Het legt vast wat termen betekenen, hoe ze zich tot elkaar verhouden en welke definities leidend zijn. Denk aan begrippen als "Zaak", "Besluit" of "Natuurlijk persoon", elk voorzien van een eenduidige definitie en geplaatst in een hiërarchie van bredere en smallere termen.
+Het begrippenmodel is het gedeelde woordenboek van GBO: een sectoroverstijgende set begrippen die door overheidsorganisaties en ketenpartners wordt gehanteerd. Het legt vast wat termen betekenen, hoe ze zich tot elkaar verhouden en welke definities leidend zijn. Denk aan begrippen als "Zaak", "Besluit" of "Natuurlijk persoon", elk voorzien van een eenduidige definitie en geplaatst in een hiërarchie van bredere en smallere termen.
 
 Het begrippenmodel is bedoeld voor **domeinexperts, informatiespecialisten en beleidsmedewerkers**: mensen die overeenstemming moeten bereiken over de betekenis van termen, zonder dat ze zich bezighouden met technische datastructuren. Het wordt beheerd in SKOS-formaat via tooling zoals TopBraid of Excel.
 

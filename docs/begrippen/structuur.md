@@ -31,7 +31,7 @@ Het begrippenkader wordt gepubliceerd in RDF/Turtle:
 
 gbobegrip:Basisgegeven a skos:Concept ;
     skos:prefLabel "Basisgegeven"@nl ;
-    skos:definition "Een gegeven dat als fundamenteel en gemeenschappelijk wordt beschouwd voor de gemeentelijke informatiehuishouding."@nl ;
+    skos:definition "Een gegeven dat als fundamenteel en gemeenschappelijk wordt beschouwd voor de informatiehuishouding van overheidsorganisaties en hun ketenpartners."@nl ;
     skos:inScheme gbobegrip:GBOBegrippenScheme .
 ```
 

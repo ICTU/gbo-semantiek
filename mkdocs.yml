@@ -101,6 +101,13 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - plantuml_markdown:
+      format: svg
+      plantuml_cmd: /opt/homebrew/bin/plantuml
+      cachedir: .cache/plantuml
+      classes: "uml"
+      alt: "GBO PlantUML class-diagram"
+      title: "GBO"
 
 # Navigatiestructuur
 # Links: alleen de hoofdsecties. Rechts: subpagina's en TOC van de huidige pagina.
@@ -124,12 +131,16 @@ nav:
     # - Structuur: begrippen/structuur.md
     - Beheer en governance: begrippen/beheer.md
   - "Laag 2: Informatiemodel":
-    - Model op hoofdlijnen: informatiemodel/informatiemodel.md
+    # - Model op hoofdlijnen: informatiemodel/informatiemodel.md
+    - GBO Core: 
+      - Hoofdmodel: informatiemodel/gbo-core/hoofdmodel.md
+      - Deelmodel Personen: informatiemodel/gbo-core/deelmodellen/personen.md
+      - Deelmodel Bedrijven en Instellingen: informatiemodel/gbo-core/deelmodellen/bedrijven-en-instellingen.md
+      - Deelmodel Adressen en Gebouwen: informatiemodel/gbo-core/deelmodellen/adressen-en-gebouwen.md
+      - Deelmodel Onroerende Zaken: informatiemodel/gbo-core/deelmodellen/onroerende-zaken.md
+      - Deelmodel Waarde Onroerende Zaken: informatiemodel/gbo-core/deelmodellen/waarde-onroerende-zaken.md
+      - Datatypes en codelijsten: informatiemodel/gbo-core/datatypes-en-codelijsten.md
     - Informatiemodel GBO: informatiemodel/informatiemodel-gbo.md
-    - Detailmodel RSGB: "definities/definitie_Model Kern RSGB.md"
-    - Detailmodel RGBZ: "definities/definitie_Model Kern RGBZ.md"
-    - Detailmodel BAG: "definities/definitie_Model BAG.md"
-    - Detailmodel Generiek: "definities/definitie_Model Generiek.md"
   - "Laag 3: Ontologie":
     - Skos: ontologie/skos.md
     - Kwaliteit: ontologie/kwaliteit.md

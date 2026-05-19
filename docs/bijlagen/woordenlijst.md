@@ -4,7 +4,7 @@
 |------|-----------|
 | **Applicatieprofiel** | Een specifieke selectie en aanvulling op het generieke informatiemodel voor een concrete use case. Vergelijkbaar met OSLO-applicatieprofielen. |
 | **Attribuutsoort** | Een eigenschap of kenmerk van een informatieobject (MIM-term) |
-| **Basisgegeven** | Een gegeven dat als fundamenteel en gemeenschappelijk wordt beschouwd voor de gemeentelijke informatiehuishouding |
+| **Basisgegeven** | Een gegeven dat als fundamenteel en gemeenschappelijk wordt beschouwd voor de informatiehuishouding van overheidsorganisaties en hun ketenpartners |
 | **Begrip** | Een eenheid van kennis die wordt gecreëerd door een unieke combinatie van kenmerken (ISO 1087) |
 | **Begrippenkader** | Een gestructureerde verzameling van begrippen en hun onderlinge relaties, gepubliceerd als SKOS ConceptScheme |
 | **Common Ground** | VNG-visie op de informatievoorziening van gemeenten, gebaseerd op het principe "data bij de bron" |
@@ -16,7 +16,7 @@
 | **FAIR** | Principes voor data: Findable, Accessible, Interoperable, Reusable |
 | **FDS** | Federatief Datastelsel — programma voor het verbinden van overheidsdata |
 | **GBO** | Gemeenschappelijke BronOntsluting — het overkoepelende programma |
-| **GGM** | Gemeentelijk Gegevensmodel — open informatiemodel voor gemeenten, basis voor GBO-datamodellen |
+| **GGM** | Gemeentelijk Gegevensmodel: open informatiemodel voor gemeenten, een van de inhoudelijke bronnen voor de GBO-datamodellen |
 | **Informatieobject** | Een logische eenheid van informatie die een samenhangend geheel vormt |
 | **JSON-LD** | JSON for Linking Data — W3C-standaard voor het koppelen van JSON-data aan een ontologie |
 | **Linked Data** | Methode voor het publiceren van gestructureerde data op het web, verbonden via URI's |
@@ -31,6 +31,7 @@
 | **QEA** | Enterprise Architect repository-bestand |
 | **RDF** | Resource Description Framework — W3C-standaard voor het beschrijven van gegevens |
 | **Relatiesoort** | Een semantische verbinding tussen twee informatieobjecten (MIM-term) |
+| **RSGB** | Referentiemodel Stelsel van Gemeentelijke Basisgegevens: historische gemeentelijke baseline (onder GEMMA), een van de inhoudelijke bronnen voor het GBO-informatiemodel |
 | **SHACL** | Shapes Constraint Language — W3C-standaard voor het valideren van RDF-data |
 | **SKOS** | Simple Knowledge Organization System — W3C-standaard voor begrippenkaders en thesauri |
 | **TOOI** | Thesauri en Ontologieën voor OverheidsInformatie — modulair publicatieraamwerk van de Rijksoverheid |
