@@ -135,6 +135,214 @@ en FAIR.
 | ISO 3166 | Landcodes (alpha-2, alpha-3, numeriek) | `https://www.iso.org/iso-3166-country-codes.html` |
 | MCD 2014/17/EU | Richtlijn hypothecair krediet | `https://eur-lex.europa.eu/legal-content/NL/TXT/?uri=CELEX%3A32014L0017` |
 
+## Per registratie
+
+Per bronregister of equivalente administratie de bronvolgorde van
+L1 naar L4. Sub-secties alfabetisch.
+
+### BAG: Basisregistratie Adressen en Gebouwen
+
+**Beheerder**: Kadaster (LVBAG) met het Ministerie van BZK als
+vaststeller van de catalogus.
+
+| Laag | Bron | URL | Karakter |
+|---|---|---|---|
+| L1 | Catalogus BAG / IMBAG | `https://imbag.github.io/catalogus/` | Formeel IM plus objecttype-catalogus |
+| L2 | Haal Centraal BAG Individuele Bevragingen | `https://lvbag.github.io/BAG-API/Technische%20specificatie/` | REST/OpenAPI met HAL |
+| L2 | BAG 2.0 Extract / LVBAG-levering | via Kadaster-aansluiting | Bulk |
+| L2 | PDOK BAG WMS/WFS | via PDOK-portaal | Geo-services voor geometrie |
+
+**Advies**: IMBAG is volledig formeel (UML en XSD); gebruik
+IMBAG-URI's direct als `bron-uri`. Wijk- en Buurt-data zitten niet in
+BAG; daarvoor CBS. Het BAG-bitemporaliteits-patroon
+(`voorkomen`-blok) is anker voor het GBO Voorkomen-mixin.
+
+### BRI: Basisregistratie Inkomen
+
+**Beheerder**: Belastingdienst (inhoudelijk); Logius beheert de
+Stelselcatalogus-publicatie.
+
+| Laag | Bron | URL | Karakter |
+|---|---|---|---|
+| L1 | Stelselcatalogus, begrip *authentiek_inkomen* (SKOS-RDF) | `https://opendata.stelselcatalogus.nl/bri/id/begrip/authentiek_inkomen` | Eén SKOS-Concept; content-negotiation ttl, jsonld, rdf |
+| L1 | Wet basisregistratie inkomen | `https://wetten.overheid.nl/BWBR0028058` | Juridische definitie en aanwijzing als authentiek |
+| L2 | Geen publiek koppelvlak | n.v.t. | Afname via SUWI- en toeslagen-stelsel |
+
+**Advies**: BRI is een one-attribute-register; uitsluitend het
+authentieke inkomen-gegeven is gedefinieerd. Citeer
+*Wet BRI art. 4* en de Stelselcatalogus-URI in herkomst-velden.
+Voeden van BRI gebeurt vanuit aangiften IH (SBR-NT) of vanuit de
+loonketen (Loonheffingen).
+
+### BRK: Basisregistratie Kadaster
+
+**Beheerder**: Kadaster.
+
+| Laag | Bron | URL | Karakter |
+|---|---|---|---|
+| L1 | IMKAD (Informatiemodel Kadaster) | `https://developer.kadaster.nl/schemas/imkad/20200130/cat/index.html` | UML conform MIM |
+| L1 | BRK-Catalogus | `https://www.kadaster.nl/-/catalogus-brk` | Narratief plus objecttype-overzicht |
+| L2 | Haal Centraal BRK Bevragen | `https://kadaster.github.io/BRK-bevragen/` | REST/OpenAPI |
+| L2 | BRK-Levering (bulk-feed) | via Kadaster-aansluiting | XML-bulk inclusief Aantekening en akte-stukken |
+
+**Advies**: IMKAD en de BRK-Catalogus zijn complementair: IMKAD voor
+formele structuur, BRK-Catalogus voor wettelijk-juridische
+definities. HC BRK plat `Tenaamstelling × ZakelijkRecht × Partij` tot
+één resource; GBO splitst expliciet uit.
+
+### BRP: Basisregistratie Personen
+
+**Beheerder**: RvIG (Rijksdienst voor Identiteitsgegevens) onder het
+Ministerie van BZK.
+
+| Laag | Bron | URL | Karakter |
+|---|---|---|---|
+| L1 | Logisch Ontwerp BRP | `https://www.rvig.nl/lo-brp` | Narratief plus tabellen; geen UML of RDF |
+| L1 | BRP Persoonslijst-categorieen | in LO BRP paragraaf 3 | Categorieen 01 t/m 63, historische +50 |
+| L2 | Haal Centraal BRP-suite | `https://developer.rvig.nl/brp-api/overview/` | Zes REST/OpenAPI's |
+| L2 | BRP-V berichtenverkeer (op basis van LO-A) | via RvIG-aansluiting | SOAP/XML, voor historie-rubrieken niet in HC |
+
+**Advies**: LO BRP is dwingend voor definities; citeer altijd
+`LO BRP §rubriek` in herkomst-veld. Voor attribuut-naamgeving volgt
+GBO de HC-conventie tenzij L1 expliciet een Nederlandstalig
+alternatief biedt dat semantisch sterker is.
+
+### CKI: Centraal Krediet Informatiesysteem
+
+**Beheerder**: Stichting BKR (Bureau Kredietregistratie) te Tiel,
+privaatrechtelijke stichting.
+
+| Laag | Bron | URL | Karakter |
+|---|---|---|---|
+| L1 | Algemeen Reglement CKI | `https://www.bkr.nl/media/4dyezfiz/algemeen-reglement-cki-juli-2024.pdf` | Juridisch reglement; 43 artikelen, 30 paginas |
+| L1 | Wet op het financieel toezicht art. 4:32 | `https://wetten.overheid.nl/BWBR0020368` | Sectorregistratie-grondslag |
+| L1 | Toelichtingsbrochure BKR | `https://www.bkr.nl/media/ssqbz200/kredietregistratie-bij-stichting-bkr.pdf` | Publieke uitleg met uitsluitings-lijst |
+| L2 | Algemene Handleiding CKI | `https://www.bkr.nl/nl/inloggen-portalen` | Gated, alleen voor erkende zakelijke klanten |
+| L3 | NORA-pagina CKI | `https://www.noraonline.nl/wiki/Centraal_Krediet_Informatiesysteem_(CKI)` | Sectorregistratie-positionering |
+
+**Advies**: CKI is een private sectorregistratie. Wettelijk gegrondvest
+in Wft art. 4:32; afname feitelijk verplicht via Wft art. 4:34 en
+gedragsregels TRHK. L2 is permanent gated; voor GBO-Core-modellering
+volstaat L1 omdat alle concepten uit het reglement modelleerbaar zijn.
+
+### HR: Handelsregister
+
+**Beheerder**: KVK (Kamer van Koophandel) onder het Ministerie van EZ.
+
+| Laag | Bron | URL | Karakter |
+|---|---|---|---|
+| L1 | L1 ontbreekt; modellering via L2 en L3 | n.v.t. | Geen publiek formeel HR-IM van KVK |
+| L2 | KVK Developer Portal (vijf API's: Zoeken, Basisprofiel, Vestigingsprofiel, Naamgeving, Mutatieservice) | `https://developers.kvk.nl/documentation` | REST/OpenAPI |
+| L2 | SBR-HR / XBRL | via SBR-banken | Optioneel, voor jaarverslag-keten |
+| L3 | Handelsregisterwet 2007 + Handelsregisterbesluit 2008 | wetten.overheid.nl | Wettelijke definities Inschrijving, Onderneming, Vestiging |
+
+**Substituutstrategie HR**: GBO leunt op een driepoot:
+Handelsregisterwet 2007, de KVK-API-spec als surrogaat-IM, en
+externe adviesmodellen als sanity-check. Citeer in elke
+HR-attribuut: `herkomst: GBO-afleiding op basis van KVK Basisprofiel
+en GGM Handelsregister-domein` (of relevante combinatie).
+
+### Loonheffingen: Gegevensspecificaties aangifte loonheffingen
+
+**Beheerder**: Belastingdienst en UWV gezamenlijk.
+
+| Laag | Bron | URL | Karakter |
+|---|---|---|---|
+| L1+L2 | Gegevensspecificaties aangifte loonheffingen | `https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/themaoverstijgend/brochures_en_publicaties/gegevensspecificaties-aangifte-loonheffingen` | PDF met rubrieknummers plus XSD 1.0 |
+| L1 | Wet LB 1964 | `https://wetten.overheid.nl/BWBR0002471` | Materiele loonheffing |
+| L1 | Wfsv (Wet financiering sociale verzekeringen) | `https://wetten.overheid.nl/BWBR0017745` | Premiegrondslag |
+| L1 | Besluit SUWI art. 5.1 | `https://wetten.overheid.nl/BWBR0013467` | Loonketen-governance (UWV operationeel) |
+
+**Advies**: De loonketen-definities zijn inhoudelijk eigendom van de
+Belastingdienst, ook al loopt de operationele keten via UWV. Modelleer
+Inkomstenverhouding, Inkomstenopgave, Inkomstenperiode en
+LoonBestanddeel daarom in deelmodel
+[Belastingen](deelmodellen/belastingen.md), niet in
+[Werk en Inkomen](deelmodellen/werk-en-inkomen.md). SGR ontsluit
+dezelfde data operationeel.
+
+### ROD: Register Onderwijsdeelnemers
+
+**Beheerder**: DUO (Dienst Uitvoering Onderwijs) namens het
+Ministerie van OCW.
+
+| Laag | Bron | URL | Karakter |
+|---|---|---|---|
+| L1 | Wet op het onderwijsnummer | `https://wetten.overheid.nl/BWBR0014522` | Wettelijke basis voor het register |
+| L1 | Sectorwetten WPO, WVO 2020, WEB, WHW | wetten.overheid.nl per wet | Inhoudelijke kaders per sector |
+| L1 | Gegevenswoordenboek DUO | `https://duo.nl/zakelijk/standaarden-ocw/canonieke-gegevensmodellen/duo-gegevenswoordenboek.jsp` | Canoniek gegevensmodel; nog in bewerking |
+| L2 | PvE ROD MBO en VAVO | `https://duo.nl/zakelijk/middelbaar-beroepsonderwijs/softwareleveranciers/softwareleveranciers-las.jsp` | PDF plus XSD; transport via Edukoppeling 1.3 |
+| L2 | PvE ROD HO | `https://www.duo.nl/zakelijk/hoger-onderwijs/studentenadministratie/programma-van-eisen-rod-ho.jsp` | Idem |
+| L2 | PvE ROD PO | `https://duo.nl/zakelijk/primair-onderwijs/softwareleveranciers/softwareleveranciers-las.jsp` | Idem |
+| L2 | Handleiding ROD VO | `https://www.duo.nl/zakelijk/voortgezet-onderwijs/leerlingenadministratie/leerlinggegevens-uitwisselen-met-rod.jsp` | Idem |
+
+**Advies**: ROD is geen basisregistratie maar wel een wettelijk
+verplicht sectoraal register. Citeer per attribuut de sector-
+specifieke PvE-rubriek. Wanneer het Gegevenswoordenboek DUO
+formeel verschijnt, schuift L1 op van wettekst naar het
+Gegevenswoordenboek.
+
+### SBR-NT: Nederlandse Taxonomie (Belastingdienst-aangiften)
+
+**Beheerder**: Belastingdienst CCT binnen SBR-NL governance,
+samenwerking met Logius en KvK.
+
+| Laag | Bron | URL | Karakter |
+|---|---|---|---|
+| L1+L2 | SBR-NT NT20 hoofdrelease (NT20_20251210) | `https://www.sbr-nl.nl/werken-met-sbr/taxonomie/documentatie-nederlandse-taxonomie` | XBRL-taxonomie; entrypoints voor IH 2025, VPB 2025, VIA, OWR |
+| L1+L2 | SBR-NT NT20 1e extensie (NT20_20260218.a) | (zelfde portaal, alfaversie) | Entrypoints Schenk 2026, Erf 2026, Servicebericht Toeslagen 2026 |
+| L1 | Wet IB 2001 | `https://wetten.overheid.nl/BWBR0011353` | Materiele wetgeving inkomstenbelasting |
+| L1 | Successiewet 1956 | `https://wetten.overheid.nl/BWBR0002226` | Schenkbelasting, erfbelasting |
+| L1 | Awir | `https://wetten.overheid.nl/BWBR0018472` | Toeslagen-grondslag |
+
+**Advies**: Combineer L1 (materiele wet) en L2 (XBRL-conceptnaam) in
+het herkomst-veld. Citeer release-naam expliciet (NT20_20251210 voor
+hoofdrelease, NT20_20260218.a voor extensie). Vermeng labels en
+references uit verschillende releases niet. Voor de
+XBRL-naar-MIM-mapping geldt: `xbrl:label role=documentation` levert
+de definitie, `xbrl:reference role=disclosure` levert de
+wetreferentie, `xbrl:periodType` levert de tijdkarakteristiek.
+
+### SGR: Suwi Gegevensregister
+
+**Beheerder**: BKWI (Bureau Keteninformatisering Werk en Inkomen)
+namens UWV.
+
+| Laag | Bron | URL | Karakter |
+|---|---|---|---|
+| L1 | Suwi Gegevensregister | `https://sgr.bkwi.nl/sgr/index.html` | SuwiML XSD plus HTML-catalogus; circa 250 entiteiten |
+| L1 | Bijlage 1 SGR (wettelijke grondslag per attribuut) | apart document op zelfde domein | Koppelt attribuut aan wetsartikel |
+| L1 | Wet SUWI | `https://wetten.overheid.nl/BWBR0013060` | Stelselgrondslag UWV en SVB |
+| L1 | Werknemers- en volksverzekeringswetten (WW, ZW, WIA, Wajong, AOW) | wetten.overheid.nl per wet | Inhoudelijke kaders per uitkering |
+| L2 | SuwiML-berichten boven SGR (Polisadministratie-bevraging, Inkomstenopgaaf, Uitkeringsoverzicht) | `https://sgr.bkwi.nl/sgr/` | XML-payload boven SGR-entiteiten |
+
+**Eigendomsverdeling binnen SGR**: SGR is L1 authoritative voor
+UWV-eigen concepten (uitkeringen, beslissingen, dagloon,
+arbeidsongeschiktheids-percentage, arbeidsverhouding). Voor
+loonaangifteketen-afgeleide concepten (Inkomstenverhouding,
+Inkomstenopgave, Inkomstenperiode, LoonBestanddeel) is de
+Belastingdienst wettelijk eigenaar; SGR is daar een ontsluitings-
+kanaal. AOW-administratie is operationeel SVB; SGR-dekking kan
+beperkt zijn.
+
+### WOZ: Waardering Onroerende Zaken
+
+**Beheerder**: Waarderingskamer (toezicht), gemeenten (uitvoering),
+Kadaster (LV-WOZ).
+
+| Laag | Bron | URL | Karakter |
+|---|---|---|---|
+| L1 | L1 ontbreekt; modellering via L2 en L3 | n.v.t. | Geen vrij-toegankelijk WOZ-Gegevenswoordenboek |
+| L2 | Haal Centraal WOZ Bevragen | `https://kadaster.github.io/WOZ-bevragen/` | REST/OpenAPI |
+| L2 | LV-WOZ-bevraagservice (Kadaster) | via aansluiting | Bevraging |
+| L3 | Wet WOZ en uitvoeringsbesluit | wetten.overheid.nl | Wettelijke definities WOZ-object, peildatum |
+| L3 | Waarderingsinstructie (Waarderingskamer) | `https://www.waarderingskamer.nl/voor-gemeenten/hulpmiddelen/` | Beleidsmatige uitwerking |
+
+**Substituutstrategie WOZ**: GBO leunt voor WOZ-objecttypering op de
+combinatie Wet WOZ, Waarderingsinstructie en HC WOZ-schema. Geen van
+drieën is L1; ze worden samen gebruikt conform de beslisregel "leid
+zelf af bij gaten, niet ruimer dan de bron toelaat".
+
 ## Beslisregels
 
 **L1 is default; L2 of L3 op functionele gronden.** De invulling van
