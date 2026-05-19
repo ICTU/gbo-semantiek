@@ -117,6 +117,7 @@ nav:
   - Uitgangspunten:
     - Ontwerprincipes: uitgangspunten/ontwerpprincipes.md
     - Kaders en standaarden: uitgangspunten/kaders_standaarden.md
+    - Bronnenprioritering: uitgangspunten/bronnenprioritering.md
     - Inspiratie: uitgangspunten/inspiratie.md
   - Architectuur:
     - Gegevensarchitectuur: architectuur/gegevensarchitectuur.md
@@ -139,6 +140,10 @@ nav:
       - Deelmodel Adressen en Gebouwen: informatiemodel/gbo-core/deelmodellen/adressen-en-gebouwen.md
       - Deelmodel Onroerende Zaken: informatiemodel/gbo-core/deelmodellen/onroerende-zaken.md
       - Deelmodel Waarde Onroerende Zaken: informatiemodel/gbo-core/deelmodellen/waarde-onroerende-zaken.md
+      - Deelmodel Belastingen: informatiemodel/gbo-core/deelmodellen/belastingen.md
+      - Deelmodel Krediet: informatiemodel/gbo-core/deelmodellen/krediet.md
+      - Deelmodel Onderwijs: informatiemodel/gbo-core/deelmodellen/onderwijs.md
+      - Deelmodel Werk en Inkomen: informatiemodel/gbo-core/deelmodellen/werk-en-inkomen.md
       - Datatypes en codelijsten: informatiemodel/gbo-core/datatypes-en-codelijsten.md
     - Informatiemodel GBO: informatiemodel/informatiemodel-gbo.md
   - "Laag 3: Ontologie":

@@ -120,10 +120,10 @@ afzonderlijke velden op het WOZ-object zoals in HC-WOZ.
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| `rolBelanghebbende` | `RolBelanghebbende` | 1 | Authentiek | Ja | Ja | Hoedanigheid van de belanghebbende ten aanzien van het WOZ-object. | LV-WOZ-catalogus | `Eigenaar`, `Gebruiker`, `EigenaarEnGebruiker`. |
+| `rolBelanghebbende` | [`RolBelanghebbende`](#rolbelanghebbende) | 1 | Authentiek | Ja | Ja | Hoedanigheid van de belanghebbende ten aanzien van het WOZ-object. | LV-WOZ-catalogus | `Eigenaar`, `Gebruiker`, `EigenaarEnGebruiker`. |
 | `aandeel` | Breuk | 0..1 | Authentiek | Ja | Ja | Het breukdeel waarmee de partij in de rol deelneemt. | LV-WOZ-catalogus | Analoog aan `Tenaamstelling.aandeel`. |
-| `datumIngang` | Datum | 1 | Authentiek | Ja | Ja | Datum waarop de rol is ingegaan. | LV-WOZ-catalogus | |
-| `datumEinde` | Datum | 0..1 | Authentiek | Ja | Ja | Datum waarop de rol is geëindigd. | LV-WOZ-catalogus | Leeg betekent lopend. |
+| `datumIngang` | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Authentiek | Ja | Ja | Datum waarop de rol is ingegaan. | LV-WOZ-catalogus | |
+| `datumEinde` | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Authentiek | Ja | Ja | Datum waarop de rol is geëindigd. | LV-WOZ-catalogus | Leeg betekent lopend. |
 
 **Relatiesoorten** (uitgaand):
 
@@ -161,8 +161,8 @@ volgt bij een concrete use-case.
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| `deelobjectnummer` | Numeriek | 1 | Basisgegeven | Nee | Nee | Volgnummer van het deelobject binnen het WOZ-object. | LV-WOZ (StUF-WOZ) | |
-| `omschrijving` | Tekst | 0..1 | Basisgegeven | Nee | Nee | Korte beschrijving van het deelobject. | LV-WOZ (StUF-WOZ) | |
+| `deelobjectnummer` | [Numeriek](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Basisgegeven | Nee | Nee | Volgnummer van het deelobject binnen het WOZ-object. | LV-WOZ (StUF-WOZ) | |
+| `omschrijving` | [Tekst](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Nee | Nee | Korte beschrijving van het deelobject. | LV-WOZ (StUF-WOZ) | |
 
 **Relatiesoorten** (uitgaand):
 
@@ -203,12 +203,12 @@ aanduiding.
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| `wozObjectnummer` | Numeriek | 1 | Authentiek | Ja | Ja | WOZ-eigen objectnummer binnen een gemeente. | LV-WOZ-catalogus | Niet uniek tussen gemeenten. |
-| `aanduiding` | `ObjectAanduiding` | 1 | Authentiek | Ja | Ja | Gestandaardiseerde aanduiding bestaande uit gemeentecode en objectnummer. | LV-WOZ-catalogus | HC-conform; stabiele globale aanduiding. |
-| `verantwoordelijkeGemeente` | `Codelijst~LT33` | 1 | Authentiek | Ja | Ja | Gemeente die verantwoordelijk is voor de waardering. | LV-WOZ-catalogus | Essentieel wegens niet-uniciteit `wozObjectnummer` over gemeenten. |
-| `grondoppervlakte` | Numeriek | 0..1 | Basisgegeven | Ja | Ja | Oppervlakte van de bij het object behorende grond in m². | LV-WOZ-catalogus | |
-| `gebruikscode` | `Codelijst~WOZ` | 0..1 | Basisgegeven | Ja | Ja | Type gebruik van het object. | LV-WOZ-catalogus | Woning, winkel, kantoor en dergelijke. |
-| `statusWOZObject` | `StatusWOZObject` | 1 | Basisgegeven | Ja | Ja | Levenscyclus-status van het WOZ-object. | LV-WOZ-catalogus | `Actief`, `VervallenVoorWOZ`. |
+| `wozObjectnummer` | [Numeriek](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Authentiek | Ja | Ja | WOZ-eigen objectnummer binnen een gemeente. | LV-WOZ-catalogus | Niet uniek tussen gemeenten. |
+| `aanduiding` | [`ObjectAanduiding`](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 1 | Authentiek | Ja | Ja | Gestandaardiseerde aanduiding bestaande uit gemeentecode en objectnummer. | LV-WOZ-catalogus | HC-conform; stabiele globale aanduiding. |
+| `verantwoordelijkeGemeente` | [`Codelijst~LT33`](adressen-en-gebouwen.md#codelijsten) | 1 | Authentiek | Ja | Ja | Gemeente die verantwoordelijk is voor de waardering. | LV-WOZ-catalogus | Essentieel wegens niet-uniciteit `wozObjectnummer` over gemeenten. |
+| `grondoppervlakte` | [Numeriek](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Ja | Ja | Oppervlakte van de bij het object behorende grond in m². | LV-WOZ-catalogus | |
+| `gebruikscode` | [`Codelijst~WOZ`](#codelijsten) | 0..1 | Basisgegeven | Ja | Ja | Type gebruik van het object. | LV-WOZ-catalogus | Woning, winkel, kantoor en dergelijke. |
+| `statusWOZObject` | [`StatusWOZObject`](#statuswozobject) | 1 | Basisgegeven | Ja | Ja | Levenscyclus-status van het WOZ-object. | LV-WOZ-catalogus | `Actief`, `VervallenVoorWOZ`. |
 
 Draagt het `Voorkomen`-mixin (bitemporeel patroon; zie sectie [Patronen](../hoofdmodel.md#patronen)).
 
@@ -254,14 +254,14 @@ historie staat centraal. De keten `beschikkingsStatussen[]` (`ConceptBeschikking
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| `vastgesteldeWaarde` | Bedrag | 1 | Authentiek | Nee | Nee | De vastgestelde waarde van het WOZ-object op de peildatum. | LV-WOZ-catalogus | |
-| `waardepeildatum` | Datum | 1 | Authentiek | Nee | Nee | Datum waarnaar de waarde is bepaald. | LV-WOZ-catalogus | Typisch 1 januari van het voorgaande jaar. |
-| `ingangsdatum` | Datum | 1 | Authentiek | Nee | Nee | Datum vanaf wanneer de waarde geldigheid heeft. | LV-WOZ-catalogus | Materiële geldigheid. |
-| `einddatum` | Datum | 0..1 | Basisgegeven | Nee | Nee | Datum waarop de waarde vervalt. | LV-WOZ-catalogus | |
-| `beschikkingsnummer` | Identificatie | 0..1 | Authentiek | Nee | Nee | Identificatie van de WOZ-beschikking. | LV-WOZ-catalogus | |
-| `statusWOZWaarde` | `StatusWOZWaarde` | 1 | Basisgegeven | Nee | Nee | Vaststellingsstatus van de waarde. | LV-WOZ-catalogus | `DefinitiefVastgesteld`, `VoorlopigVastgesteld`, `Vervallen`. |
-| `beschikkingsStatussen` | `BeschikkingStatus` | 1..* | Basisgegeven | Nee | Nee | Chronologische statussen die de beschikking heeft doorlopen. | LV-WOZ-catalogus | HC-conforme rijke modellering. |
-| `indicatieBezwaarBeroep` | Indicatie | 1 | Basisgegeven | Nee | Nee | Geeft aan of een bezwaar of beroep loopt tegen de beschikking. | LV-WOZ-catalogus | |
+| `vastgesteldeWaarde` | [Bedrag](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 1 | Authentiek | Nee | Nee | De vastgestelde waarde van het WOZ-object op de peildatum. | LV-WOZ-catalogus | |
+| `waardepeildatum` | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Authentiek | Nee | Nee | Datum waarnaar de waarde is bepaald. | LV-WOZ-catalogus | Typisch 1 januari van het voorgaande jaar. |
+| `ingangsdatum` | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Authentiek | Nee | Nee | Datum vanaf wanneer de waarde geldigheid heeft. | LV-WOZ-catalogus | Materiële geldigheid. |
+| `einddatum` | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Nee | Nee | Datum waarop de waarde vervalt. | LV-WOZ-catalogus | |
+| `beschikkingsnummer` | [Identificatie](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Authentiek | Nee | Nee | Identificatie van de WOZ-beschikking. | LV-WOZ-catalogus | |
+| `statusWOZWaarde` | [`StatusWOZWaarde`](#statuswozwaarde) | 1 | Basisgegeven | Nee | Nee | Vaststellingsstatus van de waarde. | LV-WOZ-catalogus | `DefinitiefVastgesteld`, `VoorlopigVastgesteld`, `Vervallen`. |
+| `beschikkingsStatussen` | [`BeschikkingStatus`](#beschikkingstatus) | 1..* | Basisgegeven | Nee | Nee | Chronologische statussen die de beschikking heeft doorlopen. | LV-WOZ-catalogus | HC-conforme rijke modellering. |
+| `indicatieBezwaarBeroep` | [Indicatie](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Basisgegeven | Nee | Nee | Geeft aan of een bezwaar of beroep loopt tegen de beschikking. | LV-WOZ-catalogus | |
 
 Op WOZ-waarde wordt geen historie binnen één registratie bijgehouden:
 het tijdsverloop ontstaat door opvolgende beschikkingen (nieuwe

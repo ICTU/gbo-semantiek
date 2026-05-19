@@ -176,11 +176,11 @@ externe codelijst van het CBS.
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| `sbiCode` | `Codelijst~CBS_SBI` | 1 | Basisgegeven | Nee | Nee | SBI-codering volgens CBS Standaard Bedrijfsindeling. | NHR / CBS | Externe codelijst. |
-| `sbiVersie` | `Codelijst~CBS_SBI` | 1 | Basisgegeven | Nee | Nee | Versie van het SBI-codestelsel. | GBO | Verplicht: voorkomt verkeerde interpretatie bij SBI-revisies (SBI 2008 naar SBI 2025). |
-| `omschrijving` | Tekst | 0..1 | Basisgegeven | Nee | Nee | Tekstuele toelichting bij de activiteit. | NHR | KVK Basisprofiel. |
-| `soortActiviteit` | `SoortActiviteit` | 1 | Basisgegeven | Nee | Nee | Onderscheid tussen hoofd- en nevenactiviteit. | NHR | Zie enumeratie `SoortActiviteit`. |
-| `isHoofdactiviteit` | Indicatie | 0..1 | Basisgegeven | Nee | Nee | Booleaanse projectie van `soortActiviteit = Hoofd`. | NHR | KVK API-compatibiliteit. |
+| `sbiCode` | [`Codelijst~CBS_SBI`](../datatypes-en-codelijsten.md#stelselbrede-codelijsten) | 1 | Basisgegeven | Nee | Nee | SBI-codering volgens CBS Standaard Bedrijfsindeling. | NHR / CBS | Externe codelijst. |
+| `sbiVersie` | [`Codelijst~CBS_SBI`](../datatypes-en-codelijsten.md#stelselbrede-codelijsten) | 1 | Basisgegeven | Nee | Nee | Versie van het SBI-codestelsel. | GBO | Verplicht: voorkomt verkeerde interpretatie bij SBI-revisies (SBI 2008 naar SBI 2025). |
+| `omschrijving` | [Tekst](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Nee | Nee | Tekstuele toelichting bij de activiteit. | NHR | KVK Basisprofiel. |
+| `soortActiviteit` | [`SoortActiviteit`](#soortactiviteit) | 1 | Basisgegeven | Nee | Nee | Onderscheid tussen hoofd- en nevenactiviteit. | NHR | Zie enumeratie `SoortActiviteit`. |
+| `isHoofdactiviteit` | [Indicatie](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Nee | Nee | Booleaanse projectie van `soortActiviteit = Hoofd`. | NHR | KVK API-compatibiliteit. |
 
 ### Bedrijf
 
@@ -214,7 +214,7 @@ natuurlijke persoon loopt die aan dezelfde inschrijving gekoppeld is.
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| `rechtsvorm` | `Codelijst~KVK_Bedrijf` | 1 | Authentiek | Nee | Nee | Juridische vorm van het bedrijf. | NHR | Codelijst zie onder. |
+| `rechtsvorm` | [`Codelijst~KVK_Bedrijf`](#codelijsten) | 1 | Authentiek | Nee | Nee | Juridische vorm van het bedrijf. | NHR | Codelijst zie onder. |
 
 Codelijst `KVK_Bedrijf` omvat onder meer: `BeslotenVennootschap (BV)`,
 `NaamlozeVennootschap (NV)`, `Eenmanszaak`,
@@ -252,9 +252,9 @@ afnemers die op dat onderscheid filteren.
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| `landVanOprichting` | `Codelijst~ISO3166` | 1 | Basisgegeven | Nee | Nee | Land waarin de entiteit is opgericht. | NHR | ISO 3166-codering. |
-| `rechtsvormBuitenland` | Tekst | 0..1 | Basisgegeven | Nee | Nee | Buitenlandse juridische vorm, vrije tekst. | NHR | Geen Nederlandse codelijst beschikbaar. |
-| `typeBuitenlandseEntiteit` | `TypeBuitenlandseEntiteit` | 1 | Basisgegeven | Nee | Nee | Typering van de Nederlandse aanwezigheid. | GBO | Zie enumeratie `TypeBuitenlandseEntiteit`. |
+| `landVanOprichting` | [`Codelijst~ISO3166`](../datatypes-en-codelijsten.md#stelselbrede-codelijsten) | 1 | Basisgegeven | Nee | Nee | Land waarin de entiteit is opgericht. | NHR | ISO 3166-codering. |
+| `rechtsvormBuitenland` | [Tekst](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Nee | Nee | Buitenlandse juridische vorm, vrije tekst. | NHR | Geen Nederlandse codelijst beschikbaar. |
+| `typeBuitenlandseEntiteit` | [`TypeBuitenlandseEntiteit`](#typebuitenlandseentiteit) | 1 | Basisgegeven | Nee | Nee | Typering van de Nederlandse aanwezigheid. | GBO | Zie enumeratie `TypeBuitenlandseEntiteit`. |
 
 ### Inschrijving
 
@@ -295,12 +295,12 @@ zoeken zijn.
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| `kvkNummer` | Numeriek8 | 1 | Authentiek | Ja | Ja | Primaire identifier van de inschrijving. | NHR | 8 cijfers. |
-| `startdatum` | DatumIncompleet | 0..1 | Basisgegeven | Ja | Ja | Startdatum van de inschrijving. | NHR | KVK-API. |
-| `einddatum` | DatumIncompleet | 0..1 | Basisgegeven | Ja | Ja | Einddatum van de inschrijving. | NHR | |
-| `datumEersteInschrijving` | Datum | 0..1 | Basisgegeven | Ja | Ja | Datum waarop de inschrijving voor het eerst bij KVK is geregistreerd. | NHR | Immutable. |
-| `documentdatum` | Datum | 0..1 | Authentiek | Ja | Ja | Datum van de oprichtingsakte of meest recente wijzigingsakte. | NHR | |
-| `documentnummer` | Identificatie | 0..1 | Authentiek | Ja | Ja | Akte-nummer van de oprichtings- of wijzigingsakte. | NHR | |
+| `kvkNummer` | [Numeriek8](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Authentiek | Ja | Ja | Primaire identifier van de inschrijving. | NHR | 8 cijfers. |
+| `startdatum` | [DatumIncompleet](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 0..1 | Basisgegeven | Ja | Ja | Startdatum van de inschrijving. | NHR | KVK-API. |
+| `einddatum` | [DatumIncompleet](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 0..1 | Basisgegeven | Ja | Ja | Einddatum van de inschrijving. | NHR | |
+| `datumEersteInschrijving` | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Ja | Ja | Datum waarop de inschrijving voor het eerst bij KVK is geregistreerd. | NHR | Immutable. |
+| `documentdatum` | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Authentiek | Ja | Ja | Datum van de oprichtingsakte of meest recente wijzigingsakte. | NHR | |
+| `documentnummer` | [Identificatie](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Authentiek | Ja | Ja | Akte-nummer van de oprichtings- of wijzigingsakte. | NHR | |
 
 **Relatiesoorten** (uitgaand):
 
@@ -345,7 +345,7 @@ concrete subtype.
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| `rechtsvorm` | `Codelijst~KVK_Instelling` | 1 | Authentiek | Nee | Nee | Juridische vorm van de instelling. | NHR | Codelijst zie onder. |
+| `rechtsvorm` | [`Codelijst~KVK_Instelling`](#codelijsten) | 1 | Authentiek | Nee | Nee | Juridische vorm van de instelling. | NHR | Codelijst zie onder. |
 
 Codelijst `KVK_Instelling`: `PubliekrechtelijkeRechtspersoon (PBR)`,
 `Stichting`, `Vereniging`, `VerenigingMetVolledigeRechtsbevoegdheid`,
@@ -389,11 +389,11 @@ MA kan via meerdere SBI-Activiteiten worden uitgewerkt.
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| `identificatie` | UUID | 1 | Overig | Nee | Nee | GBO-eigen sleutel voor de ondernemings-eenheid. | GBO | Geen externe identifier in NHR voor ondernemings-eenheid binnen NNP. |
-| `startdatum` | Datum | 0..1 | Basisgegeven | Nee | Nee | Aanvangsdatum van de onderneming. | NHR | |
-| `einddatum` | Datum | 0..1 | Basisgegeven | Nee | Nee | Beëindigingsdatum van de onderneming. | NHR | Open zolang MA actief. |
-| `hoofdSbiCode` | `Codelijst~CBS_SBI` | 0..1 | Basisgegeven | Nee | Nee | SBI van de hoofdactiviteit van deze onderneming. | NHR | Canoniek op MA; `hoofdSbiCode` op NNP is afgeleid. |
-| `omschrijving` | Tekst | 0..1 | Basisgegeven | Nee | Nee | Korte beschrijving van de ondernemings-activiteit. | NHR | |
+| `identificatie` | [UUID](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 1 | Overig | Nee | Nee | GBO-eigen sleutel voor de ondernemings-eenheid. | GBO | Geen externe identifier in NHR voor ondernemings-eenheid binnen NNP. |
+| `startdatum` | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Nee | Nee | Aanvangsdatum van de onderneming. | NHR | |
+| `einddatum` | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Nee | Nee | Beëindigingsdatum van de onderneming. | NHR | Open zolang MA actief. |
+| `hoofdSbiCode` | [`Codelijst~CBS_SBI`](../datatypes-en-codelijsten.md#stelselbrede-codelijsten) | 0..1 | Basisgegeven | Nee | Nee | SBI van de hoofdactiviteit van deze onderneming. | NHR | Canoniek op MA; `hoofdSbiCode` op NNP is afgeleid. |
+| `omschrijving` | [Tekst](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Nee | Nee | Korte beschrijving van de ondernemings-activiteit. | NHR | |
 
 **Relatiesoorten** (uitgaand):
 
@@ -431,8 +431,8 @@ indicatie omdat dat fiscaal relevant is voor giften en vrijstellingen.
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| `typeMaatschappelijk` | `TypeMaatschappelijk` | 1 | Basisgegeven | Nee | Nee | Sectorale typering van de maatschappelijke instelling. | GBO | Zie enumeratie `TypeMaatschappelijk`. |
-| `anbiStatus` | Indicatie | 1 | Basisgegeven | Nee | Nee | ANBI-erkenning door de Belastingdienst. | Belastingdienst | Fiscaal-relevant voor giften en vrijstellingen. |
+| `typeMaatschappelijk` | [`TypeMaatschappelijk`](#typemaatschappelijk) | 1 | Basisgegeven | Nee | Nee | Sectorale typering van de maatschappelijke instelling. | GBO | Zie enumeratie `TypeMaatschappelijk`. |
+| `anbiStatus` | [Indicatie](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Basisgegeven | Nee | Nee | ANBI-erkenning door de Belastingdienst. | Belastingdienst | Fiscaal-relevant voor giften en vrijstellingen. |
 
 ### Naamgeving
 
@@ -468,12 +468,12 @@ Activiteit-context op Vestiging waar dat nodig is.
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| `statutaireNaam` | Tekst | 0..1 | Authentiek | Ja | Ja | Naam zoals vastgelegd in de geregistreerde statuten. | NHR | Bij rechtspersonen met statuten. |
-| `naam` | Tekst | 1 | Basisgegeven | Ja | Ja | Werknaam onder maatschappelijke activiteit. | NHR | Bij rechtspersoon of samenwerkingsverband. |
-| `ookGenoemd` | Tekst | 0..1 | Basisgegeven | Ja | Ja | Alternatieve benaming. | NHR | Bij vereniging, stichting. |
-| `handelsnamen` | Tekst | 0..* | Basisgegeven | Ja | Ja | Eén of meer handelsnamen waaronder de onderneming naar buiten treedt. | NHR | KVK Naamgeving-API. |
-| `startdatum` | Datum | 1 | Basisgegeven | Ja | Ja | Datum vanaf wanneer deze naamrepresentatie geldt. | NHR | |
-| `einddatum` | Datum | 0..1 | Basisgegeven | Ja | Ja | Datum tot wanneer deze naamrepresentatie geldt. | NHR | |
+| `statutaireNaam` | [Tekst](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Authentiek | Ja | Ja | Naam zoals vastgelegd in de geregistreerde statuten. | NHR | Bij rechtspersonen met statuten. |
+| `naam` | [Tekst](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Basisgegeven | Ja | Ja | Werknaam onder maatschappelijke activiteit. | NHR | Bij rechtspersoon of samenwerkingsverband. |
+| `ookGenoemd` | [Tekst](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Ja | Ja | Alternatieve benaming. | NHR | Bij vereniging, stichting. |
+| `handelsnamen` | [Tekst](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..* | Basisgegeven | Ja | Ja | Eén of meer handelsnamen waaronder de onderneming naar buiten treedt. | NHR | KVK Naamgeving-API. |
+| `startdatum` | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Basisgegeven | Ja | Ja | Datum vanaf wanneer deze naamrepresentatie geldt. | NHR | |
+| `einddatum` | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Ja | Ja | Datum tot wanneer deze naamrepresentatie geldt. | NHR | |
 
 ### NietNatuurlijkPersoon
 
@@ -515,13 +515,13 @@ registratie consistent zijn met de NHR-praktijk.
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| `rsin` | Numeriek9 | 0..1 | Authentiek | Nee | Nee | Rechtspersonen- en Samenwerkingsverbanden Identificatie Nummer. | NHR | Fiscaal identificatienummer voor rechtspersonen en samenwerkingsverbanden. |
-| `naam` | Tekst | 1 | Basisgegeven | Nee | Nee | Werknaam. | NHR | Statutaire naam staat op `Naamgeving`. |
-| `zetel` | Tekst | 0..1 | Basisgegeven | Nee | Nee | Statutaire vestigingsplaats. | NHR / BRK | Geleverd via `KadasterNietNatuurlijkPersoon.zetel`. |
-| `hoofdSbiCode` | `Codelijst~CBS_SBI` | 0..1 | Basisgegeven | Nee | Nee | Afgeleide SBI-hoofdactiviteit. | NHR (afgeleid) | Summary, canoniek op MA. |
-| `sector` | `Sector` | 1 | Overig | Nee | Nee | Functionele sector-classificatie. | GBO (afgeleid) | Zie enumeratie `Sector`. |
-| `herkomst` | `Herkomst` | 1 | Overig | Nee | Nee | Binnen- of buitenlandse herkomst. | GBO (afgeleid) | Zie enumeratie `Herkomst`. |
-| `aansprakelijkheid` | `Aansprakelijkheid` | 1 | Overig | Nee | Nee | Aansprakelijkheidskarakter van de rechtsvorm. | GBO (afgeleid) | Zie enumeratie `Aansprakelijkheid`. |
+| `rsin` | [Numeriek9](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Authentiek | Nee | Nee | Rechtspersonen- en Samenwerkingsverbanden Identificatie Nummer. | NHR | Fiscaal identificatienummer voor rechtspersonen en samenwerkingsverbanden. |
+| `naam` | [Tekst](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Basisgegeven | Nee | Nee | Werknaam. | NHR | Statutaire naam staat op `Naamgeving`. |
+| `zetel` | [Tekst](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Nee | Nee | Statutaire vestigingsplaats. | NHR / BRK | Geleverd via `KadasterNietNatuurlijkPersoon.zetel`. |
+| `hoofdSbiCode` | [`Codelijst~CBS_SBI`](../datatypes-en-codelijsten.md#stelselbrede-codelijsten) | 0..1 | Basisgegeven | Nee | Nee | Afgeleide SBI-hoofdactiviteit. | NHR (afgeleid) | Summary, canoniek op MA. |
+| `sector` | [`Sector`](#sector) | 1 | Overig | Nee | Nee | Functionele sector-classificatie. | GBO (afgeleid) | Zie enumeratie `Sector`. |
+| `herkomst` | [`Herkomst`](#herkomst) | 1 | Overig | Nee | Nee | Binnen- of buitenlandse herkomst. | GBO (afgeleid) | Zie enumeratie `Herkomst`. |
+| `aansprakelijkheid` | [`Aansprakelijkheid`](#aansprakelijkheid) | 1 | Overig | Nee | Nee | Aansprakelijkheidskarakter van de rechtsvorm. | GBO (afgeleid) | Zie enumeratie `Aansprakelijkheid`. |
 
 **Relatiesoorten** (uitgaand):
 
@@ -562,8 +562,8 @@ overheidsinstelling staat in TOOI; de koppeling is daarom optioneel.
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| `typeOverheid` | `TypeOverheid` | 1 | Basisgegeven | Nee | Nee | Bestuurlijke typering van de overheidsinstelling. | GBO | Zie enumeratie `TypeOverheid`. |
-| `bevoegdGezagCode` | `Codelijst~TOOI` | 0..1 | Landelijk kerngegeven | Nee | Nee | URI-koppeling naar het TOOI-register. | TOOI / KOOP | Optioneel; niet elke overheidsinstelling staat in TOOI. |
+| `typeOverheid` | [`TypeOverheid`](#typeoverheid) | 1 | Basisgegeven | Nee | Nee | Bestuurlijke typering van de overheidsinstelling. | GBO | Zie enumeratie `TypeOverheid`. |
+| `bevoegdGezagCode` | [`Codelijst~TOOI`](../datatypes-en-codelijsten.md#stelselbrede-codelijsten) | 0..1 | Landelijk kerngegeven | Nee | Nee | URI-koppeling naar het TOOI-register. | TOOI / KOOP | Optioneel; niet elke overheidsinstelling staat in TOOI. |
 
 ### OverigeNietNatuurlijkPersoon
 
@@ -596,7 +596,7 @@ mogelijk in een van de hoofdcategorieën landen.
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| `omschrijving` | Tekst | 1 | Overig | Nee | Nee | Reden van plaatsing in deze restcategorie. | GBO | Verplicht. |
+| `omschrijving` | [Tekst](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Overig | Nee | Nee | Reden van plaatsing in deze restcategorie. | GBO | Verplicht. |
 
 ### Rechtstoestand
 
@@ -631,10 +631,10 @@ alleen via de coderingsattribuut.
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| `actief` | Indicatie | 1 | Basisgegeven | Ja | Ja | Geeft aan of de inschrijving actief is. | NHR | |
+| `actief` | [Indicatie](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Basisgegeven | Ja | Ja | Geeft aan of de inschrijving actief is. | NHR | |
 | `insolventieCode` | Codelijst | 0..1 | Basisgegeven | Ja | Ja | Code voor insolventie-omstandigheid. | NHR | Open dataset-codelijst (faillissement, surseance, schuldsanering). |
-| `datumInsolventie` | Datum | 0..1 | Basisgegeven | Ja | Ja | Ingangsdatum van de insolventie-omstandigheid. | NHR | |
-| `ontbonden` | Indicatie | 1 | Basisgegeven | Ja | Ja | Geeft aan of de entiteit is ontbonden. | NHR | |
+| `datumInsolventie` | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Ja | Ja | Ingangsdatum van de insolventie-omstandigheid. | NHR | |
+| `ontbonden` | [Indicatie](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Basisgegeven | Ja | Ja | Geeft aan of de entiteit is ontbonden. | NHR | |
 
 ### Vestiging
 
@@ -672,11 +672,11 @@ tijd correct na te lopen zijn.
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| `vestigingsnummer` | Numeriek12 | 1 | Authentiek | Ja | Ja | Primaire identifier van de vestiging. | NHR | 12 cijfers. |
-| `typeVestiging` | `TypeVestiging` | 1 | Basisgegeven | Ja | Ja | Onderscheid hoofd- en nevenvestiging. | NHR | Zie enumeratie `TypeVestiging`; precies één hoofdvestiging per Inschrijving op enig moment. |
-| `datumAanvang` | Datum | 1 | Basisgegeven | Ja | Ja | Startdatum van de vestiging. | NHR | |
-| `datumEinde` | Datum | 0..1 | Basisgegeven | Ja | Ja | Einddatum van de vestiging. | NHR | |
-| `adresseerbaarObjectId` | NEN3610ID | 0..1 | Basisgegeven | Ja | Ja | Koppeling naar `AdresseerbaarObject` in BAG. | BAG | Geen NL-adres betekent geen ID. |
+| `vestigingsnummer` | [Numeriek12](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Authentiek | Ja | Ja | Primaire identifier van de vestiging. | NHR | 12 cijfers. |
+| `typeVestiging` | [`TypeVestiging`](#typevestiging) | 1 | Basisgegeven | Ja | Ja | Onderscheid hoofd- en nevenvestiging. | NHR | Zie enumeratie `TypeVestiging`; precies één hoofdvestiging per Inschrijving op enig moment. |
+| `datumAanvang` | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Basisgegeven | Ja | Ja | Startdatum van de vestiging. | NHR | |
+| `datumEinde` | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Ja | Ja | Einddatum van de vestiging. | NHR | |
+| `adresseerbaarObjectId` | [NEN3610ID](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 0..1 | Basisgegeven | Ja | Ja | Koppeling naar `AdresseerbaarObject` in BAG. | BAG | Geen NL-adres betekent geen ID. |
 
 **Relatiesoorten** (uitgaand):
 

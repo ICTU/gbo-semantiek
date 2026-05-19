@@ -126,16 +126,16 @@ objecttype.
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| `bsn` | Numeriek9 | 1 | Authentiek | Ja | Ja | Het door de Beheervoorziening BSN uitgegeven persoonsnummer. | BRP cat 01 grp 01 | Primaire identifier; uniek per actieve inschrijving. |
-| `aNummer` | Alfanumeriek10 | 0..1 | Basisgegeven | Ja | Ja | Het interne BRP-administratienummer. | BRP cat 01 grp 01 | Intern BRP, niet als externe identifier gebruikt. |
-| `tin` | Alfanumeriek | 0..1 | Basisgegeven | Ja | Ja | Het persoonsnummer dat een ander land aan deze persoon heeft toegekend. | BRP cat 04 grp 73 | Alleen aanwezig binnen een EU-nationaliteit-stapel. |
-| `datumEersteInschrijving` | DatumIncompleet | 0..1 | Basisgegeven | Ja | Ja | De datum waarop deze persoon voor het eerst in de BRP werd opgenomen. | BRP cat 07 grp 67 | |
-| `gemeenteVanInschrijving` | `Codelijst~LT33` | 0..1 | Basisgegeven | Ja | Ja | De gemeente die de persoonslijst bijhoudt. | BRP cat 07 grp 67 | Voor RNI-inschrijvingen leeg of gevuld met een RNI-deelnemer-equivalent. |
-| `opschortingBijhouding` | `OpschortingBijhouding` | 0..1 | Basisgegeven | Ja | Ja | Reden waarom bijhouding van de persoonslijst is opgeschort. | BRP cat 07 grp 67 | Bijhouding stopt bij overlijden, emigratie of opname in RNI. |
-| `uitsluitingKiesrecht` | `UitsluitingKiesrecht` | 0..1 | Basisgegeven | Ja | Ja | Aanduiding dat de persoon van het kiesrecht is uitgesloten. | BRP cat 13 | Rechterlijke uitspraak conform Kieswet. |
-| `europeesKiesrecht` | `EuropeesKiesrecht` | 0..1 | Basisgegeven | Ja | Ja | Aanduiding dat de persoon kiesgerechtigd is voor het Europees Parlement vanuit Nederland. | BRP cat 13 | Relevant voor EU-onderdanen die in Nederland het Europees kiesrecht uitoefenen. |
-| `verificatie` | `Verificatie` | 0..1 | Basisgegeven | Ja | Ja | Datum en bron van de laatste gegevensverificatie. | BRP cat 07 | |
-| `inOnderzoek` | Indicatie | 1 | Basisgegeven | Ja | Ja | Indicatie dat een of meer gegevens van de persoonslijst onderwerp zijn van onderzoek. | BRP cat 07 | Datakwaliteits-flag. |
+| `bsn` | [Numeriek9](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Authentiek | Ja | Ja | Het door de Beheervoorziening BSN uitgegeven persoonsnummer. | BRP cat 01 grp 01 | Primaire identifier; uniek per actieve inschrijving. |
+| `aNummer` | [Alfanumeriek10](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Ja | Ja | Het interne BRP-administratienummer. | BRP cat 01 grp 01 | Intern BRP, niet als externe identifier gebruikt. |
+| `tin` | [Alfanumeriek](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Ja | Ja | Het persoonsnummer dat een ander land aan deze persoon heeft toegekend. | BRP cat 04 grp 73 | Alleen aanwezig binnen een EU-nationaliteit-stapel. |
+| `datumEersteInschrijving` | [DatumIncompleet](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 0..1 | Basisgegeven | Ja | Ja | De datum waarop deze persoon voor het eerst in de BRP werd opgenomen. | BRP cat 07 grp 67 | |
+| `gemeenteVanInschrijving` | [`Codelijst~LT33`](adressen-en-gebouwen.md#codelijsten) | 0..1 | Basisgegeven | Ja | Ja | De gemeente die de persoonslijst bijhoudt. | BRP cat 07 grp 67 | Voor RNI-inschrijvingen leeg of gevuld met een RNI-deelnemer-equivalent. |
+| `opschortingBijhouding` | [`OpschortingBijhouding`](#opschortingbijhouding) | 0..1 | Basisgegeven | Ja | Ja | Reden waarom bijhouding van de persoonslijst is opgeschort. | BRP cat 07 grp 67 | Bijhouding stopt bij overlijden, emigratie of opname in RNI. |
+| `uitsluitingKiesrecht` | [`UitsluitingKiesrecht`](#uitsluitingkiesrecht) | 0..1 | Basisgegeven | Ja | Ja | Aanduiding dat de persoon van het kiesrecht is uitgesloten. | BRP cat 13 | Rechterlijke uitspraak conform Kieswet. |
+| `europeesKiesrecht` | [`EuropeesKiesrecht`](#europeeskiesrecht) | 0..1 | Basisgegeven | Ja | Ja | Aanduiding dat de persoon kiesgerechtigd is voor het Europees Parlement vanuit Nederland. | BRP cat 13 | Relevant voor EU-onderdanen die in Nederland het Europees kiesrecht uitoefenen. |
+| `verificatie` | [`Verificatie`](#verificatie) | 0..1 | Basisgegeven | Ja | Ja | Datum en bron van de laatste gegevensverificatie. | BRP cat 07 | |
+| `inOnderzoek` | [Indicatie](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Basisgegeven | Ja | Ja | Indicatie dat een of meer gegevens van de persoonslijst onderwerp zijn van onderzoek. | BRP cat 07 | Datakwaliteits-flag. |
 
 **Relatiesoorten** (uitgaand):
 
@@ -176,8 +176,8 @@ verblijfshistorie.
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| `datumInschrijvingGemeente` | Datum | 0..1 | Basisgegeven | Ja | Ja | De datum waarop de persoon zich in de huidige gemeente heeft ingeschreven. | BRP cat 07 grp 67 | |
-| `indicatieGeheim` | Indicatie | 1 | Basisgegeven | Ja | Ja | Aanduiding dat de gemeente verstrekking van gegevens aan derden heeft beperkt. | BRP cat 07 grp 70 | Verfijning naar 7-niveau-geheimhouding is een open onderwerp; in dit deelmodel staat het als enkele indicatie. |
+| `datumInschrijvingGemeente` | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Ja | Ja | De datum waarop de persoon zich in de huidige gemeente heeft ingeschreven. | BRP cat 07 grp 67 | |
+| `indicatieGeheim` | [Indicatie](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Basisgegeven | Ja | Ja | Aanduiding dat de gemeente verstrekking van gegevens aan derden heeft beperkt. | BRP cat 07 grp 70 | Verfijning naar 7-niveau-geheimhouding is een open onderwerp; in dit deelmodel staat het als enkele indicatie. |
 
 **Relatiesoorten** (uitgaand):
 
@@ -218,17 +218,17 @@ contextvelden kent buiten datum, plaats en land.
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| `geslachtsnaam` | Tekst | 1 | Basisgegeven | Nee | Nee | De officiële familienaam van de persoon. | BRP cat 01 grp 02 | Verplicht; zonder geslachtsnaam geen NatuurlijkPersoon. |
-| `voornamen` | Tekst | 0..1 | Basisgegeven | Nee | Nee | Alle officiële voornamen van de persoon. | BRP cat 01 grp 02 | |
-| `voorvoegsel` | Tekst | 0..1 | Basisgegeven | Nee | Nee | Het voorvoegsel bij de geslachtsnaam. | BRP cat 01 grp 02 | Alias: `voorvoegselGeslachtsnaam` (BRP-LO-elementnaam). Conform `Codelijst~LT36` als validatie. |
-| `adellijkeTitelPredicaat` | `Codelijst~LT38` | 0..1 | Basisgegeven | Nee | Nee | Adellijke titel of predicaat. | BRP cat 01 grp 02 | Codelijst LT 38. |
-| `geboortedatum` | DatumIncompleet | 0..1 | Basisgegeven | Nee | Nee | De datum waarop de persoon is geboren. | BRP cat 01 grp 03 | Jaar/maand/dag kunnen apart onbekend zijn. |
-| `geboorteplaats` | Tekst | 0..1 | Basisgegeven | Nee | Nee | De gemeente of plaats waar de persoon is geboren. | BRP cat 01 grp 03 | |
-| `geboorteland` | `Codelijst~ISO3166` | 0..1 | Basisgegeven | Nee | Nee | Het land waar de persoon is geboren. | BRP cat 01 grp 03 | Cross-walk naar LT 34. |
+| `geslachtsnaam` | [Tekst](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Basisgegeven | Nee | Nee | De officiële familienaam van de persoon. | BRP cat 01 grp 02 | Verplicht; zonder geslachtsnaam geen NatuurlijkPersoon. |
+| `voornamen` | [Tekst](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Nee | Nee | Alle officiële voornamen van de persoon. | BRP cat 01 grp 02 | |
+| `voorvoegsel` | [Tekst](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Nee | Nee | Het voorvoegsel bij de geslachtsnaam. | BRP cat 01 grp 02 | Alias: `voorvoegselGeslachtsnaam` (BRP-LO-elementnaam). Conform [`Codelijst~LT36`](#codelijsten) als validatie. |
+| `adellijkeTitelPredicaat` | [`Codelijst~LT38`](#codelijsten) | 0..1 | Basisgegeven | Nee | Nee | Adellijke titel of predicaat. | BRP cat 01 grp 02 | Codelijst LT 38. |
+| `geboortedatum` | [DatumIncompleet](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 0..1 | Basisgegeven | Nee | Nee | De datum waarop de persoon is geboren. | BRP cat 01 grp 03 | Jaar/maand/dag kunnen apart onbekend zijn. |
+| `geboorteplaats` | [Tekst](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Nee | Nee | De gemeente of plaats waar de persoon is geboren. | BRP cat 01 grp 03 | |
+| `geboorteland` | [`Codelijst~ISO3166`](../datatypes-en-codelijsten.md#stelselbrede-codelijsten) | 0..1 | Basisgegeven | Nee | Nee | Het land waar de persoon is geboren. | BRP cat 01 grp 03 | Cross-walk naar LT 34. |
 | `geslacht` | Codelijst | 0..1 | Basisgegeven | Nee | Nee | Het geslacht van de persoon. | BRP cat 01 grp 04 | Enumeratie Vrouw, Man, VastgesteldOnbekend. |
-| `datumOverlijden` | DatumIncompleet | 0..1 | Basisgegeven | Nee | Nee | De datum waarop de persoon is overleden. | BRP cat 06 grp 08 | |
-| `plaatsOverlijden` | Tekst | 0..1 | Basisgegeven | Nee | Nee | De plaats waar de persoon is overleden. | BRP cat 06 grp 08 | |
-| `landOverlijden` | `Codelijst~ISO3166` | 0..1 | Basisgegeven | Nee | Nee | Het land waar de persoon is overleden. | BRP cat 06 grp 08 | |
+| `datumOverlijden` | [DatumIncompleet](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 0..1 | Basisgegeven | Nee | Nee | De datum waarop de persoon is overleden. | BRP cat 06 grp 08 | |
+| `plaatsOverlijden` | [Tekst](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Nee | Nee | De plaats waar de persoon is overleden. | BRP cat 06 grp 08 | |
+| `landOverlijden` | [`Codelijst~ISO3166`](../datatypes-en-codelijsten.md#stelselbrede-codelijsten) | 0..1 | Basisgegeven | Nee | Nee | Het land waar de persoon is overleden. | BRP cat 06 grp 08 | |
 
 **Relatiesoorten** (uitgaand):
 
@@ -268,9 +268,9 @@ kiesrecht.
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| `datumInschrijvingRNI` | Datum | 0..1 | Basisgegeven | Ja | Ja | De datum waarop de persoon in de RNI is ingeschreven. | BRP cat 07 grp 88 | |
-| `landVanVerblijf` | `Codelijst~ISO3166` | 0..1 | Basisgegeven | Ja | Ja | Het land waarin de niet-ingezetene zijn verblijfplaats heeft. | BRP cat 08 grp 13 | |
-| `deelnemerCodeRNI` | `Codelijst~LT88` | 0..1 | Basisgegeven | Ja | Ja | De RNI-deelnemer die de inschrijving heeft aangemaakt of bijgehouden. | BRP cat 07 grp 88 | Codelijst LT 88. |
+| `datumInschrijvingRNI` | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Ja | Ja | De datum waarop de persoon in de RNI is ingeschreven. | BRP cat 07 grp 88 | |
+| `landVanVerblijf` | [`Codelijst~ISO3166`](../datatypes-en-codelijsten.md#stelselbrede-codelijsten) | 0..1 | Basisgegeven | Ja | Ja | Het land waarin de niet-ingezetene zijn verblijfplaats heeft. | BRP cat 08 grp 13 | |
+| `deelnemerCodeRNI` | [`Codelijst~LT88`](#codelijsten) | 0..1 | Basisgegeven | Ja | Ja | De RNI-deelnemer die de inschrijving heeft aangemaakt of bijgehouden. | BRP cat 07 grp 88 | Codelijst LT 88. |
 
 **Relatiesoorten** (uitgaand):
 
@@ -309,8 +309,8 @@ gecombineerde objectstructuur.
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| `indicatieGezagMinderjarige` | `IndicatieGezag` | 0..1 | Basisgegeven | Nee | Nee | Aanduiding van het ouderlijk gezag over een minderjarige. | BRP cat 11 | Enum-waarden vanuit BRP; subtype-modellering staat open voor verfijning. |
-| `indicatieCuratele` | Indicatie | 1 | Basisgegeven | Nee | Nee | Aanduiding dat de meerderjarige persoon onder curatele is gesteld. | BRP cat 11 | |
+| `indicatieGezagMinderjarige` | [`IndicatieGezag`](#indicatiegezag) | 0..1 | Basisgegeven | Nee | Nee | Aanduiding van het ouderlijk gezag over een minderjarige. | BRP cat 11 | Enum-waarden vanuit BRP; subtype-modellering staat open voor verfijning. |
+| `indicatieCuratele` | [Indicatie](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Basisgegeven | Nee | Nee | Aanduiding dat de meerderjarige persoon onder curatele is gesteld. | BRP cat 11 | |
 
 ### Huwelijk
 
@@ -342,11 +342,11 @@ op het huwelijk zelf.
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| `soortVerbintenis` | `SoortVerbintenis` | 1 | Basisgegeven | Nee | Nee | Onderscheidt huwelijk van geregistreerd partnerschap. | BRP cat 05 | |
-| `datumVoltrekking` | DatumIncompleet | 0..1 | Basisgegeven | Nee | Nee | De datum waarop de verbintenis is aangegaan. | BRP cat 05 grp 06 | |
-| `plaatsVoltrekking` | Tekst | 0..1 | Basisgegeven | Nee | Nee | De plaats waar de verbintenis is aangegaan. | BRP cat 05 grp 06 | |
-| `landVoltrekking` | `Codelijst~ISO3166` | 0..1 | Basisgegeven | Nee | Nee | Het land waarin de verbintenis is aangegaan. | BRP cat 05 grp 06 | |
-| `datumOntbinding` | DatumIncompleet | 0..1 | Basisgegeven | Nee | Nee | De datum waarop de verbintenis is ontbonden. | BRP cat 05 grp 07 | |
+| `soortVerbintenis` | [`SoortVerbintenis`](#soortverbintenis) | 1 | Basisgegeven | Nee | Nee | Onderscheidt huwelijk van geregistreerd partnerschap. | BRP cat 05 | |
+| `datumVoltrekking` | [DatumIncompleet](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 0..1 | Basisgegeven | Nee | Nee | De datum waarop de verbintenis is aangegaan. | BRP cat 05 grp 06 | |
+| `plaatsVoltrekking` | [Tekst](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Nee | Nee | De plaats waar de verbintenis is aangegaan. | BRP cat 05 grp 06 | |
+| `landVoltrekking` | [`Codelijst~ISO3166`](../datatypes-en-codelijsten.md#stelselbrede-codelijsten) | 0..1 | Basisgegeven | Nee | Nee | Het land waarin de verbintenis is aangegaan. | BRP cat 05 grp 06 | |
+| `datumOntbinding` | [DatumIncompleet](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 0..1 | Basisgegeven | Nee | Nee | De datum waarop de verbintenis is ontbonden. | BRP cat 05 grp 07 | |
 | `redenOntbinding` | `Codelijst~BRP` | 0..1 | Basisgegeven | Nee | Nee | De reden van ontbinding (echtscheiding, overlijden, nietigverklaring). | BRP cat 05 grp 07 | |
 
 **Relatiesoorten** (uitgaand):
@@ -383,9 +383,9 @@ adresrelaties.
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| `datumVestigingInNederland` | Datum | 0..1 | Basisgegeven | Nee | Nee | De datum waarop de persoon zich in Nederland heeft gevestigd. | BRP cat 08 grp 14 | |
-| `landVanwaar` | `Codelijst~ISO3166` | 0..1 | Basisgegeven | Nee | Nee | Het land waarvandaan de persoon zich in Nederland heeft gevestigd. | BRP cat 08 grp 14 | |
-| `landBinnenkomst` | `Codelijst~ISO3166` | 0..1 | Basisgegeven | Nee | Nee | Het land via welke grens de persoon Nederland is binnengekomen. | BRP cat 08 grp 14 | |
+| `datumVestigingInNederland` | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Nee | Nee | De datum waarop de persoon zich in Nederland heeft gevestigd. | BRP cat 08 grp 14 | |
+| `landVanwaar` | [`Codelijst~ISO3166`](../datatypes-en-codelijsten.md#stelselbrede-codelijsten) | 0..1 | Basisgegeven | Nee | Nee | Het land waarvandaan de persoon zich in Nederland heeft gevestigd. | BRP cat 08 grp 14 | |
+| `landBinnenkomst` | [`Codelijst~ISO3166`](../datatypes-en-codelijsten.md#stelselbrede-codelijsten) | 0..1 | Basisgegeven | Nee | Nee | Het land via welke grens de persoon Nederland is binnengekomen. | BRP cat 08 grp 14 | |
 
 ### Nationaliteit
 
@@ -414,11 +414,11 @@ landelijke tabel LT 32 voor BRP-equivalentie.
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| `nationaliteit` | `Codelijst~ISO3166` | 1 | Authentiek | Nee | Nee | De nationaliteit zelf, als landcode. | BRP cat 04 grp 05 | Cross-walk naar LT 32. |
-| `redenVerkrijging` | `Codelijst~LT37` | 0..1 | Basisgegeven | Nee | Nee | De reden waarom de nationaliteit is verkregen. | BRP cat 04 grp 63 | Codelijst LT 37. |
-| `redenVerlies` | `Codelijst~LT37` | 0..1 | Basisgegeven | Nee | Nee | De reden waarom de nationaliteit is verloren. | BRP cat 04 grp 64 | Codelijst LT 37. |
-| `datumVerkrijging` | DatumIncompleet | 0..1 | Basisgegeven | Nee | Nee | De datum waarop de nationaliteit is verkregen. | BRP cat 04 grp 63 | |
-| `datumVerlies` | DatumIncompleet | 0..1 | Basisgegeven | Nee | Nee | De datum waarop de nationaliteit is verloren. | BRP cat 04 grp 64 | |
+| `nationaliteit` | [`Codelijst~ISO3166`](../datatypes-en-codelijsten.md#stelselbrede-codelijsten) | 1 | Authentiek | Nee | Nee | De nationaliteit zelf, als landcode. | BRP cat 04 grp 05 | Cross-walk naar LT 32. |
+| `redenVerkrijging` | [`Codelijst~LT37`](#codelijsten) | 0..1 | Basisgegeven | Nee | Nee | De reden waarom de nationaliteit is verkregen. | BRP cat 04 grp 63 | Codelijst LT 37. |
+| `redenVerlies` | [`Codelijst~LT37`](#codelijsten) | 0..1 | Basisgegeven | Nee | Nee | De reden waarom de nationaliteit is verloren. | BRP cat 04 grp 64 | Codelijst LT 37. |
+| `datumVerkrijging` | [DatumIncompleet](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 0..1 | Basisgegeven | Nee | Nee | De datum waarop de nationaliteit is verkregen. | BRP cat 04 grp 63 | |
+| `datumVerlies` | [DatumIncompleet](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 0..1 | Basisgegeven | Nee | Nee | De datum waarop de nationaliteit is verloren. | BRP cat 04 grp 64 | |
 
 ### Verblijfstitel
 
@@ -446,9 +446,9 @@ IND-codelijst; de cross-walk naar LT 56 ondersteunt BRP-equivalentie.
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| `aanduiding` | `Codelijst~IND` | 1 | Basisgegeven | Nee | Nee | De aanduiding van het verblijfsrecht (IND-codelijst). | BRP cat 10 grp 39 | Cross-walk naar LT 56. |
-| `datumIngang` | Datum | 1 | Basisgegeven | Nee | Nee | De datum waarop het verblijfsrecht is ingegaan. | BRP cat 10 grp 39 | |
-| `datumEinde` | Datum | 0..1 | Basisgegeven | Nee | Nee | De datum waarop het verblijfsrecht is geëindigd. | BRP cat 10 grp 39 | |
+| `aanduiding` | [`Codelijst~IND`](#codelijsten) | 1 | Basisgegeven | Nee | Nee | De aanduiding van het verblijfsrecht (IND-codelijst). | BRP cat 10 grp 39 | Cross-walk naar LT 56. |
+| `datumIngang` | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Basisgegeven | Nee | Nee | De datum waarop het verblijfsrecht is ingegaan. | BRP cat 10 grp 39 | |
+| `datumEinde` | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Nee | Nee | De datum waarop het verblijfsrecht is geëindigd. | BRP cat 10 grp 39 | |
 
 ## Adres-subtypen specifiek voor Personen
 

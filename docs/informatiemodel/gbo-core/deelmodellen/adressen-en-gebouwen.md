@@ -126,7 +126,7 @@ end note
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| `adresId` | UUID | 1 | Overig | Nee | Nee | GBO-eigen sleutel voor één adres-instantie. | GBO | Voorkomt fragmentatie van adres-referenties bij BAG-mutaties. |
+| `adresId` | [UUID](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 1 | Overig | Nee | Nee | GBO-eigen sleutel voor één adres-instantie. | GBO | Voorkomt fragmentatie van adres-referenties bij BAG-mutaties. |
 | `volledigAdres` | CharacterString | 0..1 | Overig | Nee | Nee | Gedenormaliseerde, leesbare projectie van het adres. | GBO (afgeleid) | Pre-formatted leesregel; afgeleid uit subtype-attributen. |
 
 ### Binnenlandsadres
@@ -150,12 +150,12 @@ end note
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| `straatnaam` | AN80 | 1 | Basisgegeven | Nee | Nee | Volledige naam van de openbare ruimte. | BAG (afgeleid OpenbareRuimte) | Authentiek op OR-bron, hier gedenormaliseerd. |
-| `huisnummer` | N5 | 1 | Basisgegeven | Nee | Nee | Het huisnummer-deel van de Nummeraanduiding. | BAG (Nummeraanduiding) | |
+| `straatnaam` | [AN80](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Basisgegeven | Nee | Nee | Volledige naam van de openbare ruimte. | BAG (afgeleid OpenbareRuimte) | Authentiek op OR-bron, hier gedenormaliseerd. |
+| `huisnummer` | [N5](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Basisgegeven | Nee | Nee | Het huisnummer-deel van de Nummeraanduiding. | BAG (Nummeraanduiding) | |
 | `huisletter` | CharacterString | 0..1 | Basisgegeven | Nee | Nee | De huisletter bij het huisnummer. | BAG (Nummeraanduiding) | |
 | `huisnummertoevoeging` | CharacterString | 0..1 | Basisgegeven | Nee | Nee | De huisnummertoevoeging (bv. `2hg`, `bis`). | BAG (Nummeraanduiding) | |
-| `postcode` | Postcode | 0..1 | Basisgegeven | Nee | Nee | De postcode behorend bij het huisnummer. | BAG (Nummeraanduiding) | Eigen op NA, niet afgeleid van OR. |
-| `woonplaatsnaam` | AN80 | 1 | Basisgegeven | Nee | Nee | Naam van de bovenliggende woonplaats. | BAG (afgeleid Woonplaats) | |
+| `postcode` | [Postcode](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Nee | Nee | De postcode behorend bij het huisnummer. | BAG (Nummeraanduiding) | Eigen op NA, niet afgeleid van OR. |
+| `woonplaatsnaam` | [AN80](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Basisgegeven | Nee | Nee | Naam van de bovenliggende woonplaats. | BAG (afgeleid Woonplaats) | |
 
 **Relatiesoorten** (uitgaand):
 
@@ -187,7 +187,7 @@ end note
 | `adresregel1` | CharacterString | 1 | Overig | Nee | Nee | Eerste regel van het buitenlandse adres. | GBO / BRP | |
 | `adresregel2` | CharacterString | 0..1 | Overig | Nee | Nee | Tweede regel van het buitenlandse adres. | GBO / BRP | |
 | `adresregel3` | CharacterString | 0..1 | Overig | Nee | Nee | Derde regel van het buitenlandse adres. | GBO / BRP | |
-| `land` | `Codelijst~ISO3166` | 1 | Basisgegeven | Nee | Nee | Landaanduiding volgens ISO 3166. | ISO 3166 / LT34 | Cross-walk LT34 (BRP). |
+| `land` | [`Codelijst~ISO3166`](../datatypes-en-codelijsten.md#stelselbrede-codelijsten) | 1 | Basisgegeven | Nee | Nee | Landaanduiding volgens ISO 3166. | ISO 3166 / LT34 | Cross-walk LT34 (BRP). |
 
 ### Locatie
 
@@ -211,7 +211,7 @@ end note
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
 | `omschrijving` | CharacterString | 1 | Overig | Nee | Nee | Vrije tekstuele omschrijving van de locatie. | GBO | Max 255 tekens. |
-| `land` | `Codelijst~ISO3166` | 0..1 | Basisgegeven | Nee | Nee | Landaanduiding volgens ISO 3166. | ISO 3166 / LT34 | Default `NL` als omschrijving een NL-locatie betreft. |
+| `land` | [`Codelijst~ISO3166`](../datatypes-en-codelijsten.md#stelselbrede-codelijsten) | 0..1 | Basisgegeven | Nee | Nee | Landaanduiding volgens ISO 3166. | ISO 3166 / LT34 | Default `NL` als omschrijving een NL-locatie betreft. |
 
 ### Postadres
 
@@ -235,9 +235,9 @@ end note
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
 | `briefbusnummer` | CharacterString | 0..1 | Overig | Nee | Nee | Het postbus- of antwoordnummer. | GBO / PostNL | |
-| `postcode` | Postcode | 0..1 | Overig | Nee | Nee | Postcode behorend bij het postadres. | GBO / PostNL | Pattern `[1-9][0-9]{3}[A-Z]{2}`. |
-| `plaats` | AN80 | 1 | Overig | Nee | Nee | Plaatsnaam van het postadres. | GBO / PostNL | |
-| `soortPostadres` | `SoortPostadres` | 1 | Overig | Nee | Nee | Type postadres. | GBO | Zie [Enumeraties](#enumeraties). |
+| `postcode` | [Postcode](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Overig | Nee | Nee | Postcode behorend bij het postadres. | GBO / PostNL | Pattern `[1-9][0-9]{3}[A-Z]{2}`. |
+| `plaats` | [AN80](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Overig | Nee | Nee | Plaatsnaam van het postadres. | GBO / PostNL | |
+| `soortPostadres` | [`SoortPostadres`](#soortpostadres) | 1 | Overig | Nee | Nee | Type postadres. | GBO | Zie [Enumeraties](#enumeraties). |
 
 ### VerblijfplaatsOnbekend
 
@@ -260,7 +260,7 @@ end note
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| `datumIngangOnbekend` | Datum | 1 | Basisgegeven | Nee | Nee | Datum waarop de verblijfplaats van de ingeschrevene onbekend werd. | BRP cat 08 | |
+| `datumIngangOnbekend` | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Basisgegeven | Nee | Nee | Datum waarop de verblijfplaats van de ingeschrevene onbekend werd. | BRP cat 08 | |
 
 ## BAG-objecten
 
@@ -293,7 +293,7 @@ van leesbaarheid weggelaten.
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| `identificatie` | NEN3610ID | 1 | Authentiek | Nee | Nee | Unieke identificatie van het adresseerbaar object volgens NEN 3610. | BAG-Catalogus 2018 | Historie zit op de concrete vormen, niet op het abstract supertype. |
+| `identificatie` | [NEN3610ID](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 1 | Authentiek | Nee | Nee | Unieke identificatie van het adresseerbaar object volgens NEN 3610. | BAG-Catalogus 2018 | Historie zit op de concrete vormen, niet op het abstract supertype. |
 | `typeAdresseerbaarObject` | `TypeAdresseerbaarObject` | 1 | Basisgegeven | Nee | Nee | Aanduiding van de concrete vorm: Verblijfsobject, Ligplaats of Standplaats. | BAG-Catalogus 2018 | Discriminator; ook gerepliceerd op Nummeraanduiding voor HC-conformiteit. |
 
 **Relatiesoorten** (uitgaand):
@@ -324,8 +324,8 @@ van leesbaarheid weggelaten.
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| `status` | `StatusAdresseerbaarObject` | 1 | Authentiek | Ja | Ja | Levenscyclus-status van de ligplaats. | BAG-Catalogus 2018 | Plaats-stack; zie [Enumeraties](#enumeraties). |
-| `geometrie` | Vlak | 1 | Authentiek | Ja | Ja | Vlakke begrenzing van de ligplaats. | BAG-Catalogus 2018 | CRS RD-New EPSG:28992. |
+| `status` | [`StatusAdresseerbaarObject`](#statusadresseerbaarobject) | 1 | Authentiek | Ja | Ja | Levenscyclus-status van de ligplaats. | BAG-Catalogus 2018 | Plaats-stack; zie [Enumeraties](#enumeraties). |
+| `geometrie` | [Vlak](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 1 | Authentiek | Ja | Ja | Vlakke begrenzing van de ligplaats. | BAG-Catalogus 2018 | CRS RD-New EPSG:28992. |
 
 ### Nummeraanduiding
 
@@ -348,13 +348,13 @@ van leesbaarheid weggelaten.
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| `identificatie` | NEN3610ID | 1 | Authentiek | Ja | Ja | Unieke identificatie van de nummeraanduiding volgens NEN 3610. | BAG-Catalogus 2018 | In KVK/HR-API als `nummerAanduidingId`. |
-| `huisnummer` | N5 | 1 | Authentiek | Ja | Ja | Numerieke aanduiding van het adres binnen de openbare ruimte. | BAG-Catalogus 2018 | |
+| `identificatie` | [NEN3610ID](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 1 | Authentiek | Ja | Ja | Unieke identificatie van de nummeraanduiding volgens NEN 3610. | BAG-Catalogus 2018 | In KVK/HR-API als `nummerAanduidingId`. |
+| `huisnummer` | [N5](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Authentiek | Ja | Ja | Numerieke aanduiding van het adres binnen de openbare ruimte. | BAG-Catalogus 2018 | |
 | `huisletter` | CharacterString | 0..1 | Authentiek | Ja | Ja | Letter ter onderscheid binnen één huisnummer. | BAG-Catalogus 2018 | Eén letter (A-Z). |
 | `huisnummertoevoeging` | CharacterString | 0..1 | Authentiek | Ja | Ja | Vrije aanvulling op huisnummer en huisletter (bv. `2hg`, `bis`). | BAG-Catalogus 2018 | |
-| `postcode` | Postcode | 0..1 | Authentiek | Ja | Ja | Postcode behorend bij het huisnummer. | BAG-Catalogus 2018 | Pattern `[1-9][0-9]{3}[A-Z]{2}`. |
+| `postcode` | [Postcode](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Authentiek | Ja | Ja | Postcode behorend bij het huisnummer. | BAG-Catalogus 2018 | Pattern `[1-9][0-9]{3}[A-Z]{2}`. |
 | `typeAdresseerbaarObject` | `TypeAdresseerbaarObject` | 1 | Authentiek | Ja | Ja | Aanduiding van de vorm waarop de nummeraanduiding wijst (Verblijfsobject, Ligplaats of Standplaats). | BAG-Catalogus 2018 | HC-conform Pakket G; replica van discriminator. |
-| `status` | `StatusNummeraanduiding` | 1 | Authentiek | Ja | Ja | Levenscyclus-status van de nummeraanduiding. | BAG-Catalogus 2018 | Zie [Enumeraties](#enumeraties). |
+| `status` | [`StatusNummeraanduiding`](#statusnummeraanduiding) | 1 | Authentiek | Ja | Ja | Levenscyclus-status van de nummeraanduiding. | BAG-Catalogus 2018 | Zie [Enumeraties](#enumeraties). |
 
 **Relatiesoorten** (uitgaand):
 
@@ -384,10 +384,10 @@ van leesbaarheid weggelaten.
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| `identificatie` | NEN3610ID | 1 | Authentiek | Ja | Ja | Unieke identificatie van het pand volgens NEN 3610. | BAG-Catalogus 2018 | |
-| `oorspronkelijkBouwjaar` | N4 | 1 | Authentiek | Ja | Ja | Jaar van eerste oplevering van het pand. | BAG-Catalogus 2018 | Bij verbouwing ongewijzigd. |
-| `status` | `StatusPand` | 1 | Authentiek | Ja | Ja | Levenscyclus-status van het pand. | BAG-Catalogus 2018 | Zie [Enumeraties](#enumeraties). |
-| `geometrie` | Vlak | 1 | Authentiek | Ja | Ja | Bovenaanzicht-geometrie van het pand. | BAG-Catalogus 2018 | CRS RD-New EPSG:28992. |
+| `identificatie` | [NEN3610ID](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 1 | Authentiek | Ja | Ja | Unieke identificatie van het pand volgens NEN 3610. | BAG-Catalogus 2018 | |
+| `oorspronkelijkBouwjaar` | [N4](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Authentiek | Ja | Ja | Jaar van eerste oplevering van het pand. | BAG-Catalogus 2018 | Bij verbouwing ongewijzigd. |
+| `status` | [`StatusPand`](#statuspand) | 1 | Authentiek | Ja | Ja | Levenscyclus-status van het pand. | BAG-Catalogus 2018 | Zie [Enumeraties](#enumeraties). |
+| `geometrie` | [Vlak](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 1 | Authentiek | Ja | Ja | Bovenaanzicht-geometrie van het pand. | BAG-Catalogus 2018 | CRS RD-New EPSG:28992. |
 
 **Relatiesoorten** (uitgaand):
 
@@ -414,8 +414,8 @@ Pand heeft geen verplichte uitgaande relaties. Inkomend: `Verblijfsobject in Pan
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| `status` | `StatusAdresseerbaarObject` | 1 | Authentiek | Ja | Ja | Levenscyclus-status van de standplaats. | BAG-Catalogus 2018 | Plaats-stack; zie [Enumeraties](#enumeraties). |
-| `geometrie` | Vlak | 1 | Authentiek | Ja | Ja | Vlakke begrenzing van de standplaats. | BAG-Catalogus 2018 | CRS RD-New EPSG:28992. |
+| `status` | [`StatusAdresseerbaarObject`](#statusadresseerbaarobject) | 1 | Authentiek | Ja | Ja | Levenscyclus-status van de standplaats. | BAG-Catalogus 2018 | Plaats-stack; zie [Enumeraties](#enumeraties). |
+| `geometrie` | [Vlak](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 1 | Authentiek | Ja | Ja | Vlakke begrenzing van de standplaats. | BAG-Catalogus 2018 | CRS RD-New EPSG:28992. |
 
 ### Verblijfsobject
 
@@ -439,12 +439,12 @@ Pand heeft geen verplichte uitgaande relaties. Inkomend: `Verblijfsobject in Pan
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| `gebruiksdoel` | `Gebruiksdoel` | 1..* | Authentiek | Ja | Ja | Doel waarvoor het verblijfsobject geschikt is volgens het gemeentelijk besluit. | BAG-Catalogus 2018 | Meervoudig per VBO toegestaan; zie [Enumeraties](#enumeraties). |
-| `oppervlakte` | N6 | 1 | Authentiek | Ja | Ja | Gebruiksoppervlakte van het verblijfsobject in m² volgens NEN 2580. | BAG-Catalogus 2018 | |
-| `aantalKamers` | N2 | 0..1 | Basisgegeven | Ja | Ja | Aantal kamers bij een verblijfsobject met woonfunctie. | GGM v2.5.0 (BAG-projectie) | Alleen relevant bij Woonfunctie. |
+| `gebruiksdoel` | [`Gebruiksdoel`](#gebruiksdoel) | 1..* | Authentiek | Ja | Ja | Doel waarvoor het verblijfsobject geschikt is volgens het gemeentelijk besluit. | BAG-Catalogus 2018 | Meervoudig per VBO toegestaan; zie [Enumeraties](#enumeraties). |
+| `oppervlakte` | [N6](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Authentiek | Ja | Ja | Gebruiksoppervlakte van het verblijfsobject in m² volgens NEN 2580. | BAG-Catalogus 2018 | |
+| `aantalKamers` | [N2](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Ja | Ja | Aantal kamers bij een verblijfsobject met woonfunctie. | GGM v2.5.0 (BAG-projectie) | Alleen relevant bij Woonfunctie. |
 | `soortWoonobject` | CharacterString | 0..1 | Basisgegeven | Ja | Ja | Type woonobject (Woning, Recreatiewoning, Wooneenheid, Bijzonder woongebouw). | GGM v2.5.0 (BAG-projectie) | Alleen bij gebruiksdoel Woonfunctie. |
-| `status` | `StatusAdresseerbaarObject` | 1 | Authentiek | Ja | Ja | Levenscyclus-status van het verblijfsobject. | BAG-Catalogus 2018 | Zie [Enumeraties](#enumeraties). |
-| `geometriePunt` | Punt | 1 | Authentiek | Ja | Ja | Punt-geometrie binnen het verblijfsobject (verblijfsobjectpunt). | BAG-Catalogus 2018 | CRS RD-New EPSG:28992. |
+| `status` | [`StatusAdresseerbaarObject`](#statusadresseerbaarobject) | 1 | Authentiek | Ja | Ja | Levenscyclus-status van het verblijfsobject. | BAG-Catalogus 2018 | Zie [Enumeraties](#enumeraties). |
+| `geometriePunt` | [Punt](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 1 | Authentiek | Ja | Ja | Punt-geometrie binnen het verblijfsobject (verblijfsobjectpunt). | BAG-Catalogus 2018 | CRS RD-New EPSG:28992. |
 
 **Relatiesoorten** (uitgaand):
 
@@ -475,9 +475,9 @@ Pand heeft geen verplichte uitgaande relaties. Inkomend: `Verblijfsobject in Pan
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| `buurtcode` | `Codelijst~CBS_WijkBuurt` | 1 | Landelijk kerngegeven | Ja | Ja | CBS-buurtcode binnen de Wijk- en Buurtkaart. | CBS | Jaarlijks herzien. |
-| `buurtnaam` | AN40 | 1 | Landelijk kerngegeven | Ja | Ja | Volledige naam van de buurt. | CBS | |
-| `geometrie` | Vlak | 1 | Landelijk kerngegeven | Ja | Ja | Vlakke begrenzing van de buurt. | CBS | Jaarlijks herzien. |
+| `buurtcode` | [`Codelijst~CBS_WijkBuurt`](../datatypes-en-codelijsten.md#stelselbrede-codelijsten) | 1 | Landelijk kerngegeven | Ja | Ja | CBS-buurtcode binnen de Wijk- en Buurtkaart. | CBS | Jaarlijks herzien. |
+| `buurtnaam` | [AN40](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Landelijk kerngegeven | Ja | Ja | Volledige naam van de buurt. | CBS | |
+| `geometrie` | [Vlak](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 1 | Landelijk kerngegeven | Ja | Ja | Vlakke begrenzing van de buurt. | CBS | Jaarlijks herzien. |
 
 **Relatiesoorten** (uitgaand):
 
@@ -506,9 +506,9 @@ Pand heeft geen verplichte uitgaande relaties. Inkomend: `Verblijfsobject in Pan
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| `gemeentecode` | `Codelijst~LT33` | 1 | Basisgegeven | Nee | Nee | Door de Rijksoverheid vastgestelde gemeentecode. | LT33 (BRP-tabel) | 4-cijferige code. |
-| `gemeentenaam` | AN80 | 1 | Basisgegeven | Nee | Nee | Volledige naam van de gemeente. | LT33 | |
-| `geometrie` | Vlak | 1 | Basisgegeven | Nee | Nee | Vlakke begrenzing van de gemeente. | CBS / Kadaster | |
+| `gemeentecode` | [`Codelijst~LT33`](#codelijsten) | 1 | Basisgegeven | Nee | Nee | Door de Rijksoverheid vastgestelde gemeentecode. | LT33 (BRP-tabel) | 4-cijferige code. |
+| `gemeentenaam` | [AN80](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Basisgegeven | Nee | Nee | Volledige naam van de gemeente. | LT33 | |
+| `geometrie` | [Vlak](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 1 | Basisgegeven | Nee | Nee | Vlakke begrenzing van de gemeente. | CBS / Kadaster | |
 
 ### OpenbareRuimte
 
@@ -531,12 +531,12 @@ Pand heeft geen verplichte uitgaande relaties. Inkomend: `Verblijfsobject in Pan
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| `identificatie` | NEN3610ID | 1 | Authentiek | Ja | Ja | Unieke identificatie van de openbare ruimte volgens NEN 3610. | BAG-Catalogus 2018 | |
-| `naamOpenbareRuimte` | AN80 | 1 | Authentiek | Ja | Ja | Volledige naam van de openbare ruimte. | BAG-Catalogus 2018 | |
-| `korteNaam` | Tekst24 | 0..1 | Basisgegeven | Ja | Ja | Verkorte naam van de openbare ruimte (max 24 tekens). | BAG / NEN 5825 | Voor smalle weergaves (navigatie, etiketten). |
-| `typeOpenbareRuimte` | `TypeOpenbareRuimte` | 1 | Authentiek | Ja | Ja | Aanduiding van het soort openbare ruimte. | BAG-Catalogus 2018 | Zie [Enumeraties](#enumeraties). |
-| `status` | `StatusOpenbareRuimte` | 1 | Authentiek | Ja | Ja | Levenscyclus-status van de openbare ruimte. | BAG-Catalogus 2018 | Zie [Enumeraties](#enumeraties). |
-| `geometrie` | Geometrie | 1 | Basisgegeven | Ja | Ja | Geometrische begrenzing als lijn of vlak. | BAG-Catalogus 2018 | CRS RD-New EPSG:28992. |
+| `identificatie` | [NEN3610ID](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 1 | Authentiek | Ja | Ja | Unieke identificatie van de openbare ruimte volgens NEN 3610. | BAG-Catalogus 2018 | |
+| `naamOpenbareRuimte` | [AN80](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Authentiek | Ja | Ja | Volledige naam van de openbare ruimte. | BAG-Catalogus 2018 | |
+| `korteNaam` | [Tekst24](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Ja | Ja | Verkorte naam van de openbare ruimte (max 24 tekens). | BAG / NEN 5825 | Voor smalle weergaves (navigatie, etiketten). |
+| `typeOpenbareRuimte` | [`TypeOpenbareRuimte`](#typeopenbareruimte) | 1 | Authentiek | Ja | Ja | Aanduiding van het soort openbare ruimte. | BAG-Catalogus 2018 | Zie [Enumeraties](#enumeraties). |
+| `status` | [`StatusOpenbareRuimte`](#statusopenbareruimte) | 1 | Authentiek | Ja | Ja | Levenscyclus-status van de openbare ruimte. | BAG-Catalogus 2018 | Zie [Enumeraties](#enumeraties). |
+| `geometrie` | [Geometrie](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 1 | Basisgegeven | Ja | Ja | Geometrische begrenzing als lijn of vlak. | BAG-Catalogus 2018 | CRS RD-New EPSG:28992. |
 
 **Relatiesoorten** (uitgaand):
 
@@ -565,9 +565,9 @@ Pand heeft geen verplichte uitgaande relaties. Inkomend: `Verblijfsobject in Pan
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| `wijkcode` | `Codelijst~CBS_WijkBuurt` | 1 | Landelijk kerngegeven | Ja | Ja | CBS-wijkcode binnen de Wijk- en Buurtkaart. | CBS | Jaarlijks herzien. |
-| `wijknaam` | AN40 | 1 | Landelijk kerngegeven | Ja | Ja | Volledige naam van de wijk. | CBS | |
-| `geometrie` | Vlak | 1 | Landelijk kerngegeven | Ja | Ja | Vlakke begrenzing van de wijk. | CBS | Jaarlijks herzien. |
+| `wijkcode` | [`Codelijst~CBS_WijkBuurt`](../datatypes-en-codelijsten.md#stelselbrede-codelijsten) | 1 | Landelijk kerngegeven | Ja | Ja | CBS-wijkcode binnen de Wijk- en Buurtkaart. | CBS | Jaarlijks herzien. |
+| `wijknaam` | [AN40](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Landelijk kerngegeven | Ja | Ja | Volledige naam van de wijk. | CBS | |
+| `geometrie` | [Vlak](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 1 | Landelijk kerngegeven | Ja | Ja | Vlakke begrenzing van de wijk. | CBS | Jaarlijks herzien. |
 
 **Relatiesoorten** (uitgaand):
 
@@ -596,10 +596,10 @@ Pand heeft geen verplichte uitgaande relaties. Inkomend: `Verblijfsobject in Pan
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| `identificatie` | NEN3610ID | 1 | Authentiek | Ja | Ja | Unieke identificatie van de woonplaats volgens NEN 3610. | BAG-Catalogus 2018 | |
-| `woonplaatsnaam` | AN80 | 1 | Authentiek | Ja | Ja | Volledige naam van de woonplaats. | BAG-Catalogus 2018 | |
-| `status` | `StatusWoonplaats` | 1 | Authentiek | Ja | Ja | Levenscyclus-status van de woonplaats. | BAG-Catalogus 2018 | Zie [Enumeraties](#enumeraties). |
-| `geometrie` | Vlak | 1 | Authentiek | Ja | Ja | Vlakke begrenzing van de woonplaats. | BAG-Catalogus 2018 | CRS RD-New EPSG:28992. |
+| `identificatie` | [NEN3610ID](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 1 | Authentiek | Ja | Ja | Unieke identificatie van de woonplaats volgens NEN 3610. | BAG-Catalogus 2018 | |
+| `woonplaatsnaam` | [AN80](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Authentiek | Ja | Ja | Volledige naam van de woonplaats. | BAG-Catalogus 2018 | |
+| `status` | [`StatusWoonplaats`](#statuswoonplaats) | 1 | Authentiek | Ja | Ja | Levenscyclus-status van de woonplaats. | BAG-Catalogus 2018 | Zie [Enumeraties](#enumeraties). |
+| `geometrie` | [Vlak](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 1 | Authentiek | Ja | Ja | Vlakke begrenzing van de woonplaats. | BAG-Catalogus 2018 | CRS RD-New EPSG:28992. |
 
 **Relatiesoorten** (uitgaand):
 

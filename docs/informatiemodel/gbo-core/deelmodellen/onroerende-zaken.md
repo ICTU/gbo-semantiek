@@ -133,9 +133,9 @@ verplichting of een bewindstelling), niet uit een bestuursbesluit.
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| aardAantekening | Codelijst | 1 | Basisgegeven | Ja | Ja | Aard van de aantekening, bijvoorbeeld kwalitatieve verplichting of bewindstelling. | BRK-Catalogus | Codelijst-waarden afgeleid van BRK. |
-| omschrijving | CharacterString | 0..1 | Basisgegeven | Ja | Ja | Korte vrije omschrijving van de inhoud van de aantekening. | BRK-Catalogus | |
-| datumIngang | Datum | 1 | Basisgegeven | Ja | Ja | Datum waarop de aantekening van kracht is geworden. | BRK-Catalogus | |
+| aardAantekening | [Codelijst](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 1 | Basisgegeven | Ja | Ja | Aard van de aantekening, bijvoorbeeld kwalitatieve verplichting of bewindstelling. | BRK-Catalogus | Codelijst-waarden afgeleid van BRK. |
+| omschrijving | [CharacterString](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Ja | Ja | Korte vrije omschrijving van de inhoud van de aantekening. | BRK-Catalogus | |
+| datumIngang | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Basisgegeven | Ja | Ja | Datum waarop de aantekening van kracht is geworden. | BRK-Catalogus | |
 | voorkomen | Voorkomen | 1 | Basisgegeven | Ja | Ja | Bitemporele markering van werkelijke en registratie-tijdlijn. | GBO (mixin) | Zie patroon Voorkomen-mixin in [Patronen](../hoofdmodel.md#voorkomen-mixin-bitemporaliteit). |
 
 **Relatiesoorten** (uitgaand):
@@ -182,7 +182,7 @@ KadastraleOnroerendeZaak):
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| indexnummer | CharacterString | 1 | Authentiek | Ja | Ja | Volgnummer binnen een appartementsrechtsplitsing dat het privégedeelte aanduidt. | BRK-Catalogus | Onderscheidt appartementen binnen dezelfde grondaanduiding. |
+| indexnummer | [CharacterString](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Authentiek | Ja | Ja | Volgnummer binnen een appartementsrechtsplitsing dat het privégedeelte aanduidt. | BRK-Catalogus | Onderscheidt appartementen binnen dezelfde grondaanduiding. |
 
 **Relatiesoorten** (uitgaand):
 
@@ -218,10 +218,10 @@ identificatie.
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| akteverwijzing | CharacterString | 1 | Authentiek | Nee | Nee | Verwijzing naar de notariële splitsingsakte. | BRK-Catalogus | |
-| datumSplitsing | Datum | 1 | Authentiek | Nee | Nee | Datum waarop de splitsing rechtsgeldig is geworden. | BRK-Catalogus | |
-| documentdatum | Datum | 1 | Authentiek | Nee | Nee | Datum van het verlijden van de splitsingsakte. | BRK-Catalogus | |
-| documentnummer | Identificatie | 1 | Authentiek | Nee | Nee | Identificatie van de splitsingsakte. | BRK-Catalogus | |
+| akteverwijzing | [CharacterString](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Authentiek | Nee | Nee | Verwijzing naar de notariële splitsingsakte. | BRK-Catalogus | |
+| datumSplitsing | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Authentiek | Nee | Nee | Datum waarop de splitsing rechtsgeldig is geworden. | BRK-Catalogus | |
+| documentdatum | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Authentiek | Nee | Nee | Datum van het verlijden van de splitsingsakte. | BRK-Catalogus | |
+| documentnummer | [Identificatie](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Authentiek | Nee | Nee | Identificatie van de splitsingsakte. | BRK-Catalogus | |
 
 **Relatiesoorten** (uitgaand):
 
@@ -260,10 +260,10 @@ een perceel als op een appartementsrecht kunnen rusten.
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| identificatie | NEN3610ID | 1 | Authentiek | Ja | Ja | Objectidentificatie volgens NEN 3610. | BRK-Catalogus | Stabiel identificerend over de levensloop heen. |
-| kadastraleAanduiding | CharacterString | 1 | Authentiek | Ja | Ja | Samengestelde aanduiding (kadastrale gemeente / sectie / perceelnummer / eventueel indexnummer). | BRK-Catalogus | Menselijk leesbare aanduiding. |
-| soortGrootte | SoortGrootte | 1 | Authentiek | Ja | Ja | Kwaliteit van de geometrische afbakening. | BRK-Catalogus | Zie enumeratie SoortGrootte. |
-| kadastraalOnroerendeZaakStatus | KOZStatus | 1 | Authentiek | Ja | Ja | Levensfase-status van de kadastrale onroerende zaak. | BRK-Catalogus | Zie enumeratie KOZStatus. |
+| identificatie | [NEN3610ID](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 1 | Authentiek | Ja | Ja | Objectidentificatie volgens NEN 3610. | BRK-Catalogus | Stabiel identificerend over de levensloop heen. |
+| kadastraleAanduiding | [CharacterString](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Authentiek | Ja | Ja | Samengestelde aanduiding (kadastrale gemeente / sectie / perceelnummer / eventueel indexnummer). | BRK-Catalogus | Menselijk leesbare aanduiding. |
+| soortGrootte | [`SoortGrootte`](#soortgrootte) | 1 | Authentiek | Ja | Ja | Kwaliteit van de geometrische afbakening. | BRK-Catalogus | Zie enumeratie SoortGrootte. |
+| kadastraalOnroerendeZaakStatus | [`KOZStatus`](#kozstatus) | 1 | Authentiek | Ja | Ja | Levensfase-status van de kadastrale onroerende zaak. | BRK-Catalogus | Zie enumeratie KOZStatus. |
 | voorkomen | Voorkomen | 1 | Basisgegeven | Ja | Ja | Bitemporele markering van werkelijke en registratie-tijdlijn. | GBO (mixin) | Zie patroon Voorkomen-mixin in [Patronen](../hoofdmodel.md#voorkomen-mixin-bitemporaliteit). |
 
 ### Perceel
@@ -300,10 +300,10 @@ KadastraleOnroerendeZaak):
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| kadastraleGemeente | Codelijst~Kadaster | 1 | Authentiek | Ja | Ja | Kadastrale gemeente waarin het perceel ligt. | BRK-Catalogus | Kadasterwet-codering. |
-| sectie | CharacterString | 1 | Authentiek | Ja | Ja | Sectie-letter binnen de kadastrale gemeente. | BRK-Catalogus | |
-| perceelnummer | Numeriek | 1 | Authentiek | Ja | Ja | Volgnummer van het perceel binnen de sectie. | BRK-Catalogus | |
-| oppervlakte | Numeriek | 0..1 | Authentiek | Ja | Ja | Kadastrale oppervlakte in vierkante meters. | BRK-Catalogus | HC-naam: `grootte`. |
+| kadastraleGemeente | [`Codelijst~Kadaster`](../datatypes-en-codelijsten.md#stelselbrede-codelijsten) | 1 | Authentiek | Ja | Ja | Kadastrale gemeente waarin het perceel ligt. | BRK-Catalogus | Kadasterwet-codering. |
+| sectie | [CharacterString](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Authentiek | Ja | Ja | Sectie-letter binnen de kadastrale gemeente. | BRK-Catalogus | |
+| perceelnummer | [Numeriek](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Authentiek | Ja | Ja | Volgnummer van het perceel binnen de sectie. | BRK-Catalogus | |
+| oppervlakte | [Numeriek](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Authentiek | Ja | Ja | Kadastrale oppervlakte in vierkante meters. | BRK-Catalogus | HC-naam: `grootte`. |
 
 **Relatiesoorten** (uitgaand): geen eigen uitgaande relaties.
 
@@ -341,14 +341,14 @@ die naar hetzelfde brondocument verwijzen.
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| identificatie | NEN3610ID | 1 | Authentiek | Ja | Ja | Unieke beperking-identificatie volgens NEN 3610. | BRK-Catalogus | |
-| typeBeperking | TypePubliekrechtelijkeBeperking | 1 | Authentiek | Ja | Ja | Type van de publiekrechtelijke beperking. | BRK-Catalogus | Zie enumeratie TypePubliekrechtelijkeBeperking. |
-| omschrijving | CharacterString | 0..1 | Basisgegeven | Ja | Ja | Korte vrije omschrijving van de beperking. | BRK-Catalogus | |
-| grondslag | CharacterString | 1 | Authentiek | Ja | Ja | Wettelijke grondslag (artikel + wet). | BRK-Catalogus | |
-| datumIngang | Datum | 1 | Authentiek | Ja | Ja | Datum waarop de beperking is ingegaan. | BRK-Catalogus | |
-| datumEinde | Datum | 0..1 | Basisgegeven | Ja | Ja | Datum waarop de beperking is beëindigd. | BRK-Catalogus | Leeg betekent lopend. |
-| documentdatum | Datum | 1 | Authentiek | Ja | Ja | Datum van het brondocument (bestuursbesluit). | BRK-Catalogus | |
-| documentnummer | Identificatie | 1 | Authentiek | Ja | Ja | Identificatie van het brondocument. | BRK-Catalogus | |
+| identificatie | [NEN3610ID](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 1 | Authentiek | Ja | Ja | Unieke beperking-identificatie volgens NEN 3610. | BRK-Catalogus | |
+| typeBeperking | [`TypePubliekrechtelijkeBeperking`](#typepubliekrechtelijkebeperking) | 1 | Authentiek | Ja | Ja | Type van de publiekrechtelijke beperking. | BRK-Catalogus | Zie enumeratie TypePubliekrechtelijkeBeperking. |
+| omschrijving | [CharacterString](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Ja | Ja | Korte vrije omschrijving van de beperking. | BRK-Catalogus | |
+| grondslag | [CharacterString](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Authentiek | Ja | Ja | Wettelijke grondslag (artikel + wet). | BRK-Catalogus | |
+| datumIngang | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Authentiek | Ja | Ja | Datum waarop de beperking is ingegaan. | BRK-Catalogus | |
+| datumEinde | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Ja | Ja | Datum waarop de beperking is beëindigd. | BRK-Catalogus | Leeg betekent lopend. |
+| documentdatum | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Authentiek | Ja | Ja | Datum van het brondocument (bestuursbesluit). | BRK-Catalogus | |
+| documentnummer | [Identificatie](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Authentiek | Ja | Ja | Identificatie van het brondocument. | BRK-Catalogus | |
 | voorkomen | Voorkomen | 1 | Basisgegeven | Ja | Ja | Bitemporele markering van werkelijke en registratie-tijdlijn. | GBO (mixin) | Zie patroon Voorkomen-mixin in [Patronen](../hoofdmodel.md#voorkomen-mixin-bitemporaliteit). |
 
 **Relatiesoorten** (uitgaand):
@@ -394,10 +394,10 @@ omdat dat rijker is voor historie en meervoudige tenaamstelling.
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| aandeel | Breuk | 1 | Authentiek | Ja | Ja | Aandeel van de partij in het zakelijk recht, uitgedrukt als breuk. | BRK-Catalogus | Bijvoorbeeld 1/2, 1/3, 1/1. |
-| gezamenlijkAandeel | Indicatie | 0..1 | Authentiek | Ja | Ja | Markeert mede-eigendom met gemeenschappelijk aandeel (zoals een echtpaar in gemeenschap van goederen). | BRK-Catalogus | |
-| datumIngang | Datum | 1 | Authentiek | Ja | Ja | Datum waarop de tenaamstelling is ingegaan. | BRK-Catalogus | |
-| datumEinde | Datum | 0..1 | Authentiek | Ja | Ja | Datum waarop de tenaamstelling is geëindigd. | BRK-Catalogus | Leeg betekent lopend. |
+| aandeel | [Breuk](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 1 | Authentiek | Ja | Ja | Aandeel van de partij in het zakelijk recht, uitgedrukt als breuk. | BRK-Catalogus | Bijvoorbeeld 1/2, 1/3, 1/1. |
+| gezamenlijkAandeel | [Indicatie](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Authentiek | Ja | Ja | Markeert mede-eigendom met gemeenschappelijk aandeel (zoals een echtpaar in gemeenschap van goederen). | BRK-Catalogus | |
+| datumIngang | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Authentiek | Ja | Ja | Datum waarop de tenaamstelling is ingegaan. | BRK-Catalogus | |
+| datumEinde | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Authentiek | Ja | Ja | Datum waarop de tenaamstelling is geëindigd. | BRK-Catalogus | Leeg betekent lopend. |
 | voorkomen | Voorkomen | 1 | Basisgegeven | Ja | Ja | Bitemporele markering van werkelijke en registratie-tijdlijn. | GBO (mixin) | Zie patroon Voorkomen-mixin in [Patronen](../hoofdmodel.md#voorkomen-mixin-bitemporaliteit). |
 
 **Relatiesoorten** (uitgaand):
@@ -442,13 +442,13 @@ als eigendomstitel.
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| identificatie | NEN3610ID | 1 | Authentiek | Ja | Ja | Objectidentificatie van het zakelijk recht. | BRK-Catalogus | |
-| aardZakelijkRecht | AardZakelijkRecht | 1 | Authentiek | Ja | Ja | Vorm van het zakelijk recht. | BRK-Catalogus | Zie enumeratie AardZakelijkRecht. |
-| akteverwijzing | CharacterString | 1 | Authentiek | Ja | Ja | Verwijzing naar de notariële akte van vestiging. | BRK-Catalogus | |
-| datumIngang | Datum | 1 | Authentiek | Ja | Ja | Datum waarop het recht is ingegaan. | BRK-Catalogus | |
-| datumEinde | Datum | 0..1 | Basisgegeven | Ja | Ja | Datum waarop het recht is geëindigd. | BRK-Catalogus | Leeg betekent lopend. |
-| documentdatum | Datum | 1 | Authentiek | Ja | Ja | Datum van de vestigings- of wijzigingsakte. | BRK-Catalogus | |
-| documentnummer | Identificatie | 1 | Authentiek | Ja | Ja | Akte-identificatie. | BRK-Catalogus | |
+| identificatie | [NEN3610ID](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 1 | Authentiek | Ja | Ja | Objectidentificatie van het zakelijk recht. | BRK-Catalogus | |
+| aardZakelijkRecht | [`AardZakelijkRecht`](#aardzakelijkrecht) | 1 | Authentiek | Ja | Ja | Vorm van het zakelijk recht. | BRK-Catalogus | Zie enumeratie AardZakelijkRecht. |
+| akteverwijzing | [CharacterString](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Authentiek | Ja | Ja | Verwijzing naar de notariële akte van vestiging. | BRK-Catalogus | |
+| datumIngang | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Authentiek | Ja | Ja | Datum waarop het recht is ingegaan. | BRK-Catalogus | |
+| datumEinde | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Ja | Ja | Datum waarop het recht is geëindigd. | BRK-Catalogus | Leeg betekent lopend. |
+| documentdatum | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Authentiek | Ja | Ja | Datum van de vestigings- of wijzigingsakte. | BRK-Catalogus | |
+| documentnummer | [Identificatie](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Authentiek | Ja | Ja | Akte-identificatie. | BRK-Catalogus | |
 | voorkomen | Voorkomen | 1 | Basisgegeven | Ja | Ja | Bitemporele markering van werkelijke en registratie-tijdlijn. | GBO (mixin) | Zie patroon Voorkomen-mixin in [Patronen](../hoofdmodel.md#voorkomen-mixin-bitemporaliteit). |
 
 **Relatiesoorten** (uitgaand):
@@ -487,10 +487,10 @@ diezelfde zaak.
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| typeZekerheidsrecht | TypeZekerheidsrecht | 1 | Authentiek | Ja | Ja | Type van het zekerheidsrecht. | BRK-Catalogus | Zie enumeratie TypeZekerheidsrecht. |
-| bedrag | Bedrag | 0..1 | Basisgegeven | Ja | Ja | Bedrag waarvoor het zekerheidsrecht is gevestigd. | BRK-Catalogus | Bij hypotheek de hoofdsom; bij beslag de gevorderde som indien geregistreerd. |
-| datumVestiging | Datum | 1 | Authentiek | Ja | Ja | Datum waarop het zekerheidsrecht is gevestigd. | BRK-Catalogus | |
-| aardBeslag | AardBeslag | 0..1 | Basisgegeven | Ja | Ja | Aard van het beslag. | BRK-Catalogus | Alleen relevant bij `typeZekerheidsrecht = Beslag`. Zie enumeratie AardBeslag. |
+| typeZekerheidsrecht | [`TypeZekerheidsrecht`](#typezekerheidsrecht) | 1 | Authentiek | Ja | Ja | Type van het zekerheidsrecht. | BRK-Catalogus | Zie enumeratie TypeZekerheidsrecht. |
+| bedrag | [Bedrag](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 0..1 | Basisgegeven | Ja | Ja | Bedrag waarvoor het zekerheidsrecht is gevestigd. | BRK-Catalogus | Bij hypotheek de hoofdsom; bij beslag de gevorderde som indien geregistreerd. |
+| datumVestiging | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Authentiek | Ja | Ja | Datum waarop het zekerheidsrecht is gevestigd. | BRK-Catalogus | |
+| aardBeslag | [`AardBeslag`](#aardbeslag) | 0..1 | Basisgegeven | Ja | Ja | Aard van het beslag. | BRK-Catalogus | Alleen relevant bij `typeZekerheidsrecht = Beslag`. Zie enumeratie AardBeslag. |
 | voorkomen | Voorkomen | 1 | Basisgegeven | Ja | Ja | Bitemporele markering van werkelijke en registratie-tijdlijn. | GBO (mixin) | Zie patroon Voorkomen-mixin in [Patronen](../hoofdmodel.md#voorkomen-mixin-bitemporaliteit). |
 
 **Relatiesoorten** (uitgaand):
