@@ -265,10 +265,10 @@ tasks:
 
 
   build:serve:
-    desc: "Start the local MkDocs development server (snelle preview, genereert geen docs vooraf — draai zo nodig eerst 'task generate:docs' of 'task generate:diagrams')."
+    desc: "Start the local MkDocs development server met livereload (snelle preview, genereert geen docs vooraf; draai zo nodig eerst 'task generate:docs' of 'task generate:diagrams')."
     cmds:
-      - echo "Starting MkDocs development server..."
-      - mkdocs serve
+      - echo "Starting MkDocs development server met livereload..."
+      - mkdocs serve --livereload --watch-theme
 
 
   # ==========================================================================

@@ -22,6 +22,8 @@ L2 of L3 als L1 ontbreekt of als er een functionele behoefte is. Waar
 bronnen onduidelijk zijn, formele modellen ontbreken, of registraties
 elkaar tegenspreken, leiden we zelf af, met heldere bronvermelding.
 
+![Gefragmenteerd Landschap](../images/gefragmenteerd_landschap%20.jpg)
+
 ## Vier lagen
 
 Bij elk UML-element wordt de referentie-strategie afgepeld in deze
@@ -257,8 +259,8 @@ en GGM Handelsregister-domein` (of relevante combinatie).
 Belastingdienst, ook al loopt de operationele keten via UWV. Modelleer
 Inkomstenverhouding, Inkomstenopgave, Inkomstenperiode en
 LoonBestanddeel daarom in deelmodel
-[Belastingen](deelmodellen/belastingen.md), niet in
-[Werk en Inkomen](deelmodellen/werk-en-inkomen.md). SGR ontsluit
+[Belastingen](../informatiemodel/gbo-core/deelmodellen/belastingen.md), niet in
+[Werk en Inkomen](../informatiemodel/gbo-core/deelmodellen/werk-en-inkomen.md). SGR ontsluit
 dezelfde data operationeel.
 
 ### ROD: Register Onderwijsdeelnemers
