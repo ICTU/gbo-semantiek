@@ -118,15 +118,15 @@ tasks:
     desc: "Import the QEA file into Crunch UML Database."
     deps: [prepare:check-tools, prepare:check-vars]
     cmds:
-      - |
-        if [ ! -f "{{.GBO}}" ]; then
-          echo "Error: QEA file '{{.GBO}}' does not exist."
-          exit 1
-        fi
-      - echo "Importing QEA file '{{.GBO}}' into Crunch UML..."
-      - crunch_uml import -f "{{.GBO}}" -t qea -db_create
-      - echo "Copying Core GBO Model to {{.GBO_ROOT_SCHEMA}}..."
-      - crunch_uml transform -ttp copy -sch_to "{{.GBO_ROOT_SCHEMA}}" -rt_pkg "{{.ROOT_GBO}}"
+      #- |
+      #  if [ ! -f "{{.GBO}}" ]; then
+      #    echo "Error: QEA file '{{.GBO}}' does not exist."
+      #    exit 1
+      #  fi
+      #- echo "Importing QEA file '{{.GBO}}' into Crunch UML..."
+      #- crunch_uml import -f "{{.GBO}}" -t qea -db_create
+      #- echo "Copying Core GBO Model to {{.GBO_ROOT_SCHEMA}}..."
+      #- crunch_uml transform -ttp copy -sch_to "{{.GBO_ROOT_SCHEMA}}" -rt_pkg "{{.ROOT_GBO}}"
       - echo "Crunch database successfully created and setup..."
 
     sources:

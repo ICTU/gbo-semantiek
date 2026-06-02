@@ -1,7 +1,7 @@
 # GBO-Semantiek
 
 !!! warning "Concept"
-    GBO-Semantiek bevindt zich in de conceptfase (v0.1). De inhoud is nog niet normatief.
+    GBO-Semantiek bevindt zich in de conceptfase (v0.2). De inhoud is nog niet normatief.
 
 ## Gemeenschappelijke BronOntsluting
 
