@@ -146,10 +146,12 @@ Kort samengevat:
 
 ## Licentie
 
-Dit repository valt onder de [EUPL-1.2 licentie](https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12), conform de standaard voor open source software bij Nederlandse overheidsorganisaties.
+Dit repository valt onder de **EUPL-1.2 licentie**, conform de standaard voor open source software bij Nederlandse overheidsorganisaties. De volledige licentietekst staat in [`LICENSE`](LICENSE); zie ook de [toelichting op joinup.ec.europa.eu](https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12).
 
 ---
 
 ## Contact
 
-Voor vragen en suggesties kun je een [issue aanmaken](../../issues) of contact opnemen via de bijbehorende organisatie.
+**Repository-eigenaar:** Arjen Brienen (ICTU) — arjen.brienen@ictu.nl
+
+Voor vragen en suggesties kun je een [issue aanmaken](../../issues), een [discussie starten](../../discussions) of rechtstreeks contact opnemen met de repository-eigenaar. Beveiligingskwesties meld je volgens het [beveiligingsbeleid](SECURITY.md).

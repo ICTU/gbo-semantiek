@@ -1,0 +1,53 @@
+publiccodeYmlVersion: "0.2"
+
+name: GBO-Semantiek
+url: "https://github.com/brienen/gbo-semantiek.git"
+landingURL: "https://brienen.github.io/gbo-semantiek/"
+softwareVersion: "0.1"
+releaseDate: "2026-04-02"
+
+platforms:
+  - web
+
+categories:
+  - knowledge-management
+
+developmentStatus: development
+
+softwareType: "standalone/other"
+
+description:
+  nl:
+    localisedName: GBO-Semantiek
+    shortDescription: >
+      Open standaard voor de semantische beschrijving van overheidsbasisgegevens.
+    longDescription: >
+      GBO-Semantiek is het semantisch raamwerk van de Gemeenschappelijke
+      BronOntsluiting (GBO): een landelijke, sectoroverstijgende open standaard
+      voor de semantische beschrijving van basisgegevens uit overheidsregistraties.
+      De standaard biedt een gedeeld begrippenkader en informatiemodel voor
+      interoperabiliteit en datakwaliteit tussen overheidsorganisaties, gemeenten
+      en ketenpartners. De inhoud put uit gemeentelijke referentiemodellen (GGM,
+      RSGB) en de catalogi van de landelijke basisregistraties (BRP, BAG, BRK,
+      BGT, HR, WOZ). Het repository volgt het principe documentation-first: de
+      documentatie is de bron van waarheid en UML-, JSON Schema- en RDF/OWL-
+      artefacten worden daarvan afgeleid.
+    features:
+      - Begrippenkader (SKOS)
+      - Informatiemodel
+      - Linked Data / RDF-ontologie
+      - Documentatiewebsite
+
+legal:
+  license: EUPL-1.2
+
+maintenance:
+  type: "community"
+  contacts:
+    - name: Arjen Brienen
+      email: "arjen.brienen@ictu.nl"
+
+localisation:
+  localisationReady: false
+  availableLanguages:
+    - nl

@@ -6,7 +6,7 @@ Dank voor je interesse in het bijdragen aan GBO-Semantiek! Dit document beschrij
 
 ## Gedragscode
 
-Door bij te dragen aan dit project, ga je akkoord met respectvol en constructief samenwerken. Wij hanteren de standaarden van de [Contributor Covenant](https://www.contributor-covenant.org/nl/version/2/1/code_of_conduct/).
+Door bij te dragen aan dit project, ga je akkoord met respectvol en constructief samenwerken. Wij hanteren de [Gedragscode](CODE_OF_CONDUCT.md), gebaseerd op de [Contributor Covenant](https://www.contributor-covenant.org/nl/version/2/0/code_of_conduct/) versie 2.0.
 
 ---
 
