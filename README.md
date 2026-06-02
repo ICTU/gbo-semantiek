@@ -1,7 +1,7 @@
 # GBO-Semantiek
 
 > **Gemeentelijk Basisgegeven Objecten – Informatiemodel Semantiek**
-> Versie: v0.1 | Status: Concept
+> Versie: v0.2 | Status: Concept
 
 ---
 
