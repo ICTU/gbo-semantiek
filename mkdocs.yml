@@ -124,32 +124,32 @@ nav:
     - Gegevenscomponenten: architectuur/gegevenscomponenten.md
     - Gegevenstoepassing: architectuur/gegevenstoepassing.md
     # - Raamwerk: architectuur/raamwerk.md
-  - "Laag 1: Begrippenmodel":
+  - "Begrippenmodel":
     - Inleiding: begrippen/inleiding.md
-    - GBO-Begrippenkader: begrippen/gbo-begrippenkader.md
+    # - GBO-Begrippenkader: begrippen/gbo-begrippenkader.md
     # - Kader: begrippen/kader.md
-    - Relatie Informatiemodel: begrippen/relatie_informatiemodel.md
+    # - Relatie Informatiemodel: begrippen/relatie_informatiemodel.md
     # - Structuur: begrippen/structuur.md
-    - Beheer en governance: begrippen/beheer.md
-  - "Laag 2: Informatiemodel":
-    # - Model op hoofdlijnen: informatiemodel/informatiemodel.md
-    - GBO Core: 
-      - Hoofdmodel: informatiemodel/gbo-core/hoofdmodel.md
-      - Deelmodel Personen: informatiemodel/gbo-core/deelmodellen/personen.md
-      - Deelmodel Bedrijven en Instellingen: informatiemodel/gbo-core/deelmodellen/bedrijven-en-instellingen.md
-      - Deelmodel Adressen en Gebouwen: informatiemodel/gbo-core/deelmodellen/adressen-en-gebouwen.md
-      - Deelmodel Onroerende Zaken: informatiemodel/gbo-core/deelmodellen/onroerende-zaken.md
-      - Deelmodel Waarde Onroerende Zaken: informatiemodel/gbo-core/deelmodellen/waarde-onroerende-zaken.md
-      - Deelmodel Belastingen: informatiemodel/gbo-core/deelmodellen/belastingen.md
-      - Deelmodel Krediet: informatiemodel/gbo-core/deelmodellen/krediet.md
-      - Deelmodel Onderwijs: informatiemodel/gbo-core/deelmodellen/onderwijs.md
-      - Deelmodel Werk en Inkomen: informatiemodel/gbo-core/deelmodellen/werk-en-inkomen.md
-      - Datatypes en codelijsten: informatiemodel/gbo-core/datatypes-en-codelijsten.md
-    - Informatiemodel GBO: informatiemodel/informatiemodel-gbo.md
-  - "Laag 3: Ontologie":
-    - Skos: ontologie/skos.md
-    - Kwaliteit: ontologie/kwaliteit.md
-    - Publicatie: ontologie/publicatie.md
+    # - Beheer en governance: begrippen/beheer.md
+  - "Informatiemodel: GBO-Core ":
+    - Hoofdmodel Kern: informatiemodel/gbo-core/hoofdmodel.md
+    - Deelmodel Personen: informatiemodel/gbo-core/deelmodellen/personen.md
+    - Deelmodel Bedrijven en Instellingen: informatiemodel/gbo-core/deelmodellen/bedrijven-en-instellingen.md
+    - Deelmodel Adressen en Gebouwen: informatiemodel/gbo-core/deelmodellen/adressen-en-gebouwen.md
+    - Deelmodel Onroerende Zaken: informatiemodel/gbo-core/deelmodellen/onroerende-zaken.md
+    - Deelmodel Waarde Onroerende Zaken: informatiemodel/gbo-core/deelmodellen/waarde-onroerende-zaken.md
+    - Deelmodel Belastingen: informatiemodel/gbo-core/deelmodellen/belastingen.md
+    - Deelmodel Krediet: informatiemodel/gbo-core/deelmodellen/krediet.md
+    - Deelmodel Onderwijs: informatiemodel/gbo-core/deelmodellen/onderwijs.md
+    - Deelmodel Werk en Inkomen: informatiemodel/gbo-core/deelmodellen/werk-en-inkomen.md
+    - Datatypes en codelijsten: informatiemodel/gbo-core/datatypes-en-codelijsten.md
+  - "Informatiemodel: GBO-Voorzieningen ":
+    - Hoofdmodel Voorzieningen: informatiemodel/gbo-voorzieningen.md
+  - "Ontologie":
+    - Inleiding: ontologie/inleiding.md
+    # - Skos: ontologie/skos.md
+    # - Kwaliteit: ontologie/kwaliteit.md
+    # - Publicatie: ontologie/publicatie.md
   - Implementatie:
     - URI-strategie: implementatie/uri-strategie.md
     - Naamgeving: implementatie/naamgeving.md

@@ -1,9 +1,182 @@
----
-title: "Hoofdmodel"
-description: "Het hoofdmodel toont de brug-klassen tussen alle deelmodellen: alleen objecttypen die deelmodel-grenzen overschrijden, gegroepeerd rond het Partij-supertype."
----
 
 # Hoofdmodel
+
+## Compacte Weergave en Uitwerking
+
+Compacte projectie van het [hoofdmodel](hoofdmodel.md), bedoeld voor
+presentaties en overzichts-slides. Subtypen, cardinaliteiten en
+edge-labels zijn weggelaten; alleen de klassen die de DVTP-databehoefte
+dragen blijven zichtbaar.
+
+Per deelmodel staat de klasse waarmee de DVTP-pilot-rijen direct
+mappen voorop: `StudieLening` (saldo, maandtermijn, aflostermijn)
+voor DUO, `Arbeidsverhouding` plus `LoonBestanddeel` voor de
+UWV-loonketen, `Aftrekpost` plus `AuthentiekInkomen` voor de
+Belastingdienst, `KredietOvereenkomst` plus `AchterstandRegistratie`
+voor BKR, en `Tenaamstelling` plus `ZakelijkRecht` voor Kadaster.
+
+Voor de volledige versie met subtypen en cardinaliteiten, zie
+[hoofdmodel](hoofdmodel.md). Voor de details per deelmodel, zie de
+[deelmodellen](deelmodellen/).
+
+### Diagram
+
+```plantuml
+@startuml
+!pragma layout elk
+
+skinparam dpi 110
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam roundCorner 6
+skinparam ClassBackgroundColor #FAFAFA
+skinparam ClassBorderColor #555555
+skinparam ArrowColor #444444
+skinparam ArrowFontColor #333333
+skinparam ArrowFontSize 10
+hide empty members
+hide circle
+
+skinparam class<<algemeen>> {
+  BackgroundColor #f3e5f5
+  BorderColor #6a1b9a
+  HeaderBackgroundColor #f3e5f5
+}
+skinparam class<<personen>> {
+  BackgroundColor #e8f0fe
+  BorderColor #1967d2
+  HeaderBackgroundColor #e8f0fe
+}
+skinparam class<<bedrijven-en-instellingen>> {
+  BackgroundColor #fff4e5
+  BorderColor #e67e22
+  HeaderBackgroundColor #fff4e5
+}
+skinparam class<<adressen-en-gebouwen>> {
+  BackgroundColor #e8f5e9
+  BorderColor #2e7d32
+  HeaderBackgroundColor #e8f5e9
+}
+skinparam class<<onroerende-zaken>> {
+  BackgroundColor #fde8d6
+  BorderColor #a04000
+  HeaderBackgroundColor #fde8d6
+}
+skinparam class<<waarde-onroerende-zaken>> {
+  BackgroundColor #fce4ec
+  BorderColor #ad1457
+  HeaderBackgroundColor #fce4ec
+}
+skinparam class<<belastingen>> {
+  BackgroundColor #ede7f6
+  BorderColor #4527a0
+  HeaderBackgroundColor #ede7f6
+}
+skinparam class<<krediet>> {
+  BackgroundColor #e1f0fa
+  BorderColor #1e6091
+  HeaderBackgroundColor #e1f0fa
+}
+skinparam class<<onderwijs>> {
+  BackgroundColor #fff8e1
+  BorderColor #b08800
+  HeaderBackgroundColor #fff8e1
+}
+skinparam class<<werk-en-inkomen>> {
+  BackgroundColor #ffe9c2
+  BorderColor #b87a00
+  HeaderBackgroundColor #ffe9c2
+}
+
+' ---- Supertype + persoons-kern (BRP / KVK) ----
+abstract class Partij <<algemeen>>
+class NatuurlijkPersoon <<personen>>
+class Verbintenis <<personen>>
+abstract class NietNatuurlijkPersoon <<bedrijven-en-instellingen>>
+class Vestiging <<bedrijven-en-instellingen>>
+
+' ---- Vastgoed: BAG ----
+together {
+  abstract class Adres <<adressen-en-gebouwen>>
+  abstract class AdresseerbaarObject <<adressen-en-gebouwen>>
+  class Pand <<adressen-en-gebouwen>>
+}
+
+' ---- Vastgoed: Kadaster (BRK) ----
+together {
+  abstract class KadastraleOnroerendeZaak <<onroerende-zaken>>
+  class Tenaamstelling <<onroerende-zaken>>
+  class ZakelijkRecht <<onroerende-zaken>>
+}
+
+' ---- Vastgoed: WOZ ----
+class WOZWaarde <<waarde-onroerende-zaken>>
+
+' ---- Fiscaal (Belastingdienst) ----
+together {
+  class AuthentiekInkomen <<belastingen>>
+  class LoonBestanddeel <<belastingen>>
+  abstract class Aftrekpost <<belastingen>>
+}
+
+' ---- Werk en inkomen (UWV / SVB) ----
+together {
+  class Arbeidsverhouding <<werk-en-inkomen>>
+  abstract class Uitkering <<werk-en-inkomen>>
+}
+
+' ---- Krediet (BKR) ----
+together {
+  abstract class KredietOvereenkomst <<krediet>>
+  class AchterstandRegistratie <<krediet>>
+}
+
+' ---- Onderwijs (DUO) ----
+class StudieLening <<onderwijs>>
+
+' ---- Generalisatie ----
+Partij <|-- NatuurlijkPersoon
+Partij <|-- NietNatuurlijkPersoon
+
+' ---- Persoons-relaties ----
+NatuurlijkPersoon --> Verbintenis
+NietNatuurlijkPersoon --> Vestiging
+
+' ---- Adressen + BAG ----
+NatuurlijkPersoon --> Adres
+Vestiging --> Adres
+AdresseerbaarObject --> Adres
+Pand --> KadastraleOnroerendeZaak
+
+' ---- BRK + WOZ ----
+ZakelijkRecht --> KadastraleOnroerendeZaak
+Tenaamstelling --> ZakelijkRecht
+Partij --> Tenaamstelling
+WOZWaarde --> AdresseerbaarObject
+
+' ---- Fiscaal (BD) ----
+AuthentiekInkomen --> NatuurlijkPersoon
+LoonBestanddeel --> Arbeidsverhouding
+Aftrekpost --> NatuurlijkPersoon
+Aftrekpost --> KadastraleOnroerendeZaak
+
+' ---- Werk en inkomen (UWV) ----
+Arbeidsverhouding --> NatuurlijkPersoon
+Arbeidsverhouding --> NietNatuurlijkPersoon
+Uitkering --> NatuurlijkPersoon
+
+' ---- Krediet (BKR) ----
+KredietOvereenkomst --> NatuurlijkPersoon
+KredietOvereenkomst --> KadastraleOnroerendeZaak
+AchterstandRegistratie --> KredietOvereenkomst
+
+' ---- Onderwijs (DUO) ----
+StudieLening --> NatuurlijkPersoon
+
+@enduml
+```
+
+## Uitgebreide Weergave en Uitwerking
 
 Het hoofdmodel is een **brug-diagram**: het toont uitsluitend
 objecttypen die deelmodel-grenzen overschrijden, plus de
@@ -13,22 +186,30 @@ attributen en codelijsten staan in het betreffende deelmodel.
 
 `Partij` staat centraal: alle persoons- en organisatie-rollen erven
 ervan, en de meeste brug-relaties hangen aan een variant van
-`Partij`.
+`Partij`. De brug-klassen die als ingang voor de DVTP-databehoefte
+dienen zijn opgenomen: `Verbintenis` (fiscale partner), `LoonBestanddeel`
+(loonketen), `Aftrekpost` (Box 1-aftrekken), `AchterstandRegistratie`
+(BKR-toets) en `StudieLening` (DUO-schuld).
 
-## Diagram
+### Diagram
 
 ```plantuml
 @startuml
 !pragma layout elk
 
-skinparam dpi 140
+top to bottom direction
+
+skinparam dpi 120
 skinparam classAttributeIconSize 0
 skinparam shadowing false
 skinparam roundCorner 6
+skinparam nodesep 18
+skinparam ranksep 28
 skinparam ClassBackgroundColor #FAFAFA
 skinparam ClassBorderColor #555555
 skinparam ArrowColor #444444
 skinparam ArrowFontColor #333333
+skinparam ArrowFontSize 10
 skinparam NoteBackgroundColor #FFFCD8
 skinparam NoteBorderColor #B8B8B8
 hide empty members
@@ -88,17 +269,20 @@ skinparam class<<werk-en-inkomen>> {
 ' ---- Supertype kern ----
 abstract class Partij <<algemeen>>
 
-' ---- Personen ----
-class NatuurlijkPersoon <<personen>>
+' ---- Personen (BRP) ----
+together {
+  class NatuurlijkPersoon <<personen>>
+  class Verbintenis <<personen>>
+}
 
-' ---- Bedrijven en instellingen ----
+' ---- Bedrijven en instellingen (KVK) ----
 together {
   abstract class NietNatuurlijkPersoon <<bedrijven-en-instellingen>>
   class Inschrijving <<bedrijven-en-instellingen>>
   class Vestiging <<bedrijven-en-instellingen>>
 }
 
-' ---- Adressen en gebouwen ----
+' ---- Adressen en gebouwen (BAG) ----
 together {
   abstract class Adres <<adressen-en-gebouwen>>
   class Binnenlandsadres <<adressen-en-gebouwen>>
@@ -108,7 +292,7 @@ together {
   class Pand <<adressen-en-gebouwen>>
 }
 
-' ---- Onroerende zaken ----
+' ---- Onroerende zaken (Kadaster / BRK) ----
 together {
   abstract class KadastraleOnroerendeZaak <<onroerende-zaken>>
   class Perceel <<onroerende-zaken>>
@@ -118,39 +302,43 @@ together {
   class PubliekrechtelijkeBeperking <<onroerende-zaken>>
 }
 
-' ---- Waarde onroerende zaken ----
+' ---- Waarde onroerende zaken (WOZ) ----
 together {
   class WOZObject <<waarde-onroerende-zaken>>
   class WOZWaarde <<waarde-onroerende-zaken>>
 }
 
-' ---- Belastingen ----
+' ---- Belastingen (Belastingdienst / BRI / loonketen) ----
 together {
   abstract class BelastingjaarAangifte <<belastingen>>
   class AuthentiekInkomen <<belastingen>>
   class EigenWoning <<belastingen>>
+  abstract class Aftrekpost <<belastingen>>
   abstract class Toeslag <<belastingen>>
   class Inkomstenverhouding <<belastingen>>
   class LoonAangifte <<belastingen>>
+  class LoonBestanddeel <<belastingen>>
   class Renseignering <<belastingen>>
 }
 
-' ---- Werk en Inkomen ----
+' ---- Werk en inkomen (UWV / SVB) ----
 together {
   abstract class Uitkering <<werk-en-inkomen>>
   class Arbeidsverhouding <<werk-en-inkomen>>
 }
 
-' ---- Krediet ----
+' ---- Krediet (BKR) ----
 together {
   abstract class KredietOvereenkomst <<krediet>>
   class HypothecairKredietEigenWoning <<krediet>>
+  class AchterstandRegistratie <<krediet>>
 }
 
-' ---- Onderwijs ----
+' ---- Onderwijs (DUO) ----
 together {
   class OnderwijsInstelling <<onderwijs>>
   class OpleidingDeelname <<onderwijs>>
+  class StudieLening <<onderwijs>>
 }
 
 ' ---- Generalisatie-relaties ----
@@ -163,6 +351,27 @@ AdresseerbaarObject <|-- Verblijfsobject
 KadastraleOnroerendeZaak <|-- Perceel
 KadastraleOnroerendeZaak <|-- Appartementsrecht
 KredietOvereenkomst <|-- HypothecairKredietEigenWoning
+
+' ---- Verticale layout-hints (onzichtbaar) ----
+NatuurlijkPersoon -[hidden]down- Verbintenis
+NietNatuurlijkPersoon -[hidden]down- Inschrijving
+Inschrijving -[hidden]down- Vestiging
+Adres -[hidden]down- AdresseerbaarObject
+AdresseerbaarObject -[hidden]down- Pand
+KadastraleOnroerendeZaak -[hidden]down- ZakelijkRecht
+ZakelijkRecht -[hidden]down- Tenaamstelling
+WOZObject -[hidden]down- WOZWaarde
+BelastingjaarAangifte -[hidden]down- AuthentiekInkomen
+AuthentiekInkomen -[hidden]down- Aftrekpost
+Aftrekpost -[hidden]down- Inkomstenverhouding
+Inkomstenverhouding -[hidden]down- LoonBestanddeel
+KredietOvereenkomst -[hidden]down- AchterstandRegistratie
+Arbeidsverhouding -[hidden]down- Uitkering
+OnderwijsInstelling -[hidden]down- OpleidingDeelname
+OpleidingDeelname -[hidden]down- StudieLening
+
+' ---- Personen-keten ----
+NatuurlijkPersoon "2" --> "0..*" Verbintenis : partner in
 
 ' ---- Bedrijven en instellingen-keten ----
 Partij "1..*" --> "0..*" Inschrijving : ingeschreven als
@@ -191,10 +400,13 @@ WOZObject "0..*" --> "1..*" Perceel : ligt op
 ' ---- Belastingen-bruggen ----
 NatuurlijkPersoon "1" <-- "0..*" BelastingjaarAangifte : ingediendDoor
 NatuurlijkPersoon "1" <-- "0..*" AuthentiekInkomen : gegrondvestOp
+NatuurlijkPersoon "1" <-- "0..*" Aftrekpost : opgevoerdDoor
 NatuurlijkPersoon "1" <-- "0..*" Toeslag : toegekendAan
 KadastraleOnroerendeZaak "1" <-- "1" EigenWoning : gekoppeldAan
+Aftrekpost "0..*" --> "0..1" EigenWoning : betreft
 NatuurlijkPersoon "1" <-- "0..*" Inkomstenverhouding : tussenPersoon
 NietNatuurlijkPersoon "1" <-- "0..*" Inkomstenverhouding : tussenWerkgever
+Inkomstenverhouding "1" --> "0..*" LoonBestanddeel : bevat
 NietNatuurlijkPersoon "1" <-- "0..*" LoonAangifte : ingediendDoor
 NietNatuurlijkPersoon "1" <-- "0..*" Renseignering : aangeleverdDoor
 
@@ -202,6 +414,7 @@ NietNatuurlijkPersoon "1" <-- "0..*" Renseignering : aangeleverdDoor
 NatuurlijkPersoon "1" <-- "0..*" KredietOvereenkomst : aangegaanDoor
 NietNatuurlijkPersoon "1" <-- "0..*" KredietOvereenkomst : verstrektDoor
 KadastraleOnroerendeZaak "1" <-- "0..*" HypothecairKredietEigenWoning : gevestigdOp
+KredietOvereenkomst "1" <-- "0..*" AchterstandRegistratie : gemeldOp
 
 ' ---- Werk en Inkomen-bruggen ----
 NatuurlijkPersoon "1" <-- "0..*" Uitkering : toegekendAan
@@ -212,6 +425,7 @@ Arbeidsverhouding "1" --> "0..*" Inkomstenverhouding : komtTotUitingIn
 ' ---- Onderwijs-bruggen ----
 NatuurlijkPersoon "1" --> "0..*" OpleidingDeelname : deelnemer
 OnderwijsInstelling "1" --> "0..*" OpleidingDeelname : bijInstelling
+NatuurlijkPersoon "1" <-- "0..*" StudieLening : aangegaanDoor
 
 @enduml
 ```
@@ -220,14 +434,14 @@ OnderwijsInstelling "1" --> "0..*" OpleidingDeelname : bijInstelling
 
 | Deelmodel | Brug-klassen op hoofdmodel-niveau | Detail in |
 |---|---|---|
-| Personen | `NatuurlijkPersoon` | [Personen](deelmodellen/personen.md) |
+| Personen | `NatuurlijkPersoon`, `Verbintenis` | [Personen](deelmodellen/personen.md) |
 | Bedrijven en instellingen | `NietNatuurlijkPersoon`, `Inschrijving`, `Vestiging` | [Bedrijven en instellingen](deelmodellen/bedrijven-en-instellingen.md) |
 | Adressen en gebouwen | `Adres`, `Binnenlandsadres`, `Postadres`, `AdresseerbaarObject`, `Verblijfsobject`, `Pand` | [Adressen en gebouwen](deelmodellen/adressen-en-gebouwen.md) |
 | Onroerende zaken | `KadastraleOnroerendeZaak`, `Perceel`, `Appartementsrecht`, `ZakelijkRecht`, `Tenaamstelling`, `PubliekrechtelijkeBeperking` | [Onroerende zaken](deelmodellen/onroerende-zaken.md) |
 | Waarde onroerende zaken | `WOZObject`, `WOZWaarde` | [Waarde onroerende zaken](deelmodellen/waarde-onroerende-zaken.md) |
-| Belastingen | `BelastingjaarAangifte`, `AuthentiekInkomen`, `EigenWoning`, `Toeslag`, `Inkomstenverhouding`, `LoonAangifte`, `Renseignering` | [Belastingen](deelmodellen/belastingen.md) |
-| Krediet | `KredietOvereenkomst`, `HypothecairKredietEigenWoning` | [Krediet](deelmodellen/krediet.md) |
-| Onderwijs | `OnderwijsInstelling`, `OpleidingDeelname` | [Onderwijs](deelmodellen/onderwijs.md) |
+| Belastingen | `BelastingjaarAangifte`, `AuthentiekInkomen`, `EigenWoning`, `Aftrekpost`, `Toeslag`, `Inkomstenverhouding`, `LoonAangifte`, `LoonBestanddeel`, `Renseignering` | [Belastingen](deelmodellen/belastingen.md) |
+| Krediet | `KredietOvereenkomst`, `HypothecairKredietEigenWoning`, `AchterstandRegistratie` | [Krediet](deelmodellen/krediet.md) |
+| Onderwijs | `OnderwijsInstelling`, `OpleidingDeelname`, `StudieLening` | [Onderwijs](deelmodellen/onderwijs.md) |
 | Werk en Inkomen | `Uitkering`, `Arbeidsverhouding` | [Werk en Inkomen](deelmodellen/werk-en-inkomen.md) |
 
 ## Sleutelrelaties: toelichting
@@ -247,6 +461,14 @@ Eigendom en andere zakelijke rechten worden via een aparte
 `Tenaamstelling` aan een partij gekoppeld. Daardoor zijn meervoudige
 tenaamstelling (echtparen, mede-eigendom) en historie zonder
 duplicate-rij-modellering uit te drukken.
+
+**`NatuurlijkPersoon` ↔ `Verbintenis`** (`2` ↔ `0..*`).
+Huwelijk, geregistreerd partnerschap of samenlevingscontract verbinden
+twee natuurlijke personen. `Verbintenis` is de aanknopingspoot voor
+fiscaal partnerschap, vermogensregime en het afleiden van
+gezinssamenstelling: dezelfde class draagt de DVTP-datapunten rond
+burgerlijke staat (BRP rij 53), echtscheidingsdatum (rij 63) en
+gezinssamenstelling (rij 66).
 
 ### Adres en BAG
 
@@ -315,6 +537,21 @@ vastgestelde IH-aangifte of, bij ontbreken, uit de loonaangifteketen.
 Afnemers van inkomensgegevens in inkomensafhankelijke regelingen zijn
 verplicht het BRI-inkomen te gebruiken.
 
+**`Inkomstenverhouding` → `LoonBestanddeel`** (`1` → `0..*`).
+Bruto periodesalaris, vakantiegeld, dertiende maand, structurele
+toeslagen, provisie, bonus, overwerk, bijtelling auto van de zaak en
+inhoudingen pensioen/AO zijn elk een afzonderlijk `LoonBestanddeel`
+binnen de inkomstenopgaven van een Inkomstenverhouding. Hier landen
+de UWV-rijen 1 t/m 19 van de DVTP-Excel; categorisering verloopt via
+de Loonheffingen-bijlagen (zie [Belastingen](deelmodellen/belastingen.md)).
+
+**`Aftrekpost`** is de abstracte poot voor alle Box 1-aftrekken die een
+belastingplichtige in de IH-aangifte kan opvoeren: hypotheekrente-
+aftrek, lijfrentepremies, partneralimentatie, giften. Concreet
+subtype `HypotheekrenteAftrek` koppelt via `EigenWoning` aan de
+`KadastraleOnroerendeZaak`; daardoor sluit dezelfde modellering aan
+op de BD-rijen 28, 31, 36 en op de eigenwoning-keten.
+
 ### Werk en Inkomen
 
 **`Arbeidsverhouding` → `Inkomstenverhouding`** (`1` → `0..*`).
@@ -330,7 +567,26 @@ AOW staan in [Werk en Inkomen](deelmodellen/werk-en-inkomen.md); het
 abstracte supertype `InkomensOndersteuning` vormt de cross-domein-
 abstractie waaronder ook `Toeslag` valt.
 
+### Krediet
+
+**`KredietOvereenkomst` → `AchterstandRegistratie`** (`1` → `0..*`).
+Een achterstand op een kredietovereenkomst leidt tot een melding aan
+het Centraal Krediet Informatiesysteem. De BKR-toets in een hypotheek-
+aanvraag (DVTP-rij 15 BKR) gebruikt deze meldingen plus de
+bijzonderheidscoderingen. `HypothecairKredietEigenWoning` koppelt
+diezelfde overeenkomst aan de `KadastraleOnroerendeZaak`, zodat de
+hypotheek vanuit twee perspectieven herkenbaar is: financieel
+(Krediet) en zakelijk-rechtelijk (BRK).
+
 ### Onderwijs
+
+**`StudieLening` → `NatuurlijkPersoon`** (`0..*` → `1`).
+De studieschuld bij DUO hangt direct aan de (oud-)student. Saldo,
+maandtermijn, aflostermijn totaal en aflostermijn restant zijn de
+DVTP-DUO-rijen 43 t/m 46 en worden conform de TRHK meegenomen in de
+woonlastentoets. `StudieLening` is een eigenstandige class naast
+`OpleidingDeelname`: de schuld kan doorlopen nadat de opleiding is
+afgerond.
 
 **`OpleidingDeelname`** koppelt `NatuurlijkPersoon` (de
 leerling/student) aan `OnderwijsInstelling` en `Opleiding` (laatste
@@ -338,7 +594,8 @@ binnen het deelmodel). `OnderwijsInstelling` is een subtype van
 `NietNatuurlijkPersoon` met aanvullende BRIN- en RIO-gegevens, zodat
 de instelling als rechtspersoon volledig in
 [Bedrijven en instellingen](deelmodellen/bedrijven-en-instellingen.md)
-blijft passen.
+blijft passen. DVTP-rij 42 (opleidingsniveau) verwijst naar
+`Opleiding` via een afgesloten `OpleidingDeelname`.
 
 ## Gedeelde bouwstenen
 

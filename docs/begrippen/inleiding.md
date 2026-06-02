@@ -14,26 +14,6 @@ Het GBO-begrippenkader wordt opgesteld conform [NL-SBB](../uitgangspunten/kaders
 
 Door NL-SBB te volgen sluit het begrippenkader aan bij andere overheids-begrippenkaders en kan het worden opgenomen in de stelselcatalogus.
 
-## Structuur conform NL-SBB
+## Verder nog nader uit te werken
 
-Het begrippenkader wordt gepubliceerd als een [SKOS ConceptScheme](https://www.w3.org/2004/02/skos/). Elk begrip is een `skos:Concept`. De onderstaande tabel toont de eigenschappen die NL-SBB voorschrijft, met de bijbehorende Linked Data property.
-
-| NL-SBB element | Linked Data property | Beschrijving | Status* |
-|----------------|----------------------|--------------|---------|
-| Voorkeursterm | `skos:prefLabel` | De officiële naam van het begrip | Verplicht |
-| Definitie | `skos:definition` | Eenduidige, formele beschrijving van de betekenis | Verplicht |
-| Uitleg | `rdfs:comment` | Toelichting in begrijpelijke taal (B1-niveau) | Aanbevolen |
-| Bron | `dct:source` | Verwijzing naar het brondocument van de definitie | Aanbevolen |
-| Toelichting | `skos:scopeNote` | Verdere uitleg over reikwijdte of context | Optioneel |
-| Alternatieve term | `skos:altLabel` | Synoniemen of afkortingen | Optioneel |
-| Code | `skos:notation` | Unieke code of notatie | Optioneel |
-| Voorbeeld | `skos:example` | Concreet voorbeeld ter illustratie | Optioneel |
-| Breder begrip | `skos:broader` | Hiërarchische relatie (generalisatie) | Optioneel |
-| Smaller begrip | `skos:narrower` | Hiërarchische relatie (specialisatie) | Optioneel |
-| Gerelateerd begrip | `skos:related` | Associatieve relatie | Optioneel |
-| Exacte match | `skos:exactMatch` | Koppeling aan een begrip in een extern begrippenkader | Optioneel |
-
-*\* Status volgens NL-SBB: **verplicht** = moet aanwezig zijn; **aanbevolen** = verwacht, tenzij er een goede reden is om het weg te laten; **optioneel** = mag worden toegevoegd waar het meerwaarde biedt.*
-
-!!! info "NL-SBB breidt SKOS uit"
-    De meeste properties komen rechtstreeks uit SKOS. NL-SBB voegt daar twee elementen aan toe die in de Nederlandse overheidspraktijk belangrijk zijn: de *uitleg* in begrijpelijke taal (`rdfs:comment`) en de *bronverwijzing* (`dct:source`). Hierdoor zijn begrippen niet alleen formeel gedefinieerd, maar ook toegankelijk voor een breed publiek en herleidbaar naar hun oorsprong.
+**Het begrippenmodel moet nog nader vorm worden gegeven.**
