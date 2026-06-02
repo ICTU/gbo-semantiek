@@ -131,20 +131,20 @@ nav:
     # - Relatie Informatiemodel: begrippen/relatie_informatiemodel.md
     # - Structuur: begrippen/structuur.md
     # - Beheer en governance: begrippen/beheer.md
-  - "Informatiemodel: GBO-Core ":
-    - Hoofdmodel Kern: informatiemodel/gbo-core/hoofdmodel.md
-    - Deelmodel Personen: informatiemodel/gbo-core/deelmodellen/personen.md
-    - Deelmodel Bedrijven en Instellingen: informatiemodel/gbo-core/deelmodellen/bedrijven-en-instellingen.md
-    - Deelmodel Adressen en Gebouwen: informatiemodel/gbo-core/deelmodellen/adressen-en-gebouwen.md
-    - Deelmodel Onroerende Zaken: informatiemodel/gbo-core/deelmodellen/onroerende-zaken.md
-    - Deelmodel Waarde Onroerende Zaken: informatiemodel/gbo-core/deelmodellen/waarde-onroerende-zaken.md
-    - Deelmodel Belastingen: informatiemodel/gbo-core/deelmodellen/belastingen.md
-    - Deelmodel Krediet: informatiemodel/gbo-core/deelmodellen/krediet.md
-    - Deelmodel Onderwijs: informatiemodel/gbo-core/deelmodellen/onderwijs.md
-    - Deelmodel Werk en Inkomen: informatiemodel/gbo-core/deelmodellen/werk-en-inkomen.md
-    - Datatypes en codelijsten: informatiemodel/gbo-core/datatypes-en-codelijsten.md
-  - "Informatiemodel: GBO-Voorzieningen ":
-    - Hoofdmodel Voorzieningen: informatiemodel/gbo-voorzieningen.md
+  - "Informatiemodel: GBO-Kernmodel":
+    - Hoofdmodel: informatiemodel/gbo-kern/hoofdmodel.md
+    - Deelmodel Personen: informatiemodel/gbo-kern/deelmodellen/personen.md
+    - Deelmodel Bedrijven en Instellingen: informatiemodel/gbo-kern/deelmodellen/bedrijven-en-instellingen.md
+    - Deelmodel Adressen en Gebouwen: informatiemodel/gbo-kern/deelmodellen/adressen-en-gebouwen.md
+    - Deelmodel Onroerende Zaken: informatiemodel/gbo-kern/deelmodellen/onroerende-zaken.md
+    - Deelmodel Waarde Onroerende Zaken: informatiemodel/gbo-kern/deelmodellen/waarde-onroerende-zaken.md
+    - Deelmodel Belastingen: informatiemodel/gbo-kern/deelmodellen/belastingen.md
+    - Deelmodel Krediet: informatiemodel/gbo-kern/deelmodellen/krediet.md
+    - Deelmodel Onderwijs: informatiemodel/gbo-kern/deelmodellen/onderwijs.md
+    - Deelmodel Werk en Inkomen: informatiemodel/gbo-kern/deelmodellen/werk-en-inkomen.md
+    - Datatypes en codelijsten: informatiemodel/gbo-kern/datatypes-en-codelijsten.md
+  - "Informatiemodel: GBO-Voorzieningenmodel":
+    - Hoofdmodel: informatiemodel/gbo-voorzieningen.md
   - "Ontologie":
     - Inleiding: ontologie/inleiding.md
     # - Skos: ontologie/skos.md

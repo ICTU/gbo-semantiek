@@ -1,4 +1,4 @@
-# Informatiemodel GBO-Voorzieningen
+# GBO-Voorzieningenmodel
 
 Het informatiemodel voor de Gemeenschappelijke Bron Ontsluiting opereert als laag 2 in de semantische architectuur: het definieert de *structuur* van gegevens en verwijst voor *betekenis* naar het begrippenkader (laag 1). Zie de [gegevensarchitectuur](../architectuur/gegevensarchitectuur.md) voor de positie van dit model in het geheel.
 

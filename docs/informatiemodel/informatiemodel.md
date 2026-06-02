@@ -1,6 +1,6 @@
 # Informatiemodel
 
-## Generiek informatiemodel (GBO-kern)
+## Generiek informatiemodel (GBO-Kern)
 
 Het generieke informatiemodel beschrijft de **kern** van GBO-Semantiek: de informatieobjecten die gemeenschappelijk zijn voor de overheidsbrede processen en registraties die GBO ontsluit, zowel gemeentelijke als landelijke. Het is vergelijkbaar met de OSLO-kernvocabularia of de ISA Core Vocabularies op Europees niveau.
 
@@ -37,7 +37,7 @@ Dit is hetzelfde patroon als de ISA Core Vocabularies versus de nationale uitbre
 
 Elk applicatieprofiel:
 
-- **Hergebruikt** objecttypen uit het generieke model (GBO-kern)
+- **Hergebruikt** objecttypen uit het generieke model (GBO-Kern)
 - **Selecteert** welke attributen en relaties relevant zijn
 - **Voegt toe** waar nodig use-case-specifieke attributen of relaties
 - **Beperkt** waardelijsten of cardinaliteiten waar de use case dit vereist

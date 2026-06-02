@@ -20,7 +20,7 @@ GBO volgt de NORA-principes die direct raken aan gegevensuitwisseling: *eenmalig
 ![MIM beschouwingsniveaus](../assets/diagrams/mim-niveaus.svg)
 
 **Rol in GBO-Semantiek:**
-MIM is het metamodel waarmee het GBO-informatiemodel is opgesteld. GBO adresseert alle vier de MIM-niveaus: het begrippenkader (niveau I, SKOS), het conceptueel en logisch informatiemodel (niveau II/III, OWL/SHACL), en de technische representatie (niveau IV, JSON-LD/JSON Schema). MIM maakt duidelijk dat begrippenkader en informatiemodel *verschillende lagen* zijn die elk hun eigen doelgroep hebben.
+MIM is het metamodel waarmee de GBO-informatiemodellen zijn opgesteld. GBO adresseert alle vier de MIM-niveaus: het begrippenkader (niveau I, SKOS), het conceptueel en logisch informatiemodel (niveau II/III, OWL/SHACL), en de technische representatie (niveau IV, JSON-LD/JSON Schema). MIM maakt duidelijk dat begrippenkader en informatiemodel *verschillende lagen* zijn die elk hun eigen doelgroep hebben.
 
 :material-check-circle: **Forum Standaardisatie:** MIM staat op de [lijst met aanbevolen standaarden](https://forumstandaardisatie.nl/open-standaarden/mim).
 
@@ -29,7 +29,7 @@ MIM is het metamodel waarmee het GBO-informatiemodel is opgesteld. GBO adresseer
 [NEN 3610](https://www.geonovum.nl/geo-standaarden/nen-3610-basismodel-geo-informatie) is het Nederlandse basismodel voor geo-gerelateerde informatieobjecten. Het biedt een gemeenschappelijk kader voor de modellering van geo-informatie en definieert basisconcepten zoals geo-object, registratief object en functioneel object.
 
 **Rol in GBO-Semantiek:**
-Waar het GBO-informatiemodel geo-gerelateerde objecten bevat (bijv. locaties, adressen, gebieden), wordt NEN 3610 gevolgd voor de modellering daarvan. Dit garandeert interoperabiliteit met andere geo-informatiemodellen binnen de overheid.
+Waar de GBO-informatiemodellen geo-gerelateerde objecten bevatten (bijv. locaties, adressen, gebieden), wordt NEN 3610 gevolgd voor de modellering daarvan. Dit garandeert interoperabiliteit met andere geo-informatiemodellen binnen de overheid.
 
 :material-check-circle: **Forum Standaardisatie:** NEN 3610 staat op de [lijst met verplichte standaarden](https://forumstandaardisatie.nl/open-standaarden/nen-3610) (pas-toe-of-leg-uit).
 

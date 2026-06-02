@@ -31,7 +31,7 @@
 | **QEA** | Enterprise Architect repository-bestand |
 | **RDF** | Resource Description Framework — W3C-standaard voor het beschrijven van gegevens |
 | **Relatiesoort** | Een semantische verbinding tussen twee informatieobjecten (MIM-term) |
-| **RSGB** | Referentiemodel Stelsel van Gemeentelijke Basisgegevens: historische gemeentelijke baseline (onder GEMMA), een van de inhoudelijke bronnen voor het GBO-informatiemodel |
+| **RSGB** | Referentiemodel Stelsel van Gemeentelijke Basisgegevens: historische gemeentelijke baseline (onder GEMMA), een van de inhoudelijke bronnen voor de GBO-informatiemodellen |
 | **SHACL** | Shapes Constraint Language — W3C-standaard voor het valideren van RDF-data |
 | **SKOS** | Simple Knowledge Organization System — W3C-standaard voor begrippenkaders en thesauri |
 | **TOOI** | Thesauri en Ontologieën voor OverheidsInformatie — modulair publicatieraamwerk van de Rijksoverheid |

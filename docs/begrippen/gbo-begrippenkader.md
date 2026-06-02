@@ -1,12 +1,12 @@
 # GBO-Begrippenkader
 
-Het GBO-Begrippenkader definieert de **betekenis** van de objecttypen uit het [Informatiemodel GBO](../informatiemodel/informatiemodel-gbo.md). Elk objecttype in dat model verwijst via `mim:begrip` naar precies een concept in dit begrippenkader. Het begrippenkader is gepubliceerd als [SKOS ConceptScheme](https://www.w3.org/2004/02/skos/) in Turtle-formaat en staat hier: `v0.1/begrippen/GBO-Begrippenkader.ttl`.
+Het GBO-Begrippenkader definieert de **betekenis** van de objecttypen uit het [GBO-Voorzieningenmodel](../informatiemodel/gbo-voorzieningen.md). Elk objecttype in dat model verwijst via `mim:begrip` naar precies een concept in dit begrippenkader. Het begrippenkader is gepubliceerd als [SKOS ConceptScheme](https://www.w3.org/2004/02/skos/) in Turtle-formaat en staat hier: `v0.1/begrippen/GBO-Begrippenkader.ttl`.
 
 Zie [Structuur en publicatie](structuur.md) voor de technische SKOS-structuur en [Relatie tot het informatiemodel](relatie_informatiemodel.md) voor het koppelingsmechanisme.
 
 ## Scope en status
 
-Dit begrippenkader is een **voorstel (concept v0.1)**, afgeleid van het Informatiemodel GBO. Het bevat de 12 objecttypen die het kernmodel voor gegevensdeling definieert. Attribuutsoorten en relatiesoorten worden in een volgende versie toegevoegd.
+Dit begrippenkader is een **voorstel (concept v0.1)**, afgeleid van het GBO-Voorzieningenmodel. Het bevat de 12 objecttypen die het kernmodel voor gegevensdeling definieert. Attribuutsoorten en relatiesoorten worden in een volgende versie toegevoegd.
 
 ## Begrippen
 

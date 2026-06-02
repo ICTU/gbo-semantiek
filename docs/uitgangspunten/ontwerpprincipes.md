@@ -167,7 +167,7 @@ GBO bouwt voort op bestaande, MIM-conforme informatiemodellen in plaats van mode
 
 | Informatiemodel | Beheerder | Hergebruik in GBO |
 |---|---|---|
-| [GGM](https://www.gemeentelijkgegevensmodel.nl/) (Gemeentelijk Gegevensmodel) | VNG | Directe basis voor het GBO-informatiemodel; kern (RSGB/RGBZ) en domeinen |
+| [GGM](https://www.gemeentelijkgegevensmodel.nl/) (Gemeentelijk Gegevensmodel) | VNG | Directe basis voor de GBO-informatiemodellen; kern (RSGB/RGBZ) en domeinen |
 | [RSGB](https://www.gemmaonline.nl/wiki/RSGB) | VNG/KING | Basisregistratiegegevens (personen, adressen, kadaster) |
 | [RGBZ](https://www.gemmaonline.nl/wiki/RGBZ) | VNG/KING | Zaakgericht werken (zaken, documenten, besluiten) |
 | [SIM/StUF](https://www.gemmaonline.nl/wiki/StUF) | VNG | Berichtenstandaard; objectdefinities als referentie |
@@ -246,7 +246,7 @@ Leg koppelingen tussen artefacten altijd expliciet vast met de juiste eigenschap
 | `owl:equivalentClass` / `owl:equivalentProperty` | Twee termen in verschillende ontologieën zijn equivalent |
 | `skos:broadMatch` / `skos:closeMatch` | Bredere of nabije overeenkomsten met externe thesauri |
 
-NORA-principe 3.4 stelt dat *"modelelementen in informatie- en gegevensmodellen expliciet verwijzen naar de gedefinieerde begrippen die ze representeren"*. Dit impliceert dat elke `owl:Class` in het GBO-informatiemodel een `skos:exactMatch`-koppeling heeft naar het corresponderende begrip in het SKOS-begrippenkader.
+NORA-principe 3.4 stelt dat *"modelelementen in informatie- en gegevensmodellen expliciet verwijzen naar de gedefinieerde begrippen die ze representeren"*. Dit impliceert dat elke `owl:Class` in de GBO-informatiemodellen een `skos:exactMatch`-koppeling heeft naar het corresponderende begrip in het SKOS-begrippenkader.
 
 !!! info "Wat betekent dit voor GBO-Semantiek?"
     - Koppelingen tussen artefacten zijn expliciet en machine-leesbaar

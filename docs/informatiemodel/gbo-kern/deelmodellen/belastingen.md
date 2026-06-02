@@ -716,7 +716,7 @@ inkomensondersteuning, in de vorm van een inkomensafhankelijke
 regeling of een sociale-zekerheidsuitkering.
 
 **Herkomst definitie**: Algemene wet inkomensafhankelijke regelingen;
-GBO-Core-abstractie boven Toeslag en (toekomstig) Uitkering.
+GBO-Kern-abstractie boven Toeslag en (toekomstig) Uitkering.
 
 **Toelichting**: Cross-domein algemene categorie. Concrete variant
 binnen Belastingen: Toeslag. Bij toekomstige ingest van Werk en
@@ -1026,7 +1026,7 @@ Ondersteunend Dossier Bestand Belastingdienst.
 **Toelichting**: Renseigneringen vormen de voornaamste vulling van de
 vooringevulde aangifte. De Belastingdienst publiceert per
 renseigneringssoort een specificatie. Detail-specs zijn echter gated
-achter een ondersteuningsabonnement; voor het GBO-Core-model is dat
+achter een ondersteuningsabonnement; voor het GBO-Kern-model is dat
 geen blokkade.
 
 | MIM-veld | Waarde |
@@ -1166,7 +1166,7 @@ partner-status.
 
 **Attribuutsoorten**:
 
-Geen eigen attributen op GBO-Core-niveau; alle eigenschappen geërfd
+Geen eigen attributen op GBO-Kern-niveau; alle eigenschappen geërfd
 van Toeslag.
 
 ## Enumeraties
