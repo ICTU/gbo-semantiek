@@ -305,8 +305,6 @@
       
         
       
-        
-      
     
     
       
@@ -398,15 +396,6 @@
   <a href="#data-bij-de-bron" class="md-nav__link">
     <span class="md-ellipsis">
       Data bij de bron
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#linked-data-principes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Linked Data principes
     </span>
   </a>
   
@@ -616,27 +605,6 @@
   
   <span class="md-ellipsis">
     Bronnenprioritering
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../inspiratie/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Inspiratie
   </span>
   
 
@@ -1563,15 +1531,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#linked-data-principes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Linked Data principes
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fair-als-basisraamwerk" class="md-nav__link">
     <span class="md-ellipsis">
       FAIR als basisraamwerk
@@ -1766,30 +1725,7 @@
 <li>Per objecttype is er één aangewezen authentieke bron (bronhouder)</li>
 <li>Mutaties vinden uitsluitend plaats bij de bron; andere systemen nemen over, synchroniseren of cachen</li>
 <li>Kopieën, caches en afgeleide representaties zijn toegestaan, maar nooit gezaghebbend</li>
-<li>Elke kopie verwijst naar de bron-URI via <code>prov:wasDerivedFrom</code> of <code>owl:sameAs</code></li>
 <li>Ook de semantiek zelf (begrippen, definities, ontologie) wordt bij één bron beheerd en van daaruit hergebruikt</li>
-</ul>
-</div>
-<h2 id="linked-data-principes">Linked Data principes<a class="headerlink" href="#linked-data-principes" title="Permanent link">&para;</a></h2>
-<p>GBO-Semantiek publiceert volgens de standaarden van het Semantic Web. Het onderstaande <a href="https://en.wikipedia.org/wiki/Semantic_Web_Stack"><em>layer cake</em>-model</a> toont hoe de technologieën op elkaar voortbouwen, van URI's als fundament tot applicaties aan de top. De gekleurde lagen zijn de technologieën die GBO-Semantiek inzet; de grijze lagen zijn onderliggende infrastructuur of vallen buiten scope.</p>
-<p><a class="glightbox" href="../../assets/diagrams/linked-data-layer-cake.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Semantic Web Layer Cake" src="../../assets/diagrams/linked-data-layer-cake.svg" /></a></p>
-<p>De vier <a href="https://www.w3.org/DesignIssues/LinkedData.html">Linked Data-principes</a> van Tim Berners-Lee zijn het fundament van de semantische publicatiestrategie:</p>
-<ol>
-<li><strong>Gebruik URI's als namen voor dingen</strong>, zowel voor concepten, klassen, properties als instanties</li>
-<li><strong>Gebruik HTTP-URI's</strong> zodat dingen kunnen worden opgezocht en ge-dereferenced</li>
-<li><strong>Lever nuttige informatie bij het opvragen van een URI</strong>, via open standaarden (RDF, SPARQL)</li>
-<li><strong>Leg links naar andere URI's</strong> zodat meer dingen ontdekt kunnen worden</li>
-</ol>
-<p>Voor GBO betekent dit dat elk modelelement (klasse, property, begrip) een stabiele HTTP-URI krijgt waarop content-negotiation actief is: een browser krijgt HTML-documentatie, een machine krijgt Turtle of JSON-LD.</p>
-<p>De W3C Best Practices voegen hieraan toe: gebruik bestaande standaard-informatiemodellen zoveel mogelijk en maak alleen een nieuw informatiemodel als er geen passend bestaand bestaat.</p>
-<div class="admonition info">
-<p class="admonition-title">Wat betekent dit voor GBO-Semantiek?</p>
-<ul>
-<li>Elk modelelement (klasse, property, begrip) krijgt een stabiele HTTP-URI</li>
-<li>URI's zijn dereferenceable met content-negotiation: HTML voor mensen, Turtle en JSON-LD voor machines</li>
-<li>Hergebruik van bestaande W3C- en overheidsvocabularia is uitgangspunt</li>
-<li>Alleen nieuwe termen definiëren waar geen passende bestaan</li>
-<li>Interne termen linken expliciet naar externe termen</li>
 </ul>
 </div>
 <h2 id="fair-als-basisraamwerk">FAIR als basisraamwerk<a class="headerlink" href="#fair-als-basisraamwerk" title="Permanent link">&para;</a></h2>
@@ -1946,42 +1882,6 @@
 <p>Bestaande informatiemodellen en ontologieën worden hergebruikt boven het opnieuw ontwikkelen van dezelfde kennis. De LOT-methodologie (Linked Open Terms) formaliseert dit als kernprincipe.</p>
 <p><strong>Hergebruik van informatiemodellen</strong></p>
 <p>GBO bouwt voort op bestaande, MIM-conforme informatiemodellen in plaats van modellen from scratch te ontwikkelen:</p>
-<table>
-<thead>
-<tr>
-<th>Informatiemodel</th>
-<th>Beheerder</th>
-<th>Hergebruik in GBO</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://www.gemeentelijkgegevensmodel.nl/">GGM</a> (Gemeentelijk Gegevensmodel)</td>
-<td>VNG</td>
-<td>Directe basis voor de GBO-informatiemodellen; kern (RSGB/RGBZ) en domeinen</td>
-</tr>
-<tr>
-<td><a href="https://www.gemmaonline.nl/wiki/RSGB">RSGB</a></td>
-<td>VNG/KING</td>
-<td>Basisregistratiegegevens (personen, adressen, kadaster)</td>
-</tr>
-<tr>
-<td><a href="https://www.gemmaonline.nl/wiki/RGBZ">RGBZ</a></td>
-<td>VNG/KING</td>
-<td>Zaakgericht werken (zaken, documenten, besluiten)</td>
-</tr>
-<tr>
-<td><a href="https://www.gemmaonline.nl/wiki/StUF">SIM/StUF</a></td>
-<td>VNG</td>
-<td>Berichtenstandaard; objectdefinities als referentie</td>
-</tr>
-<tr>
-<td><a href="https://www.geonovum.nl/geo-standaarden/bgt-imgeo">IMGeo/BGT</a></td>
-<td>Geonovum</td>
-<td>Geo-objecten waar relevant voor het ruimtelijk domein</td>
-</tr>
-</tbody>
-</table>
 <p><strong>Hergebruik van vocabularia</strong></p>
 <p>Voor de ontologie-publicatie worden bestaande W3C- en overheidsvocabularia hergebruikt:</p>
 <table>
@@ -2025,8 +1925,7 @@
 <div class="admonition info">
 <p class="admonition-title">Wat betekent dit voor GBO-Semantiek?</p>
 <ul>
-<li>Hergebruik van bestaande MIM-conforme modellen (GGM, RSGB, RGBZ) gaat vóór herontwikkeling</li>
-<li>Hergebruik van gevestigde vocabularia (<code>schema:</code>, <code>org:</code>, <code>dcterms:</code>, <code>prov:</code>, <code>skos:</code>, <code>time:</code>) is uitgangspunt</li>
+<li>Hergebruik van bestaande MIM-conforme modellen gaat vóór herontwikkeling</li>
 <li>Nieuwe termen worden alleen gedefinieerd waar geen passend bestaand alternatief is</li>
 <li>Externe termen worden expliciet gekoppeld via <code>rdfs:subClassOf</code>, <code>owl:equivalentClass</code> of <code>skos:exactMatch</code></li>
 </ul>
