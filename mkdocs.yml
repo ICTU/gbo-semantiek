@@ -118,7 +118,7 @@ nav:
     - Ontwerprincipes: uitgangspunten/ontwerpprincipes.md
     - Kaders en standaarden: uitgangspunten/kaders_standaarden.md
     - Bronnenprioritering: uitgangspunten/bronnenprioritering.md
-    - Inspiratie: uitgangspunten/inspiratie.md
+    # - Inspiratie: uitgangspunten/inspiratie.md
   - Architectuur:
     - Gegevensarchitectuur: architectuur/gegevensarchitectuur.md
     - Gegevenscomponenten: architectuur/gegevenscomponenten.md

@@ -10,32 +10,7 @@ Gegevens worden uitsluitend beheerd en gemuteerd bij de (authentieke) bron. GBO-
     - Per objecttype is er één aangewezen authentieke bron (bronhouder)
     - Mutaties vinden uitsluitend plaats bij de bron; andere systemen nemen over, synchroniseren of cachen
     - Kopieën, caches en afgeleide representaties zijn toegestaan, maar nooit gezaghebbend
-    - Elke kopie verwijst naar de bron-URI via `prov:wasDerivedFrom` of `owl:sameAs`
     - Ook de semantiek zelf (begrippen, definities, ontologie) wordt bij één bron beheerd en van daaruit hergebruikt
-
-## Linked Data principes
-
-GBO-Semantiek publiceert volgens de standaarden van het Semantic Web. Het onderstaande [*layer cake*-model](https://en.wikipedia.org/wiki/Semantic_Web_Stack) toont hoe de technologieën op elkaar voortbouwen, van URI's als fundament tot applicaties aan de top. De gekleurde lagen zijn de technologieën die GBO-Semantiek inzet; de grijze lagen zijn onderliggende infrastructuur of vallen buiten scope.
-
-![Semantic Web Layer Cake](../assets/diagrams/linked-data-layer-cake.svg)
-
-De vier [Linked Data-principes](https://www.w3.org/DesignIssues/LinkedData.html) van Tim Berners-Lee zijn het fundament van de semantische publicatiestrategie:
-
-1. **Gebruik URI's als namen voor dingen**, zowel voor concepten, klassen, properties als instanties
-2. **Gebruik HTTP-URI's** zodat dingen kunnen worden opgezocht en ge-dereferenced
-3. **Lever nuttige informatie bij het opvragen van een URI**, via open standaarden (RDF, SPARQL)
-4. **Leg links naar andere URI's** zodat meer dingen ontdekt kunnen worden
-
-Voor GBO betekent dit dat elk modelelement (klasse, property, begrip) een stabiele HTTP-URI krijgt waarop content-negotiation actief is: een browser krijgt HTML-documentatie, een machine krijgt Turtle of JSON-LD.
-
-De W3C Best Practices voegen hieraan toe: gebruik bestaande standaard-informatiemodellen zoveel mogelijk en maak alleen een nieuw informatiemodel als er geen passend bestaand bestaat.
-
-!!! info "Wat betekent dit voor GBO-Semantiek?"
-    - Elk modelelement (klasse, property, begrip) krijgt een stabiele HTTP-URI
-    - URI's zijn dereferenceable met content-negotiation: HTML voor mensen, Turtle en JSON-LD voor machines
-    - Hergebruik van bestaande W3C- en overheidsvocabularia is uitgangspunt
-    - Alleen nieuwe termen definiëren waar geen passende bestaan
-    - Interne termen linken expliciet naar externe termen
 
 ## FAIR als basisraamwerk
 
@@ -161,14 +136,6 @@ Bestaande informatiemodellen en ontologieën worden hergebruikt boven het opnieu
 
 GBO bouwt voort op bestaande, MIM-conforme informatiemodellen in plaats van modellen from scratch te ontwikkelen:
 
-| Informatiemodel | Beheerder | Hergebruik in GBO |
-|---|---|---|
-| [GGM](https://www.gemeentelijkgegevensmodel.nl/) (Gemeentelijk Gegevensmodel) | VNG | Directe basis voor de GBO-informatiemodellen; kern (RSGB/RGBZ) en domeinen |
-| [RSGB](https://www.gemmaonline.nl/wiki/RSGB) | VNG/KING | Basisregistratiegegevens (personen, adressen, kadaster) |
-| [RGBZ](https://www.gemmaonline.nl/wiki/RGBZ) | VNG/KING | Zaakgericht werken (zaken, documenten, besluiten) |
-| [SIM/StUF](https://www.gemmaonline.nl/wiki/StUF) | VNG | Berichtenstandaard; objectdefinities als referentie |
-| [IMGeo/BGT](https://www.geonovum.nl/geo-standaarden/bgt-imgeo) | Geonovum | Geo-objecten waar relevant voor het ruimtelijk domein |
-
 **Hergebruik van vocabularia**
 
 Voor de ontologie-publicatie worden bestaande W3C- en overheidsvocabularia hergebruikt:
@@ -184,8 +151,7 @@ Voor de ontologie-publicatie worden bestaande W3C- en overheidsvocabularia herge
 | `time:` (OWL-Time) | Temporele aspecten van gegevens |
 
 !!! info "Wat betekent dit voor GBO-Semantiek?"
-    - Hergebruik van bestaande MIM-conforme modellen (GGM, RSGB, RGBZ) gaat vóór herontwikkeling
-    - Hergebruik van gevestigde vocabularia (`schema:`, `org:`, `dcterms:`, `prov:`, `skos:`, `time:`) is uitgangspunt
+    - Hergebruik van bestaande MIM-conforme modellen gaat vóór herontwikkeling
     - Nieuwe termen worden alleen gedefinieerd waar geen passend bestaand alternatief is
     - Externe termen worden expliciet gekoppeld via `rdfs:subClassOf`, `owl:equivalentClass` of `skos:exactMatch`
 
