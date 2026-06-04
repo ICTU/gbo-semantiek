@@ -1456,7 +1456,7 @@
 
 
 <h1 id="gbo-voorzieningenmodel">GBO-Voorzieningenmodel<a class="headerlink" href="#gbo-voorzieningenmodel" title="Permanent link">&para;</a></h1>
-<p>Het informatiemodel voor de Gemeenschappelijke Bron Ontsluiting opereert als laag 2 in de semantische architectuur: het definieert de <em>structuur</em> van gegevens en verwijst voor <em>betekenis</em> naar het begrippenkader (laag 1). Zie de <a href="../../architectuur/gegevensarchitectuur/">gegevensarchitectuur</a> voor de positie van dit model in het geheel.</p>
+<p>Het informatiemodel voor de Gemeenschappelijke Bronontsluiting opereert als laag 2 in de semantische architectuur: het definieert de <em>structuur</em> van gegevens en verwijst voor <em>betekenis</em> naar het begrippenkader (laag 1). Zie de <a href="../../architectuur/gegevensarchitectuur/">gegevensarchitectuur</a> voor de positie van dit model in het geheel.</p>
 <p>Het informatiemodel beschrijft in één samenhangend geheel welke gegevens er zijn, wie erbij betrokken is en onder welke voorwaarden gegevens mogen worden gedeeld. Per domein kunnen <strong>extensies</strong> worden gemaakt die het generieke model uitbreiden met domeinspecifieke gegevenselementen.</p>
 <div class="admonition info">
 <p class="admonition-title">Afbakening</p>
@@ -1568,10 +1568,10 @@
 <p><strong>Bron</strong> is een registratie of gegevensverzameling bij een bronhouder. Een bron bevat gegevenselementen en heeft een wettelijke grondslag. Voorbeelden: BRP, Kadaster, BRK.</p>
 <p><strong>Dienst</strong> beschrijft een afgebakend doel waarvoor gegevens mogen worden opgevraagd. Een dienst is wettelijk verankerd (AMvB of ministeriële regeling) en heeft een maximale scope.</p>
 <p><strong>Scope</strong> is een benoemde verzameling gegevenselementen. De maximale scope wordt bepaald door wetgeving; een afnemer kan een kleinere scope aanvragen (dataminimalisatie).</p>
-<p><strong>Dienstencatalogus</strong> is het register van alle beschikbare diensten met hun scopes.</p>
-<p><strong>Burger</strong> is de persoon over wie gegevens worden uitgewisseld. In de context van GBO heeft de burger altijd een BSN, maar private dienstverleners ontvangen een pseudoniem via het BSNK-koppelregister. De burger verleent expliciet toestemming via het toestemmingsportaal.</p>
-<p><strong>Bronhouder</strong> beheert een of meer bronregistraties en is verantwoordelijk voor het Policy Enforcement Point (PEP) dat elk gegevensverzoek toetst op identiteit, autorisatie en grondslag.</p>
-<p><strong>Dienstverlener</strong> is de partij die namens of ten behoeve van de burger gegevens opvraagt. De dienstverlener vraagt toestemming aan bij de burger en specificeert daarbij een scope.</p>
+<p><strong>Dienstencatalogus</strong> is het register van alle beschikbare diensten met hun scopes. Het betreft nadrukkelijk een register van <em>diensten</em>, niet van losse gegevens, en sluit aan op de catalogus- en registerfuncties van het GBO-stelsel.</p>
+<p><strong>Burger</strong> is de persoon om wiens gegevens het gaat en die deze wil gebruiken om een dienst af te nemen. In de context van GBO heeft de burger altijd een BSN, maar private dienstverleners ontvangen een pseudoniem via het BSNK-koppelregister. De burger verleent expliciet toestemming via het toestemmingsportaal.</p>
+<p><strong>Bronhouder</strong> is de eigenaar en beheerder van een of meer bronregistraties en behoudt de regie over de eigen gegevens. De bronhouder is verantwoordelijk voor het Policy Enforcement Point (PEP) dat elk gegevensverzoek toetst op identiteit, autorisatie en grondslag.</p>
+<p><strong>Dienstverlener</strong> is de (private) partij die een dienst aan de burger levert en daarvoor namens of ten behoeve van de burger gegevens opvraagt. De dienstverlener vraagt toestemming aan bij de burger en specificeert daarbij een scope.</p>
 <p><strong>Afnemer</strong> is de partij die de gegevens uiteindelijk gebruikt. Dit kan dezelfde partij zijn als de dienstverlener, of een andere partij (bijvoorbeeld de bank die een hypotheek verstrekt, met een aparte toestemming).</p>
 <p><strong>Toestemming</strong> is het expliciete akkoord van de burger dat een specifieke dienstverlener een specifieke set gegevens mag opvragen. Een toestemming is altijd gebonden aan een scope, heeft een geldigheidsduur en is niet overdraagbaar.</p>
 <p><strong>Gegevensverzoek</strong> is de technische transactie waarmee een dienstverlener of afnemer brondata opvraagt. Elk verzoek verwijst naar een toestemming (of een wettelijke grondslag) en specificeert welke gegevenselementen worden opgevraagd.</p>
