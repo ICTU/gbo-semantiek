@@ -666,8 +666,6 @@
       
         
       
-        
-      
     
     
       
@@ -734,27 +732,6 @@
   
   <span class="md-ellipsis">
     Gegevenscomponenten
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../architectuur/gegevenstoepassing/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Gegevenstoepassing
   </span>
   
 
@@ -1780,11 +1757,9 @@
 
 
 <h1 id="ontwerpprincipes">Ontwerpprincipes<a class="headerlink" href="#ontwerpprincipes" title="Permanent link">&para;</a></h1>
-<p>Ontwerpprincipes zijn de richtinggevende uitgangspunten voor alle keuzes bij het ontwerp van het semantisch raamwerk van GBO. Ze beschrijven <em>waarom</em> we iets op een bepaalde manier doen en vormen de toetssteen bij het maken van het begrippenkader, het informatiemodel, de ontologie en de JSON-LD publicatie.</p>
-<p>De principes zijn afgeleid uit de Nederlandse overheidskaders (NORA, GEMMA, MIM), het Vlaamse OSLO-initiatief, de W3C Linked Data best practices, de FAIR-principes en internationale ontologiemethodologieën (LOT, MODDALS). Ze dienen als basis voor de ontwikkeling van GBO-Semantiek en zijn bindend voor alle betrokken partijen.</p>
+<p>Ontwerpprincipes zijn de richtinggevende uitgangspunten voor alle keuzes bij het ontwerp van het semantisch raamwerk van GBO. Ze beschrijven <em>waarom</em> we iets op een bepaalde manier doen en vormen de toetssteen bij het maken van het begrippenkader en het informatiemodel.</p>
 <h2 id="data-bij-de-bron">Data bij de bron<a class="headerlink" href="#data-bij-de-bron" title="Permanent link">&para;</a></h2>
 <p>Gegevens worden uitsluitend beheerd en gemuteerd bij de (authentieke) bron. GBO-Semantiek sluit aan bij het NORA-principe <em>"eenmalige registratie, meervoudig gebruik"</em> en bij het stelsel van basisregistraties: voor elk type gegeven is één bronhouder verantwoordelijk voor de kwaliteit, actualiteit en betekenis. Kopieën in data-lakes, caches, zoekindexen of read-models zijn toegestaan maar nooit gezaghebbend; zij ontlenen hun betekenis aan de bron en worden van daaruit geactualiseerd.</p>
-<p>Voor de semantiek heeft dit een belangrijke implicatie: elke vorm van hergebruik moet herleidbaar zijn naar de bron. In GBO-Semantiek realiseren we dit door elk object een stabiele URI van de bronhouder te geven en kopieën expliciet te koppelen via <code>prov:wasDerivedFrom</code> of <code>owl:sameAs</code>. Hetzelfde geldt voor de semantische afspraken zelf: het begrippenkader, het informatiemodel en de ontologie hebben elk een eigen gezaghebbende bron.</p>
 <div class="admonition info">
 <p class="admonition-title">Wat betekent dit voor GBO-Semantiek?</p>
 <ul>

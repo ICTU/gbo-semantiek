@@ -329,42 +329,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#waarom-semantiek" class="md-nav__link">
-    <span class="md-ellipsis">
-      Waarom semantiek?
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#doel" class="md-nav__link">
-    <span class="md-ellipsis">
-      Doel
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#scope" class="md-nav__link">
-    <span class="md-ellipsis">
-      Scope
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#leeswijzer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Leeswijzer
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -527,8 +491,6 @@
       
         
       
-        
-      
     
     
       
@@ -595,27 +557,6 @@
   
   <span class="md-ellipsis">
     Gegevenscomponenten
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="architectuur/gegevenstoepassing/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Gegevenstoepassing
   </span>
   
 
@@ -1446,42 +1387,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#waarom-semantiek" class="md-nav__link">
-    <span class="md-ellipsis">
-      Waarom semantiek?
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#doel" class="md-nav__link">
-    <span class="md-ellipsis">
-      Doel
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#scope" class="md-nav__link">
-    <span class="md-ellipsis">
-      Scope
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#leeswijzer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Leeswijzer
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1511,55 +1416,7 @@
 <p>GBO-Semantiek bevindt zich in de conceptfase (v0.2). De inhoud is nog niet normatief.</p>
 </div>
 <h2 id="gemeenschappelijke-bronontsluiting">Gemeenschappelijke Bronontsluiting<a class="headerlink" href="#gemeenschappelijke-bronontsluiting" title="Permanent link">&para;</a></h2>
-<p>De Gemeenschappelijke Bronontsluiting (GBO) is een landelijke, sectoroverstijgende standaard die overheidsorganisaties en ketenpartners in staat stelt gegevens bij de bron te ontsluiten en met elkaar te delen. In plaats van gegevens te kopiëren tussen systemen, worden ze eenmalig geregistreerd en via gestandaardiseerde interfaces beschikbaar gesteld. Het concrete uitvoeringsproject, Uniforme Bronontsluiting (UBO), wordt uitgevoerd door VNG Realisatie. Inhoudelijk put GBO uit bestaande overheidsmodellen, waaronder gemeentelijke bronnen zoals het Gemeentelijk Gegevensmodel (GGM) en het Referentiemodel Stelsel van Gemeentelijke Basisgegevens (RSGB), én uit landelijke modellen en catalogi van de basisregistraties.</p>
-<h2 id="waarom-semantiek">Waarom semantiek?<a class="headerlink" href="#waarom-semantiek" title="Permanent link">&para;</a></h2>
-<p>Wanneer systemen gegevens uitwisselen, is het niet genoeg dat de data technisch correct wordt overgedragen. De <strong>betekenis</strong> van die gegevens moet voor alle partijen helder zijn. Wat is precies een "zaak"? Wat verstaan we onder een "betrokkene"? En als twee systemen allebei een veld "status" hebben — bedoelen ze dan hetzelfde?</p>
-<p>Semantiek legt die betekenis vast. Door begrippen eenduidig te definiëren en die definities uit te drukken in informatiemodellen, ontstaat een gedeelde taal. Systemen kunnen elkaars gegevens interpreteren zonder menselijke tussenkomst. Mensen begrijpen wat systemen doen, omdat de definities traceerbaar zijn naar een begrippenkader dat in gewone taal is opgesteld.</p>
-<p>Voor GBO is dit essentieel. De standaard verbindt systemen van zeer uiteenlopende overheidsorganisaties: van honderden gemeenten en uitvoeringsorganisaties tot landelijke basisregistraties en private ketenpartners. Zonder een gedeeld semantisch fundament blijft gegevensuitwisseling fragiel: afhankelijk van bilaterale afspraken, maatwerkvertalingen en handmatige controles. Met een formeel vastgelegd semantisch raamwerk wordt die uitwisseling schaalbaar, verifieerbaar en herbruikbaar.</p>
-<p>Dit document beschrijft dat raamwerk: hoe begrippen, informatiemodellen, ontologieën en JSON-LD datapublicatie samenhangen en elkaar versterken.</p>
-<h2 id="doel">Doel<a class="headerlink" href="#doel" title="Permanent link">&para;</a></h2>
-<p>GBO-Semantiek beoogt:</p>
-<ol>
-<li><strong>Interoperabiliteit</strong>: systemen van verschillende overheidsorganisaties en ketenpartners kunnen elkaars gegevens interpreteren doordat ze dezelfde begrippen en modellen gebruiken</li>
-<li><strong>Datakwaliteit</strong>: eenduidige begrippendefinities voorkomen interpretatieverschillen en fouten bij gegevensuitwisseling</li>
-<li><strong>Hergebruik</strong>: door semantische artefacten als Linked Data te publiceren (OWL, JSON-LD, SKOS) zijn ze breed herbruikbaar, binnen en buiten het publieke domein</li>
-<li><strong>Aansluiting op standaarden</strong>: alignment met MIM, NEN 3610, DCAT en andere nationale en Europese standaarden</li>
-</ol>
-<h2 id="scope">Scope<a class="headerlink" href="#scope" title="Permanent link">&para;</a></h2>
-<p>GBO-Semantiek richt zich op:</p>
-<ul>
-<li>De <strong>semantische laag</strong> van basisgegevens uit overheidsregistraties: begrippen, informatieobjecten en hun representaties</li>
-<li>De <strong>publicatie</strong> van die semantiek als machine-leesbare artefacten (ontologie, JSON-LD context, SKOS thesaurus)</li>
-<li><strong>Toepassingsprofielen</strong> per use case die het generieke model uitbreiden</li>
-</ul>
-<p>Buiten scope vallen procesmodellen, specifieke systeemimplementaties en AVG-verantwoording.</p>
-<h2 id="leeswijzer">Leeswijzer<a class="headerlink" href="#leeswijzer" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Doelgroep</th>
-<th>Aanbevolen secties</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Informatiearchitecten</td>
-<td>Uitgangspunten, Architectuur</td>
-</tr>
-<tr>
-<td>Informatiespecialisten bij overheidsorganisaties en ketenpartners</td>
-<td>Begrippenkader, Informatiemodel</td>
-</tr>
-<tr>
-<td>Softwareleveranciers en data-engineers</td>
-<td>Ontologie, JSON-LD</td>
-</tr>
-<tr>
-<td>Beleidsmedewerkers</td>
-<td>Inleiding, Begrippenkader</td>
-</tr>
-</tbody>
-</table>
+<p>De Gemeenschappelijke Bronontsluiting (GBO) is een landelijke, sectoroverstijgende standaard die overheidsorganisaties en ketenpartners in staat stelt gegevens bij de bron te ontsluiten en met elkaar te delen. </p>
 
 
 
