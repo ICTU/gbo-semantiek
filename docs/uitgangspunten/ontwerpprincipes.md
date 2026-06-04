@@ -1,14 +1,10 @@
 # Ontwerpprincipes
 
-Ontwerpprincipes zijn de richtinggevende uitgangspunten voor alle keuzes bij het ontwerp van het semantisch raamwerk van GBO. Ze beschrijven *waarom* we iets op een bepaalde manier doen en vormen de toetssteen bij het maken van het begrippenkader, het informatiemodel, de ontologie en de JSON-LD publicatie.
-
-De principes zijn afgeleid uit de Nederlandse overheidskaders (NORA, GEMMA, MIM), het Vlaamse OSLO-initiatief, de W3C Linked Data best practices, de FAIR-principes en internationale ontologiemethodologieën (LOT, MODDALS). Ze dienen als basis voor de ontwikkeling van GBO-Semantiek en zijn bindend voor alle betrokken partijen.
+Ontwerpprincipes zijn de richtinggevende uitgangspunten voor alle keuzes bij het ontwerp van het semantisch raamwerk van GBO. Ze beschrijven *waarom* we iets op een bepaalde manier doen en vormen de toetssteen bij het maken van het begrippenkader en het informatiemodel.
 
 ## Data bij de bron
 
 Gegevens worden uitsluitend beheerd en gemuteerd bij de (authentieke) bron. GBO-Semantiek sluit aan bij het NORA-principe *"eenmalige registratie, meervoudig gebruik"* en bij het stelsel van basisregistraties: voor elk type gegeven is één bronhouder verantwoordelijk voor de kwaliteit, actualiteit en betekenis. Kopieën in data-lakes, caches, zoekindexen of read-models zijn toegestaan maar nooit gezaghebbend; zij ontlenen hun betekenis aan de bron en worden van daaruit geactualiseerd.
-
-Voor de semantiek heeft dit een belangrijke implicatie: elke vorm van hergebruik moet herleidbaar zijn naar de bron. In GBO-Semantiek realiseren we dit door elk object een stabiele URI van de bronhouder te geven en kopieën expliciet te koppelen via `prov:wasDerivedFrom` of `owl:sameAs`. Hetzelfde geldt voor de semantische afspraken zelf: het begrippenkader, het informatiemodel en de ontologie hebben elk een eigen gezaghebbende bron.
 
 !!! info "Wat betekent dit voor GBO-Semantiek?"
     - Per objecttype is er één aangewezen authentieke bron (bronhouder)
