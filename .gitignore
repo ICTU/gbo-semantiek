@@ -56,6 +56,9 @@ crunch_uml.db
 *.temp
 *.bak
 *.orig
-.cache/
+.cache/*
+.cache/plantuml/*
+.cache*
 /tmp/
 .$*
+.claude/

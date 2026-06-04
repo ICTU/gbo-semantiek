@@ -15,11 +15,11 @@ site_description: >-
   Informatiemodel Semantiek voor Gemeentelijke Basisgegevens Objecten —
   open standaard voor interoperabiliteit en datakwaliteit binnen gemeenten.
 site_author: GBO-Semantiek Werkgroep
-site_url: https://brienen.github.io/gbo-semantiek/
+site_url: https://ictu.github.io/gbo-semantiek/
 
 # Repository-link in de navigatie
-repo_name: brienen/gbo-semantiek
-repo_url: https://github.com/brienen/gbo-semantiek
+repo_name: ICTU/gbo-semantiek
+repo_url: https://github.com/ICTU/gbo-semantiek
 edit_uri: edit/main/docs/
 
 # Documentatiedirectory

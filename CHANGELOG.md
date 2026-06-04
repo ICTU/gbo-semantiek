@@ -51,5 +51,5 @@ De versienummering volgt [Semantic Versioning](https://semver.org/lang/nl/).
 
 ---
 
-[Niet uitgebracht]: https://github.com/brienen/gbo-semantiek/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/brienen/gbo-semantiek/releases/tag/v0.1.0
+[Niet uitgebracht]: https://github.com/ICTU/gbo-semantiek/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/ICTU/gbo-semantiek/releases/tag/v0.1.0
