@@ -3,9 +3,9 @@
 !!! warning "Concept"
     GBO-Semantiek bevindt zich in de conceptfase (v0.2). De inhoud is nog niet normatief.
 
-## Gemeenschappelijke BronOntsluting
+## Gemeenschappelijke Bronontsluiting
 
-De Gemeenschappelijke BronOntsluting (GBO) is een landelijke, sectoroverstijgende standaard die overheidsorganisaties en ketenpartners in staat stelt gegevens bij de bron te ontsluiten en met elkaar te delen. In plaats van gegevens te kopiëren tussen systemen, worden ze eenmalig geregistreerd en via gestandaardiseerde interfaces beschikbaar gesteld. Het concrete uitvoeringsproject, Uniforme BronOntsluting (UBO), wordt uitgevoerd door VNG Realisatie. Inhoudelijk put GBO uit bestaande overheidsmodellen, waaronder gemeentelijke bronnen zoals het Gemeentelijk Gegevensmodel (GGM) en het Referentiemodel Stelsel van Gemeentelijke Basisgegevens (RSGB), én uit landelijke modellen en catalogi van de basisregistraties.
+De Gemeenschappelijke Bronontsluiting (GBO) is een landelijke, sectoroverstijgende standaard die overheidsorganisaties en ketenpartners in staat stelt gegevens bij de bron te ontsluiten en met elkaar te delen. In plaats van gegevens te kopiëren tussen systemen, worden ze eenmalig geregistreerd en via gestandaardiseerde interfaces beschikbaar gesteld. Het concrete uitvoeringsproject, Uniforme Bronontsluiting (UBO), wordt uitgevoerd door VNG Realisatie. Inhoudelijk put GBO uit bestaande overheidsmodellen, waaronder gemeentelijke bronnen zoals het Gemeentelijk Gegevensmodel (GGM) en het Referentiemodel Stelsel van Gemeentelijke Basisgegevens (RSGB), én uit landelijke modellen en catalogi van de basisregistraties.
 
 ## Waarom semantiek?
 

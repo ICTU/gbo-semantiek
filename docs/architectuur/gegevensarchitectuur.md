@@ -28,7 +28,7 @@ Een **derde sectormodel** is gereserveerd voor een volgend domein. De architectu
 
 ## GBO-Voorzieningenmodel (onderlaag)
 
-De onderlaag beschrijft het [GBO-Voorzieningenmodel](../informatiemodel/gbo-voorzieningen.md) voor de Gemeenschappelijke Bron Ontsluiting. Dit model definieert in één samenhangend geheel hoe gegevens uit de GBO-Kern-laag gestructureerd, ontsloten en uitgewisseld worden: welke gegevens er zijn, wie erbij betrokken is en onder welke voorwaarden gegevens mogen worden gedeeld.
+De onderlaag beschrijft het [GBO-Voorzieningenmodel](../informatiemodel/gbo-voorzieningen.md) voor de Gemeenschappelijke Bronontsluiting. Dit model definieert in één samenhangend geheel hoe gegevens uit de GBO-Kern-laag gestructureerd, ontsloten en uitgewisseld worden: welke gegevens er zijn, wie erbij betrokken is en onder welke voorwaarden gegevens mogen worden gedeeld.
 
 Het model bevat objecttypen voor de structuur van gegevensdeling (zoals Gegevenselement, Bron, Dienst en Scope), voor de betrokken rollen (zoals Burger, Bronhouder en Dienstverlener) en voor het transactieproces (zoals Toestemming, Gegevensverzoek en Grondslag). De volledige uitwerking van deze objecttypen staat in het [GBO-Voorzieningenmodel](../informatiemodel/gbo-voorzieningen.md).
 

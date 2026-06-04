@@ -18,10 +18,10 @@ Het begrippenkader bevat 12 begrippen, elk als `skos:Concept` met een Nederlands
 | **Bron** | Een registratie of gegevensverzameling bij een bronhouder, met een wettelijke grondslag. |
 | **Dienst** | Een afgebakend doel waarvoor gegevens mogen worden opgevraagd, wettelijk verankerd met een maximale scope. |
 | **Scope** | Een benoemde verzameling gegevenselementen. De maximale scope wordt bepaald door wetgeving. |
-| **Dienstencatalogus** | Het register van alle beschikbare diensten met hun scopes. |
-| **Burger** | De persoon over wie gegevens worden uitgewisseld; heeft altijd een BSN of pseudoniem. |
-| **Bronhouder** | De partij die bronregistraties beheert en elk gegevensverzoek toetst via een Policy Enforcement Point. |
-| **Dienstverlener** | De partij die namens de burger gegevens opvraagt en daarbij toestemming aanvraagt. |
+| **Dienstencatalogus** | Het register van alle beschikbare *diensten* (niet van losse gegevens) met hun scopes; sluit aan op de catalogus- en registerfuncties van het GBO-stelsel. |
+| **Burger** | De persoon om wiens gegevens het gaat en die deze wil gebruiken om een dienst af te nemen; heeft altijd een BSN of pseudoniem. |
+| **Bronhouder** | De eigenaar en beheerder van bronregistraties, die de regie houdt en elk gegevensverzoek toetst via een Policy Enforcement Point. |
+| **Dienstverlener** | De (private) partij die een dienst aan de burger levert en daarvoor namens de burger gegevens opvraagt en toestemming aanvraagt. |
 | **Afnemer** | De partij die de gegevens uiteindelijk gebruikt. |
 | **Toestemming** | Het expliciete akkoord van de burger voor opvragen van een specifieke set gegevens, gebonden aan een scope en geldigheidsduur. |
 | **Gegevensverzoek** | De technische transactie waarmee brondata wordt opgevraagd, op basis van toestemming of wettelijke grondslag. |

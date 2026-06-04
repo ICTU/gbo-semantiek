@@ -41,9 +41,9 @@ GBO-Semantiek gebruikt het GGM, samen met het RSGB en de modellen van de landeli
 !!! tip "Les voor GBO"
     GGM en RSGB leveren het bewijs dat een breed, MIM-conform informatiemodel voor gemeenten haalbaar en onderhoudbaar is. GBO bouwt hierop voort, verbreedt de scope tot een landelijke, sectoroverstijgende standaard en voegt de semantische laag toe: van gegevensmodel naar betekenismodel.
 
-## UBO — Uniforme BronOntsluting
+## UBO — Uniforme Bronontsluiting
 
-De architectuur voor Uniforme BronOntsluting (UBO) — het concrete uitvoeringsproject van GBO — hanteert een documentstructuur met per architectuuronderdeel: kaders, ontwerpbeslissingen, processtappen en componenten. De datamodellen in UBO zijn gebaseerd op het GGM.
+De architectuur voor Uniforme Bronontsluiting (UBO) — het concrete uitvoeringsproject van GBO — hanteert een documentstructuur met per architectuuronderdeel: kaders, ontwerpbeslissingen, processtappen en componenten. De datamodellen in UBO zijn gebaseerd op het GGM.
 
 !!! tip "Les voor GBO"
     Het UBO-architectuurdocument biedt een goede basisstructuur per architectuuronderdeel, die GBO uitbreidt met een volledig semantisch raamwerk.

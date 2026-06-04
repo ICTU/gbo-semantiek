@@ -6,7 +6,7 @@ Dit bestand helpt Claude (en andere AI-assistenten) om efficiënt en consistent 
 
 ## 1. Over dit project
 
-**Naam:** GBO-Semantiek, het semantisch raamwerk van de Gemeenschappelijke BronOntsluting (GBO).
+**Naam:** GBO-Semantiek, het semantisch raamwerk van de Gemeenschappelijke Bronontsluiting (GBO).
 **Status:** Concept, versie v0.1.
 **Doel:** Een landelijke, sectoroverstijgende open standaard voor de semantische beschrijving van basisgegevens uit overheidsregistraties, met een gedeeld begrippenkader en informatiemodel voor interoperabiliteit en datakwaliteit tussen overheidsorganisaties, gemeenten en ketenpartners.
 **Inhoudelijke bronnen:** GBO put uit meerdere bronmodellen. Een belangrijk deel komt uit gemeentelijke referentiemodellen, met name het Gemeentelijk Gegevensmodel (GGM, oorspronkelijk gemeente 's-Hertogenbosch) en het Referentiemodel Stelsel van Gemeentelijke Basisgegevens (RSGB). Daarnaast worden de officiële catalogi en modellen van de landelijke basisregistraties (BRP, BAG, BRK, BGT, HR, WOZ) gevolgd.
@@ -161,7 +161,7 @@ Volg [Conventional Commits](https://www.conventionalcommits.org/nl/v1.0.0/) in h
 
 | Term | Betekenis |
 |------|-----------|
-| **GBO** | Gemeentelijk Basisgegeven Objecten |
+| **GBO** | Gemeenschappelijke Bronontsluiting |
 | **GGM** | Gemeentelijk Gegevensmodel — referentiemodel waarop GBO gebaseerd is |
 | **Informatiemodel** | Conceptueel model van begrippen, objecten en relaties |
 | **Begrippenkader** | Set van gedefinieerde begrippen met onderlinge relaties (vaak SKOS) |

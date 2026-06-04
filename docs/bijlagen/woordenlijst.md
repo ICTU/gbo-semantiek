@@ -10,13 +10,17 @@
 | **Common Ground** | VNG-visie op de informatievoorziening van gemeenten, gebaseerd op het principe "data bij de bron" |
 | **Consultatieronde** | Een formele periode waarin stakeholders feedback kunnen geven op (een onderdeel van) de standaard |
 | **Content negotiation** | HTTP-mechanisme waarmee client en server onderhandelen over het formaat van een response (bijv. HTML, Turtle, JSON-LD) |
+| **Credential** | Een cryptografisch ondertekende, verifieerbare verklaring over een subject (Verifiable Credential), uitwisselbaar via o.a. de EUDI-wallet |
+| **Dataminimalisatie** | Het principe dat niet meer gegevens worden gedeeld dan strikt noodzakelijk voor het doel; in GBO geborgd via het scope-mechanisme |
 | **DCAT-AP-NL** | Nederlandse toepassing van de DCAT-standaard voor datacatalogi |
 | **De-referenceable** | Een URI die bij opvragen daadwerkelijk nuttige informatie teruggeeft (HTML, RDF, JSON-LD) |
 | **Enumeratie** | Een gesloten waardelijst met voorgedefinieerde waarden |
+| **EUDI-wallet** | European Digital Identity Wallet — door de EU voorziene digitale portemonnee waarmee een burger gewaarmerkte gegevens (credentials) beheert en deelt |
 | **FAIR** | Principes voor data: Findable, Accessible, Interoperable, Reusable |
 | **FDS** | Federatief Datastelsel — programma voor het verbinden van overheidsdata |
-| **GBO** | Gemeenschappelijke BronOntsluting — het overkoepelende programma |
+| **GBO** | Gemeenschappelijke Bronontsluiting — het overkoepelende programma |
 | **GGM** | Gemeentelijk Gegevensmodel: open informatiemodel voor gemeenten, een van de inhoudelijke bronnen voor de GBO-datamodellen |
+| **Grondslag** | De juridische basis voor gegevensuitwisseling (toestemming of wettelijke verplichting); kernbegrip in het [GBO-Begrippenkader](../begrippen/gbo-begrippenkader.md) |
 | **Informatieobject** | Een logische eenheid van informatie die een samenhangend geheel vormt |
 | **JSON-LD** | JSON for Linking Data — W3C-standaard voor het koppelen van JSON-data aan een ontologie |
 | **Linked Data** | Methode voor het publiceren van gestructureerde data op het web, verbonden via URI's |
@@ -26,17 +30,23 @@
 | **Informatief** | Onderdeel ter toelichting, niet bindend |
 | **Objecttype** | Een kernentiteit in het informatiemodel (MIM-term) |
 | **Ontologie** | Een formele beschrijving van klassen, eigenschappen en relaties in OWL/RDF |
+| **OOTS** | Once Only Technical System — Europees systeem voor eenmalige, grensoverschrijdende uitwisseling van bewijsstukken onder de Single Digital Gateway |
 | **OSLO** | Open Standaarden voor Linkende Organisaties — Vlaams initiatief voor semantische interoperabiliteit. Referentiemodel voor het vocabularium/applicatieprofiel-patroon. |
 | **OWL** | Web Ontology Language — W3C-standaard voor ontologieën |
+| **PSA** | Project Start Architectuur — het architectuurkader dat de Gemeenschappelijke Bronontsluiting als stelsel beschrijft (zie [Kaders en standaarden](../uitgangspunten/kaders_standaarden.md)) |
+| **Pseudoniem** | Een betekenisloze identificator die in plaats van het BSN wordt gebruikt, zodat een persoon herkenbaar is zonder diens BSN te verwerken |
 | **QEA** | Enterprise Architect repository-bestand |
 | **RDF** | Resource Description Framework — W3C-standaard voor het beschrijven van gegevens |
 | **Relatiesoort** | Een semantische verbinding tussen twee informatieobjecten (MIM-term) |
 | **RSGB** | Referentiemodel Stelsel van Gemeentelijke Basisgegevens: historische gemeentelijke baseline (onder GEMMA), een van de inhoudelijke bronnen voor de GBO-informatiemodellen |
+| **SDG** | Single Digital Gateway — Europese verordening voor digitale toegang tot overheidsdiensten, met OOTS als technische uitwerking |
 | **SHACL** | Shapes Constraint Language — W3C-standaard voor het valideren van RDF-data |
 | **SKOS** | Simple Knowledge Organization System — W3C-standaard voor begrippenkaders en thesauri |
+| **Stelsel** | Een samenhangend geheel van afspraken, standaarden, functies en voorzieningen; GBO is het stelsel waarvoor GBO-Semantiek de semantische laag levert |
+| **Toestemming** | Het expliciete akkoord van de burger voor het opvragen van een specifieke set gegevens, gebonden aan een scope en geldigheidsduur; kernbegrip in het [GBO-Begrippenkader](../begrippen/gbo-begrippenkader.md) |
 | **TOOI** | Thesauri en Ontologieën voor OverheidsInformatie — modulair publicatieraamwerk van de Rijksoverheid |
 | **Turtle** | Terse RDF Triple Language — mens-leesbaar serialisatieformaat voor RDF |
-| **UBO** | Uniforme BronOntsluting — het concrete uitvoeringsproject van GBO (VNG Realisatie) |
+| **UBO** | Uniforme Bronontsluiting — het concrete uitvoeringsproject van GBO (VNG Realisatie) |
 | **URI** | Uniform Resource Identifier — unieke identificatie van een resource op het web |
 | **Vocabularium** | Generieke, herbruikbare verzameling van klassen en properties (OSLO-term). In GBO: het generieke informatiemodel. |
 | **Waardelijst** | Een gedefinieerde verzameling van toegestane waarden voor een attribuut, gepubliceerd als SKOS ConceptScheme |

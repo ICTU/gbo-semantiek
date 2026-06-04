@@ -11,6 +11,13 @@ GBO-Semantiek opereert binnen een landschap van architectuurkaders en technische
 **Toepassing in GBO-Semantiek:**
 GBO volgt de NORA-principes die direct raken aan gegevensuitwisseling: *eenmalige registratie, meervoudig gebruik*, *open standaarden*, en *transparantie*. Het semantisch raamwerk is een concrete invulling van het NORA-principe dat gegevens een eenduidige betekenis moeten hebben die door alle partijen wordt begrepen.
 
+### GBO PSA — Project Start Architectuur
+
+De [GBO Project Start Architectuur (PSA)](https://ictu.github.io/GBO/latest/) beschrijft de architectuur van de Gemeenschappelijke Bronontsluiting als **stelsel**: een samenhangend geheel van architectuurprincipes, stelselfuncties, interactiepatronen en voorzieningen voor het ontsluiten van gegevens bij de bron.
+
+**Toepassing in GBO-Semantiek:**
+GBO-Semantiek levert de **semantische laag** bij dit stelsel. Waar de PSA de stelselfuncties en architectuurprincipes vaststelt, geven het begrippenkader en de informatiemodellen van GBO-Semantiek de uitgewisselde gegevens een eenduidige, beheerde betekenis. De terminologie in deze documentatie volgt die van de PSA.
+
 ## Standaarden
 
 ### MIM — Metamodel Informatiemodellering
