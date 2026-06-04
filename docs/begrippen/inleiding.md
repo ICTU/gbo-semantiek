@@ -6,7 +6,7 @@ Waar een informatiemodel beschrijft *hoe* gegevens worden gestructureerd, beschr
 
 ## Waarom een begrippenmodel?
 
-Gemeenten wisselen gegevens uit met tientallen ketenpartners. Zonder gedeelde begrippen ontstaat verwarring: dezelfde term kan in verschillende contexten iets anders betekenen, of verschillende termen verwijzen naar hetzelfde concept. Een begrippenmodel voorkomt dit door voor elk domeinbegrip één gezaghebbende definitie vast te leggen. Dat levert eenduidigheid, traceerbaarheid naar bronnen, interoperabiliteit met externe begrippenkaders en machine-leesbaarheid op.
+Overheidsorganisaties wisselen gegevens uit met tientallen ketenpartners. Zonder gedeelde begrippen ontstaat verwarring: dezelfde term kan in verschillende contexten iets anders betekenen, of verschillende termen verwijzen naar hetzelfde concept. Een begrippenmodel voorkomt dit door voor elk domeinbegrip één gezaghebbende definitie vast te leggen. Dat levert eenduidigheid, traceerbaarheid naar bronnen, interoperabiliteit met externe begrippenkaders en machine-leesbaarheid op.
 
 ## NL-SBB als basis
 

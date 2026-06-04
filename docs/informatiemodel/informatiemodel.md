@@ -2,7 +2,7 @@
 
 ## Generiek informatiemodel (GBO-Kern)
 
-Het generieke informatiemodel beschrijft de **kern** van GBO-Semantiek: de informatieobjecten die gemeenschappelijk zijn voor de overheidsbrede processen en registraties die GBO ontsluit, zowel gemeentelijke als landelijke. Het is vergelijkbaar met de OSLO-kernvocabularia of de ISA Core Vocabularies op Europees niveau.
+Het generieke informatiemodel beschrijft de **kern** van GBO-Semantiek: de informatieobjecten die gemeenschappelijk zijn voor de overheidsbrede processen en registraties die GBO ontsluit, ongeacht bestuurslaag of sector. Het is vergelijkbaar met de OSLO-kernvocabularia of de ISA Core Vocabularies op Europees niveau.
 
 ### Kenmerken
 
@@ -10,13 +10,13 @@ Het generieke informatiemodel beschrijft de **kern** van GBO-Semantiek: de infor
 - **Tooling:** Enterprise Architect, crunch_uml
 - **Formaat:** QEA (Enterprise Architect repository)
 - **Locatie:** `v{versie}/informatiemodel/`
-- **Inhoudelijke bronnen:** gemeentelijke referentiemodellen (Gemeentelijk Gegevensmodel/GGM en RSGB) aangevuld met landelijke modellen en catalogi van de basisregistraties
+- **Inhoudelijke bronnen:** overheidsreferentiemodellen — waaronder de gemeentelijke modellen GGM (Gemeentelijk Gegevensmodel) en RSGB — aangevuld met de landelijke modellen en catalogi van de basisregistraties
 
 ### Modelonderdelen
 
 Het generieke model bevat:
 
-- **Objecttypen** — de kern-entiteiten (bijv. Zaak, Persoon, Adres, Organisatie)
+- **Objecttypen** — de kern-entiteiten (bijv. Persoon, Adres, Organisatie, Onroerende zaak)
 - **Attribuutsoorten** — eigenschappen van objecttypen
 - **Relatiesoorten** — verbanden tussen objecttypen
 - **Waardelijsten** — toegestane waarden voor attributen (gepubliceerd als SKOS)

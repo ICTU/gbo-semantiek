@@ -56,47 +56,6 @@ GBO past dit patroon toe:
 - Het **generieke informatiemodel** (GBO-kern) bevat klassen en attributen die over alle use cases heen geldig zijn
 - **Applicatieprofielen** per use case verfijnen het generieke model met specifieke beperkingen
 
-### Stacked Dependency Approach (GGM)
-
-Het [Gemeentelijk Gegevensmodel (GGM)](https://www.gemeentelijkgegevensmodel.nl/) past dit modulariteitsprincipe toe als de **Stacked Dependency Approach**: een gelaagde opbouw waarbij verschillende objecttypen over beleidsdomeinen heen zoveel mogelijk zijn ontkoppeld. GBO neemt dit patroon over.
-
-![Stacked Dependency Approach](../assets/diagrams/stacked-dependency.svg)
-
-Het informatiemodel kent drie lagen:
-
-1. **Kern** (RSGB en RGBZ), de gegevensdefinities voor basisregistraties en zaakgericht werken, gedeeld door alle domeinen
-2. **Horizontale domeinen** (Dienstverlening, Financiën, ICT), gedeelde definities die door meerdere verticale domeinen worden gebruikt
-3. **Verticale domeinen** (Sociaal Domein, Ruimtelijk Domein, etc.), use-case-specifieke definities per beleidsdomein
-
-De centrale regel is: **afhankelijkheden lopen alleen van boven naar beneden**. Gegevensdefinities in een (sub)domein gebruiken alleen definities uit onderliggende (sub)domeinen, nooit andersom. Alle verticale domeinen kunnen putten uit de kern en de horizontale domeinen, maar de kern is onafhankelijk van de bovenliggende lagen.
-
-Dit principe garandeert dat wijzigingen in een specifiek domein geen onverwachte impact hebben op andere domeinen, en dat de kern stabiel blijft als fundament voor het geheel.
-
-### Gelaagd ontologie-netwerk
-
-De MODDALS-methodologie formaliseert dit als een gelaagd ontologie-netwerk: gemeenschappelijke domeinkennis (hergebruikt door de meeste toepassingen) bevindt zich in hogere lagen, variant domeinkennis (hergebruikt door specifieke toepassingen) in lagere lagen. De GGM Stacked Dependency Approach is een concrete toepassing van dit patroon.
-
-### Modulair publiceren
-
-Naar het voorbeeld van TOOI publiceert GBO elk artefact als apart, versioned document met een stabiele URI:
-
-| Artefact | Beschrijving | Technologie |
-|----------|-------------|-------------|
-| Begrippenkader | Gestructureerde begrippenverzameling | SKOS |
-| Informatiemodel | Klassen, attributen, relaties | MIM/UML |
-| Ontologie | Formele beschrijving voor machines | OWL/RDF |
-| Waardelijsten | Selecties uit begrippenkader | SKOS subset |
-| JSON-LD context | Mapping naar ontologie-URI's | JSON-LD |
-
-Dit maakt onafhankelijk beheer en hergebruik per artefact mogelijk.
-
-!!! info "Wat betekent dit voor GBO-Semantiek?"
-    - Generiek informatiemodel (GBO-kern) staat los van use-case-specifieke applicatieprofielen
-    - Applicatieprofielen kunnen binnen hun eigen domein nieuwe klassen en eigenschappen toevoegen, en leggen verbanden met onderliggende modellen via overerving of andere relaties
-    - Gelaagde opbouw: kern → horizontale domeinen → verticale domeinen
-    - Afhankelijkheden lopen alleen naar beneden; de kern is altijd onafhankelijk
-    - Elk artefact (begrippenkader, informatiemodel, ontologie, waardelijsten, context) wordt apart en versioned gepubliceerd
-
 ## Principes voor het begrippenkader
 
 Het begrippenkader als SKOS-thesaurus volgt specifieke principes:
@@ -136,24 +95,9 @@ Bestaande informatiemodellen en ontologieën worden hergebruikt boven het opnieu
 
 GBO bouwt voort op bestaande, MIM-conforme informatiemodellen in plaats van modellen from scratch te ontwikkelen:
 
-**Hergebruik van vocabularia**
-
-Voor de ontologie-publicatie worden bestaande W3C- en overheidsvocabularia hergebruikt:
-
-| Vocabularium | Inzetbaar voor |
-|---|---|
-| `schema:` (Schema.org) | Personen, organisaties, adressen, events |
-| `org:` (W3C Organization Ontology) | Overheidsorganisaties, afdelingen, rollen |
-| `dcat:` (Data Catalog Vocabulary) | Datasets, distributies, catalogi |
-| `dcterms:` (Dublin Core Terms) | Metadata (titel, datum, herkomst, licentie) |
-| `prov:` (PROV-O) | Herkomst en bewerkingen van gegevens |
-| `skos:` | Begrippenkaders, codelijsten, thesauri |
-| `time:` (OWL-Time) | Temporele aspecten van gegevens |
-
 !!! info "Wat betekent dit voor GBO-Semantiek?"
     - Hergebruik van bestaande MIM-conforme modellen gaat vóór herontwikkeling
     - Nieuwe termen worden alleen gedefinieerd waar geen passend bestaand alternatief is
-    - Externe termen worden expliciet gekoppeld via `rdfs:subClassOf`, `owl:equivalentClass` of `skos:exactMatch`
 
 ### Versioning en evolutie
 
@@ -185,65 +129,3 @@ Verouderde klassen en properties worden gemarkeerd met `owl:deprecated` in plaat
     - De ontologie legt versie-informatie vast via `owl:versionInfo`, `dct:issued` en `dct:modified`
     - Verouderde elementen worden gemarkeerd met `owl:deprecated` en nooit verwijderd
     - Definities zijn in het Nederlands en gekoppeld aan het begrippenkader; conventies staan in [Naamgeving](../implementatie/naamgeving.md)
-
-## Principes voor semantische publicatie en koppeling
-
-### Content-negotiation
-
-Publiceer elk semantisch artefact via een URI met content-negotiation: HTML voor mensen, Turtle voor machines, JSON-LD als alternatief. Dit implementeert tegelijk de Linked Data-principes en FAIR-principe A1 (opvraagbaarheid via standaard protocol).
-
-!!! info "Wat betekent dit voor GBO-Semantiek?"
-    - Elk artefact is opvraagbaar via één URI met content-negotiation
-    - Een browser ontvangt HTML-documentatie, een machine Turtle of JSON-LD
-    - Het aanbieden van ten minste HTML en Turtle is een publicatievereiste
-
-### Koppeling tussen artefacten
-
-Leg koppelingen tussen artefacten altijd expliciet vast met de juiste eigenschappen:
-
-| Property | Gebruik |
-|----------|---------|
-| `skos:exactMatch` | Begrip en ontologieklasse beschrijven exact hetzelfde concept |
-| `rdfs:isDefinedBy` | Een term is gedefinieerd in een ander begrippenkader of ontologie |
-| `owl:equivalentClass` / `owl:equivalentProperty` | Twee termen in verschillende ontologieën zijn equivalent |
-| `skos:broadMatch` / `skos:closeMatch` | Bredere of nabije overeenkomsten met externe thesauri |
-
-NORA-principe 3.4 stelt dat *"modelelementen in informatie- en gegevensmodellen expliciet verwijzen naar de gedefinieerde begrippen die ze representeren"*. Dit impliceert dat elke `owl:Class` in de GBO-informatiemodellen een `skos:exactMatch`-koppeling heeft naar het corresponderende begrip in het SKOS-begrippenkader.
-
-!!! info "Wat betekent dit voor GBO-Semantiek?"
-    - Koppelingen tussen artefacten zijn expliciet en machine-leesbaar
-    - Elke `owl:Class` verwijst via `skos:exactMatch` naar het bijbehorende begrip (NORA 3.4)
-    - Voor externe termen worden `rdfs:isDefinedBy`, `owl:equivalentClass` of `skos:broadMatch`/`closeMatch` gebruikt naargelang de aard van de overeenkomst
-
-### JSON-LD context-ontwerp
-
-Principes voor het ontwerp van JSON-LD context-bestanden:
-
-- Publiceer een context per informatiemodel of use case op een stabiele URI
-- Gebruik compacte, begrijpelijke sleutelnamen die overeenkomen met de property-namen in het domein
-- Voorkom naamconflicten door een consistent prefix-schema
-- Zorg dat context-bestanden afzonderlijk en gecombineerd (`"@context": [...]`) bruikbaar zijn
-- Leg de koppeling tussen JSON-sleutel en ontologie-term expliciet vast in documentatie
-
-!!! info "Wat betekent dit voor GBO-Semantiek?"
-    - Een JSON-LD context per informatiemodel of use case, op een stabiele URI
-    - Sleutelnamen zijn compact, begrijpelijk en consistent met de domein-properties
-    - Prefixen zijn eenduidig en voorkomen naamconflicten
-    - Contexten zijn afzonderlijk én gecombineerd bruikbaar (`"@context": [...]`)
-
-### Betekenis zit in de data, niet in de applicatie
-
-Een fundamenteel principe is dat de **betekenis van data niet in de applicatie thuishoort, maar in de data zelf wordt meegegeven**. JSON-LD realiseert dit door bij elke datapayload via `@context` een verwijzing op te nemen naar de gepubliceerde ontologie, waardoor de semantische interpretatie van elk veld machine-leesbaar en ontvanger-onafhankelijk is.
-
-Dit principe heeft concrete consequenties voor GBO:
-
-- Elke JSON-LD payload is **zelfbeschrijvend**: een ontvanger zonder voorkennis van de GBO-API kan de betekenis van elk veld afleiden door de `@context`-URI te de-referencen
-- De koppeling tussen data en semantiek is **duurzaam**: ook jaren na publicatie blijft de betekenis van historische payloads reconstrueerbaar, zolang de ontologie-URI persistent is
-- Semantisch equivalente data uit **verschillende bronnen** (bijv. twee gemeenten die dezelfde ontologie gebruiken) is automatisch combineerbaar zonder aparte mapping
-- **Validatie op semantisch niveau** (via SHACL) wordt mogelijk zodra data naar de ontologie verwijst
-
-!!! info "Wat betekent dit voor GBO-Semantiek?"
-    - Elke JSON-LD payload is zelfbeschrijvend via `@context`
-    - De semantische interpretatie is ontvanger-onafhankelijk en duurzaam zolang de ontologie-URI persistent is
-    - Data uit verschillende bronnen met dezelfde ontologie is automatisch combineerbaar zonder aparte mapping
-    - SHACL-validatie op semantisch niveau is mogelijk zodra data naar de ontologie verwijst
