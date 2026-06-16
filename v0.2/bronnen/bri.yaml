@@ -1,0 +1,74 @@
+# =============================================================================
+# Bron-profiel BRI — welke onderdelen van het GBO-informatiemodel de
+# Basisregistratie Inkomen via GBO beschikbaar stelt.
+#
+# Dit bestand is LinkML-data conform het schema
+# ../informatiemodel/linkml/bronprofiel.yaml (klasse Bronprofiel).
+# Valideren:
+#   linkml-validate -s ../informatiemodel/linkml/bronprofiel.yaml \
+#       -C Bronprofiel bri.yaml
+# Materialiseren:
+#   python3 tools/genereer_bronschema.py v0.2/bronnen/bri.yaml
+#
+# Naast het authentieke gegeven (AuthentiekInkomen) ontsluit dit
+# profiel de volledige inkomensketen met alle inkomensbestanddelen
+# (Inkomstenverhouding, Inkomstenopgave, Inkomstenperiode,
+# LoonBestanddeel, LoonAangifte) — ook al is bekend dat die
+# bestanddelen later uit andere bronnen (loonketen UWV /
+# Belastingdienst) moeten komen; de profielen worden dan herverdeeld.
+# =============================================================================
+bron: BRI
+titel: Basisregistratie Inkomen
+beschrijving: >-
+  Het authentiek inkomensgegeven (verzamelinkomen of belastbaar
+  jaarloon per persoon per belastingjaar) plus de onderliggende
+  inkomensbestanddelen uit de loonketen: inkomstenverhoudingen,
+  inkomstenopgaven, inkomstenperioden, loonbestanddelen en
+  loonaangiften.
+schemabestand: ../informatiemodel/linkml/gbo.yaml
+
+# Query-ingangen: hiervoor genereert de pipeline GraphQL Query-velden.
+ingangen:
+  - AuthentiekInkomen
+  - IngeschrevenPersoon
+
+# Objecttypen die deze bron beschikbaar stelt (expliciete lijst).
+# NatuurlijkPersoon staat expliciet vermeld (hoewel het als supertype
+# automatisch zou meegaan) zodat de uitsluiting van heeftOuder kan
+# worden uitgedrukt.
+objecttypen:
+  - AuthentiekInkomen
+  - Inkomstenverhouding
+  - Inkomstenopgave
+  - Inkomstenperiode
+  - LoonBestanddeel
+  - LoonAangifte
+  - NatuurlijkPersoon
+  - IngeschrevenPersoon
+
+# Attributen die deze bron niet levert.
+uitsluitingen:
+  - objecttype: NatuurlijkPersoon
+    attributen:
+      - heeftOuder    # ouder-relaties zijn BRP-terrein, geen BRI
+
+# Afwijkende afhandeling van relaties buiten het profiel; zonder
+# vermelding geldt de default "sleutel". Hier:
+#   Inkomstenverhouding.tussenWerkgever -> sleutel
+#       (MaatschappelijkeActiviteit.identificatie)
+#   LoonAangifte.ingediendDoor          -> sleutel (idem)
+#   Partij.ingeschrevenAls              -> sleutel (Inschrijving.kvkNummer)
+# De persoonslijst-categorieën zijn BRP-terrein en vervallen geheel:
+relatieAfhandeling:
+  - objecttype: IngeschrevenPersoon
+    relatie: heeftNationaliteit
+    afhandeling: weglaten
+  - objecttype: IngeschrevenPersoon
+    relatie: heeftVerblijfstitel
+    afhandeling: weglaten
+  - objecttype: IngeschrevenPersoon
+    relatie: gezag
+    afhandeling: weglaten
+  - objecttype: IngeschrevenPersoon
+    relatie: heeftImmigratie
+    afhandeling: weglaten

@@ -42,6 +42,16 @@ vars:
   DEFS: "./docs/definities"
   ROOT_GBO: "{{.ROOT_NODE_GBO}}"
   CHANGES_MD: "{{.VERSION_DIR}}/{{.CHANGES_MD_FILE}}"
+  # LinkML-pipeline (informatiemodel, bron-profielen, GraphQL, LOD)
+  LINKML_DIR: "{{.VERSION_DIR}}/{{.INFORMATIEMODEL}}/linkml"
+  GBO_LINKML: "{{.LINKML_DIR}}/gbo.yaml"
+  BRONPROFIEL_SCHEMA: "{{.LINKML_DIR}}/bronprofiel.yaml"
+  BRONNEN_DIR: "{{.VERSION_DIR}}/bronnen"
+  GRAPHQL_DIR: "{{.VERSION_DIR}}/graphql"
+  SHACL: "{{.VERSION_DIR}}/{{.ONTOLOGIE}}/GBO-Shapes.ttl"
+  # Python met PyYAML: systeempython, anders de linkml-omgeving
+  PYYAML_PYTHON: |-
+    PY=python3; if ! $PY -c 'import yaml' 2>/dev/null; then PY=$(sed -n '1s/^#!//p' "$(command -v gen-owl)"); fi
 
 tasks:
   # ==========================================================================
@@ -58,6 +68,11 @@ tasks:
           ["mike"]="https://github.com/jimporter/mike"
           ["jq"]="https://stedolan.github.io/jq"
           ["python3"]="https://www.python.org/downloads/"
+          ["linkml"]="https://linkml.io/linkml/ (pipx install linkml)"
+          ["gen-owl"]="https://linkml.io/linkml/ (onderdeel van linkml)"
+          ["gen-shacl"]="https://linkml.io/linkml/ (onderdeel van linkml)"
+          ["gen-yaml"]="https://linkml.io/linkml/ (onderdeel van linkml)"
+          ["linkml-validate"]="https://linkml.io/linkml/ (onderdeel van linkml)"
         )
 
         # Controleer of tools geïnstalleerd zijn
@@ -184,12 +199,58 @@ tasks:
         done
 
 
-  generate:lod:
-    desc: "Generate the Linked Data (TTL) specification from the model. Generating '{{.LOD}}'"
-    deps: [import:model]
+  generate:check-model:
+    desc: "Valideer het LinkML-informatiemodel (merge-check en lint)."
+    deps: [prepare:check-vars]
     cmds:
-      - echo "Generating Linked Data specification..."
-      - crunch_uml -sch "{{.GBO_ROOT_SCHEMA}}" export -t ttl -f "{{.LOD}}" --linked_data_namespace {{.LINKED_DATA_NS}}
+      - echo "Validating LinkML-model {{.GBO_LINKML}} ..."
+      - gen-yaml "{{.GBO_LINKML}}" > /dev/null
+      - linkml lint --config .linkmllint.yaml "{{.GBO_LINKML}}"
+      - echo "LinkML-model is valide."
+
+
+  generate:graphql:
+    desc: "Genereer per bron-profiel een GraphQL SDL in {{.GRAPHQL_DIR}}."
+    deps: [generate:check-model]
+    sources:
+      - "{{.BRONNEN_DIR}}/*.yaml"
+      - "{{.LINKML_DIR}}/*.yaml"
+      - ./tools/genereer_bronschema.py
+      - ./tools/genereer_graphql.py
+    generates:
+      - "{{.GRAPHQL_DIR}}/*.graphql"
+    cmds:
+      - |
+        {{.PYYAML_PYTHON}}
+        mkdir -p "{{.GRAPHQL_DIR}}"
+        for profiel in "{{.BRONNEN_DIR}}"/*.yaml; do
+          bron=$(basename "$profiel" .yaml)
+          echo "== Bron: $bron =="
+          linkml-validate -s "{{.BRONPROFIEL_SCHEMA}}" -C Bronprofiel "$profiel"
+          "$PY" tools/genereer_bronschema.py "$profiel" -o "/tmp/gbo-bron-$bron.yaml"
+          "$PY" tools/genereer_graphql.py "/tmp/gbo-bron-$bron.yaml" -o "{{.GRAPHQL_DIR}}/$bron.graphql"
+        done
+        echo "GraphQL SDL's gegenereerd in {{.GRAPHQL_DIR}}"
+
+
+  generate:lod:
+    desc: "Genereer Linked Data (OWL-ontologie en SHACL-shapes) uit het LinkML-model."
+    deps: [generate:check-model]
+    sources:
+      - "{{.LINKML_DIR}}/*.yaml"
+    generates:
+      - "{{.LOD}}"
+      - "{{.SHACL}}"
+    cmds:
+      - echo "Generating OWL-ontologie '{{.LOD}}' ..."
+      - gen-owl "{{.GBO_LINKML}}" > "{{.LOD}}"
+      - echo "Generating SHACL-shapes '{{.SHACL}}' ..."
+      - |
+        {{.PYYAML_PYTHON}}
+        gen-yaml "{{.GBO_LINKML}}" > /tmp/gbo-merged.yaml
+        "$PY" -c "import yaml; s = yaml.safe_load(open('/tmp/gbo-merged.yaml')); s.pop('imports', None); yaml.dump(s, open('/tmp/gbo-merged-noimports.yaml', 'w'), sort_keys=False, allow_unicode=True)"
+        gen-shacl /tmp/gbo-merged-noimports.yaml > "{{.SHACL}}"
+      - echo "Linked Data gegenereerd."
 
 
   generate:diff:

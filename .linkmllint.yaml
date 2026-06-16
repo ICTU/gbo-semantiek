@@ -1,0 +1,8 @@
+# Lint-configuratie voor het GBO LinkML-informatiemodel.
+# De regel standard_naming staat uit: GBO volgt bewust camelCase voor
+# attribuut- en relatienamen (wiki- en GraphQL-conventie) in plaats
+# van de snake_case die LinkML standaard aanbeveelt.
+extends: recommended
+rules:
+  standard_naming:
+    level: disabled
