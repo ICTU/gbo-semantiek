@@ -1,14 +1,20 @@
 #!/usr/bin/env python3
 """Genereer GraphQL SDL uit een gematerialiseerd per-bron LinkML-schema.
 
-Aanvulling op de standaard gen-graphql van LinkML, die drie dingen
-mist die GBO nodig heeft:
+Aanvulling op de standaard gen-graphql van LinkML, die de volgende
+dingen mist die GBO nodig heeft:
 1. een Query-root met velden per ingang (annotatie gbo:ingangen);
-2. scalar-declaraties voor de GBO-datatypes (Tekst, Numeriek9, ...);
-3. de volledige overervingsketen: abstracte klassen en mixins worden
-   interfaces, concrete klassen implementeren alle abstracte
-   voorouders (GraphQL staat type-implements-type niet toe, dus een
-   concrete superklasse wordt alleen plat overgenomen).
+2. de GBO-primitieven Tekst en Alfanumeriek worden afgebeeld op String,
+   Numeriek op Int en Decimaal op Float; overige datatypes (Datum,
+   DatumTijd, Geometrie, NEN3610ID, codelijsten, ...) worden benoemde
+   scalars;
+3. de overervingsketen: abstracte klassen worden interfaces, concrete
+   klassen implementeren alle abstracte voorouders (GraphQL staat
+   type-implements-type niet toe, dus een concrete superklasse wordt
+   alleen plat overgenomen);
+4. klassen met de annotatie gbo:graphql=uitsluiten (de patroon-mixins
+   Voorkomen en Datakwaliteit) blijven volledig buiten de SDL: geen
+   interface, geen implements en hun attributen worden niet uitgevlakt.
 
 Attributen worden per type volledig uitgevlakt (eigen plus geërfde),
 zoals GraphQL vereist.
@@ -32,6 +38,15 @@ BUILTIN_SCALARS = {
     "uri": "String", "uriorcurie": "String", "curie": "String",
     "ncname": "String", "objectidentifier": "ID",
     "nodeidentifier": "ID",
+}
+
+# GBO-primitieven die rechtstreeks op een ingebouwde GraphQL-scalar worden
+# afgebeeld in plaats van als benoemde scalar; houdt de SDL eenvoudig.
+# Overige datatypes (Datum, DatumTijd, Geometrie, codelijsten, ...) blijven
+# benoemde scalars.
+PRIMITIEVE_SCALARS = {
+    "Tekst": "String", "Alfanumeriek": "String",
+    "Numeriek": "Int", "Decimaal": "Float",
 }
 
 
@@ -71,6 +86,7 @@ class SDLGenerator:
         self.types: dict[str, dict] = schema.get("types") or {}
         self.default_range = schema.get("default_range", "string")
         self.gebruikte_scalars: set[str] = set()
+        self.gebruikte_enums: set[str] = set()
 
     # -- hiërarchie ----------------------------------------------------------
 
@@ -81,10 +97,18 @@ class SDLGenerator:
             ouders = ([d["is_a"]] if d.get("is_a") else []) \
                 + list(d.get("mixins") or [])
             for o in ouders:
-                if o in self.classes and o not in resultaat:
+                if o in self.classes and o not in resultaat \
+                        and not self.is_uitgesloten(o):
                     resultaat.append(o)
                     stapel.append(o)
         return resultaat
+
+    def is_uitgesloten(self, klasse: str) -> bool:
+        """Klasse met annotatie gbo:graphql=uitsluiten blijft buiten de
+        SDL — bijvoorbeeld de patroon-mixins Voorkomen en Datakwaliteit:
+        wel in het semantische model, geen GraphQL-interface."""
+        ann = (self.classes.get(klasse) or {}).get("annotations") or {}
+        return ann.get("gbo:graphql") == "uitsluiten"
 
     def heeft_concrete_afstammeling(self, klasse: str) -> bool:
         return any(
@@ -121,8 +145,13 @@ class SDLGenerator:
 
     def veldtype(self, attr: dict, kaal: bool = False) -> str:
         bereik = (attr or {}).get("range") or self.default_range
-        if bereik in self.classes or bereik in self.enums:
+        if bereik in self.classes:
             basis = bereik
+        elif bereik in self.enums:
+            basis = bereik
+            self.gebruikte_enums.add(bereik)
+        elif bereik in PRIMITIEVE_SCALARS:
+            basis = PRIMITIEVE_SCALARS[bereik]
         elif bereik in self.types:
             basis = bereik
             self.gebruikte_scalars.add(bereik)
@@ -214,13 +243,17 @@ class SDLGenerator:
 
     def genereer(self, bronbestand: str) -> str:
         blokken: list[list[str]] = []
-        # Interfaces eerst, daarna types, in schema-volgorde.
-        volgorde = sorted(self.classes,
-                          key=lambda c: not self.is_interface(c))
+        # Interfaces eerst, daarna types, in schema-volgorde; uitgesloten
+        # klassen (patroon-mixins) blijven buiten de SDL.
+        volgorde = sorted(
+            (c for c in self.classes if not self.is_uitgesloten(c)),
+            key=lambda c: not self.is_interface(c))
         for klasse in volgorde:
             blokken.append(self.klasse_blok(klasse))
+        # Alleen enums die door een uitgevlakt veld worden gebruikt.
         for naam in self.enums:
-            blokken.append(self.enum_blok(naam))
+            if naam in self.gebruikte_enums:
+                blokken.append(self.enum_blok(naam))
         query = self.query_blok()
         if query:
             blokken.append(query)

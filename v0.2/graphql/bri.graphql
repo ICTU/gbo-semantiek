@@ -2,10 +2,6 @@
 # GraphQL SDL voor bronprofiel BRI, gegenereerd uit gbo-bron-bri.yaml.
 # Regenereer met: task generate:graphql
 
-"""Reeks tekens uit het alfabet en de cijfers, zonder leestekens."""
-scalar Alfanumeriek
-"""Alfanumerieke reeks van maximaal 10 tekens."""
-scalar Alfanumeriek10
 """Landcode conform ISO 3166-1 alpha-2. Stelselbreed voor land- en nationaliteit-typering; cross-walks naar BRP-LT 32 (nationaliteit) en BRP-LT 34 (landen) staan in de documentatie."""
 scalar CodelijstISO3166
 """Valuta-aanduiding conform ISO 4217 (drieletterige code, EUR)."""
@@ -18,41 +14,15 @@ scalar CodelijstLT38
 scalar Datum
 """Datum waarin jaar, maand of dag elk afzonderlijk onbekend kan zijn. Formaten: jjjj, jjjj-mm of jjjj-mm-dd; nullen op de onbekende positie."""
 scalar DatumIncompleet
-"""Datum met tijdstip in ISO 8601, precisie tot op de seconde. Gebruikt voor de formele tijdlijn (registratiemoment)."""
-scalar DatumTijd
-"""Decimaal getal zonder eenheid. Voor bedragen wordt het aanvullende datatype Bedrag gebruikt, niet Decimaal."""
-scalar Decimaal
-"""Geheel getal zonder eenheid."""
-scalar Numeriek
-"""Geheel getal van maximaal 8 cijfers."""
-scalar Numeriek8
-"""Numerieke reeks van precies 9 cijfers. Als string gemodelleerd omdat voorloopnullen betekenisvol zijn (onder andere BSN)."""
-scalar Numeriek9
-"""Reeks Unicode-tekens."""
-scalar Tekst
 """Universally Unique Identifier conform RFC 4122 (128 bits, hexadecimaal genoteerd). Interne GBO-identifier voor objecten zonder externe authentieke identifier."""
 scalar UUID
 
 """Abstract supertype van natuurlijke en niet-natuurlijke personen: iedere actor die in een overheidsregistratie als rechts- of handelingssubject voorkomt."""
 interface Partij {
   """De inschrijving(en) van deze partij in het Handelsregister. (Sleutel-referentie naar Inschrijving.)"""
-  ingeschrevenAls: [Numeriek8!]
+  ingeschrevenAls: [String!]
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
   partijnummer: UUID!
-}
-
-"""Mixin van attributen die elk basisregistratie-objecttype kan dragen voor bitemporele expressiviteit conform HC-BAG en BRP-Historie: twee tijdlijnen, materiële geldigheid en formele registratie."""
-interface Voorkomen {
-  """Materiële tijdlijn: start van de geldigheid."""
-  beginGeldigheid: Datum!
-  """Materiële tijdlijn: einde van de geldigheid; open betekent lopend."""
-  eindGeldigheid: Datum
-  """Formele tijdlijn: start van de registratie."""
-  tijdstipRegistratie: DatumTijd!
-  """Formele tijdlijn: einde van de registratie; open betekent actueel."""
-  eindRegistratie: DatumTijd
-  """Monotone versieteller."""
-  versie: Numeriek!
 }
 
 """Het door de Belastingdienst vastgestelde verzamelinkomen of belastbaar loon van een natuurlijk persoon over een belastingjaar, aangewezen als authentiek gegeven in de Basisregistratie Inkomen."""
@@ -60,11 +30,11 @@ type AuthentiekInkomen {
   """Verzamelinkomen of belastbaar loon."""
   inkomenBedrag: Bedrag!
   """Het jaar waarop het inkomen betrekking heeft."""
-  belastingjaar: Numeriek!
+  belastingjaar: Int!
   """Datum van authentieke vaststelling."""
   vaststellingsdatum: Datum!
   """IH-aangifte of loonaangifte."""
-  vaststellingsbron: Tekst!
+  vaststellingsbron: String!
   """De natuurlijk persoon op wie het authentieke inkomen is gegrondvest."""
   gegrondvestOp: NatuurlijkPersoon!
 }
@@ -72,7 +42,7 @@ type AuthentiekInkomen {
 """De administratieve relatie tussen een inhoudingsplichtige en een natuurlijk persoon op grond waarvan over een doorlopende periode loon wordt uitbetaald, sociale-zekerheids-premies worden ingehouden en aangifte loonheffingen wordt gedaan."""
 type Inkomstenverhouding {
   """Uniek nummer voor de IKV."""
-  nummerInkomstenverhouding: Tekst!
+  nummerInkomstenverhouding: String!
   """Begindatum van de IKV."""
   begindatumIkv: Datum!
   """Einddatum van de IKV."""
@@ -92,7 +62,7 @@ type Inkomstenverhouding {
 """De aggregatie van loongegevens van een werknemer binnen een aangifte loonheffingen over een aangifteperiode, opgebouwd uit een of meer inkomstenperioden en alle daarop horende loonbestanddelen."""
 type Inkomstenopgave {
   """Bijvoorbeeld 2026-M01, 2026-W04."""
-  aangifteperiode: Tekst!
+  aangifteperiode: String!
   """Bruto loon in de aangifteperiode."""
   loonHuidigPeriodeBedrag: Bedrag
   """Loon voor sociale verzekeringen."""
@@ -110,9 +80,9 @@ type Inkomstenperiode {
   """Einddatum van de periode."""
   einddatum: Datum!
   """Aantal SV-dagen."""
-  aantalSvDagen: Numeriek
+  aantalSvDagen: Int
   """Contracturen in de periode."""
-  aantalContractUren: Decimaal
+  aantalContractUren: Float
   """De inkomstenopgave waarbinnen deze inkomstenperiode valt."""
   binnenInkomstenopgave: Inkomstenopgave!
 }
@@ -124,9 +94,9 @@ type LoonBestanddeel {
   """Bedrag van het loonbestanddeel."""
   bedrag: Bedrag!
   """Vrije omschrijving."""
-  omschrijving: Tekst
+  omschrijving: String
   """Valuta-code."""
-  valuta: Tekst!
+  valuta: String!
   """De inkomstenopgave waarvan dit loonbestanddeel onderdeel is."""
   onderdeelVan: Inkomstenopgave!
 }
@@ -134,7 +104,7 @@ type LoonBestanddeel {
 """De periodieke aangifte loonheffingen die een inhoudingsplichtige op grond van de Wet LB 1964 indient bij de Belastingdienst over een aangifteperiode, met alle inkomsten-verhoudingen en de daaruit voortvloeiende loonbestanddelen en in te houden bedragen."""
 type LoonAangifte {
   """Aangifteperiode-aanduiding."""
-  aangifteperiode: Tekst!
+  aangifteperiode: String!
   """Totaal in te houden loonheffingen."""
   totaalLoonHeffingenBedrag: Bedrag
   """Totaal in te houden premies werknemersverzekeringen."""
@@ -148,21 +118,21 @@ type LoonAangifte {
 """Een mens als drager van burgerlijke rechten en plichten."""
 type NatuurlijkPersoon implements Partij {
   """De inschrijving(en) van deze partij in het Handelsregister. (Sleutel-referentie naar Inschrijving.)"""
-  ingeschrevenAls: [Numeriek8!]
+  ingeschrevenAls: [String!]
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
   partijnummer: UUID!
   """De officiële familienaam van de persoon."""
-  geslachtsnaam: Tekst!
+  geslachtsnaam: String!
   """Alle officiële voornamen van de persoon."""
-  voornamen: Tekst
+  voornamen: String
   """Het voorvoegsel bij de geslachtsnaam."""
-  voorvoegsel: Tekst
+  voorvoegsel: String
   """Adellijke titel of predicaat."""
   adellijkeTitelPredicaat: CodelijstLT38
   """De datum waarop de persoon is geboren."""
   geboortedatum: DatumIncompleet
   """De gemeente of plaats waar de persoon is geboren."""
-  geboorteplaats: Tekst
+  geboorteplaats: String
   """Het land waar de persoon is geboren."""
   geboorteland: CodelijstISO3166
   """Het geslacht van de persoon."""
@@ -170,39 +140,29 @@ type NatuurlijkPersoon implements Partij {
   """De datum waarop de persoon is overleden."""
   datumOverlijden: DatumIncompleet
   """De plaats waar de persoon is overleden."""
-  plaatsOverlijden: Tekst
+  plaatsOverlijden: String
   """Het land waar de persoon is overleden."""
   landOverlijden: CodelijstISO3166
 }
 
 """Een natuurlijke persoon die in de Basisregistratie Personen is opgenomen, hetzij als ingezetene van een Nederlandse gemeente, hetzij als niet-ingezetene in de Registratie Niet-Ingezetenen."""
-type IngeschrevenPersoon implements Voorkomen & Partij {
+type IngeschrevenPersoon implements Partij {
   """De inschrijving(en) van deze partij in het Handelsregister. (Sleutel-referentie naar Inschrijving.)"""
-  ingeschrevenAls: [Numeriek8!]
+  ingeschrevenAls: [String!]
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
   partijnummer: UUID!
-  """Materiële tijdlijn: start van de geldigheid."""
-  beginGeldigheid: Datum!
-  """Materiële tijdlijn: einde van de geldigheid; open betekent lopend."""
-  eindGeldigheid: Datum
-  """Formele tijdlijn: start van de registratie."""
-  tijdstipRegistratie: DatumTijd!
-  """Formele tijdlijn: einde van de registratie; open betekent actueel."""
-  eindRegistratie: DatumTijd
-  """Monotone versieteller."""
-  versie: Numeriek!
   """De officiële familienaam van de persoon."""
-  geslachtsnaam: Tekst!
+  geslachtsnaam: String!
   """Alle officiële voornamen van de persoon."""
-  voornamen: Tekst
+  voornamen: String
   """Het voorvoegsel bij de geslachtsnaam."""
-  voorvoegsel: Tekst
+  voorvoegsel: String
   """Adellijke titel of predicaat."""
   adellijkeTitelPredicaat: CodelijstLT38
   """De datum waarop de persoon is geboren."""
   geboortedatum: DatumIncompleet
   """De gemeente of plaats waar de persoon is geboren."""
-  geboorteplaats: Tekst
+  geboorteplaats: String
   """Het land waar de persoon is geboren."""
   geboorteland: CodelijstISO3166
   """Het geslacht van de persoon."""
@@ -210,15 +170,15 @@ type IngeschrevenPersoon implements Voorkomen & Partij {
   """De datum waarop de persoon is overleden."""
   datumOverlijden: DatumIncompleet
   """De plaats waar de persoon is overleden."""
-  plaatsOverlijden: Tekst
+  plaatsOverlijden: String
   """Het land waar de persoon is overleden."""
   landOverlijden: CodelijstISO3166
   """Het door de Beheervoorziening BSN uitgegeven persoonsnummer."""
-  bsn: Numeriek9!
+  bsn: String!
   """Het interne BRP-administratienummer."""
-  aNummer: Alfanumeriek10
+  aNummer: String
   """Het persoonsnummer dat een ander land aan deze persoon heeft toegekend."""
-  tin: Alfanumeriek
+  tin: String
   """De datum waarop deze persoon voor het eerst in de BRP werd opgenomen."""
   datumEersteInschrijving: DatumIncompleet
   """De gemeente die de persoonslijst bijhoudt."""
@@ -238,7 +198,7 @@ type IngeschrevenPersoon implements Voorkomen & Partij {
 """Geldbedrag: numerieke waarde met expliciete valuta-aanduiding (ISO 4217). Voor binnenlandse toepassingen impliciet EUR; de valuta wordt expliciet bij internationale uitwisseling."""
 type Bedrag {
   """De numerieke waarde van het bedrag."""
-  waarde: Decimaal!
+  waarde: Float!
   """Valuta conform ISO 4217; bij afwezigheid geldt EUR."""
   valuta: CodelijstISO4217
 }

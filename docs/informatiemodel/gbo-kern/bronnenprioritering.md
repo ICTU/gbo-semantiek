@@ -45,6 +45,9 @@ administraties:
   modellering via L2 en L3.
 - Een basisregistratie met L1 als SKOS-begrip: **BRI** (een authentiek
   gegeven, gepubliceerd via de Stelselcatalogus).
+- Een basisregistratie ontsloten via open data en wettelijk reglement:
+  **BRV** (Basisregistratie Voertuigen, RDW), met L1 uit de
+  RDW-gegevenscatalogus en het Kentekenreglement.
 - Drie sectorale registers en hun L1-bronnen: **ROD**
   (Register Onderwijsdeelnemers, DUO/OCW), **CKI** (Centraal Krediet
   Informatiesysteem, Stichting BKR), **SGR** (Suwi Gegevensregister,
@@ -55,7 +58,7 @@ administraties:
   **Gegevensspecificaties aangifte loonheffingen** (Belastingdienst
   plus UWV voor de loonketen).
 
-BRT, BRO en BRV blijven voorlopig buiten scope; bij toekomstige
+BRT en BRO blijven voorlopig buiten scope; bij toekomstige
 ingest volgen zij hetzelfde patroon (L1 datamodel of catalogus,
 L2 koppelvlak).
 
@@ -73,6 +76,7 @@ SKOS-publicatie.
 | BRK | IMKAD | `https://developer.kadaster.nl/schemas/imkad/20200130/cat/index.html` |
 | BRK | BRK-Catalogus | `https://www.kadaster.nl/-/catalogus-brk` |
 | BRP | LO BRP (Logisch Ontwerp BRP) | `https://www.rvig.nl/lo-brp` |
+| BRV | RDW-gegevenscatalogus / Open Data RDW (Gekentekende voertuigen); Kentekenreglement | `https://opendata.rdw.nl/` |
 | CKI | Algemeen Reglement CKI | `https://www.bkr.nl/media/4dyezfiz/algemeen-reglement-cki-juli-2024.pdf` |
 | HR | L1 ontbreekt; modellering via L2 en L3 | n.v.t. |
 | Loonheffingen | Gegevensspecificaties aangifte loonheffingen | `https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/themaoverstijgend/brochures_en_publicaties/gegevensspecificaties-aangifte-loonheffingen` |
@@ -95,6 +99,7 @@ voor erkende zakelijke klanten van Stichting BKR).
 | BRI | Geen publiek koppelvlak; afname via SUWI- en toeslagen-stelsel | n.v.t. |
 | BRK | Haal Centraal BRK Bevragen | `https://kadaster.github.io/BRK-bevragen/` |
 | BRP | Haal Centraal BRP-suite (Personen, Historie, Bewoning, Reisdocumenten, Tabellen, Update) | `https://developer.rvig.nl/brp-api/overview/` |
+| BRV | RDW-bevragings-API's (Kentekencheck, Voertuiggegevens) en Open Data RDW | `https://opendata.rdw.nl/` |
 | CKI | Algemene Handleiding CKI (gated, alleen erkende zakelijke klanten) | `https://www.bkr.nl/nl/inloggen-portalen` |
 | HR | KVK Developer Portal (Zoeken, Basisprofiel, Vestigingsprofiel, Naamgeving, Mutatieservice) | `https://developers.kvk.nl/documentation` |
 | Loonheffingen | XSD-bijlage Gegevensspecificaties; transport via Digipoort | (onderdeel van L1-URL) |

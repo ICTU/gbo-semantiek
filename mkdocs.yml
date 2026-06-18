@@ -142,6 +142,7 @@ nav:
     - Deelmodel Krediet: informatiemodel/gbo-kern/deelmodellen/krediet.md
     - Deelmodel Onderwijs: informatiemodel/gbo-kern/deelmodellen/onderwijs.md
     - Deelmodel Werk en Inkomen: informatiemodel/gbo-kern/deelmodellen/werk-en-inkomen.md
+    - Deelmodel Voertuigen: informatiemodel/gbo-kern/deelmodellen/voertuigen.md
     - Datatypes en codelijsten: informatiemodel/gbo-kern/datatypes-en-codelijsten.md
   - "Informatiemodel: GBO-Voorzieningenmodel":
     - Hoofdmodel: informatiemodel/gbo-voorzieningen.md

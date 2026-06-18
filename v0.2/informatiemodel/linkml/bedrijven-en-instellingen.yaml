@@ -287,9 +287,10 @@ classes:
       kvkNummer:
         identifier: true
         required: true
-        range: Numeriek8
+        range: Tekst
         description: Primaire identifier van de inschrijving.
         annotations:
+          mim:lengte: 8
           mim:authentiek: Authentiek
           mim:materieleHistorie: true
           mim:formeleHistorie: true
@@ -746,11 +747,12 @@ classes:
         NHR-praktijk.
     attributes:
       rsin:
-        range: Numeriek9
+        range: Tekst
         description: >-
           Rechtspersonen- en Samenwerkingsverbanden Identificatie
           Nummer.
         annotations:
+          mim:lengte: 9
           mim:authentiek: Authentiek
           mim:materieleHistorie: false
           mim:formeleHistorie: false
@@ -1042,9 +1044,10 @@ classes:
       vestigingsnummer:
         identifier: true
         required: true
-        range: Numeriek12
+        range: Tekst
         description: Primaire identifier van de vestiging.
         annotations:
+          mim:lengte: 12
           mim:authentiek: Authentiek
           mim:materieleHistorie: true
           mim:formeleHistorie: true

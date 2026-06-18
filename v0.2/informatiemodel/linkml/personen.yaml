@@ -238,11 +238,12 @@ classes:
           blijft de technische identifier.
     attributes:
       bsn:
-        range: Numeriek9
+        range: Tekst
         required: true
         description: >-
           Het door de Beheervoorziening BSN uitgegeven persoonsnummer.
         annotations:
+          mim:lengte: 9
           mim:authentiek: Authentiek
           mim:materieleHistorie: true
           mim:formeleHistorie: true
@@ -250,9 +251,10 @@ classes:
         comments:
           - Primaire identifier; uniek per actieve inschrijving.
       aNummer:
-        range: Alfanumeriek10
+        range: Alfanumeriek
         description: Het interne BRP-administratienummer.
         annotations:
+          mim:lengte: 10
           mim:authentiek: Basisgegeven
           mim:materieleHistorie: true
           mim:formeleHistorie: true

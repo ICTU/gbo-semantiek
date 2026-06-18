@@ -12,8 +12,8 @@ Het ontwerpprincipe: *semantiek wordt één keer gedefinieerd en hergebruikt via
 
 **Operationele laag — vier lanes**, ingedeeld op interactiepatroon (niet op formaat):
 
-- *Lane A — EUDI credentials.* SD-JWT VCs van PubEAA Provider naar EUDI Wallet en verifier. Semantiek loopt via vct en rulebook, niet via een runtime `@context`.
-- *Lane B — Semantische data-delivery.* ASI en SDG-OOTS Adapter leveren JSON-LD/RDF aan externe afnemers; zelf-beschrijvendheid in de payload is hier essentieel.
+- *Lane A — EUDI credentials.* SD-JWT VCs van PubEAA Provider naar EUDI Wallet en verifier. Semantiek loopt via vct en rulebook, niet via een runtime `@context`. De geleverde attestaties zijn beschreven in het EDI-clientmodel (zie [Gegevensarchitectuur](gegevensarchitectuur.md#clientmodellen-edi-en-oots)).
+- *Lane B — Semantische data-delivery.* ASI en SDG-OOTS Adapter leveren JSON-LD/RDF aan externe afnemers; zelf-beschrijvendheid in de payload is hier essentieel. De geleverde bewijsstukken zijn beschreven in het OOTS-clientmodel (zie [Gegevensarchitectuur](gegevensarchitectuur.md#clientmodellen-edi-en-oots)).
 - *Lane C — Query / bevraging.* De Bronhouder GraphQL API levert JSON-LD-respons; SDL en `@context` komen uit dezelfde ontologie.
 - *Lane D — Autorisatie & policy.* OPA-bundles van PAP naar PEP/PDP gebruiken doel- en attribuut-URIs uit het vocabulaire als anker voor audit en handhaving.
 

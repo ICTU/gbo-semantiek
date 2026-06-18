@@ -20,14 +20,6 @@ scalar DatumIncompleet
 scalar Identificatie
 """Landelijke objectidentificatie voor stelselobjecten, opgebouwd uit namespace, lokaalID en versie (NEN 3610)."""
 scalar NEN3610ID
-"""Numerieke reeks van maximaal 12 cijfers, voorloopnullen betekenisvol."""
-scalar Numeriek12
-"""Geheel getal van maximaal 8 cijfers."""
-scalar Numeriek8
-"""Numerieke reeks van precies 9 cijfers. Als string gemodelleerd omdat voorloopnullen betekenisvol zijn (onder andere BSN)."""
-scalar Numeriek9
-"""Reeks Unicode-tekens."""
-scalar Tekst
 """Universally Unique Identifier conform RFC 4122 (128 bits, hexadecimaal genoteerd). Interne GBO-identifier voor objecten zonder externe authentieke identifier."""
 scalar UUID
 
@@ -38,11 +30,11 @@ interface NietNatuurlijkPersoon implements Partij {
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
   partijnummer: UUID!
   """Rechtspersonen- en Samenwerkingsverbanden Identificatie Nummer."""
-  rsin: Numeriek9
+  rsin: String
   """Werknaam."""
-  naam: Tekst!
+  naam: String!
   """Statutaire vestigingsplaats."""
-  zetel: Tekst
+  zetel: String
   """Afgeleide SBI-hoofdactiviteit."""
   hoofdSbiCode: CodelijstCBSSBI
   """Functionele sector-classificatie."""
@@ -62,11 +54,11 @@ interface Instelling implements NietNatuurlijkPersoon & Partij {
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
   partijnummer: UUID!
   """Rechtspersonen- en Samenwerkingsverbanden Identificatie Nummer."""
-  rsin: Numeriek9
+  rsin: String
   """Werknaam."""
-  naam: Tekst!
+  naam: String!
   """Statutaire vestigingsplaats."""
-  zetel: Tekst
+  zetel: String
   """Afgeleide SBI-hoofdactiviteit."""
   hoofdSbiCode: CodelijstCBSSBI
   """Functionele sector-classificatie."""
@@ -96,11 +88,11 @@ type Bedrijf implements NietNatuurlijkPersoon & Partij {
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
   partijnummer: UUID!
   """Rechtspersonen- en Samenwerkingsverbanden Identificatie Nummer."""
-  rsin: Numeriek9
+  rsin: String
   """Werknaam."""
-  naam: Tekst!
+  naam: String!
   """Statutaire vestigingsplaats."""
-  zetel: Tekst
+  zetel: String
   """Afgeleide SBI-hoofdactiviteit."""
   hoofdSbiCode: CodelijstCBSSBI
   """Functionele sector-classificatie."""
@@ -122,11 +114,11 @@ type BuitenlandseEntiteit implements NietNatuurlijkPersoon & Partij {
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
   partijnummer: UUID!
   """Rechtspersonen- en Samenwerkingsverbanden Identificatie Nummer."""
-  rsin: Numeriek9
+  rsin: String
   """Werknaam."""
-  naam: Tekst!
+  naam: String!
   """Statutaire vestigingsplaats."""
-  zetel: Tekst
+  zetel: String
   """Afgeleide SBI-hoofdactiviteit."""
   hoofdSbiCode: CodelijstCBSSBI
   """Functionele sector-classificatie."""
@@ -140,7 +132,7 @@ type BuitenlandseEntiteit implements NietNatuurlijkPersoon & Partij {
   """Land waarin de entiteit is opgericht."""
   landVanOprichting: CodelijstISO3166!
   """Buitenlandse juridische vorm, vrije tekst."""
-  rechtsvormBuitenland: Tekst
+  rechtsvormBuitenland: String
   """Typering van de Nederlandse aanwezigheid."""
   typeBuitenlandseEntiteit: TypeBuitenlandseEntiteit!
 }
@@ -152,11 +144,11 @@ type MaatschappelijkeInstelling implements Instelling & NietNatuurlijkPersoon & 
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
   partijnummer: UUID!
   """Rechtspersonen- en Samenwerkingsverbanden Identificatie Nummer."""
-  rsin: Numeriek9
+  rsin: String
   """Werknaam."""
-  naam: Tekst!
+  naam: String!
   """Statutaire vestigingsplaats."""
-  zetel: Tekst
+  zetel: String
   """Afgeleide SBI-hoofdactiviteit."""
   hoofdSbiCode: CodelijstCBSSBI
   """Functionele sector-classificatie."""
@@ -182,11 +174,11 @@ type Overheidsinstelling implements Instelling & NietNatuurlijkPersoon & Partij 
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
   partijnummer: UUID!
   """Rechtspersonen- en Samenwerkingsverbanden Identificatie Nummer."""
-  rsin: Numeriek9
+  rsin: String
   """Werknaam."""
-  naam: Tekst!
+  naam: String!
   """Statutaire vestigingsplaats."""
-  zetel: Tekst
+  zetel: String
   """Afgeleide SBI-hoofdactiviteit."""
   hoofdSbiCode: CodelijstCBSSBI
   """Functionele sector-classificatie."""
@@ -212,11 +204,11 @@ type OverigeNietNatuurlijkPersoon implements NietNatuurlijkPersoon & Partij {
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
   partijnummer: UUID!
   """Rechtspersonen- en Samenwerkingsverbanden Identificatie Nummer."""
-  rsin: Numeriek9
+  rsin: String
   """Werknaam."""
-  naam: Tekst!
+  naam: String!
   """Statutaire vestigingsplaats."""
-  zetel: Tekst
+  zetel: String
   """Afgeleide SBI-hoofdactiviteit."""
   hoofdSbiCode: CodelijstCBSSBI
   """Functionele sector-classificatie."""
@@ -228,7 +220,7 @@ type OverigeNietNatuurlijkPersoon implements NietNatuurlijkPersoon & Partij {
   """Eén NNP voert één of meer ondernemingen."""
   voertUit: [MaatschappelijkeActiviteit!]!
   """Reden van plaatsing in deze restcategorie."""
-  omschrijving: Tekst!
+  omschrijving: String!
 }
 
 """Een onderneming binnen een niet-natuurlijke persoon, het samenhangend geheel van bedrijfsactiviteiten dat onder één economische identiteit wordt gevoerd en dat tot precies één inschrijving in het Handelsregister leidt."""
@@ -242,7 +234,7 @@ type MaatschappelijkeActiviteit {
   """SBI van de hoofdactiviteit van deze onderneming."""
   hoofdSbiCode: CodelijstCBSSBI
   """Korte beschrijving van de ondernemings-activiteit."""
-  omschrijving: Tekst
+  omschrijving: String
   """Elke MA leidt tot precies één HR-Inschrijving."""
   geregistreerdVia: Inschrijving!
 }
@@ -250,7 +242,7 @@ type MaatschappelijkeActiviteit {
 """Een geregistreerde economische of juridische eenheid in het Handelsregister, identificeerbaar via het KVK-nummer, waaraan vestigingen, naamgevingen, activiteiten en rechtstoestand zijn gekoppeld."""
 type Inschrijving {
   """Primaire identifier van de inschrijving."""
-  kvkNummer: Numeriek8!
+  kvkNummer: String!
   """Startdatum van de inschrijving."""
   startdatum: DatumIncompleet
   """Einddatum van de inschrijving."""
@@ -274,7 +266,7 @@ type Inschrijving {
 """Een fysieke of functionele locatie waar een onderneming activiteiten uitvoert, geïdentificeerd door een vestigingsnummer en optioneel gekoppeld aan een BAG-adresseerbaar object."""
 type Vestiging {
   """Primaire identifier van de vestiging."""
-  vestigingsnummer: Numeriek12!
+  vestigingsnummer: String!
   """Onderscheid hoofd- en nevenvestiging."""
   typeVestiging: TypeVestiging!
   """Startdatum van de vestiging."""
@@ -290,13 +282,13 @@ type Vestiging {
 """De meerlagige naamstructuur van een inschrijving in het Handelsregister, omvattend de statutaire naam, één of meer handelsnamen en eventueel alternatieve benamingen, elk met een eigen geldigheidstermijn."""
 type Naamgeving {
   """Naam zoals vastgelegd in de geregistreerde statuten."""
-  statutaireNaam: Tekst
+  statutaireNaam: String
   """Werknaam onder maatschappelijke activiteit."""
-  naam: Tekst!
+  naam: String!
   """Alternatieve benaming."""
-  ookGenoemd: Tekst
+  ookGenoemd: String
   """Eén of meer handelsnamen waaronder de onderneming naar buiten treedt."""
-  handelsnamen: [Tekst!]
+  handelsnamen: [String!]
   """Datum vanaf wanneer deze naamrepresentatie geldt."""
   startdatum: Datum!
   """Datum tot wanneer deze naamrepresentatie geldt."""
@@ -322,7 +314,7 @@ type Activiteit {
   """Versie van het SBI-codestelsel."""
   sbiVersie: CodelijstCBSSBI!
   """Tekstuele toelichting bij de activiteit."""
-  omschrijving: Tekst
+  omschrijving: String
   """Onderscheid tussen hoofd- en nevenactiviteit."""
   soortActiviteit: SoortActiviteit!
   """Booleaanse projectie van soortActiviteit = Hoofd."""
@@ -442,7 +434,7 @@ enum SoortActiviteit {
 """Query-ingangen van dit bronprofiel."""
 type Query {
   """Eén Inschrijving op kvkNummer."""
-  inschrijving(kvkNummer: Numeriek8!): Inschrijving
+  inschrijving(kvkNummer: String!): Inschrijving
   """Alle voorkomens van Inschrijving."""
   inschrijvingLijst: [Inschrijving!]
   """Eén MaatschappelijkeActiviteit op identificatie."""
@@ -450,7 +442,7 @@ type Query {
   """Alle voorkomens van MaatschappelijkeActiviteit."""
   maatschappelijkeActiviteitLijst: [MaatschappelijkeActiviteit!]
   """Eén Vestiging op vestigingsnummer."""
-  vestiging(vestigingsnummer: Numeriek12!): Vestiging
+  vestiging(vestigingsnummer: String!): Vestiging
   """Alle voorkomens van Vestiging."""
   vestigingLijst: [Vestiging!]
 }

@@ -121,10 +121,11 @@ classes:
         vorming.
     attributes:
       straatnaam:
-        range: AN80
+        range: Tekst
         required: true
         description: Volledige naam van de openbare ruimte.
         annotations:
+          mim:lengte: 80
           mim:authentiek: Basisgegeven
           mim:materieleHistorie: false
           mim:formeleHistorie: false
@@ -132,10 +133,11 @@ classes:
         comments:
           - Authentiek op OR-bron, hier gedenormaliseerd.
       huisnummer:
-        range: N5
+        range: Numeriek
         required: true
         description: Het huisnummer-deel van de Nummeraanduiding.
         annotations:
+          mim:lengte: 5
           mim:authentiek: Basisgegeven
           mim:materieleHistorie: false
           mim:formeleHistorie: false
@@ -167,10 +169,11 @@ classes:
         comments:
           - Eigen op NA, niet afgeleid van OR.
       woonplaatsnaam:
-        range: AN80
+        range: Tekst
         required: true
         description: Naam van de bovenliggende woonplaats.
         annotations:
+          mim:lengte: 80
           mim:authentiek: Basisgegeven
           mim:materieleHistorie: false
           mim:formeleHistorie: false
@@ -335,10 +338,11 @@ classes:
         comments:
           - Pattern [1-9][0-9]{3}[A-Z]{2}.
       plaats:
-        range: AN80
+        range: Tekst
         required: true
         description: Plaatsnaam van het postadres.
         annotations:
+          mim:lengte: 80
           mim:authentiek: Overig
           mim:materieleHistorie: false
           mim:formeleHistorie: false
@@ -580,12 +584,13 @@ classes:
         comments:
           - In KVK/HR-API als nummerAanduidingId.
       huisnummer:
-        range: N5
+        range: Numeriek
         required: true
         description: >-
           Numerieke aanduiding van het adres binnen de openbare
           ruimte.
         annotations:
+          mim:lengte: 5
           mim:authentiek: Authentiek
           mim:materieleHistorie: true
           mim:formeleHistorie: true
@@ -710,7 +715,7 @@ classes:
           mim:formeleHistorie: true
           mim:herkomst: BAG-Catalogus 2018
       oorspronkelijkBouwjaar:
-        range: N4
+        range: Jaar
         required: true
         description: Jaar van eerste oplevering van het pand.
         annotations:
@@ -840,21 +845,23 @@ classes:
         comments:
           - Meervoudig per VBO toegestaan; zie Enumeraties.
       oppervlakte:
-        range: N6
+        range: Numeriek
         required: true
         description: >-
           Gebruiksoppervlakte van het verblijfsobject in m² volgens
           NEN 2580.
         annotations:
+          mim:lengte: 6
           mim:authentiek: Authentiek
           mim:materieleHistorie: true
           mim:formeleHistorie: true
           mim:herkomst: BAG-Catalogus 2018
       aantalKamers:
-        range: N2
+        range: Numeriek
         description: >-
           Aantal kamers bij een verblijfsobject met woonfunctie.
         annotations:
+          mim:lengte: 2
           mim:authentiek: Basisgegeven
           mim:materieleHistorie: true
           mim:formeleHistorie: true
@@ -956,10 +963,11 @@ classes:
         comments:
           - Jaarlijks herzien.
       buurtnaam:
-        range: AN40
+        range: Tekst
         required: true
         description: Volledige naam van de buurt.
         annotations:
+          mim:lengte: 40
           mim:authentiek: Landelijk kerngegeven
           mim:materieleHistorie: true
           mim:formeleHistorie: true
@@ -1025,10 +1033,11 @@ classes:
         comments:
           - 4-cijferige code.
       gemeentenaam:
-        range: AN80
+        range: Tekst
         required: true
         description: Volledige naam van de gemeente.
         annotations:
+          mim:lengte: 80
           mim:authentiek: Basisgegeven
           mim:materieleHistorie: false
           mim:formeleHistorie: false
@@ -1085,19 +1094,21 @@ classes:
           mim:formeleHistorie: true
           mim:herkomst: BAG-Catalogus 2018
       naamOpenbareRuimte:
-        range: AN80
+        range: Tekst
         required: true
         description: Volledige naam van de openbare ruimte.
         annotations:
+          mim:lengte: 80
           mim:authentiek: Authentiek
           mim:materieleHistorie: true
           mim:formeleHistorie: true
           mim:herkomst: BAG-Catalogus 2018
       korteNaam:
-        range: Tekst24
+        range: Tekst
         description: >-
           Verkorte naam van de openbare ruimte (max 24 tekens).
         annotations:
+          mim:lengte: 24
           mim:authentiek: Basisgegeven
           mim:materieleHistorie: true
           mim:formeleHistorie: true
@@ -1185,10 +1196,11 @@ classes:
         comments:
           - Jaarlijks herzien.
       wijknaam:
-        range: AN40
+        range: Tekst
         required: true
         description: Volledige naam van de wijk.
         annotations:
+          mim:lengte: 40
           mim:authentiek: Landelijk kerngegeven
           mim:materieleHistorie: true
           mim:formeleHistorie: true
@@ -1256,10 +1268,11 @@ classes:
           mim:formeleHistorie: true
           mim:herkomst: BAG-Catalogus 2018
       woonplaatsnaam:
-        range: AN80
+        range: Tekst
         required: true
         description: Volledige naam van de woonplaats.
         annotations:
+          mim:lengte: 80
           mim:authentiek: Authentiek
           mim:materieleHistorie: true
           mim:formeleHistorie: true

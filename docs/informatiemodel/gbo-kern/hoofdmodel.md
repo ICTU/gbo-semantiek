@@ -443,6 +443,7 @@ NatuurlijkPersoon "1" <-- "0..*" StudieLening : aangegaanDoor
 | Krediet | `KredietOvereenkomst`, `HypothecairKredietEigenWoning`, `AchterstandRegistratie` | [Krediet](deelmodellen/krediet.md) |
 | Onderwijs | `OnderwijsInstelling`, `OpleidingDeelname`, `StudieLening` | [Onderwijs](deelmodellen/onderwijs.md) |
 | Werk en Inkomen | `Uitkering`, `Arbeidsverhouding` | [Werk en Inkomen](deelmodellen/werk-en-inkomen.md) |
+| Voertuigen | `Voertuig`, `Voertuigtenaamstelling` | [Voertuigen](deelmodellen/voertuigen.md) |
 
 ## Sleutelrelaties: toelichting
 
@@ -605,8 +606,9 @@ De typering van attribuutsoorten staat op één gedeelde pagina:
 - **Simpele datatypes** (MIM-primitieven `CharacterString`, `Integer`,
   `Real`, `Boolean`, `Date`, `DateTime`, `Year`, `Duration`, `URI`)
   en hun Nederlandse aliassen `Tekst`, `Numeriek`, `Decimaal`,
-  `Indicatie`, `Datum`, `DatumTijd`, `Jaar`, `Duur`, inclusief lengte-
-  en precisie-varianten (`Tekst24`, `Numeriek9`, `Alfanumeriek10`).
+  `Indicatie`, `Datum`, `DatumTijd`, `Jaar`, `Duur`. Een lengte- of
+  precisiebeperking is een facet van het attribuut (`mim:lengte`), geen
+  apart datatype.
 - **Aanvullende datatypes** (`DatumIncompleet`, `NEN3610ID`, `UUID`,
   `Geometrie` met subtypes `Punt`, `Vlak`, `Lijn`, `Bedrag`, `Breuk`,
   `ObjectAanduiding`, `Codelijst~bron`).

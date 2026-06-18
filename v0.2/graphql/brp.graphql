@@ -2,10 +2,6 @@
 # GraphQL SDL voor bronprofiel BRP, gegenereerd uit gbo-bron-brp.yaml.
 # Regenereer met: task generate:graphql
 
-"""Alfanumerieke reeks van maximaal 80 tekens."""
-scalar AN80
-"""Reeks tekens uit het alfabet en de cijfers, zonder leestekens."""
-scalar Alfanumeriek
 """Waarde uit een BRP-Landelijke Tabel die in de documentatie niet nader is gespecificeerd."""
 scalar CodelijstBRP
 """Aanduiding verblijfsrecht conform de IND-codelijst verblijfstitels; cross-walk naar BRP-LT 56."""
@@ -24,53 +20,31 @@ scalar CodelijstLT88
 scalar Datum
 """Datum waarin jaar, maand of dag elk afzonderlijk onbekend kan zijn. Formaten: jjjj, jjjj-mm of jjjj-mm-dd; nullen op de onbekende positie."""
 scalar DatumIncompleet
-"""Datum met tijdstip in ISO 8601, precisie tot op de seconde. Gebruikt voor de formele tijdlijn (registratiemoment)."""
-scalar DatumTijd
-"""Numerieke reeks van precies 5 cijfers."""
-scalar N5
 """Landelijke objectidentificatie voor stelselobjecten, opgebouwd uit namespace, lokaalID en versie (NEN 3610)."""
 scalar NEN3610ID
-"""Geheel getal zonder eenheid."""
-scalar Numeriek
-"""Geheel getal van maximaal 8 cijfers."""
-scalar Numeriek8
-"""Numerieke reeks van precies 9 cijfers. Als string gemodelleerd omdat voorloopnullen betekenisvol zijn (onder andere BSN)."""
-scalar Numeriek9
 """Nederlandse postcode in het formaat 9999 XX (norm NEN 5825)."""
 scalar Postcode
-"""Reeks Unicode-tekens."""
-scalar Tekst
 """Universally Unique Identifier conform RFC 4122 (128 bits, hexadecimaal genoteerd). Interne GBO-identifier voor objecten zonder externe authentieke identifier."""
 scalar UUID
 
 """Een natuurlijke persoon die in de Basisregistratie Personen is opgenomen, hetzij als ingezetene van een Nederlandse gemeente, hetzij als niet-ingezetene in de Registratie Niet-Ingezetenen."""
-interface IngeschrevenPersoon implements Voorkomen & Partij {
+interface IngeschrevenPersoon implements Partij {
   """De inschrijving(en) van deze partij in het Handelsregister. (Sleutel-referentie naar Inschrijving.)"""
-  ingeschrevenAls: [Numeriek8!]
+  ingeschrevenAls: [String!]
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
   partijnummer: UUID!
-  """Materiële tijdlijn: start van de geldigheid."""
-  beginGeldigheid: Datum!
-  """Materiële tijdlijn: einde van de geldigheid; open betekent lopend."""
-  eindGeldigheid: Datum
-  """Formele tijdlijn: start van de registratie."""
-  tijdstipRegistratie: DatumTijd!
-  """Formele tijdlijn: einde van de registratie; open betekent actueel."""
-  eindRegistratie: DatumTijd
-  """Monotone versieteller."""
-  versie: Numeriek!
   """De officiële familienaam van de persoon."""
-  geslachtsnaam: Tekst!
+  geslachtsnaam: String!
   """Alle officiële voornamen van de persoon."""
-  voornamen: Tekst
+  voornamen: String
   """Het voorvoegsel bij de geslachtsnaam."""
-  voorvoegsel: Tekst
+  voorvoegsel: String
   """Adellijke titel of predicaat."""
   adellijkeTitelPredicaat: CodelijstLT38
   """De datum waarop de persoon is geboren."""
   geboortedatum: DatumIncompleet
   """De gemeente of plaats waar de persoon is geboren."""
-  geboorteplaats: Tekst
+  geboorteplaats: String
   """Het land waar de persoon is geboren."""
   geboorteland: CodelijstISO3166
   """Het geslacht van de persoon."""
@@ -78,15 +52,15 @@ interface IngeschrevenPersoon implements Voorkomen & Partij {
   """De datum waarop de persoon is overleden."""
   datumOverlijden: DatumIncompleet
   """De plaats waar de persoon is overleden."""
-  plaatsOverlijden: Tekst
+  plaatsOverlijden: String
   """Het land waar de persoon is overleden."""
   landOverlijden: CodelijstISO3166
   """De ouder(s) van deze persoon."""
   heeftOuder: [NatuurlijkPersoon!]
   """Het door de Beheervoorziening BSN uitgegeven persoonsnummer."""
-  bsn: Numeriek9!
+  bsn: String!
   """Het persoonsnummer dat een ander land aan deze persoon heeft toegekend."""
-  tin: Alfanumeriek
+  tin: String
   """De datum waarop deze persoon voor het eerst in de BRP werd opgenomen."""
   datumEersteInschrijving: DatumIncompleet
   """De gemeente die de persoonslijst bijhoudt."""
@@ -114,23 +88,9 @@ interface IngeschrevenPersoon implements Voorkomen & Partij {
 """Abstract supertype van natuurlijke en niet-natuurlijke personen: iedere actor die in een overheidsregistratie als rechts- of handelingssubject voorkomt."""
 interface Partij {
   """De inschrijving(en) van deze partij in het Handelsregister. (Sleutel-referentie naar Inschrijving.)"""
-  ingeschrevenAls: [Numeriek8!]
+  ingeschrevenAls: [String!]
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
   partijnummer: UUID!
-}
-
-"""Mixin van attributen die elk basisregistratie-objecttype kan dragen voor bitemporele expressiviteit conform HC-BAG en BRP-Historie: twee tijdlijnen, materiële geldigheid en formele registratie."""
-interface Voorkomen {
-  """Materiële tijdlijn: start van de geldigheid."""
-  beginGeldigheid: Datum!
-  """Materiële tijdlijn: einde van de geldigheid; open betekent lopend."""
-  eindGeldigheid: Datum
-  """Formele tijdlijn: start van de registratie."""
-  tijdstipRegistratie: DatumTijd!
-  """Formele tijdlijn: einde van de registratie; open betekent actueel."""
-  eindRegistratie: DatumTijd
-  """Monotone versieteller."""
-  versie: Numeriek!
 }
 
 """Een leesbare aanduiding van een locatie of correspondentiepunt waarmee een persoon of organisatie kan worden bereikt of waarop een rechtsbetrekking is gevestigd, samengesteld uit elementen van de bronregisters BAG, RSGB en BRP."""
@@ -138,27 +98,27 @@ interface Adres {
   """GBO-eigen sleutel voor één adres-instantie."""
   adresId: UUID!
   """Gedenormaliseerde, leesbare projectie van het adres."""
-  volledigAdres: Tekst
+  volledigAdres: String
 }
 
 """Een mens als drager van burgerlijke rechten en plichten."""
 type NatuurlijkPersoon implements Partij {
   """De inschrijving(en) van deze partij in het Handelsregister. (Sleutel-referentie naar Inschrijving.)"""
-  ingeschrevenAls: [Numeriek8!]
+  ingeschrevenAls: [String!]
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
   partijnummer: UUID!
   """De officiële familienaam van de persoon."""
-  geslachtsnaam: Tekst!
+  geslachtsnaam: String!
   """Alle officiële voornamen van de persoon."""
-  voornamen: Tekst
+  voornamen: String
   """Het voorvoegsel bij de geslachtsnaam."""
-  voorvoegsel: Tekst
+  voorvoegsel: String
   """Adellijke titel of predicaat."""
   adellijkeTitelPredicaat: CodelijstLT38
   """De datum waarop de persoon is geboren."""
   geboortedatum: DatumIncompleet
   """De gemeente of plaats waar de persoon is geboren."""
-  geboorteplaats: Tekst
+  geboorteplaats: String
   """Het land waar de persoon is geboren."""
   geboorteland: CodelijstISO3166
   """Het geslacht van de persoon."""
@@ -166,7 +126,7 @@ type NatuurlijkPersoon implements Partij {
   """De datum waarop de persoon is overleden."""
   datumOverlijden: DatumIncompleet
   """De plaats waar de persoon is overleden."""
-  plaatsOverlijden: Tekst
+  plaatsOverlijden: String
   """Het land waar de persoon is overleden."""
   landOverlijden: CodelijstISO3166
   """De ouder(s) van deze persoon."""
@@ -174,33 +134,23 @@ type NatuurlijkPersoon implements Partij {
 }
 
 """Een ingeschreven persoon die zijn adres heeft op het grondgebied van een Nederlandse gemeente en daar door die gemeente in de basisregistratie wordt bijgehouden."""
-type Ingezetene implements IngeschrevenPersoon & Voorkomen & Partij {
+type Ingezetene implements IngeschrevenPersoon & Partij {
   """De inschrijving(en) van deze partij in het Handelsregister. (Sleutel-referentie naar Inschrijving.)"""
-  ingeschrevenAls: [Numeriek8!]
+  ingeschrevenAls: [String!]
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
   partijnummer: UUID!
-  """Materiële tijdlijn: start van de geldigheid."""
-  beginGeldigheid: Datum!
-  """Materiële tijdlijn: einde van de geldigheid; open betekent lopend."""
-  eindGeldigheid: Datum
-  """Formele tijdlijn: start van de registratie."""
-  tijdstipRegistratie: DatumTijd!
-  """Formele tijdlijn: einde van de registratie; open betekent actueel."""
-  eindRegistratie: DatumTijd
-  """Monotone versieteller."""
-  versie: Numeriek!
   """De officiële familienaam van de persoon."""
-  geslachtsnaam: Tekst!
+  geslachtsnaam: String!
   """Alle officiële voornamen van de persoon."""
-  voornamen: Tekst
+  voornamen: String
   """Het voorvoegsel bij de geslachtsnaam."""
-  voorvoegsel: Tekst
+  voorvoegsel: String
   """Adellijke titel of predicaat."""
   adellijkeTitelPredicaat: CodelijstLT38
   """De datum waarop de persoon is geboren."""
   geboortedatum: DatumIncompleet
   """De gemeente of plaats waar de persoon is geboren."""
-  geboorteplaats: Tekst
+  geboorteplaats: String
   """Het land waar de persoon is geboren."""
   geboorteland: CodelijstISO3166
   """Het geslacht van de persoon."""
@@ -208,15 +158,15 @@ type Ingezetene implements IngeschrevenPersoon & Voorkomen & Partij {
   """De datum waarop de persoon is overleden."""
   datumOverlijden: DatumIncompleet
   """De plaats waar de persoon is overleden."""
-  plaatsOverlijden: Tekst
+  plaatsOverlijden: String
   """Het land waar de persoon is overleden."""
   landOverlijden: CodelijstISO3166
   """De ouder(s) van deze persoon."""
   heeftOuder: [NatuurlijkPersoon!]
   """Het door de Beheervoorziening BSN uitgegeven persoonsnummer."""
-  bsn: Numeriek9!
+  bsn: String!
   """Het persoonsnummer dat een ander land aan deze persoon heeft toegekend."""
-  tin: Alfanumeriek
+  tin: String
   """De datum waarop deze persoon voor het eerst in de BRP werd opgenomen."""
   datumEersteInschrijving: DatumIncompleet
   """De gemeente die de persoonslijst bijhoudt."""
@@ -248,33 +198,23 @@ type Ingezetene implements IngeschrevenPersoon & Voorkomen & Partij {
 }
 
 """Een ingeschreven persoon die niet als ingezetene van een Nederlandse gemeente is geregistreerd en wiens persoonslijst centraal wordt bijgehouden in de Registratie Niet-Ingezetenen."""
-type NietIngezetene implements IngeschrevenPersoon & Voorkomen & Partij {
+type NietIngezetene implements IngeschrevenPersoon & Partij {
   """De inschrijving(en) van deze partij in het Handelsregister. (Sleutel-referentie naar Inschrijving.)"""
-  ingeschrevenAls: [Numeriek8!]
+  ingeschrevenAls: [String!]
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
   partijnummer: UUID!
-  """Materiële tijdlijn: start van de geldigheid."""
-  beginGeldigheid: Datum!
-  """Materiële tijdlijn: einde van de geldigheid; open betekent lopend."""
-  eindGeldigheid: Datum
-  """Formele tijdlijn: start van de registratie."""
-  tijdstipRegistratie: DatumTijd!
-  """Formele tijdlijn: einde van de registratie; open betekent actueel."""
-  eindRegistratie: DatumTijd
-  """Monotone versieteller."""
-  versie: Numeriek!
   """De officiële familienaam van de persoon."""
-  geslachtsnaam: Tekst!
+  geslachtsnaam: String!
   """Alle officiële voornamen van de persoon."""
-  voornamen: Tekst
+  voornamen: String
   """Het voorvoegsel bij de geslachtsnaam."""
-  voorvoegsel: Tekst
+  voorvoegsel: String
   """Adellijke titel of predicaat."""
   adellijkeTitelPredicaat: CodelijstLT38
   """De datum waarop de persoon is geboren."""
   geboortedatum: DatumIncompleet
   """De gemeente of plaats waar de persoon is geboren."""
-  geboorteplaats: Tekst
+  geboorteplaats: String
   """Het land waar de persoon is geboren."""
   geboorteland: CodelijstISO3166
   """Het geslacht van de persoon."""
@@ -282,15 +222,15 @@ type NietIngezetene implements IngeschrevenPersoon & Voorkomen & Partij {
   """De datum waarop de persoon is overleden."""
   datumOverlijden: DatumIncompleet
   """De plaats waar de persoon is overleden."""
-  plaatsOverlijden: Tekst
+  plaatsOverlijden: String
   """Het land waar de persoon is overleden."""
   landOverlijden: CodelijstISO3166
   """De ouder(s) van deze persoon."""
   heeftOuder: [NatuurlijkPersoon!]
   """Het door de Beheervoorziening BSN uitgegeven persoonsnummer."""
-  bsn: Numeriek9!
+  bsn: String!
   """Het persoonsnummer dat een ander land aan deze persoon heeft toegekend."""
-  tin: Alfanumeriek
+  tin: String
   """De datum waarop deze persoon voor het eerst in de BRP werd opgenomen."""
   datumEersteInschrijving: DatumIncompleet
   """De gemeente die de persoonslijst bijhoudt."""
@@ -344,7 +284,7 @@ type Huwelijk {
   """De datum waarop de verbintenis is aangegaan."""
   datumVoltrekking: DatumIncompleet
   """De plaats waar de verbintenis is aangegaan."""
-  plaatsVoltrekking: Tekst
+  plaatsVoltrekking: String
   """Het land waarin de verbintenis is aangegaan."""
   landVoltrekking: CodelijstISO3166
   """De datum waarop de verbintenis is ontbonden."""
@@ -388,19 +328,19 @@ type Binnenlandsadres implements Adres {
   """GBO-eigen sleutel voor één adres-instantie."""
   adresId: UUID!
   """Gedenormaliseerde, leesbare projectie van het adres."""
-  volledigAdres: Tekst
+  volledigAdres: String
   """Volledige naam van de openbare ruimte."""
-  straatnaam: AN80!
+  straatnaam: String!
   """Het huisnummer-deel van de Nummeraanduiding."""
-  huisnummer: N5!
+  huisnummer: Int!
   """De huisletter bij het huisnummer."""
-  huisletter: Tekst
+  huisletter: String
   """De huisnummertoevoeging (bv. 2hg, bis)."""
-  huisnummertoevoeging: Tekst
+  huisnummertoevoeging: String
   """De postcode behorend bij het huisnummer."""
   postcode: Postcode
   """Naam van de bovenliggende woonplaats."""
-  woonplaatsnaam: AN80!
+  woonplaatsnaam: String!
   """Spiegel van Nummeraanduiding vormt Binnenlandsadres. (Sleutel-referentie naar Nummeraanduiding.)"""
   wordtGevormdDoor: NEN3610ID!
 }

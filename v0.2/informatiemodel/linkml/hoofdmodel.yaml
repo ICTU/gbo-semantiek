@@ -68,6 +68,10 @@ classes:
 
   Voorkomen:
     mixin: true
+    # Patroon-mixin: blijft in het semantische model (OWL/RDF) maar wordt
+    # niet als interface naar de GraphQL-SDL geprojecteerd (gbo:graphql).
+    annotations:
+      gbo:graphql: uitsluiten
     description: >-
       Mixin van attributen die elk basisregistratie-objecttype kan
       dragen voor bitemporele expressiviteit conform HC-BAG en
@@ -103,6 +107,10 @@ classes:
 
   Datakwaliteit:
     mixin: true
+    # Patroon-mixin: blijft in het semantische model (OWL/RDF) maar wordt
+    # niet als interface naar de GraphQL-SDL geprojecteerd (gbo:graphql).
+    annotations:
+      gbo:graphql: uitsluiten
     description: >-
       Mixin met vier datakwaliteits-flags die los van Voorkomen kunnen
       leven maar er vaak mee gepaard gaan.

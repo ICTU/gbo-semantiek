@@ -29,6 +29,8 @@ imports:
 types:
 
   # --- Simpele datatypes (MIM 1.2-primitieven) -------------------------------
+  # Een lengte- of precisiebeperking is geen apart datatype maar een facet
+  # van het attribuut, vastgelegd als mim:lengte-annotatie op het attribuut.
 
   Tekst:
     typeof: string
@@ -37,31 +39,11 @@ types:
     annotations:
       mim:herkomst: MIM 1.2
 
-  Tekst24:
-    typeof: Tekst
-    description: Reeks Unicode-tekens van maximaal 24 tekens.
-    pattern: "^.{0,24}$"
-
   Alfanumeriek:
     typeof: Tekst
     description: >-
       Reeks tekens uit het alfabet en de cijfers, zonder leestekens.
     pattern: "^[A-Za-z0-9]*$"
-
-  Alfanumeriek10:
-    typeof: Alfanumeriek
-    description: Alfanumerieke reeks van maximaal 10 tekens.
-    pattern: "^[A-Za-z0-9]{0,10}$"
-
-  AN40:
-    typeof: Alfanumeriek
-    description: Alfanumerieke reeks van maximaal 40 tekens.
-    pattern: "^[A-Za-z0-9]{0,40}$"
-
-  AN80:
-    typeof: Alfanumeriek
-    description: Alfanumerieke reeks van maximaal 80 tekens.
-    pattern: "^[A-Za-z0-9]{0,80}$"
 
   Identificatie:
     typeof: Tekst
@@ -80,46 +62,6 @@ types:
     aliases: ["Integer"]
     annotations:
       mim:herkomst: MIM 1.2
-
-  Numeriek8:
-    typeof: Numeriek
-    description: Geheel getal van maximaal 8 cijfers.
-
-  # Vaste-lengte-varianten; als string gemodelleerd omdat voorloopnullen
-  # betekenisvol zijn (vergelijk Numeriek9).
-  N2:
-    typeof: string
-    description: Numerieke reeks van precies 2 cijfers.
-    pattern: "^[0-9]{2}$"
-
-  N4:
-    typeof: string
-    description: Numerieke reeks van precies 4 cijfers.
-    pattern: "^[0-9]{4}$"
-
-  N5:
-    typeof: string
-    description: Numerieke reeks van precies 5 cijfers.
-    pattern: "^[0-9]{5}$"
-
-  N6:
-    typeof: string
-    description: Numerieke reeks van precies 6 cijfers.
-    pattern: "^[0-9]{6}$"
-
-  Numeriek9:
-    typeof: string
-    description: >-
-      Numerieke reeks van precies 9 cijfers. Als string gemodelleerd
-      omdat voorloopnullen betekenisvol zijn (onder andere BSN).
-    pattern: "^[0-9]{9}$"
-
-  Numeriek12:
-    typeof: string
-    description: >-
-      Numerieke reeks van maximaal 12 cijfers, voorloopnullen
-      betekenisvol.
-    pattern: "^[0-9]{1,12}$"
 
   Decimaal:
     typeof: float
