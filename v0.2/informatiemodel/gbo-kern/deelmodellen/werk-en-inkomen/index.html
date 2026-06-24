@@ -18,7 +18,7 @@
         <link rel="prev" href="../onderwijs/">
       
       
-        <link rel="next" href="../../datatypes-en-codelijsten/">
+        <link rel="next" href="../voertuigen/">
       
       
       <link rel="icon" href="../../../../assets/icon.svg">
@@ -385,7 +385,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../uitgangspunten/bronnenprioritering/" class="md-nav__link">
+      <a href="../../bronnenprioritering/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -606,6 +606,10 @@
       
         
       
+        
+      
+        
+      
     
     
       
@@ -651,6 +655,27 @@
   
   <span class="md-ellipsis">
     Hoofdmodel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hoofdmodel-compact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hoofdmodel (compact)
   </span>
   
 
@@ -1120,6 +1145,27 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../voertuigen/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deelmodel Voertuigen
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1897,6 +1943,10 @@ leiden tot een wijziging van uitkeringssoort en hoogte.</p>
 <td>2026-05-19</td>
 </tr>
 <tr>
+<td>Unieke aanduiding</td>
+<td>Combinatie van persoon, beschikkingsdatum en vaststellingsdatum.</td>
+</tr>
+<tr>
 <td>Populatie</td>
 <td>Alle door UWV vastgestelde arbeidsongeschiktheidspercentages die de basis vormen voor classificatie van een WIA-uitkering in IVA of WGA, inclusief herzieningen.</td>
 </tr>
@@ -1974,6 +2024,10 @@ loonheffingen vast.</p>
 <tr>
 <td>Datum opname</td>
 <td>2026-05-19</td>
+</tr>
+<tr>
+<td>Unieke aanduiding</td>
+<td>Combinatie van werknemer, werkgever en ingangsdatum.</td>
 </tr>
 <tr>
 <td>Populatie</td>
@@ -2081,6 +2135,10 @@ zelfstandig werk.</p>
 <td>2026-05-19</td>
 </tr>
 <tr>
+<td>Unieke aanduiding</td>
+<td>Combinatie van persoon, soortFeit, begindatum en einddatum.</td>
+</tr>
+<tr>
 <td>Populatie</td>
 <td>Alle afzonderlijke feiten in het arbeids- of inkomensverleden van een natuurlijk persoon (dienstverband, uitkeringsperiode, leerwerk-periode of periode zelfstandig werk) die relevant zijn voor de berekening van werknemersverzekerings-rechten.</td>
 </tr>
@@ -2163,6 +2221,10 @@ beeindiging) zijn elk afzonderlijke beschikkingen.</p>
 <tr>
 <td>Datum opname</td>
 <td>2026-05-19</td>
+</tr>
+<tr>
+<td>Unieke aanduiding</td>
+<td>Beschikkingsnummer (UWV of SVB).</td>
 </tr>
 <tr>
 <td>Populatie</td>
@@ -2248,6 +2310,10 @@ wettelijk maximumdagloon, jaarlijks door SZW vastgesteld.</p>
 <td>2026-05-19</td>
 </tr>
 <tr>
+<td>Unieke aanduiding</td>
+<td>Combinatie van persoon, uitkering en peildatum.</td>
+</tr>
+<tr>
 <td>Populatie</td>
 <td>Alle door UWV vastgestelde daglonen die als grondslag dienen voor de hoogte van een werknemersverzekerings-uitkering, berekend uit de inkomstenopgaven over de referteperiode.</td>
 </tr>
@@ -2309,7 +2375,7 @@ inkomensondersteuning, in de vorm van een inkomensafhankelijke
 regeling of een sociale-zekerheidsuitkering.</p>
 <p><strong>Herkomst definitie</strong>: Algemene wet inkomensafhankelijke regelingen
 (Awir) voor toeslagen; Wet SUWI en de afzonderlijke werknemers- en
-volksverzekeringswetten voor uitkeringen; GBO-Kern-abstractie.</p>
+volksverzekeringswetten voor uitkeringen; GBO-Core-abstractie.</p>
 <p><strong>Toelichting</strong>: Cross-domein algemene categorie boven Toeslag (in
 <a href="../belastingen/">Belastingen</a>) en Uitkering (in dit deelmodel).
 Beide takken delen de basis-eigenschappen rechthebbende natuurlijk
@@ -2367,7 +2433,7 @@ en aanvraagprocedure.</p>
 <td><a href="../../datatypes-en-codelijsten/#simpele-datatypes">Tekst</a></td>
 <td>1</td>
 <td>Interne identificatie.</td>
-<td>GBO-Kern</td>
+<td>GBO-Core</td>
 </tr>
 <tr>
 <td><code>ingangsdatum</code></td>
@@ -2429,6 +2495,10 @@ Wajong, AOW).</p>
 <tr>
 <td>Indicatie abstract object</td>
 <td>Ja</td>
+</tr>
+<tr>
+<td>Unieke aanduiding</td>
+<td>Combinatie van persoon, soortUitkering en toekenningsperiode.</td>
 </tr>
 <tr>
 <td>Populatie</td>
@@ -2524,6 +2594,10 @@ nodig.</p>
 <td>AOW</td>
 </tr>
 <tr>
+<td>Unieke aanduiding</td>
+<td>Combinatie van BSN en AOW-toekenningsperiode.</td>
+</tr>
+<tr>
 <td>Populatie</td>
 <td>Alle door SVB op grond van de Algemene Ouderdomswet toegekende periodieke uitkeringen aan natuurlijke personen vanaf de AOW-gerechtigde leeftijd.</td>
 </tr>
@@ -2601,6 +2675,10 @@ stabieler dan WGA omdat het duurzaamheids-criterium is gehaald.</p>
 <td>IVA</td>
 </tr>
 <tr>
+<td>Unieke aanduiding</td>
+<td>Combinatie van BSN en IVA-toekenningsperiode.</td>
+</tr>
+<tr>
 <td>Populatie</td>
 <td>Alle door UWV toegekende IVA-uitkeringen aan werknemers die duurzaam minder dan twintig procent van hun oude loon kunnen verdienen, op grond van hoofdstuk IV van de Wet WIA.</td>
 </tr>
@@ -2674,6 +2752,10 @@ voor duurzaam volledig arbeidsongeschikten).</p>
 <td>Wajong</td>
 </tr>
 <tr>
+<td>Unieke aanduiding</td>
+<td>Combinatie van BSN en Wajong-toekenningsperiode.</td>
+</tr>
+<tr>
 <td>Populatie</td>
 <td>Alle door UWV toegekende Wajong-uitkeringen aan jonggehandicapten, verdeeld over de drie generaties oude Wajong (toekenningen voor 2010), Wajong 2010 en Wajong 2015.</td>
 </tr>
@@ -2745,6 +2827,10 @@ minimumloon-percentages).</p>
 <tr>
 <td>Notation</td>
 <td>WGA</td>
+</tr>
+<tr>
+<td>Unieke aanduiding</td>
+<td>Combinatie van BSN en WGA-toekenningsperiode.</td>
 </tr>
 <tr>
 <td>Populatie</td>
@@ -2827,6 +2913,10 @@ en UitkeringWGA.</p>
 <td>WIA</td>
 </tr>
 <tr>
+<td>Unieke aanduiding</td>
+<td>Combinatie van BSN en WIA-toekenningsperiode.</td>
+</tr>
+<tr>
 <td>Populatie</td>
 <td>Alle door UWV toegekende WIA-uitkeringen aan werknemers die na de wachttijd van twee jaar ziekte gedeeltelijk of volledig arbeidsongeschikt zijn; concreet uitgesplitst naar UitkeringIVA en UitkeringWGA.</td>
 </tr>
@@ -2895,6 +2985,10 @@ arbeidsverledenjaren (basis-WW plus eventueel verlengde uitkering).</p>
 <tr>
 <td>Notation</td>
 <td>WW</td>
+</tr>
+<tr>
+<td>Unieke aanduiding</td>
+<td>Combinatie van BSN en WW-toekenningsperiode.</td>
 </tr>
 <tr>
 <td>Populatie</td>
@@ -2974,6 +3068,10 @@ werkgever en vallen niet onder ZW.</p>
 <tr>
 <td>Notation</td>
 <td>ZW</td>
+</tr>
+<tr>
+<td>Unieke aanduiding</td>
+<td>Combinatie van BSN en ZW-toekenningsperiode.</td>
 </tr>
 <tr>
 <td>Populatie</td>
@@ -3458,13 +3556,13 @@ ontsluitingskanaal, niet de definitie-bron.</p>
         
         
           
-          <a href="../../datatypes-en-codelijsten/" class="md-footer__link md-footer__link--next" aria-label="Volgende: Datatypes en codelijsten">
+          <a href="../voertuigen/" class="md-footer__link md-footer__link--next" aria-label="Volgende: Deelmodel Voertuigen">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Volgende
               </span>
               <div class="md-ellipsis">
-                Datatypes en codelijsten
+                Deelmodel Voertuigen
               </div>
             </div>
             <div class="md-footer__button md-icon">

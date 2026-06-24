@@ -381,7 +381,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../uitgangspunten/bronnenprioritering/" class="md-nav__link">
+      <a href="../../informatiemodel/gbo-kern/bronnenprioritering/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -600,6 +600,10 @@
       
         
       
+        
+      
+        
+      
     
     
       
@@ -645,6 +649,27 @@
   
   <span class="md-ellipsis">
     Hoofdmodel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../informatiemodel/gbo-kern/hoofdmodel-compact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hoofdmodel (compact)
   </span>
   
 
@@ -834,6 +859,27 @@
   
   <span class="md-ellipsis">
     Deelmodel Werk en Inkomen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../informatiemodel/gbo-kern/deelmodellen/voertuigen/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deelmodel Voertuigen
   </span>
   
 
@@ -1351,8 +1397,8 @@
 <p><strong>Governancelaag.</strong> Drie artefacten maken de semantiek bruikbaar voor use cases: <em>credentialtype-metadata (vct)</em> — deels gegenereerd uit de ontologie, aangevuld door de use-case-eigenaar; het <em>rulebook / vertrouwensraamwerk</em> — een mensgericht document dat naar termen verwijst via stabiele URIs; en het <em>doel- en datacategorie-vocabulaire</em> — een uitsnede van de ontologie met eigen governance- en versioneringscyclus.</p>
 <p><strong>Operationele laag — vier lanes</strong>, ingedeeld op interactiepatroon (niet op formaat):</p>
 <ul>
-<li><em>Lane A — EUDI credentials.</em> SD-JWT VCs van PubEAA Provider naar EUDI Wallet en verifier. Semantiek loopt via vct en rulebook, niet via een runtime <code>@context</code>.</li>
-<li><em>Lane B — Semantische data-delivery.</em> ASI en SDG-OOTS Adapter leveren JSON-LD/RDF aan externe afnemers; zelf-beschrijvendheid in de payload is hier essentieel.</li>
+<li><em>Lane A — EUDI credentials.</em> SD-JWT VCs van PubEAA Provider naar EUDI Wallet en verifier. Semantiek loopt via vct en rulebook, niet via een runtime <code>@context</code>. De geleverde attestaties zijn beschreven in het EDI-clientmodel (zie <a href="../gegevensarchitectuur/#clientmodellen-edi-en-oots">Gegevensarchitectuur</a>).</li>
+<li><em>Lane B — Semantische data-delivery.</em> ASI en SDG-OOTS Adapter leveren JSON-LD/RDF aan externe afnemers; zelf-beschrijvendheid in de payload is hier essentieel. De geleverde bewijsstukken zijn beschreven in het OOTS-clientmodel (zie <a href="../gegevensarchitectuur/#clientmodellen-edi-en-oots">Gegevensarchitectuur</a>).</li>
 <li><em>Lane C — Query / bevraging.</em> De Bronhouder GraphQL API levert JSON-LD-respons; SDL en <code>@context</code> komen uit dezelfde ontologie.</li>
 <li><em>Lane D — Autorisatie &amp; policy.</em> OPA-bundles van PAP naar PEP/PDP gebruiken doel- en attribuut-URIs uit het vocabulaire als anker voor audit en handhaving.</li>
 </ul>
