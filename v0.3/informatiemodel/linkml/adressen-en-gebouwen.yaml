@@ -420,7 +420,7 @@ classes:
         Wet BAG; Catalogus BAG 2018 §2.5, §2.7; IMBAG (gedeeld patroon
         voor Verblijfsobject, Ligplaats en Standplaats).
       mim:datumOpname: "2026-04-28"
-      mim:uniekeAanduiding: identificatie (NEN3610ID)
+      mim:uniekeAanduiding: identificatie (BAGID)
       mim:populatie: >-
         Alle adresseerbare objecten in Nederland zoals aangewezen en
         geregistreerd door de bevoegde gemeente in de BAG.
@@ -438,7 +438,7 @@ classes:
       identificatie:
         identifier: true
         required: true
-        range: NEN3610ID
+        range: BAGID
         description: >-
           Unieke identificatie van het adresseerbaar object volgens
           NEN 3610.
@@ -504,7 +504,7 @@ classes:
       mim:herkomstDefinitie: >-
         Wet BAG art. 1; Catalogus BAG 2018 §2.6; IMBAG Ligplaats.
       mim:datumOpname: "2026-04-28"
-      mim:uniekeAanduiding: identificatie (NEN3610ID)
+      mim:uniekeAanduiding: identificatie (BAGID)
       mim:populatie: >-
         Door gemeenten aangewezen ligplaatsen in Nederland: woonboten,
         drijvende woningen, recreatieve drijvende objecten.
@@ -555,7 +555,7 @@ classes:
         Wet BAG art. 1; Catalogus BAG 2018 §2.3; IMBAG
         Nummeraanduiding.
       mim:datumOpname: "2026-04-28"
-      mim:uniekeAanduiding: identificatie (NEN3610ID)
+      mim:uniekeAanduiding: identificatie (BAGID)
       mim:populatie: >-
         Alle door gemeenten toegekende nummeraanduidingen in Nederland
         zoals geregistreerd in de BAG, hoofd- en nevenadressen,
@@ -572,7 +572,7 @@ classes:
       identificatie:
         identifier: true
         required: true
-        range: NEN3610ID
+        range: BAGID
         description: >-
           Unieke identificatie van de nummeraanduiding volgens
           NEN 3610.
@@ -687,7 +687,7 @@ classes:
       mim:herkomstDefinitie: >-
         Wet BAG art. 1; Catalogus BAG 2018 §2.4; IMBAG Pand.
       mim:datumOpname: "2026-04-28"
-      mim:uniekeAanduiding: identificatie (NEN3610ID)
+      mim:uniekeAanduiding: identificatie (BAGID)
       mim:populatie: >-
         Alle panden in Nederland zoals aangewezen en geregistreerd
         door de bevoegde gemeente in de BAG, inclusief panden in
@@ -707,7 +707,7 @@ classes:
       identificatie:
         identifier: true
         required: true
-        range: NEN3610ID
+        range: BAGID
         description: Unieke identificatie van het pand volgens NEN 3610.
         annotations:
           mim:authentiek: Authentiek
@@ -763,7 +763,7 @@ classes:
       mim:herkomstDefinitie: >-
         Wet BAG art. 1; Catalogus BAG 2018 §2.7; IMBAG Standplaats.
       mim:datumOpname: "2026-04-28"
-      mim:uniekeAanduiding: identificatie (NEN3610ID)
+      mim:uniekeAanduiding: identificatie (BAGID)
       mim:populatie: >-
         Door gemeenten aangewezen standplaatsen in Nederland:
         woonwagenlocaties, recreatiewoningen op camping, vaste
@@ -816,7 +816,7 @@ classes:
         Wet BAG art. 1; Catalogus BAG 2018 §2.5; IMBAG
         Verblijfsobject.
       mim:datumOpname: "2026-04-28"
-      mim:uniekeAanduiding: identificatie (NEN3610ID)
+      mim:uniekeAanduiding: identificatie (BAGID)
       mim:populatie: >-
         Alle verblijfsobjecten in Nederland zoals aangewezen en
         geregistreerd door de bevoegde gemeente in de BAG: woningen,
@@ -1068,7 +1068,7 @@ classes:
         Wet BAG art. 1; Catalogus BAG 2018 §2.2; IMBAG Openbare
         ruimte; NEN 5825 (verkorte naam).
       mim:datumOpname: "2026-04-28"
-      mim:uniekeAanduiding: identificatie (NEN3610ID)
+      mim:uniekeAanduiding: identificatie (BAGID)
       mim:populatie: >-
         Alle door gemeenten aangewezen openbare ruimten in Nederland
         zoals geregistreerd in de BAG, inclusief uitgegeven en
@@ -1084,7 +1084,7 @@ classes:
       identificatie:
         identifier: true
         required: true
-        range: NEN3610ID
+        range: BAGID
         description: >-
           Unieke identificatie van de openbare ruimte volgens
           NEN 3610.
@@ -1243,7 +1243,7 @@ classes:
       mim:herkomstDefinitie: >-
         Wet BAG art. 1; Catalogus BAG 2018 §2.1; IMBAG Woonplaats.
       mim:datumOpname: "2026-04-28"
-      mim:uniekeAanduiding: identificatie (NEN3610ID)
+      mim:uniekeAanduiding: identificatie (BAGID)
       mim:populatie: >-
         Alle door gemeenten aangewezen woonplaatsen in Nederland zoals
         geregistreerd in de BAG, inclusief aangewezen en ingetrokken
@@ -1259,7 +1259,7 @@ classes:
       identificatie:
         identifier: true
         required: true
-        range: NEN3610ID
+        range: BAGID
         description: >-
           Unieke identificatie van de woonplaats volgens NEN 3610.
         annotations:

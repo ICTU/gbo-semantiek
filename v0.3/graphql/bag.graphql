@@ -2,6 +2,8 @@
 # GraphQL SDL voor bronprofiel BAG, gegenereerd uit gbo-bron-bag.yaml.
 # Regenereer met: task generate:graphql
 
+"""BAG-objectidentificatie: een 16-cijferige code, opgebouwd uit gemeentecode (4), objecttypecode (2) en objectvolgnummer (10). Identificeert pand, verblijfsobject, standplaats, ligplaats, nummeraanduiding, openbare ruimte en woonplaats in de BAG."""
+scalar BAGID
 """Wijk- en buurtcodes conform de CBS Wijk- en Buurtkaart (jaarlijkse uitgave)."""
 scalar CodelijstCBSWijkBuurt
 """Gemeentecode conform BRP-Landelijke Tabel 33 Gemeenten. Formeel een BRP-codelijst, feitelijk de stelselbrede gemeente-codering inclusief historische gemeenten met einddatum."""
@@ -10,8 +12,6 @@ scalar CodelijstLT33
 scalar Geometrie
 """Kalenderjaar in ISO 8601, vier cijfers (jjjj)."""
 scalar Jaar
-"""Landelijke objectidentificatie voor stelselobjecten, opgebouwd uit namespace, lokaalID en versie (NEN 3610)."""
-scalar NEN3610ID
 """Nederlandse postcode in het formaat 9999 XX (norm NEN 5825)."""
 scalar Postcode
 """Geometrie als één coördinaat (x, y, optioneel z)."""
@@ -24,7 +24,7 @@ scalar Vlak
 """Een object waaraan formeel één of meer adressen kunnen worden toegekend door het bevoegde gemeentelijke gezag, ter identificatie van een eenheid van gebruik, ligging of verblijf."""
 interface AdresseerbaarObject {
   """Unieke identificatie van het adresseerbaar object volgens NEN 3610."""
-  identificatie: NEN3610ID!
+  identificatie: BAGID!
   """Aanduiding van de concrete vorm: Verblijfsobject, Ligplaats of Standplaats."""
   typeAdresseerbaarObject: TypeAdresseerbaarObject!
   """Hoofdadres + nul of meer nevenadressen."""
@@ -44,7 +44,7 @@ interface Adres {
 """Een door het bevoegde gemeentelijke gezag aangewezen plaats in het water, eventueel aangevuld met een op de oever aanwezig terrein of een gedeelte daarvan, bestemd voor het permanent afmeren van een voor woon-, bedrijfsmatige of recreatieve doeleinden geschikt drijvend object."""
 type Ligplaats implements AdresseerbaarObject {
   """Unieke identificatie van het adresseerbaar object volgens NEN 3610."""
-  identificatie: NEN3610ID!
+  identificatie: BAGID!
   """Aanduiding van de concrete vorm: Verblijfsobject, Ligplaats of Standplaats."""
   typeAdresseerbaarObject: TypeAdresseerbaarObject!
   """Hoofdadres + nul of meer nevenadressen."""
@@ -60,7 +60,7 @@ type Ligplaats implements AdresseerbaarObject {
 """Een door het bevoegde gemeentelijke gezag aangewezen terrein of gedeelte daarvan dat bestemd is voor het permanent plaatsen van een niet direct en niet duurzaam met de aarde verbonden en voor woon-, bedrijfsmatige of recreatieve doeleinden geschikt bouwwerk."""
 type Standplaats implements AdresseerbaarObject {
   """Unieke identificatie van het adresseerbaar object volgens NEN 3610."""
-  identificatie: NEN3610ID!
+  identificatie: BAGID!
   """Aanduiding van de concrete vorm: Verblijfsobject, Ligplaats of Standplaats."""
   typeAdresseerbaarObject: TypeAdresseerbaarObject!
   """Hoofdadres + nul of meer nevenadressen."""
@@ -76,7 +76,7 @@ type Standplaats implements AdresseerbaarObject {
 """De kleinste binnen één of meer panden gelegen en voor woon-, bedrijfsmatige of recreatieve doeleinden geschikte eenheid van gebruik die ontsloten wordt via een eigen afsluitbare toegang vanaf de openbare weg, een erf of een gemeenschappelijke verkeersruimte."""
 type Verblijfsobject implements AdresseerbaarObject {
   """Unieke identificatie van het adresseerbaar object volgens NEN 3610."""
-  identificatie: NEN3610ID!
+  identificatie: BAGID!
   """Aanduiding van de concrete vorm: Verblijfsobject, Ligplaats of Standplaats."""
   typeAdresseerbaarObject: TypeAdresseerbaarObject!
   """Hoofdadres + nul of meer nevenadressen."""
@@ -102,7 +102,7 @@ type Verblijfsobject implements AdresseerbaarObject {
 """De kleinste bij de totstandkoming functioneel en bouwkundig-constructief zelfstandige eenheid die direct en duurzaam met de aarde is verbonden en betreedbaar en afsluitbaar is."""
 type Pand {
   """Unieke identificatie van het pand volgens NEN 3610."""
-  identificatie: NEN3610ID!
+  identificatie: BAGID!
   """Jaar van eerste oplevering van het pand."""
   oorspronkelijkBouwjaar: Jaar!
   """Levenscyclus-status van het pand."""
@@ -114,7 +114,7 @@ type Pand {
 """Een door het bevoegde gemeentelijke gezag aan een adresseerbaar object toegekende aanduiding bestaande uit een huisnummer met eventueel een huisletter, een huisnummertoevoeging en een postcode, die samen met de naam van de openbare ruimte en de woonplaats het formele adres vormt."""
 type Nummeraanduiding {
   """Unieke identificatie van de nummeraanduiding volgens NEN 3610."""
-  identificatie: NEN3610ID!
+  identificatie: BAGID!
   """Numerieke aanduiding van het adres binnen de openbare ruimte."""
   huisnummer: Int!
   """Letter ter onderscheid binnen één huisnummer."""
@@ -136,7 +136,7 @@ type Nummeraanduiding {
 """Een door het bevoegde gemeentelijke gezag als zodanig aangewezen en van een naam voorziene buitenruimte die binnen één woonplaats is gelegen."""
 type OpenbareRuimte {
   """Unieke identificatie van de openbare ruimte volgens NEN 3610."""
-  identificatie: NEN3610ID!
+  identificatie: BAGID!
   """Volledige naam van de openbare ruimte."""
   naamOpenbareRuimte: String!
   """Verkorte naam van de openbare ruimte (max 24 tekens)."""
@@ -154,7 +154,7 @@ type OpenbareRuimte {
 """Een door het bevoegde gemeentelijke gezag als zodanig aangewezen en van een naam voorzien gedeelte van het grondgebied van de gemeente, dat dient als plaatsaanduiding voor adressen."""
 type Woonplaats {
   """Unieke identificatie van de woonplaats volgens NEN 3610."""
-  identificatie: NEN3610ID!
+  identificatie: BAGID!
   """Volledige naam van de woonplaats."""
   woonplaatsnaam: String!
   """Levenscyclus-status van de woonplaats."""
@@ -312,15 +312,15 @@ enum StatusWoonplaats {
 """Query-ingangen van dit bronprofiel."""
 type Query {
   """Eén AdresseerbaarObject op identificatie."""
-  adresseerbaarObject(identificatie: NEN3610ID!): AdresseerbaarObject
+  adresseerbaarObject(identificatie: BAGID!): AdresseerbaarObject
   """Alle voorkomens van AdresseerbaarObject."""
   adresseerbaarObjectLijst: [AdresseerbaarObject!]
   """Eén Pand op identificatie."""
-  pand(identificatie: NEN3610ID!): Pand
+  pand(identificatie: BAGID!): Pand
   """Alle voorkomens van Pand."""
   pandLijst: [Pand!]
   """Eén Nummeraanduiding op identificatie."""
-  nummeraanduiding(identificatie: NEN3610ID!): Nummeraanduiding
+  nummeraanduiding(identificatie: BAGID!): Nummeraanduiding
   """Alle voorkomens van Nummeraanduiding."""
   nummeraanduidingLijst: [Nummeraanduiding!]
   """Eén Binnenlandsadres op adresId."""

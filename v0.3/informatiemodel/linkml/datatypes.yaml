@@ -138,8 +138,21 @@ types:
       - https://docs.geostandaarden.nl/nen3610/
     comments:
       - >-
-        Gebruikt voor BAG- en BRK-objecten; garandeert uniciteit over
-        registers heen.
+        Gebruikt voor BRK-objecten; garandeert uniciteit over registers
+        heen. BAG-objecten dragen het specifiekere BAGID.
+
+  BAGID:
+    typeof: string
+    description: >-
+      BAG-objectidentificatie: een 16-cijferige code, opgebouwd uit
+      gemeentecode (4), objecttypecode (2) en objectvolgnummer (10).
+      Identificeert pand, verblijfsobject, standplaats, ligplaats,
+      nummeraanduiding, openbare ruimte en woonplaats in de BAG.
+    pattern: "^[0-9]{16}$"
+    see_also:
+      - https://www.kadaster.nl/-/bag-objecten
+    annotations:
+      mim:herkomst: BAG
 
   UUID:
     typeof: string

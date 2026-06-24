@@ -676,7 +676,7 @@ tijd correct na te lopen zijn.
 | `typeVestiging` | [`TypeVestiging`](#typevestiging) | 1 | Basisgegeven | Ja | Ja | Onderscheid hoofd- en nevenvestiging. | NHR | Zie enumeratie `TypeVestiging`; precies één hoofdvestiging per Inschrijving op enig moment. |
 | `datumAanvang` | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Basisgegeven | Ja | Ja | Startdatum van de vestiging. | NHR | |
 | `datumEinde` | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Ja | Ja | Einddatum van de vestiging. | NHR | |
-| `adresseerbaarObjectId` | [NEN3610ID](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 0..1 | Basisgegeven | Ja | Ja | Koppeling naar `AdresseerbaarObject` in BAG. | BAG | Geen NL-adres betekent geen ID. |
+| `adresseerbaarObjectId` | [BAGID](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 0..1 | Basisgegeven | Ja | Ja | Koppeling naar `AdresseerbaarObject` in BAG. | BAG | Geen NL-adres betekent geen ID. |
 
 **Relatiesoorten** (uitgaand):
 

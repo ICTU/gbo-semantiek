@@ -286,14 +286,14 @@ van leesbaarheid weggelaten.
 | Herkomst | BAG (basisregistratie) |
 | Datum opname | 2026-04-28 |
 | Indicatie abstract object | Ja |
-| Unieke aanduiding | `identificatie` (NEN3610ID) |
+| Unieke aanduiding | `identificatie` (BAGID) |
 | Populatie | Alle adresseerbare objecten in Nederland zoals aangewezen en geregistreerd door de bevoegde gemeente in de BAG. |
 
 **Attribuutsoorten**:
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| **`identificatie`** | [NEN3610ID](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 1 | Authentiek | Nee | Nee | Unieke identificatie van het adresseerbaar object volgens NEN 3610. | BAG-Catalogus 2018 | Historie zit op de concrete vormen, niet op het abstract supertype. |
+| **`identificatie`** | [BAGID](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 1 | Authentiek | Nee | Nee | Unieke identificatie van het adresseerbaar object volgens NEN 3610. | BAG-Catalogus 2018 | Historie zit op de concrete vormen, niet op het abstract supertype. |
 | `typeAdresseerbaarObject` | `TypeAdresseerbaarObject` | 1 | Basisgegeven | Nee | Nee | Aanduiding van de concrete vorm: Verblijfsobject, Ligplaats of Standplaats. | BAG-Catalogus 2018 | Discriminator; ook gerepliceerd op Nummeraanduiding voor HC-conformiteit. |
 
 **Relatiesoorten** (uitgaand):
@@ -317,7 +317,7 @@ van leesbaarheid weggelaten.
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/Ligplaats` |
 | Herkomst | BAG (basisregistratie) |
 | Datum opname | 2026-04-28 |
-| Unieke aanduiding | `identificatie` (NEN3610ID) |
+| Unieke aanduiding | `identificatie` (BAGID) |
 | Populatie | Door gemeenten aangewezen ligplaatsen in Nederland: woonboten, drijvende woningen, recreatieve drijvende objecten. |
 
 **Attribuutsoorten**:
@@ -341,14 +341,14 @@ van leesbaarheid weggelaten.
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/Nummeraanduiding` |
 | Herkomst | BAG (basisregistratie) |
 | Datum opname | 2026-04-28 |
-| Unieke aanduiding | `identificatie` (NEN3610ID) |
+| Unieke aanduiding | `identificatie` (BAGID) |
 | Populatie | Alle door gemeenten toegekende nummeraanduidingen in Nederland zoals geregistreerd in de BAG, hoofd- en nevenadressen, inclusief uitgegeven en ingetrokken aanduidingen. |
 
 **Attribuutsoorten**:
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| **`identificatie`** | [NEN3610ID](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 1 | Authentiek | Ja | Ja | Unieke identificatie van de nummeraanduiding volgens NEN 3610. | BAG-Catalogus 2018 | In KVK/HR-API als `nummerAanduidingId`. |
+| **`identificatie`** | [BAGID](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 1 | Authentiek | Ja | Ja | Unieke identificatie van de nummeraanduiding volgens NEN 3610. | BAG-Catalogus 2018 | In KVK/HR-API als `nummerAanduidingId`. |
 | `huisnummer` | [N5](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Authentiek | Ja | Ja | Numerieke aanduiding van het adres binnen de openbare ruimte. | BAG-Catalogus 2018 | |
 | `huisletter` | CharacterString | 0..1 | Authentiek | Ja | Ja | Letter ter onderscheid binnen één huisnummer. | BAG-Catalogus 2018 | Eén letter (A-Z). |
 | `huisnummertoevoeging` | CharacterString | 0..1 | Authentiek | Ja | Ja | Vrije aanvulling op huisnummer en huisletter (bv. `2hg`, `bis`). | BAG-Catalogus 2018 | |
@@ -377,14 +377,14 @@ van leesbaarheid weggelaten.
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/Pand` |
 | Herkomst | BAG (basisregistratie) |
 | Datum opname | 2026-04-28 |
-| Unieke aanduiding | `identificatie` (NEN3610ID) |
+| Unieke aanduiding | `identificatie` (BAGID) |
 | Populatie | Alle panden in Nederland zoals aangewezen en geregistreerd door de bevoegde gemeente in de BAG, inclusief panden in gerealiseerde, in-aanbouw- en gesloopte status. |
 
 **Attribuutsoorten**:
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| **`identificatie`** | [NEN3610ID](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 1 | Authentiek | Ja | Ja | Unieke identificatie van het pand volgens NEN 3610. | BAG-Catalogus 2018 | |
+| **`identificatie`** | [BAGID](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 1 | Authentiek | Ja | Ja | Unieke identificatie van het pand volgens NEN 3610. | BAG-Catalogus 2018 | |
 | `oorspronkelijkBouwjaar` | [N4](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Authentiek | Ja | Ja | Jaar van eerste oplevering van het pand. | BAG-Catalogus 2018 | Bij verbouwing ongewijzigd. |
 | `status` | [`StatusPand`](#statuspand) | 1 | Authentiek | Ja | Ja | Levenscyclus-status van het pand. | BAG-Catalogus 2018 | Zie [Enumeraties](#enumeraties). |
 | `geometrie` | [Vlak](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 1 | Authentiek | Ja | Ja | Bovenaanzicht-geometrie van het pand. | BAG-Catalogus 2018 | CRS RD-New EPSG:28992. |
@@ -407,7 +407,7 @@ Pand heeft geen verplichte uitgaande relaties. Inkomend: `Verblijfsobject in Pan
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/Standplaats` |
 | Herkomst | BAG (basisregistratie) |
 | Datum opname | 2026-04-28 |
-| Unieke aanduiding | `identificatie` (NEN3610ID) |
+| Unieke aanduiding | `identificatie` (BAGID) |
 | Populatie | Door gemeenten aangewezen standplaatsen in Nederland: woonwagenlocaties, recreatiewoningen op camping, vaste standplaatsen van kraampjes. |
 
 **Attribuutsoorten**:
@@ -432,7 +432,7 @@ Pand heeft geen verplichte uitgaande relaties. Inkomend: `Verblijfsobject in Pan
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/Verblijfsobject` |
 | Herkomst | BAG (basisregistratie) |
 | Datum opname | 2026-04-28 |
-| Unieke aanduiding | `identificatie` (NEN3610ID) |
+| Unieke aanduiding | `identificatie` (BAGID) |
 | Populatie | Alle verblijfsobjecten in Nederland zoals aangewezen en geregistreerd door de bevoegde gemeente in de BAG: woningen, kantoren, winkels, recreatieobjecten, bedrijfsruimten. |
 
 **Attribuutsoorten**:
@@ -524,14 +524,14 @@ Pand heeft geen verplichte uitgaande relaties. Inkomend: `Verblijfsobject in Pan
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/OpenbareRuimte` |
 | Herkomst | BAG (basisregistratie) |
 | Datum opname | 2026-04-28 |
-| Unieke aanduiding | `identificatie` (NEN3610ID) |
+| Unieke aanduiding | `identificatie` (BAGID) |
 | Populatie | Alle door gemeenten aangewezen openbare ruimten in Nederland zoals geregistreerd in de BAG, inclusief uitgegeven en ingetrokken openbare ruimten. |
 
 **Attribuutsoorten**:
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| **`identificatie`** | [NEN3610ID](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 1 | Authentiek | Ja | Ja | Unieke identificatie van de openbare ruimte volgens NEN 3610. | BAG-Catalogus 2018 | |
+| **`identificatie`** | [BAGID](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 1 | Authentiek | Ja | Ja | Unieke identificatie van de openbare ruimte volgens NEN 3610. | BAG-Catalogus 2018 | |
 | `naamOpenbareRuimte` | [AN80](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Authentiek | Ja | Ja | Volledige naam van de openbare ruimte. | BAG-Catalogus 2018 | |
 | `korteNaam` | [Tekst24](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Ja | Ja | Verkorte naam van de openbare ruimte (max 24 tekens). | BAG / NEN 5825 | Voor smalle weergaves (navigatie, etiketten). |
 | `typeOpenbareRuimte` | [`TypeOpenbareRuimte`](#typeopenbareruimte) | 1 | Authentiek | Ja | Ja | Aanduiding van het soort openbare ruimte. | BAG-Catalogus 2018 | Zie [Enumeraties](#enumeraties). |
@@ -589,14 +589,14 @@ Pand heeft geen verplichte uitgaande relaties. Inkomend: `Verblijfsobject in Pan
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/Woonplaats` |
 | Herkomst | BAG (basisregistratie) |
 | Datum opname | 2026-04-28 |
-| Unieke aanduiding | `identificatie` (NEN3610ID) |
+| Unieke aanduiding | `identificatie` (BAGID) |
 | Populatie | Alle door gemeenten aangewezen woonplaatsen in Nederland zoals geregistreerd in de BAG, inclusief aangewezen en ingetrokken woonplaatsen. |
 
 **Attribuutsoorten**:
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| **`identificatie`** | [NEN3610ID](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 1 | Authentiek | Ja | Ja | Unieke identificatie van de woonplaats volgens NEN 3610. | BAG-Catalogus 2018 | |
+| **`identificatie`** | [BAGID](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 1 | Authentiek | Ja | Ja | Unieke identificatie van de woonplaats volgens NEN 3610. | BAG-Catalogus 2018 | |
 | `woonplaatsnaam` | [AN80](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Authentiek | Ja | Ja | Volledige naam van de woonplaats. | BAG-Catalogus 2018 | |
 | `status` | [`StatusWoonplaats`](#statuswoonplaats) | 1 | Authentiek | Ja | Ja | Levenscyclus-status van de woonplaats. | BAG-Catalogus 2018 | Zie [Enumeraties](#enumeraties). |
 | `geometrie` | [Vlak](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 1 | Authentiek | Ja | Ja | Vlakke begrenzing van de woonplaats. | BAG-Catalogus 2018 | CRS RD-New EPSG:28992. |

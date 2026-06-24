@@ -2,6 +2,8 @@
 # GraphQL SDL voor bronprofiel HR, gegenereerd uit gbo-bron-hr.yaml.
 # Regenereer met: task generate:graphql
 
+"""BAG-objectidentificatie: een 16-cijferige code, opgebouwd uit gemeentecode (4), objecttypecode (2) en objectvolgnummer (10). Identificeert pand, verblijfsobject, standplaats, ligplaats, nummeraanduiding, openbare ruimte en woonplaats in de BAG."""
+scalar BAGID
 """Bedrijfsindeling conform de CBS Standaard Bedrijfsindeling (SBI 2008 / 2025). Stelselbreed; primair in Bedrijven en instellingen. Vanwege de SBI-herziening is een versie-attribuut naast de code verplicht."""
 scalar CodelijstCBSSBI
 """Landcode conform ISO 3166-1 alpha-2. Stelselbreed voor land- en nationaliteit-typering; cross-walks naar BRP-LT 32 (nationaliteit) en BRP-LT 34 (landen) staan in de documentatie."""
@@ -18,8 +20,6 @@ scalar Datum
 scalar DatumIncompleet
 """Object- of documentidentificatie zonder vaste structuur."""
 scalar Identificatie
-"""Landelijke objectidentificatie voor stelselobjecten, opgebouwd uit namespace, lokaalID en versie (NEN 3610)."""
-scalar NEN3610ID
 """Universally Unique Identifier conform RFC 4122 (128 bits, hexadecimaal genoteerd). Interne GBO-identifier voor objecten zonder externe authentieke identifier."""
 scalar UUID
 
@@ -274,7 +274,7 @@ type Vestiging {
   """Einddatum van de vestiging."""
   datumEinde: Datum
   """Koppeling naar AdresseerbaarObject in BAG; zie deelmodel Adressen en gebouwen."""
-  adresseerbaarObjectId: NEN3610ID
+  adresseerbaarObjectId: BAGID
   """Locatie-specifieke SBI-uitvoering per vestiging."""
   heeftActiviteit: [Activiteit!]
 }

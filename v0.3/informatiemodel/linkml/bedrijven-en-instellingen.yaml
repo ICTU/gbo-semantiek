@@ -1085,7 +1085,7 @@ classes:
           mim:formeleHistorie: true
           mim:herkomst: NHR
       adresseerbaarObjectId:
-        range: NEN3610ID
+        range: BAGID
         description: >-
           Koppeling naar AdresseerbaarObject in BAG; zie deelmodel
           Adressen en gebouwen.

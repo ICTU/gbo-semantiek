@@ -2,6 +2,8 @@
 # GraphQL SDL voor bronprofiel BRP, gegenereerd uit gbo-bron-brp.yaml.
 # Regenereer met: task generate:graphql
 
+"""BAG-objectidentificatie: een 16-cijferige code, opgebouwd uit gemeentecode (4), objecttypecode (2) en objectvolgnummer (10). Identificeert pand, verblijfsobject, standplaats, ligplaats, nummeraanduiding, openbare ruimte en woonplaats in de BAG."""
+scalar BAGID
 """Waarde uit een BRP-Landelijke Tabel die in de documentatie niet nader is gespecificeerd."""
 scalar CodelijstBRP
 """Aanduiding verblijfsrecht conform de IND-codelijst verblijfstitels; cross-walk naar BRP-LT 56."""
@@ -20,8 +22,6 @@ scalar CodelijstLT88
 scalar Datum
 """Datum waarin jaar, maand of dag elk afzonderlijk onbekend kan zijn. Formaten: jjjj, jjjj-mm of jjjj-mm-dd; nullen op de onbekende positie."""
 scalar DatumIncompleet
-"""Landelijke objectidentificatie voor stelselobjecten, opgebouwd uit namespace, lokaalID en versie (NEN 3610)."""
-scalar NEN3610ID
 """Nederlandse postcode in het formaat 9999 XX (norm NEN 5825)."""
 scalar Postcode
 """Universally Unique Identifier conform RFC 4122 (128 bits, hexadecimaal genoteerd). Interne GBO-identifier voor objecten zonder externe authentieke identifier."""
@@ -342,7 +342,7 @@ type Binnenlandsadres implements Adres {
   """Naam van de bovenliggende woonplaats."""
   woonplaatsnaam: String!
   """Spiegel van Nummeraanduiding vormt Binnenlandsadres. (Sleutel-referentie naar Nummeraanduiding.)"""
-  wordtGevormdDoor: NEN3610ID!
+  wordtGevormdDoor: BAGID!
 }
 
 """Geregistreerde geslachtsaanduiding van een natuurlijk persoon."""

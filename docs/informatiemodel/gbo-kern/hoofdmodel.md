@@ -612,7 +612,7 @@ De typering van attribuutsoorten staat op één gedeelde pagina:
   en hun Nederlandse aliassen `Tekst`, `Numeriek`, `Decimaal`,
   `Indicatie`, `Datum`, `DatumTijd`, `Jaar`, `Duur`, inclusief lengte-
   en precisie-varianten (`Tekst24`, `Numeriek9`, `Alfanumeriek10`).
-- **Aanvullende datatypes** (`DatumIncompleet`, `NEN3610ID`, `UUID`,
+- **Aanvullende datatypes** (`DatumIncompleet`, `BAGID`, `NEN3610ID`, `UUID`,
   `Geometrie` met subtypes `Punt`, `Vlak`, `Lijn`, `Bedrag`, `Breuk`,
   `ObjectAanduiding`, `Codelijst~bron`).
 - **Stelselbrede codelijsten** (BRP-LT 33 Gemeenten, CBS SBI, CBS
