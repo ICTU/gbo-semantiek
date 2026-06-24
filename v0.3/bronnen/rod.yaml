@@ -1,0 +1,40 @@
+# =============================================================================
+# Bron-profiel ROD — welke onderdelen van het GBO-informatiemodel de
+# Registratie Onderwijsdeelnemers (DUO) via GBO beschikbaar stelt.
+#
+# Dit bestand is LinkML-data conform het schema
+# ../informatiemodel/linkml/bronprofiel.yaml (klasse Bronprofiel).
+# Valideren:
+#   linkml-validate -s ../informatiemodel/linkml/bronprofiel.yaml \
+#       -C Bronprofiel rod.yaml
+#
+# IngeschrevenPersoon dient als persoon-ingang, OnderwijsInstelling als
+# instelling-ingang; relaties naar BRP-gegevens vallen buiten dit profiel
+# en worden door de snoei-tool tot sleutel herleid.
+# =============================================================================
+bron: ROD
+titel: Registratie Onderwijsdeelnemers (DUO)
+beschrijving: >-
+  Opleidingen, opleidingsdeelnames en -resultaten, module-inschrijvingen,
+  beroepspraktijkvorming, verzuim, vooropleidingen en studiefinanciering
+  per onderwijsdeelnemer en onderwijsinstelling.
+schemabestand: ../informatiemodel/linkml/gbo.yaml
+
+# Query-ingangen: hiervoor genereert de pipeline GraphQL Query-velden.
+ingangen:
+  - IngeschrevenPersoon
+  - OnderwijsInstelling
+
+# Objecttypen die deze bron beschikbaar stelt (expliciete lijst).
+objecttypen:
+  - IngeschrevenPersoon
+  - OnderwijsInstelling
+  - Opleiding
+  - OpleidingDeelname
+  - OpleidingResultaat
+  - ModuleInschrijving
+  - BeroepspraktijkvormingPeriode
+  - VerzuimMelding
+  - Vooropleiding
+  - StudieFinanciering
+  - StudieLening

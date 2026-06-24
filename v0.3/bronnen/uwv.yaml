@@ -1,0 +1,44 @@
+# =============================================================================
+# Bron-profiel UWV — welke onderdelen van het GBO-informatiemodel de
+# uitkeringen- en arbeidsverledendomeinen (UWV, met AOW uit SVB) via GBO
+# beschikbaar stellen.
+#
+# Dit bestand is LinkML-data conform het schema
+# ../informatiemodel/linkml/bronprofiel.yaml (klasse Bronprofiel).
+# Valideren:
+#   linkml-validate -s ../informatiemodel/linkml/bronprofiel.yaml \
+#       -C Bronprofiel uwv.yaml
+#
+# needs-review: UitkeringAOW valt onder het SVB-domein en is hier onder
+# werk-en-inkomen meegenomen; bij een aparte SVB-bron kan het herverdeeld
+# worden. IngeschrevenPersoon dient als persoon-ingang.
+# =============================================================================
+bron: UWV
+titel: UWV — uitkeringen en arbeidsverleden
+beschrijving: >-
+  Uitkeringen (WW, ZW, WIA/IVA/WGA, Wajong) en AOW (SVB), met de
+  onderliggende arbeidsverhoudingen, het arbeidsverleden, beslissingen,
+  daglonen en arbeidsongeschiktheidspercentages.
+schemabestand: ../informatiemodel/linkml/gbo.yaml
+
+# Query-ingangen: hiervoor genereert de pipeline GraphQL Query-velden.
+ingangen:
+  - IngeschrevenPersoon
+
+# Objecttypen die deze bron beschikbaar stelt (expliciete lijst).
+objecttypen:
+  - IngeschrevenPersoon
+  - InkomensOndersteuning
+  - Uitkering
+  - UitkeringWW
+  - UitkeringZW
+  - UitkeringWIA
+  - UitkeringIVA
+  - UitkeringWGA
+  - UitkeringWajong
+  - UitkeringAOW
+  - Arbeidsverhouding
+  - ArbeidsverledenFeit
+  - Beslissing
+  - Dagloon
+  - Arbeidsongeschiktheidspercentage

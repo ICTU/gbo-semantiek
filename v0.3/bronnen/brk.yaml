@@ -1,0 +1,36 @@
+# =============================================================================
+# Bron-profiel BRK — welke onderdelen van het GBO-informatiemodel de
+# Basisregistratie Kadaster via GBO beschikbaar stelt.
+#
+# Dit bestand is LinkML-data conform het schema
+# ../informatiemodel/linkml/bronprofiel.yaml (klasse Bronprofiel).
+# Valideren:
+#   linkml-validate -s ../informatiemodel/linkml/bronprofiel.yaml \
+#       -C Bronprofiel brk.yaml
+#
+# Supertypen en mixins (Voorkomen) en de codelijst CodelijstBRK worden door
+# de snoei-tool automatisch meegenomen en hoeven hier niet genoemd te worden.
+# =============================================================================
+bron: BRK
+titel: Basisregistratie Kadaster
+beschrijving: >-
+  Kadastrale onroerende zaken (percelen en appartementsrechten),
+  zakelijke en zekerheidsrechten, tenaamstellingen, publiekrechtelijke
+  beperkingen en aantekeningen uit het Kadaster.
+schemabestand: ../informatiemodel/linkml/gbo.yaml
+
+# Query-ingangen: hiervoor genereert de pipeline GraphQL Query-velden.
+ingangen:
+  - KadastraleOnroerendeZaak
+
+# Objecttypen die deze bron beschikbaar stelt (expliciete lijst).
+objecttypen:
+  - KadastraleOnroerendeZaak
+  - Perceel
+  - Appartementsrecht
+  - Appartementsrechtsplitsing
+  - ZakelijkRecht
+  - Zekerheidsrecht
+  - Tenaamstelling
+  - PubliekrechtelijkeBeperking
+  - Aantekening

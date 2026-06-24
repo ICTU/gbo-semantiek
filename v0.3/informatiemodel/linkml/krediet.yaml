@@ -1,0 +1,1390 @@
+# =============================================================================
+# GBO — Deelmodel Krediet
+# Bron (leidend): docs/informatiemodel/gbo-kern/deelmodellen/krediet.md
+#
+# Kredietovereenkomsten en kredietregistraties zoals vastgelegd in het
+# Centraal Krediet Informatiesysteem (CKI), plus schuldhulpverlenings-
+# trajecten en borgstellingen voor zover die op grond van het Algemeen
+# Reglement CKI in de registratie betrokken zijn. Inclusief de
+# gebeurtenissen tijdens een kredietovereenkomst (achterstanden,
+# herstel en bijzonderheden) en de codelijsten waarmee die
+# gebeurtenissen worden geclassificeerd.
+#
+# Verwijzingen naar andere deelmodellen (NatuurlijkPersoon,
+# NietNatuurlijkPersoon, Onderneming, KadastraalOnroerendeZaak) worden
+# opgelost via gbo.yaml; valideer dus altijd via gbo.yaml.
+# =============================================================================
+id: https://lod.gbo-semantiek.nl/informatiemodel/krediet
+name: gbo-krediet
+title: "GBO deelmodel: Krediet"
+description: >-
+  Kredietovereenkomsten en kredietregistraties: aflopende, doorlopende,
+  hypothecaire en zakelijke kredieten, leases en restschulden, plus
+  achterstanden, herstellen, bijzonderheden, schuldhulpverlening en
+  borgstelling.
+license: https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  gbo: https://lod.gbo-semantiek.nl/
+  gbobegrip: https://begrippen.gbo-semantiek.nl/id/begrip/
+  mim: https://lod.gbo-semantiek.nl/def/mim#
+default_prefix: gbo
+default_range: string
+
+imports:
+  - linkml:types
+  - datatypes
+  - hoofdmodel
+
+classes:
+
+  # --- Abstracte supertypen ---------------------------------------------------
+
+  FinancieleVerplichting:
+    abstract: true
+    description: >-
+      Een verplichting van een natuurlijk persoon of niet-natuurlijk
+      persoon tot het verrichten van een geldelijke prestatie aan een
+      tegenpartij, ontstaan uit overeenkomst of uit een wettelijke
+      regeling.
+    exact_mappings:
+      - gbobegrip:FinancieleVerplichting
+    annotations:
+      mim:herkomst: CKI; Wgs
+      mim:herkomstDefinitie: >-
+        GBO-Kern. Afgeleid uit het verbintenisrecht in het Burgerlijk
+        Wetboek en uit de Wet op het financieel toezicht art. 4:32
+        (sectorregistratie kredietverlening). Operationele invulling:
+        Algemeen Reglement CKI 2024-07-01 art. 1 voor het
+        kredietdomein en Wet gemeentelijke schuldhulpverlening voor
+        het schuldhulpverleningstraject.
+      mim:datumOpname: "2026-05-19"
+      mim:populatie: >-
+        Abstract. Concrete populatie wordt bepaald door de subklassen
+        KredietOvereenkomst en SchuldhulpverleningTraject: alle in CKI
+        of in een gemeentelijke beschikking geformaliseerde geldelijke
+        verplichtingen van een natuurlijk of niet-natuurlijk persoon.
+    comments:
+      - >-
+        Abstract; concrete varianten zijn KredietOvereenkomst en
+        SchuldhulpverleningTraject. De grens van het concept ligt bij
+        verplichtingen die via een geformaliseerde registratie
+        zichtbaar zijn voor derden. Privaatrechtelijke verplichtingen
+        zonder registratie zoals een persoonlijke lening tussen
+        familieleden vallen er niet onder.
+    attributes:
+      identificatie:
+        identifier: true
+        range: Tekst
+        required: true
+        description: Interne identificatie.
+        annotations:
+          mim:herkomst: GBO-Kern
+        comments:
+          - >-
+            Als technische identifier gemodelleerd; de wiki vermeldt
+            geen expliciete unieke aanduiding voor dit deelmodel.
+      ingangsdatum:
+        range: Datum
+        required: true
+        description: Datum waarop de verplichting is aangegaan.
+        annotations:
+          mim:herkomst: Algemeen Reglement CKI art. 16-26
+      einddatumWerkelijk:
+        range: Datum
+        description: >-
+          Werkelijke einddatum (afgelost, ontbonden of overgenomen).
+        annotations:
+          mim:herkomst: Algemeen Reglement CKI art. 14
+      bewaartermijnPeriode:
+        range: Duur
+        required: true
+        description: >-
+          ISO 8601 duration; default P5Y, P1Y bij overlijdensmelding.
+        annotations:
+          mim:herkomst: Algemeen Reglement CKI art. 14
+
+  KredietOvereenkomst:
+    is_a: FinancieleVerplichting
+    abstract: true
+    description: >-
+      Een overeenkomst tussen een kredietverstrekker en een
+      kredietnemer waarbij de verstrekker een geldsom of geldbedragen
+      ter beschikking stelt en de nemer zich verbindt tot terugbetaling
+      onder afgesproken voorwaarden, en die op grond van het Algemeen
+      Reglement CKI aan het Centraal Krediet Informatiesysteem wordt
+      gemeld.
+    exact_mappings:
+      - gbobegrip:KredietOvereenkomst
+    annotations:
+      mim:herkomst: CKI
+      mim:herkomstDefinitie: >-
+        Algemeen Reglement CKI van 1 juli 2024, art. 1 en art. 15.
+      mim:datumOpname: "2026-05-19"
+      mim:populatie: >-
+        Abstract. Concrete populatie wordt bepaald door de twaalf
+        subklassen: alle kredietovereenkomsten die op grond van het
+        Algemeen Reglement CKI aan het Centraal Krediet
+        Informatiesysteem worden gemeld.
+    comments:
+      - >-
+        Abstract; twaalf concrete kredietvormen volgen art. 16 tot en
+        met 26 van het reglement. Elke vorm heeft een eigen
+        tweeletter-code, een eigen meldingsdrempel en een eigen
+        achterstandstermijn. Voor één persoon kunnen meerdere
+        overeenkomsten naast elkaar in CKI staan.
+      - >-
+        Een onderschreiding van de meldingsdrempel betekent niet dat
+        de overeenkomst niet bestaat; zij bestaat civielrechtelijk,
+        maar wordt alleen niet aan CKI gemeld.
+      - >-
+        Wat KredietOvereenkomst niet dekt: het CKI is een Nederlands
+        kredietregister met expliciete scope-beperkingen. De volgende
+        verplichtingen vallen niet binnen het bereik van dit
+        objecttype omdat zij niet aan CKI worden gemeld: Buy Now Pay
+        Later (niet in CKI, vordering via incassobureau; alternatieve
+        bron PSD2-data of administratie kredietverstrekker);
+        studieleningen DUO (niet in CKI; alternatieve bron subdomein
+        Onderwijs, geen B2B-koppelvlak); huurschuld (niet in CKI;
+        alternatieve bron administratie verhuurder, incassobureau);
+        energie, gas, water (niet in CKI; alternatieve bron
+        energiebedrijf, schuldhulpverlening); belastingschuld (niet in
+        CKI; alternatieve bron Belastingdienst-incassoadministratie);
+        zakelijk krediet bij BV/NV zonder persoonlijke
+        aansprakelijkheid (geen melding; alternatieve bron
+        kredietadministratie bank, jaarrekening).
+    attributes:
+      kredietvormCode:
+        range: KredietVormCode
+        required: true
+        description: Tweeletter-code per concrete subklasse.
+        annotations:
+          mim:herkomst: art. 15
+      kredietbedragOorspronkelijk:
+        range: Bedrag
+        description: >-
+          Niet gemeld voor HY (alleen negatieve betalingservaringen).
+        annotations:
+          mim:herkomst: art. 16-26
+      kredietbedragActueel:
+        range: Bedrag
+        description: Restschuld op peildatum.
+        annotations:
+          mim:herkomst: art. 16-26
+      looptijdMaanden:
+        range: Numeriek
+        description: Niet voor doorlopend krediet.
+        annotations:
+          mim:herkomst: art. 16-26
+        comments:
+          - >-
+            Wiki-type "Geheel"; gemodelleerd als Numeriek (geheel
+            getal zonder eenheid).
+      rentepercentage:
+        range: Decimaal
+        description: Niet altijd gemeld.
+        annotations:
+          mim:herkomst: art. 16-26
+      achterstandstermijn:
+        range: Duur
+        required: true
+        description: Afhankelijk van kredietvorm; zie subtypen.
+        annotations:
+          mim:herkomst: art. 12
+      aangegaanDoor:
+        range: NatuurlijkPersoon
+        required: true
+        description: De kredietnemer; zie deelmodel Personen.
+        annotations:
+          mim:kardinaliteit: "n -> 1"
+      verstrektDoor:
+        range: NietNatuurlijkPersoon
+        required: true
+        description: De kredietverstrekker.
+        annotations:
+          mim:kardinaliteit: "n -> 1"
+        comments:
+          - Zie deelmodel Bedrijven en instellingen.
+      kent:
+        range: AchterstandRegistratie
+        multivalued: true
+        description: Achterstanden op deze overeenkomst.
+        annotations:
+          mim:kardinaliteit: "1 -> 0..*"
+      begeleidDoor:
+        range: BijzonderheidsCodering
+        multivalued: true
+        description: Bijzonderheidscodes op deze overeenkomst.
+        annotations:
+          mim:kardinaliteit: "1 -> 0..*"
+
+  KredietFeit:
+    abstract: true
+    description: >-
+      Een tijdens de looptijd van een kredietovereenkomst opgetreden
+      gebeurtenis die op grond van het Algemeen Reglement CKI aan het
+      Centraal Krediet Informatiesysteem wordt gemeld, zoals het
+      ontstaan van een achterstand, het herstel van een achterstand of
+      het optreden van een bijzonderheid.
+    exact_mappings:
+      - gbobegrip:KredietFeit
+    annotations:
+      mim:herkomst: CKI
+      mim:herkomstDefinitie: >-
+        Algemeen Reglement CKI van 1 juli 2024, art. 12 en art. 13.
+      mim:datumOpname: "2026-05-19"
+      mim:populatie: >-
+        Abstract. Concrete populatie wordt bepaald door de subklassen
+        AchterstandRegistratie, HerstelMelding en
+        BijzonderheidsCodering: alle gedurende de looptijd van een
+        kredietovereenkomst aan CKI gemelde gebeurtenissen.
+    comments:
+      - >-
+        Abstract; concrete varianten zijn AchterstandRegistratie,
+        HerstelMelding en BijzonderheidsCodering.
+        Gebeurtenis-modellering is hier gekozen boven
+        attribuut-modellering op de kredietovereenkomst zelf, omdat
+        een overeenkomst in haar looptijd meerdere keren een
+        achterstand kan kennen, gevolgd door herstel, gevolgd door
+        opnieuw een achterstand.
+    attributes:
+      datumGebeurtenis:
+        range: Datum
+        required: true
+        description: Datum van de gebeurtenis; bindend voor termijnen.
+        annotations:
+          mim:herkomst: art. 12-13
+
+  # --- Kredietvormen (art. 16 t/m 26 Algemeen Reglement CKI) ------------------
+
+  AflopendKrediet:
+    is_a: KredietOvereenkomst
+    description: >-
+      Een kredietovereenkomst met een vooraf vastgesteld kredietbedrag,
+      een vaste looptijd en periodieke aflossingen die het krediet
+      stapsgewijs verminderen tot nul aan het einde van de looptijd.
+    exact_mappings:
+      - gbobegrip:AflopendKrediet
+    annotations:
+      mim:herkomst: CKI
+      mim:herkomstDefinitie: >-
+        Algemeen Reglement CKI van 1 juli 2024, art. 16.
+      mim:datumOpname: "2026-05-19"
+      mim:populatie: >-
+        Alle aan CKI gemelde aflopende kredieten boven de
+        meldingsdrempel van EUR 250, gedurende de looptijd plus de
+        bewaartermijn na einddatum.
+      mim:notation: AK
+    comments:
+      - >-
+        De klassieke persoonlijke lening met vaste maandtermijnen. Het
+        verschil met doorlopend krediet zit in de looptijd en het
+        eindbedrag: een aflopend krediet heeft een vaste looptijd en
+        loopt aan het einde af tot nul; een doorlopend krediet kent
+        geen vaste looptijd. Meldingsplichtig boven EUR 250.
+    attributes:
+      kredietvormCode:
+        range: KredietVormCode
+        required: true
+        description: "Vast: AK."
+        annotations:
+          mim:herkomst: Algemeen Reglement CKI art. 15
+      achterstandstermijn:
+        range: Duur
+        required: true
+        description: P2M (twee maanden).
+        annotations:
+          mim:herkomst: Algemeen Reglement CKI art. 12
+      meldingsdrempel:
+        range: Bedrag
+        required: true
+        description: EUR 250.
+        annotations:
+          mim:herkomst: Algemeen Reglement CKI art. 16
+      looptijdMaanden:
+        range: Numeriek
+        required: true
+        description: De vaste looptijd in maanden.
+        annotations:
+          mim:herkomst: Algemeen Reglement CKI art. 16
+
+  DoorlopendKrediet:
+    is_a: KredietOvereenkomst
+    description: >-
+      Een kredietovereenkomst waarbij de kredietnemer tot een
+      afgesproken kredietlimiet steeds opnieuw kan opnemen en aflossen,
+      zonder vaste looptijd en zonder verplicht aflossingsschema.
+    exact_mappings:
+      - gbobegrip:DoorlopendKrediet
+    annotations:
+      mim:herkomst: CKI
+      mim:herkomstDefinitie: >-
+        Algemeen Reglement CKI van 1 juli 2024, art. 17.
+      mim:datumOpname: "2026-05-19"
+      mim:populatie: >-
+        Alle aan CKI gemelde doorlopende kredieten boven de
+        meldingsdrempel van EUR 250 als kredietlimiet, gedurende de
+        looptijd plus de bewaartermijn.
+      mim:notation: RK
+    comments:
+      - >-
+        Revolverend krediet tot de afgesproken kredietlimiet. De
+        maandtermijn kan rente-only zijn of rente plus minimale
+        aflossing. Onder deze categorie vallen ook kredietkaarten met
+        spreidingsfunctie en sommige private leases.
+    attributes:
+      kredietvormCode:
+        range: KredietVormCode
+        required: true
+        description: "Vast: RK."
+        annotations:
+          mim:herkomst: art. 15
+      achterstandstermijn:
+        range: Duur
+        required: true
+        description: P3M (drie maanden).
+        annotations:
+          mim:herkomst: art. 12
+      meldingsdrempel:
+        range: Bedrag
+        required: true
+        description: EUR 250 als kredietlimiet, niet als uitstaand saldo.
+        annotations:
+          mim:herkomst: art. 17
+      kredietlimiet:
+        range: Bedrag
+        required: true
+        description: Maximaal opneembaar bedrag.
+        annotations:
+          mim:herkomst: art. 17
+
+  Saneringskrediet:
+    is_a: KredietOvereenkomst
+    description: >-
+      Een kredietovereenkomst waarbij een gemeente of een door de
+      gemeente aangewezen kredietbank een persoonlijke lening verstrekt
+      aan een schuldenaar om bestaande schulden te bundelen en
+      gefaseerd af te lossen onder begeleiding van schuldhulpverlening.
+    exact_mappings:
+      - gbobegrip:Saneringskrediet
+    annotations:
+      mim:herkomst: CKI
+      mim:herkomstDefinitie: >-
+        Algemeen Reglement CKI van 1 juli 2024, art. 18; Wet
+        gemeentelijke schuldhulpverlening.
+      mim:datumOpname: "2026-05-19"
+      mim:populatie: >-
+        Aan CKI gemelde saneringskredieten boven EUR 250, verstrekt
+        door een gemeente of door de gemeente aangewezen kredietbank
+        in het kader van schuldhulpverlening.
+      mim:notation: SK
+    comments:
+      - >-
+        Specifieke vorm van aflopend krediet met een
+        schuldhulpverlenings-doel. Wordt verstrekt door een gemeente
+        of door een door de gemeente aangewezen kredietbank, niet door
+        een commerciele bank. Kan zelfstandig bestaan of onderdeel
+        zijn van een schuldhulpverleningstraject.
+    attributes:
+      kredietvormCode:
+        range: KredietVormCode
+        required: true
+        description: "Vast: SK."
+        annotations:
+          mim:herkomst: art. 15
+      achterstandstermijn:
+        range: Duur
+        required: true
+        description: P2M.
+        annotations:
+          mim:herkomst: art. 12
+      meldingsdrempel:
+        range: Bedrag
+        required: true
+        description: EUR 250.
+        annotations:
+          mim:herkomst: art. 18
+
+  KortKrediet:
+    is_a: KredietOvereenkomst
+    description: >-
+      Een kredietovereenkomst met een korte looptijd, doorgaans korter
+      dan drie maanden, met een betrekkelijk klein kredietbedrag, en
+      die op grond van de specifieke bepalingen van het Algemeen
+      Reglement CKI in CKI wordt geregistreerd.
+    exact_mappings:
+      - gbobegrip:KortKrediet
+    annotations:
+      mim:herkomst: CKI
+      mim:herkomstDefinitie: >-
+        Algemeen Reglement CKI van 1 juli 2024, art. 26.
+      mim:datumOpname: "2026-05-19"
+      mim:populatie: >-
+        Aan CKI gemelde kortlopende kredieten (dagkredieten,
+        mini-leningen) met een looptijd doorgaans korter dan drie
+        maanden.
+    comments:
+      - >-
+        Anders dan de overige kredietvormen heeft kort krediet geen
+        vaste tweeletter-code in de codelijst KredietVormCode. Het
+        reglement bespreekt deze vorm afzonderlijk vanwege de
+        afwijkende looptijd en informatie-eisen. Toepassings-context:
+        dagkredieten en mini-leningen van enkele honderden euros met
+        een termijn van weken.
+      - >-
+        Let op: het van KredietOvereenkomst geërfde verplichte
+        attribuut kredietvormCode kent voor deze vorm geen vaste
+        waarde (geen tweeletter-code in de wiki).
+    attributes:
+      looptijdMaanden:
+        range: Numeriek
+        required: true
+        description: Doorgaans korter dan drie.
+        annotations:
+          mim:herkomst: art. 26
+      meldingsdrempel:
+        range: Bedrag
+        description: Situatie-afhankelijk; geen vaste drempel.
+        annotations:
+          mim:herkomst: art. 26
+
+  HypothecairKredietEigenWoning:
+    is_a: KredietOvereenkomst
+    description: >-
+      Een kredietovereenkomst tot financiering van de eigen woning van
+      de kredietnemer, waarbij een hypotheekrecht is gevestigd op die
+      onroerende zaak, en waarvan op grond van het Algemeen Reglement
+      CKI uitsluitend negatieve betalingservaringen aan het Centraal
+      Krediet Informatiesysteem worden gemeld.
+    exact_mappings:
+      - gbobegrip:HypothecairKredietEigenWoning
+    annotations:
+      mim:herkomst: CKI
+      mim:herkomstDefinitie: >-
+        Algemeen Reglement CKI van 1 juli 2024, art. 19; aanvullend
+        Wet op het financieel toezicht art. 4:34
+        (overkrediteringsverbod) en de richtlijn hypothecair krediet
+        2014/17/EU.
+      mim:datumOpname: "2026-05-19"
+      mim:populatie: >-
+        Hypothecaire kredieten voor de eigen woning waarop een
+        negatieve betalingservaring aan CKI is gemeld; reguliere
+        kredieten zonder achterstand verschijnen niet in CKI.
+      mim:notation: HY
+    comments:
+      - >-
+        Afwijkend regime ten opzichte van de overige kredietvormen.
+        Het krediet zelf verschijnt niet in CKI bij aangaan; alleen
+        negatieve betalingservaringen worden geregistreerd. Voor het
+        volledige beeld van de eigenwoning-portefeuille zijn
+        aanvullende bronnen nodig zoals de Nationale Hypotheek
+        Garantie-administratie of de eigen kredietadministratie van de
+        geldverstrekker.
+    attributes:
+      kredietvormCode:
+        range: KredietVormCode
+        required: true
+        description: "Vast: HY."
+        annotations:
+          mim:herkomst: art. 15
+      achterstandstermijn:
+        range: Duur
+        required: true
+        description: P3M (drie volledige maandtermijnen).
+        annotations:
+          mim:herkomst: art. 12
+      gevestigdOp:
+        # Wiki schrijft KadastraalOnroerendeZaak; de canonieke naam in
+        # het deelmodel Onroerende zaken is KadastraleOnroerendeZaak.
+        range: KadastraleOnroerendeZaak
+        required: true
+        description: Het onderpand; zie deelmodel Onroerende zaken.
+        annotations:
+          mim:kardinaliteit: "n -> 1"
+
+  HypothecairKredietOverigeOnroerendeZaken:
+    is_a: KredietOvereenkomst
+    description: >-
+      Een kredietovereenkomst waarbij een hypotheekrecht is gevestigd
+      op een onroerende zaak die niet de eigen woning van de
+      kredietnemer is, zoals een tweede woning, een verhuurde woning of
+      een beleggingspand, en die boven de meldingsdrempel valt.
+    exact_mappings:
+      - gbobegrip:HypothecairKredietOverigeOnroerendeZaken
+    annotations:
+      mim:herkomst: CKI
+      mim:herkomstDefinitie: >-
+        Algemeen Reglement CKI van 1 juli 2024, art. 20.
+      mim:datumOpname: "2026-05-19"
+      mim:populatie: >-
+        Alle aan CKI gemelde hypothecaire kredieten op onroerende
+        zaken anders dan de eigen woning (tweede woning, verhuurpand,
+        beleggingspand) boven de meldingsdrempel van EUR 250.
+      mim:notation: HO
+    comments:
+      - >-
+        Reguliere aanlevering bij aangaan, in tegenstelling tot
+        hypothecair krediet eigen woning. De distinctie tussen HY en
+        HO zit in de rol van de onroerende zaak.
+    attributes:
+      kredietvormCode:
+        range: KredietVormCode
+        required: true
+        description: "Vast: HO."
+        annotations:
+          mim:herkomst: art. 15
+      achterstandstermijn:
+        range: Duur
+        required: true
+        description: P2M.
+        annotations:
+          mim:herkomst: art. 12
+      meldingsdrempel:
+        range: Bedrag
+        required: true
+        description: EUR 250.
+        annotations:
+          mim:herkomst: art. 20
+      gevestigdOp:
+        # Wiki schrijft KadastraalOnroerendeZaak; de canonieke naam in
+        # het deelmodel Onroerende zaken is KadastraleOnroerendeZaak.
+        range: KadastraleOnroerendeZaak
+        required: true
+        description: Het onderpand; zie deelmodel Onroerende zaken.
+        annotations:
+          mim:kardinaliteit: "n -> 1"
+
+  RestschuldHypothecairKredietZonderNHG:
+    is_a: KredietOvereenkomst
+    description: >-
+      Een resterende schuld die overblijft na verkoop van een
+      onroerende zaak waarop een hypothecair krediet rustte zonder
+      dekking door de Nationale Hypotheek Garantie, voor zover de
+      restschuld boven de meldingsdrempel valt en in CKI wordt
+      geregistreerd.
+    exact_mappings:
+      - gbobegrip:RestschuldHypothecairKredietZonderNHG
+    annotations:
+      mim:herkomst: CKI
+      mim:herkomstDefinitie: >-
+        Algemeen Reglement CKI van 1 juli 2024, art. 21.
+      mim:datumOpname: "2026-05-19"
+      mim:populatie: >-
+        Aan CKI gemelde restschulden boven EUR 250 na verkoop van een
+        onroerende zaak waarop een hypothecair krediet rustte zonder
+        dekking door de Nationale Hypotheek Garantie.
+      mim:notation: RH
+    comments:
+      - >-
+        Zonder NHG-dekking blijft de schuld volledig bij de
+        kredietnemer en wordt zij als zelfstandige kredietovereenkomst
+        aan CKI gemeld. Het onderscheid met de NHG-variant is
+        wettelijk relevant voor de aansprakelijkheid en de
+        afbetalingsverplichting.
+    attributes:
+      kredietvormCode:
+        range: KredietVormCode
+        required: true
+        description: "Vast: RH."
+        annotations:
+          mim:herkomst: art. 15
+      achterstandstermijn:
+        range: Duur
+        required: true
+        description: P3M.
+        annotations:
+          mim:herkomst: art. 12
+      meldingsdrempel:
+        range: Bedrag
+        required: true
+        description: EUR 250.
+        annotations:
+          mim:herkomst: art. 21
+      voortgekomenUit:
+        range: HypothecairKredietEigenWoning
+        required: true
+        description: >-
+          De oorspronkelijke hypotheek waar deze restschuld uit
+          voortkomt.
+        annotations:
+          mim:kardinaliteit: "1 -> 1"
+        comments:
+          - >-
+            Het diagram geeft aan de bronzijde 0..1 (per hypotheek
+            hoogstens één restschuld); de relatietabel zegt 1 -> 1.
+
+  RestschuldHypothecairKredietMetNHG:
+    is_a: KredietOvereenkomst
+    description: >-
+      Een resterende schuld na verkoop van een onroerende zaak waarop
+      een hypothecair krediet rustte met dekking door de Nationale
+      Hypotheek Garantie, voor zover de restschuld boven de
+      meldingsdrempel valt en in CKI wordt geregistreerd.
+    exact_mappings:
+      - gbobegrip:RestschuldHypothecairKredietMetNHG
+    annotations:
+      mim:herkomst: CKI
+      mim:herkomstDefinitie: >-
+        Algemeen Reglement CKI van 1 juli 2024, art. 21.
+      mim:datumOpname: "2026-05-19"
+      mim:populatie: >-
+        Aan CKI gemelde restschulden boven EUR 250 na verkoop van een
+        onroerende zaak waarop een hypothecair krediet rustte met
+        dekking door de Nationale Hypotheek Garantie.
+      mim:notation: RN
+    comments:
+      - >-
+        Met NHG-dekking kan de restschuld onder voorwaarden worden
+        kwijtgescholden door het Waarborgfonds Eigen Woningen of
+        worden overgenomen door derden binnen het NHG-stelsel. De
+        CKI-registratie loopt gedurende dit proces door.
+    attributes:
+      kredietvormCode:
+        range: KredietVormCode
+        required: true
+        description: "Vast: RN."
+        annotations:
+          mim:herkomst: art. 15
+      achterstandstermijn:
+        range: Duur
+        required: true
+        description: P3M.
+        annotations:
+          mim:herkomst: art. 12
+      meldingsdrempel:
+        range: Bedrag
+        required: true
+        description: EUR 250.
+        annotations:
+          mim:herkomst: art. 21
+      voortgekomenUit:
+        range: HypothecairKredietEigenWoning
+        required: true
+        description: >-
+          De oorspronkelijke hypotheek waar deze restschuld uit
+          voortkomt.
+        annotations:
+          mim:kardinaliteit: "1 -> 1"
+        comments:
+          - >-
+            Het diagram geeft aan de bronzijde 0..1 (per hypotheek
+            hoogstens één restschuld); de relatietabel zegt 1 -> 1.
+
+  OperationalAutolease:
+    is_a: KredietOvereenkomst
+    description: >-
+      Een leaseovereenkomst voor een personenvoertuig waarbij de
+      leasemaatschappij eigenaar blijft van het voertuig en de
+      leasenemer een maandelijkse vergoeding betaalt voor het gebruik,
+      het onderhoud en de afschrijving, en die boven de
+      meldingsdrempel valt.
+    exact_mappings:
+      - gbobegrip:OperationalAutolease
+    annotations:
+      mim:herkomst: CKI
+      mim:herkomstDefinitie: >-
+        Algemeen Reglement CKI van 1 juli 2024, art. 22.
+      mim:datumOpname: "2026-05-19"
+      mim:populatie: >-
+        Aan CKI gemelde operational-autoleasecontracten waarbij de
+        leasemaatschappij eigenaar van het voertuig blijft en het
+        totale contractbedrag boven de meldingsdrempel van EUR 250
+        ligt.
+      mim:notation: OA
+    comments:
+      - >-
+        Onderscheid met financial lease. Financial lease leidt tot
+        eigendoms-overgang en wordt onder aflopend of doorlopend
+        krediet gemeld. Operational autolease houdt de
+        leasemaatschappij als eigenaar en kent een eigen
+        kredietvorm-code sinds 1 januari 2017.
+    attributes:
+      kredietvormCode:
+        range: KredietVormCode
+        required: true
+        description: "Vast: OA."
+        annotations:
+          mim:herkomst: art. 15
+      achterstandstermijn:
+        range: Duur
+        required: true
+        description: P2M.
+        annotations:
+          mim:herkomst: art. 12
+      meldingsdrempel:
+        range: Bedrag
+        required: true
+        description: EUR 250 op totaal contractbedrag.
+        annotations:
+          mim:herkomst: art. 22
+      looptijdMaanden:
+        range: Numeriek
+        required: true
+        description: De vaste leaseperiode.
+        annotations:
+          mim:herkomst: art. 22
+
+  OverigeFinancieleVerplichtingPrive:
+    is_a: KredietOvereenkomst
+    description: >-
+      Een overige privefinanciele verplichting van een natuurlijk
+      persoon die niet onder een specifieke kredietvorm valt en
+      waarvan op grond van het Algemeen Reglement CKI alleen negatieve
+      betalingservaringen aan het Centraal Krediet Informatiesysteem
+      worden gemeld.
+    exact_mappings:
+      - gbobegrip:OverigeFinancieleVerplichtingPrive
+    annotations:
+      mim:herkomst: CKI
+      mim:herkomstDefinitie: >-
+        Algemeen Reglement CKI van 1 juli 2024, art. 23.
+      mim:datumOpname: "2026-05-19"
+      mim:populatie: >-
+        Aan CKI gemelde overige private financiele verplichtingen van
+        natuurlijke personen die niet onder een andere kredietvorm
+        vallen, voor zover een negatieve betalingservaring is gemeld.
+      mim:notation: RO
+    comments:
+      - >-
+        Restcategorie voor private verplichtingen die niet in een
+        andere kredietvorm passen. Veelvoorkomende toepassing:
+        borgstellingen (zie BorgstellingRol bij Schuldhulpverlening en
+        borgstelling).
+    attributes:
+      kredietvormCode:
+        range: KredietVormCode
+        required: true
+        description: "Vast: RO."
+        annotations:
+          mim:herkomst: art. 15
+      achterstandstermijn:
+        range: Duur
+        required: true
+        description: P4M; drempel EUR 250.
+        annotations:
+          mim:herkomst: art. 12
+
+  ZakelijkKrediet:
+    is_a: KredietOvereenkomst
+    description: >-
+      Een kredietovereenkomst aangegaan ten behoeve van een onderneming
+      waarbij sprake is van persoonlijke aansprakelijkheid van een of
+      meer natuurlijke personen, en die boven de meldingsdrempel valt.
+    exact_mappings:
+      - gbobegrip:ZakelijkKrediet
+    annotations:
+      mim:herkomst: CKI
+      mim:herkomstDefinitie: >-
+        Algemeen Reglement CKI van 1 juli 2024, art. 24.
+      mim:datumOpname: "2026-05-19"
+      mim:populatie: >-
+        Aan CKI gemelde zakelijke kredieten boven EUR 1.000 met
+        persoonlijke aansprakelijkheid van een of meer natuurlijke
+        personen (typisch ZZP en eenmanszaken, en BV/NV met
+        persoonlijke borgstelling).
+      mim:notation: ZK
+    comments:
+      - >-
+        Sleutel-criterium voor opname in CKI is persoonlijke
+        aansprakelijkheid. Een BV of NV met eigen
+        rechtspersoonlijkheid zonder borgstelling of
+        medeschuldenaarschap van een natuurlijk persoon wordt niet
+        gemeld. Bij ZZP-ondernemers en eenmanszaken is de
+        aansprakelijkheid prive en zijn de kredieten dus wel
+        meldingsplichtig.
+    attributes:
+      kredietvormCode:
+        range: KredietVormCode
+        required: true
+        description: "Vast: ZK."
+        annotations:
+          mim:herkomst: art. 15
+      achterstandstermijn:
+        range: Duur
+        required: true
+        description: P2M.
+        annotations:
+          mim:herkomst: art. 12
+      meldingsdrempel:
+        range: Bedrag
+        required: true
+        description: EUR 1.000.
+        annotations:
+          mim:herkomst: art. 24
+      tenBehoeveVan:
+        # Wiki-diagram zegt Onderneming; dat is de HR/KVK-alias van
+        # MaatschappelijkeActiviteit (zie deelmodel Bedrijven en
+        # instellingen).
+        range: MaatschappelijkeActiviteit
+        required: true
+        description: >-
+          De onderneming waarvoor het krediet is aangegaan; zie
+          deelmodel Bedrijven en instellingen.
+        annotations:
+          mim:kardinaliteit: "n -> 1"
+
+  ZakelijkeOverigeFinancieleVerplichting:
+    is_a: KredietOvereenkomst
+    description: >-
+      Een overige zakelijke financiele verplichting die niet onder
+      zakelijk krediet valt en waarvan op grond van het Algemeen
+      Reglement CKI alleen negatieve betalingservaringen aan het
+      Centraal Krediet Informatiesysteem worden gemeld.
+    exact_mappings:
+      - gbobegrip:ZakelijkeOverigeFinancieleVerplichting
+    annotations:
+      mim:herkomst: CKI
+      mim:herkomstDefinitie: >-
+        Algemeen Reglement CKI van 1 juli 2024, art. 25.
+      mim:datumOpname: "2026-05-19"
+      mim:populatie: >-
+        Aan CKI gemelde overige zakelijke financiele verplichtingen
+        boven EUR 1.000 die niet onder ZakelijkKrediet vallen, voor
+        zover een negatieve betalingservaring is gemeld.
+      mim:notation: ZO
+    comments:
+      - >-
+        Zakelijke tegenhanger van de overige financiele verplichting
+        prive. Net als RO alleen negatieve registratie. Bij combinatie
+        van persoonlijke aansprakelijkheid en zakelijke verplichting
+        kunnen zowel ZK als ZO van toepassing zijn.
+    attributes:
+      kredietvormCode:
+        range: KredietVormCode
+        required: true
+        description: "Vast: ZO."
+        annotations:
+          mim:herkomst: art. 15
+      achterstandstermijn:
+        range: Duur
+        required: true
+        description: P4M; drempel EUR 1.000.
+        annotations:
+          mim:herkomst: art. 12
+
+  # --- Kredietfeiten -----------------------------------------------------------
+
+  AchterstandRegistratie:
+    is_a: KredietFeit
+    description: >-
+      Een melding aan het Centraal Krediet Informatiesysteem dat een
+      kredietnemer een achterstand heeft opgelopen in de nakoming van
+      zijn verplichtingen onder een specifieke kredietovereenkomst, na
+      het verstrijken van de voor die kredietvorm geldende
+      achterstandstermijn.
+    exact_mappings:
+      - gbobegrip:AchterstandRegistratie
+    annotations:
+      mim:herkomst: CKI
+      mim:herkomstDefinitie: >-
+        Algemeen Reglement CKI van 1 juli 2024, art. 12 lid 1 en 2;
+        aanlevering door de erkende kredietverstrekker.
+      mim:datumOpname: "2026-05-19"
+      mim:populatie: >-
+        Alle aan CKI gemelde achterstanden op kredietovereenkomsten,
+        inclusief inmiddels herstelde voor zover binnen de
+        bewaartermijn van vijf jaar.
+    comments:
+      - >-
+        De achterstandstermijn start bij de eerste niet of
+        niet-volledig voldane termijn en verschilt per kredietvorm:
+        twee maanden voor aflopend krediet, hypothecair krediet
+        overige onroerende zaken, saneringskrediet, zakelijk krediet
+        en operational autolease; drie maanden voor doorlopend
+        krediet, hypothecair krediet eigen woning en restschuld; vier
+        maanden voor de overige financiele verplichtingen prive en
+        zakelijk.
+    attributes:
+      datumGebeurtenis:
+        range: Datum
+        required: true
+        description: De startdatum van de achterstand.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:materieleHistorie: false
+          mim:formeleHistorie: true
+          mim:herkomst: Algemeen Reglement CKI art. 12
+      omvangAchterstand:
+        range: Bedrag
+        description: >-
+          Het bedrag van de achterstand op moment van melding.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:materieleHistorie: true
+          mim:formeleHistorie: true
+          mim:herkomst: Algemeen Reglement CKI art. 12
+      betreft:
+        range: KredietOvereenkomst
+        required: true
+        description: >-
+          De overeenkomst waarop de achterstand betrekking heeft.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:kardinaliteit: "n -> 1"
+      opgelostDoor:
+        range: HerstelMelding
+        description: Indien de achterstand is ingehaald.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:kardinaliteit: "1 -> 0..1"
+      begeleidDoor:
+        range: BijzonderheidsCodering
+        multivalued: true
+        description: >-
+          Aanvullende bijzonderheidscodes op dezelfde achterstand.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:kardinaliteit: "1 -> 0..*"
+
+  HerstelMelding:
+    is_a: KredietFeit
+    description: >-
+      Een melding aan het Centraal Krediet Informatiesysteem dat een
+      eerder gemelde achterstand op een kredietovereenkomst is opgelost
+      doordat de kredietnemer zijn betalingsverplichtingen weer
+      volledig nakomt of de gehele schuld heeft voldaan.
+    exact_mappings:
+      - gbobegrip:HerstelMelding
+    annotations:
+      mim:herkomst: CKI
+      mim:herkomstDefinitie: >-
+        Algemeen Reglement CKI van 1 juli 2024, art. 12 lid 3.
+      mim:datumOpname: "2026-05-19"
+      mim:populatie: >-
+        Alle aan CKI gemelde herstellen van eerder geregistreerde
+        achterstanden, gedurende de bewaartermijn van de
+        oorspronkelijke achterstand.
+    comments:
+      - >-
+        De melding markeert het einde van de actieve achterstand. Het
+        moment is bindend voor de bewaartermijn van de oorspronkelijke
+        achterstandsregistratie. Voor de
+        kredietwaardigheidsbeoordeling door derden blijft een gemelde
+        maar herstelde achterstand zichtbaar, doch telt zachter mee
+        dan een lopende.
+    attributes:
+      datumGebeurtenis:
+        range: Datum
+        required: true
+        description: >-
+          Datum waarop het herstel zich heeft voorgedaan.
+        annotations:
+          mim:herkomst: art. 12 lid 3
+      volgtOp:
+        range: AchterstandRegistratie
+        required: true
+        description: De achterstand die hiermee is afgesloten.
+        annotations:
+          mim:kardinaliteit: "n -> 1"
+
+  BijzonderheidsCodering:
+    is_a: KredietFeit
+    description: >-
+      Een melding aan het Centraal Krediet Informatiesysteem dat een
+      specifieke bijzonderheid is opgetreden bij de afhandeling van een
+      kredietovereenkomst, gecodeerd volgens de waardenset van art. 13
+      Algemeen Reglement CKI.
+    exact_mappings:
+      - gbobegrip:BijzonderheidsCodering
+    annotations:
+      mim:herkomst: CKI
+      mim:herkomstDefinitie: >-
+        Algemeen Reglement CKI van 1 juli 2024, art. 13.
+      mim:datumOpname: "2026-05-19"
+      mim:populatie: >-
+        Alle aan CKI gemelde bijzonderheidscoderingen op
+        kredietovereenkomsten, gedurende de bewaartermijn.
+    comments:
+      - >-
+        De vijf codes verwijzen naar aflossingsregeling na
+        achterstand, opgeeisen door zakelijke klant, afboeking door
+        zakelijke klant, onbereikbaarheid van de consument en
+        schriftelijke preventieve betaalregeling voor hypothecair
+        krediet. Combinaties op één achterstand zijn toegestaan: één
+        kredietovereenkomst kan meerdere bijzonderheids-coderingen
+        kennen, elk met een eigen code en datum.
+    attributes:
+      datumGebeurtenis:
+        range: Datum
+        required: true
+        description: Datum waarop de bijzonderheid is opgetreden.
+        annotations:
+          mim:herkomst: Algemeen Reglement CKI art. 13
+      bijzonderheidsCode:
+        range: BijzonderheidsCode
+        required: true
+        description: Een van 1 t/m 5.
+        annotations:
+          mim:herkomst: Algemeen Reglement CKI art. 13
+      betreft:
+        range: KredietOvereenkomst
+        required: true
+        description: >-
+          De overeenkomst waarop de bijzonderheid betrekking heeft.
+        annotations:
+          mim:kardinaliteit: "n -> 1"
+      begeleidt:
+        range: AchterstandRegistratie
+        description: >-
+          Optioneel; sommige bijzonderheden staan los van een lopende
+          achterstand.
+        annotations:
+          mim:kardinaliteit: "n -> 0..1"
+
+  # --- Schuldhulpverlening en borgstelling -------------------------------------
+  # Twee objecttypen vallen aan de rand van het CKI-register:
+  # schuldhulpverlening is een wettelijke voorziening onder de Wet
+  # gemeentelijke schuldhulpverlening en wordt op grond van art. 18a
+  # Algemeen Reglement CKI in CKI gemeld; borgstelling is een
+  # rol-relatie die in CKI alleen indirect verschijnt via een negatieve
+  # betalingservaring op de bijbehorende kredietovereenkomst.
+
+  SchuldhulpverleningTraject:
+    is_a: FinancieleVerplichting
+    description: >-
+      Een wettelijk schuldhulpverleningstraject dat door een gemeente
+      bij beschikking aan een natuurlijk persoon wordt toegekend op
+      grond van de Wet gemeentelijke schuldhulpverlening, met als doel
+      financiele rust en stapsgewijze oplossing van problematische
+      schulden.
+    exact_mappings:
+      - gbobegrip:SchuldhulpverleningTraject
+    annotations:
+      mim:herkomst: Wgs; CKI
+      mim:herkomstDefinitie: >-
+        Wet gemeentelijke schuldhulpverlening art. 4a (toegang) en
+        art. 4b (plan van aanpak); Algemeen Reglement CKI van
+        1 juli 2024, art. 18a.
+      mim:datumOpname: "2026-05-19"
+      mim:populatie: >-
+        Alle bij beschikking aan een natuurlijk persoon toegekende
+        gemeentelijke schuldhulpverleningstrajecten op grond van de
+        Wet gemeentelijke schuldhulpverlening; aangemeld bij CKI
+        conform art. 18a Algemeen Reglement CKI.
+    comments:
+      - >-
+        De Wgs maakt de gemeente verantwoordelijk voor
+        schuldhulpverlening. De beschikking bevat ten minste een plan
+        van aanpak. Het traject kent verschillende vormen, waaronder
+        budgetbeheer, schuldregeling en toelating tot de wettelijke
+        schuldsanering natuurlijke personen. Een
+        schuldhulpverleningstraject is geen kredietovereenkomst maar
+        wel een financiele verplichting met rapportageverplichting en
+        gedragslijn. Een saneringskrediet kan onderdeel zijn van het
+        traject.
+    attributes:
+      beschikkingsdatum:
+        range: Datum
+        required: true
+        description: Datum van de gemeentelijke beschikking.
+        annotations:
+          mim:herkomst: Wgs art. 4a
+      trajectvorm:
+        range: Tekst
+        required: true
+        description: >-
+          Budgetbeheer, schuldregeling, wettelijke sanering, of
+          combinatie.
+        annotations:
+          mim:herkomst: Wgs art. 4b
+      toegekendAan:
+        range: NatuurlijkPersoon
+        required: true
+        description: >-
+          De persoon aan wie het traject is toegekend; zie deelmodel
+          Personen.
+        annotations:
+          mim:kardinaliteit: "n -> 1"
+      beschikkingDoor:
+        range: NietNatuurlijkPersoon
+        required: true
+        description: De gemeente als verlenend bevoegd gezag.
+        annotations:
+          mim:kardinaliteit: "n -> 1"
+        comments:
+          - Zie deelmodel Bedrijven en instellingen.
+      omvat:
+        range: Saneringskrediet
+        multivalued: true
+        description: Eventueel onderdeel; niet verplicht.
+        annotations:
+          mim:kardinaliteit: "1 -> 0..*"
+
+  BorgstellingRol:
+    description: >-
+      De rol van een natuurlijk persoon die zich heeft verbonden tot
+      het voldoen van de verplichtingen van een kredietnemer onder een
+      specifieke kredietovereenkomst indien de kredietnemer zelf in
+      gebreke blijft.
+    exact_mappings:
+      - gbobegrip:BorgstellingRol
+    annotations:
+      mim:herkomst: CKI; BW
+      mim:herkomstDefinitie: >-
+        Algemeen Reglement CKI van 1 juli 2024, art. 1 (definitie
+        Borg) en art. 23, 25; Burgerlijk Wetboek Boek 7 titel 14
+        (borgtocht), met name art. 7:850.
+      mim:datumOpname: "2026-05-19"
+      mim:populatie: >-
+        Natuurlijke personen die zich als borg hebben verbonden voor
+        een kredietovereenkomst; in CKI alleen zichtbaar bij
+        activering van de borgstelling via een negatieve
+        betalingservaring.
+    comments:
+      - >-
+        De borg is geen partij bij de hoofdverplichting maar staat
+        ervoor in. Bij activering, wanneer de kredietnemer zijn
+        verplichtingen niet nakomt en de borg moet betalen, kan de
+        borgstelling als negatieve betalingservaring in CKI
+        verschijnen onder de overige financiele verplichting prive of
+        zakelijk afhankelijk van de aard.
+    attributes:
+      ingangsdatum:
+        range: Datum
+        required: true
+        description: Datum waarop de borgstelling is aangegaan.
+        annotations:
+          mim:herkomst: "BW 7:850"
+      omvangBorg:
+        range: Bedrag
+        description: >-
+          Maximaal bedrag waarvoor de borg garant staat.
+        annotations:
+          mim:herkomst: "BW 7:850"
+      einddatumWerkelijk:
+        range: Datum
+        description: Datum waarop de borgstelling is geeindigd.
+        annotations:
+          mim:herkomst: Algemeen Reglement CKI art. 14
+      gedragenDoor:
+        range: NatuurlijkPersoon
+        required: true
+        description: De borg-stellende persoon.
+        annotations:
+          mim:kardinaliteit: "n -> 1"
+        comments:
+          - Zie deelmodel Personen.
+      voorKredietOvereenkomst:
+        range: KredietOvereenkomst
+        required: true
+        description: De overeenkomst waarvoor wordt borg gestaan.
+        annotations:
+          mim:relatienaam: voor
+          mim:kardinaliteit: "n -> 1"
+        comments:
+          - >-
+            Hernoemd vanaf de te generieke wiki-relatienaam "voor";
+            zie annotatie mim:relatienaam.
+
+enums:
+
+  BijzonderheidsCode:
+    description: >-
+      De waardenset van bijzonderheidscodes die op grond van art. 13
+      Algemeen Reglement CKI bij een kredietovereenkomst aan het
+      Centraal Krediet Informatiesysteem kunnen worden gemeld.
+    exact_mappings:
+      - gbobegrip:BijzonderheidsCode
+    annotations:
+      mim:herkomst: CKI
+      mim:herkomstDefinitie: >-
+        Algemeen Reglement CKI van 1 juli 2024, art. 13.
+      mim:datumOpname: "2026-05-19"
+    comments:
+      - >-
+        Combinaties zijn toegestaan: een kredietovereenkomst kan
+        meerdere bijzonderheids-coderingen kennen, elk met een eigen
+        code en datum.
+      - "Gebruikt door: BijzonderheidsCodering.bijzonderheidsCode."
+    permissible_values:
+      "1":
+        description: >-
+          Aflossingsregeling getroffen na ontstane achterstand.
+        comments:
+          - >-
+            Markeert dat partijen tot een betalingsregeling zijn
+            gekomen.
+      "2":
+        description: >-
+          Zakelijke klant heeft betaling van restant of gehele
+          vordering geeist.
+        comments:
+          - Opeising door zakelijke kredietverstrekker.
+      "3":
+        description: Zakelijke klant heeft EUR 250 of meer afgeboekt.
+        comments:
+          - >-
+            Afboeking als oninbaar door de zakelijke
+            kredietverstrekker.
+      "4":
+        description: Consument blijkt onbereikbaar.
+        comments:
+          - Communicatie met kredietnemer is verstoord.
+      "5":
+        description: >-
+          Schriftelijke preventieve betaalregeling voor hypothecair
+          krediet van minimaal vier maanden.
+        comments:
+          - Alleen van toepassing op hypothecair krediet.
+
+  KredietVormCode:
+    description: >-
+      De codelijst van kredietvormen die op grond van het Algemeen
+      Reglement CKI in het Centraal Krediet Informatiesysteem worden
+      geregistreerd, met per kredietvorm een unieke tweeletter-code.
+    exact_mappings:
+      - gbobegrip:KredietVormCode
+    annotations:
+      mim:herkomst: CKI
+      mim:herkomstDefinitie: >-
+        Algemeen Reglement CKI van 1 juli 2024, art. 15 en art. 16
+        tot en met 26.
+      mim:datumOpname: "2026-05-19"
+    comments:
+      - >-
+        Twaalf vaste waarden. Kort krediet (art. 26) heeft geen vaste
+        tweeletter-code.
+      - >-
+        Gebruikt door: KredietOvereenkomst.kredietvormCode (en
+        daarmee alle concrete subklassen).
+    permissible_values:
+      AK:
+        title: Aflopend krediet
+        description: >-
+          Krediet met vaste looptijd en periodieke aflossing tot nul.
+        annotations:
+          mim:herkomst: art. 16
+      RK:
+        title: Doorlopend krediet
+        description: >-
+          Revolverend krediet tot een afgesproken kredietlimiet.
+        annotations:
+          mim:herkomst: art. 17
+      SH:
+        title: Schuldhulpverlening
+        description: >-
+          Schuldhulpverleningstraject onder Wgs, gemeld op grond van
+          art. 18a.
+        annotations:
+          mim:herkomst: art. 18a
+      SK:
+        title: Saneringskrediet
+        description: >-
+          Persoonlijke lening door gemeente of kredietbank ter
+          bundeling van bestaande schulden.
+        annotations:
+          mim:herkomst: art. 18
+      HY:
+        title: Hypothecair krediet eigen woning
+        description: >-
+          Hypothecair krediet op de eigen woning; alleen negatieve
+          betalingservaringen gemeld.
+        annotations:
+          mim:herkomst: art. 19
+      HO:
+        title: Hypothecair krediet overige onroerende zaken
+        description: >-
+          Hypothecair krediet op overige onroerende zaken (tweede
+          woning, beleggingspand).
+        annotations:
+          mim:herkomst: art. 20
+      RH:
+        title: Restschuld hypothecair krediet zonder NHG
+        description: >-
+          Restschuld na verkoop onroerende zaak, zonder NHG-dekking.
+        annotations:
+          mim:herkomst: art. 21
+      RN:
+        title: Restschuld hypothecair krediet met NHG
+        description: >-
+          Restschuld na verkoop onroerende zaak, met NHG-dekking.
+        annotations:
+          mim:herkomst: art. 21
+      OA:
+        title: Operational autolease
+        description: >-
+          Leasecontract waarbij leasemaatschappij eigenaar blijft van
+          het voertuig.
+        annotations:
+          mim:herkomst: art. 22
+      RO:
+        title: Overige financiele verplichting prive
+        description: >-
+          Restcategorie private verplichting; alleen negatieve
+          betalingservaringen.
+        annotations:
+          mim:herkomst: art. 23
+      ZK:
+        title: Zakelijk krediet
+        description: >-
+          Zakelijk krediet met persoonlijke aansprakelijkheid van een
+          natuurlijk persoon.
+        annotations:
+          mim:herkomst: art. 24
+      ZO:
+        title: Zakelijke overige financiele verplichting
+        description: >-
+          Restcategorie zakelijke verplichting; alleen negatieve
+          betalingservaringen.
+        annotations:
+          mim:herkomst: art. 25
+
+  PersoonsgegevensCategorieCKI:
+    description: >-
+      De vier categorieen persoonsgegevens die op grond van art. 9
+      lid 2 Algemeen Reglement CKI door Stichting BKR in het Centraal
+      Krediet Informatiesysteem worden verwerkt.
+    exact_mappings:
+      - gbobegrip:PersoonsgegevensCategorieCKI
+    annotations:
+      mim:herkomst: CKI
+      mim:herkomstDefinitie: >-
+        Algemeen Reglement CKI van 1 juli 2024, art. 9 lid 2.
+      mim:datumOpname: "2026-05-19"
+    comments:
+      - >-
+        Anders dan elders binnen GBO-Kern gebruikt Stichting BKR het
+        BSN niet als interne identifier. In plaats daarvan een
+        combinatie-sleutel op basis van postcode-cijferdeel en
+        geboortedatum.
+      - >-
+        Gebruikt door: CKI-registratie-categorisering, niet direct
+        als attribuut. Beschrijft welke categorieen persoonsgegevens
+        Stichting BKR in CKI verwerkt onder art. 9 lid 2 Algemeen
+        Reglement CKI.
+    permissible_values:
+      a:
+        title: Identificerende gegevens
+        description: >-
+          Geboortenaam, geboortedatum, eerste voornaam, initialen,
+          geslacht.
+        comments:
+          - >-
+            Identificatie verloopt zonder BSN; combinatie-sleutel
+            postcode-cijferdeel + geboortedatum.
+      b:
+        title: Adresgegevens
+        description: Adres inclusief postcode.
+        comments:
+          - Onderdeel van de combinatie-sleutel.
+      c:
+        title: Overeenkomstgegevens
+        description: >-
+          Verwijzing naar geregistreerde kredietovereenkomsten.
+        comments:
+          - Linkt naar KredietOvereenkomst.
+      d:
+        title: Bijzonderheidsgegevens
+        description: >-
+          Verwijzing naar achterstanden, herstellen en
+          bijzonderheidscoderingen.
+        comments:
+          - >-
+            Linkt naar AchterstandRegistratie, HerstelMelding en
+            BijzonderheidsCodering.
+
+# Geen deelmodel-specifieke «Codelijst»-typen: de drie codelijsten uit
+# de wiki (KredietVormCode, BijzonderheidsCode,
+# PersoonsgegevensCategorieCKI) zijn alle inline-enums en staan
+# hierboven onder enums.

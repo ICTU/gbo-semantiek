@@ -227,6 +227,7 @@ tasks:
       - "{{.LOD}}"
       - "{{.SHACL}}"
     cmds:
+      - mkdir -p "{{.VERSION_DIR}}/{{.ONTOLOGIE}}"
       - echo "Generating OWL-ontologie '{{.LOD}}' ..."
       - gen-owl "{{.GBO_LINKML}}" > "{{.LOD}}"
       - echo "Generating SHACL-shapes '{{.SHACL}}' ..."

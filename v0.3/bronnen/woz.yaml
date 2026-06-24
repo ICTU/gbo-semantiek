@@ -1,0 +1,30 @@
+# =============================================================================
+# Bron-profiel WOZ — welke onderdelen van het GBO-informatiemodel de
+# Basisregistratie WOZ via GBO beschikbaar stelt.
+#
+# Dit bestand is LinkML-data conform het schema
+# ../informatiemodel/linkml/bronprofiel.yaml (klasse Bronprofiel).
+# Valideren:
+#   linkml-validate -s ../informatiemodel/linkml/bronprofiel.yaml \
+#       -C Bronprofiel woz.yaml
+#
+# Supertypen/mixins (Voorkomen) en de codelijst CodelijstWOZ worden door de
+# snoei-tool automatisch meegenomen en hoeven hier niet genoemd te worden.
+# =============================================================================
+bron: WOZ
+titel: Basisregistratie WOZ
+beschrijving: >-
+  WOZ-objecten en -deelobjecten, de jaarlijks vastgestelde WOZ-waarden
+  en de bij een object betrokken belanghebbenden.
+schemabestand: ../informatiemodel/linkml/gbo.yaml
+
+# Query-ingangen: hiervoor genereert de pipeline GraphQL Query-velden.
+ingangen:
+  - WOZObject
+
+# Objecttypen die deze bron beschikbaar stelt (expliciete lijst).
+objecttypen:
+  - WOZObject
+  - WOZDeelobject
+  - WOZWaarde
+  - Belanghebbende

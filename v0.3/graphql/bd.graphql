@@ -1,0 +1,742 @@
+# GEGENEREERD BESTAND — niet handmatig bewerken.
+# GraphQL SDL voor bronprofiel BD, gegenereerd uit gbo-bron-bd.yaml.
+# Regenereer met: task generate:graphql
+
+"""Landcode conform ISO 3166-1 alpha-2. Stelselbreed voor land- en nationaliteit-typering; cross-walks naar BRP-LT 32 (nationaliteit) en BRP-LT 34 (landen) staan in de documentatie."""
+scalar CodelijstISO3166
+"""Valuta-aanduiding conform ISO 4217 (drieletterige code, EUR)."""
+scalar CodelijstISO4217
+"""Gemeentecode conform BRP-Landelijke Tabel 33 Gemeenten. Formeel een BRP-codelijst, feitelijk de stelselbrede gemeente-codering inclusief historische gemeenten met einddatum."""
+scalar CodelijstLT33
+"""Adellijke titel / predicaat conform BRP-Landelijke Tabel 38."""
+scalar CodelijstLT38
+"""Kalenderdatum in ISO 8601, precisie tot op de dag (jjjj-mm-dd). Gebruikt voor de materiële tijdlijn."""
+scalar Datum
+"""Datum waarin jaar, maand of dag elk afzonderlijk onbekend kan zijn. Formaten: jjjj, jjjj-mm of jjjj-mm-dd; nullen op de onbekende positie."""
+scalar DatumIncompleet
+"""Landelijke objectidentificatie voor stelselobjecten, opgebouwd uit namespace, lokaalID en versie (NEN 3610)."""
+scalar NEN3610ID
+"""Universally Unique Identifier conform RFC 4122 (128 bits, hexadecimaal genoteerd). Interne GBO-identifier voor objecten zonder externe authentieke identifier."""
+scalar UUID
+
+"""Een door of namens een belastingplichtige aan de Belastingdienst ingediende opgave waarmee de grondslag voor een specifieke belastingsoort en periode wordt vastgesteld."""
+interface BelastingAangifte {
+  """Identificatie van de aangifte."""
+  aangifteIdentificatie: String!
+  """Datum van feitelijke indiening."""
+  indieningsdatum: Datum
+  """Bijvoorbeeld Ingediend, Aangeslagen, Bezwaar lopend."""
+  status: String!
+}
+
+"""Een belastingaangifte die op een specifiek belastingjaar betrekking heeft en die de grondslag voor de aanslag over dat jaar vaststelt."""
+interface BelastingjaarAangifte implements BelastingAangifte {
+  """Identificatie van de aangifte."""
+  aangifteIdentificatie: String!
+  """Datum van feitelijke indiening."""
+  indieningsdatum: Datum
+  """Bijvoorbeeld Ingediend, Aangeslagen, Bezwaar lopend."""
+  status: String!
+  """Het jaar waarop de aangifte betrekking heeft."""
+  belastingjaar: Int!
+  """IH, Schenk, Erf."""
+  belastingsoort: String!
+  """Begin van de aangifteperiode."""
+  ingangsdatumAangifte: Datum
+  """Einde van de aangifteperiode."""
+  einddatumAangifte: Datum
+  """De natuurlijk persoon door of namens wie de aangifte is ingediend."""
+  ingediendDoor: NatuurlijkPersoon!
+}
+
+"""Een fiscaal relevant gegeven over een belastingplichtige dat in een specifiek belastingjaar als component in een belastingaangifte verschijnt, zoals een vermogensbestanddeel, een aftrekpost of een inkomensbestanddeel."""
+interface FiscaalFeit {
+  """Voor Box-3-bestanddelen 1 januari."""
+  peildatum: Datum
+  """Het belastingjaar van toepassing."""
+  belastingjaar: Int!
+  """Categorie-aanduiding per concreet subtype."""
+  categorie: String!
+}
+
+"""Een bezitting of schuld die op de peildatum 1 januari onder Box 3 van de inkomstenbelasting valt en als zelfstandige post in de aangifte wordt opgevoerd."""
+interface VermogensBestanddeel implements FiscaalFeit {
+  """Voor Box-3-bestanddelen 1 januari."""
+  peildatum: Datum
+  """Het belastingjaar van toepassing."""
+  belastingjaar: Int!
+  """Categorie-aanduiding."""
+  categorie: VermogensBestanddeelCategorie!
+  """Waarde op peildatum 1 januari."""
+  waardePeildatum: Bedrag!
+  """De natuurlijk persoon die houder is van het vermogensbestanddeel."""
+  houderVan: NatuurlijkPersoon!
+}
+
+"""Een door de belastingplichtige in de IH-aangifte op te voeren betaalde uitgave die op grond van Wet IB 2001 het belastbaar inkomen verlaagt."""
+interface Aftrekpost implements FiscaalFeit {
+  """Voor Box-3-bestanddelen 1 januari."""
+  peildatum: Datum
+  """Het belastingjaar van toepassing."""
+  belastingjaar: Int!
+  """Categorie-aanduiding."""
+  categorie: AftrekpostCategorie!
+  """Bedrag van de aftrek in het belastingjaar."""
+  bedragJaar: Bedrag!
+}
+
+"""Een inkomensafhankelijke bijdrage die op grond van de Algemene wet inkomensafhankelijke regelingen door Belastingdienst en Toeslagen aan een natuurlijk persoon wordt toegekend voor een specifiek doel."""
+interface Toeslag implements InkomensOndersteuning {
+  """Interne identificatie."""
+  identificatie: String!
+  """Aanvang van de toekenning."""
+  ingangsdatum: Datum!
+  """Einde van de toekenning."""
+  einddatum: Datum
+  """Bedrag per periode."""
+  bedragPeriode: Bedrag!
+  """Welke toeslag."""
+  toeslagSoort: ToeslagSoort!
+  """Maandelijks bedrag."""
+  bedragMaand: Bedrag!
+  """Voorlopig of definitief vastgesteld."""
+  isVoorlopig: Indicatie!
+  """De natuurlijk persoon aan wie de toeslag is toegekend."""
+  toegekendAan: NatuurlijkPersoon!
+}
+
+"""Abstract supertype van natuurlijke en niet-natuurlijke personen: iedere actor die in een overheidsregistratie als rechts- of handelingssubject voorkomt."""
+interface Partij {
+  """De inschrijving(en) van deze partij in het Handelsregister. (Sleutel-referentie naar Inschrijving.)"""
+  ingeschrevenAls: [String!]
+  """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
+  partijnummer: UUID!
+}
+
+"""Een door of namens de overheid aan een natuurlijk persoon verstrekte financiele bijdrage met als doel inkomensondersteuning, in de vorm van een inkomensafhankelijke regeling of een sociale-zekerheidsuitkering."""
+interface InkomensOndersteuning {
+  """Interne identificatie."""
+  identificatie: String!
+  """Aanvang van de toekenning."""
+  ingangsdatum: Datum!
+  """Einde van de toekenning."""
+  einddatum: Datum
+  """Bedrag per periode."""
+  bedragPeriode: Bedrag!
+}
+
+"""Een natuurlijke persoon die in de Basisregistratie Personen is opgenomen, hetzij als ingezetene van een Nederlandse gemeente, hetzij als niet-ingezetene in de Registratie Niet-Ingezetenen."""
+type IngeschrevenPersoon implements Partij {
+  """De inschrijving(en) van deze partij in het Handelsregister. (Sleutel-referentie naar Inschrijving.)"""
+  ingeschrevenAls: [String!]
+  """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
+  partijnummer: UUID!
+  """De officiële familienaam van de persoon."""
+  geslachtsnaam: String!
+  """Alle officiële voornamen van de persoon."""
+  voornamen: String
+  """Het voorvoegsel bij de geslachtsnaam."""
+  voorvoegsel: String
+  """Adellijke titel of predicaat."""
+  adellijkeTitelPredicaat: CodelijstLT38
+  """De datum waarop de persoon is geboren."""
+  geboortedatum: DatumIncompleet
+  """De gemeente of plaats waar de persoon is geboren."""
+  geboorteplaats: String
+  """Het land waar de persoon is geboren."""
+  geboorteland: CodelijstISO3166
+  """Het geslacht van de persoon."""
+  geslacht: Geslacht
+  """De datum waarop de persoon is overleden."""
+  datumOverlijden: DatumIncompleet
+  """De plaats waar de persoon is overleden."""
+  plaatsOverlijden: String
+  """Het land waar de persoon is overleden."""
+  landOverlijden: CodelijstISO3166
+  """De ouder(s) van deze persoon."""
+  heeftOuder: [NatuurlijkPersoon!]
+  """Het door de Beheervoorziening BSN uitgegeven persoonsnummer."""
+  bsn: String!
+  """Het interne BRP-administratienummer."""
+  aNummer: String
+  """Het persoonsnummer dat een ander land aan deze persoon heeft toegekend."""
+  tin: String
+  """De datum waarop deze persoon voor het eerst in de BRP werd opgenomen."""
+  datumEersteInschrijving: DatumIncompleet
+  """De gemeente die de persoonslijst bijhoudt."""
+  gemeenteVanInschrijving: CodelijstLT33
+  """Reden waarom bijhouding van de persoonslijst is opgeschort."""
+  opschortingBijhouding: OpschortingBijhouding
+  """Aanduiding dat de persoon van het kiesrecht is uitgesloten."""
+  uitsluitingKiesrecht: UitsluitingKiesrecht
+  """Aanduiding dat de persoon kiesgerechtigd is voor het Europees Parlement vanuit Nederland."""
+  europeesKiesrecht: EuropeesKiesrecht
+  """Datum en bron van de laatste gegevensverificatie."""
+  verificatie: Verificatie
+  """Indicatie dat een of meer gegevens van de persoonslijst onderwerp zijn van onderzoek."""
+  inOnderzoek: Indicatie!
+  """Nationaliteiten conform BRP cat 04. (Sleutel-referentie naar Nationaliteit.)"""
+  heeftNationaliteit: [String!]
+  """Aanwezig bij niet-Nederlandse onderdanen. (Sleutel-referentie naar Verblijfstitel.)"""
+  heeftVerblijfstitel: String
+  """Aanwezig bij minderjarigheid of curatele. (Sleutel-referentie naar Gezagsverhouding.)"""
+  gezag: String
+  """Aanwezig bij vestiging vanuit het buitenland. (Sleutel-referentie naar Immigratie.)"""
+  heeftImmigratie: String
+}
+
+"""De jaaraangifte inkomstenbelasting van een natuurlijk persoon waarin het verzamelinkomen over een belastingjaar wordt opgegeven, opgebouwd uit Box 1 (werk en woning), Box 2 (aanmerkelijk belang) en Box 3 (sparen en beleggen)."""
+type AangifteIH implements BelastingjaarAangifte & BelastingAangifte {
+  """Identificatie van de aangifte."""
+  aangifteIdentificatie: String!
+  """Datum van feitelijke indiening."""
+  indieningsdatum: Datum
+  """Bijvoorbeeld Ingediend, Aangeslagen, Bezwaar lopend."""
+  status: String!
+  """Het jaar waarop de aangifte betrekking heeft."""
+  belastingjaar: Int!
+  """IH, Schenk, Erf."""
+  belastingsoort: String!
+  """Begin van de aangifteperiode."""
+  ingangsdatumAangifte: Datum
+  """Einde van de aangifteperiode."""
+  einddatumAangifte: Datum
+  """De natuurlijk persoon door of namens wie de aangifte is ingediend."""
+  ingediendDoor: NatuurlijkPersoon!
+  """Som van Box 1, Box 2 en Box 3, na aftrek."""
+  verzamelinkomen: Bedrag
+  """Inkomen uit werk en woning."""
+  box1Inkomen: Bedrag
+  """Inkomen uit aanmerkelijk belang."""
+  box2Inkomen: Bedrag
+  """Inkomen uit sparen en beleggen."""
+  box3Inkomen: Bedrag
+  """Toepasselijke boxen."""
+  boxCategorie: [BoxCategorie!]
+}
+
+"""De aangifte schenkbelasting waarin een schenking met haar fiscale waarde, betrokken personen, vrijstellingen en eventuele schenking-op-papier-constructie wordt opgegeven."""
+type AangifteSchenk implements BelastingjaarAangifte & BelastingAangifte {
+  """Identificatie van de aangifte."""
+  aangifteIdentificatie: String!
+  """Datum van feitelijke indiening."""
+  indieningsdatum: Datum
+  """Bijvoorbeeld Ingediend, Aangeslagen, Bezwaar lopend."""
+  status: String!
+  """Het jaar waarop de aangifte betrekking heeft."""
+  belastingjaar: Int!
+  """IH, Schenk, Erf."""
+  belastingsoort: String!
+  """Begin van de aangifteperiode."""
+  ingangsdatumAangifte: Datum
+  """Einde van de aangifteperiode."""
+  einddatumAangifte: Datum
+  """De natuurlijk persoon door of namens wie de aangifte is ingediend."""
+  ingediendDoor: NatuurlijkPersoon!
+  """Datum van de schenking."""
+  schenkingsdatum: Datum!
+  """Fiscale waarde."""
+  schenkingsbedrag: Bedrag!
+  """Schuldig-gebleven schenking."""
+  schenkingOpPapier: Indicatie
+  """Toegepaste vrijstelling."""
+  vrijstellingToegepast: Bedrag
+}
+
+"""De aangifte erfbelasting waarin de nalatenschap van een overledene en de verdeling daarvan over de erfgenamen wordt opgegeven."""
+type AangifteErf implements BelastingjaarAangifte & BelastingAangifte {
+  """Identificatie van de aangifte."""
+  aangifteIdentificatie: String!
+  """Datum van feitelijke indiening."""
+  indieningsdatum: Datum
+  """Bijvoorbeeld Ingediend, Aangeslagen, Bezwaar lopend."""
+  status: String!
+  """Het jaar waarop de aangifte betrekking heeft."""
+  belastingjaar: Int!
+  """IH, Schenk, Erf."""
+  belastingsoort: String!
+  """Begin van de aangifteperiode."""
+  ingangsdatumAangifte: Datum
+  """Einde van de aangifteperiode."""
+  einddatumAangifte: Datum
+  """De natuurlijk persoon door of namens wie de aangifte is ingediend."""
+  ingediendDoor: NatuurlijkPersoon!
+  """Datum van overlijden."""
+  overlijdensdatum: Datum!
+  """Fiscale waarde van de nalatenschap."""
+  omvangNalatenschap: Bedrag!
+  """Aantal erfgenamen."""
+  aantalErfgenamen: Int!
+}
+
+"""Een bank- of spaartegoed dat een natuurlijk persoon op de peildatum 1 januari aanhoudt bij een Nederlandse of buitenlandse financiele instelling en dat in Box 3 wordt opgegeven."""
+type BankSpaartegoed implements VermogensBestanddeel & FiscaalFeit {
+  """Voor Box-3-bestanddelen 1 januari."""
+  peildatum: Datum
+  """Het belastingjaar van toepassing."""
+  belastingjaar: Int!
+  """Categorie-aanduiding."""
+  categorie: VermogensBestanddeelCategorie!
+  """Waarde op peildatum 1 januari."""
+  waardePeildatum: Bedrag!
+  """De natuurlijk persoon die houder is van het vermogensbestanddeel."""
+  houderVan: NatuurlijkPersoon!
+  """Internationaal banknummer."""
+  iban: String
+  """Valuta-code."""
+  valuta: String!
+  """Saldo op 1 januari belastingjaar."""
+  saldoPeildatum: Bedrag!
+  """Land van de bankvestiging."""
+  land: CodelijstISO3166!
+}
+
+"""Een in Box 3 op te geven vermogensbestanddeel dat bestaat uit aandelen, obligaties, beleggingsfondsen, derivaten of vergelijkbare effecten, vastgesteld op marktwaarde per peildatum 1 januari."""
+type Belegging implements VermogensBestanddeel & FiscaalFeit {
+  """Voor Box-3-bestanddelen 1 januari."""
+  peildatum: Datum
+  """Het belastingjaar van toepassing."""
+  belastingjaar: Int!
+  """Categorie-aanduiding."""
+  categorie: VermogensBestanddeelCategorie!
+  """Waarde op peildatum 1 januari."""
+  waardePeildatum: Bedrag!
+  """De natuurlijk persoon die houder is van het vermogensbestanddeel."""
+  houderVan: NatuurlijkPersoon!
+  """Aandelen, obligaties, fondsen of derivaten."""
+  categorieEffect: String!
+  """Marktwaarde op 1 januari."""
+  marktwaardePeildatum: Bedrag!
+  """Valuta-code."""
+  valuta: String!
+}
+
+"""Een in Box 3 op te geven vermogensbestanddeel dat bestaat uit een digitale valuta of cryptotegoed, vastgesteld op marktwaarde per peildatum 1 januari."""
+type Cryptovaluta implements VermogensBestanddeel & FiscaalFeit {
+  """Voor Box-3-bestanddelen 1 januari."""
+  peildatum: Datum
+  """Het belastingjaar van toepassing."""
+  belastingjaar: Int!
+  """Categorie-aanduiding."""
+  categorie: VermogensBestanddeelCategorie!
+  """Waarde op peildatum 1 januari."""
+  waardePeildatum: Bedrag!
+  """De natuurlijk persoon die houder is van het vermogensbestanddeel."""
+  houderVan: NatuurlijkPersoon!
+  """Bijvoorbeeld BTC, ETH, USDC."""
+  tokenSymbool: String!
+  """Marktwaarde op 1 januari in euro."""
+  marktwaardePeildatum: Bedrag!
+}
+
+"""Een in Box 3 op te geven onroerende zaak die niet de eigen woning is, zoals een tweede woning, een verhuurd pand of grond, vastgesteld op WOZ-waarde of marktwaarde per peildatum 1 januari."""
+type OnroerendeZaakOverigBezit implements VermogensBestanddeel & FiscaalFeit {
+  """Voor Box-3-bestanddelen 1 januari."""
+  peildatum: Datum
+  """Het belastingjaar van toepassing."""
+  belastingjaar: Int!
+  """Categorie-aanduiding."""
+  categorie: VermogensBestanddeelCategorie!
+  """Waarde op peildatum 1 januari."""
+  waardePeildatum: Bedrag!
+  """De natuurlijk persoon die houder is van het vermogensbestanddeel."""
+  houderVan: NatuurlijkPersoon!
+  """Gemeentelijke WOZ-vaststelling."""
+  wozWaarde: Bedrag
+  """Marktwaarde voor zover relevant."""
+  marktwaardePeildatum: Bedrag
+  """Aanduiding verhuurd of niet."""
+  isVerhuurd: Indicatie
+  """De kadastraal onroerende zaak waaraan dit bezit is gekoppeld. (Sleutel-referentie naar KadastraleOnroerendeZaak.)"""
+  gekoppeldAan: NEN3610ID!
+}
+
+"""Een in Box 3 op te geven schuld van een natuurlijk persoon die boven de schulddrempel uitkomt en die op peildatum 1 januari het Box-3-vermogen vermindert."""
+type Schuld implements VermogensBestanddeel & FiscaalFeit {
+  """Voor Box-3-bestanddelen 1 januari."""
+  peildatum: Datum
+  """Het belastingjaar van toepassing."""
+  belastingjaar: Int!
+  """Categorie-aanduiding."""
+  categorie: VermogensBestanddeelCategorie!
+  """Waarde op peildatum 1 januari."""
+  waardePeildatum: Bedrag!
+  """De natuurlijk persoon die houder is van het vermogensbestanddeel."""
+  houderVan: NatuurlijkPersoon!
+  """Familie, schenking op papier, SVn, overig."""
+  schuldsoort: String!
+  """Saldo op 1 januari belastingjaar."""
+  openstaandSaldoPeildatum: Bedrag!
+  """Op de schuld toepasselijke rente."""
+  rentepercentage: Float
+  """Datum waarop rentevasteperiode eindigt."""
+  einddatumRentevasteperiode: Datum
+}
+
+"""De op grond van Wet IB 2001 art. 3.120 in Box 1 aftrekbare rente die de belastingplichtige in een belastingjaar heeft betaald voor een eigenwoningschuld op zijn eigen woning, voor zover het eigenwoning-regime van toepassing is."""
+type Hypotheekrenteaftrek implements Aftrekpost & FiscaalFeit {
+  """Voor Box-3-bestanddelen 1 januari."""
+  peildatum: Datum
+  """Het belastingjaar van toepassing."""
+  belastingjaar: Int!
+  """Categorie-aanduiding."""
+  categorie: AftrekpostCategorie!
+  """Bedrag van de aftrek in het belastingjaar."""
+  bedragJaar: Bedrag!
+  """Betaalde rente in het belastingjaar."""
+  renteJaar: Bedrag!
+  """Schuld bij begin van het jaar."""
+  eigenwoningSchuldSaldoStart: Bedrag
+  """Schuld bij einde van het jaar."""
+  eigenwoningSchuldSaldoEinde: Bedrag
+  """Annuitair, lineair of overgangsrecht."""
+  aflossingsschema: String
+  """De eigen woning waarop de renteaftrek betrekking heeft."""
+  betreft: EigenWoning!
+}
+
+"""De op grond van Wet IB 2001 art. 6.3 aftrekbare partneralimentatie die de belastingplichtige in een belastingjaar aan een gewezen partner heeft betaald."""
+type AlimentatieAftrek implements Aftrekpost & FiscaalFeit {
+  """Voor Box-3-bestanddelen 1 januari."""
+  peildatum: Datum
+  """Het belastingjaar van toepassing."""
+  belastingjaar: Int!
+  """Categorie-aanduiding."""
+  categorie: AftrekpostCategorie!
+  """Het betaalde bedrag."""
+  bedragJaar: Bedrag!
+  """Aanduiding van de gewezen partner."""
+  ontvangendePartner: String
+}
+
+"""De op grond van Wet IB 2001 art. 3.124 aftrekbare lijfrente-premies en stortingen op bancaire lijfrente-rekeningen die de belastingplichtige in een belastingjaar heeft betaald binnen de jaarruimte- of reserveringsruimte."""
+type LijfrenteAftrek implements Aftrekpost & FiscaalFeit {
+  """Voor Box-3-bestanddelen 1 januari."""
+  peildatum: Datum
+  """Het belastingjaar van toepassing."""
+  belastingjaar: Int!
+  """Categorie-aanduiding."""
+  categorie: AftrekpostCategorie!
+  """Betaalde lijfrente-premie."""
+  bedragJaar: Bedrag!
+  """Maximaal aftrekbaar in dit jaar."""
+  jaarruimte: Bedrag
+  """Maximaal benutbaar uit voorgaande zeven jaar."""
+  reserveringsruimte: Bedrag
+}
+
+"""De op grond van Wet IB 2001 art. 6.32 aftrekbare giften die de belastingplichtige in een belastingjaar heeft gedaan aan een algemeen nut beogende instelling of culturele instelling, voor zover binnen de drempel- en plafondbedragen."""
+type GiftenAftrek implements Aftrekpost & FiscaalFeit {
+  """Voor Box-3-bestanddelen 1 januari."""
+  peildatum: Datum
+  """Het belastingjaar van toepassing."""
+  belastingjaar: Int!
+  """Categorie-aanduiding."""
+  categorie: AftrekpostCategorie!
+  """Het gegeven bedrag in het belastingjaar."""
+  bedragJaar: Bedrag!
+  """Periodiek (geen drempel of plafond) of eenmalig."""
+  isPeriodiekeGift: Indicatie!
+  """Naam van de ANBI."""
+  begunstigdeAnbi: String
+}
+
+"""Een onroerende zaak die op grond van Wet IB 2001 art. 3.111 als hoofdverblijf van de belastingplichtige of zijn fiscale partner wordt aangemerkt en daarmee binnen het eigenwoning-regime van Box 1 valt."""
+type EigenWoning {
+  """Door de gemeente vastgestelde WOZ-waarde."""
+  wozWaarde: Bedrag!
+  """Forfaitaire bijtelling."""
+  eigenwoningForfait: Bedrag
+  """Schuldsaldo binnen het eigenwoning-regime."""
+  eigenwoningSchuldSaldo: Bedrag
+  """Datum waarop de eigenwoning-status is ingegaan."""
+  ingangsdatumRegime: Datum
+  """De kadastraal onroerende zaak waaraan de eigen woning is gekoppeld; precies een per eigen woning. (Sleutel-referentie naar KadastraleOnroerendeZaak.)"""
+  gekoppeldAan: NEN3610ID!
+}
+
+"""Een relatie tussen twee natuurlijke personen die op grond van Wet IB 2001 art. 5a fiscaal als partners worden aangemerkt en gezamenlijk gemeenschappelijke inkomensbestanddelen en aftrekposten kunnen toedelen tussen de boxen."""
+type FiscalePartner {
+  """Per belastingjaar vastgesteld."""
+  belastingjaar: Int!
+  """Huwelijk, GP, notarieel contract, gemeenschappelijk kind."""
+  grondslag: String!
+  """Aanvang van het partnerschap."""
+  begindatum: Datum
+  """Einde van het partnerschap."""
+  einddatum: Datum
+  """De twee natuurlijke personen tussen wie het fiscaal partnerschap geldt."""
+  tussenPersonen: [NatuurlijkPersoon!]!
+}
+
+"""Een inkomensafhankelijke toeslag op grond van de Wet op de huurtoeslag, toegekend aan huurders met een laag inkomen ter tegemoetkoming in de woonlasten."""
+type Huurtoeslag implements Toeslag & InkomensOndersteuning {
+  """Interne identificatie."""
+  identificatie: String!
+  """Aanvang van de toekenning."""
+  ingangsdatum: Datum!
+  """Einde van de toekenning."""
+  einddatum: Datum
+  """Bedrag per periode."""
+  bedragPeriode: Bedrag!
+  """Welke toeslag."""
+  toeslagSoort: ToeslagSoort!
+  """Maandelijks bedrag."""
+  bedragMaand: Bedrag!
+  """Voorlopig of definitief vastgesteld."""
+  isVoorlopig: Indicatie!
+  """De natuurlijk persoon aan wie de toeslag is toegekend."""
+  toegekendAan: NatuurlijkPersoon!
+  """Genormeerde huurprijs voor de berekening."""
+  rekenhuur: Bedrag!
+}
+
+"""Een inkomensafhankelijke tegemoetkoming in de premie van de basiszorgverzekering, toegekend op grond van de Wet op de zorgtoeslag."""
+type Zorgtoeslag implements Toeslag & InkomensOndersteuning {
+  """Interne identificatie."""
+  identificatie: String!
+  """Aanvang van de toekenning."""
+  ingangsdatum: Datum!
+  """Einde van de toekenning."""
+  einddatum: Datum
+  """Bedrag per periode."""
+  bedragPeriode: Bedrag!
+  """Welke toeslag."""
+  toeslagSoort: ToeslagSoort!
+  """Maandelijks bedrag."""
+  bedragMaand: Bedrag!
+  """Voorlopig of definitief vastgesteld."""
+  isVoorlopig: Indicatie!
+  """De natuurlijk persoon aan wie de toeslag is toegekend."""
+  toegekendAan: NatuurlijkPersoon!
+}
+
+"""Een inkomensafhankelijke tegemoetkoming in de kosten van formele kinderopvang, toegekend op grond van de Wet kinderopvang."""
+type KinderopvangToeslag implements Toeslag & InkomensOndersteuning {
+  """Interne identificatie."""
+  identificatie: String!
+  """Aanvang van de toekenning."""
+  ingangsdatum: Datum!
+  """Einde van de toekenning."""
+  einddatum: Datum
+  """Bedrag per periode."""
+  bedragPeriode: Bedrag!
+  """Welke toeslag."""
+  toeslagSoort: ToeslagSoort!
+  """Maandelijks bedrag."""
+  bedragMaand: Bedrag!
+  """Voorlopig of definitief vastgesteld."""
+  isVoorlopig: Indicatie!
+  """De natuurlijk persoon aan wie de toeslag is toegekend."""
+  toegekendAan: NatuurlijkPersoon!
+  """Aantal opvang-uren in de periode."""
+  aantalUrenOpvang: Int!
+  """Tarief per uur kinderopvang."""
+  uurtariefOpvang: Bedrag!
+  """Aanduiding van de erkende opvang-instelling."""
+  opvanginstelling: String!
+}
+
+"""Een inkomensafhankelijke tegemoetkoming in de kosten voor de opvoeding en het levensonderhoud van kinderen, toegekend op grond van de Wet op het kindgebonden budget."""
+type KindgebondenBudget implements Toeslag & InkomensOndersteuning {
+  """Interne identificatie."""
+  identificatie: String!
+  """Aanvang van de toekenning."""
+  ingangsdatum: Datum!
+  """Einde van de toekenning."""
+  einddatum: Datum
+  """Bedrag per periode."""
+  bedragPeriode: Bedrag!
+  """Welke toeslag."""
+  toeslagSoort: ToeslagSoort!
+  """Maandelijks bedrag."""
+  bedragMaand: Bedrag!
+  """Voorlopig of definitief vastgesteld."""
+  isVoorlopig: Indicatie!
+  """De natuurlijk persoon aan wie de toeslag is toegekend."""
+  toegekendAan: NatuurlijkPersoon!
+  """Aantal kinderen onder de regeling."""
+  aantalKinderen: Int!
+  """Leeftijd jongste kind."""
+  leeftijdJongste: Int
+}
+
+"""Een melding die een renseigneringsplichtige derde, zoals een bank, verzekeraar of pensioenuitvoerder, op grond van AWR art. 53 aan de Belastingdienst doet over gegevens die relevant zijn voor de belastingheffing van een natuurlijk persoon."""
+type Renseignering {
+  """Het belastingjaar waarop de renseignering ziet."""
+  renseigneringsjaar: Int!
+  """Bankproduct, verzekeringsproduct of pensioenproduct."""
+  aanleversoort: String!
+  """Datum van aanlevering."""
+  renseigneringsdatum: Datum!
+  """De renseigneringsplichtige onderneming die de melding heeft aangeleverd. (Sleutel-referentie naar MaatschappelijkeActiviteit.)"""
+  aangeleverdDoor: UUID!
+}
+
+"""Een mens als drager van burgerlijke rechten en plichten."""
+type NatuurlijkPersoon implements Partij {
+  """De inschrijving(en) van deze partij in het Handelsregister. (Sleutel-referentie naar Inschrijving.)"""
+  ingeschrevenAls: [String!]
+  """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
+  partijnummer: UUID!
+  """De officiële familienaam van de persoon."""
+  geslachtsnaam: String!
+  """Alle officiële voornamen van de persoon."""
+  voornamen: String
+  """Het voorvoegsel bij de geslachtsnaam."""
+  voorvoegsel: String
+  """Adellijke titel of predicaat."""
+  adellijkeTitelPredicaat: CodelijstLT38
+  """De datum waarop de persoon is geboren."""
+  geboortedatum: DatumIncompleet
+  """De gemeente of plaats waar de persoon is geboren."""
+  geboorteplaats: String
+  """Het land waar de persoon is geboren."""
+  geboorteland: CodelijstISO3166
+  """Het geslacht van de persoon."""
+  geslacht: Geslacht
+  """De datum waarop de persoon is overleden."""
+  datumOverlijden: DatumIncompleet
+  """De plaats waar de persoon is overleden."""
+  plaatsOverlijden: String
+  """Het land waar de persoon is overleden."""
+  landOverlijden: CodelijstISO3166
+  """De ouder(s) van deze persoon."""
+  heeftOuder: [NatuurlijkPersoon!]
+}
+
+"""Geldbedrag: numerieke waarde met expliciete valuta-aanduiding (ISO 4217). Voor binnenlandse toepassingen impliciet EUR; de valuta wordt expliciet bij internationale uitwisseling."""
+type Bedrag {
+  """De numerieke waarde van het bedrag."""
+  waarde: Float!
+  """Valuta conform ISO 4217; bij afwezigheid geldt EUR."""
+  valuta: CodelijstISO4217
+}
+
+"""Reden waarom de bijhouding van een persoonslijst in de basisregistratie is opgeschort."""
+enum OpschortingBijhouding {
+  """Bijhouding opgeschort omdat de geregistreerde is overleden."""
+  Overlijden
+  """Bijhouding opgeschort omdat de geregistreerde naar het buitenland is vertrokken zonder RNI-overgang."""
+  Emigratie
+  """Bijhouding opgeschort vanwege langdurige vermissing."""
+  Vermissing
+  """Bijhouding opgeschort vanwege foutieve aanleg, dubbele persoonslijst of vastgestelde identiteitsfraude."""
+  FoutAangelegdOfFraude
+}
+
+"""Indicatie of een persoon door rechterlijke uitspraak is uitgesloten van het kiesrecht voor de Tweede Kamer en provinciale staten."""
+enum UitsluitingKiesrecht {
+  """De persoon is uitgesloten van het kiesrecht."""
+  Ja
+  """De persoon is expliciet niet uitgesloten van het kiesrecht."""
+  Nee
+}
+
+"""Indicatie of een EU-burger in Nederland is geregistreerd voor het kiesrecht voor het Europees Parlement."""
+enum EuropeesKiesrecht {
+  """De persoon is geregistreerd voor EP-kiesrecht in Nederland."""
+  Ja
+  """De persoon is niet geregistreerd voor EP-kiesrecht in Nederland."""
+  Nee
+}
+
+"""Status van de meest recente identiteitsverificatie van een persoonslijst."""
+enum Verificatie {
+  """Identiteit is recent met geldig document geverifieerd."""
+  Geverifieerd
+  """Identiteit is niet recent geverifieerd."""
+  NietGeverifieerd
+  """Identiteit staat onder actief onderzoek door de gemeente of RvIG."""
+  InOnderzoek
+}
+
+"""Logische waarde met expliciete onbekendheid. GBO hanteert als NL-conventie een drie-waardig type in plaats van MIM-Boolean, zodat onbekendheid expliciet kan worden vastgelegd."""
+enum Indicatie {
+  """Waar."""
+  Ja
+  """Onwaar."""
+  Nee
+  """Onbekend; volgt de BRP-conventie voor afwezigheid en is geen MIM-Boolean-waarde."""
+  Onbekend
+}
+
+"""De drie boxen van de Wet IB 2001 waarin het inkomen van een belastingplichtige wordt onderverdeeld."""
+enum BoxCategorie {
+  """Inkomen uit werk en eigenwoning."""
+  Box1WerkEnWoning
+  """Inkomen uit aanmerkelijk belang in vennootschappen."""
+  Box2AanmerkelijkBelang
+  """Forfaitair inkomen uit vermogen op peildatum 1 januari."""
+  Box3SparenEnBeleggen
+}
+
+"""De categorieen waarin Box-3-vermogensbestanddelen worden onderverdeeld op grond van Wet IB 2001 hoofdstuk 5 en SBR-NT NT20."""
+enum VermogensBestanddeelCategorie {
+  """Bank- of spaartegoed bij Nederlandse financiele instelling."""
+  BanktegoedBinnenland
+  """Bank- of spaartegoed bij buitenlandse financiele instelling."""
+  BanktegoedBuitenland
+  """Beursgenoteerde of niet-genoteerde aandelen."""
+  Aandelen
+  """Vastrentende effecten."""
+  Obligaties
+  """Deelnemingen in beleggingsinstellingen."""
+  Beleggingsfondsen
+  """Afgeleide financiele instrumenten."""
+  Derivaten
+  """Digitale tokens en cryptotegoeden."""
+  Cryptovaluta
+  """Onroerende zaak die geen eigen woning is."""
+  OnroerendeZaakOverig
+  """Vordering op een derde (bijv. uit schenking op papier)."""
+  Vordering
+  """Schuld die het Box-3-vermogen vermindert."""
+  Schuld
+}
+
+"""De categorieen van aftrekposten die op grond van Wet IB 2001 in de IH-aangifte kunnen worden opgevoerd."""
+enum AftrekpostCategorie {
+  """Rente op eigenwoningschuld binnen het eigenwoning-regime."""
+  Hypotheekrenteaftrek
+  """Betaalde alimentatie aan een gewezen partner."""
+  Partneralimentatie
+  """Premies en stortingen binnen jaarruimte of reserveringsruimte."""
+  Lijfrente
+  """Giften aan ANBI's en culturele instellingen."""
+  Giften
+  """Niet-vergoede specifieke zorgkosten."""
+  Zorgkosten
+  """Uitgaven voor weekendopvang van een gehandicapt kind."""
+  WeekenduitgavenGehandicaptKind
+}
+
+"""De vier inkomensafhankelijke toeslagen die op grond van de Awir door Belastingdienst en Toeslagen worden uitgevoerd."""
+enum ToeslagSoort {
+  """Tegemoetkoming in de woonlasten voor huurders met laag inkomen."""
+  Huurtoeslag
+  """Tegemoetkoming in de premie van de basiszorgverzekering."""
+  Zorgtoeslag
+  """Tegemoetkoming in de kosten van formele kinderopvang."""
+  Kinderopvangtoeslag
+  """Tegemoetkoming in de kosten van opvoeding en levensonderhoud van kinderen."""
+  Kindgebondenbudget
+}
+
+"""Geregistreerde geslachtsaanduiding van een natuurlijk persoon."""
+enum Geslacht {
+  """Persoon met geslachtsregistratie "Man" in BRP."""
+  Man
+  """Persoon met geslachtsregistratie "Vrouw" in BRP."""
+  Vrouw
+  """Persoon waarvan het geslacht expliciet als onbekend is vastgesteld."""
+  VastgesteldOnbekend
+}
+
+"""Query-ingangen van dit bronprofiel."""
+type Query {
+  """Eén IngeschrevenPersoon op partijnummer."""
+  ingeschrevenPersoon(partijnummer: UUID!): IngeschrevenPersoon
+  """Alle voorkomens van IngeschrevenPersoon."""
+  ingeschrevenPersoonLijst: [IngeschrevenPersoon!]
+}
