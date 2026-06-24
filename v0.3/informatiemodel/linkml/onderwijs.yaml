@@ -296,7 +296,7 @@ classes:
       instellingscodeRIO:
         unique_key_slots: [instellingscodeRIO]
         description: >-
-          MIM unieke aanduiding (uitgebreide vorm); partijnummer
+          MIM unieke aanduiding (uitgebreide vorm); ID
           (geërfd van Partij via NietNatuurlijkPersoon) blijft de
           technische identifier.
       brincode:

@@ -110,7 +110,7 @@ interface Partij {
   """De inschrijving(en) van deze partij in het Handelsregister. (Sleutel-referentie naar Inschrijving.)"""
   ingeschrevenAls: [String!]
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
-  partijnummer: UUID!
+  ID: UUID!
 }
 
 """Een door of namens de overheid aan een natuurlijk persoon verstrekte financiele bijdrage met als doel inkomensondersteuning, in de vorm van een inkomensafhankelijke regeling of een sociale-zekerheidsuitkering."""
@@ -130,7 +130,7 @@ type IngeschrevenPersoon implements Partij {
   """De inschrijving(en) van deze partij in het Handelsregister. (Sleutel-referentie naar Inschrijving.)"""
   ingeschrevenAls: [String!]
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
-  partijnummer: UUID!
+  ID: UUID!
   """De officiële familienaam van de persoon."""
   geslachtsnaam: String!
   """Alle officiële voornamen van de persoon."""
@@ -578,7 +578,7 @@ type NatuurlijkPersoon implements Partij {
   """De inschrijving(en) van deze partij in het Handelsregister. (Sleutel-referentie naar Inschrijving.)"""
   ingeschrevenAls: [String!]
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
-  partijnummer: UUID!
+  ID: UUID!
   """De officiële familienaam van de persoon."""
   geslachtsnaam: String!
   """Alle officiële voornamen van de persoon."""
@@ -735,8 +735,8 @@ enum Geslacht {
 
 """Query-ingangen van dit bronprofiel."""
 type Query {
-  """Eén IngeschrevenPersoon op partijnummer."""
-  ingeschrevenPersoon(partijnummer: UUID!): IngeschrevenPersoon
+  """Eén IngeschrevenPersoon op bsn."""
+  ingeschrevenPersoon(bsn: String!): IngeschrevenPersoon
   """Alle voorkomens van IngeschrevenPersoon."""
   ingeschrevenPersoonLijst: [IngeschrevenPersoon!]
 }

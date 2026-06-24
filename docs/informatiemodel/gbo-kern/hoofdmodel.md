@@ -655,7 +655,7 @@ intern nummer:
   (CROHO/CREBO) voor `Opleiding`.
 - `Partij` is een abstract supertype en wordt niet rechtstreeks
   geïdentificeerd; de entree loopt via de concrete types. GBO-eigen UUID's
-  (`partijnummer`, `adresId`) blijven interne sleutels en worden niet als
+  (`ID`, `adresId`) blijven interne sleutels en worden niet als
   externe identifier gebruikt.
 
 ### Voorkomen-mixin (bitemporaliteit)

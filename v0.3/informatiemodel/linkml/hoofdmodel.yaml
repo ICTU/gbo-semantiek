@@ -33,11 +33,11 @@ classes:
     exact_mappings:
       - gbobegrip:Partij
     annotations:
-      mim:uniekeAanduiding: partijnummer
+      mim:uniekeAanduiding: ID
     comments:
       - >-
         Conform de identifier-strategie in het hoofdmodel draagt Partij
-        de GBO-eigen UUID (partijnummer) als technische identifier waar
+        de GBO-eigen UUID (ID) als technische identifier waar
         geen externe authentieke identifier bestaat of meerdere bronnen
         samenkomen.
     attributes:
@@ -55,7 +55,7 @@ classes:
             één manier modelleerbaar zijn; zie hoofdmodel.md,
             Sleutelrelaties. Inschrijving staat in het deelmodel
             Bedrijven en instellingen.
-      partijnummer:
+      ID:
         identifier: true
         required: true
         range: UUID

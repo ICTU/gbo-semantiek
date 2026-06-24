@@ -154,7 +154,7 @@ classes:
         privaatrechtelijke rechtspersonen. Rechtsvormen volgen de KVK
         Catalogus Basisprofiel.
       mim:datumOpname: "2026-04-28"
-      mim:uniekeAanduiding: partijnummer (geërfd)
+      mim:uniekeAanduiding: ID (geërfd)
       mim:populatie: >-
         Alle privaatrechtelijke commerciële entiteiten ingeschreven in
         het Handelsregister, met een rechtsvorm uit
@@ -197,7 +197,7 @@ classes:
         Nederland) en KVK Catalogus Basisprofiel voor het
         classificatie-deel.
       mim:datumOpname: "2026-04-28"
-      mim:uniekeAanduiding: partijnummer (geërfd)
+      mim:uniekeAanduiding: ID (geërfd)
       mim:populatie: >-
         Alle in Nederland actieve entiteiten met hoofdvestiging buiten
         Nederland en NHR-inschrijving op grond van een Nederlandse
@@ -412,7 +412,7 @@ classes:
         organieke wetgeving (Gemeentewet, Provinciewet,
         Waterschapswet, Kaderwet ZBO).
       mim:datumOpname: "2026-04-28"
-      mim:uniekeAanduiding: partijnummer (geërfd)
+      mim:uniekeAanduiding: ID (geërfd)
       mim:populatie: >-
         Alle niet-commerciële niet-natuurlijke personen, ingeschreven
         in het Handelsregister of herkenbaar via een ander officieel
@@ -561,7 +561,7 @@ classes:
         stichting, vereniging, kerkgenootschap); ANBI-status volgt uit
         de Algemene wet inzake rijksbelastingen art. 5b.
       mim:datumOpname: "2026-04-28"
-      mim:uniekeAanduiding: partijnummer (geërfd)
+      mim:uniekeAanduiding: ID (geërfd)
       mim:populatie: >-
         Alle privaatrechtelijke non-profit-entiteiten ingeschreven in
         het Handelsregister met een rechtsvorm uit
@@ -724,7 +724,7 @@ classes:
         zonder rechtspersoonlijkheid en buiten-KVK-overheidsorganen
         onder dit type vallen.
       mim:datumOpname: "2026-04-28"
-      mim:uniekeAanduiding: partijnummer (geërfd van Partij)
+      mim:uniekeAanduiding: ID (geërfd van Partij)
       mim:populatie: >-
         Alle niet-natuurlijke rechtsdragende subjecten relevant voor
         een overheidsorganisatie, KVK-ingeschreven én entiteiten
@@ -856,7 +856,7 @@ classes:
         (Thesaurus voor Overheids Informatie- en Organisatie-objecten)
         als operationele identificatiebron.
       mim:datumOpname: "2026-04-28"
-      mim:uniekeAanduiding: partijnummer (geërfd)
+      mim:uniekeAanduiding: ID (geërfd)
       mim:populatie: >-
         Alle Nederlandse bestuursorganen en publieke instellingen,
         NHR-ingeschreven of herkenbaar via TOOI.
@@ -908,7 +908,7 @@ classes:
         GBO-eigen restcategorie, geen wettelijke definitie. Bewust
         catch-all met afbakening dat het gebruik spaarzaam moet zijn.
       mim:datumOpname: "2026-04-28"
-      mim:uniekeAanduiding: partijnummer (geërfd)
+      mim:uniekeAanduiding: ID (geërfd)
       mim:populatie: >-
         Niet-natuurlijke personen die niet eenduidig in een van de
         drie hoofdcategorieën vallen; bewust beperkt gebruik.

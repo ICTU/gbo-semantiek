@@ -28,7 +28,7 @@ interface NietNatuurlijkPersoon implements Partij {
   """De inschrijving(en) van deze partij in het Handelsregister."""
   ingeschrevenAls: [Inschrijving!]
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
-  partijnummer: UUID!
+  ID: UUID!
   """Rechtspersonen- en Samenwerkingsverbanden Identificatie Nummer."""
   rsin: String
   """Werknaam."""
@@ -52,7 +52,7 @@ interface Instelling implements NietNatuurlijkPersoon & Partij {
   """De inschrijving(en) van deze partij in het Handelsregister."""
   ingeschrevenAls: [Inschrijving!]
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
-  partijnummer: UUID!
+  ID: UUID!
   """Rechtspersonen- en Samenwerkingsverbanden Identificatie Nummer."""
   rsin: String
   """Werknaam."""
@@ -78,7 +78,7 @@ interface Partij {
   """De inschrijving(en) van deze partij in het Handelsregister."""
   ingeschrevenAls: [Inschrijving!]
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
-  partijnummer: UUID!
+  ID: UUID!
 }
 
 """Privaatrechtelijke commerciële entiteit die als ondernemer in het Handelsregister staat ingeschreven. Omvat rechtspersonen (BV, NV, coöperatie, OWM) en niet-rechtspersonen (eenmanszaak, VOF, CV, maatschap)."""
@@ -86,7 +86,7 @@ type Bedrijf implements NietNatuurlijkPersoon & Partij {
   """De inschrijving(en) van deze partij in het Handelsregister."""
   ingeschrevenAls: [Inschrijving!]
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
-  partijnummer: UUID!
+  ID: UUID!
   """Rechtspersonen- en Samenwerkingsverbanden Identificatie Nummer."""
   rsin: String
   """Werknaam."""
@@ -112,7 +112,7 @@ type BuitenlandseEntiteit implements NietNatuurlijkPersoon & Partij {
   """De inschrijving(en) van deze partij in het Handelsregister."""
   ingeschrevenAls: [Inschrijving!]
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
-  partijnummer: UUID!
+  ID: UUID!
   """Rechtspersonen- en Samenwerkingsverbanden Identificatie Nummer."""
   rsin: String
   """Werknaam."""
@@ -142,7 +142,7 @@ type MaatschappelijkeInstelling implements Instelling & NietNatuurlijkPersoon & 
   """De inschrijving(en) van deze partij in het Handelsregister."""
   ingeschrevenAls: [Inschrijving!]
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
-  partijnummer: UUID!
+  ID: UUID!
   """Rechtspersonen- en Samenwerkingsverbanden Identificatie Nummer."""
   rsin: String
   """Werknaam."""
@@ -172,7 +172,7 @@ type Overheidsinstelling implements Instelling & NietNatuurlijkPersoon & Partij 
   """De inschrijving(en) van deze partij in het Handelsregister."""
   ingeschrevenAls: [Inschrijving!]
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
-  partijnummer: UUID!
+  ID: UUID!
   """Rechtspersonen- en Samenwerkingsverbanden Identificatie Nummer."""
   rsin: String
   """Werknaam."""
@@ -202,7 +202,7 @@ type OverigeNietNatuurlijkPersoon implements NietNatuurlijkPersoon & Partij {
   """De inschrijving(en) van deze partij in het Handelsregister."""
   ingeschrevenAls: [Inschrijving!]
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
-  partijnummer: UUID!
+  ID: UUID!
   """Rechtspersonen- en Samenwerkingsverbanden Identificatie Nummer."""
   rsin: String
   """Werknaam."""

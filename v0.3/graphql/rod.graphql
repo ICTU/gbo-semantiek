@@ -30,7 +30,7 @@ interface Partij {
   """De inschrijving(en) van deze partij in het Handelsregister. (Sleutel-referentie naar Inschrijving.)"""
   ingeschrevenAls: [String!]
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
-  partijnummer: UUID!
+  ID: UUID!
 }
 
 """Een organisatie of rechtsfiguur, geen mens, die als rechtsdragend subject kan deelnemen aan rechtsbetrekkingen. Omvat rechtspersonen (BV, NV, stichting, vereniging, coöperatie, publiekrechtelijke rechtspersoon, kerkgenootschap), entiteiten zonder eigen rechtspersoonlijkheid (eenmanszaak, VOF, CV, maatschap) en buitenlandse entiteiten met activiteit in Nederland."""
@@ -38,7 +38,7 @@ interface NietNatuurlijkPersoon implements Partij {
   """De inschrijving(en) van deze partij in het Handelsregister. (Sleutel-referentie naar Inschrijving.)"""
   ingeschrevenAls: [String!]
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
-  partijnummer: UUID!
+  ID: UUID!
   """Rechtspersonen- en Samenwerkingsverbanden Identificatie Nummer."""
   rsin: String
   """Werknaam."""
@@ -62,7 +62,7 @@ type IngeschrevenPersoon implements Partij {
   """De inschrijving(en) van deze partij in het Handelsregister. (Sleutel-referentie naar Inschrijving.)"""
   ingeschrevenAls: [String!]
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
-  partijnummer: UUID!
+  ID: UUID!
   """De officiële familienaam van de persoon."""
   geslachtsnaam: String!
   """Alle officiële voornamen van de persoon."""
@@ -122,7 +122,7 @@ type OnderwijsInstelling implements NietNatuurlijkPersoon & Partij {
   """De inschrijving(en) van deze partij in het Handelsregister. (Sleutel-referentie naar Inschrijving.)"""
   ingeschrevenAls: [String!]
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
-  partijnummer: UUID!
+  ID: UUID!
   """Rechtspersonen- en Samenwerkingsverbanden Identificatie Nummer."""
   rsin: String
   """De officiële benaming van de instelling."""
@@ -344,7 +344,7 @@ type NatuurlijkPersoon implements Partij {
   """De inschrijving(en) van deze partij in het Handelsregister. (Sleutel-referentie naar Inschrijving.)"""
   ingeschrevenAls: [String!]
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
-  partijnummer: UUID!
+  ID: UUID!
   """De officiële familienaam van de persoon."""
   geslachtsnaam: String!
   """Alle officiële voornamen van de persoon."""
@@ -595,12 +595,12 @@ enum Aansprakelijkheid {
 
 """Query-ingangen van dit bronprofiel."""
 type Query {
-  """Eén IngeschrevenPersoon op partijnummer."""
-  ingeschrevenPersoon(partijnummer: UUID!): IngeschrevenPersoon
+  """Eén IngeschrevenPersoon op bsn."""
+  ingeschrevenPersoon(bsn: String!): IngeschrevenPersoon
   """Alle voorkomens van IngeschrevenPersoon."""
   ingeschrevenPersoonLijst: [IngeschrevenPersoon!]
-  """Eén OnderwijsInstelling op partijnummer."""
-  onderwijsInstelling(partijnummer: UUID!): OnderwijsInstelling
+  """Eén OnderwijsInstelling op instellingscodeRIO."""
+  onderwijsInstelling(instellingscodeRIO: String!): OnderwijsInstelling
   """Alle voorkomens van OnderwijsInstelling."""
   onderwijsInstellingLijst: [OnderwijsInstelling!]
 }

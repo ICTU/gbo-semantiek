@@ -52,7 +52,7 @@ classes:
         rechtssubject mens); Logisch Ontwerp BRP v4.3.0 §1 voor de
         operationele invulling binnen de basisregistratie.
       mim:datumOpname: "2026-04-28"
-      mim:uniekeAanduiding: partijnummer (geërfd van Partij)
+      mim:uniekeAanduiding: ID (geërfd van Partij)
       mim:populatie: >-
         Alle natuurlijke personen die voor een overheidsorganisatie
         relevant zijn: ingeschrevenen in BRP-GBA en BRP-RNI, en
@@ -234,7 +234,7 @@ classes:
       bsn:
         unique_key_slots: [bsn]
         description: >-
-          MIM unieke aanduiding; partijnummer (geërfd van Partij)
+          MIM unieke aanduiding; ID (geërfd van Partij)
           blijft de technische identifier.
     attributes:
       bsn:
