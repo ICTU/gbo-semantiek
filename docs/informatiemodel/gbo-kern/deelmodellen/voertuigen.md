@@ -1,29 +1,22 @@
 ---
 title: "Deelmodel: Voertuigen"
-description: "Kentekenhoudende voertuigen (BRV / RDW), de rijwaardigheidskeuring (APK) en de kentekentenaamstelling op een partij. Een geminimaliseerde, afnemer-gedreven snede van het kentekenregister."
+description: "Voertuigen uit de Basisregistratie Voertuigen (BRV, RDW) met hun kerngegevens en de tenaamstelling op een partij (eigenaar/houder)."
 ---
 
 # Deelmodel: Voertuigen
 
-Kentekenhoudende voertuigen zoals geregistreerd in het kentekenregister
-(de Basisregistratie Voertuigen, beheerd door de RDW), met de
-rijwaardigheidskeuring (APK) die eraan hangt en de tenaamstelling die een
-voertuig aan een kentekenhouder koppelt.
+Voertuigen uit de [Basisregistratie Voertuigen](https://www.rdw.nl/) (BRV,
+beheerd door de RDW) en hun tenaamstelling op een partij. Het deelmodel
+beschrijft de administratieve en technische kerngegevens van een voertuig
+(`Voertuig`) en de rechtsbetrekking tot de eigenaar of houder
+(`Voertuigtenaamstelling`).
 
-Dit deelmodel is een geminimaliseerde, afnemer-gedreven snede van de
-Basisregistratie Voertuigen. Opgenomen zijn alleen de kenmerken die nodig zijn
-voor de grensoverschrijdende uitwisseling van het bewijs van rijwaardigheid
-onder de Single Digital Gateway: drie kenmerken op het voertuig en vijf op de
-keuring. De volledige voertuigregel (circa honderd open-data-kolommen plus
-afgeschermde gegevens) wordt niet overgenomen. Grondslag is
-gegevensminimalisatie en de proportionaliteit die aan bewijsuitwisseling wordt
-gesteld: een bewijsstuk draagt niet meer gegevens dan de procedure nodig heeft.
-
-De `Kentekentenaamstelling` valt buiten die bewijsbehoefte, maar is opgenomen om
-de houderschapsrelatie expliciet te maken en het subdomein te verbinden met de
-deelmodellen [Personen](personen.md) en
-[Bedrijven en instellingen](bedrijven-en-instellingen.md). De constructie is
-gelijk aan de tenaamstelling in [Onroerende zaken](onroerende-zaken.md).
+De tenaamgestelde is een `Partij` uit het [hoofdmodel](../hoofdmodel.md):
+een natuurlijk persoon (deelmodel [Personen](personen.md)) of een
+niet-natuurlijke persoon (deelmodel
+[Bedrijven en instellingen](bedrijven-en-instellingen.md)). RDW-sub-
+registraties op detailniveau (assen, carrosserie, brandstof per meting,
+geconstateerde gebreken) vallen buiten dit deelmodel.
 
 ## Diagram
 
@@ -49,34 +42,29 @@ skinparam class<<algemeen>> {
   HeaderBackgroundColor #f3e5f5
 }
 skinparam class<<voertuigen>> {
-  BackgroundColor #e0f2f1
-  BorderColor #00796b
-  HeaderBackgroundColor #e0f2f1
+  BackgroundColor #e3f2fd
+  BorderColor #1565c0
+  HeaderBackgroundColor #e3f2fd
 }
 abstract class Partij <<algemeen>>
 
 together {
   class Voertuig <<voertuigen>>
-  class Rijwaardigheidskeuring <<voertuigen>>
-  class Kentekentenaamstelling <<voertuigen>>
+  class Voertuigtenaamstelling <<voertuigen>>
 }
 
-Rijwaardigheidskeuring "*" --> "1" Voertuig : keurt
-Kentekentenaamstelling "*" --> "1" Voertuig : betreft
-Kentekentenaamstelling "*" --> "1" Partij : tenaamgesteldOp
+Voertuig "1" --> "0..*" Voertuigtenaamstelling : heeft
+Voertuigtenaamstelling "*" --> "1" Partij : tenaamgesteld op
 
 note right of Partij
-  Supertype uit het hoofdmodel.
+  Supertype uit het hoofdmodel
+  (natuurlijk of niet-natuurlijk persoon).
 end note
 
-note bottom of Voertuig
-  Geminimaliseerd voor het bewijs
-  van rijwaardigheid (drie kenmerken).
-end note
-
-note bottom of Kentekentenaamstelling
-  Kentekenhouder-koppeling, analoog
-  aan de BRK-tenaamstelling.
+note bottom of Voertuigtenaamstelling
+  Relatieklasse: eigen kenmerken
+  tussen Partij en Voertuig.
+  Inverse van heeft is voor.
 end note
 
 @enduml
@@ -84,157 +72,254 @@ end note
 
 ## Objecttypen
 
-### Kentekentenaamstelling
-
-**Definitie**: De geregistreerde rechtsbetrekking waarbij een kenteken, en
-daarmee een voertuig, op naam van een partij staat; die partij is daarmee de
-kentekenhouder.
-
-**Herkomst definitie**: Wegenverkeerswet 1994 en het Kentekenreglement
-(tenaamstelling van een kenteken); Stelselcatalogus BRV.
-
-**Toelichting**: Kentekentenaamstelling is een verbinding met eigen kenmerken
-tussen `Partij` (de kentekenhouder) en `Voertuig`. De constructie is bewust
-gelijk aan de tenaamstelling in de Basisregistratie Kadaster: de verbinding
-draagt zelf gegevens (datum, historie) en laat opvolging over de tijd toe.
-Omdat een partij zowel een persoon als een organisatie kan zijn, dekt deze ene
-relatieklasse zowel het particuliere kenteken (op naam van een persoon) als het
-zakelijke kenteken (op naam van een rechtspersoon). De identiteit van de houder
-is een afgeschermd gegeven: in de open data is alleen de datum van tenaamstelling
-beschikbaar, niet de persoon.
-
-| MIM-veld | Waarde |
-|---|---|
-| Naam | Kentekentenaamstelling |
-| MIM-element | Relatieklasse |
-| Alias | Tenaamstelling (voertuig), Kentekenhouderschap |
-| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/Kentekentenaamstelling` |
-| Herkomst | BRV (basisregistratie), RDW |
-| Datum opname | 2026-06-16 |
-| Unieke aanduiding | Samengesteld uit (Partij, Voertuig, datumTenaamstelling) |
-| Populatie | Alle in het kentekenregister geregistreerde tenaamstellingen, historisch en actueel, die een kentekenhouder aan een voertuig koppelen. |
-
-**Attribuutsoorten**:
-
-| Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
-|---|---|---|---|---|---|---|---|---|
-| datumTenaamstelling | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Authentiek | Ja | Ja | Datum waarop het voertuig op naam van deze partij is gesteld. | BRV (RDW) | Open data. |
-| datumEinde | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Authentiek | Ja | Ja | Datum waarop de tenaamstelling is geëindigd. | BRV (RDW) | Leeg betekent lopend. |
-| voorkomen | Voorkomen | 1 | Basisgegeven | Ja | Ja | Bitemporele markering van werkelijke en registratie-tijdlijn. | GBO (mixin) | Zie patroon Voorkomen-mixin in [Patronen](../hoofdmodel.md#voorkomen-mixin-bitemporaliteit). |
-
-**Relatiesoorten** (uitgaand):
-
-| Naam | Doel | Kard. (bron→doel) | Authentiek | Mat. hist. | Form. hist. | Toelichting |
-|---|---|---|---|---|---|---|
-| tenaamgesteldOp | Partij | * → 1 | Authentiek | Ja | Ja | De partij op wiens naam het voertuig staat (de kentekenhouder). |
-| betreft | Voertuig | * → 1 | Authentiek | Ja | Ja | Het voertuig waarop de tenaamstelling betrekking heeft. |
-
-### Rijwaardigheidskeuring
-
-**Definitie**: De periodieke keuring waarmee wordt vastgesteld of een voertuig
-veilig en milieuverantwoord aan het verkeer kan deelnemen; in Nederland de APK
-(Algemene Periodieke Keuring).
-
-**Herkomst definitie**: Richtlijn 2014/45/EU bijlage II (technische controle);
-Wegenverkeerswet 1994 en de Regeling voertuigen (APK).
-
-**Toelichting**: De keuring wordt door een erkende keuringsinstantie aan de RDW
-gemeld en in het kentekenregister vastgelegd. Een voertuig kan meerdere
-keuringen over de tijd hebben; het bewijs van rijwaardigheid projecteert
-doorgaans de laatst uitgevoerde, nog geldige keuring. Twee van de vijf
-keuringsgegevens (keuringsdatum en vervaldatum) zijn open data; de naam van de
-keuringsinstantie, de kilometerstand en de keuringsplaats zijn afgeschermd en
-vergen het authentieke register of een specifiek koppelvlak.
-
-| MIM-veld | Waarde |
-|---|---|
-| Naam | Rijwaardigheidskeuring |
-| Alias | APK, Algemene Periodieke Keuring |
-| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/Rijwaardigheidskeuring` |
-| Herkomst | BRV (basisregistratie), RDW; keuringsmelding erkende keuringsinstantie |
-| Datum opname | 2026-06-16 |
-| Indicatie abstract object | Nee |
-| Unieke aanduiding | keuringId |
-| Populatie | Elke uitgevoerde rijwaardigheidskeuring (APK) van een gekentekend voertuig. |
-
-**Attribuutsoorten**:
-
-| Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
-|---|---|---|---|---|---|---|---|---|
-| keuringId | [UUID](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 1 | Basisgegeven | Nee | Nee | Interne identificatie van de keuring. | GBO Core | |
-| keuringsdatum | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Basisgegeven | Nee | Ja | Datum waarop de keuring is uitgevoerd. | BRV (RDW) | Open data. |
-| vervaldatum | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Basisgegeven | Nee | Ja | Uiterste datum waarop een nieuwe keuring moet zijn uitgevoerd. | BRV (RDW) | Open data; einde geldigheid van de laatste keuring. |
-| keuringsinstantie | [CharacterString](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Nee | Nee | Naam van de erkende instantie die de keuring heeft uitgevoerd. | BRV (RDW) | Afgeschermd; in de open data alleen een soort-erkenning-code. |
-| kilometerstand | [Decimaal](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Nee | Nee | Kilometerstand van het voertuig op het moment van de keuring. | BRV (RDW) | Afgeschermd. |
-| keuringsplaats | [CharacterString](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Nee | Nee | Plaats waar de keuring is uitgevoerd. | BRV (RDW) | Afgeschermd. |
-
-**Relatiesoorten** (uitgaand):
-
-| Naam | Doel | Kard. (bron→doel) | Authentiek | Mat. hist. | Form. hist. | Toelichting |
-|---|---|---|---|---|---|---|
-| keurt | Voertuig | * → 1 | Basisgegeven | Nee | Ja | Het gekeurde voertuig. Elke keuring hoort bij precies één voertuig. |
-
 ### Voertuig
 
-**Definitie**: Een voertuig dat in het kentekenregister staat geregistreerd en
-daarvoor een kenteken heeft gekregen, zoals een personenauto, motorfiets,
-vrachtwagen, aanhangwagen of bromfiets met kenteken.
+**Definitie**: Een door de RDW in de Basisregistratie Voertuigen
+geregistreerd vervoermiddel dat met een uniek kenteken aan het verkeer
+kan deelnemen, met de bij dat kenteken horende technische en
+administratieve kerngegevens.
 
-**Herkomst definitie**: Wegenverkeerswet 1994 (kentekenregister),
-Kentekenreglement; Stelselcatalogus BRV.
+**Herkomst definitie**: Wegenverkeerswet 1994 (art. 1, art. 36 e.v.);
+Kentekenreglement; RDW Kentekenregister / Open Data RDW (dataset
+Gekentekende voertuigen).
 
-**Toelichting**: Het voertuig is de stabiele kapstok waaraan de keuringen als
-aparte feiten hangen. In dit deelmodel zijn alleen de drie identificerende en
-typerende kenmerken opgenomen die het bewijs van rijwaardigheid vraagt: het
-kenteken, het voertuigidentificatienummer en de voertuigcategorie. Het
-voertuigidentificatienummer is in de Nederlandse open data afgeschermd, maar wel
-een authentiek gegeven uit het register.
+**Toelichting**: Het kenteken is de praktische unieke aanduiding; het
+voertuigidentificatienummer (VIN) is de wereldwijd stabiele
+fabrikant-identificatie die niet wijzigt als het kenteken wijzigt.
+Geschorste, geëxporteerde en gesloopte voertuigen blijven historisch
+kenbaar.
 
 | MIM-veld | Waarde |
 |---|---|
 | Naam | Voertuig |
-| Alias | Kentekenhoudend voertuig, Motorrijtuig |
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/Voertuig` |
-| Herkomst | BRV (basisregistratie), kentekenregister, RDW |
+| Herkomst | BRV (basisregistratie) |
 | Datum opname | 2026-06-16 |
-| Indicatie abstract object | Nee |
 | Unieke aanduiding | kenteken |
-| Populatie | Alle in het kentekenregister (BRV) opgenomen voertuigen met een toegekend kenteken. |
+| Populatie | Alle voertuigen in de Basisregistratie Voertuigen, inclusief geschorste, geëxporteerde en gesloopte voertuigen die nog historisch kenbaar zijn. |
 
 **Attribuutsoorten**:
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| **`kenteken`** | Kenteken | 1 | Basisgegeven | Nee | Ja | Het aan het voertuig toegekende registratiekenteken. | BRV (RDW) | Open data; identificerend. Formaat-gevalideerde aanduiding. |
-| voertuigidentificatienummer | [CharacterString](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Nee | Nee | Het voertuigidentificatienummer (VIN) van het voertuig. | BRV (RDW) | Afgeschermd; niet in de open data. |
-| voertuigcategorie | `Codelijst~EUVoertuigcategorie` | 1 | Basisgegeven | Nee | Nee | De Europese voertuigcategorie volgens de EU-typegoedkeuring. | BRV (RDW) | Open data; categorieën M, N, O en L. |
+| kenteken | [Tekst](../datatypes-en-codelijsten.md#simpele-datatypes) (8) | 1 | Authentiek | Ja | Ja | Uniek kenteken van het voertuig in de Nederlandse sidecode-notatie. | RDW Kentekenregister | Notatie met streepjes, bijvoorbeeld `12-ABC-3`. |
+| voertuigidentificatienummer | [Alfanumeriek](../datatypes-en-codelijsten.md#simpele-datatypes) (17) | 1 | Authentiek | Nee | Ja | Wereldwijd uniek voertuigidentificatienummer (VIN / chassisnummer). | RDW Kentekenregister / ISO 3779 | Stabiel over de levensloop; kenteken kan wijzigen, VIN niet. |
+| voertuigsoort | [`Voertuigsoort`](#voertuigsoort) | 1 | Authentiek | Ja | Ja | Soort voertuig volgens de RDW-indeling. | RDW Kentekenregister | Zie [Enumeraties](#enumeraties). |
+| merk | [`CodelijstRDWMerk`](#codelijsten) | 1 | Authentiek | Ja | Ja | Merk van het voertuig. | RDW Kentekenregister | Open lijst; door de RDW beheerd. |
+| handelsbenaming | [Tekst](../datatypes-en-codelijsten.md#simpele-datatypes) (40) | 0..1 | Basisgegeven | Ja | Ja | Handelsbenaming (type-/modelaanduiding) van het voertuig. | RDW Kentekenregister | |
+| europeseVoertuigcategorie | [`CodelijstEUVoertuigcategorie`](#codelijsten) | 0..1 | Basisgegeven | Ja | Ja | Europese voertuigcategorie (bijvoorbeeld M1, N1, L3e, O1). | EU 2018/858 / EU 168/2013 | |
+| datumEersteToelating | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Authentiek | Ja | Ja | Datum waarop het voertuig voor het eerst tot het verkeer is toegelaten. | RDW Kentekenregister | |
+| datumEersteTenaamstellingNederland | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Ja | Ja | Datum van de eerste tenaamstelling van het voertuig in Nederland. | RDW Kentekenregister | |
+| brandstof | [`Brandstof`](#brandstof) | 1..* | Authentiek | Ja | Ja | Brandstof of energiedrager(s) van het voertuig. | RDW Kentekenregister | Meervoudig bij hybride aandrijving. |
+| cilinderinhoud | [Numeriek](../datatypes-en-codelijsten.md#simpele-datatypes) (5) | 0..1 | Basisgegeven | Ja | Ja | Cilinderinhoud van de motor in cm³. | RDW Kentekenregister | |
+| massaLedigVoertuig | [Numeriek](../datatypes-en-codelijsten.md#simpele-datatypes) (6) | 0..1 | Basisgegeven | Ja | Ja | Massa van het lege voertuig in kg. | RDW Kentekenregister | |
+| toegestaneMaximumMassa | [Numeriek](../datatypes-en-codelijsten.md#simpele-datatypes) (6) | 0..1 | Basisgegeven | Ja | Ja | Technisch toegestane maximummassa van het voertuig in kg. | RDW Kentekenregister | |
+| aantalZitplaatsen | [Numeriek](../datatypes-en-codelijsten.md#simpele-datatypes) (2) | 0..1 | Basisgegeven | Ja | Ja | Aantal zitplaatsen inclusief bestuurder. | RDW Kentekenregister | |
+| eersteKleur | [Tekst](../datatypes-en-codelijsten.md#simpele-datatypes) (20) | 0..1 | Basisgegeven | Ja | Ja | Primaire kleur van het voertuig. | RDW Kentekenregister | |
+| vervaldatumApk | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Ja | Ja | Datum waarop de algemene periodieke keuring (APK) verloopt. | RDW Kentekenregister | |
+| voertuigstatus | [`Voertuigstatus`](#voertuigstatus) | 1 | Authentiek | Ja | Ja | Administratieve status van het voertuig. | RDW Kentekenregister | Zie [Enumeraties](#enumeraties). |
+| voorkomen | Voorkomen | 1 | Authentiek | Ja | Ja | Bitemporele markering van werkelijke en registratie-tijdlijn. | GBO (mixin) | Zie patroon Voorkomen-mixin in [Patronen](../hoofdmodel.md#voorkomen-mixin-bitemporaliteit). |
+
+**Relatiesoorten** (uitgaand):
+
+| Naam | Doel | Kard. (bron→doel) | Authentiek | Mat. hist. | Form. hist. | Toelichting |
+|---|---|---|---|---|---|---|
+| heeft | Voertuigtenaamstelling | 1 → 0..* | Authentiek | Ja | Ja | De tenaamstelling(en) van dit voertuig, historisch en actueel. |
+
+### Voertuigtenaamstelling
+
+**Definitie**: De geregistreerde rechtsbetrekking tussen een partij en
+een voertuig, waarmee de partij als eigenaar en/of houder van het
+voertuig is geregistreerd.
+
+**Herkomst definitie**: Wegenverkeerswet 1994 (tenaamstelling, art. 42
+e.v.); Kentekenreglement; RDW Kentekenregister.
+
+**Toelichting**: `Voertuigtenaamstelling` is een verbinding met eigen
+kenmerken tussen `Partij` en `Voertuig`, vergelijkbaar met
+`Tenaamstelling` in het deelmodel [Onroerende zaken](onroerende-zaken.md).
+Een overdracht leidt tot een nieuwe tenaamstelling met latere
+`datumTenaamstelling` terwijl de oude een `datumEinde` krijgt; zo blijven
+historie en eigendomsverloop modelleerbaar.
+
+| MIM-veld | Waarde |
+|---|---|
+| Naam | Voertuigtenaamstelling |
+| MIM-element | Relatieklasse |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/Voertuigtenaamstelling` |
+| Herkomst | BRV (basisregistratie) |
+| Datum opname | 2026-06-16 |
+| Unieke aanduiding | Samengesteld uit (Partij, Voertuig, datumTenaamstelling) |
+| Populatie | Alle in de Basisregistratie Voertuigen geregistreerde tenaamstellingen, historisch en actueel, die een partij aan een voertuig koppelen. |
+
+**Attribuutsoorten**:
+
+| Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
+|---|---|---|---|---|---|---|---|---|
+| rol | [`Tenaamstellingsrol`](#tenaamstellingsrol) | 1 | Authentiek | Ja | Ja | Hoedanigheid waarin de partij is tenaamgesteld: eigenaar, houder of beide. | RDW Kentekenregister | Zie [Enumeraties](#enumeraties). |
+| datumTenaamstelling | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Authentiek | Ja | Ja | Datum waarop de tenaamstelling is ingegaan. | RDW Kentekenregister | |
+| datumEinde | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Authentiek | Ja | Ja | Datum waarop de tenaamstelling is geëindigd. | RDW Kentekenregister | Leeg betekent lopend. |
+| voorkomen | Voorkomen | 1 | Authentiek | Ja | Ja | Bitemporele markering van werkelijke en registratie-tijdlijn. | GBO (mixin) | Zie patroon Voorkomen-mixin in [Patronen](../hoofdmodel.md#voorkomen-mixin-bitemporaliteit). |
+
+**Relatiesoorten** (uitgaand):
+
+| Naam | Doel | Kard. (bron→doel) | Authentiek | Mat. hist. | Form. hist. | Toelichting |
+|---|---|---|---|---|---|---|
+| tenaamgesteldeOp | Partij | * → 1 | Authentiek | Ja | Ja | De partij die als eigenaar en/of houder is geregistreerd. |
+| voor | Voertuig | * → 1 | Authentiek | Ja | Ja | Voertuig waarvoor de tenaamstelling geldt. |
+
+## Enumeraties
+
+### Voertuigsoort
+
+**Definitie**: Soort voertuig volgens de indeling van de RDW.
+
+**Herkomst definitie**: RDW Kentekenregister; Wegenverkeerswet 1994;
+Kentekenreglement.
+
+**Toelichting**: Verzameling van de gangbare RDW-voertuigsoorten; bepaalt
+mede welke keurings- en kentekenregels van toepassing zijn.
+
+| MIM-veld | Waarde |
+|---|---|
+| Naam | Voertuigsoort |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/Voertuigsoort` |
+| Herkomst | RDW |
+| Datum opname | 2026-06-16 |
+
+**Gebruikt door**: `Voertuig.voertuigsoort`.
+
+**Waarden**:
+
+| Naam | Definitie |
+|---|---|
+| Personenauto | Motorvoertuig voor het vervoer van personen (categorie M1). |
+| Bedrijfsauto | Motorvoertuig voor het vervoer van goederen (categorie N). |
+| Bus | Motorvoertuig voor het vervoer van meer dan acht personen naast de bestuurder. |
+| Motorfiets | Tweewielig motorvoertuig (categorie L3e/L4e). |
+| Bromfiets | Licht twee- of driewielig motorvoertuig met beperkte constructiesnelheid (categorie L1e/L2e). |
+| DriewieligMotorrijtuig | Driewielig motorrijtuig (categorie L5e). |
+| Aanhangwagen | Niet-zelfstandig voertuig dat wordt voortbewogen. |
+| Oplegger | Aanhangwagen die met een deel van zijn massa op het trekkende voertuig rust. |
+| LandOfBosbouwtrekker | Land- of bosbouwtrekker (categorie T). |
+| MobieleMachine | Zelfrijdende of getrokken mobiele machine. |
+
+### Brandstof
+
+**Definitie**: Brandstof of energiedrager waarmee een voertuig wordt
+aangedreven.
+
+**Herkomst definitie**: RDW Kentekenregister (brandstof-omschrijving).
+
+**Toelichting**: Een voertuig kan meerdere brandstoffen voeren (hybride
+aandrijving); daarom is het attribuut `Voertuig.brandstof` meervoudig.
+
+| MIM-veld | Waarde |
+|---|---|
+| Naam | Brandstof |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/Brandstof` |
+| Herkomst | RDW |
+| Datum opname | 2026-06-16 |
+
+**Gebruikt door**: `Voertuig.brandstof`.
+
+**Waarden**:
+
+| Naam | Definitie |
+|---|---|
+| Benzine | Aandrijving op benzine. |
+| Diesel | Aandrijving op diesel. |
+| LPG | Aandrijving op lpg (autogas). |
+| CNG | Aandrijving op aardgas (CNG). |
+| Elektriciteit | Volledig elektrische aandrijving. |
+| Waterstof | Aandrijving op waterstof (brandstofcel of verbranding). |
+| Alcohol | Aandrijving op alcohol/ethanol. |
+| Overige | Andere brandstof of energiedrager. |
+
+### Voertuigstatus
+
+**Definitie**: Administratieve status van een voertuig in de
+Basisregistratie Voertuigen.
+
+**Herkomst definitie**: RDW Kentekenregister; Wegenverkeerswet 1994.
+
+**Toelichting**: Een voertuig heeft op elk moment precies één status.
+
+| MIM-veld | Waarde |
+|---|---|
+| Naam | Voertuigstatus |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/Voertuigstatus` |
+| Herkomst | RDW |
+| Datum opname | 2026-06-16 |
+
+**Gebruikt door**: `Voertuig.voertuigstatus`.
+
+**Waarden**:
+
+| Naam | Definitie |
+|---|---|
+| Tenaamgesteld | Het voertuig staat op naam van een partij. |
+| Bedrijfsvoorraad | Het voertuig staat in de bedrijfsvoorraad van een erkend bedrijf en is niet op naam gesteld. |
+| Geschorst | De tenaamstelling is geschorst; het voertuig mag tijdelijk niet aan het verkeer deelnemen. |
+| Geexporteerd | Het voertuig is uit Nederland uitgevoerd. |
+| Gesloopt | Het voertuig is aantoonbaar vernietigd (gesloopt). |
+| Vermist | Het voertuig is als vermist of gestolen geregistreerd. |
+
+### Tenaamstellingsrol
+
+**Definitie**: Hoedanigheid waarin een partij op een voertuig is
+tenaamgesteld.
+
+**Herkomst definitie**: Wegenverkeerswet 1994 (eigenaar/houder);
+Kentekenreglement.
+
+**Toelichting**: Onderscheidt eigendom van houderschap; bij lease is de
+leasemaatschappij doorgaans eigenaar en de leasenemer houder.
+
+| MIM-veld | Waarde |
+|---|---|
+| Naam | Tenaamstellingsrol |
+| Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/Tenaamstellingsrol` |
+| Herkomst | RDW |
+| Datum opname | 2026-06-16 |
+
+**Gebruikt door**: `Voertuigtenaamstelling.rol`.
+
+**Waarden**:
+
+| Naam | Definitie |
+|---|---|
+| Eigenaar | De partij is eigenaar van het voertuig. |
+| Houder | De partij is houder van het voertuig (bijvoorbeeld lease) zonder eigenaar te zijn. |
+| EigenaarEnHouder | De partij is zowel eigenaar als houder. |
 
 ## Codelijsten
 
-Deelmodel-specifieke codelijst. Stelselbrede codelijsten staan op de
-[Datatypes en codelijsten](../datatypes-en-codelijsten.md).
+Deelmodel-specifieke codelijsten; extern beheerd en daarom als
+`«Codelijst»`-type gemodelleerd (geen gesloten enumeratie).
 
-| Codelijst | Bron / beheerder | GBO-typering | Gebruikt door |
-|---|---|---|---|
-| EU-voertuigcategorie (typegoedkeuring) | [EU-typegoedkeuring, Verordening (EU) 2018/858](https://eur-lex.europa.eu/legal-content/NL/TXT/?uri=CELEX:32018R0858), geregistreerd door [RDW](https://www.rdw.nl/) | `Codelijst~EUVoertuigcategorie` | `Voertuig.voertuigcategorie`. Hoofdcategorieën M (personen), N (goederen), O (aanhangwagens) en L (twee- en driewielers). |
+| Codelijst | Bron / beheerder | Gebruikt door |
+|---|---|---|
+| `CodelijstRDWMerk` | [RDW Open Data](https://opendata.rdw.nl/) | `Voertuig.merk`. Open, door de RDW beheerde merkenlijst. |
+| `CodelijstEUVoertuigcategorie` | [EU 2018/858](https://eur-lex.europa.eu/legal-content/NL/TXT/?uri=CELEX:32018R0858) / [EU 168/2013](https://eur-lex.europa.eu/legal-content/NL/TXT/?uri=CELEX:32013R0168) | `Voertuig.europeseVoertuigcategorie`. Europese voertuigcategorieën (M, N, O, L, T, ...). |
 
 ## Stelselkoppelingen
 
-- → [Personen](personen.md): `NatuurlijkPersoon` als kentekenhouder via
-  `Kentekentenaamstelling` (particulier kenteken).
+- → [Personen](personen.md): `NatuurlijkPersoon` als tenaamgestelde via
+  `Voertuigtenaamstelling`.
 - → [Bedrijven en instellingen](bedrijven-en-instellingen.md):
-  `NietNatuurlijkPersoon` als kentekenhouder via `Kentekentenaamstelling`
-  (zakelijk kenteken). Beide takken via het `Partij`-supertype uit het
-  [hoofdmodel](../hoofdmodel.md).
+  `NietNatuurlijkPersoon` als tenaamgestelde via
+  `Voertuigtenaamstelling`. Beide takken via het `Partij`-supertype uit
+  het [hoofdmodel](../hoofdmodel.md).
 
 ## Bron
 
-Autoritatieve bron: **BRV** (Basisregistratie Voertuigen, het kentekenregister),
-beheerd door de RDW. Juridische basis: Wegenverkeerswet 1994, Kentekenreglement
-en de Regeling voertuigen; voor de keuring Richtlijn 2014/45/EU bijlage II.
-
-Een deel van de gegevens is open data (kenteken, voertuigcategorie,
-keuringsdatum, vervaldatum APK en datum van tenaamstelling). Het
-voertuigidentificatienummer, de keuringsdetails (instantie, kilometerstand,
-plaats) en de identiteit van de kentekenhouder zijn afgeschermd en alleen via
-het authentieke register of een specifiek koppelvlak beschikbaar.
+Autoritatieve bron: **BRV** (Basisregistratie Voertuigen), beheerd door
+de [RDW](https://www.rdw.nl/). Juridische basis: Wegenverkeerswet 1994,
+Kentekenreglement. Het kentekenregister wordt ontsloten via
+[Open Data RDW](https://opendata.rdw.nl/) (dataset Gekentekende
+voertuigen) en de RDW-bevragings-API's. Detailgegevens van de RDW
+(assen, carrosserie, brandstof per meting, geconstateerde gebreken,
+terugroepacties) vallen buiten dit deelmodel; ze kunnen later via
+hetzelfde patroon (L1 datamodel of catalogus, L2 koppelvlak) worden
+toegevoegd.
