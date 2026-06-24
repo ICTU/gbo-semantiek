@@ -293,7 +293,7 @@ tasks:
   # ==========================================================================
   publish:local:
     desc: "Deploy versioned documentation locally using Mike."
-    deps: [generate:docs, generate:lod, generate:diff]
+    deps: [generate:docs, generate:graphql, generate:lod, generate:diff]
     cmds:
       - echo "Deploying documentation with Mike..."
       - mkdocs build --clean
