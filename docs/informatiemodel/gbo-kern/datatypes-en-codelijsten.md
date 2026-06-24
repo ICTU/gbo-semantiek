@@ -39,16 +39,10 @@ van [Geonovum](https://www.geonovum.nl/):
 Eén-op-één afgeleid van de MIM 1.2-primitieve datatypes (zie
 [MIM 1.2](https://docs.geostandaarden.nl/mim/mim/)).
 
-Een lengte- of precisiebeperking is een **facet** van het attribuut, geen
-apart datatype. In de attribuut-tabellen staat de lengte tussen haakjes
-achter het type (`Tekst (80)`, `Numeriek (5)`); in het LinkML-model is
-dit de `mim:lengte`-annotatie op het attribuut. Zo blijven er enkele
-ondubbelzinnige MIM-typen in plaats van tientallen lengte-varianten.
-
 | MIM-datatype | Alias (NL) | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|
-| `CharacterString` | `Tekst` | Reeks Unicode-tekens. | [MIM 1.2](https://docs.geostandaarden.nl/mim/mim/) | De alias `Alfanumeriek` geldt voor reeksen uit het alfabet en de cijfers zonder leestekens; `Identificatie` voor object- of documentidentificaties zonder vaste structuur; `Postcode` voor de Nederlandse postcode in het formaat `9999 XX` (norm NEN 5825). Een maximale lengte is een facet van het attribuut, geen apart datatype: genoteerd als `Tekst (80)` en in het model als de `mim:lengte`-annotatie. |
-| `Integer` | `Numeriek` (geheel) | Geheel getal zonder eenheid. | [MIM 1.2](https://docs.geostandaarden.nl/mim/mim/) | Voor gehele aantallen, bijvoorbeeld `huisnummer`, `oppervlakte` en `aantalKamers`. Een maximale lengte (aantal cijfers) is een facet van het attribuut (`Numeriek (5)`, in het model `mim:lengte`), geen apart datatype. Numerieke identifiers met betekenisvolle voorloopnullen — `bsn`, `rsin`, `kvkNummer`, `vestigingsnummer` — worden als `Tekst` getypeerd, niet als `Numeriek`, zodat voorloopnullen behouden blijven. |
+| `CharacterString` | `Tekst` | Reeks Unicode-tekens. | [MIM 1.2](https://docs.geostandaarden.nl/mim/mim/) | Lengte-varianten: `Tekst24` (max. 24 tekens). De alias `Alfanumeriek` wordt gebruikt voor reeksen uit het alfabet en de cijfers zonder leestekens, met varianten `Alfanumeriek10`, `AN40`, `AN80`. De alias `Identificatie` wordt gebruikt voor object- of documentidentificaties zonder vaste structuur; de alias `Postcode` voor de Nederlandse postcode in het formaat `9999 XX` (norm NEN 5825). |
+| `Integer` | `Numeriek` (geheel) | Geheel getal zonder eenheid. | [MIM 1.2](https://docs.geostandaarden.nl/mim/mim/) | Varianten met vaste lengte: `N2`, `N4`, `N5`, `N6` (geheel getal van precies dat aantal cijfers); varianten met maximumlengte: `Numeriek8`, `Numeriek9`, `Numeriek12`. |
 | `Real` | `Numeriek` (decimaal) / `Decimaal` | Decimaal getal zonder eenheid. | [MIM 1.2](https://docs.geostandaarden.nl/mim/mim/) | De alias `Decimaal` wordt in de deelmodellen gebruikt voor breuk-getallen zonder valuta-aanduiding, bijvoorbeeld `Schuld.rentepercentage` en `ModuleInschrijving.ects`. Voor bedragen wordt `Bedrag` gebruikt (zie aanvullende datatypes), niet `Real` direct, vanwege de verplichte valuta-aanduiding. |
 | `Boolean` | `Indicatie` | Logische waarde waar/onwaar. | [MIM 1.2](https://docs.geostandaarden.nl/mim/mim/) | GBO hanteert als NL-conventie een drie-waardig type `Indicatie` (Ja / Nee / Onbekend), zodat onbekendheid expliciet kan worden vastgelegd. De waarde Onbekend is geen MIM-Boolean-waarde maar volgt de BRP-conventie voor afwezigheid (zie [Logisch Ontwerp BRP](https://www.rvig.nl/lo-brp)). |
 | `Date` | `Datum` | Kalenderdatum in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html), precisie tot op de dag (`jjjj-mm-dd`). | [MIM 1.2](https://docs.geostandaarden.nl/mim/mim/) / [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) | Gebruikt voor de materiële tijdlijn (geldigheid van een gegeven in de werkelijkheid). |

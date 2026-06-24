@@ -1,7 +1,9 @@
+---
+title: "Hoofdmodel"
+description: "Het hoofdmodel toont de brug-klassen tussen alle deelmodellen: alleen objecttypen die deelmodel-grenzen overschrijden, gegroepeerd rond het Partij-supertype. De brug-klassen sluiten aan op de DVTP-databehoefte van overheids- en overige bronnen."
+---
 
-# Hoofdmodel
-
-## Compacte Weergave en Uitwerking
+# Hoofdmodel Compact
 
 Compacte projectie van het [hoofdmodel](hoofdmodel.md), bedoeld voor
 presentaties en overzichts-slides. Subtypen, cardinaliteiten en
@@ -19,7 +21,7 @@ Voor de volledige versie met subtypen en cardinaliteiten, zie
 [hoofdmodel](hoofdmodel.md). Voor de details per deelmodel, zie de
 [deelmodellen](deelmodellen/).
 
-### Diagram
+## Diagram
 
 ```plantuml
 @startuml
@@ -176,7 +178,7 @@ StudieLening --> NatuurlijkPersoon
 @enduml
 ```
 
-## Uitgebreide Weergave en Uitwerking
+# Hoofdmodel
 
 Het hoofdmodel is een **brug-diagram**: het toont uitsluitend
 objecttypen die deelmodel-grenzen overschrijden, plus de
@@ -191,7 +193,10 @@ dienen zijn opgenomen: `Verbintenis` (fiscale partner), `LoonBestanddeel`
 (loonketen), `Aftrekpost` (Box 1-aftrekken), `AchterstandRegistratie`
 (BKR-toets) en `StudieLening` (DUO-schuld).
 
-### Diagram
+Voor een sterk gereduceerde variant geschikt voor één presentatie-slide,
+zie [hoofdmodel-compact](hoofdmodel-compact.md).
+
+## Diagram
 
 ```plantuml
 @startuml
@@ -443,7 +448,6 @@ NatuurlijkPersoon "1" <-- "0..*" StudieLening : aangegaanDoor
 | Krediet | `KredietOvereenkomst`, `HypothecairKredietEigenWoning`, `AchterstandRegistratie` | [Krediet](deelmodellen/krediet.md) |
 | Onderwijs | `OnderwijsInstelling`, `OpleidingDeelname`, `StudieLening` | [Onderwijs](deelmodellen/onderwijs.md) |
 | Werk en Inkomen | `Uitkering`, `Arbeidsverhouding` | [Werk en Inkomen](deelmodellen/werk-en-inkomen.md) |
-| Voertuigen | `Voertuig`, `Voertuigtenaamstelling` | [Voertuigen](deelmodellen/voertuigen.md) |
 
 ## Sleutelrelaties: toelichting
 
@@ -606,9 +610,8 @@ De typering van attribuutsoorten staat op één gedeelde pagina:
 - **Simpele datatypes** (MIM-primitieven `CharacterString`, `Integer`,
   `Real`, `Boolean`, `Date`, `DateTime`, `Year`, `Duration`, `URI`)
   en hun Nederlandse aliassen `Tekst`, `Numeriek`, `Decimaal`,
-  `Indicatie`, `Datum`, `DatumTijd`, `Jaar`, `Duur`. Een lengte- of
-  precisiebeperking is een facet van het attribuut (`mim:lengte`), geen
-  apart datatype.
+  `Indicatie`, `Datum`, `DatumTijd`, `Jaar`, `Duur`, inclusief lengte-
+  en precisie-varianten (`Tekst24`, `Numeriek9`, `Alfanumeriek10`).
 - **Aanvullende datatypes** (`DatumIncompleet`, `NEN3610ID`, `UUID`,
   `Geometrie` met subtypes `Punt`, `Vlak`, `Lijn`, `Bedrag`, `Breuk`,
   `ObjectAanduiding`, `Codelijst~bron`).
@@ -635,18 +638,25 @@ en de cross-walks.
 
 ### Identifier-strategie
 
-Per objecttype is afgesproken welke identifier autoritatief is:
+Per objecttype is afgesproken welk identificerend kenmerk autoritatief
+is; in de attribuut-tabellen van de deelmodellen staat dat attribuut vet.
+Het uitgangspunt is een herkenbare, authentieke registersleutel, niet een
+intern nummer:
 
-- BSN voor `NatuurlijkPersoon` (BRP-bron).
-- RSIN voor `NietNatuurlijkPersoon` (HR-bron).
-- KVK-nummer voor `Inschrijving`; vestigingsnummer voor `Vestiging`.
-- NEN3610-ID voor BAG-objecten en BRK-objecten.
+- BSN voor `NatuurlijkPersoon`, ook voor niet-ingeschreven personen (BRP-bron).
+- KVK-nummer voor `NietNatuurlijkPersoon` en het hele cluster daaronder,
+  inclusief `Inschrijving`; vestigingsnummer voor `Vestiging`.
+- NEN3610-ID (BAG-id en BRK-id) voor BAG-objecten en BRK-objecten.
+- Kadastrale aanduiding voor `Perceel` en `Appartementsrecht`.
 - WOZ-objectnummer + verantwoordelijke gemeente voor `WOZObject`
   (WOZ-objectnummer is alleen uniek binnen één gemeente).
-- BRIN voor `OnderwijsInstelling`; OPLEIDINGSCODE (CROHO/CREBO) voor
-  `Opleiding`.
-- GBO-eigen UUID (`partijnummer`, `adresId`) waar geen externe
-  identifier bestaat of meerdere bronnen samenkomen.
+- Kenteken voor `Voertuig`.
+- BRIN of instellingscode-RIO voor `OnderwijsInstelling`; opleidingscode
+  (CROHO/CREBO) voor `Opleiding`.
+- `Partij` is een abstract supertype en wordt niet rechtstreeks
+  geïdentificeerd; de entree loopt via de concrete types. GBO-eigen UUID's
+  (`partijnummer`, `adresId`) blijven interne sleutels en worden niet als
+  externe identifier gebruikt.
 
 ### Voorkomen-mixin (bitemporaliteit)
 

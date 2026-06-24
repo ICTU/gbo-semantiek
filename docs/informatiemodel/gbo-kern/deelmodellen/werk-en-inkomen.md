@@ -166,6 +166,7 @@ leiden tot een wijziging van uitkeringssoort en hoogte.
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/Arbeidsongeschiktheidspercentage` |
 | Herkomst | SGR cluster Beslissing |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van persoon, beschikkingsdatum en vaststellingsdatum. |
 | Populatie | Alle door UWV vastgestelde arbeidsongeschiktheidspercentages die de basis vormen voor classificatie van een WIA-uitkering in IVA of WGA, inclusief herzieningen. |
 
 **Attribuutsoorten**:
@@ -200,6 +201,7 @@ loonheffingen vast.
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/Arbeidsverhouding` |
 | Herkomst | SGR cluster Arbeidsverhouding |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van werknemer, werkgever en ingangsdatum. |
 | Populatie | Alle juridische en feitelijke arbeidsrelaties tussen een natuurlijk persoon als werknemer en een onderneming als werkgever die zichtbaar zijn in het Suwi Gegevensregister. |
 
 **Attribuutsoorten**:
@@ -236,6 +238,7 @@ zelfstandig werk.
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/ArbeidsverledenFeit` |
 | Herkomst | SGR cluster Arbeidsverhouding |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van persoon, soortFeit, begindatum en einddatum. |
 | Populatie | Alle afzonderlijke feiten in het arbeids- of inkomensverleden van een natuurlijk persoon (dienstverband, uitkeringsperiode, leerwerk-periode of periode zelfstandig werk) die relevant zijn voor de berekening van werknemersverzekerings-rechten. |
 
 **Attribuutsoorten**:
@@ -269,6 +272,7 @@ beeindiging) zijn elk afzonderlijke beschikkingen.
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/Beslissing` |
 | Herkomst | SGR cluster Beslissing |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Beschikkingsnummer (UWV of SVB). |
 | Populatie | Alle door een SUWI-uitvoeringsinstelling (UWV, SVB) genomen besluiten over het recht op, de hoogte van of de beeindiging van een uitkering of voorziening voor een natuurlijk persoon. |
 
 **Attribuutsoorten**:
@@ -301,6 +305,7 @@ wettelijk maximumdagloon, jaarlijks door SZW vastgesteld.
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/Dagloon` |
 | Herkomst | SGR cluster Uitkering |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van persoon, uitkering en peildatum. |
 | Populatie | Alle door UWV vastgestelde daglonen die als grondslag dienen voor de hoogte van een werknemersverzekerings-uitkering, berekend uit de inkomstenopgaven over de referteperiode. |
 
 **Attribuutsoorten**:
@@ -322,7 +327,7 @@ regeling of een sociale-zekerheidsuitkering.
 
 **Herkomst definitie**: Algemene wet inkomensafhankelijke regelingen
 (Awir) voor toeslagen; Wet SUWI en de afzonderlijke werknemers- en
-volksverzekeringswetten voor uitkeringen; GBO-Kern-abstractie.
+volksverzekeringswetten voor uitkeringen; GBO-Core-abstractie.
 
 **Toelichting**: Cross-domein algemene categorie boven Toeslag (in
 [Belastingen](belastingen.md)) en Uitkering (in dit deelmodel).
@@ -344,7 +349,7 @@ en aanvraagprocedure.
 
 | Naam | Type | Kard. | Definitie | Herkomst |
 |---|---|---|---|---|
-| `identificatie` | [Tekst](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Interne identificatie. | GBO-Kern |
+| `identificatie` | [Tekst](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Interne identificatie. | GBO-Core |
 | `ingangsdatum` | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Aanvang van de toekenning. | Awir / Wet SUWI |
 | `einddatum` | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Einde van de toekenning. | Awir / Wet SUWI |
 | `bedragPeriode` | [Bedrag](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 1 | Bedrag per periode. | per regeling |
@@ -370,6 +375,7 @@ Wajong, AOW).
 | Herkomst | SGR cluster Uitkering |
 | Datum opname | 2026-05-19 |
 | Indicatie abstract object | Ja |
+| Unieke aanduiding | Combinatie van persoon, soortUitkering en toekenningsperiode. |
 | Populatie | Alle aan natuurlijke personen toegekende periodieke uitkeringen op grond van een werknemersverzekering (WW, ZW, WIA, IVA, WGA, Wajong) of volksverzekering (AOW), uitgevoerd door UWV of SVB. |
 
 **Attribuutsoorten**:
@@ -403,6 +409,7 @@ nodig.
 | Herkomst | SGR (ontsluiting); SVB (uitvoering) |
 | Datum opname | 2026-05-19 |
 | Notation | AOW |
+| Unieke aanduiding | Combinatie van BSN en AOW-toekenningsperiode. |
 | Populatie | Alle door SVB op grond van de Algemene Ouderdomswet toegekende periodieke uitkeringen aan natuurlijke personen vanaf de AOW-gerechtigde leeftijd. |
 
 **Attribuutsoorten**:
@@ -432,6 +439,7 @@ stabieler dan WGA omdat het duurzaamheids-criterium is gehaald.
 | Herkomst | SGR cluster Uitkering |
 | Datum opname | 2026-05-19 |
 | Notation | IVA |
+| Unieke aanduiding | Combinatie van BSN en IVA-toekenningsperiode. |
 | Populatie | Alle door UWV toegekende IVA-uitkeringen aan werknemers die duurzaam minder dan twintig procent van hun oude loon kunnen verdienen, op grond van hoofdstuk IV van de Wet WIA. |
 
 **Attribuutsoorten**:
@@ -463,6 +471,7 @@ voor duurzaam volledig arbeidsongeschikten).
 | Herkomst | SGR cluster Uitkering |
 | Datum opname | 2026-05-19 |
 | Notation | Wajong |
+| Unieke aanduiding | Combinatie van BSN en Wajong-toekenningsperiode. |
 | Populatie | Alle door UWV toegekende Wajong-uitkeringen aan jonggehandicapten, verdeeld over de drie generaties oude Wajong (toekenningen voor 2010), Wajong 2010 en Wajong 2015. |
 
 **Attribuutsoorten**:
@@ -494,6 +503,7 @@ minimumloon-percentages).
 | Herkomst | SGR cluster Uitkering |
 | Datum opname | 2026-05-19 |
 | Notation | WGA |
+| Unieke aanduiding | Combinatie van BSN en WGA-toekenningsperiode. |
 | Populatie | Alle door UWV toegekende WGA-uitkeringen aan werknemers die 35 tot 80 procent arbeidsongeschikt zijn, of volledig maar niet duurzaam, verdeeld over de fasen LGU, LAU en VVU. |
 
 **Attribuutsoorten**:
@@ -526,6 +536,7 @@ en UitkeringWGA.
 | Herkomst | SGR cluster Uitkering |
 | Datum opname | 2026-05-19 |
 | Notation | WIA |
+| Unieke aanduiding | Combinatie van BSN en WIA-toekenningsperiode. |
 | Populatie | Alle door UWV toegekende WIA-uitkeringen aan werknemers die na de wachttijd van twee jaar ziekte gedeeltelijk of volledig arbeidsongeschikt zijn; concreet uitgesplitst naar UitkeringIVA en UitkeringWGA. |
 
 **Attribuutsoorten**:
@@ -554,6 +565,7 @@ arbeidsverledenjaren (basis-WW plus eventueel verlengde uitkering).
 | Herkomst | SGR cluster Uitkering |
 | Datum opname | 2026-05-19 |
 | Notation | WW |
+| Unieke aanduiding | Combinatie van BSN en WW-toekenningsperiode. |
 | Populatie | Alle door UWV aan werkloze werknemers toegekende WW-uitkeringen ter vervanging van weggevallen loon, op grond van de Werkloosheidswet. |
 
 **Attribuutsoorten**:
@@ -585,6 +597,7 @@ werkgever en vallen niet onder ZW.
 | Herkomst | SGR cluster Uitkering |
 | Datum opname | 2026-05-19 |
 | Notation | ZW |
+| Unieke aanduiding | Combinatie van BSN en ZW-toekenningsperiode. |
 | Populatie | Alle door UWV toegekende ZW-uitkeringen aan zieke werknemers en vangnetters (uitzendkrachten, oproepkrachten, werklozen, werknemers zonder doorbetalingsplichtige werkgever) ter vervanging van weggevallen loon. |
 
 **Attribuutsoorten**:

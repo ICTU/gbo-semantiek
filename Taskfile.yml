@@ -143,10 +143,10 @@ tasks:
       - rsync -a --delete "{{.WIKI_REPO}}/clients/" "{{.CLIENTS_DIR}}/"
       # Fase 1: de publicatie-.md's worden nog in de wiki-repo (AI) geschreven en
       # hier mee gekopieerd. Vervalt in Fase 2 (dan genereert 'generate:docs' ze
-      # zelf uit de LinkML). hoofdmodel-compact.md en bronnenprioritering.md
-      # vallen buiten de gbo-kern-nav en worden uitgesloten.
+      # zelf uit de LinkML). bronnenprioritering.md valt onder uitgangspunten/ en
+      # wordt uitgesloten.
       - mkdir -p "{{.DOCS}}/{{.INFORMATIEMODEL}}/gbo-kern"
-      - rsync -a --delete --exclude 'hoofdmodel-compact.md' --exclude 'bronnenprioritering.md' "{{.WIKI_REPO}}/publicatie/{{.INFORMATIEMODEL}}/" "{{.DOCS}}/{{.INFORMATIEMODEL}}/gbo-kern/"
+      - rsync -a --delete --exclude 'bronnenprioritering.md' "{{.WIKI_REPO}}/publicatie/{{.INFORMATIEMODEL}}/" "{{.DOCS}}/{{.INFORMATIEMODEL}}/gbo-kern/"
       - echo "Model, profielen en model-docs gekopieerd."
     sources:
       - "{{.WIKI_REPO}}/linkml/**/*"
