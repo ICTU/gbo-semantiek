@@ -131,16 +131,16 @@ tasks:
     deps: [prepare:check-tools, prepare:check-vars]
     cmds:
       - |
-        if [ ! -d "{{.WIKI_REPO}}/linkml" ]; then
+        if [ ! -d "{{.WIKI_REPO}}/publicatie/linkml" ]; then
           echo "Error: wiki-repo niet gevonden op '{{.WIKI_REPO}}'."
           echo "Zet WIKI_REPO in de omgeving of pas de default in Taskfile.yml aan."
           exit 1
         fi
       - echo "Kopiëren van model + profielen uit {{.WIKI_REPO}} ..."
       - mkdir -p "{{.LINKML_DIR}}" "{{.BRONNEN_DIR}}" "{{.CLIENTS_DIR}}"
-      - rsync -a --delete "{{.WIKI_REPO}}/linkml/"  "{{.LINKML_DIR}}/"
-      - rsync -a --delete "{{.WIKI_REPO}}/bronnen/" "{{.BRONNEN_DIR}}/"
-      - rsync -a --delete "{{.WIKI_REPO}}/clients/" "{{.CLIENTS_DIR}}/"
+      - rsync -a --delete "{{.WIKI_REPO}}/publicatie/linkml/"  "{{.LINKML_DIR}}/"
+      - rsync -a --delete "{{.WIKI_REPO}}/publicatie/bronnen/" "{{.BRONNEN_DIR}}/"
+      - rsync -a --delete "{{.WIKI_REPO}}/publicatie/clients/" "{{.CLIENTS_DIR}}/"
       # Fase 1: de publicatie-.md's (incl. bronnenprioritering) worden nog in de
       # wiki-repo (AI) geschreven en hier mee gekopieerd. Vervalt in Fase 2 (dan
       # genereert 'generate:docs' ze zelf uit de LinkML). bronnenprioritering
@@ -150,9 +150,6 @@ tasks:
       - rsync -a --delete "{{.WIKI_REPO}}/publicatie/{{.INFORMATIEMODEL}}/" "{{.DOCS}}/{{.INFORMATIEMODEL}}/gbo-kern/"
       - echo "Model, profielen en model-docs gekopieerd."
     sources:
-      - "{{.WIKI_REPO}}/linkml/**/*"
-      - "{{.WIKI_REPO}}/bronnen/**/*"
-      - "{{.WIKI_REPO}}/clients/**/*"
       - "{{.WIKI_REPO}}/publicatie/**/*"
     generates:
       - "{{.LINKML_DIR}}/*.yaml"
