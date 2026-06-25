@@ -1811,6 +1811,48 @@ MIM-equivalent bestaat is de notatie GBO-specifiek of BRP-specifiek.</p>
 <td>Interne GBO-identifier voor objecten zonder externe authentieke identifier: <code>ID</code>, <code>adresId</code>, <code>MaatschappelijkeActiviteit.identificatie</code>.</td>
 </tr>
 <tr>
+<td><code>BSN</code></td>
+<td><code>Tekst</code> + patroon <code>^[0-9]{9}$</code></td>
+<td>Burgerservicenummer: 9 cijfers met geldige elfproef.</td>
+<td><a href="https://wetten.overheid.nl/BWBR0024466">Wet algemene bepalingen burgerservicenummer</a></td>
+<td>Zoeksleutel van <code>IngeschrevenPersoon</code> (natuurlijk persoon). Als tekst getypeerd zodat een voorloopnul behouden blijft.</td>
+</tr>
+<tr>
+<td><code>KVKnummer</code></td>
+<td><code>Tekst</code> + patroon <code>^[0-9]{8}$</code></td>
+<td>Identificatie van een inschrijving in het Handelsregister: 8 cijfers.</td>
+<td><a href="https://wetten.overheid.nl/BWBR0021777">Handelsregisterwet 2007</a></td>
+<td>Zoeksleutel van <code>Inschrijving</code> (niet-natuurlijke persoon).</td>
+</tr>
+<tr>
+<td><code>Vestigingsnummer</code></td>
+<td><code>Tekst</code> + patroon <code>^[0-9]{12}$</code></td>
+<td>Identificatie van een vestiging in het Handelsregister: 12 cijfers.</td>
+<td>Handelsregister (NHR)</td>
+<td>Zoeksleutel van <code>Vestiging</code>.</td>
+</tr>
+<tr>
+<td><code>Kenteken</code></td>
+<td><code>Tekst</code> + patroon</td>
+<td>Nederlands voertuigkenteken: zes posities (hoofdletters en cijfers) volgens het RDW-sidecodestelsel, optioneel met streepjes.</td>
+<td>RDW (BRV)</td>
+<td>Zoeksleutel van <code>Voertuig</code>.</td>
+</tr>
+<tr>
+<td><code>KadastraleAanduiding</code></td>
+<td><code>Tekst</code></td>
+<td>Kadastrale gemeente, sectie en perceelnummer (bij een appartementsrecht aangevuld met een index), uniek binnen de BRK.</td>
+<td>Kadaster (BRK)</td>
+<td>Natuurlijke sleutel van <code>Perceel</code> en <code>Appartementsrecht</code>.</td>
+</tr>
+<tr>
+<td><code>BRINcode</code></td>
+<td><code>Tekst</code> + patroon <code>^[0-9]{2}[A-Z]{2}$</code></td>
+<td>BRIN-nummer van een onderwijsinstelling: twee cijfers gevolgd door twee hoofdletters.</td>
+<td>DUO (BRIN)</td>
+<td>Natuurlijke sleutel van <code>OnderwijsInstelling</code>.</td>
+</tr>
+<tr>
 <td><code>Codelijst~bron</code></td>
 <td>MIM-stereotype <code>«Codelijst»</code></td>
 <td>Verwijzing naar een waarde uit een extern beheerde codelijst. De bron staat als suffix achter de tilde.</td>
