@@ -28,6 +28,11 @@ shopt: [globstar]
 
 dotenv: ['.env']
 
+# Onderdruk de click UserWarning "parameter -V is used more than once"
+# (bekende dubbele-optie-bug in de linkml-CLI; niet ons model).
+env:
+  PYTHONWARNINGS: 'ignore::UserWarning'
+
 vars:
   VERSION_DIR: "./{{.VERSION}}"
   PREVIOUS_VERSION_DIR: "./{{.PREVIOUS_VERSION}}"
@@ -64,6 +69,7 @@ tasks:
   # ==========================================================================
   prepare:check-tools:
     desc: "Verify required tools are installed."
+    silent: true
     cmds:
       - |
         # Lijst van vereiste tools en hun download-URLs
@@ -103,6 +109,7 @@ tasks:
 
   prepare:check-vars:
     desc: "Validate required variables VERSION and check if VERSION_DIR exists."
+    silent: true
     cmds:
       - |
         echo "Validating input parameter {{.VERSION}} ..."
@@ -225,13 +232,25 @@ tasks:
       - "{{.SHACL}}"
     cmds:
       - mkdir -p "{{.VERSION_DIR}}/{{.ONTOLOGIE}}"
-      - echo "Generating OWL-ontologie '{{.LOD}}' ..."
-      - gen-owl "{{.GBO_LINKML}}" > "{{.LOD}}"
-      - echo "Generating SHACL-shapes '{{.SHACL}}' ..."
       - |
         {{.PYYAML_PYTHON}}
-        gen-yaml "{{.GBO_LINKML}}" > /tmp/gbo-merged.yaml
-        "$PY" -c "import yaml; s = yaml.safe_load(open('/tmp/gbo-merged.yaml')); s.pop('imports', None); yaml.dump(s, open('/tmp/gbo-merged-noimports.yaml', 'w'), sort_keys=False, allow_unicode=True)"
+        # Kwalificeer attribuut-URI's per deelmodel/klasse in een werkkopie:
+        # gelijknamige attributen krijgen zo een eigen, diepe URI
+        # (.../<deelmodel>/<Klasse>/<attr>) i.p.v. één platte, botsende URI.
+        Q=/tmp/gbo-linkml-q
+        rm -rf "$Q" && cp -r "{{.LINKML_DIR}}" "$Q"
+        for f in "$Q"/*.yaml; do
+          stem=$(basename "$f" .yaml)
+          case "$stem" in gbo|bronprofiel|clientprofiel) continue;; esac
+          "$PY" tools/kwalificeer_uris.py "$f" --deelmodel "$stem" --in-place
+        done
+        echo "Generating OWL-ontologie '{{.LOD}}' ..."
+        gen-owl --no-use-native-uris --skip-vacuous-min-zero-cardinality-axioms \
+          --skip-vacuous-local-range-axioms --consolidate-cardinality-axioms \
+          "$Q/gbo.yaml" > "{{.LOD}}"
+        echo "Generating SHACL-shapes '{{.SHACL}}' ..."
+        gen-yaml "$Q/gbo.yaml" > /tmp/gbo-merged.yaml
+        "$PY" -c "import yaml; s=yaml.safe_load(open('/tmp/gbo-merged.yaml')); s.pop('imports',None); yaml.dump(s, open('/tmp/gbo-merged-noimports.yaml','w'), sort_keys=False, allow_unicode=True)"
         gen-shacl /tmp/gbo-merged-noimports.yaml > "{{.SHACL}}"
       - echo "Linked Data gegenereerd."
 
