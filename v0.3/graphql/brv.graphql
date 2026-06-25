@@ -2,6 +2,16 @@
 # GraphQL SDL voor bronprofiel BRV, gegenereerd uit gbo-bron-brv.yaml.
 # Regenereer met: task generate:graphql
 
+"""Formaatrestrictie op een scalar, afgeleid uit het LinkML-datatype."""
+directive @restrictie(
+  """Reguliere expressie waaraan de waarde voldoet."""
+  patroon: String
+  """Ondergrens (inclusief) voor numerieke waarden."""
+  minimum: Int
+  """Bovengrens (inclusief) voor numerieke waarden."""
+  maximum: Int
+) on SCALAR
+
 """Europese voertuigcategorie (M, N, O, L, T, ...) conform het EU-kader voor voertuiggoedkeuring; gebruikt voor Voertuig.europeseVoertuigcategorie."""
 scalar CodelijstEUVoertuigcategorie
 """Voertuigmerk uit de door de RDW beheerde open merkenlijst; gebruikt voor Voertuig.merk."""
@@ -9,9 +19,9 @@ scalar CodelijstRDWMerk
 """Kalenderdatum in ISO 8601, precisie tot op de dag (jjjj-mm-dd). Gebruikt voor de materiële tijdlijn."""
 scalar Datum
 """Nederlands voertuigkenteken: zes posities (hoofdletters en cijfers) volgens het RDW-sidecodestelsel, optioneel met streepjes ter leesbaarheid (bijv. XX-99-99)."""
-scalar Kenteken
+scalar Kenteken @restrictie(patroon: "^[A-Z0-9-]{6,8}$")
 """Universally Unique Identifier conform RFC 4122 (128 bits, hexadecimaal genoteerd). Interne GBO-identifier voor objecten zonder externe authentieke identifier."""
-scalar UUID
+scalar UUID @restrictie(patroon: "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")
 
 """Een door de RDW in de Basisregistratie Voertuigen geregistreerd vervoermiddel dat met een uniek kenteken aan het verkeer kan deelnemen, met de bij dat kenteken horende technische en administratieve kerngegevens."""
 type Voertuig {

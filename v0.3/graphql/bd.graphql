@@ -2,28 +2,38 @@
 # GraphQL SDL voor bronprofiel BD, gegenereerd uit gbo-bron-bd.yaml.
 # Regenereer met: task generate:graphql
 
+"""Formaatrestrictie op een scalar, afgeleid uit het LinkML-datatype."""
+directive @restrictie(
+  """Reguliere expressie waaraan de waarde voldoet."""
+  patroon: String
+  """Ondergrens (inclusief) voor numerieke waarden."""
+  minimum: Int
+  """Bovengrens (inclusief) voor numerieke waarden."""
+  maximum: Int
+) on SCALAR
+
 """Burgerservicenummer: 9 cijfers met geldige elfproef. Als tekst getypeerd zodat een eventuele voorloopnul behouden blijft."""
-scalar BSN
+scalar BSN @restrictie(patroon: "^[0-9]{9}$")
 """Landcode conform ISO 3166-1 alpha-2. Stelselbreed voor land- en nationaliteit-typering; cross-walks naar BRP-LT 32 (nationaliteit) en BRP-LT 34 (landen) staan in de documentatie."""
-scalar CodelijstISO3166
+scalar CodelijstISO3166 @restrictie(patroon: "^[A-Z]{2}$")
 """Valuta-aanduiding conform ISO 4217 (drieletterige code, EUR)."""
-scalar CodelijstISO4217
+scalar CodelijstISO4217 @restrictie(patroon: "^[A-Z]{3}$")
 """Gemeentecode conform BRP-Landelijke Tabel 33 Gemeenten. Formeel een BRP-codelijst, feitelijk de stelselbrede gemeente-codering inclusief historische gemeenten met einddatum."""
-scalar CodelijstLT33
+scalar CodelijstLT33 @restrictie(patroon: "^[0-9]{4}$")
 """Adellijke titel / predicaat conform BRP-Landelijke Tabel 38."""
 scalar CodelijstLT38
 """Kalenderdatum in ISO 8601, precisie tot op de dag (jjjj-mm-dd). Gebruikt voor de materiële tijdlijn."""
 scalar Datum
 """Datum waarin jaar, maand of dag elk afzonderlijk onbekend kan zijn. Formaten: jjjj, jjjj-mm of jjjj-mm-dd; nullen op de onbekende positie."""
-scalar DatumIncompleet
+scalar DatumIncompleet @restrictie(patroon: "^[0-9]{4}(-[0-9]{2}(-[0-9]{2})?)?$")
 """Object- of documentidentificatie zonder vaste structuur."""
 scalar Identificatie
 """Identificatie van een inschrijving in het Handelsregister: 8 cijfers."""
-scalar KVKnummer
+scalar KVKnummer @restrictie(patroon: "^[0-9]{8}$")
 """Landelijke objectidentificatie voor stelselobjecten, opgebouwd uit namespace, lokaalID en versie (NEN 3610)."""
 scalar NEN3610ID
 """Universally Unique Identifier conform RFC 4122 (128 bits, hexadecimaal genoteerd). Interne GBO-identifier voor objecten zonder externe authentieke identifier."""
-scalar UUID
+scalar UUID @restrictie(patroon: "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")
 
 """Een door of namens een belastingplichtige aan de Belastingdienst ingediende opgave waarmee de grondslag voor een specifieke belastingsoort en periode wordt vastgesteld."""
 interface BelastingAangifte {

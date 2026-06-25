@@ -279,15 +279,44 @@ class SDLGenerator:
         query = self.query_blok()
         if query:
             blokken.append(query)
-        # Scalars pas nu: self.gebruikte_scalars is gevuld.
+        # Scalars pas nu: self.gebruikte_scalars is gevuld. GraphQL-scalars
+        # zijn opaak; de formaatrestricties uit het LinkML-datatype
+        # (pattern, minimum, maximum) projecteren we als @restrictie-directive
+        # zodat ze in de SDL zichtbaar/machine-leesbaar terugkomen.
         scalars = []
+        restrictie_gebruikt = False
         for naam in sorted(self.gebruikte_scalars):
-            beschrijving = (self.types.get(naam) or {}) \
-                .get("description")
-            scalars.extend(docstring(beschrijving))
-            scalars.append(f"scalar {graphql_naam(naam)}")
+            t = self.types.get(naam) or {}
+            scalars.extend(docstring(t.get("description")))
+            args = []
+            if t.get("pattern"):
+                pat = str(t["pattern"]).replace("\\", "\\\\").replace(
+                    '"', '\\"')
+                args.append(f'patroon: "{pat}"')
+            if t.get("minimum_value") is not None:
+                args.append(f'minimum: {int(t["minimum_value"])}')
+            if t.get("maximum_value") is not None:
+                args.append(f'maximum: {int(t["maximum_value"])}')
+            regel = f"scalar {graphql_naam(naam)}"
+            if args:
+                regel += " @restrictie(" + ", ".join(args) + ")"
+                restrictie_gebruikt = True
+            scalars.append(regel)
         if scalars:
             blokken.insert(0, scalars)
+        if restrictie_gebruikt:
+            blokken.insert(0, [
+                '"""Formaatrestrictie op een scalar, afgeleid uit het '
+                'LinkML-datatype."""',
+                "directive @restrictie(",
+                '  """Reguliere expressie waaraan de waarde voldoet."""',
+                "  patroon: String",
+                '  """Ondergrens (inclusief) voor numerieke waarden."""',
+                "  minimum: Int",
+                '  """Bovengrens (inclusief) voor numerieke waarden."""',
+                "  maximum: Int",
+                ") on SCALAR",
+            ])
 
         bron = (self.schema.get("annotations") or {}).get("gbo:bron", "")
         kop = (f"# GEGENEREERD BESTAND — niet handmatig bewerken.\n"

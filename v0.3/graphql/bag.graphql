@@ -2,22 +2,32 @@
 # GraphQL SDL voor bronprofiel BAG, gegenereerd uit gbo-bron-bag.yaml.
 # Regenereer met: task generate:graphql
 
+"""Formaatrestrictie op een scalar, afgeleid uit het LinkML-datatype."""
+directive @restrictie(
+  """Reguliere expressie waaraan de waarde voldoet."""
+  patroon: String
+  """Ondergrens (inclusief) voor numerieke waarden."""
+  minimum: Int
+  """Bovengrens (inclusief) voor numerieke waarden."""
+  maximum: Int
+) on SCALAR
+
 """BAG-objectidentificatie: een 16-cijferige code, opgebouwd uit gemeentecode (4), objecttypecode (2) en objectvolgnummer (10). Identificeert pand, verblijfsobject, standplaats, ligplaats, nummeraanduiding, openbare ruimte en woonplaats in de BAG."""
-scalar BAGID
+scalar BAGID @restrictie(patroon: "^[0-9]{16}$")
 """Wijk- en buurtcodes conform de CBS Wijk- en Buurtkaart (jaarlijkse uitgave)."""
 scalar CodelijstCBSWijkBuurt
 """Gemeentecode conform BRP-Landelijke Tabel 33 Gemeenten. Formeel een BRP-codelijst, feitelijk de stelselbrede gemeente-codering inclusief historische gemeenten met einddatum."""
-scalar CodelijstLT33
+scalar CodelijstLT33 @restrictie(patroon: "^[0-9]{4}$")
 """Ruimtelijke objectplaatsing; abstract supertype van Punt, Vlak en Lijn. Default-coördinatenstelsel EPSG:28992 (RD-New) voor binnenlandse objecten, WGS84 (EPSG:4326) bij internationale uitwisseling."""
 scalar Geometrie
 """Kalenderjaar in ISO 8601, vier cijfers (jjjj)."""
-scalar Jaar
+scalar Jaar @restrictie(patroon: "^[0-9]{4}$")
 """Nederlandse postcode in het formaat 9999 XX (norm NEN 5825)."""
-scalar Postcode
+scalar Postcode @restrictie(patroon: "^[1-9][0-9]{3} ?[A-Z]{2}$")
 """Geometrie als één coördinaat (x, y, optioneel z)."""
 scalar Punt
 """Universally Unique Identifier conform RFC 4122 (128 bits, hexadecimaal genoteerd). Interne GBO-identifier voor objecten zonder externe authentieke identifier."""
-scalar UUID
+scalar UUID @restrictie(patroon: "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")
 """Geometrie als gesloten polygoon, eventueel met binnenringen voor uitsparingen."""
 scalar Vlak
 

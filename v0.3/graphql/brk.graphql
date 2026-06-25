@@ -2,14 +2,24 @@
 # GraphQL SDL voor bronprofiel BRK, gegenereerd uit gbo-bron-brk.yaml.
 # Regenereer met: task generate:graphql
 
+"""Formaatrestrictie op een scalar, afgeleid uit het LinkML-datatype."""
+directive @restrictie(
+  """Reguliere expressie waaraan de waarde voldoet."""
+  patroon: String
+  """Ondergrens (inclusief) voor numerieke waarden."""
+  minimum: Int
+  """Bovengrens (inclusief) voor numerieke waarden."""
+  maximum: Int
+) on SCALAR
+
 """BAG-objectidentificatie: een 16-cijferige code, opgebouwd uit gemeentecode (4), objecttypecode (2) en objectvolgnummer (10). Identificeert pand, verblijfsobject, standplaats, ligplaats, nummeraanduiding, openbare ruimte en woonplaats in de BAG."""
-scalar BAGID
+scalar BAGID @restrictie(patroon: "^[0-9]{16}$")
 """Rationaal getal als teller/noemer (1/2, 1/3), zodat mede-eigendom exact zonder afrondingsverlies wordt vastgelegd; gebruikt voor Tenaamstelling.aandeel."""
-scalar Breuk
+scalar Breuk @restrictie(patroon: "^[0-9]+/[0-9]+$")
 """Waarde uit een BRK-codelijst die in de documentatie niet nader is gespecificeerd; gebruikt voor Aantekening.aardAantekening."""
 scalar CodelijstBRK
 """Valuta-aanduiding conform ISO 4217 (drieletterige code, EUR)."""
-scalar CodelijstISO4217
+scalar CodelijstISO4217 @restrictie(patroon: "^[A-Z]{3}$")
 """Kadastrale aanduiding (kadastrale gemeente / sectie / perceelnummer); de lijst kadastrale gemeenten is onderdeel van de BRK en wijzigt mee met gemeentelijke herindelingen."""
 scalar CodelijstKadaster
 """Kalenderdatum in ISO 8601, precisie tot op de dag (jjjj-mm-dd). Gebruikt voor de materiële tijdlijn."""
@@ -21,7 +31,7 @@ scalar KadastraleAanduiding
 """Landelijke objectidentificatie voor stelselobjecten, opgebouwd uit namespace, lokaalID en versie (NEN 3610)."""
 scalar NEN3610ID
 """Universally Unique Identifier conform RFC 4122 (128 bits, hexadecimaal genoteerd). Interne GBO-identifier voor objecten zonder externe authentieke identifier."""
-scalar UUID
+scalar UUID @restrictie(patroon: "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")
 
 """Het overkoepelende begrip voor een kadastraal afgebakend en als zelfstandige eenheid in de Basisregistratie Kadaster geregistreerd object: een perceel of een appartementsrecht."""
 interface KadastraleOnroerendeZaak {

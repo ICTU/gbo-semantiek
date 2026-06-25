@@ -2,12 +2,22 @@
 # GraphQL SDL voor bronprofiel HR, gegenereerd uit gbo-bron-hr.yaml.
 # Regenereer met: task generate:graphql
 
+"""Formaatrestrictie op een scalar, afgeleid uit het LinkML-datatype."""
+directive @restrictie(
+  """Reguliere expressie waaraan de waarde voldoet."""
+  patroon: String
+  """Ondergrens (inclusief) voor numerieke waarden."""
+  minimum: Int
+  """Bovengrens (inclusief) voor numerieke waarden."""
+  maximum: Int
+) on SCALAR
+
 """BAG-objectidentificatie: een 16-cijferige code, opgebouwd uit gemeentecode (4), objecttypecode (2) en objectvolgnummer (10). Identificeert pand, verblijfsobject, standplaats, ligplaats, nummeraanduiding, openbare ruimte en woonplaats in de BAG."""
-scalar BAGID
+scalar BAGID @restrictie(patroon: "^[0-9]{16}$")
 """Bedrijfsindeling conform de CBS Standaard Bedrijfsindeling (SBI 2008 / 2025). Stelselbreed; primair in Bedrijven en instellingen. Vanwege de SBI-herziening is een versie-attribuut naast de code verplicht."""
 scalar CodelijstCBSSBI
 """Landcode conform ISO 3166-1 alpha-2. Stelselbreed voor land- en nationaliteit-typering; cross-walks naar BRP-LT 32 (nationaliteit) en BRP-LT 34 (landen) staan in de documentatie."""
-scalar CodelijstISO3166
+scalar CodelijstISO3166 @restrictie(patroon: "^[A-Z]{2}$")
 """KVK Rechtsvormen (Bedrijf); gebruikt door Bedrijf.rechtsvorm. Omvat onder meer: BeslotenVennootschap (BV), NaamlozeVennootschap (NV), Eenmanszaak, EenmanszaakMetMeerdereEigenaren, VennootschapOnderFirma (VOF), CommanditaireVennootschap (CV), Maatschap, Coöperatie, OnderlingeWaarborgmaatschappij, RechtspersoonInOprichting."""
 scalar CodelijstKVKBedrijf
 """KVK Rechtsvormen (Instelling); gebruikt door Instelling.rechtsvorm. Omvat: PubliekrechtelijkeRechtspersoon (PBR), Stichting, Vereniging, VerenigingMetVolledigeRechtsbevoegdheid, VerenigingZonderVolledigeRechtsbevoegdheid, Kerkgenootschap."""
@@ -17,15 +27,15 @@ scalar CodelijstTOOI
 """Kalenderdatum in ISO 8601, precisie tot op de dag (jjjj-mm-dd). Gebruikt voor de materiële tijdlijn."""
 scalar Datum
 """Datum waarin jaar, maand of dag elk afzonderlijk onbekend kan zijn. Formaten: jjjj, jjjj-mm of jjjj-mm-dd; nullen op de onbekende positie."""
-scalar DatumIncompleet
+scalar DatumIncompleet @restrictie(patroon: "^[0-9]{4}(-[0-9]{2}(-[0-9]{2})?)?$")
 """Object- of documentidentificatie zonder vaste structuur."""
 scalar Identificatie
 """Identificatie van een inschrijving in het Handelsregister: 8 cijfers."""
-scalar KVKnummer
+scalar KVKnummer @restrictie(patroon: "^[0-9]{8}$")
 """Universally Unique Identifier conform RFC 4122 (128 bits, hexadecimaal genoteerd). Interne GBO-identifier voor objecten zonder externe authentieke identifier."""
-scalar UUID
+scalar UUID @restrictie(patroon: "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")
 """Identificatie van een vestiging in het Handelsregister: 12 cijfers."""
-scalar Vestigingsnummer
+scalar Vestigingsnummer @restrictie(patroon: "^[0-9]{12}$")
 
 """Een organisatie of rechtsfiguur, geen mens, die als rechtsdragend subject kan deelnemen aan rechtsbetrekkingen. Omvat rechtspersonen (BV, NV, stichting, vereniging, coöperatie, publiekrechtelijke rechtspersoon, kerkgenootschap), entiteiten zonder eigen rechtspersoonlijkheid (eenmanszaak, VOF, CV, maatschap) en buitenlandse entiteiten met activiteit in Nederland."""
 interface NietNatuurlijkPersoon implements Partij {
