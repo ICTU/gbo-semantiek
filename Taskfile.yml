@@ -248,6 +248,8 @@ tasks:
         gen-owl --no-use-native-uris --skip-vacuous-min-zero-cardinality-axioms \
           --skip-vacuous-local-range-axioms --consolidate-cardinality-axioms \
           "$Q/gbo.yaml" > "{{.LOD}}"
+        # Brug GBO-lokale MIM-annotaties -> officiele MIM-ontologie (BP4MC2).
+        cat tools/mim-mapping.ttl >> "{{.LOD}}"
         echo "Generating SHACL-shapes '{{.SHACL}}' ..."
         gen-yaml "$Q/gbo.yaml" > /tmp/gbo-merged.yaml
         "$PY" -c "import yaml; s=yaml.safe_load(open('/tmp/gbo-merged.yaml')); s.pop('imports',None); yaml.dump(s, open('/tmp/gbo-merged-noimports.yaml','w'), sort_keys=False, allow_unicode=True)"

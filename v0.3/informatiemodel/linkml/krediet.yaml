@@ -29,6 +29,7 @@ prefixes:
   gbo: https://lod.gbo-semantiek.nl/
   gbobegrip: https://begrippen.gbo-semantiek.nl/id/begrip/
   mim: https://lod.gbo-semantiek.nl/def/mim#
+  skos: http://www.w3.org/2004/02/skos/core#
 default_prefix: gbo
 default_range: string
 
@@ -275,7 +276,7 @@ classes:
         Alle aan CKI gemelde aflopende kredieten boven de
         meldingsdrempel van EUR 250, gedurende de looptijd plus de
         bewaartermijn na einddatum.
-      mim:notation: AK
+      skos:notation: AK
     comments:
       - >-
         De klassieke persoonlijke lening met vaste maandtermijnen. Het
@@ -326,7 +327,7 @@ classes:
         Alle aan CKI gemelde doorlopende kredieten boven de
         meldingsdrempel van EUR 250 als kredietlimiet, gedurende de
         looptijd plus de bewaartermijn.
-      mim:notation: RK
+      skos:notation: RK
     comments:
       - >-
         Revolverend krediet tot de afgesproken kredietlimiet. De
@@ -378,7 +379,7 @@ classes:
         Aan CKI gemelde saneringskredieten boven EUR 250, verstrekt
         door een gemeente of door de gemeente aangewezen kredietbank
         in het kader van schuldhulpverlening.
-      mim:notation: SK
+      skos:notation: SK
     comments:
       - >-
         Specifieke vorm van aflopend krediet met een
@@ -471,7 +472,7 @@ classes:
         Hypothecaire kredieten voor de eigen woning waarop een
         negatieve betalingservaring aan CKI is gemeld; reguliere
         kredieten zonder achterstand verschijnen niet in CKI.
-      mim:notation: HY
+      skos:notation: HY
     comments:
       - >-
         Afwijkend regime ten opzichte van de overige kredietvormen.
@@ -521,7 +522,7 @@ classes:
         Alle aan CKI gemelde hypothecaire kredieten op onroerende
         zaken anders dan de eigen woning (tweede woning, verhuurpand,
         beleggingspand) boven de meldingsdrempel van EUR 250.
-      mim:notation: HO
+      skos:notation: HO
     comments:
       - >-
         Reguliere aanlevering bij aangaan, in tegenstelling tot
@@ -574,7 +575,7 @@ classes:
         Aan CKI gemelde restschulden boven EUR 250 na verkoop van een
         onroerende zaak waarop een hypothecair krediet rustte zonder
         dekking door de Nationale Hypotheek Garantie.
-      mim:notation: RH
+      skos:notation: RH
     comments:
       - >-
         Zonder NHG-dekking blijft de schuld volledig bij de
@@ -632,7 +633,7 @@ classes:
         Aan CKI gemelde restschulden boven EUR 250 na verkoop van een
         onroerende zaak waarop een hypothecair krediet rustte met
         dekking door de Nationale Hypotheek Garantie.
-      mim:notation: RN
+      skos:notation: RN
     comments:
       - >-
         Met NHG-dekking kan de restschuld onder voorwaarden worden
@@ -691,7 +692,7 @@ classes:
         leasemaatschappij eigenaar van het voertuig blijft en het
         totale contractbedrag boven de meldingsdrempel van EUR 250
         ligt.
-      mim:notation: OA
+      skos:notation: OA
     comments:
       - >-
         Onderscheid met financial lease. Financial lease leidt tot
@@ -744,7 +745,7 @@ classes:
         Aan CKI gemelde overige private financiele verplichtingen van
         natuurlijke personen die niet onder een andere kredietvorm
         vallen, voor zover een negatieve betalingservaring is gemeld.
-      mim:notation: RO
+      skos:notation: RO
     comments:
       - >-
         Restcategorie voor private verplichtingen die niet in een
@@ -783,7 +784,7 @@ classes:
         persoonlijke aansprakelijkheid van een of meer natuurlijke
         personen (typisch ZZP en eenmanszaken, en BV/NV met
         persoonlijke borgstelling).
-      mim:notation: ZK
+      skos:notation: ZK
     comments:
       - >-
         Sleutel-criterium voor opname in CKI is persoonlijke
@@ -842,7 +843,7 @@ classes:
         Aan CKI gemelde overige zakelijke financiele verplichtingen
         boven EUR 1.000 die niet onder ZakelijkKrediet vallen, voor
         zover een negatieve betalingservaring is gemeld.
-      mim:notation: ZO
+      skos:notation: ZO
     comments:
       - >-
         Zakelijke tegenhanger van de overige financiele verplichting
@@ -902,8 +903,8 @@ classes:
         description: De startdatum van de achterstand.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: Algemeen Reglement CKI art. 12
       omvangAchterstand:
         range: Bedrag
@@ -911,8 +912,8 @@ classes:
           Het bedrag van de achterstand op moment van melding.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: Algemeen Reglement CKI art. 12
       betreft:
         range: KredietOvereenkomst

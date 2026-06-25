@@ -82,8 +82,8 @@ classes:
         description: De officiële familienaam van de persoon.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: BRP cat 01 grp 02
         comments:
           - Verplicht; zonder geslachtsnaam geen NatuurlijkPersoon.
@@ -92,16 +92,16 @@ classes:
         description: Alle officiële voornamen van de persoon.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: BRP cat 01 grp 02
       voorvoegsel:
         range: Tekst
         description: Het voorvoegsel bij de geslachtsnaam.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: BRP cat 01 grp 02
         aliases:
           - voorvoegselGeslachtsnaam
@@ -114,8 +114,8 @@ classes:
         description: Adellijke titel of predicaat.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: BRP cat 01 grp 02
         comments:
           - Codelijst LT 38.
@@ -124,8 +124,8 @@ classes:
         description: De datum waarop de persoon is geboren.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: BRP cat 01 grp 03
         comments:
           - Jaar/maand/dag kunnen apart onbekend zijn.
@@ -134,16 +134,16 @@ classes:
         description: De gemeente of plaats waar de persoon is geboren.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: BRP cat 01 grp 03
       geboorteland:
         range: CodelijstISO3166
         description: Het land waar de persoon is geboren.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: BRP cat 01 grp 03
         comments:
           - Cross-walk naar LT 34.
@@ -152,8 +152,8 @@ classes:
         description: Het geslacht van de persoon.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: BRP cat 01 grp 04
         comments:
           - Enumeratie Vrouw, Man, VastgesteldOnbekend.
@@ -162,24 +162,24 @@ classes:
         description: De datum waarop de persoon is overleden.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: BRP cat 06 grp 08
       plaatsOverlijden:
         range: Tekst
         description: De plaats waar de persoon is overleden.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: BRP cat 06 grp 08
       landOverlijden:
         range: CodelijstISO3166
         description: Het land waar de persoon is overleden.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: BRP cat 06 grp 08
       heeftOuder:
         range: NatuurlijkPersoon
@@ -187,8 +187,8 @@ classes:
         description: De ouder(s) van deze persoon.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:kardinaliteit: "0..* -> 0..2"
           mim:herkomst: BRP cat 02/03
         comments:
@@ -245,8 +245,8 @@ classes:
         annotations:
           mim:lengte: 9
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRP cat 01 grp 01
         comments:
           - Primaire identifier; uniek per actieve inschrijving.
@@ -256,8 +256,8 @@ classes:
         annotations:
           mim:lengte: 10
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRP cat 01 grp 01
         comments:
           - Intern BRP, niet als externe identifier gebruikt.
@@ -268,8 +268,8 @@ classes:
           toegekend.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRP cat 04 grp 73
         comments:
           - Alleen aanwezig binnen een EU-nationaliteit-stapel.
@@ -280,16 +280,16 @@ classes:
           opgenomen.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRP cat 07 grp 67
       gemeenteVanInschrijving:
         range: CodelijstLT33
         description: De gemeente die de persoonslijst bijhoudt.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRP cat 07 grp 67
         comments:
           - >-
@@ -301,8 +301,8 @@ classes:
           Reden waarom bijhouding van de persoonslijst is opgeschort.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRP cat 07 grp 67
         comments:
           - >-
@@ -314,8 +314,8 @@ classes:
           Aanduiding dat de persoon van het kiesrecht is uitgesloten.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRP cat 13
         comments:
           - Rechterlijke uitspraak conform Kieswet.
@@ -326,8 +326,8 @@ classes:
           Parlement vanuit Nederland.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRP cat 13
         comments:
           - >-
@@ -338,8 +338,8 @@ classes:
         description: Datum en bron van de laatste gegevensverificatie.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRP cat 07
       inOnderzoek:
         range: Indicatie
@@ -349,8 +349,8 @@ classes:
           onderwerp zijn van onderzoek.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRP cat 07
         comments:
           - Datakwaliteits-flag.
@@ -361,8 +361,8 @@ classes:
         annotations:
           mim:relatienaam: heeft
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "1 -> 0..*"
       heeftVerblijfstitel:
         range: Verblijfstitel
@@ -370,16 +370,16 @@ classes:
         annotations:
           mim:relatienaam: heeft
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "1 -> 0..1"
       gezag:
         range: Gezagsverhouding
         description: Aanwezig bij minderjarigheid of curatele.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "1 -> 0..1"
       heeftImmigratie:
         range: Immigratie
@@ -387,8 +387,8 @@ classes:
         annotations:
           mim:relatienaam: heeft
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "1 -> 0..1"
 
   Ingezetene:
@@ -426,8 +426,8 @@ classes:
           ingeschreven.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRP cat 07 grp 67
       indicatieGeheim:
         range: Indicatie
@@ -437,8 +437,8 @@ classes:
           derden heeft beperkt.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRP cat 07 grp 70
         comments:
           - >-
@@ -450,16 +450,16 @@ classes:
           Verblijfadres; zie deelmodel Adressen en gebouwen.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "1 -> 0..1"
       heeftBriefadres:
         range: Postadres
         description: Briefadres bij ontbreken regulier woonadres.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "1 -> 0..1"
 
   NietIngezetene:
@@ -499,8 +499,8 @@ classes:
           De datum waarop de persoon in de RNI is ingeschreven.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRP cat 07 grp 88
       landVanVerblijf:
         range: CodelijstISO3166
@@ -508,8 +508,8 @@ classes:
           Het land waarin de niet-ingezetene zijn verblijfplaats heeft.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRP cat 08 grp 13
       deelnemerCodeRNI:
         range: CodelijstLT88
@@ -518,8 +518,8 @@ classes:
           bijgehouden.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRP cat 07 grp 88
         comments:
           - Codelijst LT 88.
@@ -530,8 +530,8 @@ classes:
           gebouwen.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "1 -> 0..1"
 
   # --- BRP-persoonslijst-categorieën -----------------------------------------
@@ -567,8 +567,8 @@ classes:
           Aanduiding van het ouderlijk gezag over een minderjarige.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: BRP cat 11
         comments:
           - >-
@@ -582,8 +582,8 @@ classes:
           gesteld.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: BRP cat 11
 
   Huwelijk:
@@ -621,40 +621,40 @@ classes:
           Onderscheidt huwelijk van geregistreerd partnerschap.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: BRP cat 05
       datumVoltrekking:
         range: DatumIncompleet
         description: De datum waarop de verbintenis is aangegaan.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: BRP cat 05 grp 06
       plaatsVoltrekking:
         range: Tekst
         description: De plaats waar de verbintenis is aangegaan.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: BRP cat 05 grp 06
       landVoltrekking:
         range: CodelijstISO3166
         description: Het land waarin de verbintenis is aangegaan.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: BRP cat 05 grp 06
       datumOntbinding:
         range: DatumIncompleet
         description: De datum waarop de verbintenis is ontbonden.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: BRP cat 05 grp 07
       redenOntbinding:
         range: CodelijstBRP
@@ -663,8 +663,8 @@ classes:
           nietigverklaring).
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: BRP cat 05 grp 07
       partners:
         range: NatuurlijkPersoon
@@ -673,8 +673,8 @@ classes:
         description: Symmetrisch; geen aangaande/partner-onderscheid.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:kardinaliteit: "1 -> 2"
         comments:
           - >-
@@ -712,8 +712,8 @@ classes:
           De datum waarop de persoon zich in Nederland heeft gevestigd.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: BRP cat 08 grp 14
       landVanwaar:
         range: CodelijstISO3166
@@ -722,8 +722,8 @@ classes:
           gevestigd.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: BRP cat 08 grp 14
       landBinnenkomst:
         range: CodelijstISO3166
@@ -732,8 +732,8 @@ classes:
           binnengekomen.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: BRP cat 08 grp 14
 
   Nationaliteit:
@@ -766,8 +766,8 @@ classes:
         description: De nationaliteit zelf, als landcode.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: BRP cat 04 grp 05
         comments:
           - Cross-walk naar LT 32.
@@ -776,8 +776,8 @@ classes:
         description: De reden waarom de nationaliteit is verkregen.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: BRP cat 04 grp 63
         comments:
           - Codelijst LT 37.
@@ -786,8 +786,8 @@ classes:
         description: De reden waarom de nationaliteit is verloren.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: BRP cat 04 grp 64
         comments:
           - Codelijst LT 37.
@@ -796,16 +796,16 @@ classes:
         description: De datum waarop de nationaliteit is verkregen.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: BRP cat 04 grp 63
       datumVerlies:
         range: DatumIncompleet
         description: De datum waarop de nationaliteit is verloren.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: BRP cat 04 grp 64
 
   Verblijfstitel:
@@ -840,8 +840,8 @@ classes:
           De aanduiding van het verblijfsrecht (IND-codelijst).
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: BRP cat 10 grp 39
         comments:
           - Cross-walk naar LT 56.
@@ -851,16 +851,16 @@ classes:
         description: De datum waarop het verblijfsrecht is ingegaan.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: BRP cat 10 grp 39
       datumEinde:
         range: Datum
         description: De datum waarop het verblijfsrecht is geëindigd.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: BRP cat 10 grp 39
 
 enums:

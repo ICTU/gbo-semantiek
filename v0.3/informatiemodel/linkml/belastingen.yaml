@@ -17,7 +17,7 @@
 # - Het wiki-type "Geheel" bestaat niet in datatypes.yaml; hier is
 #   overal Numeriek (geheel getal) gebruikt.
 # - Het MIM-veld "Notation" uit de wiki-tabellen is vastgelegd als
-#   annotatie mim:notation.
+#   annotatie skos:notation.
 # - Alle deelmodel-specifieke codelijsten van deze pagina zijn
 #   inline-enums; dit bestand definieert daarom geen «Codelijst»-typen.
 #   De enige externe codelijst (Codelijst~ISO3166) is stelselbreed en
@@ -41,6 +41,7 @@ prefixes:
   gbo: https://lod.gbo-semantiek.nl/
   gbobegrip: https://begrippen.gbo-semantiek.nl/id/begrip/
   mim: https://lod.gbo-semantiek.nl/def/mim#
+  skos: http://www.w3.org/2004/02/skos/core#
 default_prefix: gbo
 default_range: string
 
@@ -164,7 +165,7 @@ classes:
     exact_mappings:
       - gbobegrip:AangifteIH
     annotations:
-      mim:notation: IH
+      skos:notation: IH
       mim:herkomst: SBR-NT NT20
       mim:herkomstDefinitie: >-
         Wet IB 2001; SBR-NT NT20 entrypoint Aangifte
@@ -216,7 +217,7 @@ classes:
     exact_mappings:
       - gbobegrip:AangifteSchenk
     annotations:
-      mim:notation: Schenk
+      skos:notation: Schenk
       mim:herkomst: SBR-NT NT20
       mim:herkomstDefinitie: Successiewet 1956; SBR-NT NT20 1e extensie.
       mim:datumOpname: "2026-05-19"
@@ -262,7 +263,7 @@ classes:
     exact_mappings:
       - gbobegrip:AangifteErf
     annotations:
-      mim:notation: Erf
+      skos:notation: Erf
       mim:herkomst: SBR-NT NT20
       mim:herkomstDefinitie: Successiewet 1956; SBR-NT NT20 1e extensie.
       mim:datumOpname: "2026-05-19"
@@ -398,7 +399,7 @@ classes:
     exact_mappings:
       - gbobegrip:BankSpaartegoed
     annotations:
-      mim:notation: BS
+      skos:notation: BS
       mim:herkomst: SBR-NT NT20
       mim:herkomstDefinitie: Wet IB 2001 art. 5.3; SBR-NT NT20.
       mim:datumOpname: "2026-05-19"
@@ -446,7 +447,7 @@ classes:
     exact_mappings:
       - gbobegrip:Belegging
     annotations:
-      mim:notation: BE
+      skos:notation: BE
       mim:herkomst: SBR-NT NT20
       mim:herkomstDefinitie: Wet IB 2001 art. 5.3; SBR-NT NT20.
       mim:datumOpname: "2026-05-19"
@@ -483,7 +484,7 @@ classes:
     exact_mappings:
       - gbobegrip:Cryptovaluta
     annotations:
-      mim:notation: CR
+      skos:notation: CR
       mim:herkomst: SBR-NT NT20
       mim:herkomstDefinitie: Wet IB 2001 art. 5.3; SBR-NT NT20.
       mim:datumOpname: "2026-05-19"
@@ -519,7 +520,7 @@ classes:
     exact_mappings:
       - gbobegrip:OnroerendeZaakOverigBezit
     annotations:
-      mim:notation: OZ-overig
+      skos:notation: OZ-overig
       mim:herkomst: SBR-NT NT20
       mim:herkomstDefinitie: Wet IB 2001 art. 5.3; SBR-NT NT20.
       mim:datumOpname: "2026-05-19"
@@ -572,7 +573,7 @@ classes:
     exact_mappings:
       - gbobegrip:Schuld
     annotations:
-      mim:notation: SC
+      skos:notation: SC
       mim:herkomst: SBR-NT NT20
       mim:herkomstDefinitie: >-
         Wet IB 2001 art. 5.3 jo. art. 5.5 (schulddrempel); SBR-NT
@@ -1088,7 +1089,7 @@ classes:
     exact_mappings:
       - gbobegrip:Huurtoeslag
     annotations:
-      mim:notation: HT
+      skos:notation: HT
       mim:herkomst: Awir
       mim:herkomstDefinitie: >-
         Wet op de huurtoeslag; Algemene wet inkomensafhankelijke
@@ -1118,7 +1119,7 @@ classes:
     exact_mappings:
       - gbobegrip:Zorgtoeslag
     annotations:
-      mim:notation: ZT
+      skos:notation: ZT
       mim:herkomst: Awir
       mim:herkomstDefinitie: >-
         Wet op de zorgtoeslag; Awir; SBR-NT NT20 Servicebericht
@@ -1144,7 +1145,7 @@ classes:
     exact_mappings:
       - gbobegrip:KinderopvangToeslag
     annotations:
-      mim:notation: KOT
+      skos:notation: KOT
       mim:herkomst: Awir
       mim:herkomstDefinitie: >-
         Wet kinderopvang; Awir; SBR-NT NT20 Servicebericht Toeslagen.
@@ -1186,7 +1187,7 @@ classes:
     exact_mappings:
       - gbobegrip:KindgebondenBudget
     annotations:
-      mim:notation: KGB
+      skos:notation: KGB
       mim:herkomst: Awir
       mim:herkomstDefinitie: >-
         Wet op het kindgebonden budget; Awir; SBR-NT NT20

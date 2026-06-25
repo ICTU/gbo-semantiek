@@ -1,0 +1,33 @@
+# =============================================================================
+# Brug tussen de GBO-lokale MIM-annotatieproperties (def/mim#) en de
+# officiele MIM-ontologie van Geonovum (BP4MC2, http://bp4mc2.org/def/mim#).
+#
+# GBO houdt de mim:-annotaties voorlopig in een eigen namespace, omdat de
+# MIM-RDF-ontologie nog een werkversie is. Deze brug legt per property de
+# owl:equivalentProperty + rdfs:isDefinedBy, zodat de GBO-LOD nu al
+# traceerbaar is naar MIM en een latere namespace-overstap triviaal wordt.
+#
+# Alleen properties die daadwerkelijk in de MIM-ontologie bestaan zijn
+# gekoppeld. GBO-eigen annotaties zonder MIM-tegenhanger (stereotype,
+# relatienaam, equivalent) blijven ongekoppeld; 'notation' is geen MIM maar
+# skos:notation.
+#
+# Dit fragment wordt door 'task generate:lod' aan GBO-Linked-Data.ttl
+# toegevoegd.
+# =============================================================================
+@prefix gbomim: <https://lod.gbo-semantiek.nl/def/mim#> .
+@prefix mimstd: <http://bp4mc2.org/def/mim#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+
+gbomim:herkomst                   a owl:AnnotationProperty ; owl:equivalentProperty mimstd:herkomst ;                   rdfs:isDefinedBy mimstd: .
+gbomim:herkomstDefinitie          a owl:AnnotationProperty ; owl:equivalentProperty mimstd:herkomstDefinitie ;          rdfs:isDefinedBy mimstd: .
+gbomim:authentiek                 a owl:AnnotationProperty ; owl:equivalentProperty mimstd:authentiek ;                 rdfs:isDefinedBy mimstd: .
+gbomim:indicatieMaterieleHistorie a owl:AnnotationProperty ; owl:equivalentProperty mimstd:indicatieMaterieleHistorie ; rdfs:isDefinedBy mimstd: .
+gbomim:indicatieFormeleHistorie   a owl:AnnotationProperty ; owl:equivalentProperty mimstd:indicatieFormeleHistorie ;   rdfs:isDefinedBy mimstd: .
+gbomim:datumOpname                a owl:AnnotationProperty ; owl:equivalentProperty mimstd:datumOpname ;                rdfs:isDefinedBy mimstd: .
+gbomim:populatie                  a owl:AnnotationProperty ; owl:equivalentProperty mimstd:populatie ;                  rdfs:isDefinedBy mimstd: .
+gbomim:kardinaliteit              a owl:AnnotationProperty ; owl:equivalentProperty mimstd:kardinaliteit ;              rdfs:isDefinedBy mimstd: .
+gbomim:uniekeAanduiding           a owl:AnnotationProperty ; owl:equivalentProperty mimstd:uniekeAanduiding ;           rdfs:isDefinedBy mimstd: .
+gbomim:lengte                     a owl:AnnotationProperty ; owl:equivalentProperty mimstd:lengte ;                     rdfs:isDefinedBy mimstd: .
+gbomim:kwaliteit                  a owl:AnnotationProperty ; owl:equivalentProperty mimstd:kwaliteit ;                  rdfs:isDefinedBy mimstd: .

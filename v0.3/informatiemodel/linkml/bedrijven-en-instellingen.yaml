@@ -86,8 +86,8 @@ classes:
           SBI-codering volgens CBS Standaard Bedrijfsindeling.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: NHR / CBS
         comments:
           - Externe codelijst.
@@ -97,8 +97,8 @@ classes:
         description: Versie van het SBI-codestelsel.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: GBO
         comments:
           - >-
@@ -109,8 +109,8 @@ classes:
         description: Tekstuele toelichting bij de activiteit.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: NHR
         comments:
           - KVK Basisprofiel.
@@ -120,8 +120,8 @@ classes:
         description: Onderscheid tussen hoofd- en nevenactiviteit.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: NHR
         comments:
           - Zie enumeratie SoortActiviteit.
@@ -131,8 +131,8 @@ classes:
           Booleaanse projectie van soortActiviteit = Hoofd.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: NHR
         comments:
           - KVK API-compatibiliteit.
@@ -175,8 +175,8 @@ classes:
         description: Juridische vorm van het bedrijf.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: NHR
         comments:
           - Codelijst zie het type CodelijstKVKBedrijf.
@@ -217,8 +217,8 @@ classes:
         description: Land waarin de entiteit is opgericht.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: NHR
         comments:
           - ISO 3166-codering.
@@ -227,8 +227,8 @@ classes:
         description: Buitenlandse juridische vorm, vrije tekst.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: NHR
         comments:
           - Geen Nederlandse codelijst beschikbaar.
@@ -238,8 +238,8 @@ classes:
         description: Typering van de Nederlandse aanwezigheid.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: GBO
         comments:
           - Zie enumeratie TypeBuitenlandseEntiteit.
@@ -292,8 +292,8 @@ classes:
         annotations:
           mim:lengte: 8
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: NHR
         comments:
           - 8 cijfers.
@@ -302,8 +302,8 @@ classes:
         description: Startdatum van de inschrijving.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: NHR
         comments:
           - KVK-API.
@@ -312,8 +312,8 @@ classes:
         description: Einddatum van de inschrijving.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: NHR
       datumEersteInschrijving:
         range: Datum
@@ -322,8 +322,8 @@ classes:
           geregistreerd.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: NHR
         comments:
           - Immutable.
@@ -334,8 +334,8 @@ classes:
           wijzigingsakte.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: NHR
       documentnummer:
         range: Identificatie
@@ -343,8 +343,8 @@ classes:
           Akte-nummer van de oprichtings- of wijzigingsakte.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: NHR
       heeftVestiging:
         range: Vestiging
@@ -355,8 +355,8 @@ classes:
           precies één hoofdvestiging op enig moment.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "1 -> 1..*"
       heeftNaamgeving:
         range: Naamgeving
@@ -367,8 +367,8 @@ classes:
           Inschrijving.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "1 -> 1..*"
       heeftActiviteit:
         range: Activiteit
@@ -379,8 +379,8 @@ classes:
           classificatie.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "1 -> 1..*"
       heeftRechtstoestand:
         range: Rechtstoestand
@@ -389,8 +389,8 @@ classes:
           Precies één actuele rechtstoestand per Inschrijving.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "1 -> 1"
 
   Instelling:
@@ -433,8 +433,8 @@ classes:
         description: Juridische vorm van de instelling.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: NHR
         comments:
           - Codelijst zie het type CodelijstKVKInstelling.
@@ -490,8 +490,8 @@ classes:
           GBO-eigen sleutel voor de ondernemings-eenheid.
         annotations:
           mim:authentiek: Overig
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: GBO
         comments:
           - >-
@@ -502,16 +502,16 @@ classes:
         description: Aanvangsdatum van de onderneming.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: NHR
       einddatum:
         range: Datum
         description: Beëindigingsdatum van de onderneming.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: NHR
         comments:
           - Open zolang MA actief.
@@ -521,8 +521,8 @@ classes:
           SBI van de hoofdactiviteit van deze onderneming.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: NHR
         comments:
           - Canoniek op MA; hoofdSbiCode op NNP is afgeleid.
@@ -532,8 +532,8 @@ classes:
           Korte beschrijving van de ondernemings-activiteit.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: NHR
       geregistreerdVia:
         range: Inschrijving
@@ -542,8 +542,8 @@ classes:
           Elke MA leidt tot precies één HR-Inschrijving.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:kardinaliteit: "1..* -> 1"
 
   MaatschappelijkeInstelling:
@@ -583,8 +583,8 @@ classes:
           Sectorale typering van de maatschappelijke instelling.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: GBO
         comments:
           - Zie enumeratie TypeMaatschappelijk.
@@ -594,8 +594,8 @@ classes:
         description: ANBI-erkenning door de Belastingdienst.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: Belastingdienst
         comments:
           - Fiscaal-relevant voor giften en vrijstellingen.
@@ -642,8 +642,8 @@ classes:
           Naam zoals vastgelegd in de geregistreerde statuten.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: NHR
         comments:
           - Bij rechtspersonen met statuten.
@@ -653,8 +653,8 @@ classes:
         description: Werknaam onder maatschappelijke activiteit.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: NHR
         comments:
           - Bij rechtspersoon of samenwerkingsverband.
@@ -663,8 +663,8 @@ classes:
         description: Alternatieve benaming.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: NHR
         comments:
           - Bij vereniging, stichting.
@@ -676,8 +676,8 @@ classes:
           buiten treedt.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: NHR
         comments:
           - KVK Naamgeving-API.
@@ -688,8 +688,8 @@ classes:
           Datum vanaf wanneer deze naamrepresentatie geldt.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: NHR
       einddatum:
         range: Datum
@@ -697,8 +697,8 @@ classes:
           Datum tot wanneer deze naamrepresentatie geldt.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: NHR
 
   NietNatuurlijkPersoon:
@@ -754,8 +754,8 @@ classes:
         annotations:
           mim:lengte: 9
           mim:authentiek: Authentiek
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: NHR
         comments:
           - >-
@@ -767,8 +767,8 @@ classes:
         description: Werknaam.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: NHR
         comments:
           - Statutaire naam staat op Naamgeving.
@@ -777,8 +777,8 @@ classes:
         description: Statutaire vestigingsplaats.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: NHR / BRK
         comments:
           - >-
@@ -789,8 +789,8 @@ classes:
         description: Afgeleide SBI-hoofdactiviteit.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: NHR (afgeleid)
         comments:
           - Summary, canoniek op MA.
@@ -800,8 +800,8 @@ classes:
         description: Functionele sector-classificatie.
         annotations:
           mim:authentiek: Overig
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: GBO (afgeleid)
         comments:
           - Zie enumeratie Sector.
@@ -811,8 +811,8 @@ classes:
         description: Binnen- of buitenlandse herkomst.
         annotations:
           mim:authentiek: Overig
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: GBO (afgeleid)
         comments:
           - Zie enumeratie Herkomst.
@@ -822,8 +822,8 @@ classes:
         description: Aansprakelijkheidskarakter van de rechtsvorm.
         annotations:
           mim:authentiek: Overig
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: GBO (afgeleid)
         comments:
           - Zie enumeratie Aansprakelijkheid.
@@ -834,8 +834,8 @@ classes:
         description: Eén NNP voert één of meer ondernemingen.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:kardinaliteit: "1 -> 1..*"
 
   Overheidsinstelling:
@@ -877,8 +877,8 @@ classes:
           Bestuurlijke typering van de overheidsinstelling.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: GBO
         comments:
           - Zie enumeratie TypeOverheid.
@@ -887,8 +887,8 @@ classes:
         description: URI-koppeling naar het TOOI-register.
         annotations:
           mim:authentiek: Landelijk kerngegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: TOOI / KOOP
         comments:
           - >-
@@ -929,8 +929,8 @@ classes:
         description: Reden van plaatsing in deze restcategorie.
         annotations:
           mim:authentiek: Overig
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: GBO
         comments:
           - Verplicht.
@@ -974,16 +974,16 @@ classes:
         description: Geeft aan of de inschrijving actief is.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: NHR
       insolventieCode:
         range: string
         description: Code voor insolventie-omstandigheid.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: NHR
         comments:
           - >-
@@ -995,8 +995,8 @@ classes:
           Ingangsdatum van de insolventie-omstandigheid.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: NHR
       ontbonden:
         range: Indicatie
@@ -1004,8 +1004,8 @@ classes:
         description: Geeft aan of de entiteit is ontbonden.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: NHR
 
   Vestiging:
@@ -1049,8 +1049,8 @@ classes:
         annotations:
           mim:lengte: 12
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: NHR
         comments:
           - 12 cijfers.
@@ -1060,8 +1060,8 @@ classes:
         description: Onderscheid hoofd- en nevenvestiging.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: NHR
         comments:
           - >-
@@ -1073,16 +1073,16 @@ classes:
         description: Startdatum van de vestiging.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: NHR
       datumEinde:
         range: Datum
         description: Einddatum van de vestiging.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: NHR
       adresseerbaarObjectId:
         range: BAGID
@@ -1091,8 +1091,8 @@ classes:
           Adressen en gebouwen.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BAG
         comments:
           - Geen NL-adres betekent geen ID.
@@ -1103,8 +1103,8 @@ classes:
           Locatie-specifieke SBI-uitvoering per vestiging.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "1 -> 0..*"
 
 enums:

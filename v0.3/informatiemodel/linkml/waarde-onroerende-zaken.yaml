@@ -92,8 +92,8 @@ classes:
           WOZ-object.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: LV-WOZ-catalogus
         comments:
           - Eigenaar, Gebruiker, EigenaarEnGebruiker.
@@ -103,8 +103,8 @@ classes:
           Het breukdeel waarmee de partij in de rol deelneemt.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: LV-WOZ-catalogus
         comments:
           - Analoog aan Tenaamstelling.aandeel.
@@ -114,16 +114,16 @@ classes:
         description: Datum waarop de rol is ingegaan.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: LV-WOZ-catalogus
       datumEinde:
         range: Datum
         description: Datum waarop de rol is geëindigd.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: LV-WOZ-catalogus
         comments:
           - Leeg betekent lopend.
@@ -134,8 +134,8 @@ classes:
         annotations:
           mim:relatienaam: van
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "* -> 1"
       isPartij:
         range: Partij
@@ -147,8 +147,8 @@ classes:
         annotations:
           mim:relatienaam: is
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "* -> 1"
         comments:
           - Zie hoofdmodel (Partij-supertype).
@@ -193,16 +193,16 @@ classes:
           Volgnummer van het deelobject binnen het WOZ-object.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: LV-WOZ (StUF-WOZ)
       omschrijving:
         range: Tekst
         description: Korte beschrijving van het deelobject.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: LV-WOZ (StUF-WOZ)
       kentWOZWaarde:
         range: WOZWaarde
@@ -212,8 +212,8 @@ classes:
         annotations:
           mim:relatienaam: kent
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:kardinaliteit: "1 -> 0..*"
 
   WOZObject:
@@ -260,8 +260,8 @@ classes:
         description: WOZ-eigen objectnummer binnen een gemeente.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: LV-WOZ-catalogus
         comments:
           - Niet uniek tussen gemeenten.
@@ -274,8 +274,8 @@ classes:
           objectnummer.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: LV-WOZ-catalogus
         comments:
           - HC-conform; stabiele globale aanduiding.
@@ -286,8 +286,8 @@ classes:
           Gemeente die verantwoordelijk is voor de waardering.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: LV-WOZ-catalogus
         comments:
           - >-
@@ -299,16 +299,16 @@ classes:
           Oppervlakte van de bij het object behorende grond in m².
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: LV-WOZ-catalogus
       gebruikscode:
         range: CodelijstWOZ
         description: Type gebruik van het object.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: LV-WOZ-catalogus
         comments:
           - Woning, winkel, kantoor en dergelijke.
@@ -318,8 +318,8 @@ classes:
         description: Levenscyclus-status van het WOZ-object.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: LV-WOZ-catalogus
         comments:
           - Actief, VervallenVoorWOZ.
@@ -333,8 +333,8 @@ classes:
         annotations:
           mim:relatienaam: kent
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "1 -> 1..*"
       bevat:
         range: WOZDeelobject
@@ -343,8 +343,8 @@ classes:
           Afzonderlijk gewaardeerde onderdelen binnen het hoofdobject.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "1 -> 0..*"
       refereert:
         range: AdresseerbaarObject
@@ -355,8 +355,8 @@ classes:
           WOZ-object vormen.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "1 -> 1..*"
         comments:
           - Zie deelmodel Adressen en gebouwen.
@@ -368,8 +368,8 @@ classes:
           Eén of meer BRK-percelen waarop de fiscale eenheid ligt.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "0..* -> 1..*"
         comments:
           - Zie deelmodel Onroerende zaken.
@@ -430,8 +430,8 @@ classes:
           De vastgestelde waarde van het WOZ-object op de peildatum.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: LV-WOZ-catalogus
       waardepeildatum:
         range: Datum
@@ -439,8 +439,8 @@ classes:
         description: Datum waarnaar de waarde is bepaald.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: LV-WOZ-catalogus
         comments:
           - Typisch 1 januari van het voorgaande jaar.
@@ -450,8 +450,8 @@ classes:
         description: Datum vanaf wanneer de waarde geldigheid heeft.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: LV-WOZ-catalogus
         comments:
           - Materiële geldigheid.
@@ -460,16 +460,16 @@ classes:
         description: Datum waarop de waarde vervalt.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: LV-WOZ-catalogus
       beschikkingsnummer:
         range: Identificatie
         description: Identificatie van de WOZ-beschikking.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: LV-WOZ-catalogus
       statusWOZWaarde:
         range: StatusWOZWaarde
@@ -477,8 +477,8 @@ classes:
         description: Vaststellingsstatus van de waarde.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: LV-WOZ-catalogus
         comments:
           - DefinitiefVastgesteld, VoorlopigVastgesteld, Vervallen.
@@ -491,8 +491,8 @@ classes:
           doorlopen.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: LV-WOZ-catalogus
         comments:
           - HC-conforme rijke modellering.
@@ -504,8 +504,8 @@ classes:
           beschikking.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: LV-WOZ-catalogus
 
 enums:

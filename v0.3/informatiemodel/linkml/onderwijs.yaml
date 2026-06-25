@@ -92,8 +92,8 @@ classes:
           moederinschrijving.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: PvE ROD MBO
       begindatum:
         range: Datum
@@ -101,8 +101,8 @@ classes:
         description: De startdatum van de BPV-periode.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: PvE ROD MBO
       einddatum:
         range: Datum
@@ -110,16 +110,16 @@ classes:
         description: De einddatum van de BPV-periode.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: PvE ROD MBO
       omvangInUren:
         range: Numeriek
         description: De omvang van de BPV-periode in uren.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: PvE ROD MBO
         comments:
           - >-
@@ -132,8 +132,8 @@ classes:
         description: Verwijzing naar het SBB-erkende leerbedrijf.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: PvE ROD MBO
       binnen:
         range: OpleidingDeelname
@@ -142,8 +142,8 @@ classes:
           Componentbinding aan de moeder-OpleidingDeelname (MBO).
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "1 -> 1"
 
   ModuleInschrijving:
@@ -195,8 +195,8 @@ classes:
           instelling.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: PvE ROD HO
         comments:
           - Instelling-eigen sleutel.
@@ -207,8 +207,8 @@ classes:
           De studielast van de onderwijseenheid uitgedrukt in EC.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: PvE ROD HO
       inschrijfdatum:
         range: Datum
@@ -218,16 +218,16 @@ classes:
           heeft ingeschreven.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: PvE ROD HO
       resultaatstatus:
         range: Resultaatstatus
         description: De uitkomst van de moduledeelname.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: PvE ROD HO
       cijfer:
         range: Tekst
@@ -235,8 +235,8 @@ classes:
           Het beoordelingsresultaat in numerieke of pass/fail-vorm.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: PvE ROD HO
         comments:
           - Vorm-afhankelijk per instelling.
@@ -247,8 +247,8 @@ classes:
           Componentbinding aan de moeder-OpleidingDeelname (HO).
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "1 -> 1"
 
   OnderwijsInstelling:
@@ -312,8 +312,8 @@ classes:
           historisch wordt aangeduid.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: RIO en DUO
         comments:
           - Voor sommige sectoren niet uitgegeven.
@@ -326,8 +326,8 @@ classes:
         description: De uitgebreide instellingscode in RIO.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: RIO
       naam:
         range: Tekst
@@ -335,8 +335,8 @@ classes:
         description: De officiële benaming van de instelling.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: RIO
       onderwijssector:
         range: Onderwijssector
@@ -345,8 +345,8 @@ classes:
         description: Sector waarin de instelling actief is.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: RIO
         comments:
           - Een instelling kan in meerdere sectoren actief zijn.
@@ -357,8 +357,8 @@ classes:
           Verwijzing naar de rechtspersoon van het schoolbestuur.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "1 -> 1"
         comments:
           - Zie deelmodel Bedrijven en instellingen.
@@ -368,8 +368,8 @@ classes:
         description: Het aanbod aan opleidingen.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:kardinaliteit: "1 -> 0..*"
 
   Opleiding:
@@ -420,8 +420,8 @@ classes:
         description: De sector-specifieke code van de opleiding.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: RIO of sectorlijst
         comments:
           - >-
@@ -434,8 +434,8 @@ classes:
           uitmaakt.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: GBO-Kern
       opleidingsnaam:
         range: Tekst
@@ -443,8 +443,8 @@ classes:
         description: De officiële benaming van de opleiding.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: RIO
       opleidingsniveau:
         range: CodelijstNLQF
@@ -452,8 +452,8 @@ classes:
           Het kwalificatieniveau op de NLQF-schaal van een tot acht.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: Afgeleide; NCP-NLQF
         comments:
           - Sectoroverstijgende vergelijking.
@@ -463,8 +463,8 @@ classes:
         description: De sector waarin de opleiding wordt aangeboden.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: RIO
       wordtAangebodenDoor:
         range: OnderwijsInstelling
@@ -473,8 +473,8 @@ classes:
         description: De instelling waar de opleiding wordt aangeboden.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:kardinaliteit: "0..* -> 1..*"
 
   OpleidingDeelname:
@@ -523,8 +523,8 @@ classes:
         description: Interne identificatie van de deelname.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: GBO-Kern
       inschrijfdatum:
         range: Datum
@@ -532,16 +532,16 @@ classes:
         description: De datum waarop de deelname is aangevangen.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: PvE ROD per sector
       uitschrijfdatum:
         range: Datum
         description: De datum waarop de deelname is geëindigd.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: PvE ROD per sector
         comments:
           - Leeg zolang de deelname loopt.
@@ -550,8 +550,8 @@ classes:
         description: De reden waarom de deelname is geëindigd.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: PvE ROD per sector
         comments:
           - Sector-specifieke codelijst.
@@ -561,8 +561,8 @@ classes:
         description: Het soort onderwijs binnen de sector.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: PvE ROD per sector
       leerweg:
         range: Leerweg
@@ -571,16 +571,16 @@ classes:
           sector dit hanteert.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: PvE ROD MBO en VO
       cohort:
         range: Numeriek
         description: Het instroomjaar waarmee de deelname is gestart.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: PvE ROD MBO en HO
         comments:
           - Wiki-type Geheel; gemodelleerd als Numeriek (geheel getal).
@@ -590,8 +590,8 @@ classes:
         description: De persoon die de opleiding volgt.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "1 -> 1"
         comments:
           - Zie deelmodel Personen.
@@ -601,8 +601,8 @@ classes:
         description: De opleiding waarvoor is ingeschreven.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "1 -> 1"
       bijInstelling:
         range: OnderwijsInstelling
@@ -610,8 +610,8 @@ classes:
         description: De instelling die het onderwijs verzorgt.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "1 -> 1"
       omvat:
         range: ModuleInschrijving
@@ -620,8 +620,8 @@ classes:
           Onderwijseenheid-inschrijvingen binnen de deelname (HO).
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:kardinaliteit: "1 -> 0..*"
       kent:
         range: BeroepspraktijkvormingPeriode
@@ -629,8 +629,8 @@ classes:
         description: BPV-periodes binnen de deelname (MBO).
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:kardinaliteit: "1 -> 0..*"
       leidtTot:
         range: OpleidingResultaat
@@ -639,8 +639,8 @@ classes:
           Resultaten die uit de deelname zijn voortgekomen.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:kardinaliteit: "0..1 -> 0..*"
 
   OpleidingResultaat:
@@ -690,8 +690,8 @@ classes:
         description: Interne identificatie van het resultaat.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: GBO-Kern
       behaaldatum:
         range: Datum
@@ -699,16 +699,16 @@ classes:
         description: De datum waarop het resultaat is behaald.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: PvE ROD per sector
       diplomasoort:
         range: CodelijstDiplomasoort
         description: De aanduiding van het diploma of bewijsstuk.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: PvE ROD per sector
         comments:
           - Sector-specifieke codelijst.
@@ -718,16 +718,16 @@ classes:
         description: Het type resultaat.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: PvE ROD per sector
       graad:
         range: Tekst
         description: De academische graad bij HO-resultaten.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: PvE ROD HO
         comments:
           - Bachelor, Master of Associate degree.
@@ -737,8 +737,8 @@ classes:
           De afstudeerrichting of track binnen de opleiding.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: PvE ROD HO
       behaaldDoor:
         range: NatuurlijkPersoon
@@ -746,8 +746,8 @@ classes:
         description: De persoon aan wie het resultaat is uitgereikt.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "1 -> 1"
         comments:
           - Zie deelmodel Personen.
@@ -758,8 +758,8 @@ classes:
           De opleiding waarop het resultaat betrekking heeft.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "1 -> 1"
       uitgereiktDoor:
         range: OnderwijsInstelling
@@ -768,8 +768,8 @@ classes:
           De instelling die het resultaat heeft uitgereikt.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "1 -> 1"
       volgtOpDeelname:
         range: OpleidingDeelname
@@ -778,8 +778,8 @@ classes:
           voortgekomen, voor zover bekend.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:kardinaliteit: "0..1 -> 0..1"
 
   VerzuimMelding:
@@ -828,8 +828,8 @@ classes:
         description: Identificatie van de melding.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: PvE ROD VO en MBO
       begindatum:
         range: Datum
@@ -837,16 +837,16 @@ classes:
         description: De eerste verzuim-dag.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: PvE ROD VO en MBO
       einddatum:
         range: Datum
         description: De einddatum van het verzuim.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: PvE ROD VO en MBO
         comments:
           - Leeg zolang het verzuim voortduurt.
@@ -856,16 +856,16 @@ classes:
         description: Het regime waaronder de melding valt.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: PvE ROD VO en MBO
       omvang:
         range: Tekst
         description: Het aantal lesuren of aaneengesloten dagen.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: PvE ROD VO en MBO
         comments:
           - Eenheid hangt af van het regime.
@@ -876,8 +876,8 @@ classes:
           De persoon waarop het verzuim betrekking heeft.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "1 -> 1"
         comments:
           - Zie deelmodel Personen.
@@ -887,8 +887,8 @@ classes:
         description: De instelling die de melding heeft gedaan.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "1 -> 1"
 
   Vooropleiding:
@@ -948,8 +948,8 @@ classes:
         description: De datum waarop de vooropleiding is behaald.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: PvE ROD per sector
         comments:
           - Geërfd van OpleidingResultaat.
@@ -959,8 +959,8 @@ classes:
         description: De aanduiding van het instroom-bewijs.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: PvE ROD per sector
       verstrekkendeInstellingscode:
         range: Tekst
@@ -969,16 +969,16 @@ classes:
           landcode.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: PvE ROD per sector
       landVerwerving:
         range: CodelijstISO3166
         description: Het land waar de vooropleiding is behaald.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: PvE ROD per sector
         comments:
           - NL bij binnenlandse vooropleiding.
@@ -989,8 +989,8 @@ classes:
           vooropleiding teruggrijpt, voor zover aanwezig.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "1 -> 0..1"
         comments:
           - >-
@@ -1004,8 +1004,8 @@ classes:
           is toegestaan.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "1 -> 1"
 
   # --- DUO-administraties zonder formele registratie --------------------------
@@ -1065,16 +1065,16 @@ classes:
         description: De vorm van de tegemoetkoming.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: DUO
       toekenningsbedragMaand:
         range: Bedrag
         description: Het maandelijks toegekende bedrag.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: DUO
         comments:
           - Niet van toepassing voor reisproduct.
@@ -1085,8 +1085,8 @@ classes:
           De datum waarop de tegemoetkoming is ingegaan.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: DUO
       einddatum:
         range: Datum
@@ -1094,8 +1094,8 @@ classes:
           De datum waarop de tegemoetkoming is geëindigd.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: DUO
       status:
         range: Tekst
@@ -1103,8 +1103,8 @@ classes:
         description: Administratieve status van de toekenning.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: DUO
         comments:
           - Toegekend, Ingetrokken, OmgezetInGift.
@@ -1115,8 +1115,8 @@ classes:
           De persoon aan wie de tegemoetkoming is toegekend.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "1 -> 1"
         comments:
           - Zie deelmodel Personen.
@@ -1127,8 +1127,8 @@ classes:
           De opleiding waarbinnen de tegemoetkoming is toegekend.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "0..1 -> 1"
 
   StudieLening:
@@ -1198,8 +1198,8 @@ classes:
           Het bedrag dat nog openstaat ter terugbetaling.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: DUO via burgerinzage
         comments:
           - Per peildatum.
@@ -1208,8 +1208,8 @@ classes:
         description: Het maandelijkse aflosbedrag.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: DUO via burgerinzage
         comments:
           - Pas relevant na aanvang aflosfase.
@@ -1219,8 +1219,8 @@ classes:
         description: De volledige aflostermijn in maanden.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: Afgeleid uit leenstelsel-cohort
         comments:
           - >-
@@ -1232,8 +1232,8 @@ classes:
         description: De resterende aflostermijn in maanden.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: DUO via burgerinzage
         comments:
           - Pas relevant na aanvang aflosfase.
@@ -1245,8 +1245,8 @@ classes:
           Het regime waaronder de lening is opgebouwd.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: DUO
       renteregime:
         range: Tekst
@@ -1254,8 +1254,8 @@ classes:
           Het renteregime dat op de lening van toepassing is.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: DUO
         comments:
           - Vast of variabel, cohort-afhankelijk.
@@ -1266,8 +1266,8 @@ classes:
           De (oud-)student aan wie de lening is toegekend.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "1 -> 1"
         comments:
           - Zie deelmodel Personen.

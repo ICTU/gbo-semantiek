@@ -76,8 +76,8 @@ classes:
         annotations:
           mim:lengte: 8
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: RDW Kentekenregister
         comments:
           - Notatie met streepjes, bijvoorbeeld 12-ABC-3.
@@ -90,8 +90,8 @@ classes:
         annotations:
           mim:lengte: 17
           mim:authentiek: Authentiek
-          mim:materieleHistorie: false
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: RDW Kentekenregister / ISO 3779
         comments:
           - Stabiel over de levensloop; kenteken kan wijzigen, VIN niet.
@@ -101,8 +101,8 @@ classes:
         description: Soort voertuig volgens de RDW-indeling.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: RDW Kentekenregister
         comments:
           - Zie enumeratie Voertuigsoort.
@@ -112,8 +112,8 @@ classes:
         description: Merk van het voertuig.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: RDW Kentekenregister
         comments:
           - Open lijst; door de RDW beheerd.
@@ -124,8 +124,8 @@ classes:
         annotations:
           mim:lengte: 40
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: RDW Kentekenregister
       europeseVoertuigcategorie:
         range: CodelijstEUVoertuigcategorie
@@ -133,8 +133,8 @@ classes:
           Europese voertuigcategorie (bijvoorbeeld M1, N1, L3e, O1).
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: EU 2018/858 / EU 168/2013
       datumEersteToelating:
         range: Datum
@@ -144,8 +144,8 @@ classes:
           wereld) tot het verkeer is toegelaten.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: RDW Kentekenregister
       datumEersteTenaamstellingNederland:
         range: Datum
@@ -154,8 +154,8 @@ classes:
           Nederland.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: RDW Kentekenregister
       brandstof:
         range: Brandstof
@@ -166,8 +166,8 @@ classes:
           bij hybride aandrijving.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: RDW Kentekenregister
         comments:
           - Zie enumeratie Brandstof.
@@ -177,8 +177,8 @@ classes:
         annotations:
           mim:lengte: 5
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: RDW Kentekenregister
       massaLedigVoertuig:
         range: Numeriek
@@ -186,8 +186,8 @@ classes:
         annotations:
           mim:lengte: 6
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: RDW Kentekenregister
       toegestaneMaximumMassa:
         range: Numeriek
@@ -195,8 +195,8 @@ classes:
         annotations:
           mim:lengte: 6
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: RDW Kentekenregister
       aantalZitplaatsen:
         range: Numeriek
@@ -204,8 +204,8 @@ classes:
         annotations:
           mim:lengte: 2
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: RDW Kentekenregister
       eersteKleur:
         range: Tekst
@@ -213,8 +213,8 @@ classes:
         annotations:
           mim:lengte: 20
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: RDW Kentekenregister
       vervaldatumApk:
         range: Datum
@@ -223,8 +223,8 @@ classes:
           voertuig verloopt.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: RDW Kentekenregister
       voertuigstatus:
         range: Voertuigstatus
@@ -232,8 +232,8 @@ classes:
         description: Administratieve status van het voertuig.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: RDW Kentekenregister
         comments:
           - Zie enumeratie Voertuigstatus.
@@ -246,8 +246,8 @@ classes:
         annotations:
           mim:relatienaam: heeft
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "1 -> 0..*"
 
   Voertuigtenaamstelling:
@@ -295,8 +295,8 @@ classes:
           houder of beide.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: RDW Kentekenregister
         comments:
           - Zie enumeratie Tenaamstellingsrol.
@@ -306,16 +306,16 @@ classes:
         description: Datum waarop de tenaamstelling is ingegaan.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: RDW Kentekenregister
       datumEinde:
         range: Datum
         description: Datum waarop de tenaamstelling is geëindigd.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: RDW Kentekenregister
         comments:
           - Leeg betekent lopend.
@@ -325,8 +325,8 @@ classes:
         description: De partij die als eigenaar en/of houder is geregistreerd.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "* -> 1"
         comments:
           - Zie hoofdmodel (Partij-supertype).
@@ -337,8 +337,8 @@ classes:
         annotations:
           mim:relatienaam: voor
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "* -> 1"
 
 enums:

@@ -76,8 +76,8 @@ classes:
         description: GBO-eigen sleutel voor één adres-instantie.
         annotations:
           mim:authentiek: Overig
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: GBO
         comments:
           - >-
@@ -89,8 +89,8 @@ classes:
           Gedenormaliseerde, leesbare projectie van het adres.
         annotations:
           mim:authentiek: Overig
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: GBO (afgeleid)
         comments:
           - Pre-formatted leesregel; afgeleid uit subtype-attributen.
@@ -127,8 +127,8 @@ classes:
         annotations:
           mim:lengte: 80
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: BAG (afgeleid OpenbareRuimte)
         comments:
           - Authentiek op OR-bron, hier gedenormaliseerd.
@@ -139,32 +139,32 @@ classes:
         annotations:
           mim:lengte: 5
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: BAG (Nummeraanduiding)
       huisletter:
         range: Tekst
         description: De huisletter bij het huisnummer.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: BAG (Nummeraanduiding)
       huisnummertoevoeging:
         range: Tekst
         description: De huisnummertoevoeging (bv. 2hg, bis).
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: BAG (Nummeraanduiding)
       postcode:
         range: Postcode
         description: De postcode behorend bij het huisnummer.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: BAG (Nummeraanduiding)
         comments:
           - Eigen op NA, niet afgeleid van OR.
@@ -175,8 +175,8 @@ classes:
         annotations:
           mim:lengte: 80
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: BAG (afgeleid Woonplaats)
       wordtGevormdDoor:
         range: Nummeraanduiding
@@ -185,8 +185,8 @@ classes:
           Spiegel van Nummeraanduiding vormt Binnenlandsadres.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:kardinaliteit: "1 -> 1"
 
   Buitenlandsadres:
@@ -218,24 +218,24 @@ classes:
         description: Eerste regel van het buitenlandse adres.
         annotations:
           mim:authentiek: Overig
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: GBO / BRP
       adresregel2:
         range: Tekst
         description: Tweede regel van het buitenlandse adres.
         annotations:
           mim:authentiek: Overig
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: GBO / BRP
       adresregel3:
         range: Tekst
         description: Derde regel van het buitenlandse adres.
         annotations:
           mim:authentiek: Overig
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: GBO / BRP
       land:
         range: CodelijstISO3166
@@ -243,8 +243,8 @@ classes:
         description: Landaanduiding volgens ISO 3166.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: ISO 3166 / LT34
         comments:
           - Cross-walk LT34 (BRP).
@@ -279,8 +279,8 @@ classes:
         description: Vrije tekstuele omschrijving van de locatie.
         annotations:
           mim:authentiek: Overig
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: GBO
         comments:
           - Max 255 tekens.
@@ -289,8 +289,8 @@ classes:
         description: Landaanduiding volgens ISO 3166.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: ISO 3166 / LT34
         comments:
           - Default NL als omschrijving een NL-locatie betreft.
@@ -324,16 +324,16 @@ classes:
         description: Het postbus- of antwoordnummer.
         annotations:
           mim:authentiek: Overig
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: GBO / PostNL
       postcode:
         range: Postcode
         description: Postcode behorend bij het postadres.
         annotations:
           mim:authentiek: Overig
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: GBO / PostNL
         comments:
           - Pattern [1-9][0-9]{3}[A-Z]{2}.
@@ -344,8 +344,8 @@ classes:
         annotations:
           mim:lengte: 80
           mim:authentiek: Overig
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: GBO / PostNL
       soortPostadres:
         range: SoortPostadres
@@ -353,8 +353,8 @@ classes:
         description: Type postadres.
         annotations:
           mim:authentiek: Overig
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: GBO
         comments:
           - Zie Enumeraties.
@@ -390,8 +390,8 @@ classes:
           werd.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: BRP cat 08
 
   # --- BAG-objecten -----------------------------------------------------------
@@ -444,8 +444,8 @@ classes:
           NEN 3610.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: BAG-Catalogus 2018
         comments:
           - >-
@@ -459,8 +459,8 @@ classes:
           of Standplaats.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: BAG-Catalogus 2018
         comments:
           - >-
@@ -474,8 +474,8 @@ classes:
         annotations:
           mim:relatienaam: heeft
           mim:authentiek: Authentiek
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:kardinaliteit: "1 -> 1..*"
       ligtInBuurt:
         range: Buurt
@@ -485,8 +485,8 @@ classes:
         annotations:
           mim:relatienaam: ligtIn
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:kardinaliteit: "1 -> 1"
 
   Ligplaats:
@@ -520,8 +520,8 @@ classes:
         description: Levenscyclus-status van de ligplaats.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BAG-Catalogus 2018
         comments:
           - Plaats-stack; zie Enumeraties.
@@ -531,8 +531,8 @@ classes:
         description: Vlakke begrenzing van de ligplaats.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BAG-Catalogus 2018
         comments:
           - CRS RD-New EPSG:28992.
@@ -578,8 +578,8 @@ classes:
           NEN 3610.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BAG-Catalogus 2018
         comments:
           - In KVK/HR-API als nummerAanduidingId.
@@ -592,16 +592,16 @@ classes:
         annotations:
           mim:lengte: 5
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BAG-Catalogus 2018
       huisletter:
         range: Tekst
         description: Letter ter onderscheid binnen één huisnummer.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BAG-Catalogus 2018
         comments:
           - Eén letter (A-Z).
@@ -611,16 +611,16 @@ classes:
           Vrije aanvulling op huisnummer en huisletter (bv. 2hg, bis).
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BAG-Catalogus 2018
       postcode:
         range: Postcode
         description: Postcode behorend bij het huisnummer.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BAG-Catalogus 2018
         comments:
           - Pattern [1-9][0-9]{3}[A-Z]{2}.
@@ -632,8 +632,8 @@ classes:
           (Verblijfsobject, Ligplaats of Standplaats).
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BAG-Catalogus 2018
         comments:
           - HC-conform Pakket G; replica van discriminator.
@@ -643,8 +643,8 @@ classes:
         description: Levenscyclus-status van de nummeraanduiding.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BAG-Catalogus 2018
         comments:
           - Zie Enumeraties.
@@ -656,8 +656,8 @@ classes:
         annotations:
           mim:relatienaam: in
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "* -> 1"
       vormt:
         range: Binnenlandsadres
@@ -667,8 +667,8 @@ classes:
           Binnenlandsadres-instantie.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "1 -> 1"
 
   Pand:
@@ -711,8 +711,8 @@ classes:
         description: Unieke identificatie van het pand volgens NEN 3610.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BAG-Catalogus 2018
       oorspronkelijkBouwjaar:
         range: Jaar
@@ -720,8 +720,8 @@ classes:
         description: Jaar van eerste oplevering van het pand.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BAG-Catalogus 2018
         comments:
           - Bij verbouwing ongewijzigd.
@@ -731,8 +731,8 @@ classes:
         description: Levenscyclus-status van het pand.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BAG-Catalogus 2018
         comments:
           - Zie Enumeraties.
@@ -742,8 +742,8 @@ classes:
         description: Bovenaanzicht-geometrie van het pand.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BAG-Catalogus 2018
         comments:
           - CRS RD-New EPSG:28992.
@@ -781,8 +781,8 @@ classes:
         description: Levenscyclus-status van de standplaats.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BAG-Catalogus 2018
         comments:
           - Plaats-stack; zie Enumeraties.
@@ -792,8 +792,8 @@ classes:
         description: Vlakke begrenzing van de standplaats.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BAG-Catalogus 2018
         comments:
           - CRS RD-New EPSG:28992.
@@ -839,8 +839,8 @@ classes:
           gemeentelijk besluit.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BAG-Catalogus 2018
         comments:
           - Meervoudig per VBO toegestaan; zie Enumeraties.
@@ -853,8 +853,8 @@ classes:
         annotations:
           mim:lengte: 6
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BAG-Catalogus 2018
       aantalKamers:
         range: Numeriek
@@ -863,8 +863,8 @@ classes:
         annotations:
           mim:lengte: 2
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: GGM v2.5.0 (BAG-projectie)
         comments:
           - Alleen relevant bij Woonfunctie.
@@ -875,8 +875,8 @@ classes:
           Bijzonder woongebouw).
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: GGM v2.5.0 (BAG-projectie)
         comments:
           - Alleen bij gebruiksdoel Woonfunctie.
@@ -886,8 +886,8 @@ classes:
         description: Levenscyclus-status van het verblijfsobject.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BAG-Catalogus 2018
         comments:
           - Zie Enumeraties.
@@ -899,8 +899,8 @@ classes:
           (verblijfsobjectpunt).
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BAG-Catalogus 2018
         comments:
           - CRS RD-New EPSG:28992.
@@ -914,8 +914,8 @@ classes:
         annotations:
           mim:relatienaam: in
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "1..* -> 1..*"
 
   # --- Administratieve indeling -----------------------------------------------
@@ -957,8 +957,8 @@ classes:
         description: CBS-buurtcode binnen de Wijk- en Buurtkaart.
         annotations:
           mim:authentiek: Landelijk kerngegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: CBS
         comments:
           - Jaarlijks herzien.
@@ -969,8 +969,8 @@ classes:
         annotations:
           mim:lengte: 40
           mim:authentiek: Landelijk kerngegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: CBS
       geometrie:
         range: Vlak
@@ -978,8 +978,8 @@ classes:
         description: Vlakke begrenzing van de buurt.
         annotations:
           mim:authentiek: Landelijk kerngegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: CBS
         comments:
           - Jaarlijks herzien.
@@ -990,8 +990,8 @@ classes:
         annotations:
           mim:relatienaam: in
           mim:authentiek: Landelijk kerngegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "* -> 1"
 
   Gemeente:
@@ -1027,8 +1027,8 @@ classes:
         description: Door de Rijksoverheid vastgestelde gemeentecode.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: LT33 (BRP-tabel)
         comments:
           - 4-cijferige code.
@@ -1039,8 +1039,8 @@ classes:
         annotations:
           mim:lengte: 80
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: LT33
       geometrie:
         range: Vlak
@@ -1048,8 +1048,8 @@ classes:
         description: Vlakke begrenzing van de gemeente.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: CBS / Kadaster
 
   OpenbareRuimte:
@@ -1090,8 +1090,8 @@ classes:
           NEN 3610.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BAG-Catalogus 2018
       naamOpenbareRuimte:
         range: Tekst
@@ -1100,8 +1100,8 @@ classes:
         annotations:
           mim:lengte: 80
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BAG-Catalogus 2018
       korteNaam:
         range: Tekst
@@ -1110,8 +1110,8 @@ classes:
         annotations:
           mim:lengte: 24
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BAG / NEN 5825
         comments:
           - Voor smalle weergaves (navigatie, etiketten).
@@ -1121,8 +1121,8 @@ classes:
         description: Aanduiding van het soort openbare ruimte.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BAG-Catalogus 2018
         comments:
           - Zie Enumeraties.
@@ -1132,8 +1132,8 @@ classes:
         description: Levenscyclus-status van de openbare ruimte.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BAG-Catalogus 2018
         comments:
           - Zie Enumeraties.
@@ -1143,8 +1143,8 @@ classes:
         description: Geometrische begrenzing als lijn of vlak.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BAG-Catalogus 2018
         comments:
           - CRS RD-New EPSG:28992.
@@ -1156,8 +1156,8 @@ classes:
         annotations:
           mim:relatienaam: in
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "* -> 1"
 
   Wijk:
@@ -1190,8 +1190,8 @@ classes:
         description: CBS-wijkcode binnen de Wijk- en Buurtkaart.
         annotations:
           mim:authentiek: Landelijk kerngegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: CBS
         comments:
           - Jaarlijks herzien.
@@ -1202,8 +1202,8 @@ classes:
         annotations:
           mim:lengte: 40
           mim:authentiek: Landelijk kerngegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: CBS
       geometrie:
         range: Vlak
@@ -1211,8 +1211,8 @@ classes:
         description: Vlakke begrenzing van de wijk.
         annotations:
           mim:authentiek: Landelijk kerngegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: CBS
         comments:
           - Jaarlijks herzien.
@@ -1224,8 +1224,8 @@ classes:
         annotations:
           mim:relatienaam: in
           mim:authentiek: Landelijk kerngegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "* -> 1"
 
   Woonplaats:
@@ -1264,8 +1264,8 @@ classes:
           Unieke identificatie van de woonplaats volgens NEN 3610.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BAG-Catalogus 2018
       woonplaatsnaam:
         range: Tekst
@@ -1274,8 +1274,8 @@ classes:
         annotations:
           mim:lengte: 80
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BAG-Catalogus 2018
       status:
         range: StatusWoonplaats
@@ -1283,8 +1283,8 @@ classes:
         description: Levenscyclus-status van de woonplaats.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BAG-Catalogus 2018
         comments:
           - Zie Enumeraties.
@@ -1294,8 +1294,8 @@ classes:
         description: Vlakke begrenzing van de woonplaats.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BAG-Catalogus 2018
         comments:
           - CRS RD-New EPSG:28992.
@@ -1306,8 +1306,8 @@ classes:
         annotations:
           mim:relatienaam: in
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "* -> 1"
 
 enums:

@@ -80,8 +80,8 @@ classes:
           verplichting of bewindstelling.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRK-Catalogus
         comments:
           - Codelijst-waarden afgeleid van BRK.
@@ -91,8 +91,8 @@ classes:
           Korte vrije omschrijving van de inhoud van de aantekening.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRK-Catalogus
       datumIngang:
         range: Datum
@@ -101,8 +101,8 @@ classes:
           Datum waarop de aantekening van kracht is geworden.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRK-Catalogus
       opKadastraleOnroerendeZaak:
         range: KadastraleOnroerendeZaak
@@ -112,8 +112,8 @@ classes:
         annotations:
           mim:relatienaam: op
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "* -> 1"
 
   Appartementsrecht:
@@ -166,8 +166,8 @@ classes:
           privégedeelte aanduidt.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRK-Catalogus
         comments:
           - >-
@@ -180,8 +180,8 @@ classes:
           met het appartementsrecht samenvalt.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "0..1 -> 0..1"
         comments:
           - Zie deelmodel Adressen en gebouwen.
@@ -217,8 +217,8 @@ classes:
         description: Verwijzing naar de notariële splitsingsakte.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: BRK-Catalogus
       datumSplitsing:
         range: Datum
@@ -227,8 +227,8 @@ classes:
           Datum waarop de splitsing rechtsgeldig is geworden.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: BRK-Catalogus
       documentdatum:
         range: Datum
@@ -236,8 +236,8 @@ classes:
         description: Datum van het verlijden van de splitsingsakte.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: BRK-Catalogus
       documentnummer:
         identifier: true
@@ -246,8 +246,8 @@ classes:
         description: Identificatie van de splitsingsakte.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:herkomst: BRK-Catalogus
       splitstIn:
         range: Appartementsrecht
@@ -257,8 +257,8 @@ classes:
           Appartementsrechten die door de splitsing ontstaan.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:kardinaliteit: "1 -> 1..*"
       opPerceel:
         range: Perceel
@@ -269,8 +269,8 @@ classes:
         annotations:
           mim:relatienaam: op
           mim:authentiek: Authentiek
-          mim:materieleHistorie: false
-          mim:formeleHistorie: false
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
           mim:kardinaliteit: "1 -> 1..*"
 
   KadastraleOnroerendeZaak:
@@ -313,8 +313,8 @@ classes:
         description: Objectidentificatie volgens NEN 3610.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRK-Catalogus
         comments:
           - Stabiel identificerend over de levensloop heen.
@@ -326,8 +326,8 @@ classes:
           perceelnummer / eventueel indexnummer).
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRK-Catalogus
         comments:
           - Menselijk leesbare aanduiding.
@@ -337,8 +337,8 @@ classes:
         description: Kwaliteit van de geometrische afbakening.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRK-Catalogus
         comments:
           - Zie enumeratie SoortGrootte.
@@ -349,8 +349,8 @@ classes:
           Levensfase-status van de kadastrale onroerende zaak.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRK-Catalogus
         comments:
           - Zie enumeratie KOZStatus.
@@ -399,8 +399,8 @@ classes:
         description: Kadastrale gemeente waarin het perceel ligt.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRK-Catalogus
         comments:
           - Kadasterwet-codering.
@@ -410,8 +410,8 @@ classes:
         description: Sectie-letter binnen de kadastrale gemeente.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRK-Catalogus
       perceelnummer:
         range: Numeriek
@@ -419,16 +419,16 @@ classes:
         description: Volgnummer van het perceel binnen de sectie.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRK-Catalogus
       oppervlakte:
         range: Numeriek
         description: Kadastrale oppervlakte in vierkante meters.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRK-Catalogus
         aliases:
           - grootte
@@ -481,8 +481,8 @@ classes:
           Unieke beperking-identificatie volgens NEN 3610.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRK-Catalogus
       typeBeperking:
         range: TypePubliekrechtelijkeBeperking
@@ -490,8 +490,8 @@ classes:
         description: Type van de publiekrechtelijke beperking.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRK-Catalogus
         comments:
           - Zie enumeratie TypePubliekrechtelijkeBeperking.
@@ -500,8 +500,8 @@ classes:
         description: Korte vrije omschrijving van de beperking.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRK-Catalogus
       grondslag:
         range: Tekst
@@ -509,8 +509,8 @@ classes:
         description: Wettelijke grondslag (artikel + wet).
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRK-Catalogus
       datumIngang:
         range: Datum
@@ -518,16 +518,16 @@ classes:
         description: Datum waarop de beperking is ingegaan.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRK-Catalogus
       datumEinde:
         range: Datum
         description: Datum waarop de beperking is beëindigd.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRK-Catalogus
         comments:
           - Leeg betekent lopend.
@@ -537,8 +537,8 @@ classes:
         description: Datum van het brondocument (bestuursbesluit).
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRK-Catalogus
       documentnummer:
         range: Identificatie
@@ -546,8 +546,8 @@ classes:
         description: Identificatie van het brondocument.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRK-Catalogus
       opKadastraleOnroerendeZaak:
         range: KadastraleOnroerendeZaak
@@ -557,8 +557,8 @@ classes:
         annotations:
           mim:relatienaam: op
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "* -> 1"
 
   Tenaamstelling:
@@ -614,8 +614,8 @@ classes:
           breuk.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRK-Catalogus
         comments:
           - Bijvoorbeeld 1/2, 1/3, 1/1.
@@ -626,8 +626,8 @@ classes:
           een echtpaar in gemeenschap van goederen).
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRK-Catalogus
       datumIngang:
         range: Datum
@@ -635,16 +635,16 @@ classes:
         description: Datum waarop de tenaamstelling is ingegaan.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRK-Catalogus
       datumEinde:
         range: Datum
         description: Datum waarop de tenaamstelling is geëindigd.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRK-Catalogus
         comments:
           - Leeg betekent lopend.
@@ -654,8 +654,8 @@ classes:
         description: Rechthebbende partij.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "* -> 1"
         comments:
           - Zie hoofdmodel (Partij-supertype).
@@ -666,8 +666,8 @@ classes:
         annotations:
           mim:relatienaam: voor
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "* -> 1"
 
   ZakelijkRecht:
@@ -712,8 +712,8 @@ classes:
         description: Objectidentificatie van het zakelijk recht.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRK-Catalogus
       aardZakelijkRecht:
         range: AardZakelijkRecht
@@ -721,8 +721,8 @@ classes:
         description: Vorm van het zakelijk recht.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRK-Catalogus
         comments:
           - Zie enumeratie AardZakelijkRecht.
@@ -733,8 +733,8 @@ classes:
           Verwijzing naar de notariële akte van vestiging.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRK-Catalogus
       datumIngang:
         range: Datum
@@ -742,16 +742,16 @@ classes:
         description: Datum waarop het recht is ingegaan.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRK-Catalogus
       datumEinde:
         range: Datum
         description: Datum waarop het recht is geëindigd.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRK-Catalogus
         comments:
           - Leeg betekent lopend.
@@ -761,8 +761,8 @@ classes:
         description: Datum van de vestigings- of wijzigingsakte.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRK-Catalogus
       documentnummer:
         range: Identificatie
@@ -770,8 +770,8 @@ classes:
         description: Akte-identificatie.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRK-Catalogus
       opKadastraleOnroerendeZaak:
         range: KadastraleOnroerendeZaak
@@ -782,8 +782,8 @@ classes:
         annotations:
           mim:relatienaam: op
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "1 -> 1..*"
 
   Zekerheidsrecht:
@@ -822,8 +822,8 @@ classes:
         description: Type van het zekerheidsrecht.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRK-Catalogus
         comments:
           - Zie enumeratie TypeZekerheidsrecht.
@@ -833,8 +833,8 @@ classes:
           Bedrag waarvoor het zekerheidsrecht is gevestigd.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRK-Catalogus
         comments:
           - >-
@@ -847,16 +847,16 @@ classes:
           Datum waarop het zekerheidsrecht is gevestigd.
         annotations:
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRK-Catalogus
       aardBeslag:
         range: AardBeslag
         description: Aard van het beslag.
         annotations:
           mim:authentiek: Basisgegeven
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:herkomst: BRK-Catalogus
         comments:
           - >-
@@ -871,8 +871,8 @@ classes:
         annotations:
           mim:relatienaam: op
           mim:authentiek: Authentiek
-          mim:materieleHistorie: true
-          mim:formeleHistorie: true
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
           mim:kardinaliteit: "1 -> 1..*"
 
 enums:

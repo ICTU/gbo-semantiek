@@ -33,6 +33,7 @@ prefixes:
   gbo: https://lod.gbo-semantiek.nl/
   gbobegrip: https://begrippen.gbo-semantiek.nl/id/begrip/
   mim: https://lod.gbo-semantiek.nl/def/mim#
+  skos: http://www.w3.org/2004/02/skos/core#
 default_prefix: gbo
 default_range: string
 
@@ -208,7 +209,7 @@ classes:
       mim:herkomst: SGR cluster Uitkering
       mim:herkomstDefinitie: Werkloosheidswet hoofdstukken II en III.
       mim:datumOpname: "2026-05-19"
-      mim:notation: WW
+      skos:notation: WW
       mim:populatie: >-
         Alle door UWV aan werkloze werknemers toegekende
         WW-uitkeringen ter vervanging van weggevallen loon, op grond
@@ -254,7 +255,7 @@ classes:
       mim:herkomst: SGR cluster Uitkering
       mim:herkomstDefinitie: Ziektewet.
       mim:datumOpname: "2026-05-19"
-      mim:notation: ZW
+      skos:notation: ZW
       mim:populatie: >-
         Alle door UWV toegekende ZW-uitkeringen aan zieke werknemers
         en vangnetters (uitzendkrachten, oproepkrachten, werklozen,
@@ -294,7 +295,7 @@ classes:
       mim:herkomst: SGR cluster Uitkering
       mim:herkomstDefinitie: Wet WIA.
       mim:datumOpname: "2026-05-19"
-      mim:notation: WIA
+      skos:notation: WIA
       mim:populatie: >-
         Alle door UWV toegekende WIA-uitkeringen aan werknemers die na
         de wachttijd van twee jaar ziekte gedeeltelijk of volledig
@@ -333,7 +334,7 @@ classes:
       mim:herkomst: SGR cluster Uitkering
       mim:herkomstDefinitie: Wet WIA hoofdstuk IV (IVA-regeling).
       mim:datumOpname: "2026-05-19"
-      mim:notation: IVA
+      skos:notation: IVA
       mim:populatie: >-
         Alle door UWV toegekende IVA-uitkeringen aan werknemers die
         duurzaam minder dan twintig procent van hun oude loon kunnen
@@ -371,7 +372,7 @@ classes:
       mim:herkomst: SGR cluster Uitkering
       mim:herkomstDefinitie: Wet WIA hoofdstuk VII (WGA-regeling).
       mim:datumOpname: "2026-05-19"
-      mim:notation: WGA
+      skos:notation: WGA
       mim:populatie: >-
         Alle door UWV toegekende WGA-uitkeringen aan werknemers die 35
         tot 80 procent arbeidsongeschikt zijn, of volledig maar niet
@@ -417,7 +418,7 @@ classes:
         Wajong (drie generaties: oude Wajong, Wajong 2010,
         Wajong 2015).
       mim:datumOpname: "2026-05-19"
-      mim:notation: Wajong
+      skos:notation: Wajong
       mim:populatie: >-
         Alle door UWV toegekende Wajong-uitkeringen aan
         jonggehandicapten, verdeeld over de drie generaties oude
@@ -454,7 +455,7 @@ classes:
       mim:herkomst: SGR (ontsluiting); SVB (uitvoering)
       mim:herkomstDefinitie: Algemene Ouderdomswet (AOW).
       mim:datumOpname: "2026-05-19"
-      mim:notation: AOW
+      skos:notation: AOW
       mim:populatie: >-
         Alle door SVB op grond van de Algemene Ouderdomswet toegekende
         periodieke uitkeringen aan natuurlijke personen vanaf de
