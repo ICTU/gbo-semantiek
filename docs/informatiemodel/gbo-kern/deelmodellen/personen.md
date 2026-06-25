@@ -126,7 +126,7 @@ objecttype.
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| **`bsn`** | [Numeriek9](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Authentiek | Ja | Ja | Het door de Beheervoorziening BSN uitgegeven persoonsnummer. | BRP cat 01 grp 01 | Geërfd van NatuurlijkPersoon; in de BRP-laag verplicht (1). |
+| (../datatypes-en-codelijsten.md#aanvullende-datatypes) | 1 | Authentiek | Ja | Ja | Het door de Beheervoorziening BSN uitgegeven persoonsnummer. | BRP cat 01 grp 01 | Geërfd van NatuurlijkPersoon; in de BRP-laag verplicht (1). |
 | `aNummer` | [Alfanumeriek10](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Ja | Ja | Het interne BRP-administratienummer. | BRP cat 01 grp 01 | Intern BRP, niet als externe identifier gebruikt. |
 | `tin` | [Alfanumeriek](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Ja | Ja | Het persoonsnummer dat een ander land aan deze persoon heeft toegekend. | BRP cat 04 grp 73 | Alleen aanwezig binnen een EU-nationaliteit-stapel. |
 | `datumEersteInschrijving` | [DatumIncompleet](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 0..1 | Basisgegeven | Ja | Ja | De datum waarop deze persoon voor het eerst in de BRP werd opgenomen. | BRP cat 07 grp 67 | |
@@ -218,7 +218,7 @@ contextvelden kent buiten datum, plaats en land.
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| **`bsn`** | [Numeriek9](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Nee | Nee | Het door de Beheervoorziening BSN uitgegeven persoonsnummer. | BRP cat 01 grp 01 | Identificerend kenmerk; afwezig bij een nooit-geregistreerde persoon, op subtype IngeschrevenPersoon verplicht. |
+| (../datatypes-en-codelijsten.md#aanvullende-datatypes) | 0..1 | Basisgegeven | Nee | Nee | Het door de Beheervoorziening BSN uitgegeven persoonsnummer. | BRP cat 01 grp 01 | Identificerend kenmerk; afwezig bij een nooit-geregistreerde persoon, op subtype IngeschrevenPersoon verplicht. |
 | `geslachtsnaam` | [Tekst](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Basisgegeven | Nee | Nee | De officiële familienaam van de persoon. | BRP cat 01 grp 02 | Verplicht; zonder geslachtsnaam geen NatuurlijkPersoon. |
 | `voornamen` | [Tekst](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Nee | Nee | Alle officiële voornamen van de persoon. | BRP cat 01 grp 02 | |
 | `voorvoegsel` | [Tekst](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Nee | Nee | Het voorvoegsel bij de geslachtsnaam. | BRP cat 01 grp 02 | Alias: `voorvoegselGeslachtsnaam` (BRP-LO-elementnaam). Conform [`Codelijst~LT36`](#codelijsten) als validatie. |

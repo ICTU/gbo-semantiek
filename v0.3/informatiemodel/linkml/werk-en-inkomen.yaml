@@ -83,7 +83,7 @@ classes:
     attributes:
       identificatie:
         identifier: true
-        range: Tekst
+        range: Identificatie
         required: true
         description: Interne identificatie.
         annotations:

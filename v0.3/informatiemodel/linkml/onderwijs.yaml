@@ -306,7 +306,7 @@ classes:
           niet uitgegeven.
     attributes:
       brincode:
-        range: Alfanumeriek
+        range: BRINcode
         description: >-
           De vier-tekens-code waarmee een onderwijsinstelling
           historisch wordt aangeduid.
@@ -321,7 +321,7 @@ classes:
             Wiki-type Alfanumeriek4 ontbreekt in datatypes.yaml;
             voorlopig Alfanumeriek. Validatie via Codelijst~BRIN.
       instellingscodeRIO:
-        range: Tekst
+        range: Identificatie
         required: true
         description: De uitgebreide instellingscode in RIO.
         annotations:
@@ -518,7 +518,7 @@ classes:
     attributes:
       deelnameId:
         identifier: true
-        range: Tekst
+        range: Identificatie
         required: true
         description: Interne identificatie van de deelname.
         annotations:
@@ -685,7 +685,7 @@ classes:
     attributes:
       resultaatId:
         identifier: true
-        range: Tekst
+        range: Identificatie
         required: true
         description: Interne identificatie van het resultaat.
         annotations:
@@ -823,7 +823,7 @@ classes:
     attributes:
       meldingId:
         identifier: true
-        range: Tekst
+        range: Identificatie
         required: true
         description: Identificatie van de melding.
         annotations:

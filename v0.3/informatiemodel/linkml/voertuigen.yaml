@@ -69,7 +69,7 @@ classes:
       kenteken:
         identifier: true
         required: true
-        range: Tekst
+        range: Kenteken
         description: >-
           Uniek kenteken van het voertuig in de Nederlandse
           sidecode-notatie.

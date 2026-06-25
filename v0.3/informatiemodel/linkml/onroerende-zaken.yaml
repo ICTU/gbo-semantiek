@@ -319,7 +319,7 @@ classes:
         comments:
           - Stabiel identificerend over de levensloop heen.
       kadastraleAanduiding:
-        range: Tekst
+        range: KadastraleAanduiding
         required: true
         description: >-
           Samengestelde aanduiding (kadastrale gemeente / sectie /

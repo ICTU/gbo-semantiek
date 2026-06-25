@@ -4,6 +4,8 @@
 
 """BAG-objectidentificatie: een 16-cijferige code, opgebouwd uit gemeentecode (4), objecttypecode (2) en objectvolgnummer (10). Identificeert pand, verblijfsobject, standplaats, ligplaats, nummeraanduiding, openbare ruimte en woonplaats in de BAG."""
 scalar BAGID
+"""Burgerservicenummer: 9 cijfers met geldige elfproef. Als tekst getypeerd zodat een eventuele voorloopnul behouden blijft."""
+scalar BSN
 """Waarde uit een BRP-Landelijke Tabel die in de documentatie niet nader is gespecificeerd."""
 scalar CodelijstBRP
 """Aanduiding verblijfsrecht conform de IND-codelijst verblijfstitels; cross-walk naar BRP-LT 56."""
@@ -22,6 +24,8 @@ scalar CodelijstLT88
 scalar Datum
 """Datum waarin jaar, maand of dag elk afzonderlijk onbekend kan zijn. Formaten: jjjj, jjjj-mm of jjjj-mm-dd; nullen op de onbekende positie."""
 scalar DatumIncompleet
+"""Identificatie van een inschrijving in het Handelsregister: 8 cijfers."""
+scalar KVKnummer
 """Nederlandse postcode in het formaat 9999 XX (norm NEN 5825)."""
 scalar Postcode
 """Universally Unique Identifier conform RFC 4122 (128 bits, hexadecimaal genoteerd). Interne GBO-identifier voor objecten zonder externe authentieke identifier."""
@@ -30,7 +34,7 @@ scalar UUID
 """Een natuurlijke persoon die in de Basisregistratie Personen is opgenomen, hetzij als ingezetene van een Nederlandse gemeente, hetzij als niet-ingezetene in de Registratie Niet-Ingezetenen."""
 interface IngeschrevenPersoon implements Partij {
   """De inschrijving(en) van deze partij in het Handelsregister. (Sleutel-referentie naar Inschrijving.)"""
-  ingeschrevenAls: [String!]
+  ingeschrevenAls: [KVKnummer!]
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
   ID: UUID!
   """De officiële familienaam van de persoon."""
@@ -58,7 +62,7 @@ interface IngeschrevenPersoon implements Partij {
   """De ouder(s) van deze persoon."""
   heeftOuder: [NatuurlijkPersoon!]
   """Het door de Beheervoorziening BSN uitgegeven persoonsnummer."""
-  bsn: String!
+  bsn: BSN!
   """Het persoonsnummer dat een ander land aan deze persoon heeft toegekend."""
   tin: String
   """De datum waarop deze persoon voor het eerst in de BRP werd opgenomen."""
@@ -88,7 +92,7 @@ interface IngeschrevenPersoon implements Partij {
 """Abstract supertype van natuurlijke en niet-natuurlijke personen: iedere actor die in een overheidsregistratie als rechts- of handelingssubject voorkomt."""
 interface Partij {
   """De inschrijving(en) van deze partij in het Handelsregister. (Sleutel-referentie naar Inschrijving.)"""
-  ingeschrevenAls: [String!]
+  ingeschrevenAls: [KVKnummer!]
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
   ID: UUID!
 }
@@ -104,7 +108,7 @@ interface Adres {
 """Een mens als drager van burgerlijke rechten en plichten."""
 type NatuurlijkPersoon implements Partij {
   """De inschrijving(en) van deze partij in het Handelsregister. (Sleutel-referentie naar Inschrijving.)"""
-  ingeschrevenAls: [String!]
+  ingeschrevenAls: [KVKnummer!]
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
   ID: UUID!
   """De officiële familienaam van de persoon."""
@@ -136,7 +140,7 @@ type NatuurlijkPersoon implements Partij {
 """Een ingeschreven persoon die zijn adres heeft op het grondgebied van een Nederlandse gemeente en daar door die gemeente in de basisregistratie wordt bijgehouden."""
 type Ingezetene implements IngeschrevenPersoon & Partij {
   """De inschrijving(en) van deze partij in het Handelsregister. (Sleutel-referentie naar Inschrijving.)"""
-  ingeschrevenAls: [String!]
+  ingeschrevenAls: [KVKnummer!]
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
   ID: UUID!
   """De officiële familienaam van de persoon."""
@@ -164,7 +168,7 @@ type Ingezetene implements IngeschrevenPersoon & Partij {
   """De ouder(s) van deze persoon."""
   heeftOuder: [NatuurlijkPersoon!]
   """Het door de Beheervoorziening BSN uitgegeven persoonsnummer."""
-  bsn: String!
+  bsn: BSN!
   """Het persoonsnummer dat een ander land aan deze persoon heeft toegekend."""
   tin: String
   """De datum waarop deze persoon voor het eerst in de BRP werd opgenomen."""
@@ -200,7 +204,7 @@ type Ingezetene implements IngeschrevenPersoon & Partij {
 """Een ingeschreven persoon die niet als ingezetene van een Nederlandse gemeente is geregistreerd en wiens persoonslijst centraal wordt bijgehouden in de Registratie Niet-Ingezetenen."""
 type NietIngezetene implements IngeschrevenPersoon & Partij {
   """De inschrijving(en) van deze partij in het Handelsregister. (Sleutel-referentie naar Inschrijving.)"""
-  ingeschrevenAls: [String!]
+  ingeschrevenAls: [KVKnummer!]
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
   ID: UUID!
   """De officiële familienaam van de persoon."""
@@ -228,7 +232,7 @@ type NietIngezetene implements IngeschrevenPersoon & Partij {
   """De ouder(s) van deze persoon."""
   heeftOuder: [NatuurlijkPersoon!]
   """Het door de Beheervoorziening BSN uitgegeven persoonsnummer."""
-  bsn: String!
+  bsn: BSN!
   """Het persoonsnummer dat een ander land aan deze persoon heeft toegekend."""
   tin: String
   """De datum waarop deze persoon voor het eerst in de BRP werd opgenomen."""
@@ -428,7 +432,7 @@ enum IndicatieGezag {
 """Query-ingangen van dit bronprofiel."""
 type Query {
   """Eén IngeschrevenPersoon op bsn."""
-  ingeschrevenPersoon(bsn: String!): IngeschrevenPersoon
+  ingeschrevenPersoon(bsn: BSN!): IngeschrevenPersoon
   """Alle voorkomens van IngeschrevenPersoon."""
   ingeschrevenPersoonLijst: [IngeschrevenPersoon!]
 }

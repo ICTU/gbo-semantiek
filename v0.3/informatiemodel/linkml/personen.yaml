@@ -238,7 +238,7 @@ classes:
           blijft de technische identifier.
     attributes:
       bsn:
-        range: Tekst
+        range: BSN
         required: true
         description: >-
           Het door de Beheervoorziening BSN uitgegeven persoonsnummer.

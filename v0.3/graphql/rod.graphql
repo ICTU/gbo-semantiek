@@ -2,6 +2,10 @@
 # GraphQL SDL voor bronprofiel ROD, gegenereerd uit gbo-bron-rod.yaml.
 # Regenereer met: task generate:graphql
 
+"""BRIN-nummer van een onderwijsinstelling: twee cijfers gevolgd door twee hoofdletters (bijv. 00AB)."""
+scalar BRINcode
+"""Burgerservicenummer: 9 cijfers met geldige elfproef. Als tekst getypeerd zodat een eventuele voorloopnul behouden blijft."""
+scalar BSN
 """Bedrijfsindeling conform de CBS Standaard Bedrijfsindeling (SBI 2008 / 2025). Stelselbreed; primair in Bedrijven en instellingen. Vanwege de SBI-herziening is een versie-attribuut naast de code verplicht."""
 scalar CodelijstCBSSBI
 """Diplomasoort per sector, beheerd door DUO via PvE ROD per sector; gebruikt voor OpleidingResultaat.diplomasoort en Vooropleiding.diplomasoort. Mutatieritme: sporadisch, per sectorwet-aanpassing."""
@@ -22,13 +26,17 @@ scalar CodelijstRedenUitschrijving
 scalar Datum
 """Datum waarin jaar, maand of dag elk afzonderlijk onbekend kan zijn. Formaten: jjjj, jjjj-mm of jjjj-mm-dd; nullen op de onbekende positie."""
 scalar DatumIncompleet
+"""Object- of documentidentificatie zonder vaste structuur."""
+scalar Identificatie
+"""Identificatie van een inschrijving in het Handelsregister: 8 cijfers."""
+scalar KVKnummer
 """Universally Unique Identifier conform RFC 4122 (128 bits, hexadecimaal genoteerd). Interne GBO-identifier voor objecten zonder externe authentieke identifier."""
 scalar UUID
 
 """Abstract supertype van natuurlijke en niet-natuurlijke personen: iedere actor die in een overheidsregistratie als rechts- of handelingssubject voorkomt."""
 interface Partij {
   """De inschrijving(en) van deze partij in het Handelsregister. (Sleutel-referentie naar Inschrijving.)"""
-  ingeschrevenAls: [String!]
+  ingeschrevenAls: [KVKnummer!]
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
   ID: UUID!
 }
@@ -36,7 +44,7 @@ interface Partij {
 """Een organisatie of rechtsfiguur, geen mens, die als rechtsdragend subject kan deelnemen aan rechtsbetrekkingen. Omvat rechtspersonen (BV, NV, stichting, vereniging, coöperatie, publiekrechtelijke rechtspersoon, kerkgenootschap), entiteiten zonder eigen rechtspersoonlijkheid (eenmanszaak, VOF, CV, maatschap) en buitenlandse entiteiten met activiteit in Nederland."""
 interface NietNatuurlijkPersoon implements Partij {
   """De inschrijving(en) van deze partij in het Handelsregister. (Sleutel-referentie naar Inschrijving.)"""
-  ingeschrevenAls: [String!]
+  ingeschrevenAls: [KVKnummer!]
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
   ID: UUID!
   """Rechtspersonen- en Samenwerkingsverbanden Identificatie Nummer."""
@@ -60,7 +68,7 @@ interface NietNatuurlijkPersoon implements Partij {
 """Een natuurlijke persoon die in de Basisregistratie Personen is opgenomen, hetzij als ingezetene van een Nederlandse gemeente, hetzij als niet-ingezetene in de Registratie Niet-Ingezetenen."""
 type IngeschrevenPersoon implements Partij {
   """De inschrijving(en) van deze partij in het Handelsregister. (Sleutel-referentie naar Inschrijving.)"""
-  ingeschrevenAls: [String!]
+  ingeschrevenAls: [KVKnummer!]
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
   ID: UUID!
   """De officiële familienaam van de persoon."""
@@ -88,7 +96,7 @@ type IngeschrevenPersoon implements Partij {
   """De ouder(s) van deze persoon."""
   heeftOuder: [NatuurlijkPersoon!]
   """Het door de Beheervoorziening BSN uitgegeven persoonsnummer."""
-  bsn: String!
+  bsn: BSN!
   """Het interne BRP-administratienummer."""
   aNummer: String
   """Het persoonsnummer dat een ander land aan deze persoon heeft toegekend."""
@@ -120,7 +128,7 @@ type IngeschrevenPersoon implements Partij {
 """Een door OCW erkende rechtspersoon of bestuurlijke entiteit die onderwijs aanbiedt in een of meer Nederlandse onderwijssectoren."""
 type OnderwijsInstelling implements NietNatuurlijkPersoon & Partij {
   """De inschrijving(en) van deze partij in het Handelsregister. (Sleutel-referentie naar Inschrijving.)"""
-  ingeschrevenAls: [String!]
+  ingeschrevenAls: [KVKnummer!]
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
   ID: UUID!
   """Rechtspersonen- en Samenwerkingsverbanden Identificatie Nummer."""
@@ -140,9 +148,9 @@ type OnderwijsInstelling implements NietNatuurlijkPersoon & Partij {
   """Eén NNP voert één of meer ondernemingen. (Sleutel-referentie naar MaatschappelijkeActiviteit.)"""
   voertUit: [UUID!]!
   """De vier-tekens-code waarmee een onderwijsinstelling historisch wordt aangeduid."""
-  brincode: String
+  brincode: BRINcode
   """De uitgebreide instellingscode in RIO."""
-  instellingscodeRIO: String!
+  instellingscodeRIO: Identificatie!
   """Sector waarin de instelling actief is."""
   onderwijssector: [Onderwijssector!]!
   """Verwijzing naar de rechtspersoon van het schoolbestuur."""
@@ -170,7 +178,7 @@ type Opleiding {
 """De inschrijving van een natuurlijk persoon voor het volgen van een opleiding bij een onderwijsinstelling, geldig binnen een afgebakende periode."""
 type OpleidingDeelname {
   """Interne identificatie van de deelname."""
-  deelnameId: String!
+  deelnameId: Identificatie!
   """De datum waarop de deelname is aangevangen."""
   inschrijfdatum: Datum!
   """De datum waarop de deelname is geëindigd."""
@@ -200,7 +208,7 @@ type OpleidingDeelname {
 """Het door een natuurlijk persoon behaalde resultaat voor een opleiding of onderdeel daarvan bij een onderwijsinstelling, blijkend uit een diploma, certificaat, deelcertificaat of vergelijkbaar bewijsstuk."""
 type OpleidingResultaat {
   """Interne identificatie van het resultaat."""
-  resultaatId: String!
+  resultaatId: Identificatie!
   """De datum waarop het resultaat is behaald."""
   behaaldatum: Datum!
   """De aanduiding van het diploma of bewijsstuk."""
@@ -256,7 +264,7 @@ type BeroepspraktijkvormingPeriode {
 """Een wettelijk verplichte melding door een onderwijsinstelling van ongeoorloofd verzuim van een leerplichtige of kwalificatieplichtige leerling, of van verzuim van een achttienplus-deelnemer dat langer dan vier weken aaneengesloten duurt."""
 type VerzuimMelding {
   """Identificatie van de melding."""
-  meldingId: String!
+  meldingId: Identificatie!
   """De eerste verzuim-dag."""
   begindatum: Datum!
   """De einddatum van het verzuim."""
@@ -274,7 +282,7 @@ type VerzuimMelding {
 """Een eerder behaald opleidingsresultaat dat bij een volgende onderwijsdeelname wordt aangereikt als bewijs voor de toelating tot of de instroompositionering in een opleiding."""
 type Vooropleiding {
   """Interne identificatie van het resultaat."""
-  resultaatId: String!
+  resultaatId: Identificatie!
   """De datum waarop de vooropleiding is behaald."""
   behaaldatum: Datum!
   """De aanduiding van het instroom-bewijs."""
@@ -342,7 +350,7 @@ type StudieLening {
 """Een mens als drager van burgerlijke rechten en plichten."""
 type NatuurlijkPersoon implements Partij {
   """De inschrijving(en) van deze partij in het Handelsregister. (Sleutel-referentie naar Inschrijving.)"""
-  ingeschrevenAls: [String!]
+  ingeschrevenAls: [KVKnummer!]
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
   ID: UUID!
   """De officiële familienaam van de persoon."""
@@ -596,11 +604,11 @@ enum Aansprakelijkheid {
 """Query-ingangen van dit bronprofiel."""
 type Query {
   """Eén IngeschrevenPersoon op bsn."""
-  ingeschrevenPersoon(bsn: String!): IngeschrevenPersoon
+  ingeschrevenPersoon(bsn: BSN!): IngeschrevenPersoon
   """Alle voorkomens van IngeschrevenPersoon."""
   ingeschrevenPersoonLijst: [IngeschrevenPersoon!]
   """Eén OnderwijsInstelling op instellingscodeRIO."""
-  onderwijsInstelling(instellingscodeRIO: String!): OnderwijsInstelling
+  onderwijsInstelling(instellingscodeRIO: Identificatie!): OnderwijsInstelling
   """Alle voorkomens van OnderwijsInstelling."""
   onderwijsInstellingLijst: [OnderwijsInstelling!]
 }

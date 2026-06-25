@@ -2,6 +2,8 @@
 # GraphQL SDL voor bronprofiel UWV, gegenereerd uit gbo-bron-uwv.yaml.
 # Regenereer met: task generate:graphql
 
+"""Burgerservicenummer: 9 cijfers met geldige elfproef. Als tekst getypeerd zodat een eventuele voorloopnul behouden blijft."""
+scalar BSN
 """Landcode conform ISO 3166-1 alpha-2. Stelselbreed voor land- en nationaliteit-typering; cross-walks naar BRP-LT 32 (nationaliteit) en BRP-LT 34 (landen) staan in de documentatie."""
 scalar CodelijstISO3166
 """Valuta-aanduiding conform ISO 4217 (drieletterige code, EUR)."""
@@ -14,13 +16,17 @@ scalar CodelijstLT38
 scalar Datum
 """Datum waarin jaar, maand of dag elk afzonderlijk onbekend kan zijn. Formaten: jjjj, jjjj-mm of jjjj-mm-dd; nullen op de onbekende positie."""
 scalar DatumIncompleet
+"""Object- of documentidentificatie zonder vaste structuur."""
+scalar Identificatie
+"""Identificatie van een inschrijving in het Handelsregister: 8 cijfers."""
+scalar KVKnummer
 """Universally Unique Identifier conform RFC 4122 (128 bits, hexadecimaal genoteerd). Interne GBO-identifier voor objecten zonder externe authentieke identifier."""
 scalar UUID
 
 """Een door of namens de overheid aan een natuurlijk persoon verstrekte financiele bijdrage met als doel inkomensondersteuning, in de vorm van een inkomensafhankelijke regeling of een sociale-zekerheidsuitkering."""
 interface InkomensOndersteuning {
   """Interne identificatie."""
-  identificatie: String!
+  identificatie: Identificatie!
   """Aanvang van de toekenning."""
   ingangsdatum: Datum!
   """Einde van de toekenning."""
@@ -32,7 +38,7 @@ interface InkomensOndersteuning {
 """Een door of namens de overheid aan een natuurlijk persoon toegekende periodieke uitkering op grond van een werknemersverzekering of volksverzekering, ter vervanging of aanvulling van loon."""
 interface Uitkering implements InkomensOndersteuning {
   """Interne identificatie."""
-  identificatie: String!
+  identificatie: Identificatie!
   """Aanvang van de uitkering."""
   ingangsdatum: Datum!
   """Einde van de uitkering."""
@@ -56,7 +62,7 @@ interface Uitkering implements InkomensOndersteuning {
 """Abstract supertype van natuurlijke en niet-natuurlijke personen: iedere actor die in een overheidsregistratie als rechts- of handelingssubject voorkomt."""
 interface Partij {
   """De inschrijving(en) van deze partij in het Handelsregister. (Sleutel-referentie naar Inschrijving.)"""
-  ingeschrevenAls: [String!]
+  ingeschrevenAls: [KVKnummer!]
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
   ID: UUID!
 }
@@ -64,7 +70,7 @@ interface Partij {
 """Een natuurlijke persoon die in de Basisregistratie Personen is opgenomen, hetzij als ingezetene van een Nederlandse gemeente, hetzij als niet-ingezetene in de Registratie Niet-Ingezetenen."""
 type IngeschrevenPersoon implements Partij {
   """De inschrijving(en) van deze partij in het Handelsregister. (Sleutel-referentie naar Inschrijving.)"""
-  ingeschrevenAls: [String!]
+  ingeschrevenAls: [KVKnummer!]
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
   ID: UUID!
   """De officiële familienaam van de persoon."""
@@ -92,7 +98,7 @@ type IngeschrevenPersoon implements Partij {
   """De ouder(s) van deze persoon."""
   heeftOuder: [NatuurlijkPersoon!]
   """Het door de Beheervoorziening BSN uitgegeven persoonsnummer."""
-  bsn: String!
+  bsn: BSN!
   """Het interne BRP-administratienummer."""
   aNummer: String
   """Het persoonsnummer dat een ander land aan deze persoon heeft toegekend."""
@@ -124,7 +130,7 @@ type IngeschrevenPersoon implements Partij {
 """Een door UWV aan een werkloze werknemer toegekende periodieke uitkering op grond van de Werkloosheidswet, ter vervanging van het weggevallen loon."""
 type UitkeringWW implements Uitkering & InkomensOndersteuning {
   """Interne identificatie."""
-  identificatie: String!
+  identificatie: Identificatie!
   """Aanvang van de uitkering."""
   ingangsdatum: Datum!
   """Einde van de uitkering."""
@@ -154,7 +160,7 @@ type UitkeringWW implements Uitkering & InkomensOndersteuning {
 """Een door UWV aan een zieke werknemer of vangnetter toegekende periodieke uitkering op grond van de Ziektewet, ter vervanging van het door ziekte weggevallen loon."""
 type UitkeringZW implements Uitkering & InkomensOndersteuning {
   """Interne identificatie."""
-  identificatie: String!
+  identificatie: Identificatie!
   """Aanvang van de uitkering."""
   ingangsdatum: Datum!
   """Einde van de uitkering."""
@@ -182,7 +188,7 @@ type UitkeringZW implements Uitkering & InkomensOndersteuning {
 """Een door UWV op grond van de Wet werk en inkomen naar arbeidsvermogen toegekende periodieke uitkering aan een werknemer die na een wachttijd van twee jaar van ziekte gedeeltelijk of volledig arbeidsongeschikt is."""
 type UitkeringWIA implements Uitkering & InkomensOndersteuning {
   """Interne identificatie."""
-  identificatie: String!
+  identificatie: Identificatie!
   """Aanvang van de uitkering."""
   ingangsdatum: Datum!
   """Einde van de uitkering."""
@@ -210,7 +216,7 @@ type UitkeringWIA implements Uitkering & InkomensOndersteuning {
 """De Inkomensvoorziening Volledig Arbeidsongeschikten op grond van de WIA, toegekend aan werknemers die duurzaam minder dan twintig procent van hun oude loon kunnen verdienen."""
 type UitkeringIVA implements Uitkering & InkomensOndersteuning {
   """Interne identificatie."""
-  identificatie: String!
+  identificatie: Identificatie!
   """Aanvang van de uitkering."""
   ingangsdatum: Datum!
   """Einde van de uitkering."""
@@ -240,7 +246,7 @@ type UitkeringIVA implements Uitkering & InkomensOndersteuning {
 """De Werkhervatting Gedeeltelijk Arbeidsongeschikten op grond van de WIA, toegekend aan werknemers die vijfendertig procent tot tachtig procent arbeidsongeschikt zijn, of volledig arbeidsongeschikt maar niet duurzaam."""
 type UitkeringWGA implements Uitkering & InkomensOndersteuning {
   """Interne identificatie."""
-  identificatie: String!
+  identificatie: Identificatie!
   """Aanvang van de uitkering."""
   ingangsdatum: Datum!
   """Einde van de uitkering."""
@@ -270,7 +276,7 @@ type UitkeringWGA implements Uitkering & InkomensOndersteuning {
 """Een door UWV op grond van de Wet arbeidsongeschiktheidsvoorziening jonggehandicapten toegekende periodieke uitkering aan jonggehandicapten die door arbeidsongeschiktheid niet of beperkt kunnen werken."""
 type UitkeringWajong implements Uitkering & InkomensOndersteuning {
   """Interne identificatie."""
-  identificatie: String!
+  identificatie: Identificatie!
   """Aanvang van de uitkering."""
   ingangsdatum: Datum!
   """Einde van de uitkering."""
@@ -298,7 +304,7 @@ type UitkeringWajong implements Uitkering & InkomensOndersteuning {
 """Een door SVB op grond van de Algemene Ouderdomswet toegekende periodieke uitkering aan personen vanaf de AOW-gerechtigde leeftijd, gebaseerd op de in Nederland opgebouwde verzekerde jaren."""
 type UitkeringAOW implements Uitkering & InkomensOndersteuning {
   """Interne identificatie."""
-  identificatie: String!
+  identificatie: Identificatie!
   """Aanvang van de uitkering."""
   ingangsdatum: Datum!
   """Einde van de uitkering."""
@@ -410,7 +416,7 @@ type Arbeidsongeschiktheidspercentage {
 """Een mens als drager van burgerlijke rechten en plichten."""
 type NatuurlijkPersoon implements Partij {
   """De inschrijving(en) van deze partij in het Handelsregister. (Sleutel-referentie naar Inschrijving.)"""
-  ingeschrevenAls: [String!]
+  ingeschrevenAls: [KVKnummer!]
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
   ID: UUID!
   """De officiële familienaam van de persoon."""
@@ -614,7 +620,7 @@ enum Geslacht {
 """Query-ingangen van dit bronprofiel."""
 type Query {
   """Eén IngeschrevenPersoon op bsn."""
-  ingeschrevenPersoon(bsn: String!): IngeschrevenPersoon
+  ingeschrevenPersoon(bsn: BSN!): IngeschrevenPersoon
   """Alle voorkomens van IngeschrevenPersoon."""
   ingeschrevenPersoonLijst: [IngeschrevenPersoon!]
 }

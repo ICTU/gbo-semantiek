@@ -154,6 +154,61 @@ types:
     annotations:
       mim:herkomst: BAG
 
+  BSN:
+    typeof: Tekst
+    description: >-
+      Burgerservicenummer: 9 cijfers met geldige elfproef. Als tekst
+      getypeerd zodat een eventuele voorloopnul behouden blijft.
+    pattern: "^[0-9]{9}$"
+    annotations:
+      mim:herkomst: BRP / Wet algemene bepalingen burgerservicenummer
+
+  KVKnummer:
+    typeof: Tekst
+    description: >-
+      Identificatie van een inschrijving in het Handelsregister: 8
+      cijfers.
+    pattern: "^[0-9]{8}$"
+    annotations:
+      mim:herkomst: NHR / Handelsregisterwet 2007
+
+  Vestigingsnummer:
+    typeof: Tekst
+    description: >-
+      Identificatie van een vestiging in het Handelsregister: 12
+      cijfers.
+    pattern: "^[0-9]{12}$"
+    annotations:
+      mim:herkomst: NHR / Handelsregisterwet 2007
+
+  Kenteken:
+    typeof: Tekst
+    description: >-
+      Nederlands voertuigkenteken: zes posities (hoofdletters en
+      cijfers) volgens het RDW-sidecodestelsel, optioneel met
+      streepjes ter leesbaarheid (bijv. XX-99-99).
+    pattern: "^[A-Z0-9-]{6,8}$"
+    annotations:
+      mim:herkomst: BRV / RDW
+
+  KadastraleAanduiding:
+    typeof: Tekst
+    description: >-
+      Kadastrale aanduiding van een onroerende zaak: kadastrale
+      gemeente, sectie en perceelnummer (bij een appartementsrecht
+      aangevuld met een index), samen uniek binnen de BRK.
+    annotations:
+      mim:herkomst: BRK / Kadaster
+
+  BRINcode:
+    typeof: Tekst
+    description: >-
+      BRIN-nummer van een onderwijsinstelling: twee cijfers gevolgd
+      door twee hoofdletters (bijv. 00AB).
+    pattern: "^[0-9]{2}[A-Z]{2}$"
+    annotations:
+      mim:herkomst: DUO / BRIN
+
   UUID:
     typeof: string
     description: >-

@@ -2,6 +2,8 @@
 # GraphQL SDL voor bronprofiel BRI, gegenereerd uit gbo-bron-bri.yaml.
 # Regenereer met: task generate:graphql
 
+"""Burgerservicenummer: 9 cijfers met geldige elfproef. Als tekst getypeerd zodat een eventuele voorloopnul behouden blijft."""
+scalar BSN
 """Landcode conform ISO 3166-1 alpha-2. Stelselbreed voor land- en nationaliteit-typering; cross-walks naar BRP-LT 32 (nationaliteit) en BRP-LT 34 (landen) staan in de documentatie."""
 scalar CodelijstISO3166
 """Valuta-aanduiding conform ISO 4217 (drieletterige code, EUR)."""
@@ -14,13 +16,15 @@ scalar CodelijstLT38
 scalar Datum
 """Datum waarin jaar, maand of dag elk afzonderlijk onbekend kan zijn. Formaten: jjjj, jjjj-mm of jjjj-mm-dd; nullen op de onbekende positie."""
 scalar DatumIncompleet
+"""Identificatie van een inschrijving in het Handelsregister: 8 cijfers."""
+scalar KVKnummer
 """Universally Unique Identifier conform RFC 4122 (128 bits, hexadecimaal genoteerd). Interne GBO-identifier voor objecten zonder externe authentieke identifier."""
 scalar UUID
 
 """Abstract supertype van natuurlijke en niet-natuurlijke personen: iedere actor die in een overheidsregistratie als rechts- of handelingssubject voorkomt."""
 interface Partij {
   """De inschrijving(en) van deze partij in het Handelsregister. (Sleutel-referentie naar Inschrijving.)"""
-  ingeschrevenAls: [String!]
+  ingeschrevenAls: [KVKnummer!]
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
   ID: UUID!
 }
@@ -118,7 +122,7 @@ type LoonAangifte {
 """Een mens als drager van burgerlijke rechten en plichten."""
 type NatuurlijkPersoon implements Partij {
   """De inschrijving(en) van deze partij in het Handelsregister. (Sleutel-referentie naar Inschrijving.)"""
-  ingeschrevenAls: [String!]
+  ingeschrevenAls: [KVKnummer!]
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
   ID: UUID!
   """De officiële familienaam van de persoon."""
@@ -148,7 +152,7 @@ type NatuurlijkPersoon implements Partij {
 """Een natuurlijke persoon die in de Basisregistratie Personen is opgenomen, hetzij als ingezetene van een Nederlandse gemeente, hetzij als niet-ingezetene in de Registratie Niet-Ingezetenen."""
 type IngeschrevenPersoon implements Partij {
   """De inschrijving(en) van deze partij in het Handelsregister. (Sleutel-referentie naar Inschrijving.)"""
-  ingeschrevenAls: [String!]
+  ingeschrevenAls: [KVKnummer!]
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
   ID: UUID!
   """De officiële familienaam van de persoon."""
@@ -174,7 +178,7 @@ type IngeschrevenPersoon implements Partij {
   """Het land waar de persoon is overleden."""
   landOverlijden: CodelijstISO3166
   """Het door de Beheervoorziening BSN uitgegeven persoonsnummer."""
-  bsn: String!
+  bsn: BSN!
   """Het interne BRP-administratienummer."""
   aNummer: String
   """Het persoonsnummer dat een ander land aan deze persoon heeft toegekend."""
@@ -362,7 +366,7 @@ type Query {
   """Alle voorkomens van AuthentiekInkomen."""
   authentiekInkomenLijst: [AuthentiekInkomen!]
   """Eén IngeschrevenPersoon op bsn."""
-  ingeschrevenPersoon(bsn: String!): IngeschrevenPersoon
+  ingeschrevenPersoon(bsn: BSN!): IngeschrevenPersoon
   """Alle voorkomens van IngeschrevenPersoon."""
   ingeschrevenPersoonLijst: [IngeschrevenPersoon!]
 }

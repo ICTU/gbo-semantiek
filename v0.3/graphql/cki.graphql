@@ -2,6 +2,8 @@
 # GraphQL SDL voor bronprofiel CKI, gegenereerd uit gbo-bron-cki.yaml.
 # Regenereer met: task generate:graphql
 
+"""Burgerservicenummer: 9 cijfers met geldige elfproef. Als tekst getypeerd zodat een eventuele voorloopnul behouden blijft."""
+scalar BSN
 """Landcode conform ISO 3166-1 alpha-2. Stelselbreed voor land- en nationaliteit-typering; cross-walks naar BRP-LT 32 (nationaliteit) en BRP-LT 34 (landen) staan in de documentatie."""
 scalar CodelijstISO3166
 """Valuta-aanduiding conform ISO 4217 (drieletterige code, EUR)."""
@@ -16,6 +18,10 @@ scalar Datum
 scalar DatumIncompleet
 """Tijdsduur in ISO 8601-periode-notatie (P5Y, P3M, P7D)."""
 scalar Duur
+"""Object- of documentidentificatie zonder vaste structuur."""
+scalar Identificatie
+"""Identificatie van een inschrijving in het Handelsregister: 8 cijfers."""
+scalar KVKnummer
 """Landelijke objectidentificatie voor stelselobjecten, opgebouwd uit namespace, lokaalID en versie (NEN 3610)."""
 scalar NEN3610ID
 """Universally Unique Identifier conform RFC 4122 (128 bits, hexadecimaal genoteerd). Interne GBO-identifier voor objecten zonder externe authentieke identifier."""
@@ -24,7 +30,7 @@ scalar UUID
 """Een verplichting van een natuurlijk persoon of niet-natuurlijk persoon tot het verrichten van een geldelijke prestatie aan een tegenpartij, ontstaan uit overeenkomst of uit een wettelijke regeling."""
 interface FinancieleVerplichting {
   """Interne identificatie."""
-  identificatie: String!
+  identificatie: Identificatie!
   """Datum waarop de verplichting is aangegaan."""
   ingangsdatum: Datum!
   """Werkelijke einddatum (afgelost, ontbonden of overgenomen)."""
@@ -36,7 +42,7 @@ interface FinancieleVerplichting {
 """Een overeenkomst tussen een kredietverstrekker en een kredietnemer waarbij de verstrekker een geldsom of geldbedragen ter beschikking stelt en de nemer zich verbindt tot terugbetaling onder afgesproken voorwaarden, en die op grond van het Algemeen Reglement CKI aan het Centraal Krediet Informatiesysteem wordt gemeld."""
 interface KredietOvereenkomst implements FinancieleVerplichting {
   """Interne identificatie."""
-  identificatie: String!
+  identificatie: Identificatie!
   """Datum waarop de verplichting is aangegaan."""
   ingangsdatum: Datum!
   """Werkelijke einddatum (afgelost, ontbonden of overgenomen)."""
@@ -74,7 +80,7 @@ interface KredietFeit {
 """Abstract supertype van natuurlijke en niet-natuurlijke personen: iedere actor die in een overheidsregistratie als rechts- of handelingssubject voorkomt."""
 interface Partij {
   """De inschrijving(en) van deze partij in het Handelsregister. (Sleutel-referentie naar Inschrijving.)"""
-  ingeschrevenAls: [String!]
+  ingeschrevenAls: [KVKnummer!]
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
   ID: UUID!
 }
@@ -82,7 +88,7 @@ interface Partij {
 """Een natuurlijke persoon die in de Basisregistratie Personen is opgenomen, hetzij als ingezetene van een Nederlandse gemeente, hetzij als niet-ingezetene in de Registratie Niet-Ingezetenen."""
 type IngeschrevenPersoon implements Partij {
   """De inschrijving(en) van deze partij in het Handelsregister. (Sleutel-referentie naar Inschrijving.)"""
-  ingeschrevenAls: [String!]
+  ingeschrevenAls: [KVKnummer!]
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
   ID: UUID!
   """De officiële familienaam van de persoon."""
@@ -110,7 +116,7 @@ type IngeschrevenPersoon implements Partij {
   """De ouder(s) van deze persoon."""
   heeftOuder: [NatuurlijkPersoon!]
   """Het door de Beheervoorziening BSN uitgegeven persoonsnummer."""
-  bsn: String!
+  bsn: BSN!
   """Het interne BRP-administratienummer."""
   aNummer: String
   """Het persoonsnummer dat een ander land aan deze persoon heeft toegekend."""
@@ -142,7 +148,7 @@ type IngeschrevenPersoon implements Partij {
 """Een kredietovereenkomst met een vooraf vastgesteld kredietbedrag, een vaste looptijd en periodieke aflossingen die het krediet stapsgewijs verminderen tot nul aan het einde van de looptijd."""
 type AflopendKrediet implements KredietOvereenkomst & FinancieleVerplichting {
   """Interne identificatie."""
-  identificatie: String!
+  identificatie: Identificatie!
   """Datum waarop de verplichting is aangegaan."""
   ingangsdatum: Datum!
   """Werkelijke einddatum (afgelost, ontbonden of overgenomen)."""
@@ -176,7 +182,7 @@ type AflopendKrediet implements KredietOvereenkomst & FinancieleVerplichting {
 """Een kredietovereenkomst waarbij de kredietnemer tot een afgesproken kredietlimiet steeds opnieuw kan opnemen en aflossen, zonder vaste looptijd en zonder verplicht aflossingsschema."""
 type DoorlopendKrediet implements KredietOvereenkomst & FinancieleVerplichting {
   """Interne identificatie."""
-  identificatie: String!
+  identificatie: Identificatie!
   """Datum waarop de verplichting is aangegaan."""
   ingangsdatum: Datum!
   """Werkelijke einddatum (afgelost, ontbonden of overgenomen)."""
@@ -212,7 +218,7 @@ type DoorlopendKrediet implements KredietOvereenkomst & FinancieleVerplichting {
 """Een kredietovereenkomst waarbij een gemeente of een door de gemeente aangewezen kredietbank een persoonlijke lening verstrekt aan een schuldenaar om bestaande schulden te bundelen en gefaseerd af te lossen onder begeleiding van schuldhulpverlening."""
 type Saneringskrediet implements KredietOvereenkomst & FinancieleVerplichting {
   """Interne identificatie."""
-  identificatie: String!
+  identificatie: Identificatie!
   """Datum waarop de verplichting is aangegaan."""
   ingangsdatum: Datum!
   """Werkelijke einddatum (afgelost, ontbonden of overgenomen)."""
@@ -246,7 +252,7 @@ type Saneringskrediet implements KredietOvereenkomst & FinancieleVerplichting {
 """Een kredietovereenkomst met een korte looptijd, doorgaans korter dan drie maanden, met een betrekkelijk klein kredietbedrag, en die op grond van de specifieke bepalingen van het Algemeen Reglement CKI in CKI wordt geregistreerd."""
 type KortKrediet implements KredietOvereenkomst & FinancieleVerplichting {
   """Interne identificatie."""
-  identificatie: String!
+  identificatie: Identificatie!
   """Datum waarop de verplichting is aangegaan."""
   ingangsdatum: Datum!
   """Werkelijke einddatum (afgelost, ontbonden of overgenomen)."""
@@ -280,7 +286,7 @@ type KortKrediet implements KredietOvereenkomst & FinancieleVerplichting {
 """Een kredietovereenkomst tot financiering van de eigen woning van de kredietnemer, waarbij een hypotheekrecht is gevestigd op die onroerende zaak, en waarvan op grond van het Algemeen Reglement CKI uitsluitend negatieve betalingservaringen aan het Centraal Krediet Informatiesysteem worden gemeld."""
 type HypothecairKredietEigenWoning implements KredietOvereenkomst & FinancieleVerplichting {
   """Interne identificatie."""
-  identificatie: String!
+  identificatie: Identificatie!
   """Datum waarop de verplichting is aangegaan."""
   ingangsdatum: Datum!
   """Werkelijke einddatum (afgelost, ontbonden of overgenomen)."""
@@ -314,7 +320,7 @@ type HypothecairKredietEigenWoning implements KredietOvereenkomst & FinancieleVe
 """Een kredietovereenkomst waarbij een hypotheekrecht is gevestigd op een onroerende zaak die niet de eigen woning van de kredietnemer is, zoals een tweede woning, een verhuurde woning of een beleggingspand, en die boven de meldingsdrempel valt."""
 type HypothecairKredietOverigeOnroerendeZaken implements KredietOvereenkomst & FinancieleVerplichting {
   """Interne identificatie."""
-  identificatie: String!
+  identificatie: Identificatie!
   """Datum waarop de verplichting is aangegaan."""
   ingangsdatum: Datum!
   """Werkelijke einddatum (afgelost, ontbonden of overgenomen)."""
@@ -350,7 +356,7 @@ type HypothecairKredietOverigeOnroerendeZaken implements KredietOvereenkomst & F
 """Een resterende schuld die overblijft na verkoop van een onroerende zaak waarop een hypothecair krediet rustte zonder dekking door de Nationale Hypotheek Garantie, voor zover de restschuld boven de meldingsdrempel valt en in CKI wordt geregistreerd."""
 type RestschuldHypothecairKredietZonderNHG implements KredietOvereenkomst & FinancieleVerplichting {
   """Interne identificatie."""
-  identificatie: String!
+  identificatie: Identificatie!
   """Datum waarop de verplichting is aangegaan."""
   ingangsdatum: Datum!
   """Werkelijke einddatum (afgelost, ontbonden of overgenomen)."""
@@ -386,7 +392,7 @@ type RestschuldHypothecairKredietZonderNHG implements KredietOvereenkomst & Fina
 """Een resterende schuld na verkoop van een onroerende zaak waarop een hypothecair krediet rustte met dekking door de Nationale Hypotheek Garantie, voor zover de restschuld boven de meldingsdrempel valt en in CKI wordt geregistreerd."""
 type RestschuldHypothecairKredietMetNHG implements KredietOvereenkomst & FinancieleVerplichting {
   """Interne identificatie."""
-  identificatie: String!
+  identificatie: Identificatie!
   """Datum waarop de verplichting is aangegaan."""
   ingangsdatum: Datum!
   """Werkelijke einddatum (afgelost, ontbonden of overgenomen)."""
@@ -422,7 +428,7 @@ type RestschuldHypothecairKredietMetNHG implements KredietOvereenkomst & Financi
 """Een leaseovereenkomst voor een personenvoertuig waarbij de leasemaatschappij eigenaar blijft van het voertuig en de leasenemer een maandelijkse vergoeding betaalt voor het gebruik, het onderhoud en de afschrijving, en die boven de meldingsdrempel valt."""
 type OperationalAutolease implements KredietOvereenkomst & FinancieleVerplichting {
   """Interne identificatie."""
-  identificatie: String!
+  identificatie: Identificatie!
   """Datum waarop de verplichting is aangegaan."""
   ingangsdatum: Datum!
   """Werkelijke einddatum (afgelost, ontbonden of overgenomen)."""
@@ -456,7 +462,7 @@ type OperationalAutolease implements KredietOvereenkomst & FinancieleVerplichtin
 """Een overige privefinanciele verplichting van een natuurlijk persoon die niet onder een specifieke kredietvorm valt en waarvan op grond van het Algemeen Reglement CKI alleen negatieve betalingservaringen aan het Centraal Krediet Informatiesysteem worden gemeld."""
 type OverigeFinancieleVerplichtingPrive implements KredietOvereenkomst & FinancieleVerplichting {
   """Interne identificatie."""
-  identificatie: String!
+  identificatie: Identificatie!
   """Datum waarop de verplichting is aangegaan."""
   ingangsdatum: Datum!
   """Werkelijke einddatum (afgelost, ontbonden of overgenomen)."""
@@ -488,7 +494,7 @@ type OverigeFinancieleVerplichtingPrive implements KredietOvereenkomst & Financi
 """Een kredietovereenkomst aangegaan ten behoeve van een onderneming waarbij sprake is van persoonlijke aansprakelijkheid van een of meer natuurlijke personen, en die boven de meldingsdrempel valt."""
 type ZakelijkKrediet implements KredietOvereenkomst & FinancieleVerplichting {
   """Interne identificatie."""
-  identificatie: String!
+  identificatie: Identificatie!
   """Datum waarop de verplichting is aangegaan."""
   ingangsdatum: Datum!
   """Werkelijke einddatum (afgelost, ontbonden of overgenomen)."""
@@ -524,7 +530,7 @@ type ZakelijkKrediet implements KredietOvereenkomst & FinancieleVerplichting {
 """Een overige zakelijke financiele verplichting die niet onder zakelijk krediet valt en waarvan op grond van het Algemeen Reglement CKI alleen negatieve betalingservaringen aan het Centraal Krediet Informatiesysteem worden gemeld."""
 type ZakelijkeOverigeFinancieleVerplichting implements KredietOvereenkomst & FinancieleVerplichting {
   """Interne identificatie."""
-  identificatie: String!
+  identificatie: Identificatie!
   """Datum waarop de verplichting is aangegaan."""
   ingangsdatum: Datum!
   """Werkelijke einddatum (afgelost, ontbonden of overgenomen)."""
@@ -590,7 +596,7 @@ type BijzonderheidsCodering implements KredietFeit {
 """Een wettelijk schuldhulpverleningstraject dat door een gemeente bij beschikking aan een natuurlijk persoon wordt toegekend op grond van de Wet gemeentelijke schuldhulpverlening, met als doel financiele rust en stapsgewijze oplossing van problematische schulden."""
 type SchuldhulpverleningTraject implements FinancieleVerplichting {
   """Interne identificatie."""
-  identificatie: String!
+  identificatie: Identificatie!
   """Datum waarop de verplichting is aangegaan."""
   ingangsdatum: Datum!
   """Werkelijke einddatum (afgelost, ontbonden of overgenomen)."""
@@ -626,7 +632,7 @@ type BorgstellingRol {
 """Een mens als drager van burgerlijke rechten en plichten."""
 type NatuurlijkPersoon implements Partij {
   """De inschrijving(en) van deze partij in het Handelsregister. (Sleutel-referentie naar Inschrijving.)"""
-  ingeschrevenAls: [String!]
+  ingeschrevenAls: [KVKnummer!]
   """GBO-eigen identifier voor een partij; gebruikt waar geen externe authentieke identifier bestaat of meerdere bronnen samenkomen."""
   ID: UUID!
   """De officiële familienaam van de persoon."""
@@ -766,7 +772,7 @@ enum Geslacht {
 """Query-ingangen van dit bronprofiel."""
 type Query {
   """Eén IngeschrevenPersoon op bsn."""
-  ingeschrevenPersoon(bsn: String!): IngeschrevenPersoon
+  ingeschrevenPersoon(bsn: BSN!): IngeschrevenPersoon
   """Alle voorkomens van IngeschrevenPersoon."""
   ingeschrevenPersoonLijst: [IngeschrevenPersoon!]
 }

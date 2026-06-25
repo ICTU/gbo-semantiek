@@ -16,6 +16,8 @@ scalar CodelijstKadaster
 scalar Datum
 """Object- of documentidentificatie zonder vaste structuur."""
 scalar Identificatie
+"""Kadastrale aanduiding van een onroerende zaak: kadastrale gemeente, sectie en perceelnummer (bij een appartementsrecht aangevuld met een index), samen uniek binnen de BRK."""
+scalar KadastraleAanduiding
 """Landelijke objectidentificatie voor stelselobjecten, opgebouwd uit namespace, lokaalID en versie (NEN 3610)."""
 scalar NEN3610ID
 """Universally Unique Identifier conform RFC 4122 (128 bits, hexadecimaal genoteerd). Interne GBO-identifier voor objecten zonder externe authentieke identifier."""
@@ -26,7 +28,7 @@ interface KadastraleOnroerendeZaak {
   """Objectidentificatie volgens NEN 3610."""
   identificatie: NEN3610ID!
   """Samengestelde aanduiding (kadastrale gemeente / sectie / perceelnummer / eventueel indexnummer)."""
-  kadastraleAanduiding: String!
+  kadastraleAanduiding: KadastraleAanduiding!
   """Kwaliteit van de geometrische afbakening."""
   soortGrootte: SoortGrootte!
   """Levensfase-status van de kadastrale onroerende zaak."""
@@ -38,7 +40,7 @@ type Perceel implements KadastraleOnroerendeZaak {
   """Objectidentificatie volgens NEN 3610."""
   identificatie: NEN3610ID!
   """Samengestelde aanduiding (kadastrale gemeente / sectie / perceelnummer / eventueel indexnummer)."""
-  kadastraleAanduiding: String!
+  kadastraleAanduiding: KadastraleAanduiding!
   """Kwaliteit van de geometrische afbakening."""
   soortGrootte: SoortGrootte!
   """Levensfase-status van de kadastrale onroerende zaak."""
@@ -58,7 +60,7 @@ type Appartementsrecht implements KadastraleOnroerendeZaak {
   """Objectidentificatie volgens NEN 3610."""
   identificatie: NEN3610ID!
   """Samengestelde aanduiding (kadastrale gemeente / sectie / perceelnummer / eventueel indexnummer)."""
-  kadastraleAanduiding: String!
+  kadastraleAanduiding: KadastraleAanduiding!
   """Kwaliteit van de geometrische afbakening."""
   soortGrootte: SoortGrootte!
   """Levensfase-status van de kadastrale onroerende zaak."""

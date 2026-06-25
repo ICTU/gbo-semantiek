@@ -20,8 +20,12 @@ scalar Datum
 scalar DatumIncompleet
 """Object- of documentidentificatie zonder vaste structuur."""
 scalar Identificatie
+"""Identificatie van een inschrijving in het Handelsregister: 8 cijfers."""
+scalar KVKnummer
 """Universally Unique Identifier conform RFC 4122 (128 bits, hexadecimaal genoteerd). Interne GBO-identifier voor objecten zonder externe authentieke identifier."""
 scalar UUID
+"""Identificatie van een vestiging in het Handelsregister: 12 cijfers."""
+scalar Vestigingsnummer
 
 """Een organisatie of rechtsfiguur, geen mens, die als rechtsdragend subject kan deelnemen aan rechtsbetrekkingen. Omvat rechtspersonen (BV, NV, stichting, vereniging, coöperatie, publiekrechtelijke rechtspersoon, kerkgenootschap), entiteiten zonder eigen rechtspersoonlijkheid (eenmanszaak, VOF, CV, maatschap) en buitenlandse entiteiten met activiteit in Nederland."""
 interface NietNatuurlijkPersoon implements Partij {
@@ -242,7 +246,7 @@ type MaatschappelijkeActiviteit {
 """Een geregistreerde economische of juridische eenheid in het Handelsregister, identificeerbaar via het KVK-nummer, waaraan vestigingen, naamgevingen, activiteiten en rechtstoestand zijn gekoppeld."""
 type Inschrijving {
   """Primaire identifier van de inschrijving."""
-  kvkNummer: String!
+  kvkNummer: KVKnummer!
   """Startdatum van de inschrijving."""
   startdatum: DatumIncompleet
   """Einddatum van de inschrijving."""
@@ -266,7 +270,7 @@ type Inschrijving {
 """Een fysieke of functionele locatie waar een onderneming activiteiten uitvoert, geïdentificeerd door een vestigingsnummer en optioneel gekoppeld aan een BAG-adresseerbaar object."""
 type Vestiging {
   """Primaire identifier van de vestiging."""
-  vestigingsnummer: String!
+  vestigingsnummer: Vestigingsnummer!
   """Onderscheid hoofd- en nevenvestiging."""
   typeVestiging: TypeVestiging!
   """Startdatum van de vestiging."""
@@ -434,7 +438,7 @@ enum SoortActiviteit {
 """Query-ingangen van dit bronprofiel."""
 type Query {
   """Eén Inschrijving op kvkNummer."""
-  inschrijving(kvkNummer: String!): Inschrijving
+  inschrijving(kvkNummer: KVKnummer!): Inschrijving
   """Alle voorkomens van Inschrijving."""
   inschrijvingLijst: [Inschrijving!]
   """Eén MaatschappelijkeActiviteit op identificatie."""
@@ -442,7 +446,7 @@ type Query {
   """Alle voorkomens van MaatschappelijkeActiviteit."""
   maatschappelijkeActiviteitLijst: [MaatschappelijkeActiviteit!]
   """Eén Vestiging op vestigingsnummer."""
-  vestiging(vestigingsnummer: String!): Vestiging
+  vestiging(vestigingsnummer: Vestigingsnummer!): Vestiging
   """Alle voorkomens van Vestiging."""
   vestigingLijst: [Vestiging!]
 }

@@ -8,13 +8,15 @@ scalar CodelijstEUVoertuigcategorie
 scalar CodelijstRDWMerk
 """Kalenderdatum in ISO 8601, precisie tot op de dag (jjjj-mm-dd). Gebruikt voor de materiële tijdlijn."""
 scalar Datum
+"""Nederlands voertuigkenteken: zes posities (hoofdletters en cijfers) volgens het RDW-sidecodestelsel, optioneel met streepjes ter leesbaarheid (bijv. XX-99-99)."""
+scalar Kenteken
 """Universally Unique Identifier conform RFC 4122 (128 bits, hexadecimaal genoteerd). Interne GBO-identifier voor objecten zonder externe authentieke identifier."""
 scalar UUID
 
 """Een door de RDW in de Basisregistratie Voertuigen geregistreerd vervoermiddel dat met een uniek kenteken aan het verkeer kan deelnemen, met de bij dat kenteken horende technische en administratieve kerngegevens."""
 type Voertuig {
   """Uniek kenteken van het voertuig in de Nederlandse sidecode-notatie."""
-  kenteken: String!
+  kenteken: Kenteken!
   """Wereldwijd uniek voertuigidentificatienummer (VIN / chassisnummer) toegekend door de fabrikant."""
   voertuigidentificatienummer: String!
   """Soort voertuig volgens de RDW-indeling."""
@@ -136,7 +138,7 @@ enum Tenaamstellingsrol {
 """Query-ingangen van dit bronprofiel."""
 type Query {
   """Eén Voertuig op kenteken."""
-  voertuig(kenteken: String!): Voertuig
+  voertuig(kenteken: Kenteken!): Voertuig
   """Alle voorkomens van Voertuig."""
   voertuigLijst: [Voertuig!]
 }
