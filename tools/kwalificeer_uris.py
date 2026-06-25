@@ -50,12 +50,31 @@ def main() -> int:
         else:
             deelmodel = (definitie.get("from_schema", "") or "").rsplit(
                 "/", 1)[-1] or "gbo"
+        # URI-segmenten zijn altijd lowercase.
+        kl = klasse.lower()
+        if not definitie.get("class_uri"):
+            definitie["class_uri"] = f"{BASE}/{deelmodel}/{kl}"
         for attr, attrdef in (definitie.get("attributes") or {}).items():
             attrdef = attrdef or {}
             if attrdef.get("slot_uri"):
                 continue
-            attrdef["slot_uri"] = f"{BASE}/{deelmodel}/{klasse}/{attr}"
+            attrdef["slot_uri"] = f"{BASE}/{deelmodel}/{kl}/{attr.lower()}"
             definitie["attributes"][attr] = attrdef
+            aantal += 1
+
+    # Enum-type-URI's krijgen dezelfde lowercase, deelmodel-gekwalificeerde
+    # vorm. De permissible values houden hun code-vorm (zij zijn de feitelijke
+    # waarden, gelijk aan GraphQL/SHACL/data); alleen het type-pad is lowercase.
+    for enumnaam, enumdef in (schema.get("enums") or {}).items():
+        enumdef = enumdef or {}
+        if args.deelmodel:
+            deelmodel = args.deelmodel
+        else:
+            deelmodel = (enumdef.get("from_schema", "") or "").rsplit(
+                "/", 1)[-1] or "gbo"
+        if not enumdef.get("enum_uri"):
+            enumdef["enum_uri"] = f"{BASE}/{deelmodel}/{enumnaam.lower()}"
+            schema["enums"][enumnaam] = enumdef
             aantal += 1
 
     tekst = yaml.dump(schema, sort_keys=False, allow_unicode=True)
