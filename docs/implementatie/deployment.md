@@ -44,7 +44,7 @@ GBO hanteert **twee afzonderlijke versieringssystematieken**:
 
 De documentatiewebsite wordt gepubliceerd met [mike](https://github.com/jimporter/mike), dat meerdere versies naast elkaar beheert op GitHub Pages:
 
-- `https://ictu.github.io/gbo-semantiek/v0.1/`
+- `https://ictu.github.io/gbo-semantiek/v0.3/`
 - `https://ictu.github.io/gbo-semantiek/latest/`
 
 ### Artefactversies (via repository-mappen)
@@ -52,10 +52,12 @@ De documentatiewebsite wordt gepubliceerd met [mike](https://github.com/jimporte
 Modelartefacten worden opgeslagen in genummerde mappen in de repository-root:
 
 ```
-/v0.1/
-  begrippen/       ← SKOS begrippenkader
-  informatiemodel/ ← QEA-model
-  ontologie/       ← OWL/RDF-ontologie (Turtle, JSON-LD)
+/v0.3/
+  informatiemodel/linkml/  ← LinkML-model (gekopieerd uit de wiki-repo)
+  bronnen/                 ← bron-profielen
+  clients/                 ← client-profielen
+  graphql/                 ← GraphQL-SDL's (gegenereerd)
+  ontologie/               ← OWL + SHACL (gegenereerd)
 ```
 
 Versienummering volgt [Semantic Versioning](https://semver.org/lang/nl/): `MAJOR.MINOR`. Een versiegerelateerde map wordt niet gewijzigd na publicatie.
