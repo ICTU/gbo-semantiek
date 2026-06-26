@@ -12,9 +12,19 @@ Dit bestand helpt Claude (en andere AI-assistenten) om efficiënt en consistent 
 **Inhoudelijke bronnen:** GBO put uit meerdere bronmodellen. Een belangrijk deel komt uit gemeentelijke referentiemodellen, met name het Gemeentelijk Gegevensmodel (GGM, oorspronkelijk gemeente 's-Hertogenbosch) en het Referentiemodel Stelsel van Gemeentelijke Basisgegevens (RSGB). Daarnaast worden de officiële catalogi en modellen van de landelijke basisregistraties (BRP, BAG, BRK, BGT, HR, WOZ) gevolgd.
 **Licentie:** EUPL-1.2.
 
-### Kernprincipe: documentation-first
+### Kernprincipe: model komt uit de wiki-repo
 
-De documentatie in `docs/` is de **primaire bron van waarheid**. UML-modellen, JSON Schema's en RDF/OWL-artefacten worden afgeleid van de documentatie, niet andersom. Pas dus eerst de documentatie aan en regenereer daarna afgeleide artefacten.
+Het informatiemodel is **niet** in deze repo de bron van waarheid. De canonieke
+LinkML (`v{VERSION}/informatiemodel/linkml/`), de bron- en client-profielen
+(`v{VERSION}/bronnen/`, `v{VERSION}/clients/`) en de model-documentatie
+(`docs/informatiemodel/gbo-kern/`) worden via `task import:copy` gekopieerd uit
+de modelleer-/bronrepo **`llm-wiki-GBI-core-model`**. Bewerk ze hier niet met de hand.
+
+Wat je hier wél schrijft (voorlopig met AI) is de **kader-documentatie** rondom
+het model: `docs/architectuur/`, `docs/uitgangspunten/`, `docs/begrippen/`,
+`docs/implementatie/`, `docs/ontologie/` en `docs/bijlagen/`. De afgeleide
+artefacten (GraphQL, OWL/SHACL-TTL, changelog, mkdocs-site) worden via de
+Taskfile gegenereerd/gebouwd uit de gekopieerde LinkML.
 
 ---
 
@@ -26,23 +36,23 @@ gbo-semantiek/
 │   ├── architectuur/    Architectuurbeschrijving (componenten, toepassing)
 │   ├── begrippen/       Begrippenkader (kader, structuur, beheer, relatie informatiemodel)
 │   ├── bijlagen/        Woordenlijst, tooling, URI-namespace
-│   ├── definities/      Gegenereerde definities (uit crunch_uml, NIET handmatig bewerken)
 │   ├── implementatie/   URI-strategie, naamgeving, deployment, publicatie
 │   ├── json-ld/         JSON-LD context, framing, API-patronen (concept, nog niet in nav)
 │   ├── ontologie/       SKOS, kwaliteit, publicatie
 │   ├── uitgangspunten/  Ontwerpprincipes, kaders en standaarden, inspiratie
 │   ├── assets/          Diagrammen (.drawio + .svg), CSS, icon
 │   └── informatiemodel.md
-├── v0.1/                Datamodel-artefacten v0.1
-│   ├── begrippen/       Begrippen (placeholder)
-│   ├── informatiemodel/ GBO-Informatiemodel.qea (Enterprise Architect)
-│   └── ontologie/       GBO-Linked-Data.ttl (gegenereerd)
-├── tools/               Hulpscripts (deploy, validatie) en Jinja-templates
+├── v0.2/                Datamodel-artefacten per versie
+│   ├── informatiemodel/linkml/  LinkML-model — GEKOPIEERD uit de wiki-repo
+│   ├── bronnen/         Bron-profielen (aanbod) — GEKOPIEERD uit de wiki-repo
+│   ├── clients/         Client-profielen (vraag) — GEKOPIEERD uit de wiki-repo
+│   ├── graphql/         GraphQL SDL's (gegenereerd)
+│   └── ontologie/       OWL + SHACL (gegenereerd)
+├── tools/               Hulpscripts (generatoren, changelog, deploy)
 ├── site/                Gebouwde MkDocs-site (NIET handmatig bewerken)
 ├── Taskfile.yml         go-task runner met alle build/deploy-taken
 ├── mkdocs.yml           MkDocs Material-configuratie
-├── .env                 Omgevingsvariabelen (VERSION, bestandspaden, namespace)
-├── crunch_uml.db        SQLite-database van crunch_uml (NIET handmatig bewerken)
+├── .env                 Omgevingsvariabelen (VERSION, namespace; WIKI_REPO te overriden)
 ├── CHANGELOG.md
 ├── CONTRIBUTING.md
 └── README.md
@@ -74,8 +84,8 @@ Een documentatie-update vereist niet altijd een nieuwe modelversie en omgekeerd.
 - **Lees eerst de relevante bestanden** voordat je voorstellen doet. Vermijd aannames over de inhoud.
 - **Volg bestaande conventies** in dit repository (Markdown-stijl, mappenstructuur, naamgeving). Wijk alleen af met goede reden.
 - **Eén ding tegelijk:** liever een kleine, gefocuste wijziging dan een grote refactor. Stel grote refactors altijd eerst voor.
-- **Genereer nooit handmatig wat door tooling gemaakt wordt.** Bestanden in `site/`, `docs/definities/` (deels) en `crunch_uml.db` worden gegenereerd via taken in `Taskfile.yml`.
-- **Diagrammen: genereer altijd ook de SVG.** Wanneer een `.drawio`-bestand in `docs/assets/diagrams/` wordt aangemaakt of gewijzigd, exporteer het naar een bijbehorende `.svg` in dezelfde map (drawio desktop: *Bestand → Exporteren als → SVG*, of CLI: `drawio -x -f svg <bestand>.drawio`). De documentatie verwijst naar de SVG, nooit naar de `.drawio`. Commit beide bestanden samen.
+- **Bewerk nooit handmatig wat door tooling of de copy-slag komt.** Gegenereerd via `Taskfile.yml`: `site/`, `v{VERSION}/graphql/`, `v{VERSION}/ontologie/`, `v{VERSION}/GBO_Changes.md`. Gekopieerd uit de wiki-repo (`task import:copy`): `v{VERSION}/informatiemodel/linkml/`, `v{VERSION}/bronnen/`, `v{VERSION}/clients/` en `docs/informatiemodel/gbo-kern/`.
+- **Diagrammen** komen als PlantUML-fences mee in de gekopieerde model-docs en worden door mkdocs gerenderd. Het oude drawio→SVG-spoor (`task generate:diagrams`) is **voorlopig uitgeschakeld** (Fase 1).
 
 ### Wat NIET doen
 
@@ -94,7 +104,7 @@ Dit repository gebruikt [go-task](https://taskfile.dev/) als task-runner. Alle t
 | Fase | Belangrijkste taken | Doel |
 |------|---------------------|------|
 | `prepare` | `prepare:check-tools`, `prepare:check-vars` | Voorwaarden valideren |
-| `import` | `import:model`, `import:previous` | UML-model inladen in crunch_uml |
+| `import` | `import:copy` | Model + bron-/client-profielen kopiëren uit de wiki-repo |
 | `generate` | `generate:docs`, `generate:lod`, `generate:diff` | Artefacten uit het model genereren |
 | `build` | `build:validate`, `build:site`, `build:serve` | MkDocs valideren, bouwen, serveren |
 | `publish` | `publish:local`, `publish:github` | Mike-deploy lokaal of naar gh-pages |
@@ -123,10 +133,10 @@ De `.env` wordt geladen door Taskfile.yml en bevat onder andere:
 ### Vereiste tools
 
 - `go-task`
-- `crunch_uml` (Python-pakket, zie github.com/brienen/crunch_uml)
+- `rsync` (voor `task import:copy`)
+- `linkml` (incl. `gen-owl`, `gen-shacl`, `gen-yaml`, `linkml-validate`)
 - Python 3.9+ met `mkdocs-material` en `mike`
 - `jq`
-- `drawio` (optioneel, alleen voor `task generate:diagrams`)
 
 ---
 
@@ -165,7 +175,8 @@ Volg [Conventional Commits](https://www.conventionalcommits.org/nl/v1.0.0/) in h
 | **GGM** | Gemeentelijk Gegevensmodel — referentiemodel waarop GBO gebaseerd is |
 | **Informatiemodel** | Conceptueel model van begrippen, objecten en relaties |
 | **Begrippenkader** | Set van gedefinieerde begrippen met onderlinge relaties (vaak SKOS) |
-| **Crunch_uml** | Tool om UML-modellen te importeren, transformeren en exporteren |
+| **LinkML** | Modelleertaal; canonieke modelbron, gekopieerd uit de wiki-repo |
+| **import:copy** | Taskfile-taak die model + profielen uit de wiki-repo kopieert (vervangt de oude crunch_uml/QEA-import) |
 | **Mike** | Versietool bovenop MkDocs voor meerdere documentatieversies naast elkaar |
 
 ---

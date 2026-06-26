@@ -28,6 +28,11 @@ shopt: [globstar]
 
 dotenv: ['.env']
 
+# Onderdruk de click UserWarning "parameter -V is used more than once"
+# (bekende dubbele-optie-bug in de linkml-CLI; niet ons model).
+env:
+  PYTHONWARNINGS: 'ignore::UserWarning'
+
 vars:
   VERSION_DIR: "./{{.VERSION}}"
   PREVIOUS_VERSION_DIR: "./{{.PREVIOUS_VERSION}}"
@@ -42,11 +47,16 @@ vars:
   DEFS: "./docs/definities"
   ROOT_GBO: "{{.ROOT_NODE_GBO}}"
   CHANGES_MD: "{{.VERSION_DIR}}/{{.CHANGES_MD_FILE}}"
+  # Wiki-repo (modelleer-/bronrepo) waaruit model + profielen worden gekopieerd.
+  # Override via env: `WIKI_REPO=/pad/naar/llm-wiki task import:copy`.
+  WIKI_REPO: '{{.WIKI_REPO | default "../llm-wiki-GBI-core-model"}}'
   # LinkML-pipeline (informatiemodel, bron-profielen, GraphQL, LOD)
   LINKML_DIR: "{{.VERSION_DIR}}/{{.INFORMATIEMODEL}}/linkml"
   GBO_LINKML: "{{.LINKML_DIR}}/gbo.yaml"
+  PREVIOUS_LINKML: "{{.PREVIOUS_VERSION_DIR}}/{{.INFORMATIEMODEL}}/linkml/gbo.yaml"
   BRONPROFIEL_SCHEMA: "{{.LINKML_DIR}}/bronprofiel.yaml"
   BRONNEN_DIR: "{{.VERSION_DIR}}/bronnen"
+  CLIENTS_DIR: "{{.VERSION_DIR}}/clients"
   GRAPHQL_DIR: "{{.VERSION_DIR}}/graphql"
   SHACL: "{{.VERSION_DIR}}/{{.ONTOLOGIE}}/GBO-Shapes.ttl"
   # Python met PyYAML: systeempython, anders de linkml-omgeving
@@ -59,11 +69,12 @@ tasks:
   # ==========================================================================
   prepare:check-tools:
     desc: "Verify required tools are installed."
+    silent: true
     cmds:
       - |
         # Lijst van vereiste tools en hun download-URLs
         declare -A tools=(
-          ["crunch_uml"]="https://github.com/brienen/crunch_uml"
+          ["rsync"]="standaard op macOS/Linux"
           ["mkdocs"]="https://www.mkdocs.org"
           ["mike"]="https://github.com/jimporter/mike"
           ["jq"]="https://stedolan.github.io/jq"
@@ -95,17 +106,10 @@ tasks:
           echo "All required tools are installed."
         fi
 
-        # Optioneel: drawio desktop voor generate:diagrams
-        if ! command -v drawio &> /dev/null \
-           && [ ! -x "/Applications/draw.io.app/Contents/MacOS/draw.io" ]; then
-          echo "Warning: drawio desktop is niet gevonden."
-          echo "  Alleen nodig voor 'task generate:diagrams'."
-          echo "  Zie https://github.com/jgraph/drawio-desktop/releases"
-        fi
-
 
   prepare:check-vars:
     desc: "Validate required variables VERSION and check if VERSION_DIR exists."
+    silent: true
     cmds:
       - |
         echo "Validating input parameter {{.VERSION}} ..."
@@ -127,62 +131,47 @@ tasks:
 
 
   # ==========================================================================
-  # Import — Model(len) inladen in Crunch UML
+  # Import — Model + profielen kopiëren uit de wiki-repo (modelleer-/bronrepo)
   # ==========================================================================
-  import:model:
-    desc: "Import the QEA file into Crunch UML Database."
+  import:copy:
+    desc: "Kopieer LinkML-model + bron-/client-profielen uit de wiki-repo ({{.WIKI_REPO}})."
     deps: [prepare:check-tools, prepare:check-vars]
     cmds:
-      #- |
-      #  if [ ! -f "{{.GBO}}" ]; then
-      #    echo "Error: QEA file '{{.GBO}}' does not exist."
-      #    exit 1
-      #  fi
-      #- echo "Importing QEA file '{{.GBO}}' into Crunch UML..."
-      #- crunch_uml import -f "{{.GBO}}" -t qea -db_create
-      #- echo "Copying Core GBO Model to {{.GBO_ROOT_SCHEMA}}..."
-      #- crunch_uml transform -ttp copy -sch_to "{{.GBO_ROOT_SCHEMA}}" -rt_pkg "{{.ROOT_GBO}}"
-      - echo "Crunch database successfully created and setup..."
-
-    sources:
-      - "{{.GBO}}"
-    generates:
-      - "{{.CRUNCH_UML_DB}}"
-    run: when_changed
-
-  import:previous:
-    desc: "Import the QEA file of previous version {{.PREVIOUS_VERSION}} into Crunch UML Database."
-    deps: [import:model]
-    cmds:
       - |
-        if [ ! -f "{{.PREVIOUS_GBO}}" ]; then
-          echo "Error: QEA file '{{.PREVIOUS_GBO}}' does not exist."
+        if [ ! -d "{{.WIKI_REPO}}/publicatie/linkml" ]; then
+          echo "Error: wiki-repo niet gevonden op '{{.WIKI_REPO}}'."
+          echo "Zet WIKI_REPO in de omgeving of pas de default in Taskfile.yml aan."
           exit 1
         fi
-      - echo "Importing QEA file '{{.PREVIOUS_GBO}}' into Crunch UML schema {{.GBO_PREVIOUS_SCHEMA_RAW}}..."
-      - crunch_uml -sch {{.GBO_PREVIOUS_SCHEMA_RAW}} import -f "{{.PREVIOUS_GBO}}" -t qea
-      - echo "Copying {{.GBO_PREVIOUS_SCHEMA_RAW}} GBO Model to {{.GBO_PREVIOUS_SCHEMA}}..."
-      - crunch_uml transform -ttp copy -sch_from "{{.GBO_PREVIOUS_SCHEMA_RAW}}" -sch_to "{{.GBO_PREVIOUS_SCHEMA}}" -rt_pkg "{{.ROOT_GBO}}"
-      - echo "Successfully added previous schema to Crunch database..."
-
+      - echo "Kopiëren van model + profielen uit {{.WIKI_REPO}} ..."
+      - mkdir -p "{{.LINKML_DIR}}" "{{.BRONNEN_DIR}}" "{{.CLIENTS_DIR}}"
+      - rsync -a --delete "{{.WIKI_REPO}}/publicatie/linkml/"  "{{.LINKML_DIR}}/"
+      - rsync -a --delete "{{.WIKI_REPO}}/publicatie/bronnen/" "{{.BRONNEN_DIR}}/"
+      - rsync -a --delete "{{.WIKI_REPO}}/publicatie/clients/" "{{.CLIENTS_DIR}}/"
+      # Fase 1: de publicatie-.md's (incl. bronnenprioritering) worden nog in de
+      # wiki-repo (AI) geschreven en hier mee gekopieerd. Vervalt in Fase 2 (dan
+      # genereert 'generate:docs' ze zelf uit de LinkML). bronnenprioritering
+      # staat in de nav onder Uitgangspunten maar als bestand in gbo-kern, omdat
+      # de wiki-repo de enige bron is en zijn relatieve links daar kloppen.
+      - mkdir -p "{{.DOCS}}/{{.INFORMATIEMODEL}}/gbo-kern"
+      - rsync -a --delete "{{.WIKI_REPO}}/publicatie/{{.INFORMATIEMODEL}}/" "{{.DOCS}}/{{.INFORMATIEMODEL}}/gbo-kern/"
+      - echo "Model, profielen en model-docs gekopieerd."
     sources:
-      - "{{.PREVIOUS_GBO}}"
-      - "{{.GBO}}"
+      - "{{.WIKI_REPO}}/publicatie/**/*"
     generates:
-      - "{{.CRUNCH_UML_DB}}"
+      - "{{.LINKML_DIR}}/*.yaml"
+      - "{{.BRONNEN_DIR}}/*.yaml"
+      - "{{.CLIENTS_DIR}}/*.yaml"
     run: when_changed
 
   # ==========================================================================
   # Generate — Artifacts genereren uit het model
   # ==========================================================================
   generate:docs:
-    desc: "Generate Markdown documentation from the model."
-    deps: [import:model]
+    desc: "Model-docs verversen uit de wiki-repo en versie-placeholders invullen."
+    deps: [import:copy]
     cmds:
-      - echo "Generating Markdown documentation..."
-      - mkdir -p "{{.DEFS}}"
-      - rm -rf "{{.DEFS}}"/*.md
-      - crunch_uml -sch "{{.GBO_ROOT_SCHEMA}}" export -t jinja2 --output_jinja2_template gbo_markdown.j2 -f "{{.DEFS}}/definitie.md" --output_jinja2_templatedir ./tools/
+      - echo "Model-docs (gbo-kern) komen via 'import:copy' uit de wiki-repo (Fase 1)."
       - |
         # Vervang de versies in de uitwisselspecificatie-templates
         # Loop door alle .template-bestanden in de directory en submappen
@@ -201,7 +190,7 @@ tasks:
 
   generate:check-model:
     desc: "Valideer het LinkML-informatiemodel (merge-check en lint)."
-    deps: [prepare:check-vars]
+    deps: [prepare:check-vars, import:copy]
     cmds:
       - echo "Validating LinkML-model {{.GBO_LINKML}} ..."
       - gen-yaml "{{.GBO_LINKML}}" > /dev/null
@@ -242,66 +231,52 @@ tasks:
       - "{{.LOD}}"
       - "{{.SHACL}}"
     cmds:
-      - echo "Generating OWL-ontologie '{{.LOD}}' ..."
-      - gen-owl "{{.GBO_LINKML}}" > "{{.LOD}}"
-      - echo "Generating SHACL-shapes '{{.SHACL}}' ..."
+      - mkdir -p "{{.VERSION_DIR}}/{{.ONTOLOGIE}}"
       - |
         {{.PYYAML_PYTHON}}
-        gen-yaml "{{.GBO_LINKML}}" > /tmp/gbo-merged.yaml
-        "$PY" -c "import yaml; s = yaml.safe_load(open('/tmp/gbo-merged.yaml')); s.pop('imports', None); yaml.dump(s, open('/tmp/gbo-merged-noimports.yaml', 'w'), sort_keys=False, allow_unicode=True)"
+        # Kwalificeer attribuut-URI's per deelmodel/klasse in een werkkopie:
+        # gelijknamige attributen krijgen zo een eigen, diepe URI
+        # (.../<deelmodel>/<Klasse>/<attr>) i.p.v. één platte, botsende URI.
+        Q=/tmp/gbo-linkml-q
+        rm -rf "$Q" && cp -r "{{.LINKML_DIR}}" "$Q"
+        for f in "$Q"/*.yaml; do
+          stem=$(basename "$f" .yaml)
+          case "$stem" in gbo|bronprofiel|clientprofiel) continue;; esac
+          "$PY" tools/kwalificeer_uris.py "$f" --deelmodel "$stem" --in-place
+        done
+        echo "Generating OWL-ontologie '{{.LOD}}' ..."
+        gen-owl --no-use-native-uris --skip-vacuous-min-zero-cardinality-axioms \
+          --skip-vacuous-local-range-axioms --consolidate-cardinality-axioms \
+          "$Q/gbo.yaml" > "{{.LOD}}"
+        # Brug GBO-lokale MIM-annotaties -> officiele MIM-ontologie (BP4MC2).
+        cat tools/mim-mapping.ttl >> "{{.LOD}}"
+        echo "Generating SHACL-shapes '{{.SHACL}}' ..."
+        gen-yaml "$Q/gbo.yaml" > /tmp/gbo-merged.yaml
+        "$PY" -c "import yaml; s=yaml.safe_load(open('/tmp/gbo-merged.yaml')); s.pop('imports',None); yaml.dump(s, open('/tmp/gbo-merged-noimports.yaml','w'), sort_keys=False, allow_unicode=True)"
         gen-shacl /tmp/gbo-merged-noimports.yaml > "{{.SHACL}}"
       - echo "Linked Data gegenereerd."
 
 
   generate:diff:
-    desc: "Generate Changes to previous version {{.PREVIOUS_VERSION}} in Markdown file {{.CHANGES_MD}}."
-    deps: [import:previous]
+    desc: "Genereer changelog t.o.v. {{.PREVIOUS_VERSION}} uit de LinkML-modellen ({{.CHANGES_MD}})."
+    deps: [import:copy]
     cmds:
-      - echo "Generating changes between version {{.PREVIOUS_VERSION}} and {{.VERSION}} in file {{.CHANGES_MD}}..."
-      - crunch_uml -sch "{{.GBO_PREVIOUS_SCHEMA}}" export -t diff_md -f "{{.CHANGES_MD}}" --compare_schema_name "{{.GBO_ROOT_SCHEMA}}" --compare_title "Changes from {{.PREVIOUS_VERSION}} to {{.VERSION}}"
+      - echo "Genereren changelog {{.PREVIOUS_VERSION}} -> {{.VERSION}} in {{.CHANGES_MD}} ..."
+      - |
+        {{.PYYAML_PYTHON}}
+        "$PY" tools/genereer_changelog.py \
+          --previous "{{.PREVIOUS_LINKML}}" --previous-version "{{.PREVIOUS_VERSION}}" \
+          --current  "{{.GBO_LINKML}}"      --current-version  "{{.VERSION}}" \
+          --output   "{{.CHANGES_MD}}"
 
 
   generate:diagrams:
-    desc: "Exporteer alle .drawio-bestanden in docs/assets/diagrams/ naar SVG."
-    sources:
-      - "{{.DOCS}}/assets/diagrams/*.drawio"
-    generates:
-      - "{{.DOCS}}/assets/diagrams/*.svg"
-    run: when_changed
+    desc: "(Voorlopig uitgeschakeld — Fase 1) drawio->SVG export."
     cmds:
       - |
-        # Bepaal het drawio-commando: CLI in PATH of macOS-app
-        if command -v drawio &> /dev/null; then
-          DRAWIO="drawio"
-        elif [ -x "/Applications/draw.io.app/Contents/MacOS/draw.io" ]; then
-          DRAWIO="/Applications/draw.io.app/Contents/MacOS/draw.io"
-        else
-          echo "Error: drawio is niet gevonden."
-          echo "Installeer drawio desktop (https://github.com/jgraph/drawio-desktop/releases)"
-          echo "of zorg dat 'drawio' in je PATH staat."
-          exit 1
-        fi
-
-        DIAGRAMS_DIR="{{.DOCS}}/assets/diagrams"
-        if [ ! -d "$DIAGRAMS_DIR" ]; then
-          echo "Error: Directory '$DIAGRAMS_DIR' bestaat niet."
-          exit 1
-        fi
-
-        shopt -s nullglob
-        count=0
-        for src in "$DIAGRAMS_DIR"/*.drawio; do
-          base="$(basename "$src" .drawio)"
-          out="$DIAGRAMS_DIR/$base.svg"
-          if [ -f "$out" ] && [ "$out" -nt "$src" ]; then
-            echo "Up-to-date: $base.svg"
-            continue
-          fi
-          echo "Exporting: $base.drawio -> $base.svg"
-          "$DRAWIO" -x -f svg -o "$out" "$src"
-          count=$((count + 1))
-        done
-        echo "Klaar — $count diagram(men) geëxporteerd."
+        echo "generate:diagrams is voorlopig uitgeschakeld (Fase 1)."
+        echo "Diagrammen komen als PlantUML-fences mee in de gekopieerde"
+        echo "model-docs (gbo-kern) en worden door mkdocs gerenderd."
 
 
   # ==========================================================================
@@ -309,7 +284,7 @@ tasks:
   # ==========================================================================
   build:validate:
     desc: "Build the MkDocs documentation in strict mode to check for errors."
-    deps: [generate:docs, generate:diagrams]
+    deps: [generate:docs]
     cmds:
       - echo "Validating MkDocs documentation..."
       - mkdocs build --strict --site-dir /tmp/gbo-semantiek-site
@@ -318,7 +293,7 @@ tasks:
 
   build:site:
     desc: "Build the MkDocs site."
-    deps: [generate:docs, generate:diagrams]
+    deps: [generate:docs]
     cmds:
       - echo "Building MkDocs site..."
       - mkdocs build --clean
@@ -326,7 +301,7 @@ tasks:
 
 
   build:serve:
-    desc: "Start the local MkDocs development server met livereload (snelle preview, genereert geen docs vooraf; draai zo nodig eerst 'task generate:docs' of 'task generate:diagrams')."
+    desc: "Start the local MkDocs development server met livereload (snelle preview, genereert geen docs vooraf; draai zo nodig eerst 'task import:copy' of 'task generate:docs')."
     cmds:
       - echo "Starting MkDocs development server met livereload..."
       - mkdocs serve --livereload --watch-theme
@@ -337,7 +312,7 @@ tasks:
   # ==========================================================================
   publish:local:
     desc: "Deploy versioned documentation locally using Mike."
-    deps: [generate:docs, generate:lod, generate:diff, generate:diagrams]
+    deps: [generate:docs, generate:graphql, generate:lod, generate:diff]
     cmds:
       - echo "Deploying documentation with Mike..."
       - mkdocs build --clean

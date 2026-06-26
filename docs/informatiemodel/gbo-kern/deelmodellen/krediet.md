@@ -201,6 +201,7 @@ verplichtingen prive en zakelijk.
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/AchterstandRegistratie` |
 | Herkomst | CKI |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van kredietovereenkomst en achterstand-startdatum. |
 | Populatie | Alle aan CKI gemelde achterstanden op kredietovereenkomsten, inclusief inmiddels herstelde voor zover binnen de bewaartermijn van vijf jaar. |
 
 **Attribuutsoorten**:
@@ -240,6 +241,7 @@ vaste looptijd. Meldingsplichtig boven EUR 250.
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/AflopendKrediet` |
 | Herkomst | CKI |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van kredietverstrekker en contractidentificatie. |
 | Populatie | Alle aan CKI gemelde aflopende kredieten boven de meldingsdrempel van EUR 250, gedurende de looptijd plus de bewaartermijn na einddatum. |
 | Notation | AK |
 
@@ -277,6 +279,7 @@ bijzonderheids-coderingen kennen, elk met een eigen code en datum.
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/BijzonderheidsCodering` |
 | Herkomst | CKI |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van kredietovereenkomst, bijzonderheidscode en datumGebeurtenis. |
 | Populatie | Alle aan CKI gemelde bijzonderheidscoderingen op kredietovereenkomsten, gedurende de bewaartermijn. |
 
 **Attribuutsoorten**:
@@ -313,6 +316,7 @@ met spreidingsfunctie en sommige private leases.
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/DoorlopendKrediet` |
 | Herkomst | CKI |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van kredietverstrekker en contractidentificatie. |
 | Populatie | Alle aan CKI gemelde doorlopende kredieten boven de meldingsdrempel van EUR 250 als kredietlimiet, gedurende de looptijd plus de bewaartermijn. |
 | Notation | RK |
 
@@ -332,7 +336,7 @@ niet-natuurlijk persoon tot het verrichten van een geldelijke
 prestatie aan een tegenpartij, ontstaan uit overeenkomst of uit een
 wettelijke regeling.
 
-**Herkomst definitie**: GBO-Kern. Afgeleid uit het verbintenisrecht
+**Herkomst definitie**: GBO-Core. Afgeleid uit het verbintenisrecht
 in het Burgerlijk Wetboek en uit de Wet op het financieel toezicht
 art. 4:32 (sectorregistratie kredietverlening). Operationele
 invulling: Algemeen Reglement CKI 2024-07-01 art. 1 voor het
@@ -353,13 +357,14 @@ tussen familieleden vallen er niet onder.
 | Herkomst | CKI; Wgs |
 | Datum opname | 2026-05-19 |
 | Indicatie abstract object | Ja |
+| Unieke aanduiding | Identificatie. |
 | Populatie | Abstract. Concrete populatie wordt bepaald door de subklassen KredietOvereenkomst en SchuldhulpverleningTraject: alle in CKI of in een gemeentelijke beschikking geformaliseerde geldelijke verplichtingen van een natuurlijk of niet-natuurlijk persoon. |
 
 **Attribuutsoorten**:
 
 | Naam | Type | Kard. | Definitie | Herkomst |
 |---|---|---|---|---|
-| `identificatie` | [Tekst](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Interne identificatie. | GBO-Kern |
+| `identificatie` | [Tekst](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Interne identificatie. | GBO-Core |
 | `ingangsdatum` | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Datum waarop de verplichting is aangegaan. | Algemeen Reglement CKI art. 16-26 |
 | `einddatumWerkelijk` | [Datum](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Werkelijke einddatum (afgelost, ontbonden of overgenomen). | Algemeen Reglement CKI art. 14 |
 | `bewaartermijnPeriode` | [Duur](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 1 | ISO 8601 duration; default P5Y, P1Y bij overlijdensmelding. | Algemeen Reglement CKI art. 14 |
@@ -387,6 +392,7 @@ lopende.
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/HerstelMelding` |
 | Herkomst | CKI |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van AchterstandRegistratie en datumGebeurtenis. |
 | Populatie | Alle aan CKI gemelde herstellen van eerder geregistreerde achterstanden, gedurende de bewaartermijn van de oorspronkelijke achterstand. |
 
 **Attribuutsoorten**:
@@ -427,6 +433,7 @@ of de eigen kredietadministratie van de geldverstrekker.
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/HypothecairKredietEigenWoning` |
 | Herkomst | CKI |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van kredietverstrekker en contractidentificatie. |
 | Populatie | Hypothecaire kredieten voor de eigen woning waarop een negatieve betalingservaring aan CKI is gemeld; reguliere kredieten zonder achterstand verschijnen niet in CKI. |
 | Notation | HY |
 
@@ -463,6 +470,7 @@ zit in de rol van de onroerende zaak.
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/HypothecairKredietOverigeOnroerendeZaken` |
 | Herkomst | CKI |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van kredietverstrekker en contractidentificatie. |
 | Populatie | Alle aan CKI gemelde hypothecaire kredieten op onroerende zaken anders dan de eigen woning (tweede woning, verhuurpand, beleggingspand) boven de meldingsdrempel van EUR 250. |
 | Notation | HO |
 
@@ -502,6 +510,7 @@ mini-leningen van enkele honderden euros met een termijn van weken.
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/KortKrediet` |
 | Herkomst | CKI |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van kredietverstrekker en contractidentificatie. |
 | Populatie | Aan CKI gemelde kortlopende kredieten (dagkredieten, mini-leningen) met een looptijd doorgaans korter dan drie maanden. |
 
 **Attribuutsoorten**:
@@ -536,6 +545,7 @@ herstel, gevolgd door opnieuw een achterstand.
 | Herkomst | CKI |
 | Datum opname | 2026-05-19 |
 | Indicatie abstract object | Ja |
+| Unieke aanduiding | Combinatie van kredietovereenkomst en datumGebeurtenis (plus type). |
 | Populatie | Abstract. Concrete populatie wordt bepaald door de subklassen AchterstandRegistratie, HerstelMelding en BijzonderheidsCodering: alle gedurende de looptijd van een kredietovereenkomst aan CKI gemelde gebeurtenissen. |
 
 **Attribuutsoorten**:
@@ -586,6 +596,7 @@ zij niet aan CKI worden gemeld:
 | Herkomst | CKI |
 | Datum opname | 2026-05-19 |
 | Indicatie abstract object | Ja |
+| Unieke aanduiding | Combinatie van kredietverstrekker en contractidentificatie. |
 | Populatie | Abstract. Concrete populatie wordt bepaald door de twaalf subklassen: alle kredietovereenkomsten die op grond van het Algemeen Reglement CKI aan het Centraal Krediet Informatiesysteem worden gemeld. |
 
 **Attribuutsoorten**:
@@ -629,6 +640,7 @@ eigenaar en kent een eigen kredietvorm-code sinds 1 januari 2017.
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/OperationalAutolease` |
 | Herkomst | CKI |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van leasemaatschappij en contractidentificatie. |
 | Populatie | Aan CKI gemelde operational-autoleasecontracten waarbij de leasemaatschappij eigenaar van het voertuig blijft en het totale contractbedrag boven de meldingsdrempel van EUR 250 ligt. |
 | Notation | OA |
 
@@ -663,6 +675,7 @@ borgstelling).
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/OverigeFinancieleVerplichtingPrive` |
 | Herkomst | CKI |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van kredietverstrekker en contractidentificatie. |
 | Populatie | Aan CKI gemelde overige private financiele verplichtingen van natuurlijke personen die niet onder een andere kredietvorm vallen, voor zover een negatieve betalingservaring is gemeld. |
 | Notation | RO |
 
@@ -694,6 +707,7 @@ CKI-registratie loopt gedurende dit proces door.
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/RestschuldHypothecairKredietMetNHG` |
 | Herkomst | CKI |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van kredietverstrekker en contractidentificatie van de restschuld. |
 | Populatie | Aan CKI gemelde restschulden boven EUR 250 na verkoop van een onroerende zaak waarop een hypothecair krediet rustte met dekking door de Nationale Hypotheek Garantie. |
 | Notation | RN |
 
@@ -733,6 +747,7 @@ voor de aansprakelijkheid en de afbetalingsverplichting.
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/RestschuldHypothecairKredietZonderNHG` |
 | Herkomst | CKI |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van kredietverstrekker en contractidentificatie van de restschuld. |
 | Populatie | Aan CKI gemelde restschulden boven EUR 250 na verkoop van een onroerende zaak waarop een hypothecair krediet rustte zonder dekking door de Nationale Hypotheek Garantie. |
 | Notation | RH |
 
@@ -772,6 +787,7 @@ schuldhulpverleningstraject.
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/Saneringskrediet` |
 | Herkomst | CKI |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van verstrekkende instantie en contractidentificatie. |
 | Populatie | Aan CKI gemelde saneringskredieten boven EUR 250, verstrekt door een gemeente of door de gemeente aangewezen kredietbank in het kader van schuldhulpverlening. |
 | Notation | SK |
 
@@ -806,6 +822,7 @@ meldingsplichtig.
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/ZakelijkKrediet` |
 | Herkomst | CKI |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van kredietverstrekker en contractidentificatie. |
 | Populatie | Aan CKI gemelde zakelijke kredieten boven EUR 1.000 met persoonlijke aansprakelijkheid van een of meer natuurlijke personen (typisch ZZP en eenmanszaken, en BV/NV met persoonlijke borgstelling). |
 | Notation | ZK |
 
@@ -844,6 +861,7 @@ verplichting kunnen zowel ZK als ZO van toepassing zijn.
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/ZakelijkeOverigeFinancieleVerplichting` |
 | Herkomst | CKI |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van kredietverstrekker en contractidentificatie. |
 | Populatie | Aan CKI gemelde overige zakelijke financiele verplichtingen boven EUR 1.000 die niet onder ZakelijkKrediet vallen, voor zover een negatieve betalingservaring is gemeld. |
 | Notation | ZO |
 
@@ -887,6 +905,7 @@ de aard.
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/BorgstellingRol` |
 | Herkomst | CKI; BW |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van NatuurlijkPersoon, KredietOvereenkomst en ingangsdatum. |
 | Populatie | Natuurlijke personen die zich als borg hebben verbonden voor een kredietovereenkomst; in CKI alleen zichtbaar bij activering van de borgstelling via een negatieve betalingservaring. |
 
 **Attribuutsoorten**:
@@ -930,6 +949,7 @@ onderdeel zijn van het traject.
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/SchuldhulpverleningTraject` |
 | Herkomst | Wgs; CKI |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van gemeente en beschikkingsidentificatie. |
 | Populatie | Alle bij beschikking aan een natuurlijk persoon toegekende gemeentelijke schuldhulpverleningstrajecten op grond van de Wet gemeentelijke schuldhulpverlening; aangemeld bij CKI conform art. 18a Algemeen Reglement CKI. |
 
 **Attribuutsoorten**:
@@ -1028,7 +1048,7 @@ Centraal Krediet Informatiesysteem worden verwerkt.
 **Herkomst definitie**: Algemeen Reglement CKI van 1 juli 2024,
 art. 9 lid 2.
 
-**Toelichting**: Anders dan elders binnen GBO-Kern gebruikt Stichting
+**Toelichting**: Anders dan elders binnen GBO-Core gebruikt Stichting
 BKR het BSN niet als interne identifier. In plaats daarvan een
 combinatie-sleutel op basis van postcode-cijferdeel en geboortedatum.
 
@@ -1074,7 +1094,7 @@ Deelmodel-specifieke codelijsten. Stelselbrede codelijsten staan op de
 - Naar [Personen](personen.md): `NatuurlijkPersoon` is de kredietnemer
   in `KredietOvereenkomst`, de toegekende in
   `SchuldhulpverleningTraject` en de borg in `BorgstellingRol`.
-  Anders dan elders binnen GBO-Kern gebruikt Stichting BKR het BSN
+  Anders dan elders binnen GBO-Core gebruikt Stichting BKR het BSN
   niet als interne identifier; zie `PersoonsgegevensCategorieCKI`.
 - Naar [Bedrijven en instellingen](bedrijven-en-instellingen.md): de
   kredietverstrekker, leasemaatschappij of kredietbank is een
@@ -1099,7 +1119,7 @@ raadplegen bij kredietaanvragen van enige omvang.
 Het Algemeen Reglement CKI van 1 juli 2024 is normatief; de
 operationele koppelvlak-handleiding is alleen toegankelijk voor door
 Stichting BKR erkende zakelijke klanten en draagt niet bij aan de
-GBO-Kern-concept-definities.
+GBO-Core-concept-definities.
 
 Autoritatieve bron voor `SchuldhulpverleningTraject` is de Wet
 gemeentelijke schuldhulpverlening; de gemeente beschikt het traject

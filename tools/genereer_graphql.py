@@ -141,6 +141,28 @@ class SDLGenerator:
                     return naam, self.veldtype(attr, kaal=True)
         return None
 
+    def zoeksleutel_van(self, klasse: str) -> tuple[str, str] | None:
+        """Natuurlijke zoeksleutel voor een query-ingang.
+
+        Voorkeur: (1) een eigen identifier op de klasse zelf; anders
+        (2) een enkelvoudige unique_key (eigen of geërfd) als
+        natuurlijke sleutel — zo zoekt IngeschrevenPersoon op bsn in
+        plaats van op de geërfde technische ID; anders (3) de geërfde
+        identifier (de universele technische handle)."""
+        eigen = self.classes.get(klasse) or {}
+        for naam, attr in (eigen.get("attributes") or {}).items():
+            if (attr or {}).get("identifier"):
+                return naam, self.veldtype(attr, kaal=True)
+        induced = self.induced_attributen(klasse)
+        for kandidaat in [klasse] + self.voorouders(klasse):
+            for uk in ((self.classes.get(kandidaat) or {})
+                       .get("unique_keys") or {}).values():
+                slots = uk.get("unique_key_slots") or []
+                if len(slots) == 1 and slots[0] in induced:
+                    return slots[0], self.veldtype(induced[slots[0]],
+                                                   kaal=True)
+        return self.identifier_van(klasse)
+
     # -- veldtypen -----------------------------------------------------------
 
     def veldtype(self, attr: dict, kaal: bool = False) -> str:
@@ -226,7 +248,7 @@ class SDLGenerator:
             if ingang not in self.classes:
                 fout(f"ingang '{ingang}' bestaat niet in het schema")
             veld = lcfirst(graphql_naam(ingang))
-            ident = self.identifier_van(ingang)
+            ident = self.zoeksleutel_van(ingang)
             if ident:
                 slotnaam, slottype = ident
                 regels.extend(docstring(
@@ -257,15 +279,44 @@ class SDLGenerator:
         query = self.query_blok()
         if query:
             blokken.append(query)
-        # Scalars pas nu: self.gebruikte_scalars is gevuld.
+        # Scalars pas nu: self.gebruikte_scalars is gevuld. GraphQL-scalars
+        # zijn opaak; de formaatrestricties uit het LinkML-datatype
+        # (pattern, minimum, maximum) projecteren we als @restrictie-directive
+        # zodat ze in de SDL zichtbaar/machine-leesbaar terugkomen.
         scalars = []
+        restrictie_gebruikt = False
         for naam in sorted(self.gebruikte_scalars):
-            beschrijving = (self.types.get(naam) or {}) \
-                .get("description")
-            scalars.extend(docstring(beschrijving))
-            scalars.append(f"scalar {graphql_naam(naam)}")
+            t = self.types.get(naam) or {}
+            scalars.extend(docstring(t.get("description")))
+            args = []
+            if t.get("pattern"):
+                pat = str(t["pattern"]).replace("\\", "\\\\").replace(
+                    '"', '\\"')
+                args.append(f'patroon: "{pat}"')
+            if t.get("minimum_value") is not None:
+                args.append(f'minimum: {int(t["minimum_value"])}')
+            if t.get("maximum_value") is not None:
+                args.append(f'maximum: {int(t["maximum_value"])}')
+            regel = f"scalar {graphql_naam(naam)}"
+            if args:
+                regel += " @restrictie(" + ", ".join(args) + ")"
+                restrictie_gebruikt = True
+            scalars.append(regel)
         if scalars:
             blokken.insert(0, scalars)
+        if restrictie_gebruikt:
+            blokken.insert(0, [
+                '"""Formaatrestrictie op een scalar, afgeleid uit het '
+                'LinkML-datatype."""',
+                "directive @restrictie(",
+                '  """Reguliere expressie waaraan de waarde voldoet."""',
+                "  patroon: String",
+                '  """Ondergrens (inclusief) voor numerieke waarden."""',
+                "  minimum: Int",
+                '  """Bovengrens (inclusief) voor numerieke waarden."""',
+                "  maximum: Int",
+                ") on SCALAR",
+            ])
 
         bron = (self.schema.get("annotations") or {}).get("gbo:bron", "")
         kop = (f"# GEGENEREERD BESTAND — niet handmatig bewerken.\n"

@@ -117,7 +117,7 @@ nav:
   - Uitgangspunten:
     - Ontwerprincipes: uitgangspunten/ontwerpprincipes.md
     - Kaders en standaarden: uitgangspunten/kaders_standaarden.md
-    - Bronnenprioritering: uitgangspunten/bronnenprioritering.md
+    - Bronnenprioritering: informatiemodel/gbo-kern/bronnenprioritering.md
     # - Inspiratie: uitgangspunten/inspiratie.md
   - Architectuur:
     - Gegevensarchitectuur: architectuur/gegevensarchitectuur.md
@@ -133,6 +133,7 @@ nav:
     # - Beheer en governance: begrippen/beheer.md
   - "Informatiemodel: GBO-Kernmodel":
     - Hoofdmodel: informatiemodel/gbo-kern/hoofdmodel.md
+    - Hoofdmodel (compact): informatiemodel/gbo-kern/hoofdmodel-compact.md
     - Deelmodel Personen: informatiemodel/gbo-kern/deelmodellen/personen.md
     - Deelmodel Bedrijven en Instellingen: informatiemodel/gbo-kern/deelmodellen/bedrijven-en-instellingen.md
     - Deelmodel Adressen en Gebouwen: informatiemodel/gbo-kern/deelmodellen/adressen-en-gebouwen.md

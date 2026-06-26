@@ -46,41 +46,35 @@
         <mxCell id="gi-status" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;strokeWidth=0.5;verticalAlign=middle;fontSize=9;" value="Pandstatus" vertex="1">
           <mxGeometry height="26" width="205" x="328" y="240" as="geometry" />
         </mxCell>
-        <mxCell id="silo-edi" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=1;verticalAlign=top;fontSize=11;fontColor=#a35200;align=center;spacingTop=4;" value="&lt;b&gt;EDI&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#a35200&quot;&gt;EUDI-wallet · attestaties&lt;/font&gt;" vertex="1">
+        <mxCell id="silo-edi" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=1;verticalAlign=top;fontSize=11;fontColor=#a35200;align=center;spacingTop=4;" value="&lt;font style=&quot;color: rgb(163, 82, 0);&quot;&gt;&lt;b&gt;EUDI-wallet · attestaties&lt;/b&gt;&lt;/font&gt;" vertex="1">
           <mxGeometry height="150" width="225" x="556" y="143" as="geometry" />
         </mxCell>
-        <mxCell id="edi-adres" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2e6;strokeColor=#d79b00;strokeWidth=0.5;verticalAlign=middle;fontSize=9;" value="Adres" vertex="1">
-          <mxGeometry height="26" width="100" x="566" y="184" as="geometry" />
+        <mxCell id="edi-pid" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2e6;strokeColor=#d79b00;strokeWidth=0.5;verticalAlign=middle;fontSize=9;" value="PID (persoonsidentificatie)" vertex="1">
+          <mxGeometry height="24" width="205" x="566" y="173" as="geometry" />
         </mxCell>
-        <mxCell id="edi-leeftijd" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2e6;strokeColor=#d79b00;strokeWidth=0.5;verticalAlign=middle;fontSize=9;" value="Leeftijd" vertex="1">
-          <mxGeometry height="26" width="100" x="671" y="184" as="geometry" />
+        <mxCell id="edi-mdl" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2e6;strokeColor=#d79b00;strokeWidth=0.5;verticalAlign=middle;fontSize=9;" value="Birth Certificate" vertex="1">
+          <mxGeometry height="24" width="205" x="566" y="201" as="geometry" />
         </mxCell>
-        <mxCell id="edi-geslacht" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2e6;strokeColor=#d79b00;strokeWidth=0.5;verticalAlign=middle;fontSize=9;" value="Geslacht" vertex="1">
-          <mxGeometry height="26" width="100" x="566" y="216" as="geometry" />
+        <mxCell id="edi-ehic" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2e6;strokeColor=#d79b00;strokeWidth=0.5;verticalAlign=middle;fontSize=9;" value="Age" vertex="1">
+          <mxGeometry height="24" width="205" x="566" y="229" as="geometry" />
         </mxCell>
-        <mxCell id="edi-nationaliteit" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2e6;strokeColor=#d79b00;strokeWidth=0.5;verticalAlign=middle;fontSize=9;" value="Nationaliteit" vertex="1">
-          <mxGeometry height="26" width="100" x="671" y="216" as="geometry" />
+        <mxCell id="edi-meer" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2e6;strokeColor=#d79b00;strokeWidth=0.5;verticalAlign=middle;fontSize=9;fontStyle=2;fontColor=#999999;" value="… (o.a. Citizenship)" vertex="1">
+          <mxGeometry height="24" width="205" x="566" y="257" as="geometry" />
         </mxCell>
-        <mxCell id="edi-burgstaat" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2e6;strokeColor=#d79b00;strokeWidth=0.5;verticalAlign=middle;fontSize=9;" value="Burgerlijke staat" vertex="1">
-          <mxGeometry height="26" width="100" x="566" y="248" as="geometry" />
-        </mxCell>
-        <mxCell id="edi-bedrijf" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2e6;strokeColor=#d79b00;strokeWidth=0.5;verticalAlign=middle;fontSize=9;" value="Bedrijfsgegevens" vertex="1">
-          <mxGeometry height="26" width="100" x="671" y="248" as="geometry" />
-        </mxCell>
-        <mxCell id="silo-oots" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=1;verticalAlign=top;fontSize=11;fontColor=#a35200;align=center;spacingTop=4;" value="&lt;b&gt;OOTS&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#a35200&quot;&gt;SDG · evidence/bewijsstukken&lt;/font&gt;" vertex="1">
+        <mxCell id="silo-oots" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=1;verticalAlign=top;fontSize=11;fontColor=#a35200;align=center;spacingTop=4;" value="&lt;b&gt;OOTS&amp;nbsp;&lt;/b&gt;&lt;font style=&quot;color: rgb(163, 82, 0);&quot;&gt;&lt;b&gt;evidence/bewijsstukken&lt;/b&gt;&lt;/font&gt;" vertex="1">
           <mxGeometry height="150" width="225" x="794" y="143" as="geometry" />
         </mxCell>
-        <mxCell id="oots-woonplaats" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2e6;strokeColor=#d79b00;strokeWidth=0.5;verticalAlign=middle;fontSize=9;" value="Bewijs van woonplaats" vertex="1">
-          <mxGeometry height="24" width="205" x="804" y="184" as="geometry" />
+        <mxCell id="oots-woonplaats" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2e6;strokeColor=#d79b00;strokeWidth=0.5;verticalAlign=middle;fontSize=9;" value="Proof of birth" vertex="1">
+          <mxGeometry height="24" width="205" x="804" y="173" as="geometry" />
         </mxCell>
-        <mxCell id="oots-hr" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2e6;strokeColor=#d79b00;strokeWidth=0.5;verticalAlign=middle;fontSize=9;" value="Uittreksel handelsregister" vertex="1">
-          <mxGeometry height="24" width="205" x="804" y="212" as="geometry" />
+        <mxCell id="oots-hr" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2e6;strokeColor=#d79b00;strokeWidth=0.5;verticalAlign=middle;fontSize=9;" value="Proof of residence" vertex="1">
+          <mxGeometry height="24" width="205" x="804" y="201" as="geometry" />
         </mxCell>
-        <mxCell id="oots-kenteken" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2e6;strokeColor=#d79b00;strokeWidth=0.5;verticalAlign=middle;fontSize=9;" value="Kentekenbewijs" vertex="1">
-          <mxGeometry height="24" width="205" x="804" y="240" as="geometry" />
+        <mxCell id="oots-kenteken" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2e6;strokeColor=#d79b00;strokeWidth=0.5;verticalAlign=middle;fontSize=9;" value="Proof of roadworthiness" vertex="1">
+          <mxGeometry height="24" width="205" x="804" y="229" as="geometry" />
         </mxCell>
-        <mxCell id="oots-woz" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2e6;strokeColor=#d79b00;strokeWidth=0.5;verticalAlign=middle;fontSize=9;" value="WOZ-waardebewijs" vertex="1">
-          <mxGeometry height="24" width="205" x="804" y="268" as="geometry" />
+        <mxCell id="oots-woz" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2e6;strokeColor=#d79b00;strokeWidth=0.5;verticalAlign=middle;fontSize=9;fontStyle=2;fontColor=#999999;" value="… (14 evidence types)" vertex="1">
+          <mxGeometry height="24" width="205" x="804" y="257" as="geometry" />
         </mxCell>
         <mxCell id="arrow-sc1" edge="1" parent="1" style="endArrow=classic;html=1;strokeColor=#6c8ebf;strokeWidth=2;">
           <mxGeometry relative="1" as="geometry">
@@ -202,7 +196,7 @@
         <mxCell id="leg4t" parent="1" style="text;html=1;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontSize=9;" value="GBO-Voorzieningen" vertex="1">
           <mxGeometry height="20" width="120" x="481" y="711" as="geometry" />
         </mxCell>
-        <mxCell id="version" parent="1" style="text;html=1;align=right;verticalAlign=middle;strokeColor=none;fillColor=none;fontSize=9;fontColor=#888888;" value="v0.3 &amp;middot; 2026-06-17" vertex="1">
+        <mxCell id="version" parent="1" style="text;html=1;align=right;verticalAlign=middle;strokeColor=none;fillColor=none;fontSize=9;fontColor=#888888;" value="v0.3 &amp;middot; 2026-06-26" vertex="1">
           <mxGeometry height="20" width="160" x="880" y="708" as="geometry" />
         </mxCell>
       </root>

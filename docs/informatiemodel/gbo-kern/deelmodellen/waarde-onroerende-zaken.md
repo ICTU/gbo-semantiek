@@ -161,7 +161,7 @@ volgt bij een concrete use-case.
 
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
-| `deelobjectnummer` | [Numeriek](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Basisgegeven | Nee | Nee | Volgnummer van het deelobject binnen het WOZ-object. | LV-WOZ (StUF-WOZ) | |
+| **`deelobjectnummer`** | [Numeriek](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Basisgegeven | Nee | Nee | Volgnummer van het deelobject binnen het WOZ-object. | LV-WOZ (StUF-WOZ) | |
 | `omschrijving` | [Tekst](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Nee | Nee | Korte beschrijving van het deelobject. | LV-WOZ (StUF-WOZ) | |
 
 **Relatiesoorten** (uitgaand):
@@ -204,7 +204,7 @@ aanduiding.
 | Naam | Type | Kard. | Authentiek | Mat. hist. | Form. hist. | Definitie | Herkomst | Toelichting |
 |---|---|---|---|---|---|---|---|---|
 | `wozObjectnummer` | [Numeriek](../datatypes-en-codelijsten.md#simpele-datatypes) | 1 | Authentiek | Ja | Ja | WOZ-eigen objectnummer binnen een gemeente. | LV-WOZ-catalogus | Niet uniek tussen gemeenten. |
-| `aanduiding` | [`ObjectAanduiding`](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 1 | Authentiek | Ja | Ja | Gestandaardiseerde aanduiding bestaande uit gemeentecode en objectnummer. | LV-WOZ-catalogus | HC-conform; stabiele globale aanduiding. |
+| **`aanduiding`** | [`ObjectAanduiding`](../datatypes-en-codelijsten.md#aanvullende-datatypes) | 1 | Authentiek | Ja | Ja | Gestandaardiseerde aanduiding bestaande uit gemeentecode en objectnummer. | LV-WOZ-catalogus | HC-conform; stabiele globale aanduiding. |
 | `verantwoordelijkeGemeente` | [`Codelijst~LT33`](adressen-en-gebouwen.md#codelijsten) | 1 | Authentiek | Ja | Ja | Gemeente die verantwoordelijk is voor de waardering. | LV-WOZ-catalogus | Essentieel wegens niet-uniciteit `wozObjectnummer` over gemeenten. |
 | `grondoppervlakte` | [Numeriek](../datatypes-en-codelijsten.md#simpele-datatypes) | 0..1 | Basisgegeven | Ja | Ja | Oppervlakte van de bij het object behorende grond in m². | LV-WOZ-catalogus | |
 | `gebruikscode` | [`Codelijst~WOZ`](#codelijsten) | 0..1 | Basisgegeven | Ja | Ja | Type gebruik van het object. | LV-WOZ-catalogus | Woning, winkel, kantoor en dergelijke. |

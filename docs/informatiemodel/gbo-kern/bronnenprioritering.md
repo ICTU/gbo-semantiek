@@ -1,19 +1,19 @@
 ---
-title: "Bronnenprioritering: beslisregels GBO-Kern"
-description: "Vier-lagen-strategie L1 tot en met L4 voor het afleiden en refereren van GBO-Kern-elementen uit basisregistraties, sectorale registers, nationale ankers en internationale vocabulaires."
+title: "Bronnenprioritering: beslisregels GBO Core"
+description: "Vier-lagen-strategie L1 tot en met L4 voor het afleiden en refereren van GBO-Core-elementen uit basisregistraties, sectorale registers, nationale ankers en internationale vocabulaires."
 ---
 
-# Bronnenprioritering: beslisregels GBO-Kern
+# Bronnenprioritering: beslisregels GBO Core
 
-Voor de onderdelen waaruit GBO-Kern wordt opgebouwd zijn niet altijd
+Voor de onderdelen waaruit GBO Core wordt opgebouwd zijn niet altijd
 dezelfde of eenduidige bronnen. We hanteren een afwegingskader om
 tot goede modelafleidingen te komen. Dat afwegingskader staat in
 deze pagina.
 
-**Doel**: GBO-Kern is compatibel met de bestaande informatiemodellen
+**Doel**: GBO Core is compatibel met de bestaande informatiemodellen
 en koppelvlakken van de basisregistraties, sectorale registers en
 de DUO-, UWV- en Belastingdienst-administraties. Een afnemer die werkt
-vanuit een catalogus of een API moet GBO-Kern direct herkennen.
+vanuit een catalogus of een API moet GBO Core direct herkennen.
 
 We bereiken dat door voor elk UML-element (klasse, attribuut,
 datatype, multipliciteit, omschrijving) systematisch uit de
@@ -36,7 +36,7 @@ volgorde.
 
 ## Bronnen per laag
 
-GBO-Kern dekt op dit moment tien bronregisters of equivalente
+GBO Core dekt op dit moment tien bronregisters of equivalente
 administraties:
 
 - Vier basisregistraties met L1 datamodel: **BRP**, **BAG**, **BRK**,
@@ -45,9 +45,6 @@ administraties:
   modellering via L2 en L3.
 - Een basisregistratie met L1 als SKOS-begrip: **BRI** (een authentiek
   gegeven, gepubliceerd via de Stelselcatalogus).
-- Een basisregistratie ontsloten via open data en wettelijk reglement:
-  **BRV** (Basisregistratie Voertuigen, RDW), met L1 uit de
-  RDW-gegevenscatalogus en het Kentekenreglement.
 - Drie sectorale registers en hun L1-bronnen: **ROD**
   (Register Onderwijsdeelnemers, DUO/OCW), **CKI** (Centraal Krediet
   Informatiesysteem, Stichting BKR), **SGR** (Suwi Gegevensregister,
@@ -58,7 +55,7 @@ administraties:
   **Gegevensspecificaties aangifte loonheffingen** (Belastingdienst
   plus UWV voor de loonketen).
 
-BRT en BRO blijven voorlopig buiten scope; bij toekomstige
+BRT, BRO en BRV blijven voorlopig buiten scope; bij toekomstige
 ingest volgen zij hetzelfde patroon (L1 datamodel of catalogus,
 L2 koppelvlak).
 
@@ -76,7 +73,6 @@ SKOS-publicatie.
 | BRK | IMKAD | `https://developer.kadaster.nl/schemas/imkad/20200130/cat/index.html` |
 | BRK | BRK-Catalogus | `https://www.kadaster.nl/-/catalogus-brk` |
 | BRP | LO BRP (Logisch Ontwerp BRP) | `https://www.rvig.nl/lo-brp` |
-| BRV | RDW-gegevenscatalogus / Open Data RDW (Gekentekende voertuigen); Kentekenreglement | `https://opendata.rdw.nl/` |
 | CKI | Algemeen Reglement CKI | `https://www.bkr.nl/media/4dyezfiz/algemeen-reglement-cki-juli-2024.pdf` |
 | HR | L1 ontbreekt; modellering via L2 en L3 | n.v.t. |
 | Loonheffingen | Gegevensspecificaties aangifte loonheffingen | `https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/themaoverstijgend/brochures_en_publicaties/gegevensspecificaties-aangifte-loonheffingen` |
@@ -99,7 +95,6 @@ voor erkende zakelijke klanten van Stichting BKR).
 | BRI | Geen publiek koppelvlak; afname via SUWI- en toeslagen-stelsel | n.v.t. |
 | BRK | Haal Centraal BRK Bevragen | `https://kadaster.github.io/BRK-bevragen/` |
 | BRP | Haal Centraal BRP-suite (Personen, Historie, Bewoning, Reisdocumenten, Tabellen, Update) | `https://developer.rvig.nl/brp-api/overview/` |
-| BRV | RDW-bevragings-API's (Kentekencheck, Voertuiggegevens) en Open Data RDW | `https://opendata.rdw.nl/` |
 | CKI | Algemene Handleiding CKI (gated, alleen erkende zakelijke klanten) | `https://www.bkr.nl/nl/inloggen-portalen` |
 | HR | KVK Developer Portal (Zoeken, Basisprofiel, Vestigingsprofiel, Naamgeving, Mutatieservice) | `https://developers.kvk.nl/documentation` |
 | Loonheffingen | XSD-bijlage Gegevensspecificaties; transport via Digipoort | (onderdeel van L1-URL) |
@@ -227,7 +222,7 @@ privaatrechtelijke stichting.
 
 **Advies**: CKI is een private sectorregistratie. Wettelijk gegrondvest
 in Wft art. 4:32; afname feitelijk verplicht via Wft art. 4:34 en
-gedragsregels TRHK. L2 is permanent gated; voor GBO-Kern-modellering
+gedragsregels TRHK. L2 is permanent gated; voor GBO-Core-modellering
 volstaat L1 omdat alle concepten uit het reglement modelleerbaar zijn.
 
 ### HR: Handelsregister
@@ -377,7 +372,7 @@ bronverwijzing is een UML-element niet vastgesteld.
   op L2 wegens ontbrekend L1.
 - Voor **sectorale registers** (ROD, CKI, SGR) wordt L1 ontleend
   aan het reglement of de catalogus van de beheerder. CKI heeft
-  een gated L2; voor GBO-Kern-modellering is dat geen blokkade,
+  een gated L2; voor GBO-Core-modellering is dat geen blokkade,
   alle concepten zijn modelleerbaar uit L1.
 - Voor **SBR-NT en Loonheffingen** geldt L1+L2 gecombineerd: het
   document bevat zowel inhoudelijke definities als koppelvlak-
@@ -398,7 +393,7 @@ Per UML-element minimaal twee tagged-values:
 | `herkomst:` | Verwijzing per eigenschap, of compact als een bron volstaat | "IMBAG paragraaf X (definitie, multipliciteit); HC BAG (naam, datatype)" |
 | `bron-uri:` | Machine-leesbare bron-URI waar resolvable | "https://imbag.github.io/catalogus/objecttypen/Pand" |
 
-Bij eigen afleiding (GBO-Kern-modellering zonder directe bron):
+Bij eigen afleiding (GBO-Core-modellering zonder directe bron):
 
 | Tagged value | Wat | Voorbeeld |
 |---|---|---|
@@ -413,11 +408,11 @@ Voor cross-walks naar L3 en L4:
 
 ## Wat niet als bronlaag telt
 
-De methodologische standaarden die GBO-Kern toepast zijn geen
+De methodologische standaarden die GBO Core toepast zijn geen
 inhoudelijke definitie-bronnen en horen niet als laag in dit
 overzicht thuis:
 
-- **MIM 1.2** is de modelleer-methodiek waarin GBO-Kern wordt
+- **MIM 1.2** is de modelleer-methodiek waarin GBO Core wordt
   uitgedrukt. Conformance-statement op model-niveau, geen referentie-
   laag.
 - **SKOS** is het metamodel voor codelijsten. Per codelijst geldt
@@ -425,4 +420,4 @@ overzicht thuis:
 - **DCAT-AP-NL** is een dataset-metadata-standaard voor publicatie,
   niet voor inhoud.
 - **StUF** is een legacy-transportlaag voor de gemeentelijke
-  inkomende keten. Voor GBO-Kern de laagste terugval-bron.
+  inkomende keten. Voor GBO Core de laagste terugval-bron.

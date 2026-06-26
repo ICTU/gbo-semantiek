@@ -218,6 +218,7 @@ vrijstellingen.
 | Notation | Erf |
 | Herkomst | SBR-NT NT20 |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van overledene en aangiftedatum. |
 | Populatie | Alle ingediende aangiften erfbelasting per nalatenschap, met de verdeling van die nalatenschap over de erfgenamen. |
 
 **Attribuutsoorten**:
@@ -250,6 +251,7 @@ authentieke inkomen voor de Basisregistratie Inkomen.
 | Notation | IH |
 | Herkomst | SBR-NT NT20 |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van BSN en belastingjaar. |
 | Populatie | Alle door of namens een natuurlijk persoon ingediende jaaraangiften inkomstenbelasting (Box 1, Box 2 en Box 3). |
 
 **Attribuutsoorten**:
@@ -282,6 +284,7 @@ aan de begiftigde-zijde een vordering.
 | Notation | Schenk |
 | Herkomst | SBR-NT NT20 |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van schenker, begiftigde en schenkingsdatum. |
 | Populatie | Alle ingediende aangiften schenkbelasting per schenking, inclusief schenking-op-papier-constructies. |
 
 **Attribuutsoorten**:
@@ -312,6 +315,7 @@ alimentatie, lijfrente en giften.
 | Herkomst | SBR-NT NT20 |
 | Datum opname | 2026-05-19 |
 | Indicatie abstract object | Ja |
+| Unieke aanduiding | Combinatie van houder, belastingjaar, categorie en identificatie. |
 | Populatie | Alle in een IH-aangifte opgevoerde aftrekposten die het belastbaar inkomen verlagen, inclusief hypotheekrente, partneralimentatie, lijfrente en giften. |
 
 **Attribuutsoorten**:
@@ -340,6 +344,7 @@ wel belast bij de ontvanger.
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/AlimentatieAftrek` |
 | Herkomst | SBR-NT NT20 |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van houder en belastingjaar. |
 | Populatie | Alle in een belastingjaar door de belastingplichtige aan een gewezen partner betaalde aftrekbare partneralimentatie. |
 
 **Attribuutsoorten**:
@@ -371,6 +376,7 @@ het BRI-inkomen te gebruiken.
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/AuthentiekInkomen` |
 | Herkomst | BRI; Stelselcatalogus |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van BSN en belastingjaar. |
 | Populatie | Alle door de Belastingdienst vastgestelde authentieke inkomensgegevens per natuurlijk persoon per belastingjaar, opgenomen in de Basisregistratie Inkomen. |
 
 **Attribuutsoorten**:
@@ -401,6 +407,7 @@ rapportage-eisen onder de CRS.
 | Notation | BS |
 | Herkomst | SBR-NT NT20 |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van houder, peildatum en rekeningnummer. |
 | Populatie | Alle in Box 3 opgegeven bank- en spaartegoeden van een natuurlijk persoon op peildatum 1 januari, bij Nederlandse of buitenlandse financiele instellingen. |
 
 **Attribuutsoorten**:
@@ -433,6 +440,7 @@ zijn voor toekomstige uitbreiding.
 | Herkomst | AWR; SBR-NT NT20 |
 | Datum opname | 2026-05-19 |
 | Indicatie abstract object | Ja |
+| Unieke aanduiding | Combinatie van belastingplichtige, belastingsoort en periode. |
 | Populatie | Alle door of namens belastingplichtigen ingediende aangiften voor een specifieke belastingsoort en periode. |
 
 **Attribuutsoorten**:
@@ -464,6 +472,7 @@ voor de eerste batch buiten scope.
 | Herkomst | SBR-NT NT20 |
 | Datum opname | 2026-05-19 |
 | Indicatie abstract object | Ja |
+| Unieke aanduiding | Combinatie van belastingplichtige, belastingsoort en belastingjaar. |
 | Populatie | Alle belastingaangiften die op een specifiek belastingjaar betrekking hebben, ongeacht de belastingsoort (IH, Schenk, Erf). |
 
 **Attribuutsoorten**:
@@ -491,6 +500,7 @@ vergelijkbare effecten, vastgesteld op marktwaarde per peildatum
 | Notation | BE |
 | Herkomst | SBR-NT NT20 |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van houder, peildatum en categorie. |
 | Populatie | Alle in Box 3 opgegeven beleggingen van een natuurlijk persoon op peildatum 1 januari, in de vorm van aandelen, obligaties, beleggingsfondsen of derivaten. |
 
 **Attribuutsoorten**:
@@ -519,6 +529,7 @@ stablecoins en vergelijkbare digitale tokens.
 | Notation | CR |
 | Herkomst | SBR-NT NT20 |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van houder, peildatum en valutatype. |
 | Populatie | Alle in Box 3 opgegeven cryptotegoeden van een natuurlijk persoon op peildatum 1 januari (Bitcoin, Ether, stablecoins en vergelijkbare digitale tokens). |
 
 **Attribuutsoorten**:
@@ -549,6 +560,7 @@ Overig Bezit.
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/EigenWoning` |
 | Herkomst | SBR-NT NT20 |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van houder, belastingjaar en kadastrale aanduiding. |
 | Populatie | Alle onroerende zaken die als hoofdverblijf van de belastingplichtige of zijn fiscale partner binnen het eigenwoning-regime van Box 1 vallen. |
 
 **Attribuutsoorten**:
@@ -581,6 +593,7 @@ belastingjaar).
 | Herkomst | SBR-NT NT20 |
 | Datum opname | 2026-05-19 |
 | Indicatie abstract object | Ja |
+| Unieke aanduiding | Combinatie van belastingplichtige, peildatum en feit-type. |
 | Populatie | Alle fiscaal relevante componenten die in een belastingjaar als onderdeel van een belastingaangifte voorkomen: vermogensbestanddelen, aftrekposten en vergelijkbare inkomensbestanddelen. |
 
 **Attribuutsoorten**:
@@ -611,6 +624,7 @@ kind, vaak de trigger. Het partnerschap geldt per belastingjaar.
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/FiscalePartner` |
 | Herkomst | SBR-NT NT20 |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van twee BSN en belastingjaar. |
 | Populatie | Alle in een belastingjaar geldende fiscaal-partnerschapsrelaties tussen twee natuurlijke personen op grond van Wet IB 2001 art. 5a. |
 
 **Attribuutsoorten**:
@@ -641,6 +655,7 @@ drempelinkomen en plafond van 10% van het drempelinkomen.
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/GiftenAftrek` |
 | Herkomst | SBR-NT NT20 |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van houder en belastingjaar. |
 | Populatie | Alle in een belastingjaar aan ANBI's en culturele instellingen gedane aftrekbare giften, zowel periodieke als eenmalige giften binnen drempel- en plafondbedragen. |
 
 **Attribuutsoorten**:
@@ -670,6 +685,7 @@ gezinssituatie.
 | Notation | HT |
 | Herkomst | Awir |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van huurder, woning en toekenningsperiode. |
 | Populatie | Alle aan huurders toegekende huurtoeslagen op grond van de Wet op de huurtoeslag, ter tegemoetkoming in de woonlasten. |
 
 **Attribuutsoorten**:
@@ -697,6 +713,7 @@ annuitaire of lineaire aflossingsverplichting voor leningen die na
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/Hypotheekrenteaftrek` |
 | Herkomst | SBR-NT NT20 |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van houder, belastingjaar en eigenwoning-id. |
 | Populatie | Alle in een belastingjaar in Box 1 aftrekbare rentebetalingen op de eigenwoningschuld van de belastingplichtige binnen het eigenwoning-regime. |
 
 **Attribuutsoorten**:
@@ -716,7 +733,7 @@ inkomensondersteuning, in de vorm van een inkomensafhankelijke
 regeling of een sociale-zekerheidsuitkering.
 
 **Herkomst definitie**: Algemene wet inkomensafhankelijke regelingen;
-GBO-Kern-abstractie boven Toeslag en (toekomstig) Uitkering.
+GBO-Core-abstractie boven Toeslag en (toekomstig) Uitkering.
 
 **Toelichting**: Cross-domein algemene categorie. Concrete variant
 binnen Belastingen: Toeslag. Bij toekomstige ingest van Werk en
@@ -756,6 +773,7 @@ inhoudingsplichtige.
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/Inkomstenopgave` |
 | Herkomst | Loonheffingen 2026 |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van IKV en aangifteperiode. |
 | Populatie | Alle aggregaties van loongegevens van een werknemer binnen een aangifte loonheffingen over een aangifteperiode (typisch maand, vier weken of week). |
 
 **Attribuutsoorten**:
@@ -787,6 +805,7 @@ contractuele uren of looncorrecties.
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/Inkomstenperiode` |
 | Herkomst | Loonheffingen 2026 |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van inkomstenopgave en volgnummer-periode. |
 | Populatie | Alle tijdvakken binnen een inkomstenopgave waarin specifieke loongegevens gelden, met gewerkte uren, loonbestanddelen en eventuele afwijkingen. |
 
 **Attribuutsoorten**:
@@ -818,6 +837,7 @@ banen bestaan meerdere inkomstenverhoudingen.
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/Inkomstenverhouding` |
 | Herkomst | Loonheffingen 2026 |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van loonheffingennummer-inhoudingsplichtige, BSN-werknemer en nummer-inkomstenverhouding. |
 | Populatie | Alle administratieve relaties tussen een inhoudingsplichtige en een natuurlijk persoon waarover doorlopend loon wordt uitbetaald en aangifte loonheffingen wordt gedaan. |
 
 **Attribuutsoorten**:
@@ -849,6 +869,7 @@ van beide ouders, aantal uren opvang en uurtarief.
 | Notation | KOT |
 | Herkomst | Awir |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van ouder, kind, opvang-instelling en toekenningsperiode. |
 | Populatie | Alle toegekende kinderopvangtoeslagen op grond van de Wet kinderopvang, ter tegemoetkoming in de kosten van formele kinderopvang. |
 
 **Attribuutsoorten**:
@@ -880,6 +901,7 @@ uitgevoerd.
 | Notation | KGB |
 | Herkomst | Awir |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van ouder en toekenningsperiode. |
 | Populatie | Alle toegekende kindgebonden budgetten op grond van de Wet op het kindgebonden budget, ter tegemoetkoming in opvoeding- en levensonderhoudskosten van kinderen. |
 
 **Attribuutsoorten**:
@@ -909,6 +931,7 @@ reserveringsruimte over zeven voorafgaande jaren.
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/LijfrenteAftrek` |
 | Herkomst | SBR-NT NT20 |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van houder en belastingjaar. |
 | Populatie | Alle in een belastingjaar binnen jaarruimte of reserveringsruimte aftrekbare lijfrente-premies en stortingen op bancaire lijfrente-rekeningen. |
 
 **Attribuutsoorten**:
@@ -941,6 +964,7 @@ levert ze door aan Belastingdienst.
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/LoonAangifte` |
 | Herkomst | Loonheffingen 2026 |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van loonheffingennummer-inhoudingsplichtige en aangifteperiode. |
 | Populatie | Alle periodieke aangiften loonheffingen die inhoudingsplichtigen indienen bij de Belastingdienst over een aangifteperiode, inclusief reguliere en correctie-aangiften. |
 
 **Attribuutsoorten**:
@@ -973,6 +997,7 @@ fiscale regels.
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/LoonBestanddeel` |
 | Herkomst | Loonheffingen 2026 |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van inkomstenopgave en code-soort-inkomen. |
 | Populatie | Alle afzonderlijke loon-componenten binnen een inkomstenopgave: bruto loon, vakantiegeld, dertiende maand, toeslagen, bonus, bijtelling, pensioenpremie-eigen-bijdrage en vergelijkbare bestanddelen. |
 
 **Attribuutsoorten**:
@@ -1003,6 +1028,7 @@ EigenWoning gaat op grond van bewoning door de belastingplichtige.
 | Notation | OZ-overig |
 | Herkomst | SBR-NT NT20 |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van houder, peildatum en kadastrale aanduiding. |
 | Populatie | Alle in Box 3 opgegeven onroerende zaken die niet de eigen woning zijn: tweede woningen, verhuurde panden, grond en vergelijkbare bezittingen, gewaardeerd op WOZ- of marktwaarde per peildatum 1 januari. |
 
 **Attribuutsoorten**:
@@ -1026,7 +1052,7 @@ Ondersteunend Dossier Bestand Belastingdienst.
 **Toelichting**: Renseigneringen vormen de voornaamste vulling van de
 vooringevulde aangifte. De Belastingdienst publiceert per
 renseigneringssoort een specificatie. Detail-specs zijn echter gated
-achter een ondersteuningsabonnement; voor het GBO-Kern-model is dat
+achter een ondersteuningsabonnement; voor het GBO-Core-model is dat
 geen blokkade.
 
 | MIM-veld | Waarde |
@@ -1035,6 +1061,7 @@ geen blokkade.
 | Begrip (URI) | `https://begrippen.gbo-semantiek.nl/id/begrip/Renseignering` |
 | Herkomst | ODB; AWR art. 53 |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van aanleverende partij, belastingplichtige, gegevenstype en jaargang. |
 | Populatie | Alle door renseigneringsplichtige derden (banken, verzekeraars, pensioenuitvoerders) aan de Belastingdienst gemelde gegevens die relevant zijn voor de belastingheffing van een natuurlijk persoon. |
 
 **Attribuutsoorten**:
@@ -1067,6 +1094,7 @@ in Box 3 vallend.
 | Notation | SC |
 | Herkomst | SBR-NT NT20 |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van houder, peildatum en schuldidentificatie. |
 | Populatie | Alle in Box 3 opgegeven schulden van een natuurlijk persoon die boven de schulddrempel uitkomen en op peildatum 1 januari het Box-3-vermogen verminderen. |
 
 **Attribuutsoorten**:
@@ -1103,6 +1131,7 @@ of terugvordering.
 | Herkomst | Awir |
 | Datum opname | 2026-05-19 |
 | Indicatie abstract object | Ja |
+| Unieke aanduiding | Combinatie van persoon, toeslagsoort en toekenningsperiode. |
 | Populatie | Alle door Belastingdienst en Toeslagen aan natuurlijke personen toegekende inkomensafhankelijke bijdragen op grond van de Awir: huurtoeslag, zorgtoeslag, kinderopvangtoeslag en kindgebonden budget. |
 
 **Attribuutsoorten**:
@@ -1134,6 +1163,7 @@ en schuld. Per categorie gelden eigen waarderings-regels.
 | Herkomst | SBR-NT NT20 |
 | Datum opname | 2026-05-19 |
 | Indicatie abstract object | Ja |
+| Unieke aanduiding | Combinatie van houder, peildatum, categorie en identificatie. |
 | Populatie | Alle bezittingen en schulden die op peildatum 1 januari onder Box 3 vallen en als zelfstandige post in een IH-aangifte worden opgevoerd. |
 
 **Attribuutsoorten**:
@@ -1162,11 +1192,12 @@ partner-status.
 | Notation | ZT |
 | Herkomst | Awir |
 | Datum opname | 2026-05-19 |
+| Unieke aanduiding | Combinatie van persoon en toekenningsperiode. |
 | Populatie | Alle aan natuurlijke personen toegekende zorgtoeslagen op grond van de Wet op de zorgtoeslag, ter tegemoetkoming in de premie van de basiszorgverzekering. |
 
 **Attribuutsoorten**:
 
-Geen eigen attributen op GBO-Kern-niveau; alle eigenschappen geërfd
+Geen eigen attributen op GBO-Core-niveau; alle eigenschappen geërfd
 van Toeslag.
 
 ## Enumeraties

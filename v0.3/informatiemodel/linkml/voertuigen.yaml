@@ -1,0 +1,490 @@
+# =============================================================================
+# GBO — Deelmodel Voertuigen
+# Bron (leidend): docs/informatiemodel/gbo-kern/deelmodellen/voertuigen.md
+#
+# Voertuigen uit de Basisregistratie Voertuigen (BRV, beheerd door de
+# RDW) en hun tenaamstelling op een partij. Kerngegevens van het
+# voertuig (kenteken, soort, merk, brandstof, massa, APK) en de
+# rechtsbetrekking tot de tenaamgestelde (eigenaar/houder).
+#
+# De tenaamgestelde is een Partij uit het hoofdmodel (natuurlijk of
+# niet-natuurlijk persoon); die relatie wordt opgelost via gbo.yaml,
+# valideer dus altijd via gbo.yaml.
+# =============================================================================
+id: https://lod.gbo-semantiek.nl/informatiemodel/voertuigen
+name: gbo-voertuigen
+title: "GBO deelmodel: Voertuigen"
+description: >-
+  Voertuigen uit de Basisregistratie Voertuigen (BRV, RDW) met hun
+  kerngegevens en de tenaamstelling op een partij (eigenaar/houder).
+license: https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  gbo: https://lod.gbo-semantiek.nl/
+  gbobegrip: https://begrippen.gbo-semantiek.nl/id/begrip/
+  mim: https://lod.gbo-semantiek.nl/def/mim#
+default_prefix: gbo
+default_range: string
+
+imports:
+  - linkml:types
+  - datatypes
+  - hoofdmodel
+
+classes:
+
+  # --- Objecttypen ------------------------------------------------------------
+
+  Voertuig:
+    mixins:
+      - Voorkomen
+    description: >-
+      Een door de RDW in de Basisregistratie Voertuigen geregistreerd
+      vervoermiddel dat met een uniek kenteken aan het verkeer kan
+      deelnemen, met de bij dat kenteken horende technische en
+      administratieve kerngegevens.
+    exact_mappings:
+      - gbobegrip:Voertuig
+    annotations:
+      mim:herkomst: BRV (basisregistratie)
+      mim:herkomstDefinitie: >-
+        Wegenverkeerswet 1994 (art. 1, art. 36 e.v.);
+        Kentekenreglement; RDW Kentekenregister / Open Data RDW
+        (dataset Gekentekende voertuigen).
+      mim:datumOpname: "2026-06-16"
+      mim:uniekeAanduiding: kenteken
+      mim:populatie: >-
+        Alle voertuigen die in de Basisregistratie Voertuigen zijn
+        opgenomen, inclusief geschorste, geëxporteerde en gesloopte
+        voertuigen die nog historisch kenbaar zijn.
+    comments:
+      - >-
+        Het kenteken is de praktische unieke aanduiding; het
+        voertuigidentificatienummer (VIN) is de wereldwijd stabiele
+        fabrikant-identificatie. Sub-registraties van de RDW
+        (assen, carrosserie, geconstateerde gebreken, brandstof per
+        meting) vallen buiten dit deelmodel.
+    attributes:
+      kenteken:
+        identifier: true
+        required: true
+        range: Kenteken
+        description: >-
+          Uniek kenteken van het voertuig in de Nederlandse
+          sidecode-notatie.
+        annotations:
+          mim:lengte: 8
+          mim:authentiek: Authentiek
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:herkomst: RDW Kentekenregister
+        comments:
+          - Notatie met streepjes, bijvoorbeeld 12-ABC-3.
+      voertuigidentificatienummer:
+        range: Alfanumeriek
+        required: true
+        description: >-
+          Wereldwijd uniek voertuigidentificatienummer (VIN /
+          chassisnummer) toegekend door de fabrikant.
+        annotations:
+          mim:lengte: 17
+          mim:authentiek: Authentiek
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: true
+          mim:herkomst: RDW Kentekenregister / ISO 3779
+        comments:
+          - Stabiel over de levensloop; kenteken kan wijzigen, VIN niet.
+      voertuigsoort:
+        range: Voertuigsoort
+        required: true
+        description: Soort voertuig volgens de RDW-indeling.
+        annotations:
+          mim:authentiek: Authentiek
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:herkomst: RDW Kentekenregister
+        comments:
+          - Zie enumeratie Voertuigsoort.
+      merk:
+        range: CodelijstRDWMerk
+        required: true
+        description: Merk van het voertuig.
+        annotations:
+          mim:authentiek: Authentiek
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:herkomst: RDW Kentekenregister
+        comments:
+          - Open lijst; door de RDW beheerd.
+      handelsbenaming:
+        range: Tekst
+        description: >-
+          Handelsbenaming (type-/modelaanduiding) van het voertuig.
+        annotations:
+          mim:lengte: 40
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:herkomst: RDW Kentekenregister
+      europeseVoertuigcategorie:
+        range: CodelijstEUVoertuigcategorie
+        description: >-
+          Europese voertuigcategorie (bijvoorbeeld M1, N1, L3e, O1).
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:herkomst: EU 2018/858 / EU 168/2013
+      datumEersteToelating:
+        range: Datum
+        required: true
+        description: >-
+          Datum waarop het voertuig voor het eerst (waar ook ter
+          wereld) tot het verkeer is toegelaten.
+        annotations:
+          mim:authentiek: Authentiek
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:herkomst: RDW Kentekenregister
+      datumEersteTenaamstellingNederland:
+        range: Datum
+        description: >-
+          Datum van de eerste tenaamstelling van het voertuig in
+          Nederland.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:herkomst: RDW Kentekenregister
+      brandstof:
+        range: Brandstof
+        required: true
+        multivalued: true
+        description: >-
+          Brandstof of energiedrager(s) van het voertuig; meervoudig
+          bij hybride aandrijving.
+        annotations:
+          mim:authentiek: Authentiek
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:herkomst: RDW Kentekenregister
+        comments:
+          - Zie enumeratie Brandstof.
+      cilinderinhoud:
+        range: Numeriek
+        description: Cilinderinhoud van de motor in cm³.
+        annotations:
+          mim:lengte: 5
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:herkomst: RDW Kentekenregister
+      massaLedigVoertuig:
+        range: Numeriek
+        description: Massa van het lege voertuig in kg.
+        annotations:
+          mim:lengte: 6
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:herkomst: RDW Kentekenregister
+      toegestaneMaximumMassa:
+        range: Numeriek
+        description: Technisch toegestane maximummassa van het voertuig in kg.
+        annotations:
+          mim:lengte: 6
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:herkomst: RDW Kentekenregister
+      aantalZitplaatsen:
+        range: Numeriek
+        description: Aantal zitplaatsen inclusief bestuurder.
+        annotations:
+          mim:lengte: 2
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:herkomst: RDW Kentekenregister
+      eersteKleur:
+        range: Tekst
+        description: Primaire kleur van het voertuig.
+        annotations:
+          mim:lengte: 20
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:herkomst: RDW Kentekenregister
+      vervaldatumApk:
+        range: Datum
+        description: >-
+          Datum waarop de algemene periodieke keuring (APK) van het
+          voertuig verloopt.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:herkomst: RDW Kentekenregister
+      voertuigstatus:
+        range: Voertuigstatus
+        required: true
+        description: Administratieve status van het voertuig.
+        annotations:
+          mim:authentiek: Authentiek
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:herkomst: RDW Kentekenregister
+        comments:
+          - Zie enumeratie Voertuigstatus.
+      heeftTenaamstelling:
+        range: Voertuigtenaamstelling
+        multivalued: true
+        description: >-
+          De tenaamstelling(en) van dit voertuig, historisch en
+          actueel.
+        annotations:
+          mim:relatienaam: heeft
+          mim:authentiek: Authentiek
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:kardinaliteit: "1 -> 0..*"
+
+  Voertuigtenaamstelling:
+    mixins:
+      - Voorkomen
+    description: >-
+      De geregistreerde rechtsbetrekking tussen een partij en een
+      voertuig, waarmee de partij als eigenaar en/of houder van het
+      voertuig is geregistreerd.
+    exact_mappings:
+      - gbobegrip:Voertuigtenaamstelling
+    annotations:
+      mim:herkomst: BRV (basisregistratie)
+      mim:herkomstDefinitie: >-
+        Wegenverkeerswet 1994 (tenaamstelling, art. 42 e.v.);
+        Kentekenreglement; RDW Kentekenregister.
+      mim:datumOpname: "2026-06-16"
+      mim:uniekeAanduiding: >-
+        Samengesteld uit (Partij, Voertuig, datumTenaamstelling)
+      mim:populatie: >-
+        Alle in de Basisregistratie Voertuigen geregistreerde
+        tenaamstellingen, historisch en actueel, die een partij aan
+        een voertuig koppelen.
+    comments:
+      - >-
+        Voertuigtenaamstelling is een verbinding met eigen kenmerken
+        tussen Partij en Voertuig, vergelijkbaar met Tenaamstelling in
+        het deelmodel Onroerende zaken. Een overdracht leidt tot een
+        nieuwe tenaamstelling met latere datumTenaamstelling terwijl de
+        oude een datumEinde krijgt; zo blijven historie en
+        eigendomsverloop modelleerbaar.
+      - "MIM-element: Relatieklasse (verdinglijkte relatie)."
+    unique_keys:
+      voertuigtenaamstelling:
+        unique_key_slots: [tenaamgesteldeOp, voorVoertuig, datumTenaamstelling]
+        description: >-
+          MIM unieke aanduiding, samengesteld uit (Partij, Voertuig,
+          datumTenaamstelling).
+    attributes:
+      rol:
+        range: Tenaamstellingsrol
+        required: true
+        description: >-
+          Hoedanigheid waarin de partij is tenaamgesteld: eigenaar,
+          houder of beide.
+        annotations:
+          mim:authentiek: Authentiek
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:herkomst: RDW Kentekenregister
+        comments:
+          - Zie enumeratie Tenaamstellingsrol.
+      datumTenaamstelling:
+        range: Datum
+        required: true
+        description: Datum waarop de tenaamstelling is ingegaan.
+        annotations:
+          mim:authentiek: Authentiek
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:herkomst: RDW Kentekenregister
+      datumEinde:
+        range: Datum
+        description: Datum waarop de tenaamstelling is geëindigd.
+        annotations:
+          mim:authentiek: Authentiek
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:herkomst: RDW Kentekenregister
+        comments:
+          - Leeg betekent lopend.
+      tenaamgesteldeOp:
+        range: Partij
+        required: true
+        description: De partij die als eigenaar en/of houder is geregistreerd.
+        annotations:
+          mim:authentiek: Authentiek
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:kardinaliteit: "* -> 1"
+        comments:
+          - Zie hoofdmodel (Partij-supertype).
+      voorVoertuig:
+        range: Voertuig
+        required: true
+        description: Voertuig waarvoor de tenaamstelling geldt.
+        annotations:
+          mim:relatienaam: voor
+          mim:authentiek: Authentiek
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:kardinaliteit: "* -> 1"
+
+enums:
+
+  Voertuigsoort:
+    description: Soort voertuig volgens de indeling van de RDW.
+    exact_mappings:
+      - gbobegrip:Voertuigsoort
+    annotations:
+      mim:herkomst: RDW
+      mim:herkomstDefinitie: >-
+        RDW Kentekenregister; Wegenverkeerswet 1994; Kentekenreglement.
+      mim:datumOpname: "2026-06-16"
+    comments:
+      - >-
+        Verzameling van de gangbare RDW-voertuigsoorten; bepaalt mede
+        welke keurings- en kentekenregels van toepassing zijn.
+    permissible_values:
+      Personenauto:
+        description: Motorvoertuig voor het vervoer van personen (categorie M1).
+      Bedrijfsauto:
+        description: >-
+          Motorvoertuig voor het vervoer van goederen (categorie N).
+      Bus:
+        description: >-
+          Motorvoertuig voor het vervoer van meer dan acht personen
+          naast de bestuurder.
+      Motorfiets:
+        description: Tweewielig motorvoertuig (categorie L3e/L4e).
+      Bromfiets:
+        description: >-
+          Licht twee- of driewielig motorvoertuig met beperkte
+          constructiesnelheid (categorie L1e/L2e).
+      DriewieligMotorrijtuig:
+        description: Driewielig motorrijtuig (categorie L5e).
+      Aanhangwagen:
+        description: Niet-zelfstandig voertuig dat wordt voortbewogen.
+      Oplegger:
+        description: >-
+          Aanhangwagen die met een deel van zijn massa op het
+          trekkende voertuig rust.
+      LandOfBosbouwtrekker:
+        description: Land- of bosbouwtrekker (categorie T).
+      MobieleMachine:
+        description: Zelfrijdende of getrokken mobiele machine.
+
+  Brandstof:
+    description: Brandstof of energiedrager waarmee een voertuig wordt aangedreven.
+    exact_mappings:
+      - gbobegrip:Brandstof
+    annotations:
+      mim:herkomst: RDW
+      mim:herkomstDefinitie: >-
+        RDW Kentekenregister (brandstof-omschrijving).
+      mim:datumOpname: "2026-06-16"
+    comments:
+      - >-
+        Een voertuig kan meerdere brandstoffen voeren (hybride
+        aandrijving); daarom is het attribuut meervoudig.
+    permissible_values:
+      Benzine:
+        description: Aandrijving op benzine.
+      Diesel:
+        description: Aandrijving op diesel.
+      LPG:
+        description: Aandrijving op lpg (autogas).
+      CNG:
+        description: Aandrijving op aardgas (CNG).
+      Elektriciteit:
+        description: Volledig elektrische aandrijving.
+      Waterstof:
+        description: Aandrijving op waterstof (brandstofcel of verbranding).
+      Alcohol:
+        description: Aandrijving op alcohol/ethanol.
+      Overige:
+        description: Andere brandstof of energiedrager.
+
+  Voertuigstatus:
+    description: Administratieve status van een voertuig in de Basisregistratie Voertuigen.
+    exact_mappings:
+      - gbobegrip:Voertuigstatus
+    annotations:
+      mim:herkomst: RDW
+      mim:herkomstDefinitie: >-
+        RDW Kentekenregister; Wegenverkeerswet 1994.
+      mim:datumOpname: "2026-06-16"
+    comments:
+      - Een voertuig heeft op elk moment precies één status.
+    permissible_values:
+      Tenaamgesteld:
+        description: Het voertuig staat op naam van een partij.
+      Bedrijfsvoorraad:
+        description: >-
+          Het voertuig staat in de bedrijfsvoorraad van een erkend
+          bedrijf en is niet op naam gesteld.
+      Geschorst:
+        description: >-
+          De tenaamstelling is geschorst; het voertuig mag tijdelijk
+          niet aan het verkeer deelnemen.
+      Geexporteerd:
+        description: Het voertuig is uit Nederland uitgevoerd.
+      Gesloopt:
+        description: Het voertuig is aantoonbaar vernietigd (gesloopt).
+      Vermist:
+        description: Het voertuig is als vermist of gestolen geregistreerd.
+
+  Tenaamstellingsrol:
+    description: Hoedanigheid waarin een partij op een voertuig is tenaamgesteld.
+    exact_mappings:
+      - gbobegrip:Tenaamstellingsrol
+    annotations:
+      mim:herkomst: RDW
+      mim:herkomstDefinitie: >-
+        Wegenverkeerswet 1994 (eigenaar/houder); Kentekenreglement.
+      mim:datumOpname: "2026-06-16"
+    permissible_values:
+      Eigenaar:
+        description: De partij is eigenaar van het voertuig.
+      Houder:
+        description: >-
+          De partij is houder van het voertuig (bijvoorbeeld lease)
+          zonder eigenaar te zijn.
+      EigenaarEnHouder:
+        description: De partij is zowel eigenaar als houder.
+
+types:
+
+  # --- «Codelijst»-typen: deelmodel-specifiek ---------------------------------
+
+  CodelijstRDWMerk:
+    typeof: string
+    description: >-
+      Voertuigmerk uit de door de RDW beheerde open merkenlijst;
+      gebruikt voor Voertuig.merk.
+    see_also:
+      - https://opendata.rdw.nl/
+    annotations:
+      mim:stereotype: Codelijst
+
+  CodelijstEUVoertuigcategorie:
+    typeof: string
+    description: >-
+      Europese voertuigcategorie (M, N, O, L, T, ...) conform het
+      EU-kader voor voertuiggoedkeuring; gebruikt voor
+      Voertuig.europeseVoertuigcategorie.
+    see_also:
+      - https://eur-lex.europa.eu/legal-content/NL/TXT/?uri=CELEX:32018R0858
+    annotations:
+      mim:stereotype: Codelijst

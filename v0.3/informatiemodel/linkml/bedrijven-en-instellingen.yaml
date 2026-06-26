@@ -1,0 +1,1505 @@
+# =============================================================================
+# GBO — Deelmodel Bedrijven en instellingen
+# Bron (leidend): docs/informatiemodel/gbo-kern/deelmodellen/bedrijven-en-instellingen.md
+#
+# Niet-natuurlijke personen (NNP) zoals ingeschreven in het
+# Handelsregister, plus de HR-keten (inschrijving, vestiging,
+# naamgeving, activiteit, rechtstoestand) en MaatschappelijkeActiviteit
+# als ondernemings-eenheid binnen een NNP.
+#
+# Verwijzingen naar andere deelmodellen (zoals de BAG-koppeling van
+# Vestiging via adresseerbaarObjectId) worden opgelost via gbo.yaml;
+# valideer dus altijd via gbo.yaml.
+# =============================================================================
+id: https://lod.gbo-semantiek.nl/informatiemodel/bedrijven-en-instellingen
+name: gbo-bedrijven-en-instellingen
+title: "GBO deelmodel: Bedrijven en instellingen"
+description: >-
+  Niet-natuurlijke personen (NNP) zoals ingeschreven in het
+  Handelsregister, plus de HR-keten (inschrijving, vestiging,
+  naamgeving, activiteit, rechtstoestand) en MaatschappelijkeActiviteit
+  als ondernemings-eenheid binnen een NNP. Natuurlijke personen vallen
+  buiten dit deelmodel; zie deelmodel Personen. Het Partij-supertype
+  woont in het hoofdmodel.
+license: https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  gbo: https://lod.gbo-semantiek.nl/
+  gbobegrip: https://begrippen.gbo-semantiek.nl/id/begrip/
+  mim: https://lod.gbo-semantiek.nl/def/mim#
+default_prefix: gbo
+default_range: string
+
+imports:
+  - linkml:types
+  - datatypes
+  - hoofdmodel
+
+classes:
+
+  # --- Objecttypen ------------------------------------------------------------
+
+  Activiteit:
+    description: >-
+      Een geregistreerde bedrijfsactiviteit die in het Handelsregister
+      wordt vastgelegd, gecodeerd volgens de CBS Standaard
+      Bedrijfsindeling (SBI), met onderscheid tussen hoofd- en
+      nevenactiviteit per inschrijving of per vestiging.
+    exact_mappings:
+      - gbobegrip:Activiteit
+    annotations:
+      mim:herkomst: NHR; CBS Standaard Bedrijfsindeling
+      mim:herkomstDefinitie: >-
+        Handelsregisterwet 2007 art. 12 (registratie
+        bedrijfsactiviteit); CBS Standaard Bedrijfsindeling (huidig
+        SBI 2008, opvolger SBI 2025) als classificatiestandaard; KVK
+        Basisprofiel- en Vestigingsprofiel-API als operationele
+        invulling.
+      mim:datumOpname: "2026-04-28"
+      mim:uniekeAanduiding: >-
+        samengesteld (sbiCode + soortActiviteit + drager-context)
+      mim:populatie: >-
+        Alle SBI-gecodeerde bedrijfsactiviteiten geregistreerd op een
+        NHR-Inschrijving of NHR-Vestiging.
+    comments:
+      - >-
+        Activiteit is een zelfstandig gegeven omdat het bij meerdere
+        registraties kan horen (Inschrijving én Vestiging), een eigen
+        hoofd-neven-aanduiding heeft en versie-gebonden is via het
+        SBI-codestelsel. Activiteit hangt aan een Inschrijving voor de
+        onderneming als geheel (één of meer per Inschrijving) en
+        optioneel aan een Vestiging voor de uitvoering op een locatie
+        (nul of meer per Vestiging). Per drager geldt maximaal één
+        activiteit met soortActiviteit = Hoofd op enig moment.
+        SBI-codes komen uit een externe codelijst van het CBS.
+      - >-
+        De unieke aanduiding is samengesteld en omvat ook de
+        drager-context (Inschrijving of Vestiging); dat is niet als
+        LinkML-identifier of unique_keys uitdrukbaar, zie annotatie
+        mim:uniekeAanduiding.
+    attributes:
+      sbiCode:
+        range: CodelijstCBSSBI
+        required: true
+        description: >-
+          SBI-codering volgens CBS Standaard Bedrijfsindeling.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
+          mim:herkomst: NHR / CBS
+        comments:
+          - Externe codelijst.
+      sbiVersie:
+        range: CodelijstCBSSBI
+        required: true
+        description: Versie van het SBI-codestelsel.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
+          mim:herkomst: GBO
+        comments:
+          - >-
+            Verplicht: voorkomt verkeerde interpretatie bij
+            SBI-revisies (SBI 2008 naar SBI 2025).
+      omschrijving:
+        range: Tekst
+        description: Tekstuele toelichting bij de activiteit.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
+          mim:herkomst: NHR
+        comments:
+          - KVK Basisprofiel.
+      soortActiviteit:
+        range: SoortActiviteit
+        required: true
+        description: Onderscheid tussen hoofd- en nevenactiviteit.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
+          mim:herkomst: NHR
+        comments:
+          - Zie enumeratie SoortActiviteit.
+      isHoofdactiviteit:
+        range: Indicatie
+        description: >-
+          Booleaanse projectie van soortActiviteit = Hoofd.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
+          mim:herkomst: NHR
+        comments:
+          - KVK API-compatibiliteit.
+
+  Bedrijf:
+    is_a: NietNatuurlijkPersoon
+    description: >-
+      Privaatrechtelijke commerciële entiteit die als ondernemer in
+      het Handelsregister staat ingeschreven. Omvat rechtspersonen
+      (BV, NV, coöperatie, OWM) en niet-rechtspersonen (eenmanszaak,
+      VOF, CV, maatschap).
+    exact_mappings:
+      - gbobegrip:Bedrijf
+    annotations:
+      mim:herkomst: NHR
+      mim:herkomstDefinitie: >-
+        Handelsregisterwet 2007 art. 5 (inschrijving van
+        ondernemingen) en Burgerlijk Wetboek boek 2 voor de
+        privaatrechtelijke rechtspersonen. Rechtsvormen volgen de KVK
+        Catalogus Basisprofiel.
+      mim:datumOpname: "2026-04-28"
+      mim:uniekeAanduiding: ID (geërfd)
+      mim:populatie: >-
+        Alle privaatrechtelijke commerciële entiteiten ingeschreven in
+        het Handelsregister, met een rechtsvorm uit
+        Codelijst~KVK_Bedrijf.
+    comments:
+      - >-
+        Bedrijf is één van de vier functionele vormen van
+        niet-natuurlijke persoon en groepeert commerciële entiteiten
+        ongeacht of ze eigen rechtspersoonlijkheid hebben. De
+        eenmanszaak hoort hier ook bij (rechtsvorm Eenmanszaak): het
+        is administratief een niet-natuurlijke persoon, terwijl het
+        eigenaarschap formeel via een natuurlijke persoon loopt die
+        aan dezelfde inschrijving gekoppeld is.
+    attributes:
+      rechtsvorm:
+        range: CodelijstKVKBedrijf
+        required: true
+        description: Juridische vorm van het bedrijf.
+        annotations:
+          mim:authentiek: Authentiek
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
+          mim:herkomst: NHR
+        comments:
+          - Codelijst zie het type CodelijstKVKBedrijf.
+
+  BuitenlandseEntiteit:
+    is_a: NietNatuurlijkPersoon
+    description: >-
+      Niet-natuurlijke persoon met hoofdvestiging buiten Nederland en
+      één of meer Nederlandse vestigingen of aanwijzingen die
+      inschrijving in het Handelsregister vereisen.
+    exact_mappings:
+      - gbobegrip:BuitenlandseEntiteit
+    annotations:
+      mim:herkomst: NHR
+      mim:herkomstDefinitie: >-
+        Handelsregisterwet 2007 art. 5d (onderneming van een
+        buitenlandse rechtspersoon met hoofd- of nevenvestiging in
+        Nederland) en KVK Catalogus Basisprofiel voor het
+        classificatie-deel.
+      mim:datumOpname: "2026-04-28"
+      mim:uniekeAanduiding: ID (geërfd)
+      mim:populatie: >-
+        Alle in Nederland actieve entiteiten met hoofdvestiging buiten
+        Nederland en NHR-inschrijving op grond van een Nederlandse
+        vestiging of aanwijzing.
+    comments:
+      - >-
+        BuitenlandseEntiteit groepeert NNP's waarvan de juridische
+        zetel in een ander land ligt. De buitenlandse rechtsvorm wordt
+        als vrije tekst vastgelegd omdat er geen Nederlandse codelijst
+        voor buitenlandse rechtsvormen bestaat; het Nederlandse type
+        (filiaal, hoofdkantoor, permanente vestiging) wordt wel
+        gecodeerd voor afnemers die op dat onderscheid filteren.
+    attributes:
+      landVanOprichting:
+        range: CodelijstISO3166
+        required: true
+        description: Land waarin de entiteit is opgericht.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
+          mim:herkomst: NHR
+        comments:
+          - ISO 3166-codering.
+      rechtsvormBuitenland:
+        range: Tekst
+        description: Buitenlandse juridische vorm, vrije tekst.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
+          mim:herkomst: NHR
+        comments:
+          - Geen Nederlandse codelijst beschikbaar.
+      typeBuitenlandseEntiteit:
+        range: TypeBuitenlandseEntiteit
+        required: true
+        description: Typering van de Nederlandse aanwezigheid.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
+          mim:herkomst: GBO
+        comments:
+          - Zie enumeratie TypeBuitenlandseEntiteit.
+
+  Inschrijving:
+    description: >-
+      Een geregistreerde economische of juridische eenheid in het
+      Handelsregister, identificeerbaar via het KVK-nummer, waaraan
+      vestigingen, naamgevingen, activiteiten en rechtstoestand zijn
+      gekoppeld.
+    exact_mappings:
+      - gbobegrip:Inschrijving
+    annotations:
+      mim:herkomst: NHR; HRW 2007
+      mim:herkomstDefinitie: >-
+        Handelsregisterwet 2007 art. 5, 6 en 13 (inschrijvingsplicht
+        voor ondernemingen, rechtspersonen en activiteiten van
+        rechtspersonen zonder onderneming) en KVK API-specificaties
+        (Basisprofiel, Zoeken, Naamgeving) als operationele invulling.
+      mim:datumOpname: "2026-04-28"
+      mim:uniekeAanduiding: kvkNummer
+      mim:populatie: >-
+        Alle inschrijvingen in het Nederlandse Handelsregister, één
+        per inschrijfplichtige economische of juridische eenheid.
+    comments:
+      - >-
+        Inschrijving is het kernobject van het Handelsregister: het
+        KVK-nummer en de oprichtingsakte-gegevens hangen hier.
+        Inschrijving is gekoppeld aan Partij, niet aan
+        NietNatuurlijkPersoon. Cardinaliteit Partij 1..* naar
+        Inschrijving 0..* dekt symmetrisch: een eenmanszaak met een
+        natuurlijke persoon als eigenaar, een eenmanszaak met meerdere
+        eigenaren, VOF-vennoten die ieder als partij aan dezelfde
+        inschrijving hangen, en holding-structuren waarbij twee
+        niet-natuurlijke personen ieder inschrijvingen hebben.
+        Verleden waarden worden over de tijd bewaard: aktedatum en
+        aktenummer geven aan vanaf wanneer een waarde geregistreerd
+        staat, zodat wijzigingen over beide tijdlijnen terug te zoeken
+        zijn.
+      - >-
+        De relatie Partij -> Inschrijving (ingeschreven als,
+        1..* -> 0..*) hoort bij Partij en wordt in hoofdmodel.yaml
+        toegevoegd; zie de todo aldaar.
+    attributes:
+      kvkNummer:
+        identifier: true
+        required: true
+        range: KVKnummer
+        description: Primaire identifier van de inschrijving.
+        annotations:
+          mim:lengte: 8
+          mim:authentiek: Authentiek
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:herkomst: NHR
+        comments:
+          - 8 cijfers.
+      startdatum:
+        range: DatumIncompleet
+        description: Startdatum van de inschrijving.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:herkomst: NHR
+        comments:
+          - KVK-API.
+      einddatum:
+        range: DatumIncompleet
+        description: Einddatum van de inschrijving.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:herkomst: NHR
+      datumEersteInschrijving:
+        range: Datum
+        description: >-
+          Datum waarop de inschrijving voor het eerst bij KVK is
+          geregistreerd.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:herkomst: NHR
+        comments:
+          - Immutable.
+      documentdatum:
+        range: Datum
+        description: >-
+          Datum van de oprichtingsakte of meest recente
+          wijzigingsakte.
+        annotations:
+          mim:authentiek: Authentiek
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:herkomst: NHR
+      documentnummer:
+        range: Identificatie
+        description: >-
+          Akte-nummer van de oprichtings- of wijzigingsakte.
+        annotations:
+          mim:authentiek: Authentiek
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:herkomst: NHR
+      heeftVestiging:
+        range: Vestiging
+        required: true
+        multivalued: true
+        description: >-
+          Eén Inschrijving heeft één of meer Vestigingen, waaronder
+          precies één hoofdvestiging op enig moment.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:kardinaliteit: "1 -> 1..*"
+      heeftNaamgeving:
+        range: Naamgeving
+        required: true
+        multivalued: true
+        description: >-
+          Naamlagen (statutair, handelsnaam, alternatief) per
+          Inschrijving.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:kardinaliteit: "1 -> 1..*"
+      heeftActiviteit:
+        range: Activiteit
+        required: true
+        multivalued: true
+        description: >-
+          SBI-gecodeerde activiteiten op onderneming-brede
+          classificatie.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:kardinaliteit: "1 -> 1..*"
+      heeftRechtstoestand:
+        range: Rechtstoestand
+        required: true
+        description: >-
+          Precies één actuele rechtstoestand per Inschrijving.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:kardinaliteit: "1 -> 1"
+
+  Instelling:
+    is_a: NietNatuurlijkPersoon
+    abstract: true
+    description: >-
+      Niet-commerciële niet-natuurlijke persoon, hetzij
+      publiekrechtelijk (overheidsorgaan) hetzij privaatrechtelijk
+      maar zonder winstoogmerk (zoals stichting, vereniging,
+      kerkgenootschap).
+    exact_mappings:
+      - gbobegrip:Instelling
+    annotations:
+      mim:herkomst: NHR; BW2
+      mim:herkomstDefinitie: >-
+        Burgerlijk Wetboek boek 2 voor de privaatrechtelijke
+        rechtspersonen zonder winstoogmerk en publiekrechtelijke
+        rechtspersoon-vormgeving uit de Algemene wet bestuursrecht en
+        organieke wetgeving (Gemeentewet, Provinciewet,
+        Waterschapswet, Kaderwet ZBO).
+      mim:datumOpname: "2026-04-28"
+      mim:uniekeAanduiding: ID (geërfd)
+      mim:populatie: >-
+        Alle niet-commerciële niet-natuurlijke personen, ingeschreven
+        in het Handelsregister of herkenbaar via een ander officieel
+        register (TOOI, RIO).
+    comments:
+      - >-
+        Instelling is het abstracte supertype boven twee concrete
+        vormen: Overheidsinstelling (Rijk, Provincie, Gemeente,
+        Waterschap, ZBO, RWT) en MaatschappelijkeInstelling
+        (privaatrechtelijke non-profit). De rechtsvorm staat op het
+        abstracte supertype omdat een stichting zowel een overheidsrol
+        (ZBO of RWT) als een maatschappelijke rol kan vervullen; de
+        sectorale typering komt op het concrete subtype.
+    attributes:
+      rechtsvorm:
+        range: CodelijstKVKInstelling
+        required: true
+        description: Juridische vorm van de instelling.
+        annotations:
+          mim:authentiek: Authentiek
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
+          mim:herkomst: NHR
+        comments:
+          - Codelijst zie het type CodelijstKVKInstelling.
+
+  MaatschappelijkeActiviteit:
+    aliases:
+      - MA
+      - Onderneming
+    description: >-
+      Een onderneming binnen een niet-natuurlijke persoon, het
+      samenhangend geheel van bedrijfsactiviteiten dat onder één
+      economische identiteit wordt gevoerd en dat tot precies één
+      inschrijving in het Handelsregister leidt.
+    exact_mappings:
+      - gbobegrip:MaatschappelijkeActiviteit
+    annotations:
+      mim:herkomst: GBO; raakvlak NHR-onderneming (HRW art. 5)
+      mim:herkomstDefinitie: >-
+        Conceptueel verwant met het wettelijk onderneming-begrip uit
+        Handelsregisterwet 2007 art. 5; aanvulling uit KVK
+        Basisprofiel-API (onderneming-attributen onder een
+        inschrijving).
+      mim:datumOpname: "2026-04-28"
+      mim:uniekeAanduiding: identificatie
+      mim:populatie: >-
+        Alle ondernemingen die in Nederland door niet-natuurlijke
+        personen worden gevoerd en die tot een NHR-inschrijving
+        leiden.
+    comments:
+      - >-
+        MaatschappelijkeActiviteit is de ondernemings-eenheid binnen
+        een niet-natuurlijke persoon. Eén niet-natuurlijke persoon
+        voert één of meer ondernemingen (1..* MAs) en elke MA leidt
+        tot precies één HR-Inschrijving; één Inschrijving kan dus
+        meerdere MAs dragen wanneer een NNP via dezelfde
+        KVK-registratie meerdere onderscheiden ondernemingen heeft.
+        Continuïteit bij rechtsvormwijziging (eenmanszaak naar BV,
+        fusie, splitsing) loopt via Partij en Inschrijving, niet via
+        MA: Partij houdt de natuurlijke identiteit over rechtsvormen
+        heen. Onderscheid met Activiteit: MA is de onderneming als
+        geheel ("viskraam-onderneming"), Activiteit is een
+        SBI-gecodeerde deelactiviteit ("46.38.1 Detailhandel in vis").
+        Eén MA kan via meerdere SBI-Activiteiten worden uitgewerkt.
+      - >-
+        Alias MA is de GBO-afkorting; alias Onderneming geldt in de
+        HR/KVK-context.
+    attributes:
+      identificatie:
+        identifier: true
+        required: true
+        range: UUID
+        description: >-
+          GBO-eigen sleutel voor de ondernemings-eenheid.
+        annotations:
+          mim:authentiek: Overig
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
+          mim:herkomst: GBO
+        comments:
+          - >-
+            Geen externe identifier in NHR voor ondernemings-eenheid
+            binnen NNP.
+      startdatum:
+        range: Datum
+        description: Aanvangsdatum van de onderneming.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
+          mim:herkomst: NHR
+      einddatum:
+        range: Datum
+        description: Beëindigingsdatum van de onderneming.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
+          mim:herkomst: NHR
+        comments:
+          - Open zolang MA actief.
+      hoofdSbiCode:
+        range: CodelijstCBSSBI
+        description: >-
+          SBI van de hoofdactiviteit van deze onderneming.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
+          mim:herkomst: NHR
+        comments:
+          - Canoniek op MA; hoofdSbiCode op NNP is afgeleid.
+      omschrijving:
+        range: Tekst
+        description: >-
+          Korte beschrijving van de ondernemings-activiteit.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
+          mim:herkomst: NHR
+      geregistreerdVia:
+        range: Inschrijving
+        required: true
+        description: >-
+          Elke MA leidt tot precies één HR-Inschrijving.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
+          mim:kardinaliteit: "1..* -> 1"
+
+  MaatschappelijkeInstelling:
+    is_a: Instelling
+    description: >-
+      Privaatrechtelijke niet-natuurlijke persoon zonder winstoogmerk,
+      werkzaam in een maatschappelijke sector zoals onderwijs, zorg,
+      religie, sport en cultuur, welzijn of belangenbehartiging.
+    exact_mappings:
+      - gbobegrip:MaatschappelijkeInstelling
+    annotations:
+      mim:herkomst: NHR; BW2; Belastingdienst (ANBI)
+      mim:herkomstDefinitie: >-
+        Burgerlijk Wetboek boek 2 (rechtspersonen zonder winstoogmerk:
+        stichting, vereniging, kerkgenootschap); ANBI-status volgt uit
+        de Algemene wet inzake rijksbelastingen art. 5b.
+      mim:datumOpname: "2026-04-28"
+      mim:uniekeAanduiding: ID (geërfd)
+      mim:populatie: >-
+        Alle privaatrechtelijke non-profit-entiteiten ingeschreven in
+        het Handelsregister met een rechtsvorm uit
+        Codelijst~KVK_Instelling.
+    comments:
+      - >-
+        MaatschappelijkeInstelling is een concreet subtype van
+        Instelling voor de privaatrechtelijke non-profit-entiteiten.
+        Sectoraal onderscheid (onderwijs, zorg, religie,
+        sport-cultuur, welzijn, branche-belangen, overig) wordt
+        gevangen in een typering-attribuut; de ANBI-status van de
+        Belastingdienst staat als indicatie omdat dat fiscaal relevant
+        is voor giften en vrijstellingen.
+    attributes:
+      typeMaatschappelijk:
+        range: TypeMaatschappelijk
+        required: true
+        description: >-
+          Sectorale typering van de maatschappelijke instelling.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
+          mim:herkomst: GBO
+        comments:
+          - Zie enumeratie TypeMaatschappelijk.
+      anbiStatus:
+        range: Indicatie
+        required: true
+        description: ANBI-erkenning door de Belastingdienst.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
+          mim:herkomst: Belastingdienst
+        comments:
+          - Fiscaal-relevant voor giften en vrijstellingen.
+
+  Naamgeving:
+    description: >-
+      De meerlagige naamstructuur van een inschrijving in het
+      Handelsregister, omvattend de statutaire naam, één of meer
+      handelsnamen en eventueel alternatieve benamingen, elk met een
+      eigen geldigheidstermijn.
+    exact_mappings:
+      - gbobegrip:Naamgeving
+    annotations:
+      mim:herkomst: NHR
+      mim:herkomstDefinitie: >-
+        Handelsregisterwet 2007 art. 9-11 (naamregistratie); KVK
+        Naamgeving-API als operationele invulling van het meerlagige
+        naamconcept.
+      mim:datumOpname: "2026-04-28"
+      mim:uniekeAanduiding: >-
+        samengesteld (naam + startdatum per Inschrijving)
+      mim:populatie: >-
+        Alle geldige en historische naamvoeringen per NHR-Inschrijving.
+    comments:
+      - >-
+        Naamgeving is een gegevensgroep op Inschrijving-niveau die
+        meerdere naam-componenten bundelt: statutaire naam (bij
+        geregistreerde statuten), handelsnaam (onder welke naam de
+        onderneming naar buiten treedt), en alternatieve benamingen
+        zoals ookGenoemd voor verenigingen en stichtingen.
+        Geldigheidsperiodes per naamrepresentatie maken historische
+        naamvoering traceerbaar. Vestigings-handelsnamen worden in dit
+        model niet op Vestiging zelf vastgelegd, maar afgedekt via
+        Activiteit-context op Vestiging waar dat nodig is.
+      - >-
+        De unieke aanduiding is samengesteld (naam + startdatum) en
+        geldt per Inschrijving; die scoping is niet als
+        LinkML-identifier of unique_keys uitdrukbaar, zie annotatie
+        mim:uniekeAanduiding.
+    attributes:
+      statutaireNaam:
+        range: Tekst
+        description: >-
+          Naam zoals vastgelegd in de geregistreerde statuten.
+        annotations:
+          mim:authentiek: Authentiek
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:herkomst: NHR
+        comments:
+          - Bij rechtspersonen met statuten.
+      naam:
+        range: Tekst
+        required: true
+        description: Werknaam onder maatschappelijke activiteit.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:herkomst: NHR
+        comments:
+          - Bij rechtspersoon of samenwerkingsverband.
+      ookGenoemd:
+        range: Tekst
+        description: Alternatieve benaming.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:herkomst: NHR
+        comments:
+          - Bij vereniging, stichting.
+      handelsnamen:
+        range: Tekst
+        multivalued: true
+        description: >-
+          Eén of meer handelsnamen waaronder de onderneming naar
+          buiten treedt.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:herkomst: NHR
+        comments:
+          - KVK Naamgeving-API.
+      startdatum:
+        range: Datum
+        required: true
+        description: >-
+          Datum vanaf wanneer deze naamrepresentatie geldt.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:herkomst: NHR
+      einddatum:
+        range: Datum
+        description: >-
+          Datum tot wanneer deze naamrepresentatie geldt.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:herkomst: NHR
+
+  NietNatuurlijkPersoon:
+    is_a: Partij
+    abstract: true
+    description: >-
+      Een organisatie of rechtsfiguur, geen mens, die als
+      rechtsdragend subject kan deelnemen aan rechtsbetrekkingen.
+      Omvat rechtspersonen (BV, NV, stichting, vereniging, coöperatie,
+      publiekrechtelijke rechtspersoon, kerkgenootschap), entiteiten
+      zonder eigen rechtspersoonlijkheid (eenmanszaak, VOF, CV,
+      maatschap) en buitenlandse entiteiten met activiteit in
+      Nederland.
+    exact_mappings:
+      - gbobegrip:NietNatuurlijkPersoon
+    annotations:
+      mim:herkomst: >-
+        NHR (basis); semantische verbreding buiten-KVK-scope
+      mim:herkomstDefinitie: >-
+        Burgerlijk Wetboek boek 2 (rechtspersonen);
+        Handelsregisterwet 2007 art. 5, 6 en 13 (inschrijfbare
+        entiteiten); semantische verbreding zodat ook entiteiten
+        zonder rechtspersoonlijkheid en buiten-KVK-overheidsorganen
+        onder dit type vallen.
+      mim:datumOpname: "2026-04-28"
+      mim:uniekeAanduiding: ID (geërfd van Partij)
+      mim:populatie: >-
+        Alle niet-natuurlijke rechtsdragende subjecten relevant voor
+        een overheidsorganisatie, KVK-ingeschreven én entiteiten
+        buiten KVK-scope (overheidsorganen via TOOI/OIN, buitenlandse
+        entiteiten zonder NL-vestiging).
+    comments:
+      - >-
+        NietNatuurlijkPersoon is overkoepelend; een concreet geval is
+        altijd één van vier functionele vormen: Bedrijf (commercieel),
+        Instelling (publiek of non-profit), BuitenlandseEntiteit, of
+        OverigeNietNatuurlijkPersoon. De keuze voor niet-natuurlijke
+        persoon boven rechtspersoon is principieel:
+        rechtspersoonlijkheid is geen vereiste om als wederpartij op
+        te treden. Een VOF heeft geen rechtspersoonlijkheid maar wél
+        RSIN, KVK-nummer en vestigingen; een eenmanszaak idem. De
+        eenmanszaak wordt daarom als niet-natuurlijke persoon
+        gemodelleerd (rechtsvorm Eenmanszaak), niet als natuurlijke
+        persoon met onderneming, zodat KVK-administratie en
+        contractpartij-registratie consistent zijn met de
+        NHR-praktijk.
+    attributes:
+      rsin:
+        range: Tekst
+        description: >-
+          Rechtspersonen- en Samenwerkingsverbanden Identificatie
+          Nummer.
+        annotations:
+          mim:lengte: 9
+          mim:authentiek: Authentiek
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
+          mim:herkomst: NHR
+        comments:
+          - >-
+            Fiscaal identificatienummer voor rechtspersonen en
+            samenwerkingsverbanden.
+      naam:
+        range: Tekst
+        required: true
+        description: Werknaam.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
+          mim:herkomst: NHR
+        comments:
+          - Statutaire naam staat op Naamgeving.
+      zetel:
+        range: Tekst
+        description: Statutaire vestigingsplaats.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
+          mim:herkomst: NHR / BRK
+        comments:
+          - >-
+            Geleverd via KadasterNietNatuurlijkPersoon.zetel; zie
+            deelmodel Onroerende zaken.
+      hoofdSbiCode:
+        range: CodelijstCBSSBI
+        description: Afgeleide SBI-hoofdactiviteit.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
+          mim:herkomst: NHR (afgeleid)
+        comments:
+          - Summary, canoniek op MA.
+      sector:
+        range: Sector
+        required: true
+        description: Functionele sector-classificatie.
+        annotations:
+          mim:authentiek: Overig
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
+          mim:herkomst: GBO (afgeleid)
+        comments:
+          - Zie enumeratie Sector.
+      herkomst:
+        range: Herkomst
+        required: true
+        description: Binnen- of buitenlandse herkomst.
+        annotations:
+          mim:authentiek: Overig
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
+          mim:herkomst: GBO (afgeleid)
+        comments:
+          - Zie enumeratie Herkomst.
+      aansprakelijkheid:
+        range: Aansprakelijkheid
+        required: true
+        description: Aansprakelijkheidskarakter van de rechtsvorm.
+        annotations:
+          mim:authentiek: Overig
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
+          mim:herkomst: GBO (afgeleid)
+        comments:
+          - Zie enumeratie Aansprakelijkheid.
+      voertUit:
+        range: MaatschappelijkeActiviteit
+        required: true
+        multivalued: true
+        description: Eén NNP voert één of meer ondernemingen.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
+          mim:kardinaliteit: "1 -> 1..*"
+
+  Overheidsinstelling:
+    is_a: Instelling
+    description: >-
+      Publiekrechtelijke niet-natuurlijke persoon belast met een
+      publieke taak, zoals Rijksoverheid, ministerie, provincie,
+      gemeente, waterschap, zelfstandig bestuursorgaan (ZBO) of
+      rechtspersoon met een wettelijke taak (RWT).
+    exact_mappings:
+      - gbobegrip:Overheidsinstelling
+    annotations:
+      mim:herkomst: NHR; TOOI (KOOP)
+      mim:herkomstDefinitie: >-
+        Algemene wet bestuursrecht (definitie bestuursorgaan);
+        organieke wetten (Gemeentewet, Provinciewet, Waterschapswet);
+        Kaderwet zelfstandige bestuursorganen; TOOI-register
+        (Thesaurus voor Overheids Informatie- en Organisatie-objecten)
+        als operationele identificatiebron.
+      mim:datumOpname: "2026-04-28"
+      mim:uniekeAanduiding: ID (geërfd)
+      mim:populatie: >-
+        Alle Nederlandse bestuursorganen en publieke instellingen,
+        NHR-ingeschreven of herkenbaar via TOOI.
+    comments:
+      - >-
+        Overheidsinstelling is een concreet subtype van Instelling
+        voor publieke organen. De bestuurlijke typering staat in
+        typeOverheid; daarnaast is een optionele koppeling naar het
+        TOOI-register beschikbaar via bevoegdGezagCode, voor
+        URI-traceability naar het KOOP-register van
+        overheidsorganisaties. Niet elke overheidsinstelling staat in
+        TOOI; de koppeling is daarom optioneel.
+    attributes:
+      typeOverheid:
+        range: TypeOverheid
+        required: true
+        description: >-
+          Bestuurlijke typering van de overheidsinstelling.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
+          mim:herkomst: GBO
+        comments:
+          - Zie enumeratie TypeOverheid.
+      bevoegdGezagCode:
+        range: CodelijstTOOI
+        description: URI-koppeling naar het TOOI-register.
+        annotations:
+          mim:authentiek: Landelijk kerngegeven
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
+          mim:herkomst: TOOI / KOOP
+        comments:
+          - >-
+            Optioneel; niet elke overheidsinstelling staat in TOOI.
+
+  OverigeNietNatuurlijkPersoon:
+    is_a: NietNatuurlijkPersoon
+    description: >-
+      Restcategorie voor niet-natuurlijke personen die niet eenduidig
+      onder bedrijf, instelling of buitenlandse entiteit vallen,
+      bedoeld voor migratie- en historische gevallen.
+    exact_mappings:
+      - gbobegrip:OverigeNietNatuurlijkPersoon
+    annotations:
+      mim:herkomst: GBO
+      mim:herkomstDefinitie: >-
+        GBO-eigen restcategorie, geen wettelijke definitie. Bewust
+        catch-all met afbakening dat het gebruik spaarzaam moet zijn.
+      mim:datumOpname: "2026-04-28"
+      mim:uniekeAanduiding: ID (geërfd)
+      mim:populatie: >-
+        Niet-natuurlijke personen die niet eenduidig in een van de
+        drie hoofdcategorieën vallen; bewust beperkt gebruik.
+    comments:
+      - >-
+        OverigeNietNatuurlijkPersoon vangt entiteiten op die in de
+        huidige modellering niet eenduidig in een van de drie
+        hoofdcategorieën passen. Bedoeld voor migratie van
+        legacy-bestanden, historische gevallen of nog niet
+        geclassificeerde entiteiten. Het toelichtings-veld
+        omschrijving is verplicht om reden van plaatsing in deze
+        categorie expliciet te maken; nieuwe gevallen moeten zoveel
+        mogelijk in een van de hoofdcategorieën landen.
+    attributes:
+      omschrijving:
+        range: Tekst
+        required: true
+        description: Reden van plaatsing in deze restcategorie.
+        annotations:
+          mim:authentiek: Overig
+          mim:indicatieMaterieleHistorie: false
+          mim:indicatieFormeleHistorie: false
+          mim:herkomst: GBO
+        comments:
+          - Verplicht.
+
+  Rechtstoestand:
+    description: >-
+      De juridische en administratieve status van een inschrijving in
+      het Handelsregister, beschrijvend of de inschrijving actief is,
+      of er insolventie-omstandigheden zijn en of de entiteit is
+      ontbonden.
+    exact_mappings:
+      - gbobegrip:Rechtstoestand
+    annotations:
+      mim:herkomst: NHR
+      mim:herkomstDefinitie: >-
+        Handelsregisterwet 2007 art. 17-20 (registratie van
+        faillissement, surseance van betaling en schuldsanering); KVK
+        Basisprofiel-API voor de statusvelden op inschrijving.
+      mim:datumOpname: "2026-04-28"
+      mim:uniekeAanduiding: per Inschrijving (precies één)
+      mim:populatie: >-
+        Eén actuele rechtstoestand per NHR-Inschrijving.
+    comments:
+      - >-
+        Rechtstoestand bundelt statusvelden die conceptueel samenhoren
+        maar in de KVK-API geen zelfstandige resource vormen. Precies
+        één rechtstoestand per inschrijving geeft het actuele beeld;
+        historie loopt via de tweevoudige tijdregistratie op de
+        inschrijving. Een eventuele insolventie-procedure
+        (faillissement, surseance, schuldsanering) wordt in dit model
+        niet als eigen objecttype gevolgd, alleen via de
+        coderingsattribuut.
+      - >-
+        De unieke aanduiding "per Inschrijving (precies één)" is geen
+        eigen attribuut en daarom niet als LinkML-identifier
+        uitdrukbaar; zie annotatie mim:uniekeAanduiding.
+    attributes:
+      actief:
+        range: Indicatie
+        required: true
+        description: Geeft aan of de inschrijving actief is.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:herkomst: NHR
+      insolventieCode:
+        range: string
+        description: Code voor insolventie-omstandigheid.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:herkomst: NHR
+        comments:
+          - >-
+            Open dataset-codelijst (faillissement, surseance,
+            schuldsanering).
+      datumInsolventie:
+        range: Datum
+        description: >-
+          Ingangsdatum van de insolventie-omstandigheid.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:herkomst: NHR
+      ontbonden:
+        range: Indicatie
+        required: true
+        description: Geeft aan of de entiteit is ontbonden.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:herkomst: NHR
+
+  Vestiging:
+    description: >-
+      Een fysieke of functionele locatie waar een onderneming
+      activiteiten uitvoert, geïdentificeerd door een vestigingsnummer
+      en optioneel gekoppeld aan een BAG-adresseerbaar object.
+    exact_mappings:
+      - gbobegrip:Vestiging
+    annotations:
+      mim:herkomst: NHR; HRW 2007 art. 9-11
+      mim:herkomstDefinitie: >-
+        Handelsregisterwet 2007 art. 9-11 (vestigingsregistratie); KVK
+        Vestigingsprofiel-API als operationele invulling;
+        BAG-koppeling via NEN 3610-identificatie voor het
+        adresseerbaar object.
+      mim:datumOpname: "2026-04-28"
+      mim:uniekeAanduiding: vestigingsnummer
+      mim:populatie: >-
+        Alle vestigingen geregistreerd in het NHR, precies één
+        hoofdvestiging per Inschrijving plus 0..n nevenvestigingen.
+    comments:
+      - >-
+        Vestiging is gekoppeld aan Inschrijving: één inschrijving
+        heeft één of meer vestigingen, waarvan precies één
+        hoofdvestiging op enig moment (typeVestiging =
+        Hoofdvestiging). Adres-koppeling loopt via
+        adresseerbaarObjectId naar het deelmodel Adressen en gebouwen;
+        de vestiging zelf bevat geen adres-kenmerken. Activiteiten op
+        vestigingsniveau (locatie-specifieke uitvoering,
+        hoofd-of-neven-SBI per locatie) lopen via een
+        nul-of-meer-relatie naar Activiteit. Verleden waarden van
+        vestiging worden over de tijd bewaard, zodat verhuizing en
+        typering door de tijd correct na te lopen zijn.
+    attributes:
+      vestigingsnummer:
+        identifier: true
+        required: true
+        range: Vestigingsnummer
+        description: Primaire identifier van de vestiging.
+        annotations:
+          mim:lengte: 12
+          mim:authentiek: Authentiek
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:herkomst: NHR
+        comments:
+          - 12 cijfers.
+      typeVestiging:
+        range: TypeVestiging
+        required: true
+        description: Onderscheid hoofd- en nevenvestiging.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:herkomst: NHR
+        comments:
+          - >-
+            Zie enumeratie TypeVestiging; precies één hoofdvestiging
+            per Inschrijving op enig moment.
+      datumAanvang:
+        range: Datum
+        required: true
+        description: Startdatum van de vestiging.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:herkomst: NHR
+      datumEinde:
+        range: Datum
+        description: Einddatum van de vestiging.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:herkomst: NHR
+      adresseerbaarObjectId:
+        range: BAGID
+        description: >-
+          Koppeling naar AdresseerbaarObject in BAG; zie deelmodel
+          Adressen en gebouwen.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:herkomst: BAG
+        comments:
+          - Geen NL-adres betekent geen ID.
+      heeftActiviteit:
+        range: Activiteit
+        multivalued: true
+        description: >-
+          Locatie-specifieke SBI-uitvoering per vestiging.
+        annotations:
+          mim:authentiek: Basisgegeven
+          mim:indicatieMaterieleHistorie: true
+          mim:indicatieFormeleHistorie: true
+          mim:kardinaliteit: "1 -> 0..*"
+
+enums:
+
+  Aansprakelijkheid:
+    description: >-
+      Aanduiding van het aansprakelijkheidskarakter dat voor een
+      rechtsvorm geldt: in welke mate eigenaren, bestuurders of
+      vennoten persoonlijk instaan voor verplichtingen van de
+      entiteit.
+    exact_mappings:
+      - gbobegrip:Aansprakelijkheid
+    annotations:
+      mim:herkomst: GBO
+      mim:herkomstDefinitie: >-
+        Burgerlijk Wetboek boek 2 (rechtspersonen, beperkte
+        aansprakelijkheid) en boek 7A (personenvennootschappen,
+        hoofdelijke en onbeperkte aansprakelijkheid);
+        GBO-classificatie afgeleid uit de rechtsvorm-codelijsten.
+      mim:datumOpname: "2026-04-28"
+    comments:
+      - >-
+        Het attribuut is een GBO-eigen afleiding op
+        NietNatuurlijkPersoon die de rechtsvorm samenvat in vier brede
+        klassen. Het ondersteunt vragen rond kredietrisico,
+        contractering en publieke aansprakelijkheid zonder dat
+        afnemers de volledige rechtsvorm-codelijst hoeven te
+        interpreteren.
+    permissible_values:
+      Beperkt:
+        description: >-
+          Aansprakelijkheid is beperkt tot het in de entiteit
+          ingebrachte vermogen.
+        comments:
+          - Typisch voor BV, NV, coöperatie.
+      Onbeperkt:
+        description: >-
+          Eigenaar staat met het volledige privévermogen in voor
+          verplichtingen.
+        comments:
+          - Typisch voor eenmanszaak.
+      Hoofdelijk:
+        description: >-
+          Vennoten zijn ieder voor het geheel aansprakelijk voor
+          verplichtingen van de entiteit.
+        comments:
+          - Typisch voor VOF en maatschap.
+      Publiek:
+        description: >-
+          Aansprakelijkheid valt onder publiekrechtelijk regime,
+          doorgaans met overheidsgarantie.
+        comments:
+          - Typisch voor publiekrechtelijke rechtspersonen.
+
+  Herkomst:
+    description: >-
+      Aanduiding of een niet-natuurlijke persoon van Nederlandse of
+      buitenlandse herkomst is, gemeten naar de plaats van oprichting
+      of statutaire zetel.
+    exact_mappings:
+      - gbobegrip:Herkomst
+    annotations:
+      mim:herkomst: GBO
+      mim:herkomstDefinitie: >-
+        GBO-classificatie, afgeleid uit het subtype
+        (BuitenlandseEntiteit levert Buitenland) en uit
+        landVanOprichting.
+      mim:datumOpname: "2026-04-28"
+    comments:
+      - >-
+        De waarde is een GBO-eigen samenvatting op
+        NietNatuurlijkPersoon. Hij maakt filteren op binnenlandse
+        versus buitenlandse wederpartij mogelijk zonder dat afnemers
+        het hele subtype-onderscheid hoeven te kennen.
+    permissible_values:
+      Binnenland:
+        description: Entiteit met statutaire zetel in Nederland.
+        comments:
+          - Default voor Bedrijf en Instelling.
+      Buitenland:
+        description: Entiteit met statutaire zetel buiten Nederland.
+        comments:
+          - Default voor BuitenlandseEntiteit.
+
+  Sector:
+    description: >-
+      Functionele sector-classificatie van een niet-natuurlijke
+      persoon, gericht op de maatschappelijke rol: commercieel,
+      publiek, maatschappelijk of overig.
+    exact_mappings:
+      - gbobegrip:Sector
+    annotations:
+      mim:herkomst: GBO
+      mim:herkomstDefinitie: >-
+        GBO-classificatie, afgeleid uit subtype, rechtsvorm en
+        indicatie van commerciële activiteit.
+      mim:datumOpname: "2026-04-28"
+    comments:
+      - >-
+        Sector geeft afnemers één samenvattend kenmerk om de rol van
+        een wederpartij te plaatsen, parallel aan de subtype-indeling.
+        De waarde is dekkend voor de vier subtypen Bedrijf,
+        Overheidsinstelling, MaatschappelijkeInstelling en
+        OverigeNietNatuurlijkPersoon.
+    permissible_values:
+      Commercieel:
+        description: >-
+          Privaatrechtelijke entiteit met winstoogmerk.
+        comments:
+          - Sluit aan op subtype Bedrijf.
+      Maatschappelijk:
+        description: >-
+          Privaatrechtelijke entiteit zonder winstoogmerk, werkzaam in
+          een maatschappelijke sector.
+        comments:
+          - Sluit aan op subtype MaatschappelijkeInstelling.
+      Overheid:
+        description: >-
+          Publiekrechtelijke entiteit met publieke taak.
+        comments:
+          - Sluit aan op subtype Overheidsinstelling.
+      Overig:
+        description: >-
+          Restcategorie voor entiteiten die niet onder de drie
+          hoofdsectoren vallen.
+        comments:
+          - Voor migratie- en grensgevallen.
+
+  SoortActiviteit:
+    description: >-
+      Aanduiding of een geregistreerde activiteit een hoofd- of
+      nevenactiviteit is binnen de inschrijving of vestiging waarop
+      zij is vastgelegd.
+    exact_mappings:
+      - gbobegrip:SoortActiviteit
+    annotations:
+      mim:herkomst: NHR
+      mim:herkomstDefinitie: >-
+        Handelsregisterwet 2007 art. 12 (registratie van hoofd- en
+        nevenactiviteit); KVK Basisprofiel- en Vestigingsprofiel-API.
+      mim:datumOpname: "2026-04-28"
+    comments:
+      - >-
+        Per drager (Inschrijving of Vestiging) is op enig moment
+        precies één activiteit met Hoofd toegestaan; nul of meer met
+        Neven. Het attribuut isHoofdactiviteit op Activiteit is een
+        booleaanse projectie van deze waarde.
+    permissible_values:
+      Hoofd:
+        description: >-
+          Activiteit die als hoofdactiviteit op de drager geldt.
+        comments:
+          - Maximaal één per drager op enig moment.
+      Neven:
+        description: >-
+          Activiteit die naast de hoofdactiviteit op de drager geldt.
+        comments:
+          - Nul of meer per drager.
+
+  TypeBuitenlandseEntiteit:
+    description: >-
+      Typering van de Nederlandse aanwezigheid van een entiteit met
+      hoofdvestiging buiten Nederland.
+    exact_mappings:
+      - gbobegrip:TypeBuitenlandseEntiteit
+    annotations:
+      mim:herkomst: GBO
+      mim:herkomstDefinitie: >-
+        Handelsregisterwet 2007 art. 5d (onderneming van een
+        buitenlandse rechtspersoon met hoofd- of nevenvestiging in
+        Nederland); KVK Catalogus Basisprofiel voor het
+        classificatie-deel.
+      mim:datumOpname: "2026-04-28"
+    comments:
+      - >-
+        Omdat een Nederlandse codelijst voor buitenlandse rechtsvormen
+        ontbreekt, gebruikt GBO deze enumeratie voor het filterbare
+        onderscheid in de aard van de Nederlandse aanwezigheid. De
+        buitenlandse juridische vorm zelf staat als vrije tekst in
+        rechtsvormBuitenland.
+    permissible_values:
+      Filiaal:
+        description: >-
+          Onzelfstandig onderdeel van een buitenlandse entiteit dat in
+          Nederland actief is.
+        comments:
+          - KVK-praktijk.
+      Hoofdkantoor:
+        description: >-
+          Bestuurlijk centrum van een buitenlandse entiteit gevestigd
+          in Nederland.
+        comments:
+          - Komt voor bij groepsstructuren met NL-hoofdkwartier.
+      Zustermaatschappij:
+        description: >-
+          Met andere buitenlandse entiteit gelieerde NL-vennootschap
+          zonder moeder-dochter-relatie.
+        comments:
+          - Onderdeel van internationaal concern.
+      PermanenteVestiging:
+        description: >-
+          Vaste inrichting van een buitenlandse entiteit voor
+          zakelijke activiteit in Nederland.
+        comments:
+          - Fiscaal en KVK-relevant.
+      OverigBuitenlands:
+        description: >-
+          Overige Nederlandse aanwezigheid van een buitenlandse
+          entiteit.
+        comments:
+          - Restcategorie.
+
+  TypeMaatschappelijk:
+    description: >-
+      Sectorale typering van een maatschappelijke instelling: het
+      maatschappelijke veld waarin zij hoofdzakelijk werkzaam is.
+    exact_mappings:
+      - gbobegrip:TypeMaatschappelijk
+    annotations:
+      mim:herkomst: GBO
+      mim:herkomstDefinitie: >-
+        GBO-classificatie, gebaseerd op de gangbare sectorale indeling
+        van privaatrechtelijke non-profit-entiteiten (onderwijs, zorg,
+        welzijn, religie, sport en cultuur, brancheorganisaties).
+      mim:datumOpname: "2026-04-28"
+    comments:
+      - >-
+        Het attribuut bundelt de sectorale rol van een
+        MaatschappelijkeInstelling in zeven categorieën. Een entiteit
+        valt op enig moment in precies één categorie; verdere
+        subindeling kan via aanvullende codelijsten (bv. SBI) lopen.
+    permissible_values:
+      Onderwijs:
+        description: >-
+          Instelling werkzaam in onderwijs of onderwijsondersteuning.
+        comments:
+          - School, hogeschool, universiteit, onderwijskoepel.
+      Zorg:
+        description: >-
+          Instelling werkzaam in gezondheidszorg, jeugdzorg of
+          langdurige zorg.
+        comments:
+          - Ziekenhuis, GGZ, thuiszorg.
+      Religie:
+        description: >-
+          Instelling met religieus of levensbeschouwelijk doel.
+        comments:
+          - Kerkgenootschap, geloofsgemeenschap.
+      Sport_Cultuur:
+        description: >-
+          Instelling werkzaam in sport, kunst of cultuur.
+        comments:
+          - Sportvereniging, museum, theater.
+      Welzijn:
+        description: >-
+          Instelling werkzaam in welzijn, maatschappelijke
+          ondersteuning of armoedebestrijding.
+        comments:
+          - Voedselbank, buurthuis, jeugdwerk.
+      BrancheBelangen:
+        description: >-
+          Instelling die belangen behartigt van een branche of
+          beroepsgroep.
+        comments:
+          - Brancheorganisatie, vakbond.
+      OverigMaatschappelijk:
+        description: >-
+          Overige maatschappelijke instelling die niet onder de
+          overige typen valt.
+        comments:
+          - Restcategorie.
+
+  TypeOverheid:
+    description: >-
+      Bestuurlijke typering van een overheidsinstelling: het
+      bestuurlijke niveau of de bestuursvorm waaraan zij toebehoort.
+    exact_mappings:
+      - gbobegrip:TypeOverheid
+    annotations:
+      mim:herkomst: GBO
+      mim:herkomstDefinitie: >-
+        Organieke wetgeving (Grondwet, Gemeentewet, Provinciewet,
+        Waterschapswet); Kaderwet zelfstandige bestuursorganen;
+        TOOI-register als operationele referentie.
+      mim:datumOpname: "2026-04-28"
+    comments:
+      - >-
+        De waarden volgen de bestuurlijke lagen van de Nederlandse
+        overheid plus de twee veelvoorkomende verzelfstandigingsvormen
+        (ZBO/RWT en agentschap). Een instelling valt op enig moment in
+        precies één bestuurlijke categorie.
+    permissible_values:
+      Rijksoverheid:
+        description: Centrale overheid als geheel.
+        comments:
+          - Voor overkoepelende rijksentiteiten.
+      Ministerie:
+        description: Departement van de Rijksoverheid.
+        comments:
+          - Twaalf ministeries plus AZ.
+      Provincie:
+        description: Provinciaal bestuur.
+        comments:
+          - Twaalf provincies.
+      Gemeente:
+        description: Gemeentelijk bestuur.
+        comments:
+          - Alle Nederlandse gemeenten.
+      Waterschap:
+        description: Functioneel bestuur voor waterbeheer.
+        comments:
+          - Eenentwintig waterschappen.
+      ZBO_RWT:
+        description: >-
+          Zelfstandig bestuursorgaan of rechtspersoon met een
+          wettelijke taak.
+        comments:
+          - Bestuurlijk verzelfstandigde publieke organisatie.
+      Agentschap:
+        description: >-
+          Uitvoeringsorganisatie binnen een ministerie met eigen
+          baten-lasten-administratie.
+        comments:
+          - Bv. Rijkswaterstaat, RVO.
+      OverigeOverheid:
+        description: >-
+          Overige publiekrechtelijke entiteit die niet onder de
+          overige typen valt.
+        comments:
+          - Restcategorie.
+
+  TypeVestiging:
+    description: >-
+      Onderscheid tussen hoofd- en nevenvestiging binnen een
+      inschrijving in het Handelsregister.
+    exact_mappings:
+      - gbobegrip:TypeVestiging
+    annotations:
+      mim:herkomst: NHR
+      mim:herkomstDefinitie: >-
+        Handelsregisterwet 2007 art. 9-11 (vestigingsregistratie); KVK
+        Vestigingsprofiel-API.
+      mim:datumOpname: "2026-04-28"
+    comments:
+      - >-
+        Per inschrijving geldt op enig moment precies één vestiging
+        als Hoofdvestiging; alle overige vestigingen zijn
+        Nevenvestiging.
+    permissible_values:
+      Hoofdvestiging:
+        description: >-
+          Vestiging die binnen een inschrijving als hoofdvestiging is
+          aangewezen.
+        comments:
+          - Precies één per inschrijving op enig moment.
+      Nevenvestiging:
+        description: >-
+          Vestiging die binnen een inschrijving naast de
+          hoofdvestiging bestaat.
+        comments:
+          - Nul of meer per inschrijving.
+
+types:
+
+  # --- «Codelijst»-typen: deelmodel-specifiek ---------------------------------
+  # De KVK-rechtsvormen worden beheerd door de Kamer van Koophandel en
+  # zijn raadpleegbaar via het KVK Developer Portal (basisprofiel-API,
+  # attribuut materieleRegistratie.rechtsvorm). Mutatieritme: per
+  # wijziging van de Handelsregisterwet 2007.
+
+  CodelijstKVKBedrijf:
+    typeof: string
+    aliases: ["Codelijst~KVK_Bedrijf"]
+    description: >-
+      KVK Rechtsvormen (Bedrijf); gebruikt door Bedrijf.rechtsvorm.
+      Omvat onder meer: BeslotenVennootschap (BV),
+      NaamlozeVennootschap (NV), Eenmanszaak,
+      EenmanszaakMetMeerdereEigenaren, VennootschapOnderFirma (VOF),
+      CommanditaireVennootschap (CV), Maatschap, Coöperatie,
+      OnderlingeWaarborgmaatschappij, RechtspersoonInOprichting.
+    see_also:
+      - https://developers.kvk.nl/
+    annotations:
+      mim:stereotype: Codelijst
+
+  CodelijstKVKInstelling:
+    typeof: string
+    aliases: ["Codelijst~KVK_Instelling"]
+    description: >-
+      KVK Rechtsvormen (Instelling); gebruikt door
+      Instelling.rechtsvorm. Omvat: PubliekrechtelijkeRechtspersoon
+      (PBR), Stichting, Vereniging,
+      VerenigingMetVolledigeRechtsbevoegdheid,
+      VerenigingZonderVolledigeRechtsbevoegdheid, Kerkgenootschap.
+    see_also:
+      - https://developers.kvk.nl/
+    annotations:
+      mim:stereotype: Codelijst

@@ -1,0 +1,59 @@
+# =============================================================================
+# Bron-profiel BD — welke onderdelen van het GBO-informatiemodel de
+# Belastingdienst via GBO beschikbaar stelt.
+#
+# Dit bestand is LinkML-data conform het schema
+# ../informatiemodel/linkml/bronprofiel.yaml (klasse Bronprofiel).
+# Valideren:
+#   linkml-validate -s ../informatiemodel/linkml/bronprofiel.yaml \
+#       -C Bronprofiel bd.yaml
+#
+# Afbakening t.o.v. BRI: het authentieke inkomensgegeven en de onderliggende
+# inkomensketen (AuthentiekInkomen, Inkomstenverhouding, Inkomstenopgave,
+# Inkomstenperiode, LoonBestanddeel, LoonAangifte) worden bij de bron BRI
+# gehouden; dit profiel dekt de aangifte-, vermogens-, aftrek- en toeslagen-
+# gegevens die de Belastingdienst zelf beheert.
+#
+# IngeschrevenPersoon dient als persoon-ingang; relaties naar BRP-gegevens
+# vallen buiten dit profiel en worden door de snoei-tool tot sleutel herleid.
+# =============================================================================
+bron: BD
+titel: Belastingdienst
+beschrijving: >-
+  Belastingaangiften (inkomstenbelasting, schenk- en erfbelasting),
+  vermogensbestanddelen in Box 3, schulden, aftrekposten, de eigen
+  woning, fiscaal partnerschap, toeslagen en renseignering.
+schemabestand: ../informatiemodel/linkml/gbo.yaml
+
+# Query-ingangen: hiervoor genereert de pipeline GraphQL Query-velden.
+ingangen:
+  - IngeschrevenPersoon
+
+# Objecttypen die deze bron beschikbaar stelt (expliciete lijst).
+objecttypen:
+  - IngeschrevenPersoon
+  - BelastingAangifte
+  - BelastingjaarAangifte
+  - AangifteIH
+  - AangifteSchenk
+  - AangifteErf
+  - FiscaalFeit
+  - VermogensBestanddeel
+  - BankSpaartegoed
+  - Belegging
+  - Cryptovaluta
+  - OnroerendeZaakOverigBezit
+  - Schuld
+  - Aftrekpost
+  - Hypotheekrenteaftrek
+  - AlimentatieAftrek
+  - LijfrenteAftrek
+  - GiftenAftrek
+  - EigenWoning
+  - FiscalePartner
+  - Toeslag
+  - Huurtoeslag
+  - Zorgtoeslag
+  - KinderopvangToeslag
+  - KindgebondenBudget
+  - Renseignering

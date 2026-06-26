@@ -247,10 +247,11 @@ def verwerk_klassen(profiel: dict, index: Modelindex,
                 else:
                     ident = index.identifier_slot(doel)
                     if ident is None:
-                        melding("WAARSCHUWING",
+                        melding("INFO",
                                 f"{klasse}.{naam}: doelobjecttype "
-                                f"'{doel}' heeft geen identifier; "
-                                f"sleutel-referentie krijgt range Tekst")
+                                f"'{doel}' heeft geen eigen identifier "
+                                f"(navigatie-only); sleutel-referentie "
+                                f"als Tekst")
                         slotnaam, slotrange = None, "Tekst"
                     else:
                         slotnaam, slotrange = ident
@@ -293,9 +294,10 @@ def verwerk_klassen(profiel: dict, index: Modelindex,
                         if s in resultaat
                         and not index.classes[s].get("abstract")]
             if not concreet and klasse in profiel["objecttypen"]:
-                melding("WAARSCHUWING",
-                        f"abstract objecttype '{klasse}' heeft geen "
-                        f"concreet subtype in dit profiel")
+                melding("INFO",
+                        f"abstract objecttype '{klasse}' is ingang zonder "
+                        f"concreet subtype in dit profiel "
+                        f"(interface-query)")
     return resultaat
 
 
